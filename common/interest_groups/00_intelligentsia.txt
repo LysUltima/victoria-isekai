@@ -1,0 +1,712 @@
+﻿ig_intelligentsia = {
+	color = hsv{ 0.13 0.64 0.99 }
+	texture = "gfx/interface/icons/ig_icons/intelligensia.dds"
+	layer = "revolution_dynamic_intelligentsia"
+	index = 3
+
+	ideologies = {
+		ideology_liberal
+		ideology_anti_clerical
+		ideology_republican
+		ideology_anti_slavery
+	}
+
+	character_ideologies = {
+		ideology_moderate
+		ideology_republican_leader
+		ideology_radical
+		ideology_reformer
+		ideology_sovereignist_leader
+		ideology_despotic_utopian
+		ideology_humanitarian
+		ideology_utopian
+	}
+
+	enable = {
+		always = yes
+	}
+
+	# Deprecated; use on_enable effect to assign traits instead
+	traits = {
+		ig_trait_propagandists
+		ig_trait_avant_garde
+		ig_trait_social_criticism
+	}
+
+	on_enable = {
+		ig:ig_intelligentsia ?= {
+			### Specific IG traits
+			if = {
+				limit = {
+					owner = { always = no} # vanilla ref 'c:CHI' not present in this mod
+				}
+				set_ig_trait = ig_trait:ig_trait_social_criticism
+				set_ig_trait = ig_trait:ig_trait_avant_garde
+				set_ig_trait = ig_trait:ig_trait_restoration
+			}
+			else_if = {
+				limit = {
+					owner = {
+						OR = {
+							always = no # vanilla ref 'c:TUR' not present in this mod
+							always = no # vanilla ref 'c:RUS' not present in this mod
+						}
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_crisis_of_identity
+				set_ig_trait = ig_trait:ig_trait_avant_garde
+				set_ig_trait = ig_trait:ig_trait_propagandists
+			}
+			else_if = {
+				limit = {
+					has_dlc_feature = voice_of_the_people_content
+					owner = { always = no} # vanilla ref 'c:FRA' not present in this mod
+				}
+				set_ig_trait = ig_trait:ig_trait_social_criticism
+				set_ig_trait = ig_trait:ig_trait_avant_garde
+				set_ig_trait = ig_trait:ig_trait_les_beaux_arts
+			}
+			else_if = {
+				limit = {
+					has_dlc_feature = ip2_content
+					owner = { always = no} # vanilla ref 'c:BIC' not present in this mod
+				}
+				set_ig_trait = ig_trait:ig_trait_swaraj
+				set_ig_trait = ig_trait:ig_trait_civil_service
+				set_ig_trait = ig_trait:ig_trait_westernisation
+			}
+			else = {
+				set_ig_trait = ig_trait:ig_trait_social_criticism
+				set_ig_trait = ig_trait:ig_trait_avant_garde
+				set_ig_trait = ig_trait:ig_trait_propagandists
+			}
+		}
+		# Papal Intellegentsia
+		# Hawaiian Democrats
+		if = {
+			limit = {
+				country_has_primary_culture = cu:tagata # was cu:hawaiian
+			}
+			ig:ig_intelligentsia ?= {
+				set_interest_group_name = ig_hawaiian_democrats
+			}
+		}
+		# Literati
+		else_if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = heritage_han
+				}
+			}
+			ig:ig_intelligentsia ?= {
+				set_interest_group_name = ig_literati
+				remove_ideology = ideology_anti_clerical
+			}
+		}
+		# Brazilian Intelligentsia
+		else_if = {
+			limit = {
+				has_dlc_feature = rp1_content
+				always = no # vanilla ref 'c:BRZ' not present in this mod
+			}
+			ig:ig_intelligentsia ?= {
+				set_ig_trait = ig_trait:ig_trait_brasilidade
+				set_ig_trait = ig_trait:ig_trait_bachareis
+				set_ig_trait = ig_trait:ig_trait_social_criticism
+
+				remove_ideology = ideology_republican
+				add_ideology = ideology_constitutionalist
+			}
+		}
+		# Philippines Intelligentsia
+		# India
+		# Britain and other Constitutionalists
+		if = {
+			limit = {
+				OR = {
+					always = no # vanilla ref 'c:GBR' not present in this mod
+					always = no # vanilla ref 'c:POR' not present in this mod
+					always = no # vanilla ref 'c:SPA' not present in this mod
+					always = no # vanilla ref 'c:AUS' not present in this mod
+					any_primary_culture = { # Princely States and Nepal
+						has_discrimination_trait_group = heritage_group_south_asian
+					}
+				}
+			}
+			ig:ig_intelligentsia ?= {
+				remove_ideology = ideology_republican
+				add_ideology = ideology_constitutionalist
+			}
+		}
+		if = {
+			limit = {
+				country_has_primary_culture = cu:sakura # was cu:japanese
+			}
+			ig:ig_intelligentsia ?= {
+				set_interest_group_name = ig_rangakusha
+				remove_ideology = ideology_republican
+				add_ideology = ideology_rangaku
+			}
+		}
+		if = {
+			limit = {
+				has_technology_researched = feminism
+			}
+			every_interest_group = {
+				limit = {
+					has_ideology = ideology:ideology_liberal
+				}
+				remove_ideology = ideology_liberal
+				add_ideology = ideology_liberal_modern
+			}
+		}
+	}
+	on_disable = {}
+	priority_cultures = { #Country scope
+		rule = {
+			trigger = {
+				always = no # vanilla ref 'c:BIC' not present in this mod
+				any_primary_culture = {
+					cu:aldrican = this # was cu:british
+				}
+			}
+			cultures = {}
+		}
+		rule = {
+			trigger = {
+				always = no # vanilla ref 'c:ZAN' not present in this mod
+				any_primary_culture = {
+					cu:zaharin = this # was cu:bedouin
+				}
+			}
+			cultures = {}
+		}
+		rule = {
+			trigger = {
+				always = no # vanilla ref 'c:PHI' not present in this mod
+				NOT = { always = no} # vanilla ref 'je_philippines_main_reliance_happened' not present in this mod
+				NOT = { any_primary_culture = { cu:melati = this } }
+				NOT = { any_primary_culture = { cu:melati = this } }
+				any_primary_culture = { cu:alena = this} # was cu:spanish
+			}
+			cultures = {}
+		}
+		rule = {
+			trigger = {
+				always = no # vanilla ref 'c:PHI' not present in this mod
+				any_primary_culture = {
+					AND = {
+						cu:alena = this # was cu:spanish
+						cu:melati = this # was cu:filipino_hispanophone
+					}
+				}
+			}
+			cultures = {}
+		}
+	}
+	on_character_ig_membership = {}
+
+	pop_potential = {
+		literacy_rate > 0.25
+		OR = {
+			is_pop_type = academics
+			is_pop_type = aristocrats
+			is_pop_type = bureaucrats
+			is_pop_type = capitalists
+			is_pop_type = clergymen
+			is_pop_type = clerks
+			is_pop_type = engineers
+		}
+	}
+
+	pop_weight = {
+		value = 0
+
+		add = {
+			desc = "POP_ACADEMICS"
+			if = {
+				limit = {
+					is_pop_type = academics
+				}
+				value = 250
+			}
+		}
+
+		add = {
+			desc = "POP_BUREAUCRATS"
+			if = {
+				limit = {
+					is_pop_type = bureaucrats
+				}
+				value = 150
+			}
+		}
+
+		add = {
+			desc = "POP_CLERKS"
+			if = {
+				limit = {
+					is_pop_type = clerks
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "POP_ARISTOCRATS"
+			if = {
+				limit = {
+					is_pop_type = aristocrats
+					owner = {
+						has_technology_researched = academia
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							has_law_or_variant = law_type:law_hereditary_bureaucrats
+						}
+					}
+					value = 75
+				}
+				else_if = {
+					limit = {
+						owner = {
+							country_has_primary_culture = cu:solenne # was cu:french
+						}
+					}
+					value = 50
+				}
+				else = {
+					value = 25
+				}
+			}
+		}
+
+		add = {
+			desc = "je_hungarian_revolution"
+			if = {
+				limit = {
+					is_pop_type = aristocrats
+					always = no # was culture = cu:hungarian (no mod analogue)
+					owner ?= {
+						always = no # vanilla ref 'je_hungarian_revolution' not present in this mod
+					}
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "ADMINISTRATION_ROLE"
+			if = {
+				limit = {
+					OR = {
+						is_pop_type = aristocrats
+						is_pop_type = clergymen
+						is_pop_type = capitalists
+					}
+					OR = {
+						pop_employment_building_group = bg_service
+						pop_employment_building_group = bg_arts
+						pop_employment_building_group = bg_government
+						pop_employment_building_group = bg_private_infrastructure
+						pop_employment_building_group = bg_financial_districts
+					}
+				}
+				value = 100
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					always = no # vanilla ref 'c:BIC' not present in this mod
+				}
+				OR = {
+					is_pop_type = bureaucrats
+					is_pop_type = clerks
+				}
+			}
+			if = {
+				limit = {
+					culture = {
+						has_discrimination_trait_group = heritage_group_european
+					}
+				}
+				multiply = {
+					desc = "POP_INDIA_COLONIAL_RULE"
+					value = 0.25
+				}
+			}
+			else = {
+				multiply = {
+					desc = "POP_INDIA_CIVIL_SERVICE"
+					value = 1.5
+				}
+			}
+		}
+
+		add = {
+			desc = "POP_MILITARY_BUREAUCRACY"
+			if = {
+				limit = {
+					is_pop_type = bureaucrats
+					owner = {
+						always = no # vanilla ref 'c:ALK' not present in this mod
+						has_government_type = gov_chartered_company
+					}
+				}
+				multiply = 0.25
+			}
+		}
+
+		if = {
+			limit = {
+				literacy_rate >= 0.50
+			}
+			add = {
+				desc = "POP_LITERACY"
+				value = literacy_rate
+				multiply = 20
+			}
+		}
+
+		multiply = {
+			desc = "LEADER_POPULARITY"
+			scope:interest_group = {
+				leader ?= {
+					value = popularity
+					multiply = 0.0025
+					add = 1
+					max = 1.25
+					min = 0.75
+				}
+			}
+		}
+
+		multiply = {
+			desc = "decentralized_power"
+			value = 1.0
+
+			if = {
+				limit = {
+					owner = {
+						is_country_type = decentralized
+					}
+				}
+				value = 0.0
+			}
+		}
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = yes
+				}
+			}
+			multiply = {
+				desc = "IN_GOVERNMENT_ATTRACTION"
+				value = 1
+				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
+				min = 0
+			}
+		}
+
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = yes
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_LOYALISTS"
+				value = pop_loyalist_fraction
+				divide = 4
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				scope:interest_group = {
+					is_in_government = no
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_RADICALS"
+				value = pop_radical_fraction
+				divide = 4
+				add = 1
+			}
+		}
+	}
+
+	monarch_weight = {
+		value = 1
+		# Monarch is not likely to adopt a marginal IG
+		if = {
+			limit = {
+				ig_counts_as_marginal = yes
+			}
+			multiply = {
+				value = 0.1
+			}
+		}
+		# Monarch is more likely to adopt a Powerful IG
+		if = {
+			limit = {
+				is_powerful = yes
+			}
+			multiply = {
+				value = 2
+			}
+		}
+		# Much more likely with Technocracy
+		if = {
+			limit = {
+				owner = {
+					has_law_or_variant = law_type:law_technocracy
+				}
+			}
+			multiply = {
+				value = 3
+			}
+		}
+		# More likely with Appointed Bureaucrats
+		if = {
+			limit = {
+				owner = {
+					has_law_or_variant = law_type:law_appointed_bureaucrats
+				}
+			}
+			multiply = {
+				value = 1.5
+			}
+		}
+		# Impossible without Empiricism
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_technology_researched = empiricism }
+				}
+			}
+			multiply = {
+				value = 0
+			}
+		}
+	}
+
+	agitator_weight = {
+		# Agitators more likely to come from populist IG's rather than elitist
+		value = 0.75
+		# Agitators will never be part of a marginalized IG
+		if = {
+			limit = {
+				owner.ig:ig_intelligentsia ?= {
+					ig_counts_as_marginal = yes
+				}
+			}
+			multiply = {
+				value = 0
+			}
+		}
+	}
+
+	commander_weight = {
+		value = 1.0
+	}
+	
+	magnate_weight = {
+		value = 1.0
+	}	
+
+	executive_weight = {
+		value = 2.0
+
+		# The company owning BIC should not get non-industrialist executives
+		if = {
+			limit = {
+				exists = scope:company
+				always = no # vanilla ref 'c:BIC' not present in this mod
+				always = no # blanked: vanilla ref 'c:BIC' not present in this mod
+			}
+			multiply = {
+				value = 0
+			}
+		}
+	}
+
+	noble_chance = {
+		value = 0.5
+	}
+
+	female_commander_chance = {
+		value = 0.2
+
+		# Matriarchal branch: only women lead
+		if = {
+			limit = {
+				owner = {
+					ova_country_is_matriarchal_society = yes
+				}
+			}
+			value = 1.0
+		}
+	}
+
+	female_executive_chance = {
+		value = 0.0
+		# Matriarchal branch: only women lead
+		if = {
+			limit = {
+				owner = {
+					ova_country_is_matriarchal_society = yes
+				}
+			}
+			value = 1.0
+		}
+	}
+
+	female_monarch_chance = {
+		value = 0.025
+		# Matriarchal branch: only women lead
+		if = {
+			limit = {
+				owner = {
+					ova_country_is_matriarchal_society = yes
+				}
+			}
+			value = 1.0
+		}
+	}
+
+	female_politician_chance = {
+		value = 0.0
+
+
+		if = {
+			limit = {
+				owner = {
+					has_law_or_variant = law_type:law_womens_suffrage
+				}
+				law_stance = {
+					law = law_type:law_womens_suffrage
+					value >= approve
+				}
+			}
+			add = {
+				value = 0.05
+			}
+		}
+		# Matriarchal branch: only women lead
+		if = {
+			limit = {
+				owner = {
+					ova_country_is_matriarchal_society = yes
+				}
+			}
+			value = 1.0
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_mens_suffrage
+				}
+				law_stance = {
+					law = law_type:law_mens_suffrage
+					value >= approve
+				}
+			}
+			value = 0.95
+		}
+	}
+
+	female_agitator_chance = {
+		value = 0.035
+
+		if = {
+			limit = {
+				owner = {
+					has_law_or_variant = law_type:law_women_own_property
+				}
+
+			}
+			add = {
+				value = 0.035
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law_or_variant = law_type:law_women_in_the_workplace
+				}
+
+			}
+			add = {
+				value = 0.035
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law_or_variant = law_type:law_womens_suffrage
+				}
+
+			}
+			add = {
+				value = 0.035
+			}
+		}
+		# Matriarchal branch: only women lead
+		if = {
+			limit = {
+				owner = {
+					ova_country_is_matriarchal_society = yes
+				}
+			}
+			value = 0.965
+		}
+
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_law = law_type:law_men_own_property
+						has_law = law_type:law_men_in_the_workplace
+						has_law = law_type:law_mens_suffrage
+					}
+				}
+			}
+			subtract = 0.035
+		}
+	}
+
+	# Multiplier applied to the weight for an appropriate commander will be selected from the character pool to lead the IG
+	# root = interest group
+	commander_leader_weight = {
+		value = 0.5
+	}
+	
+	# Multiplier applied to the weight for an appropriate magnate will be selected from the character pool to lead the IG
+	# root = interest group
+	magnate_leader_weight = {
+		value = 0.5
+		if = {
+			limit = {
+				always = no # vanilla ref 'c:JAP' not present in this mod
+				NOT = {
+					always = no
+				}
+			}
+			add = 5
+		}
+	}	
+
+	# Multiplier applied to the weight for an appropriate executive will be selected from the character pool to lead the IG
+	# root = interest group
+	executive_leader_weight = {
+		value = 0.5
+	}
+}

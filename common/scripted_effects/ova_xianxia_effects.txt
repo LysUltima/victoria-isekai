@@ -1,0 +1,309 @@
+﻿# Xianxia storyline - Blood Lotus Covenant (BLO/GHO/SHA/NIN) vs Great Feng/Great Yao sects
+# (SWO/HEA/FLO/PUR/MYS/FEA/SPI/VER/SNO) - scripted effects.
+# ALL character bookkeeping (creation, levels, popularity, injury, seclusion, death, traits, army
+# buffs) is delegated to the SHARED champion layer in
+# common/scripted_effects/ova_champion_effects.txt - this file only implements the Destined One
+# dispatch/arrival wrappers, the shared outing cooldown, and the six realm-chapter tick ladders,
+# per tools/design/XIANXIA_STORYLINE_SPEC.md + the 2026-07-18 Victoria-chain rework. All effects
+# run in COUNTRY scope unless noted. Unlike murim's Returner there is no single fallback host and
+# no global fate variable - every one of the 13 eligible sects independently rolls its own offer.
+#
+# Country variables used here:
+#   ova_xianxia_mc_type       - 1 check-in / 2 cauldron / 3 grandpa ring / 4 returner / 5 reader,
+#                                set at accept, PERMANENT marker that this country hosts/hosted a
+#                                Destined One
+#   ova_xianxia_mc_char       - character var for the Destined One, set LAZILY by
+#                                je_ova_xianxia_mc_1's on_monthly_pulse (create_character is
+#                                deferred, so the arrival effect below cannot save it directly)
+#   ova_xianxia_offer_pending - timed 90-day guard against a double offer while one is already out
+#   ova_xianxia_declined      - permanent per-sect opt-out (that sect turned the omen away once)
+#   ova_xianxia_seen_NN       - per-beat seen flags driving the chapter tick ladders below
+#   ova_xianxia_seen_arch1/3/5 - shared seen flags for the archetype rungs of chapters 1/3/5
+#   ova_xianxia_manual_learned / _secret_realm_done / _competition_won / _weapon_forged /
+#   _treasures_gathered / _tribulation_passed - the chapter goal flags (decisions + events)
+
+# Monthly dispatcher, called from all four war JEs' on_monthly_pulse (~4%/month per eligible sect;
+# median arrival ~1.5 years, naturally staggered across the 13 sects).
+effect_ova_xianxia_mc_dispatch = {
+	if = {
+		limit = {
+			ova_xianxia_is_sect_trigger = yes
+			NOT = { has_variable = ova_xianxia_mc_type }
+			NOT = { has_variable = ova_xianxia_declined }
+			NOT = { has_variable = ova_xianxia_offer_pending }
+			NOT = { has_variable = ova_champion_char }
+		}
+		random = {
+			chance = 4
+			set_variable = { name = ova_xianxia_offer_pending days = 90 }
+			trigger_event = { id = ova_xianxia.1 days = 5 }
+		}
+	}
+}
+
+# The accepting sect gains its Destined One. TYPE is 1-5 (see the header comment for the
+# archetype numbering). The archetype intro event (.10-.14) is fired BY THE CALLING OPTION
+# alongside this effect, not from inside it (a parameterized trigger_event id does not parse).
+effect_ova_xianxia_mc_arrives = {
+	remove_variable = ova_xianxia_offer_pending
+	set_variable = { name = ova_xianxia_mc_type value = $TYPE$ }
+	ova_champion_create_local = yes
+	add_journal_entry = { type = je_ova_xianxia_mc_1 }
+}
+
+# Shared outing cooldown (xianxia jianghu outings and the foundation's hinterland hunts share one
+# clock, by design - both gate on the same ova_adventure_cooldown variable).
+effect_ova_xianxia_outing_cooldown = {
+	set_variable = { name = ova_adventure_cooldown value = 6 }
+}
+
+# Kicks off the Check-In Disciple's yearly settlement chain (type 1 only). Called once from
+# event ova_xianxia.1's option "a" (alongside effect_ova_xianxia_mc_arrives); ova_xianxia.30
+# reschedules itself every year thereafter from its own option.
+effect_ova_xianxia_check_in_start = {
+	trigger_event = { id = ova_xianxia.30 days = 200 }
+}
+
+# ---------------------------------------------------------------------------
+# Realm chapter ticks - one story beat at a time, in order.
+# Called from each realm JE's on_yearly_pulse and its hidden relay event
+# (ova_xianxia.130-.135). The beats are dispatched through these ladders
+# rather than through the JE's own random_events, because every chapter is a
+# STRICT chain: each beat sets a seen flag in its immediate and refuses to
+# fire twice. A random_events roll picks uniformly among the listed ids, so
+# most pulses it would land on a beat whose turn has already passed or has
+# not yet come, and a five-beat chapter would crawl for a decade. The ladder
+# instead always offers exactly the next unseen beat. Each event still
+# carries its OWN trigger (the Destined One alive, once-conditions): a beat
+# whose conditions are not met simply fizzles and is offered again at the
+# next tick. Same dispatcher pattern as the Victoria chain's
+# effect_ova_victoria_chN_tick and murim's effect_ova_murim_chN_tick.
+# The archetype rungs of chapters 1/3/5 branch on ova_xianxia_mc_type so each
+# host only ever sees its own golden finger's beat.
+# ---------------------------------------------------------------------------
+
+# Chapter 1, Qi Gathering: sweeping steps, a tournament, the gift stirring,
+# a loosened cliff stone, and one blooming spirit-root.
+effect_ova_xianxia_ch1_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_100 } }
+		trigger_event = { id = ova_xianxia.100 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_16 } }
+		trigger_event = { id = ova_xianxia.16 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch1 }
+			var:ova_xianxia_mc_type ?= 1
+		}
+		trigger_event = { id = ova_xianxia.25 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch1 }
+			var:ova_xianxia_mc_type ?= 2
+		}
+		trigger_event = { id = ova_xianxia.26 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch1 }
+			var:ova_xianxia_mc_type ?= 3
+		}
+		trigger_event = { id = ova_xianxia.27 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch1 }
+			var:ova_xianxia_mc_type ?= 4
+		}
+		trigger_event = { id = ova_xianxia.28 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch1 }
+			var:ova_xianxia_mc_type ?= 5
+		}
+		trigger_event = { id = ova_xianxia.29 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_17 } }
+		trigger_event = { id = ova_xianxia.17 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_18 } }
+		trigger_event = { id = ova_xianxia.18 }
+	}
+}
+
+# Chapter 2, Foundation Establishment: inner robes, whispers, one arrogant
+# young master, and the tribute road.
+effect_ova_xianxia_ch2_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_101 } }
+		trigger_event = { id = ova_xianxia.101 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_19 } }
+		trigger_event = { id = ova_xianxia.19 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_15 } }
+		trigger_event = { id = ova_xianxia.15 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_102 } }
+		trigger_event = { id = ova_xianxia.102 }
+	}
+}
+
+# Chapter 3, Golden Core: a cave on the spirit vein, the gift maturing, the
+# banquet of a hundred sects, and the sword tablet.
+effect_ova_xianxia_ch3_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_103 } }
+		trigger_event = { id = ova_xianxia.103 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch3 }
+			var:ova_xianxia_mc_type ?= 1
+		}
+		trigger_event = { id = ova_xianxia.20 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch3 }
+			var:ova_xianxia_mc_type ?= 2
+		}
+		trigger_event = { id = ova_xianxia.21 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch3 }
+			var:ova_xianxia_mc_type ?= 3
+		}
+		trigger_event = { id = ova_xianxia.22 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch3 }
+			var:ova_xianxia_mc_type ?= 4
+		}
+		trigger_event = { id = ova_xianxia.23 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch3 }
+			var:ova_xianxia_mc_type ?= 5
+		}
+		trigger_event = { id = ova_xianxia.24 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_40 } }
+		trigger_event = { id = ova_xianxia.40 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_104 } }
+		trigger_event = { id = ova_xianxia.104 }
+	}
+}
+
+# Chapter 4, Nascent Soul: the slapped clan's grand-elder (SKIPPED cleanly if
+# the young master was never slapped in chapter 2 - the rung's limit fails
+# and the ladder simply moves on), poison in the wine, and banners at the
+# carrion hills.
+effect_ova_xianxia_ch4_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_105 } }
+		trigger_event = { id = ova_xianxia.105 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_41 }
+			has_variable = ova_xianxia_ym_slapped
+		}
+		trigger_event = { id = ova_xianxia.41 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_43 } }
+		trigger_event = { id = ova_xianxia.43 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_106 } }
+		trigger_event = { id = ova_xianxia.106 }
+	}
+}
+
+# Chapter 5, Soul Formation: the heavens take notice, a dao companion, the
+# gift bared to its depth, and the ancestor's warning.
+effect_ova_xianxia_ch5_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_107 } }
+		trigger_event = { id = ova_xianxia.107 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_42 } }
+		trigger_event = { id = ova_xianxia.42 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch5 }
+			var:ova_xianxia_mc_type ?= 1
+		}
+		trigger_event = { id = ova_xianxia.85 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch5 }
+			var:ova_xianxia_mc_type ?= 2
+		}
+		trigger_event = { id = ova_xianxia.86 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch5 }
+			var:ova_xianxia_mc_type ?= 3
+		}
+		trigger_event = { id = ova_xianxia.87 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch5 }
+			var:ova_xianxia_mc_type ?= 4
+		}
+		trigger_event = { id = ova_xianxia.88 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = ova_xianxia_seen_arch5 }
+			var:ova_xianxia_mc_type ?= 5
+		}
+		trigger_event = { id = ova_xianxia.89 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_108 } }
+		trigger_event = { id = ova_xianxia.108 }
+	}
+}
+
+# Chapter 6, Return to the Void: a single beat (the omens gather); the
+# Heavenly Tribulation decision carries the ending itself.
+effect_ova_xianxia_ch6_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_xianxia_seen_109 } }
+		trigger_event = { id = ova_xianxia.109 }
+	}
+}
+
+# The story ends, well or badly: the halo comes off. Safe to call repeatedly
+# (everything is guarded). Used by je_ova_xianxia_mc_6's on_complete and
+# every chapter's on_fail.
+effect_ova_xianxia_story_over = {
+	if = {
+		limit = { has_modifier = ova_xianxia_destined_halo }
+		remove_modifier = ova_xianxia_destined_halo
+	}
+}

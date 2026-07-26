@@ -1,0 +1,64 @@
+﻿strait_swords_wake = {
+	type = natural
+
+	total_block_requires_full_control = no
+	military_block_requires_full_control = no
+
+	first_land_endpoint = xE4154A
+	second_land_endpoint = xCBC4CD
+
+	first_sea_endpoint = x7228FF
+	second_sea_endpoint = x2E5ABF
+}
+
+strait_mare_nostrum = {
+	type = natural
+
+	total_block_requires_full_control = no
+	military_block_requires_full_control = no
+
+	first_land_endpoint = x726325
+	second_land_endpoint = x48C022
+
+	first_sea_endpoint = x50F2FF
+	second_sea_endpoint = x3985FF
+}
+
+strait_great_sea = {
+	type = natural
+
+	total_block_requires_full_control = no
+	military_block_requires_full_control = no
+
+	first_land_endpoint = x1E7A41
+	second_land_endpoint = x9C5820
+
+	first_sea_endpoint = x706DFF
+	second_sea_endpoint = x05A6FF
+}
+
+strait_zhonghai = {
+	type = natural
+
+	total_block_requires_full_control = no
+	military_block_requires_full_control = no
+
+	first_land_endpoint = xEF0025
+	second_land_endpoint = xC02B1C
+
+	first_sea_endpoint = x225AFF
+	second_sea_endpoint = x1E81FF
+}
+
+strait_al_fidda = {
+	type = natural
+
+	total_block_requires_full_control = yes
+	military_block_requires_full_control = yes
+
+	first_land_endpoint = x0CE208
+	second_land_endpoint = xA98032
+
+	first_sea_endpoint = x6459FF
+	second_sea_endpoint = x612BFF
+}

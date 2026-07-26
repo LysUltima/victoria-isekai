@@ -1,0 +1,9 @@
+﻿# Ghost Mountain Sect (xianxia: spiritualism tier 1, sect)
+COUNTRIES = {
+	c:GHO ?= {
+		effect_starting_technology_spiritualism_tier_1 = yes
+		create_character = { template = template_ruler_gho role = ruler }
+		effect_starting_politics_sect = yes
+		add_technology_researched = demonic_scriptures # Diabolist: unlocks Demonic Rites in Cultivation Grounds
+	}
+}

@@ -1,0 +1,147 @@
+﻿l_english:
+ # Isekai TC: full loc rewrite for the coffee_with_milk.txt / je_coffee_with_milk migration
+ # (2026-07-11), reflavored per user instruction to the southern isles / western isles regions
+ # instead of Brazil. Dropped all real-world references (Brazil, Portugal, coronel/coronelismo,
+ # cangaço/cangaceiro, "Senhor", London/New York/British/Tories, Rio de Janeiro, Minas Gerais/
+ # Amazonas, cameras/photographers, the historical bandit Lampião) while keeping the underlying
+ # mechanic (rival coffee-plantation and cattle-ranch elites, electoral fraud, social banditry,
+ # land reform) intact. Terminology: "coronel" -> "planter-lord", "cangaço" -> "the Wildwood
+ # Terror", "cangaceiro(s)" -> "wildwood raiders".
+
+ je_agricultural_development: "A River of Coffee"
+ je_agricultural_development_goal: "Increase the amount of [concept_buy_orders] for $coffee$ within the [SCOPE.sCountry('brazil_scope').GetCapital.GetMarket.GetName] by 150%"
+ je_agricultural_development_goal_dummy: "Increase the amount of [concept_buy_orders] for $coffee$ within our home market by 150%"
+
+ je_coffee_with_milk: "Coffee and Cattle"
+ je_coffee_with_milk_reason: "The development of the [ROOT.GetCountry.GetAdjective] agricultural industry has concentrated a great degree of wealth into the hands of the \"coffee and cattle\" planter-lords. The recent coffee boom has created great opportunity for growth - but also great risk of concentrated political influence in the hands of agrarian [SCOPE.gsInterestGroup('landowners_ig').GetName].\n\nEffects at the conclusion of this [concept_journal_entry] will depend on the status of [ROOT.GetCountry.GetName]'s #bold Land Reform#! laws"
+ coffee_with_milk_0_tt: "The #variable Coffee and Cattle#! progress bar has reached #variable 0%#! through enacting and maintaining a #bold Land Reform#! law other than [GetLawType('law_serfdom').GetName] or [GetLawType('law_tenant_farmers').GetName], and keeping the [SCOPE.gsInterestGroup('landowners_ig').GetName] out of government"
+ coffee_with_milk_100_tt: "The #variable Coffee and Cattle#! progress bar has reached #variable 100%#! through enacting and maintaining the [GetLawType('law_serfdom').GetName] or [GetLawType('law_tenant_farmers').GetName] #bold Land Reform#! law, and maintaining [concept_powerful] [SCOPE.gsInterestGroup('landowners_ig').GetName] [concept_in_government]"
+
+ agricultural_development_complete_tt: "Has completed the #variable River of Coffee#! [concept_journal_entry]"
+
+ from_milk_coffee: "From the Coffee-and-Cattle System"
+
+ je_group_brazil: "The Planter Isles"
+
+ modifier_agricultural_development_trade: "Rivers of Coffee"
+ modifier_agricultural_development_landowners: "Rivers of Coffee"
+ modifier_governors_policy: "The Governor's Compact"
+ modifier_taxes_on_plantations: "Federal Investment Benefits"
+ modifier_plantation_reinvestment: "State Investment Benefits"
+ modifier_population_state_slavery: "Encouraged Slave Labor"
+ modifier_population_state_immigration: "Immigrant Workers"
+ modifier_supported_slave_imports: "Supported Slave Trade"
+ modifier_supported_slave_imports_negative: "Supported Slave Trade"
+ modifier_successful_agrarian_production_collectivised: "An Ocean of Gold"
+ modifier_successful_agrarian_production_commercialised: "An Ocean of Gold"
+ modifier_successful_agrarian_production_homesteading: "An Ocean of Gold"
+ modifier_successful_agrarian_production_landowners: "An Ocean of Gold"
+ modifier_social_bandit_character_modifier: "Social Bandit"
+ modifier_social_bandit_hunted_character_modifier: "Social Bandit"
+ modifier_the_cangaco: "The Wildwood Terror"
+ modifier_cangaco_payments: "Buying Off the Raiders"
+ modifier_landowners_split_brazil: "Bickering Oligarchs"
+ modifier_revolt_of_eighteen: "The Garrison Revolt"
+ modifier_unjustly_blamed_for_rising: "Blamed for Revolt"
+ modifier_election_bonuses_brazil: "Egalitarian Elections"
+ modifier_landowners_weaken_brazil: "Decaying Planter-Lordship"
+ modifier_election_bonuses_landowners_brazil: "Enduring Planter-Lordship"
+ modifier_plantation_burned_brazil: "Raider Reprisals"
+ modifier_landowners_weakened_by_bandits: "Planter-Lords Embarrassed"
+ modifier_more_cops_against_bandits: "Demands for Rural Policing"
+
+ coffee_with_milk.1.t: "A Trickle of Beans"
+ coffee_with_milk.1.d: "[ROOT.GetCountry.GetName] holds vast potential - a large expanse of arable land, and a perfect climate for the growth of valuable cash crops. This wealth may hold the key to resolving the precarious situation of the [ROOT.GetCountry.GetAdjectiveNoFormatting] economy."
+ coffee_with_milk.1.f: "The isles stretch out over drowned river-valleys and volcanic ridges, with venous waterways feeding savannahs, wetlands, rainforests, rolling hills and mountains alike. Given the right field of life, anything known to man could grow somewhere here. But such vastness would need time, effort, and a river of blood to be tamed for use. Order and prosperity will not wait for long."
+ coffee_with_milk.1.a: "An export economy will bring us into modernity."
+ coffee_with_milk.1.b: "The efforts of our planters should be continued."
+
+ coffee_with_milk.2.t: "Coffee's Coffers"
+ coffee_with_milk.2.d: "Local governments in [SCOPE.sState('reinvestment_state').GetName], a highly wealthy state invested in the plantation economy, has embarked upon a program of reinvestment of proceeds from the coffee trade. This has boosted its development even further past other [ROOT.GetCountry.GetAdjective] states."
+ coffee_with_milk.2.f: "\"How many coffee plantations can one nation stuff into a single island? Seems every man and his dog either works or owns a coffee plantation here.\"\n\n\"You should see the next province over. Cattle as far as the eye can see. Every decent islander must have cream with his coffee.\"\n\n\"Explains why the air's so rancid there.\""
+ coffee_with_milk.2.a: "[SCOPE.sState('reinvestment_state').GetName] is a beating heart of [ROOT.GetCountry.GetNameNoFormatting]."
+ coffee_with_milk.2.b: "The central government must have its share."
+
+ coffee_with_milk.3.t: "The Pitiless Fields"
+ coffee_with_milk.3.d: "With a shortage of willing workers to man the [SCOPE.sBuilding('population_building').GetName] in [SCOPE.sState('population_state').GetName], local [GetPopType('aristocrats').GetName] have sought a solution to acquire more cheap labor for their fields."
+ coffee_with_milk.3.f: "To P. M., harbor master,\nSurely as I write this, I have no need to tell you of the crates of coffee flowing out of our ports and into the mouths of buyers of every stripe, from every corner of the sea. Tons, I am told, pass onto our ships to visit all corners of the world. And surely, you would know, that picking these precious beans is backbreaking labor under our sun. Other plantation owners and I have come to a mutual understanding of sorts: we require more hands to feed the merciless sun, and our bloodthirsty crops. Surely what the distant crowns do not know will not hurt them."
+ coffee_with_milk.3.a: "Encourage migrant labor from across the isles."
+ coffee_with_milk.3.b: "Seek the expansion of slavery to make up the gap."
+
+ coffee_with_milk.4.t: "Coffee and Cattle"
+ coffee_with_milk.4.d: "With the growth of [ROOT.GetCountry.GetAdjective] agriculture, the agrarian planter class has been greatly enriched. This class is exemplified by the \"coffee and cattle\" planter-lords of [SCOPE.sState('coffee_state').GetName] and [SCOPE.sState('milk_state').GetName], who now seek to expand their influence ever further."
+ coffee_with_milk.4.f: "\"You should know that it's less a fair contest than you think. It's more a matter of choosing which manner of slop we want more: dung or burnt coffee grounds.\"\n\n\"How bad could it be? At least it isn't decided by whoever bribes the loudest.\"\n\n\"The planter-lords across the states... er... enjoy a great many liberties with their power. They act more as robber-barons than as men of enlightenment.\""
+ coffee_with_milk.4.a: "The consequences of growth."
+
+ coffee_with_milk.5.t: "The Money Tree"
+ coffee_with_milk.5.d: "The successful development of [ROOT.GetCountry.GetAdjective] agriculture has grown our nation's economy greatly. The fruits of our trade can be seen on every coastline, flavoring the tables of the wealthy and being sipped from steaming mugs across the sea."
+ coffee_with_milk.5.f: "The latest taxation reports were incontrovertible: cattle and coffee were most, if not all, of the products out of some administrations. Those same taxes and port tariffs were paying for no fewer than thirty students sent abroad to study, and another four institutes of learning besides. Roads, hospitals and libraries bought and paid for by cattle and coffee.\n\nOr rather, the planter-lords who controlled the trade."
+ coffee_with_milk.5.a: "A toast to those who made this possible!"
+ coffee_with_milk.5.b: "One day, we must expand from agriculture."
+
+ coffee_with_milk.6.t: "Oligarchial Friction"
+ coffee_with_milk.6.d: "The agricultural oligarchs of the less-prominent hinterland state of [SCOPE.sState('northeast_state').GetName] have objected strongly to the perceived domination of the [ROOT.GetCountry.GetAdjective] political system by [SCOPE.sState('coffee_state').GetName] and [SCOPE.sState('milk_state').GetName]."
+ coffee_with_milk.6.f: "\"Seems anything we do these days is dictated by [SCOPE.sState('coffee_state').GetNameNoFormatting] alone. And for what? Coffee? Feh, what good is their coffee compared to food, let alone sugar and meat?\"\n\n\"People are happy to pay for coffee. They aren't for sugar and meat. Besides, what's your point? You take the castaway cattle and make leather. People can survive just fine without leather.\"\n\n\"My point is that the [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] should declaw [SCOPE.sState('coffee_state').GetNameNoFormatting] and [SCOPE.sState('milk_state').GetNameNoFormatting] before they overwhelm us. And you'd think better of leather if you had to walk barefoot in the sun, fool!\""
+ coffee_with_milk.6.a: "They should learn to perform better."
+ coffee_with_milk.6.b: "We cannot have a government at its own throat."
+
+ coffee_with_milk.7.t: "The Coffee Machine"
+ coffee_with_milk.7.d: "The formidable political machines of the states of [SCOPE.sState('coffee_state').GetName] and [SCOPE.sState('milk_state').GetName] have asserted themselves in the ongoing election, supporting the candidates of the [SCOPE.sParty('republicans_scope').GetName] for all federal offices."
+ coffee_with_milk.7.f1: "\"Instead of voting on effectiveness, we're only voting on who has the deepest coffers and the largest land. It seems we've taken one step forward and thirty backward since the revolution.\"\n\n\"Revolution? Do you still believe the stage rehearsals? It was hardly a revolution. Some soldiers marched up a street and a man and his family left. Oh, but you are correct that we have gone backwards from here.\"\n\n\"For his faults, I miss the old ruler...\""
+ coffee_with_milk.7.f2: "Foiled again, and this time backed into a corner. Every other planter-lord across the isles was like a baron to their own fiefdom. Rather than work for the betterment of the nation, they worked to better their own treasuries. The army was as good as working with them, what with officers controlling their own tracts of land. The [ROOT.GetCountry.GetRuler.GetPrimaryRoleTitle] did not need an advisor to know what [ROOT.GetCountry.GetRuler.GetSheHe] needed: a radical gamble to bring the governors to heel, or wait for them to slip on their own."
+ coffee_with_milk.7.a: "The planter-lords will always come through."
+ coffee_with_milk.7.b: "We must have electoral integrity."
+
+ coffee_with_milk.8.t: "The Governor's Compact"
+ coffee_with_milk.8.d: "The governors of the powerful \"Coffee and Cattle\" states of [SCOPE.sState('coffee_state').GetName] and [SCOPE.sState('milk_state').GetName] have sought an agreement with the federal government of [ROOT.GetCountry.GetName] to ensure the control of both their local oligarchies and our current administration."
+ coffee_with_milk.8.f: "The balances of power demand a slight recalibration. More palms greased with cream, sweetened with coffee, and all for gain in the end. The plantation and ranch owners would demand simple concessions: proliferation and support for their interests, at the cost of any real opposition. In turn, the flagging Senate would have more solidarity in its ranks. But it all ends the same: in a conspiracy against the public."
+ coffee_with_milk.8.a: "This policy will ensure the stability of [ROOT.GetCountry.GetNameNoFormatting]."
+ coffee_with_milk.8.b: "The federal government must maintain some authority over the states."
+
+ coffee_with_milk.9.t: "The Wildwood Terror"
+ coffee_with_milk.9.d: "Widespread destitution in [SCOPE.sState('bandits_state').GetName] has led to an outbreak of crime and \"social banditry\". In the hinterlands of the state, raiders gain infamy amongst the rural poor for their bold and violent actions."
+ coffee_with_milk.9.f: "\"'Lantern?' Huh, what kind of name is 'Lantern?' Doesn't exactly make a man terrified.\"\n\n\"You should be. The man can work a lever-action so fast that no gatling can keep up. We'd be dead, and the boss would be filleted with a skinning-knife in minutes. Or knowing how much he likes coin, make him watch as Lantern throws it to the poor, then fillet the poor sod.\"\n\n\"Gives coin to beggars? Doesn't sound all that bad. 'Lantern.' Tell you what, I'll oil him up and put a match to him if it will stop you wetting your pants.\""
+ coffee_with_milk.9.a: "Raiders are useful for the planter-lord's... special tasks."
+ coffee_with_milk.9.b: "We must root out this plague!"
+
+ coffee_with_milk.10.t: "Fires in the Hinterland"
+ coffee_with_milk.10.d: "A band of wildwood raiders has struck at the large [SCOPE.gsInterestGroup('landowners_scope').GetName] of [SCOPE.sState('bandits_state').GetName]. Their activities have inspired the rural poor to intensify calls for land reform."
+ coffee_with_milk.10.f: "The raiders had camped in the ruins of an old watchtower for three nights now, and the fires had not gone unnoticed. Word of their exploits had already outrun the smoke: they were more than raiders now. They were heroes, and they had more hearts and minds to win before the planter-lords' men arrived."
+ coffee_with_milk.10.a: "[SCOPE.sState('bandits_state').GetNameNoFormatting] is in utter chaos!"
+ coffee_with_milk.10.b: "Send the police after them at once."
+ coffee_with_milk.10.c: "We know where they will run to."
+
+ coffee_with_milk.11.t: "The Garrison Revolt"
+ coffee_with_milk.11.d: "A group of junior officers in the state of [SCOPE.sState('capital_scope').GetName] have launched an abortive coup to install a more modernized government. Whilst the plot has failed, the incident has revealed cracks in the structure of [ROOT.GetCountry.GetName]."
+ coffee_with_milk.11.f: "#bold Garrison Seized, Officers March!#!\n\nShock grips the capital as a pack of officer cadets and some of their seditious higher officers seize a garrison near the city. Treasonous citizens and reactionary sympathizers alike have joined the revolt. Reporters close to the scene say that the full strength of the revolt is unknown. They have captured the garrison's cannon, and have begun moving into... (cont. pg. 4)"
+ coffee_with_milk.11.a: "This is the fault of the [SCOPE.gsInterestGroup('armed_forces_scope').GetName] command!"
+ coffee_with_milk.11.b: "We must keep a closer watch on [SCOPE.sState('capital_scope').GetCityHubName]."
+
+ coffee_with_milk.12.t: "The Coffee Kingdom"
+ coffee_with_milk.12.d: "With the maintenance of the [SCOPE.gsInterestGroup('landowners_ig').GetName]' power over [ROOT.GetCountry.GetAdjective] politics, the Coffee-and-Cattle oligarchy has been fully and firmly entrenched. The conservative political machines of [SCOPE.sState('coffee_state').GetName] and [SCOPE.sState('milk_state').GetName] look to be the country's true rulers for the foreseeable future."
+ coffee_with_milk.12.f: "And with the final slash of the pen, it was done: bosses sworn in for life, seats won and lost on principle of land alone, and the Senate made unassailable. The Army, having once helped depose the dying monarchy, was now brought to heel. As a final guarantee, states made armies of their police, and the humiliated Navy was all too eager to regain favor.\n\nGlory to the isles. Our brave breast shall defy Death itself!"
+ coffee_with_milk.12.a: "To a century of order and progress!"
+ coffee_with_milk.12.b: "Things will be different, one day."
+
+ coffee_with_milk.13.t: "Against Planter-Lordship"
+ coffee_with_milk.13.d: "The government's passage and enforcement of [SCOPE.sLaw('land_reform_law').GetName] has successfully reduced the influence of the [SCOPE.gsInterestGroup('landowners_ig').GetName] within [ROOT.GetCountry.GetAdjective] politics. The era of the Coffee-and-Cattle oligarchy is slowly coming to an end."
+ coffee_with_milk.13.f: "Coffee with cream sprayed from his mouth. The aide wiped it away with a sweat-stained handkerchief. He then repeated what he said to the planter-lord: reforms to voting and to governorship rendered his political worth no better than a mere clerk's. Invective spewed forth as the planter-lord crushed the coffee glass in his hand, cream and coffee mingling with blood."
+ coffee_with_milk.13.a: "The people shall rule!"
+ coffee_with_milk.13.b: "We must reconcile with the former planter-lords."
+
+ coffee_with_milk.14.t: "Expropriation with Cause"
+ coffee_with_milk.14.d: "The [ROOT.GetCountry.GetRuler.GetLastName] government's policy of [GetLawType('law_collectivized_agriculture').GetName] has struck a grave blow against the [SCOPE.gsInterestGroup('landowners_ig').GetName]. The Coffee-and-Cattle system has been rendered obsolete under the auspices of the people."
+ coffee_with_milk.14.f: "\"Do you see here, now, good people? This property once owned by a cattle rancher? This cattle rancher and his father were once brutal slave drivers. It doesn't matter what his name was, for he is gone now. But now, his ranch? Expropriated. All of these cattle he left to starve? Expropriated. His lands? Expropriated. So it is from the coast to the deep jungle. A big day has arrived. May it be the only big day we ever need.\""
+ coffee_with_milk.14.a: "Down with the landlord class!"
+
+ coffee_with_milk.15.t: "Raiders Strike [SCOPE.sState('bandits_state').GetName] Plantations"
+ coffee_with_milk.15.d: "In an increasingly common display of the violence known as the Wildwood Terror, raiders have struck the homes of several wealthy [SCOPE.gsInterestGroup('landowners_ig').GetName] in [SCOPE.sState('bandits_state').GetName]. Their families have been slaughtered, and a portion of the loot distributed to the local rural poor."
+ coffee_with_milk.15.f: "At night, they came with fire and axes. Come sunrise, the planter-lord's men found the night watch's remaining pieces. By noon, they found suspicious lookalikes of some of the planter-lord's cheaper possessions in the market. After sunset, a dirty man smelling of perfumes beyond his station returned a mule to a farmer. With a hand on the missing overseer's pistol, the raider winked at the planter-lord's men as he walked back into the forest."
+ coffee_with_milk.15.a: "They must have fallen behind on their payments."
+ coffee_with_milk.15.b: "This terror cannot stand. Search the locals."
+
+ coffee_with_milk.16.t: "Romanticized Terror"
+ coffee_with_milk.16.d: "Amidst the storm of raider violence known as the Wildwood Terror, elements of the local [SCOPE.gsInterestGroup('rural_folk_ig').GetName] in [SCOPE.sState('bandits_state').GetName] have been inspired by romanticized tales of raider communities. Calls for increased autonomy and discontent with the [SCOPE.gsInterestGroup('landowners_ig').GetName] threaten to spill into violence."
+ coffee_with_milk.16.f: "\"That's the fifteenth peasant we've ejected from these halls today. Honestly, the nerve of these dung shovellers. Does due process mean nothing to them?\"\n\"My lord?\"\n\"Not now. 'Check the planter-lords or they'll do it for us.' Pah! We should draft fresh legislation to prevent them from returning-\"\n\"My lord!\"\n\"What is it? Is it two dozen of the hooligans now? Fetch the guards and arrest this rabble too!\"\n\"My lord, look! Hundreds of them!\""
+ coffee_with_milk.16.a: "The people of [SCOPE.sState('bandits_state').GetNameNoFormatting] have taken dangerous inspirations."
+ coffee_with_milk.16.b: "The terror holds all of [ROOT.GetCountry.GetName] in its jaws."

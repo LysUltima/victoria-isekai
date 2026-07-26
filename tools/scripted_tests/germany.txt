@@ -1,0 +1,13 @@
+﻿last_date = "1900.1.1"
+
+tests = {
+    GER_formed = {
+        acceptable_fail_rate = 0.0
+        success = {
+            # removed effect line: vanilla ref 'c:GER' not present in this mod
+        }
+        fail = {
+            game_date > "1890.1.1"
+        }
+    }
+}

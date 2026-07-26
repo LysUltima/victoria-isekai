@@ -1,0 +1,47 @@
+﻿pdxmesh = {
+	name = "male_harimari_attachments_mesh"
+	file = "male_harimari_attachments.mesh"
+
+	blend_shape = { id = "male_harimari_attachments"				type = "male_harimari_attachments.mesh"  }
+
+	meshsettings = {
+		name = "male_harimari_attachmentsShape"
+		index = 0
+		texture_diffuse = "harimari_attachments_diffuse.dds"
+		texture_normal = "no_normal.dds"
+		texture_specular = "no_properties.dds"
+		shader = "portrait_attachment_alpha_to_coverage"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "male_harimari_attachments_entity"
+	pdxmesh = "male_harimari_attachments_mesh"
+
+	attribute = { name = "race_attachments"					blend_shape = "male_harimari_attachments" }
+}
+
+pdxmesh = {
+	name = "female_harimari_attachments_mesh"
+	file = "female_harimari_attachments.mesh"
+
+	blend_shape = { id = "female_harimari_attachments"				type = "female_harimari_attachments.mesh"  }
+
+	meshsettings = {
+		name = "female_harimari_attachmentsShape"
+		index = 0
+		texture_diffuse = "harimari_attachments_diffuse.dds"
+		texture_normal = "no_normal.dds"
+		texture_specular = "no_properties.dds"
+		shader = "portrait_attachment_alpha_to_coverage"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "female_harimari_attachments_entity"
+	pdxmesh = "female_harimari_attachments_mesh"
+
+	attribute = { name = "race_attachments"					blend_shape = "female_harimari_attachments" }
+}

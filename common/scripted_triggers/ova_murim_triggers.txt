@@ -1,0 +1,253 @@
+﻿# Heavenly Demon Cult (c:CHE) vs Orthodox Martial Alliance storyline - shared scripted triggers.
+# Used by common/journal_entries/ova_murim_journal.txt, common/decisions/ova_murim_decisions.txt,
+# events/ova_murim_events.txt and events/ova_murim_flavor_events.txt.
+#
+# Character/champion state checks live in the SHARED champion layer
+# (common/scripted_triggers/ova_champion_triggers.txt: ova_has_living_champion,
+# ova_champion_is_available, ova_champion_is_adventuring) - this file only adds murim-specific
+# wrappers on top, per tools/design/MURIM_STORYLINE_SPEC.md.
+#
+# Verified vanilla patterns used here:
+#  - `c:TAG ?= THIS` country-identity check: common/journal_entries/00_taiping.txt (je_chinese_missions)
+#  - `is_subject` / `is_subject_of = c:TAG`: common/journal_entries/00_hawaii.txt,
+#    common/journal_entries/00_german_unification.txt, common/scripted_triggers/00_clothes_triggers.txt
+#  - `calc_true_if = { amount >= N ... }`: common/journal_entries/05_austria_journal_entries.txt
+#  - `var:x >= N` variable comparison: common/journal_entries/00_taiping.txt
+#    (var:missionary_works_counter >= 5)
+#  - `has_variable` / `exists = var:x` character-alive check: ova_hero_l_english.yml's
+#    ova_victoria_char pattern (common/journal_entries/ova_hero_journal.txt je_ova_victoria_1)
+
+# Any of the 8 recognized Alliance sects - THIS = one of the 8 murim orthodox tags.
+ova_murim_is_alliance_sect_trigger = {
+	OR = {
+		c:HWA ?= THIS
+		c:SOR ?= THIS
+		c:MUD ?= THIS
+		c:JEG ?= THIS
+		c:TAN ?= THIS
+		c:NAM ?= THIS
+		c:PAE ?= THIS
+		c:SAM ?= THIS
+	}
+}
+
+# The 8 Alliance sects plus the Cult itself - THIS = one of the 9 murim tags.
+ova_murim_is_sect_or_cult_trigger = {
+	OR = {
+		ova_murim_is_alliance_sect_trigger = yes
+		c:CHE ?= THIS
+	}
+}
+
+# scope:target_country is one of the 8 Alliance sects. For the Cult's AI
+# strategy (aggression + secret_goal_scores) - the target-side mirror of
+# ova_murim_is_alliance_sect_trigger. Only valid where scope:target_country
+# exists (ai_strategy aggression/secret_goal_scores blocks).
+ova_murim_target_is_alliance_sect_trigger = {
+	OR = {
+		c:HWA ?= scope:target_country
+		c:SOR ?= scope:target_country
+		c:MUD ?= scope:target_country
+		c:JEG ?= scope:target_country
+		c:TAN ?= scope:target_country
+		c:NAM ?= scope:target_country
+		c:PAE ?= scope:target_country
+		c:SAM ?= scope:target_country
+	}
+}
+
+# True while at least one of the 8 Alliance sects still stands as an independent, existing country.
+# Scope-agnostic (hardcoded tags) - evaluated identically from CHE, HWA, or any member sect.
+ova_murim_alliance_still_stands_trigger = {
+	OR = {
+		AND = { exists = c:HWA c:HWA = { is_subject = no } }
+		AND = { exists = c:SOR c:SOR = { is_subject = no } }
+		AND = { exists = c:MUD c:MUD = { is_subject = no } }
+		AND = { exists = c:JEG c:JEG = { is_subject = no } }
+		AND = { exists = c:TAN c:TAN = { is_subject = no } }
+		AND = { exists = c:NAM c:NAM = { is_subject = no } }
+		AND = { exists = c:PAE c:PAE = { is_subject = no } }
+		AND = { exists = c:SAM c:SAM = { is_subject = no } }
+	}
+}
+
+# Cult victory condition B - at least 6 of the 8 Alliance sects have fallen TO THE CULT: ceased
+# to exist, or become a subject of CHE. Scope-agnostic (hardcoded tags). 2026-07-18: "fallen"
+# no longer counts subjecthood under anyone - the Eight Banners arc makes courted sects willing
+# protectorates/personal-union juniors of the Returner's host, and those banners still stand.
+ova_murim_six_sects_fallen_trigger = {
+	calc_true_if = {
+		amount >= 6
+		NOT = { AND = { exists = c:HWA c:HWA = { NOT = { is_subject_of = c:CHE } } } }
+		NOT = { AND = { exists = c:SOR c:SOR = { NOT = { is_subject_of = c:CHE } } } }
+		NOT = { AND = { exists = c:MUD c:MUD = { NOT = { is_subject_of = c:CHE } } } }
+		NOT = { AND = { exists = c:JEG c:JEG = { NOT = { is_subject_of = c:CHE } } } }
+		NOT = { AND = { exists = c:TAN c:TAN = { NOT = { is_subject_of = c:CHE } } } }
+		NOT = { AND = { exists = c:NAM c:NAM = { NOT = { is_subject_of = c:CHE } } } }
+		NOT = { AND = { exists = c:PAE c:PAE = { NOT = { is_subject_of = c:CHE } } } }
+		NOT = { AND = { exists = c:SAM c:SAM = { NOT = { is_subject_of = c:CHE } } } }
+	}
+}
+
+# THIS is a subject of one of the 8 Alliance sects - i.e. a banner that bowed WITHIN the family
+# (the Eight Banners arc's protectorates and personal unions), not to an outside power. Used by
+# the banner JEs' fail conditions so joining the Returner's household does not read as defeat.
+ova_murim_is_subject_of_alliance_trigger = {
+	OR = {
+		is_subject_of = c:HWA
+		is_subject_of = c:SOR
+		is_subject_of = c:MUD
+		is_subject_of = c:JEG
+		is_subject_of = c:TAN
+		is_subject_of = c:NAM
+		is_subject_of = c:PAE
+		is_subject_of = c:SAM
+	}
+}
+
+# Cult victory condition A - CHE (or a CHE subject) owns at least 5 of the 8 sect capital states.
+# Scope-agnostic (hardcodes c:CHE, not ROOT) so it can be evaluated identically from CHE's own JE,
+# HWA's JE, or a member sect's JE. "owner = X" / "owner = { is_subject_of = X }" is the verified
+# vanilla pattern for "owned by X or X's subject" (common/journal_entries/00_east_indies.txt).
+ova_murim_cult_owns_five_capitals_trigger = {
+    exists = c:CHE
+	calc_true_if = {
+		amount >= 5
+		s:STATE_HWASAN = {
+            any_scope_state = {
+                OR = {
+                    owner = { is_subject_of = c:CHE }
+                    owner = c:CHE
+                }
+            }
+        }
+		s:STATE_SUNGSAN = {
+            any_scope_state = {
+                OR = {
+                    owner = { is_subject_of = c:CHE }
+                    owner = c:CHE
+                }
+            }
+        }
+		s:STATE_MUDANGSAN = {
+            any_scope_state = {
+                OR = {
+                    owner = { is_subject_of = c:CHE }
+                    owner = c:CHE
+                }
+            }
+        }
+		s:STATE_YANGJU = {
+            any_scope_state = {
+                OR = {
+                    owner = { is_subject_of = c:CHE }
+                    owner = c:CHE
+                }
+            }
+        }
+		s:STATE_SACHEON = {
+            any_scope_state = {
+                OR = {
+                    owner = { is_subject_of = c:CHE }
+                    owner = c:CHE
+                }
+            }
+        }
+		s:STATE_NAMWON = {
+            any_scope_state = {
+                OR = {
+                    owner = { is_subject_of = c:CHE }
+                    owner = c:CHE
+                }
+            }
+        }
+		s:STATE_HOBUK = {
+            any_scope_state = {
+                OR = {
+                    owner = { is_subject_of = c:CHE }
+                    owner = c:CHE
+                }
+            }
+        }
+		s:STATE_HONAM = {
+            any_scope_state = {
+                OR = {
+                    owner = { is_subject_of = c:CHE }
+                    owner = c:CHE
+                }
+            }
+        }
+	}
+}
+
+# The Cult's victory: condition A OR condition B. Scope-agnostic - safe to call from any country scope.
+ova_murim_cult_has_won_trigger = {
+	exists = c:CHE
+	OR = {
+		ova_murim_cult_owns_five_capitals_trigger = yes
+		ova_murim_six_sects_fallen_trigger = yes
+	}
+}
+
+# The Cult is defeated: it no longer exists, or it has become somebody's subject.
+ova_murim_cult_defeated_trigger = {
+	OR = {
+		NOT = { exists = c:CHE }
+		c:CHE ?= { is_subject = yes }
+	}
+}
+
+# The Returner (Kang Jin-woo) is alive - a champion character var was captured for him and still
+# resolves. Set lazily by je_ova_murim_returner_1's on_monthly_pulse (create_character is deferred,
+# so the arrival effect cannot save him directly).
+ova_murim_returner_is_alive_trigger = {
+	has_variable = ova_murim_returner_char
+	exists = var:ova_murim_returner_char
+}
+
+# ROOT may send its champion on a murim outing right now: a living, available champion, not
+# currently on the shared expedition, and not on the shared hinterland/outing cooldown.
+ova_murim_outing_ready_trigger = {
+	ova_champion_is_available = yes
+	NOT = { ova_champion_is_adventuring = yes }
+	NOT = { has_variable = ova_adventure_cooldown }
+}
+
+# THIS (the Returner's host) is one of the five great CLANS (PAE/TAN/NAM/JEG/SAM), as
+# opposed to the three sword sects (HWA/SOR/MUD). Decides the shape of the good ending:
+# a clan host ends in a wedding into the clan's main line, a sect host ends with the
+# hall acclaiming its new patriarch.
+ova_murim_host_is_clan_trigger = {
+	OR = {
+		c:PAE ?= THIS
+		c:TAN ?= THIS
+		c:NAM ?= THIS
+		c:JEG ?= THIS
+		c:SAM ?= THIS
+	}
+}
+
+# The Returner walked the hero's road: at least three good-hearted choices for every
+# selfish one across the whole Eight Banners arc (ova_murim_good_score gains +1 per
+# selfless option and -3 per selfish one, so score >= 0 means >= 75% good), AND his own
+# house never once saw him choose himself (its courtship completed, with no selfish
+# choice against it). Evaluated by the succession events (.150-.153) when the assassins
+# come for the old master.
+ova_murim_good_path_trigger = {
+	has_variable = ova_murim_ally_sworn_home
+	NOT = { has_variable = ova_murim_ally_failed_home }
+	OR = {
+		NOT = { has_variable = ova_murim_good_score }
+		var:ova_murim_good_score >= 0
+	}
+}
+
+# A champion expedition into the Heavenly Demon Sect's lands is under way - the good
+# ending's road to the final battle (je_ova_murim_final_battle).
+ova_murim_expedition_into_cult_trigger = {
+	exists = c:CHE
+	has_diplomatic_pact = {
+		who = c:CHE
+		type = ova_champion_expedition
+	}
+}

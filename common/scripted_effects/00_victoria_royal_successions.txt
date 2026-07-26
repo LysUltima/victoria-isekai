@@ -1,0 +1,4 @@
+﻿# Emptied override. This file held vanilla Earth royal-succession chains
+# (Austria/France/Spain/Portugal/Serbia/Ottoman/Morocco/Japan) that created rulers
+# from vanilla character templates wiped by replace_paths, and had no live callers.
+# All effects removed as dead code. See CLAUDE.md.

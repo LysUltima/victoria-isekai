@@ -1,0 +1,323 @@
+﻿TID = {
+    color = { 36 156 140 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { deigo }
+
+    capital = STATE_NIRAI_KANAI
+}
+
+URU = {
+    color = { 15 163 52 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { deigo }
+
+    capital = STATE_URUMA
+}
+
+UTA = {
+    color = { 90 36 97 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { deigo }
+
+    capital = STATE_UTAKI
+}
+
+UFU = {
+    color = { 62 69 112 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { deigo }
+
+    capital = STATE_UFUMI
+}
+
+WHA = { # Whakatāne
+    color = { 218 165 32 } # Golden Savanna Ochre
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { whenua }
+
+    capital = STATE_MANIA_KOWHAI # state
+}
+
+KAI = { # Kaitangata
+    color = { 139 0 0 } # Deep Crimson / Blood Red
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { whenua }
+
+    capital = STATE_TAHATIKA_TAPARA # state
+}
+
+RAN = { # Rangitoto
+    color = { 211 84 0 } # Volcanic Orange
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { whenua }
+
+    capital = STATE_PAPAKU_O_TE_RA # state
+}
+
+TAR = { # Taranaki
+    color = { 34 139 34 } # Forest Green
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { whenua }
+
+    capital = STATE_RAUPO_MOANA # state
+}
+
+WAI = { # Waitaha
+    color = { 184 134 11 } # Sun-Baked Clay / Dark Goldenrod
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { whenua }
+
+    capital = STATE_KAINGA_MAROKE # state
+}
+
+HAW = { # Hawaiki
+    color = { 36 156 140 } # Tropical Ocean Teal
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { whenua }
+
+    capital = STATE_MOTU_HUMARIE # state
+}
+
+WHN = { # Whangārei
+    color = { 70 130 180 } # Deep Reef Blue
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { whenua }
+
+    capital = STATE_MOUTERE_TARAPIROPIRO # state
+}
+
+AHU = { # Ahuena
+    color = { 204 85 0 } # Burnt Volcanic Amber
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { kanaka }
+
+    capital = STATE_PALIANUENUE # state
+}
+
+KAM = { # Kamaka
+    color = { 210 180 140 } # Coastal Tan / Sand
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { kanaka }
+
+    capital = STATE_ONELOA # state
+}
+
+MAL = { # Mālamalama
+    color = { 46 139 87 } # Sea Green Canopy
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { kanaka }
+
+    capital = STATE_KAULUWELA # state
+}
+
+HOK = { # Hōkūlele
+    color = { 102 102 153 } # Twilight Blue-Gray
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { kanaka }
+
+    capital = STATE_PAEMUKU # state
+}
+
+KAN = { # Kanaloa
+    color = { 0 76 153 } # Deep Ocean Blue
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { kanaka }
+
+    capital = STATE_KAIULI # state
+}
+
+POL = { # Poliahu
+    color = { 112 128 144 } # Volcanic Slate Smoke
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { kanaka }
+
+    capital = STATE_UAHIWERA # state
+}
+
+LAA = { # Lanakila
+    color = { 238 214 175 } # Pale Coral Sand
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { kanaka }
+
+    capital = STATE_AINAONE # state
+}
+
+MAK = { # Makani
+    color = { 70 130 180 } # Windward Steel Blue
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { kanaka }
+
+    capital = STATE_WAILUKU # state
+}
+
+KLA = { # Kalahele
+    color = { 34 139 34 } # Rich Rainforest Green
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { kanaka }
+
+    capital = STATE_ULUWEHI # state
+}
+
+AHI = { # Ahiuka
+    color = { 165 42 42 } # Earthy Lava Brown
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { kanaka }
+
+    capital = STATE_MOKUMANO # state
+}
+
+POM = { # Pōmaikaʻi
+    color = { 173 216 230 } # High Altitude Sky Blue
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { kanaka }
+
+    capital = STATE_AOLANI # state
+}
+
+TUA = { # Tuatolu
+    color = { 0 128 128 } # Samoan Teal
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { tagata }
+
+    capital = STATE_NIUMATA # state
+}
+
+TRO = { # Tarona
+    color = { 184 61 41 } # Cook Islands Ochre
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { tagata }
+
+    capital = STATE_MURIVAI # state
+}
+
+NUK = { # Nukutere
+    color = { 70 163 70 } # Tahitian Emerald
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { tagata }
+
+    capital = STATE_MATAEIA # state
+}
+
+TAO = { # Tanoa
+    color = { 168 50 82 } # Tongan Crimson
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { tagata }
+
+    capital = STATE_HIHIFO # state
+}
+
+VAE = { # Vaerua
+    color = { 219 180 88 } # Tuvaluan Straw Gold
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { tagata }
+
+    capital = STATE_ASAU # state
+}

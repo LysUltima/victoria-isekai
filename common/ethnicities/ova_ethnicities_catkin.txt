@@ -1,0 +1,40 @@
+﻿catkin_east_asian = {
+    template = "ova_elf_face_east_asian"
+
+    # black (matches the black cat ears)
+    hair_color = {
+        10 = { 0.15 0.90 0.40 1.00 }
+    }
+
+    # skip the "empty" (bald) entry at the head of east_asian_hairstyles
+    hairstyles = {
+        10 = { name = east_asian_hairstyles		range = { 0.1 1.0 } }
+    }
+
+    # age without hair greying (keep black hair into old age)
+    gene_age = {
+        10 = { name = ova_beastkin_aging		range = { 0.0 1.0 } }
+    }
+
+    gene_cat_ears = {
+        10 = { name = black_cat_ears		range = { 0.0 1.0 } }
+    }
+}
+
+catkin_arab = {
+    template = "ova_elf_face_arab"
+
+    # black (matches the black cat ears)
+    hair_color = {
+        10 = { 0.15 0.90 0.40 1.00 }
+    }
+
+    # age without hair greying (keep black hair into old age)
+    gene_age = {
+        10 = { name = ova_beastkin_aging		range = { 0.0 1.0 } }
+    }
+
+    gene_cat_ears = {
+        10 = { name = black_cat_ears		range = { 0.0 1.0 } }
+    }
+}

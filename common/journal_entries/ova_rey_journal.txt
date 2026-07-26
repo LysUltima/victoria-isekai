@@ -1,0 +1,617 @@
+﻿### Reyorn harem storyline - journal entries (John Paradox)
+# A five-course dating sim: one courtship JE per state of the beastfolk
+# republic, each targeting that state's beastkin woman, then a capstone in
+# which John stands for the presidency and every heroine he WON becomes a
+# primary culture of Reyorn. Chapter order (fixed): the capital cat state, then
+# dog, bear, rabbit, fox. The first JE is raised from REY's history file
+# (effect_ova_rey_start); every later chapter is opened by the previous one's
+# on_complete / on_timeout / on_fail via effect_ova_rey_next_courtship.
+#
+# None of these JEs call ova_champion_monthly_tick - the universal je_ova_champion
+# owns that. Each courtship shows the shared Affection bar
+# (ova_rey_affection_bar); it fills as John picks the right options across EIGHT
+# date beats, plus a +10 lump for each of the three gameplay objectives he
+# completes. Eight best choices give 40 of the 50 the bar needs, so a courtship
+# ALWAYS needs at least one objective to top out; a poorer run catches up with
+# more objectives (three = +30). Once the bar is full the confession button
+# (ova_rey_buttons.txt) lights up, and accepting it (ova_rey_confessed_<x>) is
+# the SOLE completion trigger - the objectives are never mandatory. She then
+# becomes a bride (ova_rey_won_<x>).
+#
+# Two ways to lose: after all eight dates, if affection is still under 20 the JE
+# FAILS at once (the ova_rey_all_dates_<x> flag makes the fail trigger true, and
+# John simply moves on, exactly like a timeout); or the five-year clock runs out
+# with the bar still short (on_timeout, same move-on). Only John actually dying
+# ends the whole tale.
+#
+# Beats ride a strict tick ladder (effect_ova_rey_courtship_tick) off the yearly
+# pulse plus the ova_rey.94 relay (FOUR beats a year), NOT random_events - a
+# uniform roll would keep landing on beats whose turn has passed. Cadence rule
+# (from the Victoria / Returner chains): beats / rate <= ~2 years per chapter;
+# eight dates at four a year land inside two years, leaving room to court the
+# objectives and confess before the clock is out.
+
+# Shared affection-tier status, reused by all five courtship JEs.
+# (Defined once as loc; each JE points its status_desc first_valid at it.)
+
+# ============================================================================
+# Chapter 1: Katzenburg, the capital - Nasira, the desert-cat merchant heiress
+# ============================================================================
+je_ova_rey_court_cat = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	scripted_progress_bar = ova_rey_affection_bar
+	scripted_button = ova_rey_confess_cat_button
+
+	immediate = {
+		# John has not been summoned yet at game start - the arrival event does
+		# it a few days in, once the universal champion JE has run its zeroing
+		# immediate, then kicks off the first courtship beat.
+		trigger_event = { id = ova_rey.1 days = 5 }
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			effect_ova_rey_objectives_check = yes
+		}
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_rey_courtship_tick = yes
+			trigger_event = { id = ova_rey.94 days = 90 }
+			trigger_event = { id = ova_rey.94 days = 180 }
+			trigger_event = { id = ova_rey.94 days = 270 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		trigger_event = { id = ova_rey.80 days = 3 }
+		effect_ova_rey_next_courtship = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = { desc = je_ova_rey_status_won      trigger = { var:ova_rey_affection >= var:ova_rey_affection_cap } }
+			triggered_desc = { desc = je_ova_rey_status_smitten  trigger = { var:ova_rey_affection >= 40 } }
+			triggered_desc = { desc = je_ova_rey_status_fond     trigger = { var:ova_rey_affection >= 25 } }
+			triggered_desc = { desc = je_ova_rey_status_warming  trigger = { var:ova_rey_affection >= 10 } }
+			triggered_desc = { desc = je_ova_rey_status_cool     trigger = { always = yes } }
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_rey_confessed_tt
+			has_variable = ova_rey_confessed_cat
+		}
+	}
+
+	on_complete = {
+		set_variable = ova_rey_won_cat
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 25 }
+			ova_champion_add_xp = { AMOUNT = 40 }
+		}
+		trigger_event = { id = ova_rey.19 days = 3 }
+		effect_ova_rey_next_courtship = yes
+	}
+
+	fail = {
+		OR = {
+			custom_tooltip = {
+				text = je_ova_rey_john_gone_tt
+				AND = {
+					has_variable = ova_rey_john_char
+					NOT = { exists = var:ova_rey_john_char }
+				}
+			}
+			custom_tooltip = {
+				text = je_ova_rey_cold_tt
+				AND = {
+					has_variable = ova_rey_all_dates_cat
+					var:ova_rey_affection < 20
+				}
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				has_variable = ova_rey_john_char
+				NOT = { exists = var:ova_rey_john_char }
+			}
+			effect_ova_rey_story_over = yes
+			trigger_event = { id = ova_rey.78 days = 3 }
+		}
+		else = {
+			trigger_event = { id = ova_rey.80 days = 3 }
+			effect_ova_rey_next_courtship = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ============================================================================
+# Chapter 2: Welpenstadt - Bruna, the dogkin guard-captain
+# ============================================================================
+je_ova_rey_court_dog = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	scripted_progress_bar = ova_rey_affection_bar
+	scripted_button = ova_rey_confess_dog_button
+
+	immediate = {
+		trigger_event = { id = ova_rey.94 days = 10 }
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			effect_ova_rey_objectives_check = yes
+		}
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_rey_courtship_tick = yes
+			trigger_event = { id = ova_rey.94 days = 90 }
+			trigger_event = { id = ova_rey.94 days = 180 }
+			trigger_event = { id = ova_rey.94 days = 270 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		trigger_event = { id = ova_rey.80 days = 3 }
+		effect_ova_rey_next_courtship = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = { desc = je_ova_rey_status_won      trigger = { var:ova_rey_affection >= var:ova_rey_affection_cap } }
+			triggered_desc = { desc = je_ova_rey_status_smitten  trigger = { var:ova_rey_affection >= 40 } }
+			triggered_desc = { desc = je_ova_rey_status_fond     trigger = { var:ova_rey_affection >= 25 } }
+			triggered_desc = { desc = je_ova_rey_status_warming  trigger = { var:ova_rey_affection >= 10 } }
+			triggered_desc = { desc = je_ova_rey_status_cool     trigger = { always = yes } }
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_rey_confessed_tt
+			has_variable = ova_rey_confessed_dog
+		}
+	}
+
+	on_complete = {
+		set_variable = ova_rey_won_dog
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 25 }
+			ova_champion_add_xp = { AMOUNT = 40 }
+		}
+		trigger_event = { id = ova_rey.29 days = 3 }
+		effect_ova_rey_next_courtship = yes
+	}
+
+	fail = {
+		OR = {
+			custom_tooltip = {
+				text = je_ova_rey_john_gone_tt
+				AND = {
+					has_variable = ova_rey_john_char
+					NOT = { exists = var:ova_rey_john_char }
+				}
+			}
+			custom_tooltip = {
+				text = je_ova_rey_cold_tt
+				AND = {
+					has_variable = ova_rey_all_dates_dog
+					var:ova_rey_affection < 20
+				}
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				has_variable = ova_rey_john_char
+				NOT = { exists = var:ova_rey_john_char }
+			}
+			effect_ova_rey_story_over = yes
+			trigger_event = { id = ova_rey.78 days = 3 }
+		}
+		else = {
+			trigger_event = { id = ova_rey.80 days = 3 }
+			effect_ova_rey_next_courtship = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ============================================================================
+# Chapter 3: Barenberg - Ursla, the bearkin mountain smith
+# ============================================================================
+je_ova_rey_court_bear = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	scripted_progress_bar = ova_rey_affection_bar
+	scripted_button = ova_rey_confess_bear_button
+
+	immediate = {
+		trigger_event = { id = ova_rey.94 days = 10 }
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			effect_ova_rey_objectives_check = yes
+		}
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_rey_courtship_tick = yes
+			trigger_event = { id = ova_rey.94 days = 90 }
+			trigger_event = { id = ova_rey.94 days = 180 }
+			trigger_event = { id = ova_rey.94 days = 270 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		trigger_event = { id = ova_rey.80 days = 3 }
+		effect_ova_rey_next_courtship = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = { desc = je_ova_rey_status_won      trigger = { var:ova_rey_affection >= var:ova_rey_affection_cap } }
+			triggered_desc = { desc = je_ova_rey_status_smitten  trigger = { var:ova_rey_affection >= 40 } }
+			triggered_desc = { desc = je_ova_rey_status_fond     trigger = { var:ova_rey_affection >= 25 } }
+			triggered_desc = { desc = je_ova_rey_status_warming  trigger = { var:ova_rey_affection >= 10 } }
+			triggered_desc = { desc = je_ova_rey_status_cool     trigger = { always = yes } }
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_rey_confessed_tt
+			has_variable = ova_rey_confessed_bear
+		}
+	}
+
+	on_complete = {
+		set_variable = ova_rey_won_bear
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 25 }
+			ova_champion_add_xp = { AMOUNT = 40 }
+		}
+		trigger_event = { id = ova_rey.39 days = 3 }
+		effect_ova_rey_next_courtship = yes
+	}
+
+	fail = {
+		OR = {
+			custom_tooltip = {
+				text = je_ova_rey_john_gone_tt
+				AND = {
+					has_variable = ova_rey_john_char
+					NOT = { exists = var:ova_rey_john_char }
+				}
+			}
+			custom_tooltip = {
+				text = je_ova_rey_cold_tt
+				AND = {
+					has_variable = ova_rey_all_dates_bear
+					var:ova_rey_affection < 20
+				}
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				has_variable = ova_rey_john_char
+				NOT = { exists = var:ova_rey_john_char }
+			}
+			effect_ova_rey_story_over = yes
+			trigger_event = { id = ova_rey.78 days = 3 }
+		}
+		else = {
+			trigger_event = { id = ova_rey.80 days = 3 }
+			effect_ova_rey_next_courtship = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ============================================================================
+# Chapter 4: Hasenhafen - Lieselotte, the rabbitkin harvest maiden
+# ============================================================================
+je_ova_rey_court_rabbit = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	scripted_progress_bar = ova_rey_affection_bar
+	scripted_button = ova_rey_confess_rabbit_button
+
+	immediate = {
+		trigger_event = { id = ova_rey.94 days = 10 }
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			effect_ova_rey_objectives_check = yes
+		}
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_rey_courtship_tick = yes
+			trigger_event = { id = ova_rey.94 days = 90 }
+			trigger_event = { id = ova_rey.94 days = 180 }
+			trigger_event = { id = ova_rey.94 days = 270 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		trigger_event = { id = ova_rey.80 days = 3 }
+		effect_ova_rey_next_courtship = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = { desc = je_ova_rey_status_won      trigger = { var:ova_rey_affection >= var:ova_rey_affection_cap } }
+			triggered_desc = { desc = je_ova_rey_status_smitten  trigger = { var:ova_rey_affection >= 40 } }
+			triggered_desc = { desc = je_ova_rey_status_fond     trigger = { var:ova_rey_affection >= 25 } }
+			triggered_desc = { desc = je_ova_rey_status_warming  trigger = { var:ova_rey_affection >= 10 } }
+			triggered_desc = { desc = je_ova_rey_status_cool     trigger = { always = yes } }
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_rey_confessed_tt
+			has_variable = ova_rey_confessed_rabbit
+		}
+	}
+
+	on_complete = {
+		set_variable = ova_rey_won_rabbit
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 25 }
+			ova_champion_add_xp = { AMOUNT = 40 }
+		}
+		trigger_event = { id = ova_rey.49 days = 3 }
+		effect_ova_rey_next_courtship = yes
+	}
+
+	fail = {
+		OR = {
+			custom_tooltip = {
+				text = je_ova_rey_john_gone_tt
+				AND = {
+					has_variable = ova_rey_john_char
+					NOT = { exists = var:ova_rey_john_char }
+				}
+			}
+			custom_tooltip = {
+				text = je_ova_rey_cold_tt
+				AND = {
+					has_variable = ova_rey_all_dates_rabbit
+					var:ova_rey_affection < 20
+				}
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				has_variable = ova_rey_john_char
+				NOT = { exists = var:ova_rey_john_char }
+			}
+			effect_ova_rey_story_over = yes
+			trigger_event = { id = ova_rey.78 days = 3 }
+		}
+		else = {
+			trigger_event = { id = ova_rey.80 days = 3 }
+			effect_ova_rey_next_courtship = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ============================================================================
+# Chapter 5: Fuschtal - Fenna, the foxkin scholar of the wooded vale
+# ============================================================================
+je_ova_rey_court_fox = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	scripted_progress_bar = ova_rey_affection_bar
+	scripted_button = ova_rey_confess_fox_button
+
+	immediate = {
+		trigger_event = { id = ova_rey.94 days = 10 }
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			effect_ova_rey_objectives_check = yes
+		}
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_rey_courtship_tick = yes
+			trigger_event = { id = ova_rey.94 days = 90 }
+			trigger_event = { id = ova_rey.94 days = 180 }
+			trigger_event = { id = ova_rey.94 days = 270 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		trigger_event = { id = ova_rey.80 days = 3 }
+		effect_ova_rey_next_courtship = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = { desc = je_ova_rey_status_won      trigger = { var:ova_rey_affection >= var:ova_rey_affection_cap } }
+			triggered_desc = { desc = je_ova_rey_status_smitten  trigger = { var:ova_rey_affection >= 40 } }
+			triggered_desc = { desc = je_ova_rey_status_fond     trigger = { var:ova_rey_affection >= 25 } }
+			triggered_desc = { desc = je_ova_rey_status_warming  trigger = { var:ova_rey_affection >= 10 } }
+			triggered_desc = { desc = je_ova_rey_status_cool     trigger = { always = yes } }
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_rey_confessed_tt
+			has_variable = ova_rey_confessed_fox
+		}
+	}
+
+	on_complete = {
+		set_variable = ova_rey_won_fox
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 25 }
+			ova_champion_add_xp = { AMOUNT = 40 }
+		}
+		trigger_event = { id = ova_rey.59 days = 3 }
+		effect_ova_rey_next_courtship = yes
+	}
+
+	fail = {
+		OR = {
+			custom_tooltip = {
+				text = je_ova_rey_john_gone_tt
+				AND = {
+					has_variable = ova_rey_john_char
+					NOT = { exists = var:ova_rey_john_char }
+				}
+			}
+			custom_tooltip = {
+				text = je_ova_rey_cold_tt
+				AND = {
+					has_variable = ova_rey_all_dates_fox
+					var:ova_rey_affection < 20
+				}
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				has_variable = ova_rey_john_char
+				NOT = { exists = var:ova_rey_john_char }
+			}
+			effect_ova_rey_story_over = yes
+			trigger_event = { id = ova_rey.78 days = 3 }
+		}
+		else = {
+			trigger_event = { id = ova_rey.80 days = 3 }
+			effect_ova_rey_next_courtship = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ============================================================================
+# Capstone: the presidency of Reyorn. Every heroine John actually won becomes a
+# primary culture of the republic, and John himself takes the president's chair.
+# ============================================================================
+je_ova_rey_ascension = {
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_rey.90 days = 10 }
+	}
+
+	on_monthly_pulse = {
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = { desc = je_ova_rey_ascension_status_done trigger = { has_variable = ova_rey_ascended } }
+			triggered_desc = { desc = je_ova_rey_ascension_status_wait trigger = { always = yes } }
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_rey_ascension_tt
+			has_variable = ova_rey_ascended
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 50 }
+		}
+		effect_ova_rey_story_over = yes
+		trigger_event = { id = ova_rey.91 days = 5 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_rey_john_gone_tt
+			AND = {
+				has_variable = ova_rey_john_char
+				NOT = { exists = var:ova_rey_john_char }
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_rey_story_over = yes
+		trigger_event = { id = ova_rey.78 days = 3 }
+	}
+
+	weight = 5000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}

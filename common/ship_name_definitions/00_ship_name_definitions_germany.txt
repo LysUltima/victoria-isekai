@@ -1,0 +1,1 @@
+﻿# Isekai TC: vanilla nation-specific ship names disabled (tags no longer exist; see 99_ship_name_definitions_fallbacks.txt for generic fallback naming)

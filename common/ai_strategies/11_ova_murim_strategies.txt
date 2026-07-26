@@ -1,0 +1,372 @@
+﻿### Murim storyline - AI strategies
+# Both strategies are full copies of vanilla ai_strategy_territorial_expansion
+# (common/ai_strategies/02_diplomatic_strategies.txt) with every Earth
+# reference stripped, then a storyline-specific possible/weight/aggression
+# layered on top per tools/design/MURIM_STORYLINE_SPEC.md A5 - same template
+# common/ai_strategies/10_ova_isekai_strategies.txt uses.
+
+ai_strategy_ova_orthodox_alliance = {
+	icon = "gfx/interface/icons/ai_strategy_icons/territorial_expansion.dds"
+
+	type = diplomatic
+
+	will_form_power_bloc = {
+		always = no
+	}
+
+	undesirable_infamy_level = {
+		value = 50
+
+		if = {
+			limit = {
+				has_technology_researched = pan-nationalism
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_technology_researched = nationalism
+			}
+			multiply = 1.25
+		}
+	}
+
+	unacceptable_infamy_level = {
+		value = 100
+	}
+
+	ideological_opinion_effect_mult = {
+		value = 0.75
+	}
+
+	wargoal_maneuvers_fraction = {
+		value = 0
+	}
+
+    diplomatic_play_support = {
+		value = 0
+
+		# The war of the murim: the Orthodox sects lean hard toward backing one
+		# another whenever the Heavenly Demon Cult leads the opposing side. A
+		# large value tips the AI's support calculation, though it does not
+		# hard-force the join (the engine still weighs relevance/relative power).
+		# root = us (a sect); scope:country = the country we might support;
+		# scope:enemy_country = the opposing side's leader.
+		if = {
+            limit = {
+                c:CHE ?= scope:enemy_country
+                scope:country = { ova_murim_is_alliance_sect_trigger = yes }
+            }
+            add = {
+                value = 1000
+                desc = "ova_murim_support_fellow_sect_vs_cult"
+            }
+        }
+
+		# And any hand raised against the Cult is still worth a lesser push.
+		if = {
+            limit = {
+                c:CHE ?= scope:enemy_country
+                scope:country = { NOT = { ova_murim_is_alliance_sect_trigger = yes } }
+            }
+            add = {
+                value = 100
+                desc = "ova_murim_support_vs_cult"
+            }
+        }
+	}
+
+	diplomatic_play_neutrality = {
+		value = 0
+	}
+
+	diplomatic_play_boldness = {
+		value = 25
+	}
+
+	recklessness = {
+		value = 0.25
+	}
+
+	aggression = {
+		value = 1
+
+		if = {
+			limit = {
+				NOT = { is_country_type = unrecognized }
+				scope:target_country = { is_country_type = unrecognized }
+			}
+			add = 1
+		}
+
+		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
+		if = {
+			limit = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}
+			}
+			multiply = 0.25
+		}
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		multiply = {
+			value = "ai_ideological_opinion(scope:target_country)"
+			multiply = -0.1
+			add = 1
+			max = 2.0
+			min = 0.5
+		}
+
+		# The Alliance's whole purpose - press the war against the Heavenly
+		# Demon Cult. A flat, large boost that ignores the antagonistic-attitude
+		# damping above (the secret goal will read as hostile, but the crusade
+		# does not lose its nerve over it).
+		if = {
+			limit = { c:CHE ?= scope:target_country }
+			add = 4.0
+		}
+	}
+
+	building_group_weights = {
+		bg_army = 1.5
+	}
+
+	secret_goal_weights = {
+		protect = 3.0
+		conquer = 0.5
+	}
+
+	wargoal_weights = {
+		annex_country = 1.5
+		conquer_state = 2.0
+		return_state = 1.5
+		force_nationalization = 0.25
+	}
+
+	secret_goal_scores = {
+		conquer = {
+			trigger = {
+				NOT = { scope:target_country = { is_subject_of = root } }
+				can_reach_target_country = yes
+				# the usual adjacency/rank gates apply to ordinary neighbours,
+				# but never to the Cult: the Alliance means to end it whatever
+				# its rank or how far the passes run (the isekai reclamation's
+				# gate-bypass pattern)
+				OR = {
+					AND = {
+						has_strategic_adjacency = scope:target_country
+						scope:target_country.country_rank <= root.country_rank
+					}
+					c:CHE ?= scope:target_country
+				}
+			}
+			score = {
+				if = {
+					limit = {
+						NOT = { is_country_type = unrecognized }
+						scope:target_country = { NOT = { is_country_type = unrecognized } }
+					}
+					add = 25
+				}
+				else_if = {
+					limit = {
+						scope:target_country = { is_country_type = unrecognized }
+					}
+					add = 50
+				}
+				# the war of the murim, above every ordinary quarrel
+				if = {
+					limit = { c:CHE ?= scope:target_country }
+					add = 100
+				}
+			}
+		}
+		# even where conquest is out of reach, the Alliance never makes peace
+		# with the Heavenly Demon Cult
+		antagonize = {
+			trigger = {
+				c:CHE ?= scope:target_country
+			}
+			score = {
+				value = 150
+			}
+		}
+	}
+
+	possible = {
+		ova_murim_is_alliance_sect_trigger = yes
+		exists = c:CHE
+	}
+
+	weight = {
+		value = 150
+	}
+}
+
+ai_strategy_ova_heavenly_demon = {
+	icon = "gfx/interface/icons/ai_strategy_icons/territorial_expansion.dds"
+
+	type = diplomatic
+
+	will_form_power_bloc = {
+		OR = {
+			global_country_ranking <= 3
+			AND = {
+				country_rank >= rank_value:great_power
+				has_technology_researched = nationalism
+			}
+		}
+	}
+
+	undesirable_infamy_level = {
+		value = 50
+
+		if = {
+			limit = {
+				has_technology_researched = pan-nationalism
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_technology_researched = nationalism
+			}
+			multiply = 1.25
+		}
+	}
+
+	unacceptable_infamy_level = {
+		value = 100
+	}
+
+	ideological_opinion_effect_mult = {
+		value = 0.75
+	}
+
+	wargoal_maneuvers_fraction = {
+		value = 0.15
+	}
+
+	diplomatic_play_neutrality = {
+		value = 25
+	}
+
+	diplomatic_play_boldness = {
+		value = 25
+	}
+
+	recklessness = {
+		value = 0.25
+	}
+
+	aggression = {
+		value = 1
+
+		if = {
+			limit = {
+				NOT = { is_country_type = unrecognized }
+				scope:target_country = { is_country_type = unrecognized }
+			}
+			add = 1
+		}
+
+		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
+		if = {
+			limit = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}
+			}
+			multiply = 0.25
+		}
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		multiply = {
+			value = "ai_ideological_opinion(scope:target_country)"
+			multiply = -0.1
+			add = 1
+			max = 2.0
+			min = 0.5
+		}
+
+		# Will prevent the player from completing the JE
+		#if = {
+		#	limit = { ova_murim_target_is_alliance_sect_trigger = yes }
+		#	add = 4.0
+		#}
+	}
+
+	building_group_weights = {
+		bg_army = 1.5
+	}
+
+	secret_goal_weights = {
+		protect = 0.5
+		conquer = 2.0
+	}
+
+	wargoal_weights = {
+		annex_country = 1.5
+		conquer_state = 2.0
+		return_state = 1.5
+		force_nationalization = 0.25
+	}
+
+	secret_goal_scores = {
+		conquer = {
+			trigger = {
+				NOT = { scope:target_country = { is_subject_of = root } }
+				can_reach_target_country = yes
+				# ordinary neighbours are gated by adjacency and rank; the eight
+				# Orthodox sects never are - the Cult means to take every seat
+				OR = {
+					AND = {
+						has_strategic_adjacency = scope:target_country
+						scope:target_country.country_rank <= root.country_rank
+					}
+					ova_murim_target_is_alliance_sect_trigger = yes
+				}
+			}
+			score = {
+				if = {
+					limit = {
+						NOT = { is_country_type = unrecognized }
+						scope:target_country = { NOT = { is_country_type = unrecognized } }
+					}
+					add = 25
+				}
+				else_if = {
+					limit = {
+						scope:target_country = { is_country_type = unrecognized }
+					}
+					add = 50
+				}
+				# the war of the murim, above every ordinary conquest
+				if = {
+					limit = { ova_murim_target_is_alliance_sect_trigger = yes }
+					add = 100
+				}
+			}
+		}
+		# the Cult never rests easy beside a standing Orthodox banner
+		antagonize = {
+			trigger = {
+				ova_murim_target_is_alliance_sect_trigger = yes
+			}
+			score = {
+				value = 150
+			}
+		}
+	}
+
+	possible = {
+		c:CHE ?= THIS
+	}
+
+	weight = {
+		value = 200
+	}
+}

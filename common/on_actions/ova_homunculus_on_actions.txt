@@ -1,0 +1,242 @@
+﻿# Isekai TC: homunculus factories literally assemble new people.
+# Ported from realms-of-exether's build_soulwrought. Root = State.
+# Each month, homunculus factory PMs contribute state_homunculus_created_add
+# (workforce-scaled). We accumulate it into a per-state variable and, once a
+# threshold is passed, spawn a batch of homunculus-culture pops. Freshly grown
+# homunculi start illiterate laborers (or slaves where slavery is legal).
+build_homunculus = {
+	effect = {
+		if = {
+			limit = {
+				any_scope_building = {
+					is_building_type = building_homunculus_factory
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						has_variable = homunculus_created_count
+					}
+				}
+				set_variable = {
+					name = homunculus_created_count
+					value = 0
+				}
+			}
+
+			set_variable = {
+				name = assembly
+				value = modifier:state_homunculus_created_add
+			}
+
+			set_variable = {
+				name = assembly_mult
+				value = modifier:state_homunculus_created_mult
+			}
+
+			change_variable = {
+				name = assembly_mult
+				add = 1
+			}
+
+			change_variable = {
+				name = assembly
+				multiply = var:assembly_mult
+			}
+
+			change_variable = {
+				name = homunculus_created_count
+				add = var:assembly
+			}
+
+			if = { # Giving homunculi rights means you have to give them a childhood, reducing homunculi production
+				limit = {
+					owner = {
+						has_law = law_type:law_slavery_banned
+					}
+				}
+                if = {
+					limit = {
+						var:homunculus_created_count >= 1000
+						var:homunculus_created_count < 25000
+					}
+					create_pop = {
+						pop_type = laborers
+						culture  = homunculus
+						size = 750
+					}
+					change_variable = {
+						name = homunculus_created_count
+						subtract = 1000
+					}
+					every_scope_pop = {
+						limit = {
+							has_pop_culture = homunculus
+							literacy_rate < 0.2 # slight margin: we change poptype below, so don't hit the same ones twice
+						}
+						set_pop_literacy = {
+							literacy_rate = 0.33
+						}
+						change_poptype = pop_type:laborers
+					}
+				}
+				if = {
+					limit = {
+						var:homunculus_created_count >= 25000
+						var:homunculus_created_count < 50000
+					}
+					create_pop = {
+						pop_type = laborers
+						culture  = homunculus
+						size = 18750
+					}
+					change_variable = {
+						name = homunculus_created_count
+						subtract = 25000
+					}
+					every_scope_pop = {
+						limit = {
+							has_pop_culture = homunculus
+							literacy_rate < 0.2 # slight margin: we change poptype below, so don't hit the same ones twice
+						}
+						set_pop_literacy = {
+							literacy_rate = 0.33
+						}
+						change_poptype = pop_type:laborers
+					}
+				}
+				else_if = {
+					limit = {
+						var:homunculus_created_count >= 50000
+						var:homunculus_created_count < 75000
+					}
+					create_pop = {
+						pop_type = laborers
+						culture  = homunculus
+						size = 37500
+					}
+					change_variable = {
+						name = homunculus_created_count
+						subtract = 50000
+					}
+					every_scope_pop = {
+						limit = {
+							has_pop_culture = homunculus
+							literacy_rate < 0.2
+						}
+						set_pop_literacy = {
+							literacy_rate = 0.33
+						}
+						change_poptype = pop_type:laborers
+					}
+				}
+				else_if = {
+					limit = {
+						var:homunculus_created_count >= 75000
+					}
+					create_pop = {
+						pop_type = laborers
+						culture  = homunculus
+						size = 56250
+					}
+					change_variable = {
+						name = homunculus_created_count
+						subtract = 75000
+					}
+					every_scope_pop = {
+						limit = {
+							has_pop_culture = homunculus
+							literacy_rate < 0.2
+						}
+						set_pop_literacy = {
+							literacy_rate = 0.33
+						}
+						change_poptype = pop_type:laborers
+					}
+				}
+			}
+			else = {
+                if = {
+					limit = {
+						var:homunculus_created_count >= 1000
+						var:homunculus_created_count < 25000
+					}
+					create_pop = {
+						pop_type = slaves
+						culture  = homunculus
+						size = 1000
+					}
+					change_variable = {
+						name = homunculus_created_count
+						subtract = 1000
+					}
+				}
+				if = {
+					limit = {
+						var:homunculus_created_count >= 25000
+						var:homunculus_created_count < 50000
+					}
+					create_pop = {
+						pop_type = slaves
+						culture  = homunculus
+						size = 25000
+					}
+					change_variable = {
+						name = homunculus_created_count
+						subtract = 25000
+					}
+				}
+				else_if = {
+					limit = {
+						var:homunculus_created_count >= 50000
+						var:homunculus_created_count < 75000
+					}
+					create_pop = {
+						pop_type = slaves
+						culture  = homunculus
+						size = 50000
+					}
+					change_variable = {
+						name = homunculus_created_count
+						subtract = 50000
+					}
+				}
+				else_if = {
+					limit = {
+						var:homunculus_created_count >= 75000
+					}
+					create_pop = {
+						pop_type = slaves
+						culture  = homunculus
+						size = 75000
+					}
+					change_variable = {
+						name = homunculus_created_count
+						subtract = 75000
+					}
+				}
+			}
+
+			# Once homunculi are a meaningful share of a state that grows them,
+			# grant them a homeland so they stop assimilating/emigrating away.
+			if = {
+				limit = {
+					state_region = {
+						NOT = { is_homeland = cu:homunculus }
+					}
+					culture_percent_state = {
+						target = cu:homunculus
+						value >= 0.3
+					}
+				}
+				state_region = {
+					add_homeland = cu:homunculus
+				}
+			}
+
+			remove_variable = assembly
+			remove_variable = assembly_mult
+		}
+	}
+}

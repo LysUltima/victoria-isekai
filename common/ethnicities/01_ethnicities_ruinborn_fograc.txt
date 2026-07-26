@@ -1,0 +1,58 @@
+﻿@neg1_min = 0.4
+@neg1_max = 0.5
+
+@neg2_min = 0.3
+@neg2_max = 0.4
+
+@neg3_min = 0.1
+@neg3_max = 0.3
+
+@pos1_min = 0.5
+@pos1_max = 0.6
+
+@pos2_min = 0.6
+@pos2_max = 0.7
+
+@pos3_min = 0.7
+@pos3_max = 0.9
+
+@beauty1min = 0.35
+@beauty1max = 0.65
+
+@beauty2min = 0.4
+@beauty2max = 0.6
+
+@beauty3min = 0.45
+@beauty3max = 0.55
+
+@blend1min = 0.0
+@blend1max = 0.2
+
+@blend2min = 0.2
+@blend2max = 0.5
+
+@blend3min = 0.5
+@blend3max = 0.8
+
+ruinborn_fograc = {
+	template = "moon_elf"
+
+	skin_color = {
+		20 = { 0.0 0.5 1.0 0.5 } #Black
+		5 = { 0.0 0.45 1.0 0.49 } #Brown
+
+	}
+	eye_color = {
+		# Amber?
+		50 = { 0.3 0.0 0.4 0.3 }
+	}
+	hair_color = {
+		
+		# Black
+		95 = { 0.01 0.9 0.5 0.99 }
+	}
+	
+	hairstyles = {
+		10 = { name = african_hairstyles 		range = { 0.0 1.0 } }
+	}
+}

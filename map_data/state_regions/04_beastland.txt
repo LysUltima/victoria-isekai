@@ -1,0 +1,1383 @@
+﻿# CAT Catlandia
+STATE_CATPITAL = {
+    id = 181
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x4AB020" "x4EC308" "x50B400" "x51A900" "x53B800" "x55A003" "x58B715" "x58B71A" "x59BD20" "x5AA80B" "x5CBB00" "x5DBC00" "x5EAB1F" "x60BC22" "x60C520" "x62A721" "x64B705" "x68A40C" "x68BA1E" "x6CAE1B" "x6CC403" }
+    traits = { "state_trait_natural_harbors" }
+    city = "x55A003"
+    port = "x5CBB00"
+    farm = "x58B715"
+    mine = "x53B800"
+    wood = "x50B400"
+    arable_land = 175
+    arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_fishing_wharf = 6
+    }
+    naval_exit_id = 3040
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 44
+    }
+}
+
+STATE_MEOWNTAINS = {
+    id = 182
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x26D638" "x28E82F" "x2AE126" "x2AFD26" "x2DF22C" "x2EDD1A" "x2FE13F" "x30E52E" "x30F31E" "x31ED29" "x33E034" "x34DD27" "x35EC23" "x35F922" "x37F53E" "x39EC31" "x3AFB24" "x3DF126" "x3DF72A" "x41D733" "x41F223" "x42ED1E" "x43F528" "x45ED24" "x46DA34" "x46E028" "x46EB30" "x47F32F" "x48D922" "x48D932" "x49E328" "x4AEB32" "x4AF62D" "x4EF13B" }
+    impassable = { "x28E82F" "x2AE126" "x2DF22C" "x37F53E" "x42ED1E" "x45ED24" }
+    city = "x4AF62D"
+    farm = "x4AEB32"
+    mine = "x35EC23"
+    wood = "x3AFB24"
+    arable_land = 197
+    arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_spirit_beast_hunting = 15
+        building_iron_mine = 91
+        building_sulfur_mine = 78
+    }
+}
+
+STATE_ANYA = {
+    id = 183
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x00390E" "x003C00" "x015813" "x035B00" "x043C11" "x045318" "x065000" "x0A4300" "x0D4916" "x103715" "x104E0E" "x104E18" "x124313" "x155816" "x175115" "x193605" "x193900" "x1B3A0F" "x1E4E14" "x205C00" "x224C0A" }
+    city = "x0A4300"
+    farm = "x175115"
+    mine = "x0D4916"
+    wood = "x035B00"
+    arable_land = 172
+    arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+    }
+}
+
+STATE_ERENYA = {
+    id = 184
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x911323" "x912925" "x92292D" "x923333" "x931C2B" "x942817" "x972F16" "x982420" "x9A1E36" "x9B2B3B" "x9C1431" "x9C1C22" "x9D2518" "x9E1930" "x9E2018" "x9E271D" "x9E3722" "x9F1B23" "xA0221F" "xA1322A" "xA2322D" "xA62C16" "xA73034" "xA91816" "xA92133" "xA92F18" "xAA1314" "xAB1D34" "xAC1F24" "xB1303C" "xB21822" "xB22C2A" "xB3132C" "xB42418" "xB5222D" "xB81D1A" "xB91116" "xB92A26" }
+    city = "xA1322A"
+    farm = "x92292D"
+    mine = "x9A1E36"
+    wood = "x942817"
+    arable_land = 215
+    arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+    }
+}
+
+STATE_ISLANYA = {
+    id = 185
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x7D658E" "x80619A" "x815D99" "x815FA1" "x8162AA" "x86559B" "x866E9E" "x8B6E9A" "x8C5587" "x8E6392" "x9351A0" "x935E9B" "x9461AB" "x9652A0" "x995DA7" "x9C5B97" "x9C6BAA" "x9D739F" }
+    impassable = { "x80619A" }
+    city = "x935E9B"
+    port = "x86559B"
+    farm = "x9461AB"
+    mine = "x9C5B97"
+    wood = "x995DA7"
+    arable_land = 157
+    arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_fishing_wharf = 10
+        building_spirit_beast_hunting = 17
+        building_iron_mine = 67
+        building_sulfur_mine = 63
+    }
+    naval_exit_id = 3040
+}
+# TUC Tuconya
+STATE_TUCONYA = {
+    id = 186
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x00B81B" "x05C727" "x08B543" "x08C227" "x0BCE3C" "x0ED82A" "x18C73F" "x1ABA3D" "x1CBA3F" "x1CBE24" "x1EBF41" "x20C51C" "x20C83A" "x21BB42" }
+    impassable = { "x1CBA3F" "x1EBF41" }
+    city = "x20C83A"
+    port = "x18C73F"
+    farm = "x1CBE24"
+    mine = "x20C51C"
+    wood = "x08B543"
+    arable_land = 150
+    arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_fishing_wharf = 10
+        building_spirit_beast_hunting = 16
+    }
+    naval_exit_id = 3040
+}
+# AIL Ailenya
+STATE_AILENYA = {
+    id = 187
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "xCED134" "xCFBA45" "xD0B940" "xD2B73D" "xD3D53D" "xD5D437" "xDBBB27" "xDCCD4C" "xDDCE40" "xDDD64C" "xDDDF41" "xDEBC40" "xE0D43E" "xE0D845" "xE1C244" "xE2D226" "xE7BA30" "xEABD42" "xEDC52D" "xEED32E" "xEFD744" "xF0D54B" "xF2D542" "xF3B843" "xF4CE3F" "xF6B932" }
+    city = "xF6B932"
+    port = "xE1C244"
+    farm = "xEED32E"
+    mine = "xEABD42"
+    wood = "xD0B940"
+    arable_land = 187
+    arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_fishing_wharf = 10
+        building_iron_mine = 83
+        building_sulfur_mine = 77
+    }
+    naval_exit_id = 3040
+}
+# HAR Harunya
+STATE_HARUNYA = {
+    id = 188
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x6E5763" "x6E6243" "x706053" "x715D5F" "x725756" "x736149" "x736467" "x736A5A" "x785E48" "x7D5867" "x7E6349" "x7F5D48" "x806B5B" "x836644" "x874F49" "x8B5046" "x8B5364" "x8F5F54" "x904541" "x93493F" "x935567" "x944E60" "x945646" "x955740" }
+    city = "x945646"
+    port = "x944E60"
+    farm = "x874F49"
+    mine = "x6E6243"
+    wood = "x785E48"
+    arable_land = 182
+    arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_fishing_wharf = 10
+        building_lead_mine = 71
+        building_iron_mine = 70
+    }
+    naval_exit_id = 3040
+}
+# URR Urruma
+STATE_URRUMA = {
+    id = 189
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x9E9CA7" "x9EAD93" "x9F8A85" "x9F9D88" "xA19080" "xA1A889" "xA58991" "xA5937F" "xA59F8A" "xA5A39A" "xA69792" "xA69793" "xA7A58D" "xA89D9B" "xAA9787" "xAAA190" "xAC99A7" "xAD8EA3" "xAD9D9D" "xADA683" "xAF8E8D" "xAF90A1" "xAFAB81" "xAFAF96" "xB48D96" "xB49689" "xB4969B" "xB4A3A5" "xB4A789" "xB5ABA0" "xB6A783" "xB79186" "xB8AF9E" "xBA8897" "xBA979D" "xBAA0A0" "xBAAD91" "xBBA0A7" "xBC8F8E" "xBCAFA3" "xBD8999" "xBF9980" "xC09687" "xC2929E" "xC2AC8F" "xC3A0A3" "xC4A780" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "xBAA0A0"
+    farm = "x9EAD93"
+    mine = "xB4A3A5"
+    wood = "xAFAB81"
+    arable_land = 172
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 5
+    }
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 11
+    }
+}
+
+STATE_RAUMA = {
+    id = 190
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x309F12" "x31A40B" "x329813" "x32A206" "x33960C" "x34A700" "x35A100" "x36A712" "x37980D" "x39A100" "x3A8612" "x3A9A00" "x3AA200" "x3CA609" "x3CAB0F" "x3E9400" "x439100" "x439A00" "x458A00" "x469000" "x46AB17" "x488600" "x489600" "x498B18" "x499515" "x4D8301" "x4D8400" "x4D9A00" "x4E8300" "x4EAA0E" "x4F8E14" "x4F9300" "x509A00" "x50AA0F" "x51980B" "x539E00" "x548E14" "x54A900" "x569000" "x579B09" "x588D00" "x588D0A" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "x509A00"
+    farm = "x3CAB0F"
+    mine = "x54A900"
+    wood = "x439A00"
+    arable_land = 167
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 5
+    }
+}
+# WAP Wapapow
+STATE_WAPAPOW = {
+    id = 191
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x767B17" "x786C2B" "x797E1C" "x797E30" "x7C561F" "x7C5825" "x806039" "x806C30" "x825B35" "x826F2C" "x827C1B" "x835A2F" "x836829" "x84573D" "x84771E" "x855C29" "x866518" "x86711A" "x876836" "x885B35" "x897E23" "x8A6F25" "x8B6F15" "x8C6A31" "x8D6723" "x906037" "x906F1C" "x92603D" "x926137" "x927732" "x947130" "x95562D" "x956035" "x956A28" "x96633A" "x986D2A" "x997032" "x997B2A" "x9A6E2F" "x9C5820" "x9C5B30" "x9C6C19" "x9D5E23" "x9D6521" }
+    traits = { "state_trait_natural_harbors" }
+    city = "x84573D"
+    port = "x9C5820"
+    farm = "x906F1C"
+    mine = "x825B35"
+    wood = "x8D6723"
+    arable_land = 207
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_fishing_wharf = 14
+    }
+    naval_exit_id = 3009
+}
+
+STATE_JACHACHOW = {
+    id = 192
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x48525B" "x4C623A" "x4F4254" "x4F4A50" "x503E46" "x505343" "x52435D" "x545055" "x573F57" "x576157" "x584450" "x584D4F" "x585F3C" "x595B59" "x5B4D43" "x5E4C4F" "x62574E" "x635F35" "x654557" "x663C36" "x6A5E40" "x6A5F36" "x6C523D" "x6F3B41" "x6F594D" "x6F5F47" }
+    impassable = { "x4F4254" "x503E46" }
+    city = "x6A5F36"
+    port = "x584450"
+    farm = "x4F4A50"
+    mine = "x6F3B41"
+    wood = "x545055"
+    arable_land = 162
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_fishing_wharf = 5
+        building_spirit_beast_hunting = 21
+        building_iron_mine = 81
+        building_sulfur_mine = 85
+    }
+    naval_exit_id = 3040
+}
+
+STATE_FRAKAKOW = {
+    id = 193
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x008A36" "x008C23" "x008E2D" "x00973A" "x009A21" "x009B25" "x009E43" "x00A036" "x00A12C" "x00A33B" "x00A82A" "x00AA1D" "x01A730" "x038E24" "x049C3C" "x05A734" "x07963A" "x07AD34" "x08A925" "x0C9728" "x0CA73E" "x0E9437" "x0EB03E" "x0F8C39" "x0F9334" "x108E1D" "x10A435" "x11893F" "x118C3A" "x11A128" "x13893A" "x13AB33" "x148841" "x149A39" "x15B032" "x169A1E" "x17AE39" "x19A22E" }
+    impassable = { "x07AD34" "x0CA73E" "x148841" }
+    city = "x05A734"
+    port = "x00A82A"
+    farm = "x11A128"
+    mine = "x00A12C"
+    wood = "x008C23"
+    arable_land = 182
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_fishing_wharf = 8
+        building_spirit_beast_hunting = 13
+    }
+    naval_exit_id = 3009
+}
+
+STATE_AOWO = {
+    id = 194
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "xB5B2D9" "xB9C6B7" "xDBA6CD" "xDBC8BE" }
+    city = "xB5B2D9"
+    port = "xDBC8BE"
+    farm = "xDBA6CD"
+    mine = "xB5B2D9"
+    wood = "xB9C6B7"
+    arable_land = 108
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_fishing_wharf = 5
+    }
+    naval_exit_id = 3009
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 6
+    }
+}
+# HAT Hateeho
+STATE_HATEEHO = {
+    id = 195
+    subsistence_building = "building_subsistence_fishing_village"
+    provinces = { "x7D9700" "x7F6F15" "x7F8A00" "x818E00" "x847107" "x847D02" "x849600" "x859406" "x868200" "x877704" "x877E00" "x897300" "x899715" "x8B7006" "x8C9104" "x8D9100" "x8D9600" "x8E8D00" "x8F890C" "x907A00" "x917713" "x918000" "x93890B" "x939400" "x958E00" "x959400" "x967B04" "x968000" "x97700E" "x987100" "x989600" "x9A7102" "x9B7100" "x9B9500" "x9C7B04" "x9C7E12" "x9C8700" "x9C940E" "x9C960B" "xA18A13" "xA27A10" "xA28B0F" "xA29100" "xA3720F" }
+    traits = { "state_trait_siberian_terrain" "state_trait_natural_harbors" }
+
+    city = "x7F8A00"
+    port = "x849600"
+    farm = "x93890B"
+    mine = "x9C7B04"
+    wood = "x8D9100"
+    arable_land = 108
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_fishing_wharf = 12
+        building_whaling_station = 9
+        building_iron_mine = 50
+        building_sulfur_mine = 55
+    }
+    naval_exit_id = 3009
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 25
+        undiscovered_amount = 18
+    }
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 11
+    }
+}
+
+STATE_GERING = {
+    id = 196
+    subsistence_building = "building_subsistence_fishing_village"
+    provinces = { "x0D6A3D" "x0D6D1F" "x0E6F2E" "x0F5122" "x115918" "x116237" "x124B36" "x125F15" "x136020" "x145D2C" "x155634" "x19593D" "x1D653D" "x216A22" "x246122" "x246E28" "x255338" "x255515" "x27651D" "x2B5B3D" "x2E4C39" "x306931" "x306939" "x324B2B" "x33593C" }
+    traits = { "state_trait_siberian_terrain" }
+
+    city = "x324B2B"
+    port = "x115918"
+    farm = "x33593C"
+    mine = "x216A22"
+    wood = "x0F5122"
+    arable_land = 75
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_fishing_wharf = 0
+        building_whaling_station = 4
+    }
+    naval_exit_id = 3009
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 18
+        undiscovered_amount = 13
+    }
+}
+# AHE Ahee
+STATE_AHEE = {
+    id = 197
+    subsistence_building = "building_subsistence_fishing_village"
+    provinces = { "x2FC72D" "x30CF3B" "x30CF48" "x31CF33" "x32C438" "x32CE2F" "x33C23C" "x34C530" "x34C82B" "x35D33F" "x3BBD34" "x3DCA49" "x3DDB34" "x3FC64C" "x42C230" "x42D938" "x43CC4C" "x44B73C" "x44C62A" "x44D32F" "x44D73D" "x45BB2F" "x45C04C" "x49BD30" "x49C14F" "x4ACF39" "x4BC228" "x4BD630" "x4CBE4F" "x52C040" "x52C746" "x53BE2B" "x54D34E" "x54DA32" "x55C838" "x55D82F" }
+    traits = { "state_trait_siberian_terrain" }
+
+    city = "x44B73C"
+    port = "x31CF33"
+    farm = "x44C62A"
+    mine = "x30CF3B"
+    wood = "x4BC228"
+    arable_land = 27
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_fishing_wharf = 0
+        building_whaling_station = 8
+    }
+    naval_exit_id = 3027
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 6
+        undiscovered_amount = 12
+    }
+}
+# UAN Uang-Ko
+STATE_UANG_KO = {
+    id = 198
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "xCE4F0B" "xCE661E" "xD06F1D" "xD2571B" "xD26214" "xD4651D" "xD46B1F" "xD4702B" "xD47525" "xD5500C" "xD55C11" "xD56522" "xD66319" "xD66527" "xD96807" "xDA6718" "xDB701F" "xDC5311" "xDC740A" "xDD6A24" "xDE5C2A" "xDF5313" "xDF6304" "xDF6414" "xDF651E" "xE0720C" "xE44D14" "xE46106" "xE6551B" "xE66727" "xE66E08" "xE85514" "xE8551D" "xE86119" "xE9541F" "xE95911" "xE9732A" "xEA5005" "xEB500B" "xEB6C0C" "xEB6F13" "xED6D1C" "xEE590B" "xEE590C" "xEE6707" "xEE6E0E" "xEE6F0B" "xEF4F25" "xEF7119" "xF14D2A" "xF15A14" "xF25811" "xF26D28" "xF3560E" "xF65313" }
+    traits = { "state_trait_natural_harbors" }
+    city = "xE44D14"
+    port = "xD4651D"
+    farm = "xEE590C"
+    mine = "xF15A14"
+    wood = "xD56522"
+    arable_land = 230
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_fishing_wharf = 16
+        building_iron_mine = 83
+        building_sulfur_mine = 64
+    }
+    naval_exit_id = 3040
+}
+
+STATE_EE_NOO = {
+    id = 199
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x006D2F" "x006E50" "x007333" "x015E35" "x02553C" "x027445" "x066A4F" "x095943" "x096B2D" "x097641" "x0A7B4C" "x0B554E" "x0B652A" "x0D673D" "x0E5E4A" "x0F5940" "x0F6A41" "x10573C" "x106031" "x115836" "x127243" "x145844" "x1A5540" "x1D7C4F" "x1E7A41" "x1F5C47" "x207B41" "x215B3F" }
+    city = "x097641"
+    port = "x02553C"
+    farm = "x0D673D"
+    mine = "x0A7B4C"
+    wood = "x0B652A"
+    arable_land = 88
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 22
+        building_fishing_wharf = 0
+    }
+    naval_exit_id = 3009
+}
+
+STATE_HU_SKEE = {
+    id = 200
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x00002F" "x000049" "x000141" "x00024A" "x000630" "x000E4B" "x010D44" "x030F35" "x04004B" "x05002F" "x060A40" "x070044" "x07044A" "x080042" "x080244" "x0D024B" "x0F0041" "x0F073F" "x100046" "x11014D" "x110D28" "x14003C" "x150035" "x17092F" "x1B0B34" "x1F0226" "x1F0F2F" "x200027" }
+    impassable = { "x070044" }
+    city = "x04004B"
+    farm = "x000630"
+    mine = "x000141"
+    wood = "x200027"
+    arable_land = 77
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 19
+        building_spirit_beast_hunting = 18
+    }
+}
+
+STATE_SEE_BA = {
+    id = 201
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x368346" "x377846" "x3B664B" "x3B8249" "x3C794B" "x3D6B48" "x3D6D38" "x3E6547" "x3E6627" "x3E7849" "x3E7F48" "x3E824C" "x3F613A" "x3F7F40" "x406430" "x40854D" "x416832" "x426744" "x44612D" "x456B34" "x47694A" "x477B4B" "x487C43" "x487F25" "x4D6134" "x4F7231" "x4F7233" "x517B41" "x52793C" "x538331" "x546628" "x557F43" "x56824B" "x596333" "x596A25" "x597029" "x597D4C" "x5A7B41" "x5E7047" }
+    city = "x487C43"
+    port = "x3E7849"
+    farm = "x416832"
+    mine = "x56824B"
+    wood = "x477B4B"
+    arable_land = 197
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_fishing_wharf = 5
+    }
+    naval_exit_id = 3040
+}
+
+STATE_UAN_CHAN = {
+    id = 202
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x375235" "x375F2D" "x3A781B" "x3B783A" "x3C6324" "x3D5232" "x3E6939" "x435C25" "x445735" "x44673D" "x455737" "x45602B" "x46613D" "x466D30" "x48671D" "x496032" "x49681F" "x496E22" "x4C683A" "x4C7234" "x4D6E23" "x4E5439" "x4E5B39" "x4E6E21" "x4F7628" "x51773C" "x526D1E" "x555B38" "x565635" "x576F2B" "x57723D" "x596F3E" "x5A542E" "x5A5F35" "x5B7217" "x5B733C" "x5C6B1E" "x5C712C" "x5D6F27" "x5E503C" "x5E6A2C" "x5F642F" }
+    city = "x5B7217"
+    port = "x555B38"
+    farm = "x576F2B"
+    mine = "x5C712C"
+    wood = "x3B783A"
+    arable_land = 84
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 21
+        building_fishing_wharf = 0
+    }
+    naval_exit_id = 3040
+}
+
+STATE_KOE_NOO = {
+    id = 203
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "xB09D13" "xB0A52A" "xB2A21F" "xB38219" "xB3870F" "xB38D10" "xB48C10" "xB5A40D" "xB68328" "xB68E19" "xB6970E" "xB87E10" "xB89B0C" "xB99711" "xBB8B11" "xBB8F1A" "xBD930D" "xC08408" "xC08E19" "xC0990C" "xC29C0C" "xC29E05" "xC29E07" "xC38D0C" "xC39228" "xC3A40D" "xC59927" "xC6842C" "xC89823" "xC9952C" "xCA931D" "xCB7F2B" "xCCA207" "xCEA009" "xCF8705" "xD07E25" "xD08A21" "xD0A221" "xD4840C" "xD4961F" "xD5A217" "xD67E15" "xD6802C" "xD68A07" }
+    traits = { "state_trait_natural_harbors" }
+    city = "xBB8F1A"
+    port = "xB87E10"
+    farm = "xD67E15"
+    mine = "xCA931D"
+    wood = "xC3A40D"
+    arable_land = 85
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 21
+        building_fishing_wharf = 0
+    }
+    naval_exit_id = 3040
+}
+
+STATE_KO_LEE = {
+    id = 204
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x4D8D08" "x4DA80A" "x4EA316" "x4FAC16" "x50940B" "x50980D" "x519119" "x51AE13" "x529111" "x55A503" "x589C09" "x58AF00" "x599000" "x599700" "x59A517" "x5A8C08" "x5C9B1A" "x5C9F15" "x609A0E" "x62A300" "x62A900" "x648F09" "x65AE0D" "x67A416" "x689500" "x689F00" "x6B8E11" "x6BAC00" "x6DA314" "x6E9600" "x6F9806" "x70AF05" "x729517" "x729F00" "x72AB0E" "x72AC01" "x739500" "x75981D" "x759B11" "x75A100" }
+    city = "x4DA80A"
+    port = "x51AE13"
+    farm = "x72AB0E"
+    mine = "x75981D"
+    wood = "x4EA316"
+    arable_land = 70
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 17
+        building_fishing_wharf = 0
+    }
+    naval_exit_id = 3009
+}
+# ANE Anepyon
+STATE_ANEPYON = {
+    id = 205
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "xC7413C" "xCA512C" "xCB4E3E" "xCC5E3C" "xCD3B40" "xCE6027" "xCF5738" "xD04248" "xD15329" "xD34728" "xD35135" "xD3592D" "xD44944" "xD73A26" "xD7413A" "xD94D2D" "xDC4237" "xDE5837" "xE0462E" "xE74A24" "xE83C3A" "xEC4C3E" "xEE3C37" }
+    city = "xD44944"
+    port = "xEC4C3E"
+    farm = "xCD3B40"
+    mine = "xD73A26"
+    wood = "xD35135"
+    arable_land = 78
+    arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 19
+        building_fishing_wharf = 0
+        building_whaling_station = 4
+    }
+    naval_exit_id = 3034
+}
+
+STATE_KAWEPYON = {
+    id = 206
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x2E1210" "x2E1719" "x2E2830" "x2F0911" "x301D1F" "x302512" "x331F25" "x332732" "x351128" "x36292C" "x38132B" "x382429" "x392924" "x3A0D10" "x3C1A13" "x3E1E1D" "x3E1F36" "x42041E" "x43221D" "x452036" "x461F21" "x462C12" "x4D091B" "x4D1A26" "x50052D" "x531A21" "x55152C" "x552015" "x552830" "x56172D" }
+    impassable = { "x331F25" "x3E1F36" "x43221D" "x462C12" "x55152C" "x56172D" }
+    city = "x50052D"
+    farm = "x3E1E1D"
+    mine = "x461F21"
+    wood = "x302512"
+    arable_land = 55
+    arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 13
+        building_spirit_beast_hunting = 16
+    }
+}
+
+STATE_WUSAPYON = {
+    id = 207
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x001229" "x001627" "x00162E" "x001847" "x002335" "x002345" "x022241" "x080648" "x090736" "x0D2644" "x0E1E42" "x100C38" "x120531" "x121326" "x14212E" "x14223C" "x192337" "x1A2331" "x1B032D" "x1D0E25" }
+    impassable = { "x0D2644" "x192337" }
+    city = "x001627"
+    port = "x0E1E42"
+    farm = "x002345"
+    mine = "x1B032D"
+    wood = "x002335"
+    arable_land = 72
+    arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 18
+        building_fishing_wharf = 0
+        building_whaling_station = 4
+        building_spirit_beast_hunting = 23
+        building_iron_mine = 84
+        building_lead_mine = 50
+    }
+    naval_exit_id = 3034
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 6
+    }
+}
+
+STATE_KIPYON = {
+    id = 208
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x32A514" "x33A207" "x35BE03" "x379C00" "x37A100" "x37A406" "x399D00" "x3A9F00" "x3BAB00" "x3BBC09" "x3D9B0E" "x3F9B00" "x43A300" "x45AC0C" "x49BA00" "x49BB00" "x4BC000" "x4D9E01" "x4EA606" "x4EAE00" "x4F9B00" "x4FAD00" "x50A100" "x51B800" "x54B900" }
+    impassable = { "x379C00" "x3A9F00" "x3D9B0E" "x45AC0C" "x50A100" }
+    city = "x33A207"
+    port = "x4FAD00"
+    farm = "x399D00"
+    mine = "x32A514"
+    wood = "x4F9B00"
+    arable_land = 103
+    arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+        building_fishing_wharf = 6
+        building_whaling_station = 4
+        building_spirit_beast_hunting = 12
+    }
+    naval_exit_id = 3034
+}
+
+STATE_TEPYON = {
+    id = 209
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x9C683B" "x9C7C37" "x9E7F37" "x9F6B37" "x9F712B" "xA06E3E" "xA2762E" "xA37828" "xA37A2D" "xA37C2B" "xA66928" "xA66D29" "xA77F34" "xA86845" "xAC6D39" "xAC7F38" "xAC852A" "xAF6E35" "xB15F2F" "xB45E2A" "xB46447" "xB47021" "xB5772C" "xB66E39" "xB6823B" "xB87340" "xB87939" "xBA7133" "xBA7E38" "xBE7E27" "xC06D24" "xC06F3D" "xC17C34" "xC2752F" "xC36144" "xC37E45" "xC4672C" }
+    city = "xC17C34"
+    port = "xC37E45"
+    farm = "xBE7E27"
+    mine = "xC06F3D"
+    wood = "xB45E2A"
+    arable_land = 71
+    arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 17
+        building_fishing_wharf = 0
+        building_whaling_station = 4
+    }
+    naval_exit_id = 3009
+}
+# MIR Mirapyon
+STATE_MIRAPYON = {
+    id = 210
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x927348" "x929351" "x956E4D" "x957A42" "x968E46" "x998939" "x9A8836" "x9D6F40" "x9E7750" "x9E833F" "xA17131" "xA57940" "xA68E2D" "xA7863D" "xA96D3B" "xAC8033" "xAC9146" "xAD7D3B" "xAE893D" "xB1842D" "xB58146" "xB78C40" "xB86E36" "xB87430" "xB8923B" }
+    traits = { "state_trait_natural_harbors" }
+    city = "xA17131"
+    port = "x9E7750"
+    farm = "xA68E2D"
+    mine = "x968E46"
+    wood = "xAC9146"
+    arable_land = 73
+    arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 18
+        building_fishing_wharf = 0
+        building_whaling_station = 4
+    }
+    naval_exit_id = 3015
+}
+
+STATE_HAPYON = {
+    id = 211
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x8AA223" "x8B9C28" "x8C9429" "x8D8921" "x8D9716" "x908719" "x90AA0E" "x949320" "x959A25" "x989A07" "x98A50E" "x998715" "x9D9107" "x9DA720" "x9FAB0C" "xA0AB1F" "xA3942D" "xA3A62D" "xA69B22" "xA69E13" "xA7940D" "xA88815" "xA8A40C" "xA99A0C" "xAA9812" "xAB9F11" "xABAB1A" "xAEAD0A" "xB18722" "xB29E08" }
+    city = "xA8A40C"
+    port = "xAA9812"
+    farm = "x9DA720"
+    mine = "xA0AB1F"
+    wood = "xA3A62D"
+    arable_land = 61
+    arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 15
+        building_fishing_wharf = 0
+        building_whaling_station = 4
+    }
+    naval_exit_id = 3015
+}
+
+STATE_BAIPYON = {
+    id = 212
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x000003" "x00000D" "x000018" "x000100" "x000103" "x000A01" "x000B00" "x000B0F" "x000C06" "x000E03" "x000E0B" "x001300" "x001400" "x001600" "x001704" "x001A12" "x001D00" "x002316" "x01020D" "x020A00" "x020D00" "x031607" "x040E11" "x051207" "x051800" "x061F11" "x071300" "x080206" "x090000" "x0B1F00" "x0D0C00" "x0D1A00" "x0E0A00" "x100D16" "x101101" "x120000" "x121D00" "x131713" "x132208" "x140508" "x160E0A" "x171F02" "x180A0F" }
+    impassable = { "x00000D" "x000018" "x000B00" "x001400" "x001600" "x001A12" "x001D00" "x002316" "x01020D" "x020A00" "x031607" "x051207" "x061F11" "x080206" "x090000" "x0D0C00" "x0E0A00" "x121D00" "x131713" "x140508" "x160E0A" "x171F02" "x0B1F00" }
+    traits = { "state_trait_mountain_range" }
+    city = "x071300"
+    farm = "x000100"
+    mine = "x180A0F"
+    wood = "x001704"
+    arable_land = 46
+    arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 11
+        building_spirit_beast_hunting = 13
+    }
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 29
+    }
+}
+
+STATE_SEPYON = {
+    id = 213
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x8E7D80" "x939374" "xA6887F" "xA6945F" "xA69981" "xA78766" "xA9866A" "xAA9960" "xAB9966" "xAC937F" "xB19176" "xB28861" "xB47B74" }
+    city = "xB47B74"
+    port = "xAC937F"
+    farm = "xA6887F"
+    mine = "xB19176"
+    wood = "x8E7D80"
+    arable_land = 71
+    arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 17
+        building_fishing_wharf = 0
+        building_whaling_station = 6
+    }
+    naval_exit_id = 3015
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 2
+    }
+}
+# SIR Sirokani
+STATE_SIROKANI = {
+    id = 214
+    subsistence_building = "building_subsistence_fishing_village"
+    provinces = { "x029D15" "x038F0D" "x05920A" "x05B400" "x068D00" "x069C00" "x06A804" "x088E15" "x09AF00" "x0BA100" "x0BB100" "x0CB007" "x0D9300" "x0DA716" "x0DAB0D" "x0F9A12" "x109504" "x10A200" "x11B114" "x12A009" "x12A700" "x139100" "x139A14" "x169A07" "x179600" "x17A818" "x188F0B" "x18A218" "x18A302" "x198F12" "x1BAE04" "x1BB20C" "x1CA905" "x1EA40F" "x1F9113" "x1F9D04" "x20A312" "x21AD00" "x22A700" "x22AE00" "x23A000" "x23B000" "x279015" "x279300" "x279B0B" "x289E10" "x28A20A" "x299A01" "x29A000" }
+    impassable = { "x139100" "x1EA40F" "x22AE00" }
+    traits = { "state_trait_siberian_terrain" }
+
+    city = "x109504"
+    port = "x1F9113"
+    farm = "x23B000"
+    mine = "x038F0D"
+    wood = "x198F12"
+    arable_land = 94
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_fishing_wharf = 0
+        building_whaling_station = 6
+        building_spirit_beast_hunting = 23
+    }
+    naval_exit_id = 3047
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 23
+        undiscovered_amount = 20
+    }
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 7
+    }
+}
+# BEA Bear Mosir
+STATE_PORONUPURI = {
+    id = 215
+    subsistence_building = "building_subsistence_fishing_village"
+    provinces = { "x007E34" "x008118" "x008136" "x008730" "x008F32" "x009329" "x00952B" "x009532" "x009B11" "x009D25" "x009E2F" "x019837" "x047C31" "x049525" "x057E31" "x058019" "x06782E" "x068B10" "x069E11" "x077C30" "x079320" "x088E2E" "x098521" "x0A9233" "x0A9625" "x0B7F1B" "x0B8020" "x0B9329" "x0C8B29" "x0C9519" "x0D8632" "x0E7831" "x0E801A" "x0F9018" "x107F38" "x10911E" "x109A2D" "x117A23" "x118B1D" "x119218" "x127923" "x12A021" "x138524" "x138F28" "x139914" "x139A13" "x147A2C" "x157B2D" "x158A14" "x159822" "x15A024" "x16841E" "x169016" "x177D19" "x178B12" "x189613" "x18962F" "x1A7C1E" "x1A7E12" "x1A8836" "x1A8C20" "x1A9F35" "x1B7D23" "x1B8926" "x1B9623" "x1C832A" "x1C9432" "x1D7C1E" "x1D8A2C" "x1D992D" "x1D9D2C" "x1E8737" "x1E8D32" "x1E9C2B" "x1F9417" "x207A1A" "x207D14" "x208437" "x208D1B" "x209A21" "x209D38" "x21822F" "x227C1C" "x227D30" "x227E27" "x229215" "x22952C" "x22992C" "x239713" }
+    impassable = { "x008118" "x047C31" "x088E2E" "x0B9329" "x0C9519" "x0E801A" "x109A2D" "x127923" "x15A024" "x189613" "x1A7E12" "x1A8836" "x1D992D" "x227E27" "x22952C" }
+    traits = { "state_trait_siberian_terrain" }
+
+    city = "x009B11"
+    port = "x0F9018"
+    farm = "x178B12"
+    mine = "x007E34"
+    wood = "x157B2D"
+    arable_land = 45
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_fishing_wharf = 0
+        building_whaling_station = 21
+        building_spirit_beast_hunting = 16
+    }
+    naval_exit_id = 3010
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 11
+        undiscovered_amount = 12
+    }
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 12
+    }
+}
+
+STATE_CUPKA = {
+    id = 216
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x10A026" "x10A14C" "x10AB2E" "x10B437" "x11A828" "x11B23A" "x11B23F" "x11B326" "x129B35" "x13A240" "x13B62B" "x13B731" "x13B83E" "x149E29" "x14A446" "x14A632" "x15AD46" "x169431" "x16B127" "x179733" "x17AF3C" "x18AB37" "x18B325" "x1A9943" "x1A9A25" "x1A9C3A" "x1AAC3A" "x1AB032" "x1AB227" "x1BAA41" "x1C943D" "x1CB530" "x1CB944" "x1D9924" "x1D9E3D" "x1DA247" "x1DAB2B" "x1E933F" "x1EAE43" "x1EB74A" "x1F9729" "x209A3D" "x20A742" "x20B449" "x21AF4C" "x229342" "x229A33" "x22A346" "x22B82C" "x239143" "x239333" "x23AC45" "x24934C" "x249C3D" "x24A43E" "x259D42" "x25AE24" "x269338" "x26A02C" "x27924A" "x27AF36" "x28AA3F" "x28AF44" "x299335" "x29A735" "x29AA34" "x2AA13B" "x2AA62B" "x2BA343" "x2BB525" "x2D9732" "x2DA02F" "x2DAA38" "x2EA037" "x2F9131" "x30913E" "x30A93E" "x30B235" "x319B45" "x32A52A" "x339740" "x349C3C" "x34AE29" "x35B937" "x369725" "x369945" "x36A032" "x36AE4B" "x37A52E" "x37AF27" "x389B47" "x389F2F" "x38A144" }
+    impassable = { "x10A026" "x10AB2E" "x11B23A" "x11B23F" "x129B35" "x13A240" "x13B731" "x149E29" "x169431" "x179733" "x1AAC3A" "x1D9E3D" "x1E933F" "x20B449" "x21AF4C" "x229A33" "x22A346" "x24934C" "x259D42" "x269338" "x2AA62B" "x2DA02F" "x30913E" "x319B45" "x34AE29" "x36AE4B" "x37A52E" "x38A144" }
+    traits = { "state_trait_mountain_range" "state_trait_siberian_terrain" }
+    city = "x2DAA38"
+    farm = "x14A446"
+    mine = "x2BA343"
+    wood = "x29A735"
+    arable_land = 44
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_spirit_beast_hunting = 23
+        building_iron_mine = 50
+        building_sulfur_mine = 57
+    }
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 11
+        undiscovered_amount = 13
+    }
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 10
+    }
+}
+
+STATE_NAMWAKKA = {
+    id = 217
+    subsistence_building = "building_subsistence_fishing_village"
+    provinces = { "x4E2901" "x4E310F" "x4F1200" "x4F1402" "x4F1512" "x4F1F04" "x4F3414" "x501E00" "x502111" "x502216" "x522405" "x532700" "x543400" "x551C08" "x552000" "x552C03" "x553800" "x571500" "x571A10" "x571C00" "x571E07" "x572500" "x572A0C" "x581A15" "x581F00" "x582200" "x583200" "x591100" "x591B00" "x5A1316" "x5A2600" "x5B2206" "x5B2400" "x5D150A" "x5E1215" "x5E1B08" "x5E2C00" "x5F1903" "x603509" "x603800" "x611612" "x621C08" "x622103" "x63210A" "x64160F" "x641804" "x643715" "x651000" "x652206" "x652413" "x652C00" "x662200" "x671700" "x67220B" "x672B00" "x681608" "x691C00" "x6A1100" "x6A1D00" "x6A1E00" "x6A280F" "x6A2E00" "x6C1C16" "x6E1000" "x6E2800" "x701210" "x701D00" "x713602" "x72120A" "x722213" "x72240F" "x731200" "x741006" "x741B00" }
+    impassable = { "x4E2901" "x4F1200" "x4F1402" "x4F1512" "x4F1F04" "x501E00" "x543400" "x551C08" "x552C03" "x571C00" "x571E07" "x581A15" "x581F00" "x582200" "x583200" "x591B00" "x5A1316" "x5B2206" "x5D150A" "x5E1215" "x5E1B08" "x5E2C00" "x611612" "x621C08" "x63210A" "x643715" "x652206" "x652C00" "x671700" "x67220B" "x681608" "x691C00" "x6A1100" "x6A1D00" "x6A1E00" "x6A2E00" "x701210" "x701D00" "x731200" }
+    traits = { "state_trait_mountain_range" "state_trait_siberian_terrain" }
+    city = "x652413"
+    port = "x622103"
+    farm = "x532700"
+    mine = "x603509"
+    wood = "x571A10"
+    arable_land = 31
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_fishing_wharf = 0
+        building_whaling_station = 7
+        building_spirit_beast_hunting = 13
+        building_iron_mine = 68
+        building_lead_mine = 76
+    }
+    naval_exit_id = 3010
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 7
+        undiscovered_amount = 9
+    }
+}
+
+STATE_NISEYKOAN = {
+    id = 218
+    subsistence_building = "building_subsistence_fishing_village"
+    provinces = { "x7A842C" "x7B8931" "x7B8E1D" "x7C701C" "x7C8415" "x7C8530" "x7C8728" "x7F7923" "x7F7930" "x7F883C" "x7F8F3B" "x807634" "x80773A" "x808424" "x80851A" "x809129" "x817124" "x818125" "x818530" "x827725" "x827A18" "x828E28" "x829038" "x838436" "x838A1B" "x838B2A" "x838D25" "x848B31" "x856C24" "x857F2B" "x858E33" "x868B21" "x877129" "x877424" "x887C18" "x896E1A" "x897C1A" "x89882C" "x898A3C" "x8A7E33" "x8B6D38" "x8B762F" "x8B8233" "x8C8D3A" "x8D7F16" "x8D8A18" "x8D8D16" "x8E7020" "x8E7427" "x8E8020" "x8F7A24" "x8F922B" "x908015" "x918A1C" "x92762C" "x936C2C" "x93751E" "x938223" "x93833A" "x947829" "x94801D" "x94811B" "x949237" "x957A2A" "x95892A" "x977B18" "x97922C" "x986E3B" "x98791C" "x98822F" "x988914" "x996C22" "x99901C" "x9A8219" "x9B771A" "x9C812C" "x9D822E" "x9D9217" "x9E702D" "x9E7818" "x9E7F39" "x9F7421" "x9F8E25" "xA18B1D" "xA27331" "xA27837" }
+    impassable = { "x7B8931" "x7C8415" "x7F883C" "x80773A" "x827725" "x829038" "x838A1B" "x8B8233" "x8F7A24" "x918A1C" "x94801D" "x949237" "x977B18" "x97922C" "xA18B1D" }
+    traits = { "state_trait_mountain_range" "state_trait_siberian_terrain" }
+    city = "x808424"
+    port = "xA27331"
+    farm = "x996C22"
+    mine = "x897C1A"
+    wood = "x7C8728"
+    arable_land = 51
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_fishing_wharf = 0
+        building_whaling_station = 7
+        building_spirit_beast_hunting = 21
+        building_lead_mine = 51
+        building_iron_mine = 92
+    }
+    naval_exit_id = 3010
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 12
+        undiscovered_amount = 14
+    }
+}
+
+STATE_HURANUI = {
+    id = 219
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x7BCC30" "x7CD24F" "x7CE141" "x7DD53F" "x7ED953" "x80D03F" "x82DB42" "x87CF4F" "x89E13D" "x8AEA3C" "x8BF053" "x8CE735" "x8CE84E" "x8DD82E" "x8FED4A" "x90CF3D" "x90D533" "x91D439" "x91DD44" "x92E137" "x92EB50" "x93DF51" "x93EB3A" "x95F03E" "x96DC3D" "x96E532" "x97CC2F" "x97D744" "x97D854" "x98C833" "x99DC4B" "x9BD135" "x9DE537" "x9EEB35" "x9FE93F" "xA0D637" "xA1D335" "xA1D940" }
+    impassable = { "x7ED953" "x8CE735" "x90D533" "x91DD44" "x93EB3A" "x96E532" "x97D744" "x97D854" "x98C833" "x9DE537" "xA1D335" }
+    traits = { "state_trait_mountain_range" "state_trait_siberian_terrain" }
+    city = "x87CF4F"
+    farm = "x7BCC30"
+    mine = "x8CE84E"
+    wood = "x99DC4B"
+    arable_land = 36
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_spirit_beast_hunting = 13
+        building_lead_mine = 84
+        building_iron_mine = 76
+    }
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 9
+        undiscovered_amount = 12
+    }
+}
+
+STATE_OTANOSKI = {
+    id = 220
+    subsistence_building = "building_subsistence_fishing_village"
+    provinces = { "x548400" "x556817" "x557E16" "x558605" "x558900" "x558A1A" "x566617" "x568209" "x576801" "x576E0F" "x588705" "x596500" "x596518" "x597D16" "x597E17" "x5A8502" "x5A8A10" "x5B6B0D" "x5B8700" "x5C891B" "x5D6809" "x5D7E00" "x5D7E0B" "x5E6D09" "x5F7F0C" "x5F8706" "x60840D" "x617A1B" "x628A00" "x63690A" "x638804" "x64760C" "x66891A" "x677A13" "x686A05" "x687904" "x698900" "x6A6D14" "x6A7801" "x6B7D00" "x6B7F01" "x6C6D00" "x6C8512" "x6D7C00" "x6D8400" "x6F8200" "x706715" "x707500" "x717E19" "x727409" "x728003" "x738100" "x746704" "x747806" "x747808" "x747C00" "x757200" "x757704" "x758900" "x777A17" "x777B0C" "x786914" "x79681C" "x796D00" "x7A7900" }
+    traits = { "state_trait_siberian_terrain" }
+
+    city = "x79681C"
+    port = "x698900"
+    farm = "x6B7F01"
+    mine = "x5C891B"
+    wood = "x686A05"
+    arable_land = 43
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_fishing_wharf = 0
+        building_whaling_station = 14
+        building_lead_mine = 93
+        building_sulfur_mine = 99
+    }
+    naval_exit_id = 3010
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 10
+        undiscovered_amount = 10
+    }
+}
+
+STATE_TOMAKOMA = {
+    id = 229
+    subsistence_building = "building_subsistence_fishing_village"
+    provinces = { "xA13500" "xA2251E" "xA22709" "xA22A18" "xA23817" "xA2490A" "xA32C14" "xA3310A" "xA33218" "xA3340C" "xA33916" "xA33A1B" "xA34600" "xA3491D" "xA34A01" "xA42B13" "xA53D00" "xA54318" "xA54905" "xA62D0C" "xA6481E" "xA72400" "xA7290C" "xA72D1B" "xA7370C" "xA82500" "xA84000" "xA8460E" "xA84719" "xA92901" "xA92A00" "xA93415" "xA94015" "xA9471A" "xAA3300" "xAA3805" "xAB2401" "xAB2902" "xAB2A13" "xAB3800" "xAB4805" "xAC270E" "xAC2914" "xAC3B00" "xAC3B0D" "xAD2500" "xAD3109" "xAD4414" "xAE240D" "xAE3F00" "xAF3A00" "xAF400D" "xAF4111" "xAF4219" "xAF4319" "xB02600" "xB02700" "xB03509" "xB1220B" "xB1240F" "xB1251E" "xB12812" "xB13114" "xB13F0F" "xB1420F" "xB22311" "xB22800" "xB23A00" "xB24700" "xB32803" "xB33000" "xB42A00" "xB44200" "xB62300" "xB62E0C" "xB63208" "xB64300" "xB6450E" "xB72400" "xB72F00" "xB73911" "xB73E00" "xB74700" "xB8390D" "xB92A18" "xB92E0F" "xB92F10" "xB93503" "xBA220F" "xBA2D1C" "xBA301D" "xBA3818" "xBA440C" "xBA450C" "xBB2216" "xBB2701" "xBB2A07" "xBB3802" "xBB3D16" "xBB4412" "xBC2702" "xBC3100" "xBC3306" "xBC3517" "xBD2D13" "xBD2F1B" "xBD3A1C" "xBD4300" "xBE2C05" "xBE3209" "xBE3800" "xBF3D0B" "xC02314" "xC02516" "xC02D17" "xC0330D" "xC0351A" "xC04000" "xC12500" "xC13511" "xC1380F" "xC14708" "xC22810" "xC22B19" "xC22F1D" "xC23810" "xC23A11" "xC23C00" "xC23E18" "xC24A1C" "xC32B00" "xC33405" "xC33800" "xC33903" "xC33D07" "xC34000" "xC34301" "xC42401" "xC43006" "xC43101" "xC43C19" "xC43F15" "xC44315" "xC44800" "xC52900" "xC52C00" "xC52F1E" "xC62918" "xC63B00" "xC64604" "xC7270C" "xC72E0A" "xC73200" "xC73F0A" "xC74311" "xC82601" "xC82812" "xC82918" "xC82A0E" "xC8330B" "xC8430D" "xC92D17" "xC93012" "xC93100" "xC93C16" }
+    impassable = { "xA22A18" "xA3310A" "xA33916" "xA53D00" "xA6481E" "xA7370C" "xA84719" "xB1251E" "xBA3818" "xBA440C" "xBC2702" "xBC3100" "xC24A1C" "xC34301" }
+    traits = { "state_trait_siberian_terrain" }
+
+    city = "xAE3F00"
+    port = "xB24700"
+    farm = "xB63208"
+    mine = "xC33903"
+    wood = "xC72E0A"
+    arable_land = 36
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_fishing_wharf = 0
+        building_whaling_station = 37
+        building_spirit_beast_hunting = 21
+    }
+    naval_exit_id = 3047
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 9
+        undiscovered_amount = 12
+    }
+}
+
+STATE_PEKERPET = {
+    id = 221
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x2D0002" "x2D120C" "x2E001B" "x2E0911" "x2E0B26" "x2E170A" "x2E1725" "x31001F" "x310729" "x31170A" "x311903" "x32031E" "x320421" "x330020" "x330828" "x331309" "x33160F" "x341509" "x350D06" "x35141F" "x360520" "x361204" "x370024" "x370B1E" "x381005" "x39001F" "x3A1E1D" "x3C000C" "x3C081E" "x3C1305" "x3C1314" "x3C1E27" "x3D0005" "x3D0019" "x3D0C0F" "x3E0005" "x3E0018" "x3E0021" "x3E150E" "x3F0004" "x3F0028" "x3F0907" "x3F0F19" "x3F131D" "x3F1D22" "x410015" "x410F1E" "x420015" "x420A22" "x430309" "x43170C" "x440014" "x440619" "x440A21" "x450C24" "x45181F" "x451910" "x460015" "x460A16" "x461D09" "x470014" "x47091B" "x480D06" "x48141B" "x490C16" "x491E05" "x4A0020" "x4A1D19" "x4B0004" "x4B000D" "x4B001E" "x4B0E0B" "x4C1D27" "x4D0023" "x4D0315" "x4D0814" "x4D0B22" "x4D1B24" "x4E030D" "x4E0625" "x4E0A1C" "x4E111F" "x4E121E" "x4E1A08" "x4F1C25" "x500926" "x511615" "x540029" "x541E1E" "x550002" "x550016" "x551D13" }
+    impassable = { "x2D0002" "x2D120C" "x2E1725" "x31001F" "x311903" "x320421" "x330020" "x330828" "x35141F" "x370024" "x370B1E" "x3A1E1D" "x3C000C" "x3C1305" "x3C1314" "x3C1E27" "x3E0018" "x3E0021" "x3E150E" "x3F0028" "x3F0907" "x3F0F19" "x3F131D" "x3F1D22" "x430309" "x451910" "x480D06" "x48141B" "x4A1D19" "x4B000D" "x4B0E0B" "x4C1D27" "x4D0023" "x4D0315" "x4D0814" "x4D1B24" "x4E030D" "x4E121E" "x540029" "x550016" }
+    traits = { "state_trait_mountain_range" "state_trait_siberian_terrain" }
+    city = "x551D13"
+    farm = "x3F0004"
+    mine = "x4E111F"
+    wood = "x4E0A1C"
+    arable_land = 44
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_spirit_beast_hunting = 9
+        building_iron_mine = 72
+        building_lead_mine = 66
+        building_sulfur_mine = 68
+    }
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 11
+        undiscovered_amount = 12
+    }
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 7
+    }
+}
+
+STATE_KAMUY = {
+    id = 222
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x0CFF0A" "x0EFF0C" "x10EC06" "x11FF21" "x15FF13" "x18F012" "x1AF500" "x1AFA14" "x1AFF25" "x1DF307" "x1FED00" "x1FEE20" "x21F906" "x21FD0A" "x22FF12" "x23FA00" "x23FE00" "x23FF14" "x25FF11" "x26FF17" "x28FD27" "x2AFF09" "x2CFF0B" "x2DFF1D" "x2EF70C" "x2FFF01" "x2FFF24" "x32FF25" "x33FF0C" "x33FF15" }
+    impassable = { "x0EFF0C" "x11FF21" }
+    traits = { "state_trait_siberian_terrain" }
+
+    city = "x25FF11"
+    farm = "x18F012"
+    mine = "x1AFF25"
+    wood = "x1AF500"
+    arable_land = 50
+    arable_resources = { "building_livestock_ranch" }
+    capped_resources = {
+        building_spirit_beast_hunting = 22
+        building_iron_mine = 67
+        building_sulfur_mine = 97
+    }
+    resource = {
+        type = "building_forests_of_the_departed"
+        discovered_amount = 12
+        undiscovered_amount = 15
+    }
+}
+# NOR Northern Expanse
+STATE_KHOKHUMA = {
+    # Khökhuma
+    id = 223
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "xD98C36" "xDC8542" "xDCA458" "xDE914E" "xDF904D" "xE09141" "xE09854" "xE19A45" "xE1A243" "xE1A25D" "xE1A439" "xE3915C" "xE49F43" "xE78B59" "xE99947" "xE99C58" "xEB9A58" "xED994C" "xEE8948" "xEF823A" "xEF8546" "xEF9342" "xF08146" "xF09F4A" "xF18A52" "xF38752" "xF38C38" "xF47F43" "xF68A5D" "xF6A643" "xF78759" "xF79443" "xF8814E" "xF99A44" "xFC9748" "xFD9856" "xFE8F3C" "xFE914F" "xFF8149" "xFF8847" }
+    impassable = { "xF99A44" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "xE1A439"
+    farm = "xFD9856"
+    mine = "xF8814E"
+    wood = "xDE914E"
+    arable_land = 69
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 3
+        building_spirit_beast_hunting = 12
+    }
+}
+
+STATE_GAZARUMA = {
+    id = 224
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x43E042" "x43F638" "x44F121" "x44FF22" "x45F03F" "x45F239" "x45F328" "x45F52E" "x45F723" "x47FF46" "x48F147" "x49E623" "x4AFD20" "x4BE73F" "x4BFA2E" "x4CF343" "x4EE42F" "x4EF035" "x4FF435" "x50F42E" "x50FF24" "x51E643" "x51ED43" "x51F53E" "x51FF30" "x51FF43" "x52E042" "x53DE41" "x53E728" "x55F83A" "x55FC37" "x56E942" "x57E521" "x57F93D" "x57FC2B" "x57FF2A" "x58FF23" "x59F946" "x59FF47" "x5BDF25" "x5BF037" "x5CE633" "x5EDF2F" "x5EFF3F" "x5FFA22" "x60E140" "x60E533" "x60E62D" "x60EC21" "x61F62C" "x61FF26" "x61FF3D" "x62E140" "x62EF3C" "x62F936" "x62FF45" "x63F425" "x64EA3B" "x65F327" "x65FB2C" "x67E340" "x67F82A" "x6BF93F" "x6BFF2C" }
+    impassable = { "x44F121" "x49E623" "x51FF43" "x58FF23" "x59FF47" "x5FFA22" "x62F936" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "x5BDF25"
+    farm = "x6BFF2C"
+    mine = "x51FF30"
+    wood = "x5EDF2F"
+    arable_land = 66
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 3
+        building_spirit_beast_hunting = 14
+        building_iron_mine = 101
+        building_lead_mine = 105
+    }
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 8
+    }
+}
+
+STATE_ALTANUMA = {
+    id = 225
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x6E7464" "x6E906D" "x70757B" "x708A68" "x718782" "x718E6E" "x727E7F" "x737D75" "x73887F" "x747565" "x748861" "x777A7B" "x788564" "x7B8378" "x7B8A80" "x7C7B72" "x7E8A73" "x7E9B6F" "x818369" "x827D64" "x838064" "x838167" "x838E68" "x847A6C" "x847A7D" "x849A61" "x878F6D" "x888B63" "x897D73" "x899477" "x8A7464" "x8A8781" "x8A8C7C" "x8E8877" "x919B66" "x928E7F" "x938C7D" "x948E79" "x957680" "x957D75" "x958076" "x96986C" }
+    impassable = { "x718E6E" "x7E8A73" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "x928E7F"
+    farm = "x7C7B72"
+    mine = "x897D73"
+    wood = "x948E79"
+    arable_land = 78
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 3
+        building_spirit_beast_hunting = 22
+        building_iron_mine = 88
+        building_sulfur_mine = 105
+    }
+}
+
+STATE_TSAGAANUMA = {
+    id = 226
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x0C4D23" "x0D3529" "x0E3334" "x0E3932" "x0E5024" "x0F4F39" "x105434" "x105621" "x114639" "x12401E" "x14361A" "x14482C" "x153A22" "x154B37" "x17333C" "x17461D" "x1C5520" "x1D3A18" "x1F523A" "x203427" "x225832" "x243328" "x265818" "x273930" "x284428" "x28443D" "x2B4B1A" "x2F4D3B" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "x17333C"
+    farm = "x0E5024"
+    mine = "x284428"
+    wood = "x0E3334"
+    arable_land = 97
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 4
+    }
+}
+
+STATE_ZULZAIKHUMA = {
+    id = 227
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x89625C" "x8A6C56" "x8B4D57" "x8B6A63" "x8D534A" "x8F4971" "x905150" "x905970" "x905C5B" "x914E53" "x91555C" "x916D5E" "x945A6A" "x954F70" "x974C6B" "x975550" "x986759" "x9A4661" "x9E4C5E" "xA06162" "xA1586F" "xA65261" "xA66850" "xAB655B" "xAC4F4A" "xAD5E6D" "xB0595B" "xB06866" "xB1475E" "xB16061" }
+    impassable = { "x8B4D57" "x905C5B" "x916D5E" "x974C6B" "x9A4661" "xA1586F" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "xAD5E6D"
+    farm = "x905150"
+    mine = "x945A6A"
+    wood = "x975550"
+    arable_land = 77
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 3
+        building_spirit_beast_hunting = 21
+        building_iron_mine = 60
+        building_sulfur_mine = 63
+    }
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 21
+    }
+}
+
+STATE_KHARIINUMA = {
+    id = 228
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x826A7A" "x846C85" "x848678" "x849180" "x877587" "x88747B" "x887490" "x888D8D" "x896F77" "x897B6C" "x8A7D90" "x8C6A6C" "x8C756D" "x8E8B90" "x907F72" "x907F77" "x928975" "x937476" "x94727B" "x948B84" "x958188" "x968A75" "x987488" "x987D6D" "x988A8F" "x99707B" "x998381" "x9B876B" "x9B8B85" "x9C6A81" "x9E8176" "x9E8F74" "xA0768F" "xA07D6B" "xA38092" "xA6727F" "xA6878C" "xA77693" "xA78F8D" }
+    impassable = { "x848678" "x8C756D" "x94727B" "x968A75" "x9B876B" "xA07D6B" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "x846C85"
+    farm = "xA0768F"
+    mine = "x826A7A"
+    wood = "x88747B"
+    arable_land = 69
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 3
+        building_spirit_beast_hunting = 19
+        building_iron_mine = 78
+        building_sulfur_mine = 98
+    }
+}
+
+STATE_MONGONUMA = {
+    # Möngönuma
+    id = 230
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x008A00" "x008A09" "x008C1F" "x008D05" "x008F1F" "x009007" "x009200" "x00A116" "x00A300" "x00A502" "x019C0E" "x048A04" "x049E08" "x04A00C" "x07A11D" "x08B200" "x0B9114" "x0B9A02" "x0F9C0C" "x119617" "x148D16" "x149201" "x169E12" "x188F21" "x18960B" "x199106" "x199F20" "x1CA21D" "x1CB00B" "x1D9300" "x1D9A00" "x1DA50A" "x1F9218" "x208C20" "x228C0C" }
+    impassable = { "x04A00C" "x169E12" x00A502 }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "x1CA21D"
+    farm = "x07A11D"
+    mine = "x208C20"
+    wood = "x008C1F"
+    arable_land = 68
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 3
+        building_spirit_beast_hunting = 24
+    }
+}
+
+STATE_GOVSHIKHUMA = {
+    id = 231
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x6E7E02" "x6E8F16" "x6F8506" "x719B1C" "x778D04" "x798D05" "x798D18" "x7A7F18" "x7B7D0F" "x7BA00A" "x7D9C29" "x827E0E" "x82A006" "x84831A" "x849128" "x849C17" "x878B0B" "x898026" "x8B8910" "x8B9217" "x8BA11E" "x8C8619" "x8C9907" "x8D890E" "x8D8E1D" "x8D9425" "x8E9313" "x8F9F1E" "x8FA116" "x8FA512" "x907D2A" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "x7B7D0F"
+    farm = "x778D04"
+    mine = "x8C9907"
+    wood = "x7D9C29"
+    arable_land = 77
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 3
+    }
+}
+
+STATE_NARIINUMA = {
+    id = 232
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x59411A" "x594B2D" "x5A3F25" "x5A4532" "x5B5C16" "x5C4725" "x5C561D" "x5D4314" "x5D4316" "x5D4C18" "x5F4913" "x60501D" "x605310" "x625D23" "x634712" "x653923" "x653F1A" "x655624" "x655C15" "x663913" "x674210" "x683B23" "x694720" "x6A4031" "x6A531C" "x6A5A28" "x6B4E19" "x6B5632" "x6C6035" "x6D5218" "x6E3C2C" "x6E442C" "x6F4820" "x6F4B23" "x70532C" "x706112" "x715A1C" "x735C22" "x743A36" "x753D2C" "x756130" "x764F1D" "x773915" "x773F1C" "x774E34" "x78401B" "x785218" "x78571C" "x794C1D" "x795E1B" "x7A3B29" "x7A3D1E" "x7B3D11" "x7C4C29" "x7C5335" "x7D4A0F" "x7E4432" "x7E4C33" "x7E5114" "x7E581B" "x7E5C23" }
+    impassable = { "x594B2D" "x5D4314" "x5D4316" "x653F1A" "x655624" "x674210" "x6A5A28" "x6B5632" "x6C6035" "x6D5218" "x6F4B23" "x70532C" "x774E34" "x7B3D11" "x7E4432" "x7E581B" "x7E5C23" }
+    traits = { "state_trait_mountain_range" "state_trait_eastern_steppe" }
+    city = "x7A3D1E"
+    farm = "x634712"
+    mine = "x78401B"
+    wood = "x753D2C"
+    arable_land = 68
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 3
+        building_spirit_beast_hunting = 9
+    }
+}
+# SOU Southern Steppes
+STATE_TENGERUMA = {
+    id = 233
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x0EF624" "x0FDD0C" "x0FE503" "x10DB03" "x10DF0D" "x10F71E" "x11E122" "x12DA06" "x13D90C" "x14D71B" "x17E621" "x19DC2A" "x1AD41B" "x1BDA09" "x1BE51F" "x1CFB1E" "x1DF326" "x1EE70A" "x22F70E" "x22FB23" "x25DE03" "x25E307" "x26D40E" "x27D71F" "x27E81C" "x27F219" "x28EE1C" "x28F40F" "x2AD812" "x2AEB09" "x2AFA0D" "x2BEA15" "x2BEE1C" "x2CD61B" "x2DD810" "x30EC19" "x30F528" "x31D705" "x31FA16" "x32DD06" "x32E329" "x32F217" "x33EF14" "x34D50D" "x36EE1A" }
+    impassable = { "x11E122" "x32F217" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "x28EE1C"
+    farm = "x10DF0D"
+    mine = "x22F70E"
+    wood = "x27D71F"
+    arable_land = 160
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 5
+        building_spirit_beast_hunting = 13
+    }
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 45
+    }
+}
+
+STATE_AIRAGUMA = {
+    id = 234
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x633926" "x66331A" "x672B04" "x67300A" "x691818" "x6A3E01" "x6B3900" "x6C2B23" "x6D190E" "x6D3410" "x6E3B16" "x6F1D1B" "x6F2115" "x713C06" "x743714" "x751F24" "x763319" "x763511" "x781A05" "x782A25" "x7A1A11" "x7A1C10" "x7B241F" "x7C3E1D" "x7E1A25" "x7E1D03" "x7E3D01" "x7F1B07" "x801706" "x811923" "x812200" "x813A1F" "x82270D" "x832F1A" "x841E19" "x843F03" "x852B19" "x853E15" "x853F16" "x862B16" "x862F1F" "x871906" "x892E0D" "x893F20" "x8B2B1E" "x8B3524" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "x66331A"
+    farm = "x7F1B07"
+    mine = "x892E0D"
+    wood = "x853E15"
+    arable_land = 172
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 5
+    }
+}
+
+STATE_SHILDEGUMA = {
+    id = 235
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x0E9544" "x0FA231" "x10AB4A" "x10B440" "x12B32C" "x12B42E" "x15A029" "x15A22A" "x169131" "x16A94B" "x1AAB2F" "x1C9128" "x1D9C45" "x1DB74A" "x1EA937" "x1EB641" "x1FB12B" "x1FB732" "x23AA31" "x249C4B" "x25A342" "x26A14B" "x28A93C" "x299B33" "x2A9A2A" "x2CA22E" "x2CAC39" "x2EA33C" "x2EAF33" "x32B02E" "x36A433" }
+    impassable = { "x0E9544" "x10AB4A" "x10B440" "x1EA937" "x25A342" "x299B33" "x2EAF33" }
+    traits = { "state_trait_mountain_range" "state_trait_eastern_steppe" }
+    city = "x1AAB2F"
+    farm = "x32B02E"
+    mine = "x0FA231"
+    wood = "x36A433"
+    arable_land = 152
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 5
+        building_spirit_beast_hunting = 22
+    }
+}
+
+STATE_ULAANUMA = {
+    id = 236
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "xB50C0E" "xB7330C" "xB82900" "xB90F00" "xBA1814" "xBB2000" "xBD1100" "xBF1A05" "xBF1F04" "xC31600" "xC62F12" "xC71B00" "xCF1300" "xCF1E00" "xCF3007" "xD02710" "xD11300" "xD2270A" "xD23100" "xD3160C" "xD31B00" "xD41B0C" "xD4231B" "xD43204" "xD61000" "xD70C00" "xD71B07" "xDA1700" "xDA2401" }
+    impassable = { "xB7330C" "xBF1A05" "xBF1F04" "xC62F12" "xD31B00" "xD70C00" }
+    traits = { "state_trait_mountain_range" "state_trait_eastern_steppe" }
+    city = "xDA2401"
+    farm = "xD11300"
+    mine = "xD71B07"
+    wood = "xD02710"
+    arable_land = 150
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 5
+        building_spirit_beast_hunting = 13
+        building_sulfur_mine = 100
+        building_lead_mine = 61
+    }
+}
+
+STATE_KHADANUMA = {
+    id = 237
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x9D4524" "x9E3C1B" "x9F382B" "x9F4A21" "xA33119" "xA33F2A" "xA54A2C" "xA62337" "xA6492A" "xA74019" "xAB2C29" "xAC2324" "xAE3A16" "xAF2C38" "xB22E1A" "xB72E27" "xB73C2E" "xB74022" "xB74928" "xB93B34" "xB9421B" "xB94734" "xBB253B" "xBB2920" "xBC4039" "xBC441C" "xBD3617" "xBE2729" "xBF3C18" "xC12A1A" "xC13633" "xC22A2E" "xC24B35" "xC42C36" }
+    impassable = { "x9F4A21" "xB74022" "xB93B34" "xBF3C18" "xC13633" "xC24B35" "xC42C36" xBC4039 }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "xBC441C"
+    farm = "xBE2729"
+    mine = "xB94734"
+    wood = "xA6492A"
+    arable_land = 155
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 5
+        building_spirit_beast_hunting = 22
+        building_iron_mine = 55
+        building_lead_mine = 54
+    }
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 12
+    }
+}
+
+STATE_TSEREGUMA = {
+    id = 238
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x48EF38" "x49FF11" "x4AE932" "x4CFF1A" "x4DFD23" "x4EF631" "x4EFE34" "x51E630" "x52EE2E" "x52F227" "x53FF34" "x54FF2C" "x55E621" "x55FE36" "x56EA1D" "x56F723" "x56FB17" "x5BF020" "x5CFF11" "x5DFF38" "x5EE515" "x5FF431" "x5FF536" "x5FFF1E" "x60E712" "x61FF39" "x62FF30" "x65EA33" "x65EC34" "x65FF2F" "x69FF14" "x69FF31" "x6AE630" "x6AF32C" "x6AFF1C" "x6BFD26" "x6BFF1C" "x6DEE24" "x6FFF32" }
+    impassable = { "x55FE36" "x62FF30" "x65FF2F" "x6DEE24" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "x51E630"
+    farm = "x55E621"
+    mine = "x49FF11"
+    wood = "x69FF14"
+    arable_land = 97
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 4
+        building_spirit_beast_hunting = 22
+    }
+}
+
+STATE_KHARUMA = {
+    id = 239
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x14C342" "x14CE4A" "x15B72B" "x17AB2D" "x17B02D" "x17B841" "x18AE2C" "x1AAD46" "x1AC73A" "x1DAB47" "x1DAD27" "x21AA44" "x21B73B" "x26BB24" "x26CA43" "x27BD3B" "x29B233" "x29CD2E" "x2AB33E" "x2BC53D" "x2EAD44" "x2EC344" "x2EC843" "x2FB348" "x30AE28" "x32B64B" "x34C629" "x36A73B" "x36C237" "x36CE23" "x39CB46" "x3BCC28" "x3CB127" }
+    impassable = { "x14C342" "x14CE4A" "x1DAB47" "x2BC53D" "x2EAD44" "x2EC843" "x2FB348" "x36CE23" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "x18AE2C"
+    farm = "x17B841"
+    mine = "x2AB33E"
+    wood = "x21AA44"
+    arable_land = 82
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 4
+        building_spirit_beast_hunting = 19
+        building_lead_mine = 50
+        building_iron_mine = 54
+    }
+}
+
+STATE_ZULUMA = {
+    id = 240
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "xADC62C" "xADD439" "xB0DC24" "xB5DC2A" "xB9EA32" "xC0DF1D" "xC1CF40" "xC1DD3D" "xC2E21E" "xC5E423" "xC6E83C" "xCAD51A" "xCCC52D" "xCEE630" "xD4E02C" }
+    impassable = { "xB5DC2A" "xC1CF40" "xC1DD3D" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "xCEE630"
+    farm = "xADD439"
+    mine = "xC2E21E"
+    wood = "xC5E423"
+    arable_land = 67
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 3
+        building_spirit_beast_hunting = 20
+        building_sulfur_mine = 75
+    }
+}
+
+STATE_GALTANUMA = {
+    id = 241
+    subsistence_building = "building_subsistence_pasture"
+    provinces = { "x3A1C1B" "x3E2508" "x3F040D" "x3F0901" "x421402" "x42270E" "x431415" "x440E08" "x450506" "x452221" "x490414" "x4C040C" "x4C1B07" "x550414" "x5D1D09" "x600E07" }
+    impassable = { "x452221" }
+    traits = { "state_trait_eastern_steppe" }
+
+    city = "x3F0901"
+    farm = "x431415"
+    mine = "x600E07"
+    wood = "x550414"
+    arable_land = 59
+    arable_resources = { "building_millet_farm" "building_livestock_ranch" }
+    capped_resources = {
+        building_logging_camp = 2
+    }
+}
+# WOL Snow-Wolf Domain
+STATE_UO_FEE = {
+    id = 242
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x1E8109" "x1F9A10" "x1F9C13" "x208422" "x208521" "x209027" "x209414" "x209B28" "x20A01C" "x217B0E" "x217C03" "x218210" "x227C21" "x229C1D" "x238503" "x238920" "x239B17" "x239F03" "x247E28" "x249122" "x259D20" "x26921D" "x269F27" "x279303" "x279423" "x287B1F" "x288D0F" "x28990D" "x28A328" "x297D02" "x297D0A" "x298802" "x298806" "x299419" "x2A7C14" "x2A801D" "x2A9212" "x2AA11D" "x2B8612" "x2B8A0C" "x2B8B1A" "x2C8217" "x2C821C" "x2C8E13" "x2C9805" "x2D930D" "x2D9510" "x2E8C06" "x2F861C" "x2FA017" "x30881A" "x319F28" "x329A1D" "x337D04" "x338621" "x338A27" "x33A013" "x347F02" "x348420" "x34870B" "x348D22" "x358906" "x35991B" "x367F1C" "x368226" "x369F1F" "x37891E" "x378E0D" "x379025" "x379320" "x379B10" "x387C0D" "x387E1D" "x388020" "x388223" "x388B27" "x389017" "x397B07" "x39840D" "x39911F" "x399D10" "x39A20B" "x3A8221" "x3B871D" "x3B9A27" "x3C881A" "x3C9014" "x3C9123" "x3C940A" "x3D840E" "x3D9700" "x3D9E1C" "x3E8825" "x3E9C0B" "x3F8323" "x3F8B25" "x3F9904" "x3F9913" "x3F9E0E" "x3FA11F" "x40810F" "x409E27" "x419C0F" "x42810F" "x42A321" "x439311" "x43A002" "x43A307" "x449508" "x449F0B" "x459B27" "x468F22" "x46950B" "x469D1F" "x46A312" }
+    impassable = { "x1E8109" "x1F9C13" "x208422" "x208521" "x209027" "x209414" "x209B28" "x20A01C" "x217B0E" "x217C03" "x218210" "x227C21" "x229C1D" "x238503" "x238920" "x239B17" "x239F03" "x249122" "x259D20" "x26921D" "x269F27" "x279303" "x279423" "x287B1F" "x288D0F" "x28990D" "x28A328" "x297D02" "x297D0A" "x298802" "x298806" "x299419" "x2A7C14" "x2A801D" "x2A9212" "x2AA11D" "x2B8612" "x2B8A0C" "x2B8B1A" "x2C8217" "x2C821C" "x2C8E13" "x2C9805" "x2D930D" "x2D9510" "x2E8C06" "x2F861C" "x2FA017" "x30881A" "x319F28" "x329A1D" "x337D04" "x338621" "x338A27" "x33A013" "x347F02" "x348420" "x34870B" "x348D22" "x358906" "x35991B" "x368226" "x369F1F" "x37891E" "x378E0D" "x379025" "x379320" "x379B10" "x387C0D" "x387E1D" "x388020" "x388223" "x388B27" "x389017" "x39840D" "x399D10" "x39A20B" "x3A8221" "x3B871D" "x3B9A27" "x3C881A" "x3C9014" "x3C9123" "x3C940A" "x3D840E" "x3D9700" "x3D9E1C" "x3E8825" "x3E9C0B" "x3F8323" "x3F8B25" "x3F9904" "x3F9913" "x3F9E0E" "x3FA11F" "x40810F" "x409E27" "x419C0F" "x42810F" "x42A321" "x439311" "x43A002" "x43A307" "x449508" "x449F0B" "x459B27" "x468F22" "x46950B" "x469D1F" "x46A312" }
+    traits = { "state_trait_mountain_range" }
+    city = "x247E28"
+    farm = "x1F9A10"
+    mine = "x397B07"
+    wood = "x39911F"
+    arable_land = 41
+    arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 10
+        building_spirit_beast_hunting = 22
+        building_iron_mine = 92
+        building_sulfur_mine = 72
+    }
+}
+
+STATE_DO_GEE = {
+    id = 243
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x52D119" "x52DC22" "x52DD00" "x53CC1C" "x54E40F" "x54EA0A" "x55D412" "x55EE02" "x56E824" "x57D009" "x57D40E" "x58C923" "x58D408" "x59C80D" "x59D10D" "x59D116" "x59D119" "x5ACB09" "x5BD521" "x5BD716" "x5BE00F" "x5CED1D" "x5DCA07" "x5EDD0A" "x5EEC10" "x5FC90F" "x5FCC14" "x5FD512" "x5FE000" "x60C917" "x60D21C" "x60DE00" "x61DB02" "x62CF19" "x62D515" "x62D61C" "x62ED06" "x63E71A" "x64C807" "x64CD00" "x64EB0B" "x66D51E" "x66D71B" "x66DA1F" "x66EF22" "x68CA23" "x69CC1A" "x69D51A" "x69DE08" "x69F021" "x6ACD0B" "x6AEC00" "x6BD302" "x6BD307" "x6BDB03" "x6CCB03" "x6CE31A" "x6DEE12" "x6FD20A" "x6FD918" "x6FE50E" "x71C81B" "x71D200" "x71E91F" "x72DC22" "x72F022" "x74E014" "x75CE1F" "x78D81F" "x78EA16" "x78EE0A" "x78EF0E" "x79CA12" "x79D811" "x79D81F" "x79EE1E" }
+    impassable = { "x52D119" "x52DC22" "x52DD00" "x53CC1C" "x54E40F" "x54EA0A" "x55D412" "x55EE02" "x56E824" "x57D009" "x57D40E" "x58C923" "x58D408" "x59C80D" "x59D10D" "x59D116" "x59D119" "x5ACB09" "x5BD716" "x5BE00F" "x5CED1D" "x5DCA07" "x5EDD0A" "x5EEC10" "x5FC90F" "x5FD512" "x5FE000" "x60C917" "x60D21C" "x60DE00" "x61DB02" "x62CF19" "x62D515" "x62D61C" "x62ED06" "x63E71A" "x64CD00" "x64EB0B" "x66D51E" "x66D71B" "x66DA1F" "x66EF22" "x68CA23" "x69CC1A" "x69D51A" "x69DE08" "x69F021" "x6ACD0B" "x6AEC00" "x6BD302" "x6BD307" "x6BDB03" "x6CCB03" "x6CE31A" "x6DEE12" "x6FD20A" "x6FD918" "x6FE50E" "x71C81B" "x71D200" "x71E91F" "x72DC22" "x72F022" "x74E014" "x78D81F" "x78EA16" "x78EE0A" "x78EF0E" "x79CA12" "x79D81F" "x79EE1E" }
+    traits = { "state_trait_mountain_range" }
+    city = "x5BD521"
+    farm = "x75CE1F"
+    mine = "x79D811"
+    wood = "x5FCC14"
+    arable_land = 42
+    arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 10
+        building_spirit_beast_hunting = 21
+    }
+}
+
+STATE_BOK_SER = {
+    id = 244
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x3D8920" "x3E7803" "x3E7F21" "x408719" "x417219" "x41840D" "x439009" "x448D1F" "x45760D" "x476F1F" "x497706" "x498E1E" "x4A7013" "x4A8B12" "x4A911C" "x4B770B" "x4B8813" "x4C8211" "x4C9122" "x4D8220" "x4F6B25" "x4F6E1A" "x4F8209" "x506E02" "x507C08" "x50840C" "x518708" "x52690A" "x527723" "x52860F" "x528707" "x528900" "x538B1B" "x546D00" "x548D17" "x55780F" "x566C20" "x567909" "x577A14" "x597E00" "x598616" "x59861C" "x5A6F17" "x5A720C" "x5B8208" "x5C7021" "x5C811F" "x5C8604" "x5D6C1D" "x5D6F12" "x5D821D" "x5D8E02" "x5E6E1F" "x5E6F04" "x5E8C1B" "x608403" "x608B12" "x617302" "x617B00" "x617D21" "x618703" "x62830F" "x628319" "x637211" "x637A24" "x639122" "x648823" }
+    impassable = { "x408719" "x439009" "x476F1F" "x498E1E" "x4F6E1A" "x507C08" "x527723" "x546D00" "x597E00" "x5D6F12" "x5E6F04" "x5E8C1B" "x618703" "x62830F" "x628319" }
+    city = "x3D8920"
+    farm = "x5D8E02"
+    mine = "x598616"
+    wood = "x4C9122"
+    arable_land = 52
+    arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_tobacco_plantation" }
+    capped_resources = {
+        building_logging_camp = 13
+        building_spirit_beast_hunting = 21
+        building_iron_mine = 102
+        building_lead_mine = 101
+        building_sulfur_mine = 87
+    }
+}

@@ -1,0 +1,422 @@
+﻿two_spains_liberal_progress = {
+}
+
+two_spains_conservative_progress = {
+	value = 100
+}
+
+two_spains_liberal_pivot = {
+	
+	value = 0
+}
+
+two_spains_conservative_pivot = {
+	
+	value = 0
+}
+
+two_spains_liberal_display = {
+	
+	value = 0
+}
+
+two_spains_conservative_display = {
+	
+	value = 0
+}
+
+two_spains_tension_pivot = {
+	
+	value = 0
+}
+
+# removed effect line: vanilla ref 'je_devorismo_privatisation_target' not present in this mod
+# removed effect line: vanilla ref 'je_devorismo_election_months' not present in this mod
+
+espartero_age = {
+	value = year
+	subtract = 1793
+}
+
+years_since_game_start = {
+	value = year
+	subtract = 1836
+}
+
+yearly_gross_income = {
+	value = fixed_income
+	multiply = 52
+}
+
+country_slave_culture_population = {
+	value = "culture_percent_country(scope:culture)"
+	multiply = total_population
+}
+
+brazil_pedropoints_as_percent = {
+	if = {
+		limit = {
+			always = no # vanilla ref 'c:BRZ' not present in this mod
+			always = no # blanked: vanilla ref 'c:BRZ' not present in this mod
+		}
+		# removed effect line: vanilla ref 'c:BRZ' not present in this mod
+		multiply = 0.1
+	}
+}
+
+iberia_shared_law_requirement = 15
+
+commander_coup_strength = {
+	add = {
+		desc = "coup_popularity_tt"
+		value = popularity
+		divide = 10
+	}
+	if = { # Land coups
+		limit = {
+			exists = owner
+			has_role_of_type = general
+			owner.army_size_including_raised_conscripts > 0
+		}
+		add = {
+			desc = "coup_commander_rank_tt"
+			value = this.commander_rank
+			divide = owner.country_collected_army_commander_ranks
+			multiply = 5
+		}
+	}
+	if = { # Boat coups
+		limit = {
+			exists = owner
+			has_role_of_type = admiral
+			owner.navy_size > 0
+		}
+		add = {
+			desc = "coup_commander_rank_tt"
+			value = this.commander_rank
+			divide = owner.country_collected_navy_commander_ranks
+			multiply = 5
+		}
+	}
+	if = {
+		limit = {
+			exists = owner
+			exists = this.commander_military_formation.current_hq
+			this.commander_military_formation.current_hq.region ?= owner.capital.region
+		}
+		add = {
+			desc = "coup_commander_core_location_tt"
+			value = 2
+		}
+	}
+	else_if = {
+		limit = {
+			exists = owner
+			exists = this.commander_military_formation.current_hq
+			this.commander_military_formation.current_hq.region ?= {
+				any_scope_state = {
+					owner = root.owner
+					is_incorporated = yes
+				}
+			}
+		}
+		add = {
+			desc = "coup_commander_periphery_location_tt"
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			exists = owner
+			exists = this.commander_military_formation.current_hq
+			this.commander_military_formation.current_hq.region ?= {
+				any_scope_state = {
+					owner ?= root.owner
+					is_incorporated = no
+				}
+			}
+		}
+		add = {
+			desc = "coup_commander_colony_location_tt"
+			value = -2
+		}
+	}
+	else_if = {
+		limit = {
+			exists = this.commander_military_formation
+			NOT = {
+				exists = this.commander_military_formation.current_hq
+			}
+		}
+		add = {
+			desc = "coup_commander_no_location_tt"
+			value = -1
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				exists = this.commander_military_formation
+			}
+		}
+		add = {
+			desc = "coup_commander_unassigned_location_tt"
+			value = 2
+		}
+	}
+	add = {
+		desc = "coup_clout_tt"
+		value = this.interest_group.ig_clout
+		multiply = 10
+	}
+	add = {
+		desc = "coup_strength_modifier_add_tt"
+		value = modifier:character_coup_strength_add
+	}
+	multiply = {
+		desc = "coup_strength_modifier_tt"
+		value = 1
+		add = modifier:character_coup_strength_mult
+	}
+}
+
+commander_coup_strength_country_display = { # Note - absolute fraud script value for tooltip purposes. Must equal the above.
+	add = {
+		desc = "coup_popularity_vs_legitimacy_tt"
+		every_scope_character = {
+			limit = {
+				has_variable = golpista_var
+			}
+			value = popularity
+			divide = 10
+		}
+	}
+	if = { # Land coups
+		limit = {
+			army_size_including_raised_conscripts > 0
+			any_scope_character = {
+				has_variable = golpista_var
+				has_role_of_type = general
+			}
+		}
+		add = {
+			desc = "coup_commander_rank_progress_tt"
+			every_scope_character = {
+				limit = {
+					has_variable = golpista_var
+					has_role_of_type = general
+				}
+				value = this.commander_rank
+				divide = owner.country_collected_army_commander_ranks
+				multiply = 5
+			}
+		}
+	}
+	if = { # Boat coups
+		limit = {
+			navy_size > 0
+			any_scope_character = {
+				has_variable = golpista_var
+				has_role_of_type = admiral
+			}
+		}
+		add = {
+			desc = "coup_commander_rank_progress_tt"
+			every_scope_character = {
+				limit = {
+					has_variable = golpista_var
+					has_role_of_type = admiral
+				}
+				value = this.commander_rank
+				divide = owner.country_collected_navy_commander_ranks
+				multiply = 5
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_scope_character = {
+				has_variable = golpista_var
+				exists = this.commander_military_formation.current_hq
+				this.commander_military_formation.current_hq.region ?= owner.capital.region
+			}
+		}
+		add = {
+			desc = "coup_commander_core_location_progress_tt"
+			value = 2
+		}
+	}
+	else_if = {
+		limit = {
+			any_scope_character = {
+				has_variable = golpista_var
+				exists = this.commander_military_formation.current_hq
+				this.commander_military_formation.current_hq.region ?= {
+					any_scope_state = {
+						owner = root.owner
+						is_incorporated = yes
+					}
+				}
+			}
+		}
+		add = {
+			desc = "coup_commander_periphery_location_progress_tt"
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			any_scope_character = {
+				has_variable = golpista_var
+				exists = this.commander_military_formation.current_hq
+				this.commander_military_formation.current_hq.region ?= {
+					any_scope_state = {
+						owner = root.owner
+						is_incorporated = no
+					}
+				}
+			}
+		}
+		add = {
+			desc = "coup_commander_colony_location_progress_tt"
+			value = -2
+		}
+	}
+	else_if = {
+		limit = {
+			any_scope_character = {
+				has_variable = golpista_var
+				exists = this.commander_military_formation
+				NOT = {
+					exists = this.commander_military_formation.current_hq
+				}
+			}
+		}
+		add = {
+			desc = "coup_commander_no_location_progress_tt"
+			value = -1
+		}
+	}
+	else_if = {
+		limit = {
+			any_scope_character = {
+				has_variable = golpista_var
+				NOT = {
+					exists = this.commander_military_formation
+				}
+			}
+		}
+		add = {
+			desc = "coup_commander_unassigned_location_progress_tt"
+			value = 2
+		}
+	}
+	add = {
+		desc = "coup_clout_of_golpista_ig_tt"
+		every_interest_group = {
+			limit = {
+				has_variable = golpista_ig_var
+			}
+			value = ig_clout
+			multiply = 10
+		}
+	}
+	add = {
+		desc = "coup_strength_modifier_add_tt"
+		every_scope_character = {
+			limit = {
+				has_variable = golpista_var
+			}
+			value = 1
+			add = modifier:character_coup_strength_add
+		}
+	}
+	multiply = {
+		desc = "coup_strength_modifier_tt"
+		every_scope_character = {
+			limit = {
+				has_variable = golpista_var
+			}
+			value = 1
+			add = modifier:character_coup_strength_mult
+		}
+	}
+}
+
+country_collected_army_commander_ranks = {
+	if = {
+		limit = {
+			any_scope_character = {
+				has_role_of_type = general
+			}
+		}
+		value = 0
+		every_scope_character = {
+			limit = {
+				has_role_of_type = general
+				exists = commander_rank
+			}
+			add = this.commander_rank
+		}
+	}
+	else = {
+		value = 0
+	}
+}
+
+country_collected_navy_commander_ranks = {
+	if = {
+		limit = {
+			any_scope_character = {
+				has_role_of_type = admiral
+			}
+		}
+		value = 0
+		every_scope_character = {
+			limit = {
+				has_role_of_type = admiral
+				exists = commander_rank
+			}
+			add = this.commander_rank
+		}
+	}
+	else = {
+		value = 0
+	}
+}
+
+country_coup_resistance = {
+	add = {
+		desc = "coup_legitimacy_tt"
+		value = legitimacy
+		divide = 10
+	}
+	add = {
+		desc = "coup_resistance_modifier_add_tt"
+		value = 1
+		add = modifier:country_coup_resistance_add
+	}
+	multiply = {
+		desc = "coup_resistance_modifier_tt"
+		value = 1
+		add = modifier:country_coup_resistance_mult
+	}
+}
+
+country_coup_resistance_reversed = { # Must exactly match country_coup_resistance but reversed. I don't like that this has to exist either.
+	subtract = {
+		desc = "coup_legitimacy_tt"
+		value = legitimacy
+		divide = 10
+	}
+	subtract = {
+		desc = "coup_resistance_modifier_add_tt"
+		value = 1
+		add = modifier:country_coup_resistance_add
+	}
+	multiply = {
+		desc = "coup_resistance_modifier_tt"
+		value = 1
+		add = modifier:country_coup_resistance_mult
+	}
+}

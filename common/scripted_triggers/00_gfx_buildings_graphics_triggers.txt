@@ -1,0 +1,27 @@
+﻿# Root = State Region
+us_american_buildings_trigger = {
+	is_in_geographic_region = geographic_region_isekai
+}
+
+latin_american_buildings_trigger = {
+	is_in_geographic_region = geographic_region_demonland_south
+}
+
+french_buildings_trigger = {
+	is_in_geographic_region = geographic_region_isekai
+}
+
+indian_buildings_trigger = {
+	is_in_geographic_region = geographic_region_western_plateau
+}
+
+balkan_buildings_trigger = {
+	is_in_geographic_region = geographic_region_demonland
+}
+
+japanese_buildings_trigger = {
+    OR = {
+        is_in_geographic_region = geographic_region_eastern_isles
+        is_homeland = cu:deigo
+    }
+}

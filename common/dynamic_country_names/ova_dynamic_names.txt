@@ -1,0 +1,35 @@
+﻿# Storyline dynamic names. Victoria's splinter state AUR carries the name
+# "Concord Aurorae" (effect_ova_victoria_rebellion sets ova_new_dawn on it).
+# The LYS block only matters in the degenerate fallback where every march is
+# already lost and the dawn is raised over the old throne itself.
+AUR = {
+	dynamic_country_name = {
+		name = dyn_c_ova_dawn
+		adjective = dyn_c_ova_dawn_adj
+
+		priority = 100
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				has_variable = ova_new_dawn
+			}
+		}
+	}
+}
+
+LYS = {
+	dynamic_country_name = {
+		name = dyn_c_ova_dawn
+		adjective = dyn_c_ova_dawn_adj
+
+		priority = 100
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				has_variable = ova_new_dawn
+			}
+		}
+	}
+}

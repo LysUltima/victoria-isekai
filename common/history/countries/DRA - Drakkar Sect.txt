@@ -1,0 +1,8 @@
+﻿# Drakkar Sect (western_plateau: spiritualism tier 2, sect)
+COUNTRIES = {
+	c:DRA ?= {
+		effect_starting_technology_spiritualism_tier_2 = yes
+		create_character = { template = template_ruler_dra role = ruler }
+		effect_starting_politics_sect = yes
+	}
+}

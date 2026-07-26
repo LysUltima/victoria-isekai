@@ -1,0 +1,8 @@
+﻿# Sinner's Refuge (isekai: artifice tier 3)
+COUNTRIES = {
+	c:SIN ?= {
+		effect_starting_technology_artifice_tier_3 = yes
+		create_character = { template = template_ruler_sin role = ruler }
+		effect_starting_politics_traditional = yes
+	}
+}

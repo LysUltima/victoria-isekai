@@ -1,0 +1,7 @@
+﻿# Sirokani (beastland: spiritualism_artifice tier 4)
+COUNTRIES = {
+	c:SIR ?= {
+		effect_starting_technology_spiritualism_artifice_tier_4 = yes
+		effect_starting_politics_traditional = yes
+	}
+}

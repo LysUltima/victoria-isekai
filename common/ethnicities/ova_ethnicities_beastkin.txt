@@ -1,0 +1,119 @@
+﻿# Beastkin ethnicities: human base + species ear gene + hair color matched to
+# the ear/fur color. hair_color box = { x_min y_min x_max y_max } in the hair
+# palette (x = hue: neutral grey left -> red right; y = light top -> dark bottom).
+# The exact x=0 column is pure neutral grey/white, so grey/white boxes pin x~0.
+# east_asian-template kin also override hairstyles with range { 0.1 1.0 } to skip
+# the "empty" (bald) entry at the head of east_asian_hairstyles.
+# gene_age = ova_beastkin_aging: ages like old_1 but WITHOUT hair greying, so
+# beastkin keep their fur-matched hair color into old age.
+
+forest_foxkin_ethnicity = {
+    template = "ova_elf_face_central_asian"
+
+    # ginger / fox red
+    hair_color = {
+        10 = { 0.80 0.28 0.95 0.40 }
+    }
+
+    gene_age = {
+        10 = { name = ova_beastkin_aging		range = { 0.0 1.0 } }
+    }
+
+    gene_fox_ears = {
+        10 = { name = forest_fox_ears		range = { 0.0 1.0 } }
+    }
+}
+
+snow_foxkin_ethnicity = {
+    template = "ova_elf_face_native_american"
+
+    # white (pinned to the neutral left edge)
+    hair_color = {
+        10 = { 0.0 0.0 0.012 0.03 }
+    }
+
+    gene_age = {
+        10 = { name = ova_beastkin_aging		range = { 0.0 1.0 } }
+    }
+
+    # snow foxes wear the white cat-shaped ears
+    gene_cat_ears = {
+        10 = { name = white_cat_ears		range = { 0.0 1.0 } }
+    }
+}
+
+wolfkin_ethnicity = {
+    template = "ova_elf_face_east_asian"
+
+    # grey (pinned to the neutral left edge)
+    hair_color = {
+        10 = { 0.0 0.40 0.012 0.50 }
+    }
+
+    hairstyles = {
+        10 = { name = east_asian_hairstyles		range = { 0.1 1.0 } }
+    }
+
+    gene_age = {
+        10 = { name = ova_beastkin_aging		range = { 0.0 1.0 } }
+    }
+
+    gene_wolf_ears = {
+        10 = { name = all_wolf_ears		range = { 0.0 1.0 } }
+    }
+}
+
+dogkin_ethnicity = {
+    template = "ova_elf_face_native_american"
+
+    # grey (pinned to the neutral left edge)
+    hair_color = {
+        10 = { 0.0 0.40 0.012 0.50 }
+    }
+
+    gene_age = {
+        10 = { name = ova_beastkin_aging		range = { 0.0 1.0 } }
+    }
+
+    gene_wolf_ears = {
+        10 = { name = all_wolf_ears		range = { 0.0 1.0 } }
+    }
+}
+
+bearkin_ethnicity = {
+    template = "ova_elf_face_east_asian"
+
+    # dark brown
+    hair_color = {
+        10 = { 0.55 0.72 0.72 0.86 }
+    }
+
+    hairstyles = {
+        10 = { name = east_asian_hairstyles		range = { 0.1 1.0 } }
+    }
+
+    gene_age = {
+        10 = { name = ova_beastkin_aging		range = { 0.0 1.0 } }
+    }
+
+    gene_bear_ears = {
+        10 = { name = all_bear_ears		range = { 0.0 1.0 } }
+    }
+}
+
+horsekin_ethnicity = {
+    template = "ova_elf_face_central_asian"
+
+    # light brown
+    hair_color = {
+        10 = { 0.45 0.25 0.60 0.40 }
+    }
+
+    gene_age = {
+        10 = { name = ova_beastkin_aging		range = { 0.0 1.0 } }
+    }
+
+    gene_horse_ears = {
+        10 = { name = all_horse_ears		range = { 0.0 1.0 } }
+    }
+}

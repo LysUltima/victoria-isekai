@@ -1,0 +1,23 @@
+﻿# Demonic Empire (demonland: spiritualism_alchemy tier 1)
+COUNTRIES = {
+	c:DEM ?= {
+		effect_starting_technology_spiritualism_alchemy_tier_1 = yes
+		create_character = { template = template_demon_king role = ruler }
+		create_character = { template = template_demon_king_daughter role = heir }
+		effect_starting_politics_traditional = yes
+		# demonic_scriptures deliberately NOT granted here - that tech is reserved
+		# for the xianxia/murim demonic cults (BLO/GHO/SHA/NIN/CHE). DEM's own
+		# asymmetric reach into light_orthodoxy nations is handled instead by
+		# common/diplomatic_actions/61_ova_expedition.txt (the reverse direction:
+		# light_orthodoxy nations reaching DEM while the Eternal Crusade lasts).
+
+        activate_law = law_type:law_professional_army
+
+		# Demonic Empire storyline JE, raised here at start (the war-JE pattern:
+		# no is_shown_when_inactive, so it never self-activates for anyone else).
+		# Self-contained, so it needs no global-last ordering; the daughter it
+		# shields is the heir created above, and its immediate's daughter capture
+		# retries on the monthly pulse until that deferred character resolves.
+		add_journal_entry = { type = je_ova_demonic_dawn }
+	}
+}

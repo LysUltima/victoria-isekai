@@ -1,0 +1,23 @@
+﻿### Reyorn harem storyline - the Affection bar
+# One shared 0..100 PERCENT gauge, attached to each of the five courtship JEs
+# (je_ova_rey_court_*). It has NO weekly_progress of its own: every point of
+# affection is pushed on from script by effect_ova_rey_add_affection
+# (ova_rey_effects.txt), which adds (points * 100 / cap) to whichever courtship
+# JE is currently live. Each courtship JE is a fresh instance, so its bar
+# starts at 0 and needs no reset. When the bar reaches full the heroine's heart
+# is won; a courtship that times out with the bar still short simply fails and
+# John moves on to the next state.
+# GOTCHA (shared with ova_champion_bars.txt): the desc / second_desc loc
+# strings are parsed into engine data statements - an apostrophe inside them
+# breaks PROGRESS_BAR_BREAKDOWN parsing. Keep them apostrophe-free and short.
+
+ova_rey_affection_bar = {
+	name = "ova_rey_affection_bar"
+	desc = "ova_rey_affection_bar_desc"
+	second_desc = "ova_rey_affection_bar_second_desc"
+
+	start_value = 0
+	min_value = 0
+	max_value = 100
+	default_green = yes
+}

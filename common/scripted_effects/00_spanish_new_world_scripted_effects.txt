@@ -1,0 +1,721 @@
+﻿# New Spain
+set_up_new_spain_default = {
+	if = {
+		limit = {
+			any_subject_or_below = {
+				NOT = {
+					always = no # vanilla ref 'c:SC1' not present in this mod
+				}
+				capital = {
+					OR = { # North America, Mexico, and the Central America region
+						always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+						always = no # vanilla ref 's:STATE_PANAMA' not present in this mod
+					}
+				}
+			}
+		}
+		every_subject_or_below = {
+			limit = {
+				NOT = {
+					always = no # vanilla ref 'c:SC1' not present in this mod
+				}
+				capital = {
+					OR = { # North America, Mexico, and the Central America region
+						always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+						always = no # vanilla ref 's:STATE_PANAMA' not present in this mod
+					}
+				}
+			}
+			# removed effect block: vanilla ref 'c:SC1' not present in this mod
+		}
+	}
+	custom_tooltip = {
+		text = set_up_new_spain_default_tt
+		if = {
+			limit = {
+				any_scope_state = {
+					OR = { # North America, Mexico, and the Central America region
+						always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+						always = no # vanilla ref 's:STATE_PANAMA' not present in this mod
+					}
+				}
+			}
+			every_scope_state = {
+				limit = {
+					OR = { # North America, Mexico, and the Central America region
+						always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+						always = no # vanilla ref 's:STATE_PANAMA' not present in this mod
+					}
+				}
+				# removed effect line: vanilla ref 'c:SC1' not present in this mod
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					NOT = {
+						always = no # vanilla ref 'c:SC1' not present in this mod
+					}
+					any_scope_state = {
+						OR = { # North America, Mexico, and the Central America region
+							always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+							always = no # vanilla ref 's:STATE_PANAMA' not present in this mod
+						}
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					NOT = {
+						always = no # vanilla ref 'c:SC1' not present in this mod
+					}
+					any_scope_state = {
+						OR = { # North America, Mexico, and the Central America region
+							always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+							always = no # vanilla ref 's:STATE_PANAMA' not present in this mod
+						}
+					}
+				}
+				every_scope_state = {
+					limit = {
+						OR = { # North America, Mexico, and the Central America region
+							always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+							always = no # vanilla ref 's:STATE_PANAMA' not present in this mod
+						}
+					}
+					# removed effect line: vanilla ref 'c:SC1' not present in this mod
+				}
+			}
+		}
+	}
+}
+set_up_new_spain_pre_napoleonic = {
+	if = {
+		limit = {
+			any_subject_or_below = {
+				NOT = {
+					always = no # vanilla ref 'c:SC1' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+				}
+			}
+		}
+		every_subject_or_below = {
+			limit = {
+				NOT = {
+					always = no # vanilla ref 'c:SC1' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+				}
+			}
+			# removed effect block: vanilla ref 'c:SC1' not present in this mod
+		}
+	}
+	custom_tooltip = {
+		text = set_up_new_spain_pre_napoleonic_tt
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+				}
+			}
+			every_scope_state = {
+				limit = {
+					always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+				}
+				# removed effect line: vanilla ref 'c:SC1' not present in this mod
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					NOT = {
+						always = no # vanilla ref 'c:SC1' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					NOT = {
+						always = no # vanilla ref 'c:SC1' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+					}
+				}
+				every_scope_state = {
+					limit = {
+						always = no # vanilla ref 'geographic_region_colonial_new_spain' not present in this mod
+					}
+					# removed effect line: vanilla ref 'c:SC1' not present in this mod
+				}
+			}
+		}
+	}
+}
+# New Grenada
+set_up_new_grenada_default = {
+	if = {
+		limit = {
+			any_subject_or_below = {
+				NOT = {
+					always = no # vanilla ref 'c:SC2' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'sr:region_gran_colombia' not present in this mod
+				}
+			}
+		}
+		every_subject_or_below = {
+			limit = {
+				NOT = {
+					always = no # vanilla ref 'c:SC2' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'sr:region_gran_colombia' not present in this mod
+				}
+			}
+			# removed effect block: vanilla ref 'c:SC2' not present in this mod
+		}
+	}
+	custom_tooltip = {
+		text = set_up_new_grenada_default_tt
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 'sr:region_gran_colombia' not present in this mod
+				}
+			}
+			every_scope_state = {
+				limit = {
+					always = no # vanilla ref 'sr:region_gran_colombia' not present in this mod
+				}
+				# removed effect line: vanilla ref 'c:SC2' not present in this mod
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					NOT = {
+						always = no # vanilla ref 'c:SC2' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'sr:region_gran_colombia' not present in this mod
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					NOT = {
+						always = no # vanilla ref 'c:SC2' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'sr:region_gran_colombia' not present in this mod
+					}
+				}
+				every_scope_state = {
+					limit = {
+						always = no # vanilla ref 'sr:region_gran_colombia' not present in this mod
+					}
+					# removed effect line: vanilla ref 'c:SC2' not present in this mod
+				}
+			}
+		}
+	}
+}
+set_up_new_grenada_pre_napoleonic = {
+	if = {
+		limit = {
+			any_subject_or_below = {
+				NOT = {
+					always = no # vanilla ref 'c:SC2' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'geographic_region_colonial_new_grenada' not present in this mod
+				}
+			}
+		}
+		every_subject_or_below = {
+			limit = {
+				NOT = {
+					always = no # vanilla ref 'c:SC2' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'geographic_region_colonial_new_grenada' not present in this mod
+				}
+			}
+			# removed effect block: vanilla ref 'c:SC2' not present in this mod
+		}
+	}
+	custom_tooltip = {
+		text = set_up_new_spain_pre_napoleonic_tt
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 'geographic_region_colonial_new_grenada' not present in this mod
+				}
+			}
+			every_scope_state = {
+				limit = {
+					always = no # vanilla ref 'geographic_region_colonial_new_grenada' not present in this mod
+				}
+				# removed effect line: vanilla ref 'c:SC2' not present in this mod
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					NOT = {
+						always = no # vanilla ref 'c:SC2' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'geographic_region_colonial_new_grenada' not present in this mod
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					NOT = {
+						always = no # vanilla ref 'c:SC2' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'geographic_region_colonial_new_grenada' not present in this mod
+					}
+				}
+				every_scope_state = {
+					limit = {
+						always = no # vanilla ref 'geographic_region_colonial_new_grenada' not present in this mod
+					}
+					# removed effect line: vanilla ref 'c:SC2' not present in this mod
+				}
+			}
+		}
+	}
+}
+# Peru
+set_up_peru_default = {
+	if = {
+		limit = {
+			any_subject_or_below = {
+				NOT = {
+					always = no # vanilla ref 'c:SC3' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'sr:region_andes' not present in this mod
+				}
+			}
+		}
+		every_subject_or_below = {
+			limit = {
+				NOT = {
+					always = no # vanilla ref 'c:SC3' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'sr:region_andes' not present in this mod
+				}
+			}
+			# removed effect block: vanilla ref 'c:SC3' not present in this mod
+		}
+	}
+	custom_tooltip = {
+		text = set_up_peru_default_tt
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 'sr:region_andes' not present in this mod
+				}
+			}
+			every_scope_state = {
+				limit = {
+					always = no # vanilla ref 'sr:region_andes' not present in this mod
+				}
+				# removed effect line: vanilla ref 'c:SC3' not present in this mod
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					NOT = {
+						always = no # vanilla ref 'c:SC3' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'sr:region_andes' not present in this mod
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					NOT = {
+						always = no # vanilla ref 'c:SC3' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'sr:region_andes' not present in this mod
+					}
+				}
+				every_scope_state = {
+					limit = {
+						always = no # vanilla ref 'sr:region_andes' not present in this mod
+					}
+					# removed effect line: vanilla ref 'c:SC3' not present in this mod
+				}
+			}
+		}
+	}
+}
+set_up_peru_pre_napoleonic = {
+	if = {
+		limit = {
+			any_subject_or_below = {
+				NOT = {
+					always = no # vanilla ref 'c:SC3' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'geographic_region_colonial_peru' not present in this mod
+				}
+			}
+		}
+		every_subject_or_below = {
+			limit = {
+				NOT = {
+					always = no # vanilla ref 'c:SC3' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'geographic_region_colonial_peru' not present in this mod
+				}
+			}
+			# removed effect block: vanilla ref 'c:SC3' not present in this mod
+		}
+	}
+	custom_tooltip = {
+		text = set_up_peru_pre_napoleonic_tt
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 'geographic_region_colonial_peru' not present in this mod
+				}
+			}
+			every_scope_state = {
+				limit = {
+					always = no # vanilla ref 'geographic_region_colonial_peru' not present in this mod
+				}
+				# removed effect line: vanilla ref 'c:SC3' not present in this mod
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					NOT = {
+						always = no # vanilla ref 'c:SC3' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'geographic_region_colonial_peru' not present in this mod
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					NOT = {
+						always = no # vanilla ref 'c:SC3' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'geographic_region_colonial_peru' not present in this mod
+					}
+				}
+				every_scope_state = {
+					limit = {
+						always = no # vanilla ref 'geographic_region_colonial_peru' not present in this mod
+					}
+					# removed effect line: vanilla ref 'c:SC3' not present in this mod
+				}
+			}
+		}
+	}
+}
+# La Plata
+set_up_la_plata_default = {
+	if = {
+		limit = {
+			any_subject_or_below = {
+				NOT = {
+					always = no # vanilla ref 'c:SC4' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'sr:region_la_plata' not present in this mod
+				}
+			}
+		}
+		every_subject_or_below = {
+			limit = {
+				NOT = {
+					always = no # vanilla ref 'c:SC4' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'sr:region_la_plata' not present in this mod
+				}
+			}
+			# removed effect block: vanilla ref 'c:SC4' not present in this mod
+		}
+	}
+	custom_tooltip = {
+		text = set_up_la_plata_default_tt
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 'sr:region_la_plata' not present in this mod
+				}
+			}
+			every_scope_state = {
+				limit = {
+					always = no # vanilla ref 'sr:region_la_plata' not present in this mod
+				}
+				# removed effect line: vanilla ref 'c:SC4' not present in this mod
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					NOT = {
+						always = no # vanilla ref 'c:SC4' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'sr:region_la_plata' not present in this mod
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					NOT = {
+						always = no # vanilla ref 'c:SC4' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'sr:region_la_plata' not present in this mod
+					}
+				}
+				every_scope_state = {
+					limit = {
+						always = no # vanilla ref 'sr:region_la_plata' not present in this mod
+					}
+					# removed effect line: vanilla ref 'c:SC4' not present in this mod
+				}
+			}
+		}
+	}
+}
+set_up_la_plata_pre_napoleonic = {
+	if = {
+		limit = {
+			any_subject_or_below = {
+				NOT = {
+					always = no # vanilla ref 'c:SC4' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'geographic_region_colonial_la_plata' not present in this mod
+				}
+			}
+		}
+		every_subject_or_below = {
+			limit = {
+				NOT = {
+					always = no # vanilla ref 'c:SC4' not present in this mod
+				}
+				capital = {
+					always = no # vanilla ref 'geographic_region_colonial_la_plata' not present in this mod
+				}
+			}
+			# removed effect block: vanilla ref 'c:SC4' not present in this mod
+		}
+	}
+	custom_tooltip = {
+		text = set_up_la_plata_pre_napoleonic_tt
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 'geographic_region_colonial_la_plata' not present in this mod
+				}
+			}
+			every_scope_state = {
+				limit = {
+					always = no # vanilla ref 'geographic_region_colonial_la_plata' not present in this mod
+				}
+				# removed effect line: vanilla ref 'c:SC4' not present in this mod
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					NOT = {
+						always = no # vanilla ref 'c:SC4' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'geographic_region_colonial_la_plata' not present in this mod
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					NOT = {
+						always = no # vanilla ref 'c:SC4' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'geographic_region_colonial_la_plata' not present in this mod
+					}
+				}
+				every_scope_state = {
+					limit = {
+						always = no # vanilla ref 'geographic_region_colonial_la_plata' not present in this mod
+					}
+					# removed effect line: vanilla ref 'c:SC4' not present in this mod
+				}
+			}
+		}
+	}
+}
+set_up_caribbean_default = {
+	if = {
+		limit = {
+			any_subject_or_below = {
+				NOT = {
+					always = no # vanilla ref 'c:CUB' not present in this mod
+				}
+				always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+			}
+		}
+		every_subject_or_below = {
+			limit = {
+				NOT = {
+					always = no # vanilla ref 'c:CUB' not present in this mod
+				}
+				always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+			}
+			# removed effect block: vanilla ref 'c:CUB' not present in this mod
+		}
+	}
+	custom_tooltip = {
+		text = set_up_caribbean_default_tt
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+				}
+			}
+			every_scope_state = {
+				limit = {
+					always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+				}
+				# removed effect line: vanilla ref 'c:CUB' not present in this mod
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					NOT = {
+						always = no # vanilla ref 'c:CUB' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					NOT = {
+						always = no # vanilla ref 'c:CUB' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+					}
+				}
+				every_scope_state = {
+					limit = {
+						always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+					}
+					# removed effect line: vanilla ref 'c:CUB' not present in this mod
+				}
+			}
+		}
+	}
+}
+set_up_caribbean_pre_napoleonic = {
+	if = {
+		limit = {
+			any_subject_or_below = {
+				NOT = {
+					always = no # vanilla ref 'c:SC1' not present in this mod
+				}
+				always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+			}
+		}
+		every_subject_or_below = {
+			limit = {
+				NOT = {
+					always = no # vanilla ref 'c:SC1' not present in this mod
+				}
+				always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+			}
+			# removed effect block: vanilla ref 'c:SC1' not present in this mod
+		}
+	}
+	custom_tooltip = {
+		text = set_up_caribbean_pre_napoleonic_tt
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+				}
+			}
+			every_scope_state = {
+				limit = {
+					always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+				}
+				# removed effect line: vanilla ref 'c:SC1' not present in this mod
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					NOT = {
+						always = no # vanilla ref 'c:SC1' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					NOT = {
+						always = no # vanilla ref 'c:SC1' not present in this mod
+					}
+					any_scope_state = {
+						always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+					}
+				}
+				every_scope_state = {
+					limit = {
+						always = no # vanilla ref 'geographic_region_caribbean_old' not present in this mod
+					}
+					# removed effect line: vanilla ref 'c:SC1' not present in this mod
+				}
+			}
+		}
+	}
+}
+# Complete setup - Default
+set_up_spanish_main_default = {
+	set_up_new_spain_default = yes
+	set_up_new_grenada_default = yes
+	set_up_peru_default = yes
+	set_up_la_plata_default = yes
+}
+# Complete setup - Pre-Napoleonic
+set_up_spanish_main_pre_napoleonic = {
+	set_up_new_spain_pre_napoleonic = yes
+	set_up_new_grenada_pre_napoleonic = yes
+	set_up_peru_pre_napoleonic = yes
+	set_up_la_plata_pre_napoleonic = yes
+}

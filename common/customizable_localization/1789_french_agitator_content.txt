@@ -1,0 +1,93 @@
+﻿# Isekai TC: migrated copy of vanilla 1789_french_agitator_content.txt.
+# common/customizable_localization is NOT in metadata.json replace_paths, so the
+# vanilla file loads unless a same-named mod file overrides it (this file).
+# Text blocks whose triggers referenced deleted Earth content were removed; keys
+# left empty fall back to their original localization_key so callers still
+# resolve. Regenerate with tools/migrate_custom_loc.py.
+
+french_dynasty = {
+	type = country
+
+	text = {
+		trigger = {
+			has_variable = orleanist_restoration_var
+		}
+		localization_key = dynasty_orleans
+	}
+	text = {
+		trigger = {
+			has_variable = legitimist_restoration_var
+		}
+		localization_key = dynasty_bourbon
+	}
+	text = {
+		trigger = {
+			has_variable = bonapartist_restoration_var
+		}
+		localization_key = dynasty_bonaparte
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = orleanist_restoration_var
+				has_variable = legitimist_restoration_var
+				has_variable = bonapartist_restoration_var
+			}
+		}
+		localization_key = dynasty_generic_royalist
+	}
+}
+
+french_dynasty_supported = {
+	type = country
+
+	text = {
+		trigger = {
+			has_variable = supporting_orleanist_var
+		}
+		localization_key = dynasty_orleans
+	}
+	text = {
+		trigger = {
+			has_variable = supporting_legitimist_var
+		}
+		localization_key = dynasty_bourbon
+	}
+	text = {
+		trigger = {
+			has_variable = supporting_bonapartist_var
+		}
+		localization_key = dynasty_bonaparte
+	}
+}
+
+french_dynasty_name = {
+	type = character
+
+	text = {
+		trigger = {
+			has_ideology = ideology:ideology_orleanist
+		}
+		localization_key = dynasty_orleans
+	}
+	text = {
+		trigger = {
+			has_ideology = ideology:ideology_legitimist
+		}
+		localization_key = dynasty_bourbon
+	}
+	text = {
+		trigger = {
+			has_ideology = ideology:ideology_bonapartist
+		}
+		localization_key = dynasty_bonaparte
+	}
+}
+
+french_leading_dynasty_name = {
+	type = country
+
+	text = {
+		localization_key = dynasty_bonaparte
+	}
+}

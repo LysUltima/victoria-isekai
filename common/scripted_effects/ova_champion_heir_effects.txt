@@ -1,0 +1,224 @@
+﻿### Champions JE - heir cultivation training + martial-sect ascension effects
+# Built on the shared cultivation trait ladder (cultivation_traits.txt). All
+# country-scope unless noted. Advancement always respects the tech gate.
+
+# CHARACTER scope: raise this character by ONE cultivation rung, if the tech
+# source (their country) has researched the matching realm. The trait ladder's
+# own replace blocks strip the lower rung. Used by heir training and the
+# martial-sect decade ascension.
+ova_advance_cultivation_trait = {
+	if = {
+		limit = {
+			NOR = {
+				has_trait = trait_qi_gathering
+				has_trait = trait_foundation_establishment
+				has_trait = trait_golden_core
+				has_trait = trait_nascent_soul
+				has_trait = trait_soul_formation
+				has_trait = trait_return_to_the_void
+			}
+			owner = { has_technology_researched = qi_gathering }
+		}
+		add_trait = trait_qi_gathering
+	}
+	else_if = {
+		limit = {
+			has_trait = trait_qi_gathering
+			owner = { has_technology_researched = foundation_establishment }
+		}
+		add_trait = trait_foundation_establishment
+	}
+	else_if = {
+		limit = {
+			has_trait = trait_foundation_establishment
+			owner = { has_technology_researched = golden_core }
+		}
+		add_trait = trait_golden_core
+	}
+	else_if = {
+		limit = {
+			has_trait = trait_golden_core
+			owner = { has_technology_researched = nascent_soul }
+		}
+		add_trait = trait_nascent_soul
+	}
+	else_if = {
+		limit = {
+			has_trait = trait_nascent_soul
+			owner = { has_technology_researched = soul_formation }
+		}
+		add_trait = trait_soul_formation
+	}
+	else_if = {
+		limit = {
+			has_trait = trait_soul_formation
+			owner = { has_technology_researched = return_to_the_void }
+		}
+		add_trait = trait_return_to_the_void
+	}
+}
+
+# Martial-sect nations: every character in the country advances one rung (up to
+# the tech ceiling). Called every 10 years by je_ova_sect_ascension.
+ova_martial_sect_ascension = {
+	every_scope_character = {
+		limit = { is_character_alive = yes }
+		ova_advance_cultivation_trait = yes
+	}
+}
+
+# On adopting a LOCAL hero (scope:ova_champion_candidate): a rare prodigy arrives
+# already cultivated, so their starting champion Level is set by the trait (the
+# adopt effect reads it). Gated on the realm's tech being known.
+ova_champion_roll_local_cultivation = {
+	random_list = {
+		80 = { }
+		15 = { # Qi Gathering -> starts at Level 10
+			trigger = { has_technology_researched = qi_gathering }
+			scope:ova_champion_candidate = { add_trait = trait_qi_gathering }
+		}
+		5 = { # Foundation Establishment -> starts at Level 20
+			trigger = { has_technology_researched = foundation_establishment }
+			scope:ova_champion_candidate = { add_trait = trait_foundation_establishment }
+		}
+	}
+}
+
+# ---- Heir training: capital ----
+ova_heir_train_capital_start = {
+	heir ?= { save_scope_as = ova_trainee_scope }
+	set_variable = { name = ova_heir_trainee value = scope:ova_trainee_scope }
+	set_variable = ova_heir_in_training
+	scope:ova_trainee_scope = {
+		add_modifier = { name = ova_heir_in_cultivation days = 1825 }
+	}
+	# graduate in five years
+	trigger_event = { id = ova_champion_heir.1 days = 1825 }
+}
+
+# ---- Heir training: Academy (ACA) ----
+ova_heir_train_academy_start = {
+	heir ?= { save_scope_as = ova_trainee_scope }
+	set_variable = { name = ova_heir_trainee value = scope:ova_trainee_scope }
+	# locked out of other training until the heir comes of age (20)
+	set_variable = ova_heir_in_training
+	scope:ova_trainee_scope = {
+		add_modifier = { name = ova_heir_at_academy days = -1 }
+	}
+	# the Academy guarantees our independence while it holds our heir (treaty
+	# system requires the Pivot of Empire / Sphere of Influence treaty feature)
+	if = {
+		limit = { OR = { has_dlc_feature = mp1_treaties has_dlc_feature = foreign_investment } }
+		create_treaty = {
+			first_country = root
+			second_country = c:ACA
+			is_draft = no
+			binding_period = { years = 15 }
+			articles_to_create = {
+				{
+					article = guarantee_independence
+					source_country = c:ACA
+					target_country = root
+				}
+			}
+		}
+	}
+	trigger_event = { id = ova_champion_heir.2 days = 365 }
+}
+
+# ---- Heir training: a foreign Sect ----
+# Expects scope:ova_sect_scope = the chosen friendly martial-sect neighbor.
+ova_heir_train_sect_start = {
+	heir ?= { save_scope_as = ova_trainee_scope }
+	set_variable = { name = ova_heir_trainee value = scope:ova_trainee_scope }
+	set_variable = { name = ova_heir_sect value = scope:ova_sect_scope }
+	set_variable = ova_heir_in_training
+	scope:ova_trainee_scope = {
+		add_modifier = { name = ova_heir_at_sect days = -1 }
+	}
+	# a century-long guarantee of the SECT's independence, extended by us in
+	# return for taking in our heir (treaty system requires the Pivot of Empire
+	# / Sphere of Influence treaty feature)
+	if = {
+		limit = { OR = { has_dlc_feature = mp1_treaties has_dlc_feature = foreign_investment } }
+		create_treaty = {
+			first_country = root
+			second_country = scope:ova_sect_scope
+			is_draft = no
+			binding_period = { years = 100 }
+			articles_to_create = {
+				{
+					article = guarantee_independence
+					source_country = root
+					target_country = scope:ova_sect_scope
+				}
+			}
+		}
+	}
+	trigger_event = { id = ova_champion_heir.4 days = 365 }
+}
+
+# Shared cleanup when a training term ends.
+ova_heir_training_end = {
+	remove_variable = ova_heir_in_training
+	if = {
+		limit = { exists = var:ova_heir_trainee }
+		var:ova_heir_trainee = {
+			if = { limit = { has_modifier = ova_heir_in_cultivation } remove_modifier = ova_heir_in_cultivation }
+			if = { limit = { has_modifier = ova_heir_at_academy } remove_modifier = ova_heir_at_academy }
+			if = { limit = { has_modifier = ova_heir_at_sect } remove_modifier = ova_heir_at_sect }
+		}
+	}
+}
+
+# Ensure the trainee is at LEAST Foundation Establishment (academy/sect payoff
+# at age 20). Trainee scope = var:ova_heir_trainee, checked by the caller.
+ova_heir_reach_foundation = {
+	if = {
+		limit = {
+			NOR = {
+				has_trait = trait_foundation_establishment
+				has_trait = trait_golden_core
+				has_trait = trait_nascent_soul
+				has_trait = trait_soul_formation
+				has_trait = trait_return_to_the_void
+			}
+		}
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# Sect post-graduation gain: while the sect out-techs us and the former heir has
+# not yet become a ruler, they climb one further rung every five years, capped by
+# the SECT's own researched realm. Country scope; reads var:ova_heir_trainee and
+# var:ova_heir_sect.
+ova_heir_sect_advance = {
+	if = {
+		limit = {
+			var:ova_heir_trainee = { has_trait = trait_soul_formation }
+			var:ova_heir_sect = { has_technology_researched = return_to_the_void }
+		}
+		var:ova_heir_trainee = { add_trait = trait_return_to_the_void }
+	}
+	else_if = {
+		limit = {
+			var:ova_heir_trainee = { has_trait = trait_nascent_soul }
+			var:ova_heir_sect = { has_technology_researched = soul_formation }
+		}
+		var:ova_heir_trainee = { add_trait = trait_soul_formation }
+	}
+	else_if = {
+		limit = {
+			var:ova_heir_trainee = { has_trait = trait_golden_core }
+			var:ova_heir_sect = { has_technology_researched = nascent_soul }
+		}
+		var:ova_heir_trainee = { add_trait = trait_nascent_soul }
+	}
+	else_if = {
+		limit = {
+			var:ova_heir_trainee = { has_trait = trait_foundation_establishment }
+			var:ova_heir_sect = { has_technology_researched = golden_core }
+		}
+		var:ova_heir_trainee = { add_trait = trait_golden_core }
+	}
+}

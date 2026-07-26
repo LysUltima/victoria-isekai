@@ -1,0 +1,111 @@
+﻿# Isekai TC: migrated from vanilla common/journal_entries/00_abolish_monarchy.txt (2026-07-11).
+# Generic monarchy-abolition progress tracker, triggered by on_law_enactment_started (already
+# present in common/on_actions/00_code_on_actions.txt, engine hook was never blanked). Dropped
+# the China-specific je_warlord_china / chi_add_1_fragile_unity block (no mod analogue). Fires
+# events/1848.txt 1848.2 on completion (also migrated).
+
+je_abolish_monarchy = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					NOT = { country_has_monarchy_law = yes }
+					NOT = {
+						any_civil_war = {
+							civil_war_progress >= 0.75
+							is_civil_war_type = revolution
+						}
+					}
+					NOT = {
+						any_interest_group = {
+							law_stance = {
+								law = law_type:law_monarchy
+								value > neutral
+							}
+							is_powerful = yes
+						}
+					}
+				}
+				change_variable = {
+					name = abolishing_monarchy_var
+					add = 1
+				}
+			}
+		}
+	}
+
+	complete = {
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		NOT = { country_has_monarchy_law = yes }
+		NOT = {
+			any_civil_war = {
+				civil_war_progress >= 0.75
+				is_civil_war_type = revolution
+			}
+		}
+		NOT = {
+			any_interest_group = {
+				law_stance = {
+					law = law_type:law_monarchy
+					value > neutral
+				}
+				is_powerful = yes
+			}
+		}
+	}
+
+	immediate = {
+		ig:ig_landowners ?= {
+			save_scope_as = landowners_ig
+		}
+	}
+
+	on_complete = {
+		# Isekai TC: dropped set_variable = stamped_out_monarchy_var (2026-07-14, audit V4) —
+		# its only consumer was common/achievements/voiceofthepeopleachievements.txt, wiped
+		# (achievements is a replace_paths dir with no mod copy).
+		trigger_event = {
+			id = 1848.2
+		}
+	}
+
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_1848.2_tt
+			}
+		}
+	}
+
+	invalid = {
+		NOR = {
+			is_enacting_law = law_type:law_presidential_republic
+			is_enacting_law = law_type:law_parliamentary_republic
+			is_enacting_law = law_type:law_council_republic
+			has_law_or_variant = law_type:law_presidential_republic
+			has_law_or_variant = law_type:law_parliamentary_republic
+			has_law_or_variant = law_type:law_council_republic
+		}
+	}
+
+	current_value = {
+		value = root.var:abolishing_monarchy_var
+	}
+
+	goal_add_value = {
+		add = 60
+	}
+
+	progressbar = yes
+
+	weight = 100
+
+	should_be_pinned_by_default_uninvolved_or_context = no
+
+}

@@ -1,0 +1,31 @@
+﻿# Isekai TC: default power-bloc statue hero pieces for the 3 mod-added identities
+# (identity_radiant_crusade / identity_martial_alliance / identity_demonic_covenant, defined in
+# common/power_bloc_identities/ova_power_bloc_identities.txt). Vanilla's power_bloc_statue_hero_type
+# database flagged these identities as "not default for any hero" since none of vanilla's own
+# hero_* entries list them. New keys reuse existing vanilla statue entities (no new 3D assets) -
+# hero_angel for the religious-themed Radiant Crusade, hero_pointingman for the militant Martial
+# Alliance, hero_dragon (unclaimed by any vanilla identity) for the sinister Demonic Covenant.
+
+ova_hero_radiant_crusade = {
+	entity = "powerbloc_statue_hero_angel_entity"
+
+	default_choice_for_identities = {
+		identity_radiant_crusade
+	}
+}
+
+ova_hero_martial_alliance = {
+	entity = "powerbloc_statue_hero_pointingman_entity"
+
+	default_choice_for_identities = {
+		identity_martial_alliance
+	}
+}
+
+ova_hero_demonic_covenant = {
+	entity = "powerbloc_statue_hero_dragon_entity"
+
+	default_choice_for_identities = {
+		identity_demonic_covenant
+	}
+}

@@ -1,0 +1,16 @@
+﻿object={
+	name="edgeofworld_papermap"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="papermap_layer"
+	pdxmesh="edgeofworld_papermap_mesh"
+}
+object={
+	name="papermap_endofworld"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="static"
+	pdxmesh="edgeofworld_mesh"
+}

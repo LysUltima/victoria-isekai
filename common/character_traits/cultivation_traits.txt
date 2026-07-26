@@ -1,0 +1,236 @@
+﻿### ISEKAI TC: Cultivation realm traits
+# Ladder of condition traits mirroring the Spiritualism cultivation tech line.
+# Each realm requires the matching technology and the previous realm trait,
+# and replaces the trait below it. Cultivation extends lifespan (health),
+# sharpens battlefield command, and awes the masses (popularity).
+
+trait_qi_gathering = {
+	type = condition
+	texture = "gfx/interface/icons/character_trait_icons/meticulous.dds"
+
+	character_modifier = {
+		character_health_add = 0.1
+		character_popularity_add = 5
+	}
+
+	command_modifier = {
+		unit_morale_recovery_mult = 0.05
+	}
+
+	country_modifier = {
+	}
+
+	agitator_modifier = {
+	}
+
+	interest_group_modifier = {
+	}
+
+	possible = {
+		owner ?= { has_technology_researched = qi_gathering }
+	}
+
+	weight = {
+		value = 20
+		if = {
+			limit = {
+				owner ?= { has_technology_researched = foundation_establishment }
+			}
+			multiply = 1.5
+		}
+	}
+
+	replace = {
+	}
+}
+
+trait_foundation_establishment = {
+	type = condition
+	texture = "gfx/interface/icons/character_trait_icons/persistent.dds"
+
+	character_modifier = {
+		character_health_add = 0.2
+		character_popularity_add = 10
+	}
+
+	command_modifier = {
+		unit_morale_recovery_mult = 0.05
+		unit_offense_mult = 0.05
+		unit_defense_mult = 0.05
+	}
+
+	country_modifier = {
+	}
+
+	agitator_modifier = {
+	}
+
+	interest_group_modifier = {
+	}
+
+	possible = {
+		owner ?= { has_technology_researched = foundation_establishment }
+		has_trait = trait_qi_gathering
+	}
+
+	weight = {
+		value = 15
+	}
+
+	replace = {
+		trait_qi_gathering
+	}
+}
+
+trait_golden_core = {
+	type = condition
+	texture = "gfx/interface/icons/character_trait_icons/pious.dds"
+
+	character_modifier = {
+		character_health_add = 0.3
+		character_popularity_add = 15
+	}
+
+	command_modifier = {
+		unit_morale_recovery_mult = 0.05
+		unit_offense_mult = 0.10
+		unit_defense_mult = 0.10
+	}
+
+	country_modifier = {
+	}
+
+	agitator_modifier = {
+	}
+
+	interest_group_modifier = {
+	}
+
+	possible = {
+		owner ?= { has_technology_researched = golden_core }
+		has_trait = trait_foundation_establishment
+	}
+
+	weight = {
+		value = 12
+	}
+
+	replace = {
+		trait_foundation_establishment
+	}
+}
+
+trait_nascent_soul = {
+	type = condition
+	texture = "gfx/interface/icons/character_trait_icons/imperious.dds"
+
+	character_modifier = {
+		character_health_add = 0.4
+		character_popularity_add = 20
+	}
+
+	command_modifier = {
+		unit_morale_recovery_mult = 0.1
+		unit_offense_mult = 0.2
+		unit_defense_mult = 0.2
+	}
+
+	country_modifier = {
+	}
+
+	agitator_modifier = {
+	}
+
+	interest_group_modifier = {
+	}
+
+	possible = {
+		owner ?= { has_technology_researched = nascent_soul }
+		has_trait = trait_golden_core
+	}
+
+	weight = {
+		value = 10
+	}
+
+	replace = {
+		trait_golden_core
+	}
+}
+
+trait_soul_formation = {
+	type = condition
+	texture = "gfx/interface/icons/character_trait_icons/inspirational_orator1.dds"
+
+	character_modifier = {
+		character_health_add = 0.5
+		character_popularity_add = 25
+	}
+
+	command_modifier = {
+		unit_morale_recovery_mult = 0.1
+		unit_offense_mult = 0.3
+		unit_defense_mult = 0.3
+	}
+
+	country_modifier = {
+	}
+
+	agitator_modifier = {
+	}
+
+	interest_group_modifier = {
+	}
+
+	possible = {
+		owner ?= { has_technology_researched = soul_formation }
+		has_trait = trait_nascent_soul
+	}
+
+	weight = {
+		value = 8
+	}
+
+	replace = {
+		trait_nascent_soul
+	}
+}
+
+trait_return_to_the_void = {
+	type = condition
+	texture = "gfx/interface/icons/character_trait_icons/erudite.dds"
+
+	character_modifier = {
+		character_health_add = 0.6
+		character_popularity_add = 30
+	}
+
+	command_modifier = {
+		unit_morale_recovery_mult = 0.15
+		unit_offense_mult = 0.5
+		unit_defense_mult = 0.5
+	}
+
+	country_modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	agitator_modifier = {
+	}
+
+	interest_group_modifier = {
+	}
+
+	possible = {
+		owner ?= { has_technology_researched = return_to_the_void }
+		has_trait = trait_soul_formation
+	}
+
+	weight = {
+		value = 5
+	}
+
+	replace = {
+		trait_soul_formation
+	}
+}

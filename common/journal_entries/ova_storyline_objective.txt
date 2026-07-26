@@ -1,0 +1,23 @@
+﻿# ------------------------------------------------------------------------
+# Trivial journal entry backing the storyline suggested-start subgoals
+# (common/objective_subgoals/02_ova_storyline_subgoals.txt). It exists only so
+# those subgoals have something to complete against: complete = always yes, so
+# it resolves on the first evaluation and the wrapping objective self-satisfies
+# at game start. Not pinned, weight 0, so it stays out of the player's way.
+# ------------------------------------------------------------------------
+je_ova_storyline_note = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_storyline_note_complete_tt
+			always = yes
+		}
+	}
+
+	weight = 0
+	should_be_pinned_by_default_uninvolved_or_context = no
+	transferable = no
+}

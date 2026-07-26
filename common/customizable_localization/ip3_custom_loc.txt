@@ -1,0 +1,492 @@
+﻿# Isekai TC: migrated copy of vanilla ip3_custom_loc.txt.
+# common/customizable_localization is NOT in metadata.json replace_paths, so the
+# vanilla file loads unless a same-named mod file overrides it (this file).
+# Text blocks whose triggers referenced deleted Earth content were removed; keys
+# left empty fall back to their original localization_key so callers still
+# resolve. Regenerate with tools/migrate_custom_loc.py.
+
+country_legislature_name = {
+	type = country
+	text = {
+		trigger = {
+			has_law_or_variant = law_type:law_technocracy
+		}
+		localization_key = legislature_board_of_directors
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_law_or_variant = law_type:law_corporate_state
+				has_law_or_variant = law_type:law_social_monarchy
+			}
+		}
+		localization_key = legislature_chamber_of_corporations
+	}
+	text = {
+		trigger = {
+			country_has_voting_franchise = yes
+		}
+		localization_key = legislature_parliament
+	}
+	text = { # Fallback
+		trigger = {
+			country_has_voting_franchise = no
+		}
+		localization_key = legislature_court
+	}
+}
+
+# country_red_season_name_dynamic: defined by this mod in ova_red_season_custom_loc.txt; vanilla's copy
+# loaded first and shadowed it ("Duplicated key"), so it is dropped here.
+
+# country_red_season_name: defined by this mod in ova_red_season_custom_loc.txt; vanilla's copy
+# loaded first and shadowed it ("Duplicated key"), so it is dropped here.
+
+
+je_montenegrin_raiding_amount = {
+	type = country
+	text = { #displays when max raiding value reached
+		trigger = {
+			raiding_income >= max_raiding_income
+		}
+		localization_key = je_montenegrin_raiding_amount_display_max
+	}
+	text = { # Fallback
+		trigger = {
+			always = yes
+		}
+		localization_key = je_montenegrin_raiding_amount_display
+	}
+}
+
+country_national_epic_name = {
+	type = country
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = national_epic_loc
+	}
+}
+
+triune_kingdom_exists_or_not = {
+	type = country
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = TRIUNE_KINGDOM_NOT_EXISTS
+	}
+}
+
+triune_kingdom_exists_or_not_goal = {
+	type = country
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = TRIUNE_KINGDOM_NOT_EXISTS_GOAL
+	}
+}
+
+danubian_principalities_exists_or_not = {
+	type = country
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = ROMANIA_NOT_EXISTS
+	}
+}
+
+italy_or_italian_states = {
+	type = country
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = ITALY_NOT_EXISTS
+	}
+}
+
+getDecadeName = {
+	type = country
+	text = {
+		trigger = {
+			game_date >= 1830.1.1
+			game_date < 1840.1.1
+		}
+		localization_key = decade_thirties
+	}
+	text = {
+		trigger = {
+			game_date >= 1840.1.1
+			game_date < 1850.1.1
+		}
+		localization_key = decade_forties
+	}
+	text = {
+		trigger = {
+			game_date >= 1850.1.1
+			game_date < 1860.1.1
+		}
+		localization_key = decade_fifties
+	}
+	text = {
+		trigger = {
+			game_date >= 1860.1.1
+			game_date < 1870.1.1
+		}
+		localization_key = decade_sixties
+	}
+	text = {
+		trigger = {
+			game_date >= 1870.1.1
+			game_date < 1880.1.1
+		}
+		localization_key = decade_seventies
+	}
+	text = {
+		trigger = {
+			game_date >= 1880.1.1
+			game_date < 1890.1.1
+		}
+		localization_key = decade_eighties
+	}
+	text = {
+		trigger = {
+			game_date >= 1890.1.1
+			game_date < 1900.1.1
+		}
+		localization_key = decade_nineties
+	}
+	text = {
+		trigger = {
+			game_date >= 1900.1.1
+			game_date < 1910.1.1
+		}
+		localization_key = decade_centennial
+	}
+	text = {
+		trigger = {
+			game_date >= 1910.1.1
+			game_date < 1920.1.1
+		}
+		localization_key = decade_tens
+	}
+	text = {
+		trigger = {
+			game_date >= 1920.1.1
+			game_date < 1930.1.1
+		}
+		localization_key = decade_twenties
+	}
+	text = {
+		trigger = {
+			game_date >= 1930.1.1
+			game_date < 1940.1.1
+		}
+		localization_key = decade_thirties
+	}
+	text = {
+		trigger = {
+			game_date >= 1940.1.1
+		}
+		localization_key = decade_new_age
+	}
+}
+
+metternich_ita_checkbox = {
+	type = country
+	text = {
+		localization_key = checkbox_ticked
+	}
+}
+
+metternich_art_checkbox = {
+	type = country
+	text = {
+		trigger = {
+			NOT = {
+				leading_producer_of = g:fine_art
+			}
+		}
+		localization_key = checkbox_unticked
+	}
+	text = {
+		trigger = {
+			leading_producer_of = g:fine_art
+		}
+		localization_key = checkbox_ticked
+	}
+}
+
+metternich_krakow_checkbox = {
+	type = country
+	text = {
+		localization_key = checkbox_ticked
+	}
+}
+
+metternich_ger_checkbox = {
+	type = country
+	text = {
+		localization_key = checkbox_ticked
+	}
+}
+
+metternich_tech_checkbox = {
+	type = country
+	text = {
+		trigger = {
+			techs_researched < 52
+		}
+		localization_key = checkbox_unticked
+	}
+	text = {
+		trigger = {
+			techs_researched >= 52
+		}
+		localization_key = checkbox_ticked
+	}
+}
+
+metternich_movement_checkbox = {
+	type = country
+	text = {
+		trigger = {
+			any_political_movement = {
+				OR = {
+					movement_is_liberal = yes
+					movement_is_socialist = yes
+				}
+				political_movement_support >= 0.05
+			}
+		}
+		localization_key = checkbox_unticked
+	}
+	text = {
+		trigger = {
+			NOT = {
+				any_political_movement = {
+					OR = {
+						movement_is_liberal = yes
+						movement_is_socialist = yes
+					}
+					political_movement_support >= 0.05
+				}
+			}
+		}
+		localization_key = checkbox_ticked
+	}
+}
+
+metternich_laws_checkbox = {
+	type = country
+	text = {
+		trigger = {
+			NAND = {
+				has_law_or_variant = law_type:law_autocracy
+				has_law_or_variant = law_type:law_secret_police
+				has_law_or_variant = law_type:law_censorship
+			}
+		}
+		localization_key = checkbox_unticked
+	}
+	text = {
+		trigger = {
+			has_law_or_variant = law_type:law_autocracy
+			has_law_or_variant = law_type:law_secret_police
+			has_law_or_variant = law_type:law_censorship
+		}
+		localization_key = checkbox_ticked
+	}
+}
+
+metternich_institution_checkbox = {
+	type = country
+	text = {
+		trigger = {
+			OR = {
+				institution:institution_police.investment < 2
+				institution:institution_home_affairs.investment < 2
+			}
+		}
+		localization_key = checkbox_unticked
+	}
+	text = {
+		trigger = {
+			institution:institution_police.investment >= 2
+			institution:institution_home_affairs.investment >= 2
+		}
+		localization_key = checkbox_ticked
+	}
+}
+
+metternich_system_entry = {
+	type = country
+	text = {
+		trigger = {
+			exists = ROOT.power_bloc
+		}
+		localization_key = metternich_system_box_tt
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = blank_tt
+	}
+}
+
+metternich_system_cohesion_entry = {
+	type = country
+	text = {
+		trigger = {
+			exists = ROOT.power_bloc
+		}
+		localization_key = metternich_system_cohesion_box_tt
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = blank_tt
+	}
+}
+
+metternich_bloc_checkbox = {
+	type = country
+	text = {
+		trigger = {
+			ROOT.power_bloc.num_power_bloc_members < metternich_bloc_target
+		}
+		localization_key = checkbox_unticked
+	}
+	text = {
+		trigger = {
+			ROOT.power_bloc.num_power_bloc_members >= metternich_bloc_target
+		}
+		localization_key = checkbox_ticked
+	}
+}
+
+metternich_bloc_cohesion_checkbox = {
+	type = country
+	text = {
+		trigger = {
+			ROOT.power_bloc.current_cohesion_number < metternich_bloc_cohesion_target
+		}
+		localization_key = checkbox_unticked
+	}
+	text = {
+		trigger = {
+			ROOT.power_bloc.current_cohesion_number >= metternich_bloc_cohesion_target
+		}
+		localization_key = checkbox_ticked
+	}
+}
+
+metternich_performance_text = {
+	type = country
+	text = {
+		trigger = {
+			metternich_agenda_value > 10
+		}
+		localization_key = metternich_memory_level_10
+	}
+	text = {
+		trigger = {
+			metternich_agenda_value > 9
+		}
+		localization_key = metternich_memory_level_9
+	}
+	text = {
+		trigger = {
+			metternich_agenda_value > 8
+		}
+		localization_key = metternich_memory_level_8
+	}
+	text = {
+		trigger = {
+			metternich_agenda_value > 7
+		}
+		localization_key = metternich_memory_level_7
+	}
+	text = {
+		trigger = {
+			metternich_agenda_value > 6
+		}
+		localization_key = metternich_memory_level_6
+	}
+	text = {
+		trigger = {
+			metternich_agenda_value > 5
+		}
+		localization_key = metternich_memory_level_5
+	}
+	text = {
+		trigger = {
+			metternich_agenda_value > 4
+		}
+		localization_key = metternich_memory_level_4
+	}
+	text = {
+		trigger = {
+			metternich_agenda_value > 3
+		}
+		localization_key = metternich_memory_level_3
+	}
+	text = {
+		trigger = {
+			metternich_agenda_value > 2
+		}
+		localization_key = metternich_memory_level_2
+	}
+	text = {
+		trigger = {
+			metternich_agenda_value > 1
+		}
+		localization_key = metternich_memory_level_1
+	}
+	text = {
+		trigger = {
+			metternich_agenda_value > 0
+		}
+		localization_key = metternich_memory_level_0
+	}
+}
+
+future_kuk_name = {
+	type = country
+	text = {
+		trigger = {
+			country_has_monarchy_law = yes
+		}
+		localization_key = dyn_c_usga
+	}
+	text = {
+		trigger = {
+			NOT = {
+				country_has_monarchy_law = yes
+			}
+		}
+		localization_key = KUK
+	}
+}
+
+social_monarchy_or_corporate_state = {
+	type = country
+	text = {
+		trigger = {
+			country_has_monarchy_law = yes
+		}
+		localization_key = social_monarchy_tt
+	}
+	text = {
+		trigger = {
+			country_has_monarchy_law = no
+		}
+		localization_key = corporate_state_tt
+	}
+}

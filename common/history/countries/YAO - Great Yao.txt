@@ -1,0 +1,10 @@
+﻿# Great Yao (xianxia: spiritualism tier 2)
+COUNTRIES = {
+	c:YAO ?= {
+		effect_starting_technology_spiritualism_tier_2 = yes
+		create_character = { template = template_ruler_yao role = ruler }
+		effect_starting_politics_traditional = yes
+
+        activate_law = law_type:law_professional_army
+	}
+}

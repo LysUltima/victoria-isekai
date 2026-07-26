@@ -1,0 +1,153 @@
+﻿accessory_genes = {
+
+		
+	race_attachments = {
+		inheritable = yes
+		no_attachment = {
+			index = 0
+			male = {
+				1 = empty
+			}
+			female = male
+			boy = male
+			girl = female
+		}	
+
+		kobold_attachments = {
+			index = 1
+			male = {
+				10 = male_kobold_attachments
+				
+
+			}
+			female = {
+				10 = female_kobold_attachments
+
+			}
+			boy = male
+			girl = female
+		}		
+	
+
+		harimari_attachments = {
+			index = 2
+			male = {
+				10 = male_harimari_attachments
+				
+
+			}
+			female = {
+				10 = female_harimari_attachments
+
+			}
+			boy = male
+			girl = female
+		}
+
+		mechanim_attachments = {
+			index = 3
+			male = {
+				10 = male_mechanim_attachments
+				
+
+			}
+			female = {
+				10 = female_mechanim_attachments
+
+			}
+			boy = male
+			girl = female
+		}
+
+		half_orc_attachments = {
+			index = 4
+			male = {
+				10 = male_half_orc_attachments
+				
+
+			}
+			female = {
+				10 = female_half_orc_attachments
+
+			}
+			boy = male
+			girl = female
+		}
+		
+		orc_attachments = {
+			index = 5
+			male = {
+				10 = male_orc_attachments
+				
+
+			}
+			female = {
+				10 = female_orc_attachments
+
+			}
+			boy = male
+			girl = female
+		}	
+		
+		kobold_gold_attachments = {
+			index = 6
+			male = {
+				10 = male_kobold_gold_attachments
+				
+
+			}
+			female = {
+				10 = female_kobold_gold_attachments
+
+			}
+			boy = male
+			girl = female
+		}
+
+		kobold_dark_attachments = {
+			index = 7
+			male = {
+				10 = male_kobold_dark_attachments
+				
+
+			}
+			female = {
+				10 = female_kobold_dark_attachments
+
+			}
+			boy = male
+			girl = female
+		}
+
+		kobold_steel_attachments = {
+			index = 8
+			male = {
+				10 = male_kobold_steel_attachments
+				
+
+			}
+			female = {
+				10 = female_kobold_steel_attachments
+
+			}
+			boy = male
+			girl = female
+		}
+
+	    kobold_green_attachments = {
+			index = 9
+			male = {
+				10 = male_kobold_green_attachments
+				
+
+			}
+			female = {
+				10 = female_kobold_green_attachments
+
+			}
+			boy = male
+			girl = female
+		}
+				
+	}
+}

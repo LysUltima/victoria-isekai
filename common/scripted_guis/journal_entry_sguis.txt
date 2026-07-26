@@ -1,0 +1,170 @@
+﻿je_krakatoa_tsunami_states_sgui = {
+    scope = country
+
+    effect = {
+        custom_tooltip = "TSUNAMI_LIST_EMPTY_STATE" # empty state
+    }
+}
+
+je_acw_reincoprorate_states_sgui = {
+    scope = country
+
+    effect = {
+        # no empty state here
+    }
+}
+
+je_hispanoamerica_not_recognized_countries_sgui = {
+    scope = country
+
+    effect = {
+    }
+}
+
+je_vernacular_policy_assimilation_states_sgui = {
+    scope = country
+
+    effect = {
+    }
+}
+
+je_meiji_restoration_japanese_emperor_sgui = {
+    scope = country
+
+    effect = {
+        # removed effect line: je_meiji_restoration_update_japanese_emperor was defined in the wiped vanilla journal_entries
+    }
+}
+
+je_meiji_restoration_japanese_emperor_check_sgui = {
+    scope = character
+    saved_scopes = { meiji_reform_state }
+
+    is_valid = {
+        character_is_emperor_of_japan = yes
+        trigger_if = {
+            limit = {
+                scope:meiji_reform_state = yes
+            }
+            owner ?= {
+                country_meiji_reform_emperor_restored = yes
+            }
+        }
+    }
+}
+
+
+je_meiji_restoration_daimyos_sgui = {
+    scope = country
+
+    effect = {
+        # removed effect line: je_meiji_restoration_update_daimyos was defined in the wiped vanilla journal_entries
+    }
+}
+
+je_meiji_restoration_get_faction_sgui = {
+    scope = state
+    saved_scopes = { frame }
+
+    is_shown = {
+        owner ?= {
+            always = no
+        }
+    }
+
+    is_valid = {
+        owner ?= {
+            always = no
+        }
+        trigger_if = {
+            limit = {
+                scope:frame = 0 # Tokugawa
+            }
+            OR = {
+                root.state_region = s:STATE_KANTO
+                root.state_region = s:STATE_TOKAI
+                root.state_region = s:STATE_KANSAI
+            }
+        }
+        trigger_else_if = {
+            limit = {
+                scope:frame = 1 # Date
+            }
+            root.state_region = s:STATE_TOHOKU
+        }
+        trigger_else_if = {
+            limit = {
+                scope:frame = 2 # Hachisuka
+            }
+            root.state_region = s:STATE_SHIKOKU
+        }
+        trigger_else_if = {
+            limit = {
+                scope:frame = 3 # ii
+            }
+            root.state_region = s:STATE_KYOTO
+        }
+        trigger_else_if = {
+            limit = {
+                scope:frame = 4 # Maeda
+            }
+            root.state_region = s:STATE_HOKUSHINETSU
+        }
+        trigger_else_if = {
+            limit = {
+                scope:frame = 5 # Matsumae
+            }
+            root.state_region = s:STATE_HOKKAIDO
+        }
+        trigger_else_if = {
+            limit = {
+                scope:frame = 6 # Mori
+            }
+            root.state_region = s:STATE_CHUGOKU
+        }
+        trigger_else_if = {
+            limit = {
+                scope:frame = 7 # Shimazu
+            }
+            root.state_region = s:STATE_KYUSHU
+        }
+        trigger_else = {
+            always = no
+        }
+    }
+}
+
+je_zaibatsu_companies_sgui = {
+    scope = country
+
+    effect = {
+        if = {
+            limit = {
+                any_company = {
+                    company_is_zaibatsu = yes
+                }
+            }
+            every_company = {
+                limit = {
+                    company_is_zaibatsu = yes
+                }
+                custom_tooltip_no_bullet = "ZAIBATSU_LIST_ENTRY" # for each print a line
+            }
+        }
+        else = {
+            custom_tooltip_no_bullet = "ZAIBATSU_LIST_EMPTY" # empty state
+        }
+    }
+}
+
+# removed: je_india_railway_delhi_calcutta_sgui, je_india_railway_allahabad_bombay_sgui,
+# je_india_railway_bombay_madras_sgui, je_india_railway_gujarat_bombay_sgui referenced
+# any/every_state_region_in_*_line scripted triggers/effects that were defined in the
+# wiped vanilla journal_entries/04_india_railway.txt
+
+je_colonize_korea_states_sgui = {
+    scope = country
+
+    effect = {
+    }
+}

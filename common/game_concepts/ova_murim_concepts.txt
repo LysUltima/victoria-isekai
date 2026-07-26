@@ -1,0 +1,7 @@
+﻿### Murim storyline - game concepts (loc names/descs in ova_murim_l_english.yml)
+
+concept_ova_returner = {}
+
+concept_ova_gangho = {}
+
+concept_ova_murim_war = {}

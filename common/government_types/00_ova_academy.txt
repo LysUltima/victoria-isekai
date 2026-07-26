@@ -1,0 +1,116 @@
+﻿# Government types for law_academy, the ACA-only Saint Christine Academy charter
+# (see common/laws/ova_academy.txt).
+#
+# The state is a secular school with no tie to the Church: the Dean presides over the faculty, the
+# faculty govern the realm, and the chair passes by the masters' choosing rather than by blood,
+# ballot or altar. transfer_of_power is therefore dictatorial throughout - the Dean is emphatically
+# not an elected president, whatever the parent law says.
+#
+# FILE NAME IS LOAD-ORDER CRITICAL: government types are matched first-hit in load order, and
+# law_academy is a variant of law_presidential_republic, so every
+# `has_law_or_variant = law_type:law_presidential_republic` type in 02_presidential_republics.txt
+# also matches an Academy country. The 00_ prefix puts these ahead of it.
+# Each type additionally gates on `c:ACA ?= ROOT`, the same way gov_papacy gates on c:LUX.
+# Most specific (by distribution-of-power law) first, catch-all last.
+#
+# For the same reason law_academy itself is tested with plain `has_law`: has_law_or_variant only
+# accepts a PARENT law and throws a script-system error when handed a variant.
+
+gov_academy_scholarchy = {						# The faculty of experts rules outright
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_ACADEMY_GRAND_DEAN"
+	female_ruler = "RULER_TITLE_ACADEMY_GRAND_DEAN"
+
+	possible = {
+		has_law = law_type:law_academy # NOT has_law_or_variant: that trigger requires a parent law
+		c:ACA ?= ROOT
+		has_law_or_variant = law_type:law_technocracy
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_academy_deanery = {							# The Dean's word is the last word in the halls
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_ACADEMY_GRAND_DEAN"
+	female_ruler = "RULER_TITLE_ACADEMY_GRAND_DEAN"
+
+	possible = {
+		has_law = law_type:law_academy # NOT has_law_or_variant: that trigger requires a parent law
+		c:ACA ?= ROOT
+		has_law_or_variant = law_type:law_autocracy
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_academy_faculty_senate = {					# Ruled by the senate of chair-holding masters
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_ACADEMY_DEAN"
+	female_ruler = "RULER_TITLE_ACADEMY_DEAN"
+
+	possible = {
+		has_law = law_type:law_academy # NOT has_law_or_variant: that trigger requires a parent law
+		c:ACA ?= ROOT
+		has_law_or_variant = law_type:law_oligarchy
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_academy_collegium = {						# The Dean answers to a wider collegium of graduates
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_ACADEMY_DEAN"
+	female_ruler = "RULER_TITLE_ACADEMY_DEAN"
+
+	possible = {
+		has_law = law_type:law_academy # NOT has_law_or_variant: that trigger requires a parent law
+		c:ACA ?= ROOT
+		country_has_voting_franchise = yes
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_academy = {									# Catch-all Academy government
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_ACADEMY_DEAN"
+	female_ruler = "RULER_TITLE_ACADEMY_DEAN"
+
+	possible = {
+		has_law = law_type:law_academy # NOT has_law_or_variant: that trigger requires a parent law
+		c:ACA ?= ROOT
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}

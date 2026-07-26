@@ -1,0 +1,125 @@
+﻿# Anbennar - changed final hair color value to be 0.99 not 1.0 as 1.0 is used for our special hair colours
+
+@neg1_min = 0.4
+@neg1_max = 0.5
+
+@neg2_min = 0.3
+@neg2_max = 0.4
+
+@neg3_min = 0.1
+@neg3_max = 0.3
+
+@pos1_min = 0.5
+@pos1_max = 0.6
+
+@pos2_min = 0.6
+@pos2_max = 0.7
+
+@pos3_min = 0.7
+@pos3_max = 0.9
+
+@beauty1min = 0.35
+@beauty1max = 0.65
+
+@beauty2min = 0.4
+@beauty2max = 0.6
+
+@beauty3min = 0.45
+@beauty3max = 0.55
+
+@blend1min = 0.0
+@blend1max = 0.2
+
+@blend2min = 0.2
+@blend2max = 0.5
+
+@blend3min = 0.5
+@blend3max = 0.8
+
+mechanim = {
+    template = "ethnicity_template"
+
+
+    eye_color = {
+        # # Brown
+        # 50 = { 0.05 0.7 0.35 1.0 }
+        # Black
+        50 = { 0.05 0.95 0.35 0.99 }
+    }
+    hair_color = {
+        # Blonde
+        # 10 = { 0.25 0.2 0.75 0.55 }
+        # Brown
+        2 = { 0.65 0.8 0.9 0.99 }
+        # # Red
+        # 10 = { 0.85 0.0 1.0 0.5 }
+        # Black
+        98 = { 0.01 0.9 0.5 0.99 }
+    }
+
+    race_features = {
+		5 = {  name = mechanim_features			range = { 1.0 1.0 }	}
+	}
+
+    hairstyles = {
+		10 = { name = no_hairstyles 		range = { 1.0 1.0 } }
+	}
+
+	beards = {
+		10 = { name = no_beard 		range = { 1.0 1.0 } }
+	}
+
+	mustaches = {
+		10 = { name = no_mustache 		range = { 1.0 1.0 } }
+	}
+
+    race_attachments = {
+		10 = {  name = mechanim_attachments			range = { 1.0 1.0 }	}
+	}
+
+
+
+
+
+
+
+	### Additive anim genes ###
+
+
+    
+
+    #hairstyles = {
+    #    10 = { name = indian_hairstyles       range = { 0.0 0.0 } }
+    #}
+
+    #beards = {
+    #    10 = { name = indian_beards       range = { 0.0 0.0 } }
+    #}
+
+    #mustaches = {
+    #    10 = { name = indian_mustaches        range = { 0.0 0.0 } }
+    #}
+
+    # coats = {
+    #   10 = { name = prussian_uniform_coats        range = { 0.0 1.0 } }
+    # }
+
+    # epaulettes = {
+    #   10 = { name = prussian_epaulettes       range = { 0.0 1.0 } }
+    # }
+
+    # sashes = {
+    #   10 = { name = prussian_sashes       range = { 0.0 1.0 } }
+    # }
+
+    # medals = {
+    #   10 = { name = all_medals        range = { 0.0 1.0 } }
+    # }
+
+    # headgear = {
+    #   10 = { name = generic_headgear      range = { 0.0 1.0 } }
+    # }
+
+}
+
+

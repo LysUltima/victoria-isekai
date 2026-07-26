@@ -1,0 +1,424 @@
+﻿gov_french_2nd_republic_parliamentary = {
+	transfer_of_power = parliamentary_elective
+	new_leader_on_reform_government = yes
+
+	male_ruler = "RULER_TITLE_CHANCELLOR"
+	female_ruler = "RULER_TITLE_CHANCELLOR"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		country_has_primary_culture = cu:solenne
+		always = no
+		always = no
+	}
+
+	on_government_type_change = {
+		change_to_parliamentary_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_parliamentary_elective = yes
+	}
+}
+
+gov_french_2nd_republic_parliamentary_dictator = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_CHANCELLOR"
+	female_ruler = "RULER_TITLE_CHANCELLOR"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		country_has_primary_culture = cu:solenne
+		country_has_voting_franchise = no
+		always = no
+		always = no
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_french_3rd_republic_parliamentary = {
+	transfer_of_power = parliamentary_elective
+	new_leader_on_reform_government = yes
+
+	male_ruler = "RULER_TITLE_CHANCELLOR"
+	female_ruler = "RULER_TITLE_CHANCELLOR"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		country_has_primary_culture = cu:solenne
+		always = no
+		always = no
+	}
+
+	on_government_type_change = {
+		change_to_parliamentary_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_parliamentary_elective = yes
+	}
+}
+
+gov_french_3rd_republic_parliamentary_dictator = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_CHANCELLOR"
+	female_ruler = "RULER_TITLE_CHANCELLOR"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		country_has_primary_culture = cu:solenne
+		country_has_voting_franchise = no
+		always = no
+		always = no
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_french_4th_republic_parliamentary = {
+	transfer_of_power = parliamentary_elective
+	new_leader_on_reform_government = yes
+
+	male_ruler = "RULER_TITLE_CHANCELLOR"
+	female_ruler = "RULER_TITLE_CHANCELLOR"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		country_has_primary_culture = cu:solenne
+		always = no
+		always = no
+	}
+
+	on_government_type_change = {
+		change_to_parliamentary_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_parliamentary_elective = yes
+	}
+}
+
+gov_french_4th_republic_parliamentary_dictator = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_CHANCELLOR"
+	female_ruler = "RULER_TITLE_CHANCELLOR"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		country_has_primary_culture = cu:solenne
+		country_has_voting_franchise = no
+		always = no
+		always = no
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_danubian_federation_parliamentary_republic = {
+	transfer_of_power = parliamentary_elective
+
+	male_ruler = "RULER_TITLE_MINISTER_PRESIDENT"
+	female_ruler = "RULER_TITLE_MINISTER_PRESIDENT"
+
+	possible = {
+		always = no # vanilla ref 'c:KUK' not present in this mod, no in-mod analogue
+		has_law_or_variant = law_type:law_parliamentary_republic
+		country_has_voting_franchise = yes
+	}
+
+	on_government_type_change = {
+		change_to_parliamentary_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_parliamentary_elective = yes
+	}
+}
+
+gov_danubian_federation_technocratic_parliamentary_republic = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_CHIEF_ENGINEER"
+	female_ruler = "RULER_TITLE_CHIEF_ENGINEER"
+
+	possible = {
+		always = no # vanilla ref 'c:KUK' not present in this mod, no in-mod analogue
+		has_law_or_variant = law_type:law_parliamentary_republic
+		has_law_or_variant = law_type:law_technocracy
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_danubian_federation_parliamentary_republic_dictatorship = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_MINISTER_PRESIDENT"
+	female_ruler = "RULER_TITLE_MINISTER_PRESIDENT"
+
+	possible = {
+		always = no # vanilla ref 'c:KUK' not present in this mod, no in-mod analogue
+		has_law_or_variant = law_type:law_parliamentary_republic
+		NOT = {
+			has_law_or_variant = law_type:law_technocracy
+		}
+		country_has_voting_franchise = no
+		coa_fascist_trigger = no
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_technate_parliamentary = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_CHIEF_ENGINEER"
+	female_ruler = "RULER_TITLE_CHIEF_ENGINEER"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		has_law_or_variant = law_type:law_technocracy
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_circassian_federation = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_THAMADE"
+	female_ruler = "RULER_TITLE_THAMADE"
+
+	male_heir = "RULER_TITLE_HEIR_APPARENT"
+	female_heir = "RULER_TITLE_HEIR_APPARENT"
+
+	possible = {
+		is_country_type = unrecognized
+		has_law_or_variant = law_type:law_parliamentary_republic
+		country_has_voting_franchise = no
+		# removed effect line: vanilla ref 'c:CIR' not present in this mod
+		# removed effect line: vanilla ref 'c:CIR' not present in this mod
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_american_parliamentary = {
+	transfer_of_power = parliamentary_elective
+	new_leader_on_reform_government = yes
+
+	male_ruler = "RULER_TITLE_SPEAKER"
+	female_ruler = "RULER_TITLE_SPEAKER"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		OR = {
+			country_has_primary_culture = cu:lysian
+			country_has_primary_culture = cu:lysian
+			always = no # was culture = cu:afro_american (no mod analogue)
+			country_has_primary_culture = cu:solenne
+		}
+	}
+
+	on_government_type_change = {
+		change_to_parliamentary_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_parliamentary_elective = yes
+	}
+}
+
+gov_american_parliamentary_dictator = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_SENATOR"
+	female_ruler = "RULER_TITLE_SENATOR"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		OR = {
+			country_has_primary_culture = cu:lysian
+			country_has_primary_culture = cu:solenne
+		}
+		country_has_voting_franchise = no
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_anglo_parliamentary = {
+	transfer_of_power = parliamentary_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_PRIME_MINISTER"
+	female_ruler = "RULER_TITLE_PRIME_MINISTER"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		country_has_voting_franchise = yes
+		country_tier = kingdom
+		is_subject = no
+		OR = {
+            country_has_primary_culture = cu:aldrican
+        }
+	}
+
+	on_government_type_change = {
+		change_to_parliamentary_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_parliamentary_elective = yes
+	}
+}
+
+gov_anglo_parliamentary_provincial = {
+	transfer_of_power = parliamentary_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_PREMIER"
+	female_ruler = "RULER_PREMIER"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		country_has_voting_franchise = yes
+		OR = {
+			country_tier = grand_principality
+			country_tier = principality
+			country_tier = city_state
+		}
+		OR = {
+			AND = {
+				is_subject = no
+				country_has_primary_culture = cu:aldrican
+			}
+		}
+	}
+
+	on_government_type_change = {
+		change_to_parliamentary_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_parliamentary_elective = yes
+	}
+}
+
+gov_parliamentary_dictatorship = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_LORD_PROTECTOR"
+	female_ruler = "RULER_TITLE_LADY_PROTECTOR"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		has_law_or_variant = law_type:law_autocracy
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_parliamentary_oligarchy = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_CHANCELLOR"
+	female_ruler = "RULER_TITLE_CHANCELLOR"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		country_has_voting_franchise = no
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_parliamentary_single_party_state = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = yes
+
+	male_ruler = "RULER_TITLE_CHANCELLOR"
+	female_ruler = "RULER_TITLE_CHANCELLOR"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		has_law_or_variant = law_type:law_single_party_state
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+}
+
+gov_parliamentary_democracy = {
+	transfer_of_power = parliamentary_elective
+	new_leader_on_reform_government = yes
+
+	male_ruler = "RULER_TITLE_CHANCELLOR"
+	female_ruler = "RULER_TITLE_CHANCELLOR"
+
+	possible = {
+		has_law_or_variant = law_type:law_parliamentary_republic
+		country_has_voting_franchise = yes
+		NOT = {
+			has_law_or_variant = law_type:law_single_party_state
+		}
+	}
+
+	on_government_type_change = {
+		change_to_parliamentary_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_parliamentary_elective = yes
+	}
+}

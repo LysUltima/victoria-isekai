@@ -1,0 +1,55 @@
+﻿
+
+morph_genes = {
+
+
+	eye_pupil = { 
+		inheritable = yes
+		sync_inheritance_with = eye_color
+		human_pupils = {
+			index = 0
+			male = {}
+
+			female = male
+			boy = male
+			girl = male
+		}
+		gnoll_pupils = { 
+			index = 1
+			set_tags = "gnoll_pupil"
+			male = {}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		lizardfolk_pupils = { 
+			index = 2
+			set_tags = "lizardfolk_pupil"
+			male = {}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		harimari_pupils = {
+			index = 3
+			set_tags = "harimari_pupil"
+			male = {}
+			female = male
+			boy = male
+			girl = female
+		}
+
+		kobold_pupils = {
+			index = 4
+			set_tags = "kobold_pupil"
+			male = {}
+			female = male
+			boy = male
+			girl = female
+		}
+	}	
+}
+
+

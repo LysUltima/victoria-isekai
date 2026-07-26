@@ -1,0 +1,3 @@
+﻿# Isekai TC: migrated from vanilla 1.13.7. Both vanilla ip4 actions were purely
+# real-world: ip4_lands_of_anarchy_remove_on_state_lost (Morocco states) and
+# carlist_war_battle_score (the Spanish Carlist War journal entry). Nothing remains.

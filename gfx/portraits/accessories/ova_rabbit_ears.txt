@@ -1,0 +1,10 @@
+﻿	## RABBITKIN EARS ##
+
+male_headgear_rabbit_ears_1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_rabbit_ears_1_entity" }
+}
+female_headgear_rabbit_ears_1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "female_headgear_rabbit_ears_1_entity" }
+}

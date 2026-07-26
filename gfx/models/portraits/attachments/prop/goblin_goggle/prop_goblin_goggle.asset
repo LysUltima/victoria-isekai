@@ -1,0 +1,19 @@
+﻿pdxmesh = {
+	name = "prop_goblin_goggle_mesh"
+	file = "prop_goblin_goggle.mesh"
+
+	meshsettings = {
+		name = "prop_goblin_goggleShape"
+		index = 0
+		texture_diffuse = "goblin_goggle_diffuse.dds"
+		texture_normal = "goblin_goggle_normal.dds"
+		texture_specular = "goblin_goggle_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "prop_goblin_goggle_entity"
+	pdxmesh = "prop_goblin_goggle_mesh"
+}

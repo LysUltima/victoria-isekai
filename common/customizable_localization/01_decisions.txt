@@ -1,0 +1,17 @@
+﻿# Isekai TC: migrated copy of vanilla 01_decisions.txt.
+# common/customizable_localization is NOT in metadata.json replace_paths, so the
+# vanilla file loads unless a same-named mod file overrides it (this file).
+# Text blocks whose triggers referenced deleted Earth content were removed; keys
+# left empty fall back to their original localization_key so callers still
+# resolve. Regenerate with tools/migrate_custom_loc.py.
+
+film_industry_name = {
+	type = country
+	random_valid = no
+
+
+	text = {
+		localization_key = custom_loc_film_industry_name_default
+	}
+
+}

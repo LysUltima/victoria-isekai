@@ -1,0 +1,93 @@
+﻿l_english:
+  # --- ova_murim_flavor.1 - the teahouse storyteller
+  ova_murim_flavor.1.t: "The Teahouse Storyteller"
+  ova_murim_flavor.1.d: "In the corner teahouse below the mountain gate, a storyteller spins the sect's own legends back at it: plum-blossom duels, demon-cult treachery, a swordsman who parted a waterfall with one stroke. Half is invented. All of it flatters whoever pays for the next cup of tea."
+  ova_murim_flavor.1.f: "He pauses at the best part every night, just long enough for someone to buy him another pot."
+  ova_murim_flavor.1.a: "Feed him a flattering verse"
+  ova_murim_flavor.1.b: "Let him tell it plain"
+
+  # --- ova_murim_flavor.2 - a wandering swordsman asks for a bout
+  ova_murim_flavor.2.t: "A Wandering Swordsman Asks for a Bout"
+  ova_murim_flavor.2.d: "A traveling blade has stood at the training-ground gate since dawn, bowing to every senior who passes and asking, politely, for a bout. He carries no letter of introduction, only a plain sword and the calm of someone who has already decided how the fight ends."
+  ova_murim_flavor.2.f: "The juniors have gathered along the wall three deep. Nobody remembers agreeing to make it a spectacle."
+  ova_murim_flavor.2.a: "Accept the bout"
+  ova_murim_flavor.2.b: "Decline politely"
+
+  # --- ova_murim_flavor.3 - the escort agency boom
+  ova_murim_flavor.3.t: "The Escort Agency Boom"
+  ova_murim_flavor.3.d: "Bonded swordsmen now advertise safe passage along every trade road in the gangho, stamping their scrolls with a sect's good name for a fee. It is a new trade built entirely on an old fear: the roads are not as safe as the merchants would like."
+  ova_murim_flavor.3.f: "One escort captain has taken to guaranteeing a full refund if the caravan is robbed. So far he has not had to pay it."
+  ova_murim_flavor.3.a: "License the escort houses"
+  ova_murim_flavor.3.b: "Leave the roads to wandering blades"
+
+  # --- ova_murim_flavor.4 - the night market of forbidden manuals
+  ova_murim_flavor.4.t: "The Night Market of Forbidden Manuals"
+  ova_murim_flavor.4.d: "Under lantern-light behind the grain warehouses, forged and half-true martial manuals change hands for silver: stolen forms, invented lineages, the occasional genuine fragment smuggled out of a dead master's library. Most pages are worthless. One page in twenty is not."
+  ova_murim_flavor.4.f: "A forger's guild would be too grand a word for it. It is three old men and a printing block, and they are very good at their work."
+  ova_murim_flavor.4.a: "Buy up the stalls"
+  ova_murim_flavor.4.b: "Burn the forgeries"
+
+  # --- ova_murim_flavor.5 - the beggars union knows everything
+  ova_murim_flavor.5.t: "The Beggars Union Knows Everything"
+  ova_murim_flavor.5.d: "The ragged brotherhood that sleeps under every bridge and begs at every gate sees more of the gangho than any spymaster could buy. They ask for rice, not gold, and in exchange they will tell you, quietly, who crossed which border last week and why."
+  ova_murim_flavor.5.f: "Their chapter head has not held a sword in decades. He has never once needed to."
+  ova_murim_flavor.5.a: "Pay for their silence and their eyes"
+  ova_murim_flavor.5.b: "Ignore the beggars"
+
+  # --- ova_murim_flavor.6 - a masked vigilante in the market town
+  ova_murim_flavor.6.t: "A Masked Vigilante in the Market Town"
+  ova_murim_flavor.6.d: "A masked figure has taken to beating corrupt toll-collectors bloody in back alleys and vanishing over the rooftops before the watch arrives. The market town has already decided, loudly and at length, that he is a hero, whether or not the elders agree."
+  ova_murim_flavor.6.f: "Someone has started leaving out rice wine for him on the well-head. He has started drinking it."
+  ova_murim_flavor.6.a: "Let the masked one work"
+  ova_murim_flavor.6.b: "Hunt him down"
+
+  # --- ova_murim_flavor.7 - disciples brawl over seating precedence
+  ova_murim_flavor.7.t: "Disciples Brawl Over Seating Precedence"
+  ova_murim_flavor.7.d: "Junior disciples have come to blows over who sits closer to the head table at the autumn feast, an argument that is nominally about rank and is, everyone privately agrees, really about everything else that has gone unsaid this year."
+  ova_murim_flavor.7.f: "Three broken teacups and one dislocated shoulder later, nobody can quite say who started it."
+  ova_murim_flavor.7.a: "Rule on precedence firmly"
+  ova_murim_flavor.7.b: "Let the elders sort it out"
+
+  # --- ova_murim_flavor.8 - the physician who refuses no one
+  ova_murim_flavor.8.t: "The Physician Who Refuses No One"
+  ova_murim_flavor.8.d: "An itinerant physician has set up a table near the market square and treats beggars and disciples alike for whatever they can pay, which is often nothing. The elders are divided on whether this is admirable charity or an insult to every physician who does charge a fee."
+  ova_murim_flavor.8.f: "She has a running joke that she will accept a poem in place of silver. Several patients have taken her up on it. None of the poems have been good."
+  ova_murim_flavor.8.a: "Subsidize her clinic"
+  ova_murim_flavor.8.b: "Let her charge like everyone else"
+
+  # --- ova_murim_flavor.9 - a Cult preacher at the crossroads
+  ova_murim_flavor.9.t: "A Cult Preacher at the Crossroads"
+  ova_murim_flavor.9.d: "A robed preacher of the Heavenly Demon's faith stands at the crossroads promising strength without rank and power without birth, and a crowd that should know better keeps stopping to listen. Whether he is a stranger stirring up an Orthodox market town or one of the faithful reminding the home crowd of the doctrine, the crossroads always draws an audience."
+  ova_murim_flavor.9.f: "He has a good voice for it. That is, in its own way, the most dangerous thing about him."
+  ova_murim_flavor.9.a: "Expel him / preach boldly"
+  ova_murim_flavor.9.b: "Let him speak / let them gather"
+
+  # --- ova_murim_flavor.10 - the salt road bandit king
+  ova_murim_flavor.10.t: "The Salt Road Bandit King"
+  ova_murim_flavor.10.d: "A self-styled king and his band have set themselves up on the salt road between the sects, taxing every caravan that passes. Pay him and the caravan reaches its destination intact and one purse lighter. Refuse, and it may reach its destination at all, which is not quite the same thing."
+  ova_murim_flavor.10.f: "He calls his toll a courtesy fee. His men call it whatever gets the merchants moving faster."
+  ova_murim_flavor.10.a: "Pay the bandit kings toll"
+  ova_murim_flavor.10.b: "Send blades to clear the road"
+
+  # --- ova_murim_flavor.11 - pilgrims at the ancestral shrines
+  ova_murim_flavor.11.t: "Pilgrims at the Ancestral Shrines"
+  ova_murim_flavor.11.d: "Long banner-hung processions climb to the ancestral shrines to burn incense for the sect's founders, and the shrine-keepers have noticed exactly how much a tired, devout pilgrim is willing to pay for a blessed token to carry home."
+  ova_murim_flavor.11.f: "The incense smoke has stained the shrine roof black in places no restoration seems able to reach."
+  ova_murim_flavor.11.a: "Host them freely"
+  ova_murim_flavor.11.b: "Sell blessed tokens at the gate"
+
+  # --- ova_murim_flavor.12 - rumors of the Returner
+  ova_murim_flavor.12.t: "Rumors of the Returner"
+  ova_murim_flavor.12.d: "In every teahouse from the mountain passes to the coast, the story of the boy who knew tomorrow has grown taller with each retelling. In one version he already felled the Heavenly Demon single-handed. In another he can read minds. In a third, told only in whispers, he was never real at all, just a story the gangho needed to believe."
+  ova_murim_flavor.12.f: "Somewhere in all the retellings, wonderfully wrong as most of them are, a grain of the true story survives."
+  ova_murim_flavor.12.a: "Let the tale grow taller"
+
+  # --- Static modifier display names (every modifier needs one)
+  ova_murim_flavor_escort_boom: "Escort Agency Boom"
+  ova_murim_flavor_manual_forgery: "Forged Manuals"
+  ova_murim_flavor_beggars_network: "Beggars Union Network"
+  ova_murim_flavor_vigilante_order: "The Masked Vigilante"
+  ova_murim_flavor_bandit_toll: "Salt Road Unrest"
+  ova_murim_flavor_escort_fees: "Escort Licensing Fees"
+  ova_murim_flavor_physician_fees: "Physician's Fees"
+  ova_murim_flavor_shrine_tokens: "Blessed Token Sales"

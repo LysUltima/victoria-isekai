@@ -1,0 +1,672 @@
+﻿POPS = {
+    s:STATE_ADHUC_CANTAVI = {
+        region_state:DEM = {
+            create_pop = {
+                culture = winged_demon
+                size = 736000
+            }
+            create_pop = {
+                culture = altan
+                size = 949000
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 64300
+            }
+        }
+    }
+    s:STATE_ASTRORUM = {
+        region_state:DEM = {
+            create_pop = {
+                culture = shadow_demon
+                size = 723100
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 851900
+            }
+            create_pop = {
+                culture = altan
+                size = 155500
+            }
+            create_pop = {
+                culture = dark_elf
+                size = 68900
+            }
+        }
+    }
+    s:STATE_CADUNT_STELLAE = {
+        region_state:DEM = {
+            create_pop = {
+                culture = shadow_demon
+                size = 1500000
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 64000
+            }
+        }
+    }
+    s:STATE_CEU_ARDENT = {
+        region_state:DEM = {
+            create_pop = {
+                culture = winged_demon
+                size = 2305000
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 204200
+            }
+        }
+    }
+    s:STATE_EX_CAELO = {
+        region_state:DEM = {
+            create_pop = {
+                culture = shadow_demon
+                size = 1900000
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 174900
+            }
+        }
+    }
+    s:STATE_EX_TENEBRIS = {
+        region_state:DEM = {
+            create_pop = {
+                culture = winged_demon
+                size = 4715000
+            }
+            create_pop = {
+                culture = altan
+                size = 199800
+            }
+        }
+    }
+    s:STATE_FUGIT_TEMPUS = {
+        region_state:DEM = {
+            create_pop = {
+                culture = horned_demon
+                size = 2415000
+            }
+        }
+    }
+    s:STATE_IN_SILENTIO = {
+        region_state:DEM = {
+            create_pop = {
+                culture = horned_demon
+                size = 3845000
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 145900
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 137600
+            }
+        }
+    }
+    s:STATE_IN_SPECULA = {
+        region_state:DEM = {
+            create_pop = {
+                culture = shadow_demon
+                size = 2545000
+            }
+            create_pop = {
+                culture = horned_demon
+                size = 200200
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 197000
+            }
+        }
+    }
+    s:STATE_LATENT_VIAE = {
+        region_state:DEM = {
+            create_pop = {
+                culture = horned_demon
+                size = 1146900
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 1163100
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 151100
+            }
+        }
+    }
+    s:STATE_LUCENT_UMBRAE = {
+        region_state:DEM = {
+            create_pop = {
+                culture = winged_demon
+                size = 1665000
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 150200
+            }
+            create_pop = {
+                culture = horned_demon
+                size = 62400
+            }
+        }
+    }
+    s:STATE_LUMINA_FRACTA = {
+        region_state:DEM = {
+            create_pop = {
+                culture = shadow_demon
+                size = 3145000
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 374000
+            }
+        }
+    }
+    s:STATE_NE_PEREANT = {
+        region_state:DEM = {
+            create_pop = {
+                culture = winged_demon
+                size = 1520000
+            }
+            create_pop = {
+                culture = altan
+                size = 47300
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 206800
+            }
+        }
+    }
+    s:STATE_QUAE_AMAVI = {
+        region_state:DEM = {
+            create_pop = {
+                culture = shadow_demon
+                size = 419400
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 522600
+            }
+            create_pop = {
+                culture = dark_elf
+                size = 413000
+            }
+            create_pop = {
+                culture = altan
+                size = 64900
+            }
+        }
+    }
+    s:STATE_RESTAT_VOX = {
+        region_state:DEM = {
+            create_pop = {
+                culture = winged_demon
+                size = 361600
+            }
+            create_pop = {
+                culture = altan
+                size = 398400
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 83800
+            }
+            create_pop = {
+                culture = dark_elf
+                size = 36500
+            }
+        }
+    }
+    s:STATE_RUINA = {
+        region_state:DEM = {
+            create_pop = {
+                culture = shadow_demon
+                size = 1475000
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 197600
+            }
+        }
+        region_state:LUX = {
+            create_pop = {
+                culture = aurora
+                size = 23800
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 524100
+            }
+        }
+    }
+    s:STATE_RUIT_SPES = {
+        region_state:DEM = {
+            create_pop = {
+                culture = shadow_demon
+                size = 1850000
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 160100
+            }
+            create_pop = {
+                culture = lysian
+                size = 103900
+            }
+            create_pop = {
+                culture = dark_elf
+                size = 59400
+            }
+        }
+    }
+    s:STATE_SICUT_LACRIMAE = {
+        region_state:DEM = {
+            create_pop = {
+                culture = horned_demon
+                size = 2550000
+            }
+        }
+    }
+    s:STATE_SOMNIA_NOCTIS = {
+        region_state:DEM = {
+            create_pop = {
+                culture = winged_demon
+                size = 830000
+            }
+            create_pop = {
+                culture = horned_demon
+                size = 25500
+            }
+        }
+    }
+    s:STATE_TREMIT_LUMEN = {
+        region_state:DEM = {
+            create_pop = {
+                culture = horned_demon
+                size = 1311200
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 1118800
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 126300
+            }
+        }
+    }
+    s:STATE_DEATH_PEAK = {
+        region_state:GIG = {
+            create_pop = {
+                culture = steel_dwarf
+                size = 15000
+            }
+        }
+    }
+    s:STATE_LAST_BREATH = {
+        region_state:GIG = {
+            create_pop = {
+                culture = steel_dwarf
+                size = 35000
+            }
+        }
+    }
+    s:STATE_NO_RETURN = {
+        region_state:GIG = {
+            create_pop = {
+                culture = steel_dwarf
+                size = 125000
+            }
+        }
+    }
+    s:STATE_ASGEBOG = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 225000
+            }
+        }
+    }
+    s:STATE_BOMEGGUD = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 165000
+            }
+        }
+    }
+    s:STATE_BROMAROB = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 250000
+            }
+        }
+    }
+    s:STATE_DAMOZOG = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 195000
+            }
+        }
+    }
+    s:STATE_DERRAGOB = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 510000
+            }
+        }
+    }
+    s:STATE_GEBBAGGOG = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 210000
+            }
+        }
+    }
+    s:STATE_GER_DRUB = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 265000
+            }
+        }
+    }
+    s:STATE_GOBBEGOB = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 190000
+            }
+        }
+    }
+    s:STATE_GORREBO = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 270000
+            }
+        }
+    }
+    s:STATE_GRUB_DER = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 435000
+            }
+        }
+    }
+    s:STATE_HEP_TROK = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 75000
+            }
+        }
+    }
+    s:STATE_HOR_GOB = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 130000
+            }
+        }
+    }
+    s:STATE_MEGGEDOB = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 235000
+            }
+        }
+    }
+    s:STATE_WERRAZUB = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 185000
+            }
+        }
+    }
+    s:STATE_ZABBAGOB = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 190000
+            }
+        }
+    }
+    s:STATE_ZOGG_DEG = {
+        region_state:GOB = {
+            create_pop = {
+                culture = goblin
+                size = 185000
+            }
+        }
+    }
+    s:STATE_PALNIA = {
+        region_state:PAL = {
+            create_pop = {
+                culture = ixioran
+                size = 1110000
+            }
+        }
+    }
+    s:STATE_GESSO_PAN = {
+        region_state:SAN = {
+            create_pop = {
+                culture = sand_goblin
+                size = 75000
+            }
+        }
+    }
+    s:STATE_KASSEMA = {
+        region_state:SAN = {
+            create_pop = {
+                culture = sand_goblin
+                size = 75000
+            }
+        }
+    }
+    s:STATE_MOSSOPOK = {
+        region_state:SAN = {
+            create_pop = {
+                culture = sand_goblin
+                size = 60000
+            }
+        }
+    }
+    s:STATE_PRESSOK = {
+        region_state:SAN = {
+            create_pop = {
+                culture = sand_goblin
+                size = 25000
+            }
+        }
+    }
+    s:STATE_RENOSSA = {
+        region_state:SAN = {
+            create_pop = {
+                culture = sand_goblin
+                size = 30000
+            }
+        }
+    }
+    s:STATE_RESSA_NAKO = {
+        region_state:SAN = {
+            create_pop = {
+                culture = sand_goblin
+                size = 115000
+            }
+        }
+    }
+    s:STATE_SSUME_NAKO = {
+        region_state:SAN = {
+            create_pop = {
+                culture = sand_goblin
+                size = 110000
+            }
+        }
+    }
+    s:STATE_TASSO_HOP = {
+        region_state:SAN = {
+            create_pop = {
+                culture = sand_goblin
+                size = 60000
+            }
+        }
+    }
+    s:STATE_TASSO_POME = {
+        region_state:SAN = {
+            create_pop = {
+                culture = sand_goblin
+                size = 25000
+            }
+        }
+    }
+    s:STATE_UPS_KOP = {
+        region_state:SAN = {
+            create_pop = {
+                culture = sand_goblin
+                size = 20000
+            }
+        }
+    }
+    s:STATE_ARDENT_FLAME = {
+        region_state:SDE = {
+            create_pop = {
+                culture = southern_orc
+                size = 15000
+            }
+        }
+    }
+    s:STATE_BURNING_DREAM = {
+        region_state:SDE = {
+            create_pop = {
+                culture = southern_orc
+                size = 35000
+            }
+        }
+    }
+    s:STATE_BURROWING_HAVEN = {
+        region_state:SDE = {
+            create_pop = {
+                culture = southern_orc
+                size = 20000
+            }
+        }
+    }
+    s:STATE_DESPAIRING_DUNES = {
+        region_state:SDE = {
+            create_pop = {
+                culture = southern_orc
+                size = 25000
+            }
+        }
+    }
+    s:STATE_LACHRYMATE_VALLEY = {
+        region_state:SDE = {
+            create_pop = {
+                culture = southern_orc
+                size = 15000
+            }
+        }
+    }
+    s:STATE_RUINING_TEARS = {
+        region_state:SDE = {
+            create_pop = {
+                culture = southern_orc
+                size = 15000
+            }
+        }
+    }
+    s:STATE_SCORCHING_HAZE = {
+        region_state:SDE = {
+            create_pop = {
+                culture = southern_orc
+                size = 15000
+            }
+        }
+    }
+    s:STATE_SINGING_MIRAGE = {
+        region_state:SDE = {
+            create_pop = {
+                culture = southern_orc
+                size = 15000
+            }
+        }
+    }
+    s:STATE_SPLITTING_SANDS = {
+        region_state:SDE = {
+            create_pop = {
+                culture = southern_orc
+                size = 20000
+            }
+        }
+    }
+    s:STATE_TREMBLING_PEAKS = {
+        region_state:SDE = {
+            create_pop = {
+                culture = southern_orc
+                size = 15000
+            }
+        }
+    }
+    s:STATE_ASYNOSA = {
+        region_state:YOL = {
+            create_pop = {
+                culture = dark_elf
+                size = 300000
+            }
+        }
+    }
+    s:STATE_NAIRENTHOYU = {
+        region_state:YOL = {
+            create_pop = {
+                culture = dark_elf
+                size = 2680000
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 111200
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 150100
+            }
+        }
+    }
+    s:STATE_RAIEIN = {
+        region_state:YOL = {
+            create_pop = {
+                culture = dark_elf
+                size = 415000
+            }
+        }
+    }
+    s:STATE_YOLTENI = {
+        region_state:YOL = {
+            create_pop = {
+                culture = dark_elf
+                size = 6730000
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 346800
+            }
+            create_pop = {
+                culture = winged_demon
+                size = 237700
+            }
+        }
+    }
+}

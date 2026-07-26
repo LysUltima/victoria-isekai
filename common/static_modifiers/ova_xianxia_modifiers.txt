@@ -1,0 +1,136 @@
+﻿# Xianxia storyline - Blood Lotus Covenant (BLO/GHO/SHA/NIN) vs Great Feng/Great Yao sects
+# (SWO/HEA/FLO/PUR/MYS/FEA/SPI/VER/SNO) - static modifiers.
+# Champion army buffs / patronage / mourning live in the SHARED layer
+# (common/static_modifiers/ova_champion_modifiers.txt) - these are xianxia-storyline-only.
+# All modifier-type keys verified against
+# C:\Program Files (x86)\Steam\steamapps\common\Victoria 3\game\common\modifier_type_definitions\
+# 00_modifier_types.txt (country_prestige_add/mult, country_legitimacy_base_add, unit_offense_mult,
+# unit_defense_mult, unit_morale_recovery_mult, country_weekly_innovation_mult) and
+# 01_building_modifier_types.txt (building_group_bg_mining_throughput_add) before use. Icons reused
+# from vanilla gfx/interface/icons/timed_modifier_icons/ (no new art). Every key below has a
+# display-name loc entry in localization/replace/english/ova_xianxia_l_english.yml. The innovation
+# stat on ova_xianxia_destined_halo copies the single verified key murim's
+# ova_murim_returners_insight uses for foreknowledge (country_weekly_innovation_mult).
+
+# --- Dao war outcomes (permanent until removed, days = -1) ---
+
+# Demonic victory reward (BLO-side winners) - je_ova_xianxia_blood_lotus on_complete.
+ova_xianxia_sovereign_of_the_demonic_dao = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_prestige_mult = 0.25
+	country_prestige_add = 50
+	unit_offense_mult = 0.1
+	unit_defense_mult = 0.1
+	country_legitimacy_base_add = 15
+}
+
+# Righteous victory reward (FEN) - je_ova_xianxia_jade_mandate on_complete.
+ova_xianxia_orthodoxy_restored = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_prestige_mult = 0.2
+	country_prestige_add = 40
+	country_legitimacy_base_add = 15
+}
+
+# Side-member minor victory reward - the sibling war banner JEs on_complete.
+ova_xianxia_sect_triumph = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_prestige_add = 15
+	country_legitimacy_base_add = 5
+}
+
+# Losing-side minor fallout - the war banner JEs on_fail.
+ova_xianxia_sect_despair = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	country_prestige_mult = -0.1
+	country_legitimacy_base_add = -10
+}
+
+# --- Destined One chain modifiers ---
+
+# Applied while any mc-chain JE runs (je_ova_xianxia_mc_1 immediate), removed on death-fail.
+ova_xianxia_destined_halo = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
+	country_prestige_add = 5
+	country_weekly_innovation_mult = 0.05
+}
+
+# Chain finale reward - je_ova_xianxia_mc_6 (Return to the Void) on_complete.
+ova_xianxia_ascendant_glory = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_mult = 0.15
+	country_prestige_add = 25
+	country_legitimacy_base_add = 10
+}
+
+# Timed prestige after a memorable face-slap.
+ova_xianxia_face_resounding = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	country_prestige_add = 10
+}
+
+# History diverges hard from the golden-finger's foreknowledge - a note of unease.
+ova_xianxia_plot_divergence = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	country_legitimacy_base_add = -5
+}
+
+# Demonic-path sacrifice buff.
+ova_xianxia_blood_rites = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_positive.dds
+	unit_offense_mult = 0.1
+	unit_morale_recovery_mult = 0.1
+}
+
+# Fallout from a broken heavenly tribulation.
+ova_xianxia_tribulation_scars = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_prestige_mult = -0.05
+}
+
+# A survived heavenly tribulation.
+ova_xianxia_heaven_blessed = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 20
+}
+
+# Host of the Grand Sect Competition.
+ova_xianxia_competition_glory = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 20
+}
+
+# Post-skirmish / post-muster army morale. Side-neutral name and flavor ("Sect Fervor") so both
+# righteous and demonic hosts can carry it without the loc reading oddly.
+ova_xianxia_righteous_fervor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	unit_morale_recovery_mult = 0.1
+}
+
+# Applied to a righteous sect the Blood Cavalry has raided.
+ova_xianxia_demonic_terror = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	country_legitimacy_base_add = -5
+	country_prestige_mult = -0.05
+}
+
+# A sword cultivator walks the same road - permanent host bonus.
+ova_xianxia_dao_companion = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_prestige_mult = 0.05
+	country_legitimacy_base_add = 5
+}
+
+# Check-in reward: a mapped spirit vein boosts mining throughput.
+ova_xianxia_spirit_vein_windfall = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_group_bg_mining_throughput_add = 0.1
+}
+
+# Blessed incense sold at the shrine gate to disciples before their trials - an ongoing trade,
+# not a one-off sale (ova_xianxia_flavor.4, option a). Lives here (not
+# ova_xianxia_flavor_modifiers.txt) because that file is capped at 5 modifiers and already full.
+ova_xianxia_incense_trade = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_expenses_add = -1
+}

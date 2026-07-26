@@ -1,0 +1,98 @@
+﻿last_date = "1910.1.1"
+
+tests = {
+	hungry_forties_happened = {
+		acceptable_fail_rate = 0.0
+		success = {
+			always = no
+		}
+		fail = {
+			game_date > "1860.1.1"
+		}
+	}
+	AUS_neo_absolutism_spawned = {
+		acceptable_fail_rate = 0.0
+		success = {
+			# removed effect block: vanilla ref 'c:AUS' not present in this mod
+		}
+		fail = {
+			game_date > "1900.1.1"
+		}
+	}
+	AUS_neo_absolutism_victory = {
+		acceptable_fail_rate = 0.0
+		success = {
+			always = no
+		}
+		fail = {
+			game_date > "1900.1.1"
+		}
+	}
+	AUS_dual_monarchy = {
+		acceptable_fail_rate = 0.0
+		success = {
+			any_country = {
+				has_government_type = gov_dual_monarchy
+			}
+		}
+		fail = {
+			game_date > "1900.1.1"
+		}
+	}
+	AUS_triple_monarchy = {
+		acceptable_fail_rate = 0.0
+		success = {
+			any_country = {
+				has_government_type = gov_triple_monarchy
+			}
+		}
+		fail = {
+			game_date > "1900.1.1"
+		}
+	}
+	SER_house_karadordevic = {
+		acceptable_fail_rate = 0.0
+		success = {
+			# removed effect block: vanilla ref 'c:SER' not present in this mod
+		}
+		fail = {
+			game_date > "1900.1.1"
+		}
+	}
+	BUL_bulgaria_exists = {
+		acceptable_fail_rate = 0.0
+		success = {
+			# removed effect block: vanilla ref 'c:BUL' not present in this mod
+		}
+		fail = {
+			game_date > "1910.1.1"
+		}
+	}
+	TUR_grand_collapse = {
+		acceptable_fail_rate = 0.0
+		success = {
+			always = no
+		}
+		fail = {
+			game_date > "1910.1.1"
+		}
+	}
+	TUR_eastern_crisis = { #checks it started, not succeed or fail
+		acceptable_fail_rate = 0.0
+		success = {
+			always = no
+		}
+		fail = {
+			game_date > "1868.1.1"
+		}
+	}
+	TUR_failed_separatism = { #checks it started, not succeed or fail
+		acceptable_fail_rate = 0.0
+		success = {
+			# removed effect block: vanilla ref 'c:TUR' not present in this mod
+		}
+		fail = {
+			game_date > "1868.1.1"
+		}
+	}
+}

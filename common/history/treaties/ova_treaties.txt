@@ -1,0 +1,111 @@
+﻿TREATIES = {
+    create_treaty = {
+		first_country = c:ELV
+		second_country = c:EST
+
+		is_draft = no
+		entered_into_force_on = 1764.10.26
+		binding_period = { years = 100 }
+
+		articles_to_create = {
+			{
+				article = transit_rights
+                source_country = c:EST
+				target_country = c:ELV
+			}
+			{ 
+			    article = defensive_pact
+			}
+			{ 
+				article = trade_privilege
+				source_country = c:ELV
+				target_country = c:EST
+			}
+		}
+	}
+    create_treaty = {
+		first_country = c:ELV
+		second_country = c:DWA
+
+		is_draft = no
+		entered_into_force_on = 1764.10.26
+		binding_period = { years = 100 }
+
+		articles_to_create = {
+			{
+				article = transit_rights
+                source_country = c:ELV
+				target_country = c:DWA
+			}
+			{ 
+			    article = defensive_pact
+			}
+			{ 
+				article = trade_privilege
+				source_country = c:DWA
+				target_country = c:ELV
+			}
+		}
+	}
+    create_treaty = {
+		first_country = c:DWA
+		second_country = c:EST
+
+		is_draft = no
+		entered_into_force_on = 1764.10.26
+		binding_period = { years = 100 }
+
+		articles_to_create = {
+			{
+				article = transit_rights
+                source_country = c:EST
+				target_country = c:DWA
+			}
+			{ 
+			    article = defensive_pact
+			}
+			{ 
+				article = trade_privilege
+				source_country = c:DWA
+				target_country = c:EST
+			}
+		}
+	}
+
+    create_treaty = {
+        name = "Articles of Foundation"
+		first_country = c:LYS
+		second_country = c:ACA
+
+		is_draft = no
+		entered_into_force_on = 1625.7.18
+		binding_period = { years = 400 }
+
+		articles_to_create = {
+			{ 
+			    article = guarantee_independence
+                source_country = c:LYS
+				target_country = c:ACA
+			}
+
+		}
+	}
+    create_treaty = {
+        name = "Articles of Foundation"
+		first_country = c:REY
+		second_country = c:ACA
+
+		is_draft = no
+		entered_into_force_on = 1625.7.18
+		binding_period = { years = 400 }
+
+		articles_to_create = {
+			{ 
+			    article = guarantee_independence
+                source_country = c:REY
+				target_country = c:ACA
+			}
+
+		}
+	}
+}

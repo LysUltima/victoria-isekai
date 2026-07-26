@@ -1,0 +1,214 @@
+﻿# Anbennar - changed final hair color value to be 0.99 not 1.0 as 1.0 is used for our special hair colours
+
+@neg1_min = 0.4
+@neg1_max = 0.5
+
+@neg2_min = 0.3
+@neg2_max = 0.4
+
+@neg3_min = 0.1
+@neg3_max = 0.3
+
+@pos1_min = 0.5
+@pos1_max = 0.6
+
+@pos2_min = 0.6
+@pos2_max = 0.7
+
+@pos3_min = 0.7
+@pos3_max = 0.9
+
+@beauty1min = 0.35
+@beauty1max = 0.65
+
+@beauty2min = 0.4
+@beauty2max = 0.6
+
+@beauty3min = 0.45
+@beauty3max = 0.55
+
+@blend1min = 0.0
+@blend1max = 0.2
+
+@blend2min = 0.2
+@blend2max = 0.5
+
+@blend3min = 0.5
+@blend3max = 0.8
+
+kobold = {
+    template = "ethnicity_template"
+
+
+    eye_color = {
+        # # Brown
+        # 50 = { 0.05 0.7 0.35 1.0 }
+        # Black
+        50 = { 0.25 0.2 0.75 0.55 }
+    }
+    hair_color = {
+        # Blonde
+        # 10 = { 0.25 0.2 0.75 0.55 }
+        # Brown
+        2 = { 0.65 0.8 0.9 0.99 }
+        # # Red
+        # 10 = { 0.85 0.0 1.0 0.5 }
+        # Black
+        98 = { 0.01 0.9 0.5 0.99 }
+    }
+
+    gene_mouth_open = {
+
+        25 = { name = mouth_open   range = { 0.2 0.45 }      }
+        50 = { name = mouth_open   range = { 0.45 0.55 }      }
+        1 = { name = mouth_open   range = { 0.55 0.7 }      }  #higher chance of this in lieu of TUSKS
+
+    }
+
+    race_features = {
+		5 = {  name = kobold_features			range = { 1.0 1.0 }	}
+	}
+
+    eye_pupil = {
+		5 = {  name = kobold_pupils	range = { 1.0 1.0 }	}
+	}
+
+
+    hairstyles = {
+		10 = { name = no_hairstyles 		range = { 0.0 1.0 } }
+	}
+
+	beards = {
+		10 = { name = no_beard 		range = { 0.0 1.0 } }
+	}
+
+	mustaches = {
+		10 = { name = no_mustache 		range = { 0.0 1.0 } }
+	}
+
+	race_attachments = {
+		10 = {  name = kobold_attachments			range = { 1.0 1.0 }	}
+	}
+
+    skin_color = {
+	    25 = { 0.0 0.6 0.05 0.6 } 
+	}
+
+    gene_height = {
+
+        20 = { name = short_height  range = { 0.5 0.6  }      } #tallest of the short dudes actually
+        50 = { name = short_height  range = { 0.6 0.7 }      }
+        20 = { name = short_height  range = { 0.7 0.9 }      }
+
+	}
+
+    
+    gene_eyebrows_shape = {
+        10 = {  name = no_eyebrows             range = { 0.0 0.0 }     }
+    }
+
+    gene_eyebrows_fullness = {
+        10 = {  name = no_eyebrows             range = { 0.0 0.0 }     }
+    }
+
+    gene_mouth_lower_lip_full = {
+        10 = { name = mouth_lower_lip_full    range = { 0.0 0.0 }    }
+    }
+
+    gene_mouth_upper_lip_full = {
+        10 = { name = mouth_upper_lip_full    range = { 0.0 0.0 }    }
+    }
+
+    gene_stubble = {
+        10 = { name = stubble_low       range = { 0.0 0.0 }    }
+        10 = { name = stubble_medium    range = { 0.0 0.0 }    }
+        10 = { name = stubble_full      range = { 0.0 0.0 }    }
+    }
+
+	### Additive anim genes ###
+
+
+    
+
+    #hairstyles = {
+    #    10 = { name = indian_hairstyles       range = { 0.0 0.0 } }
+    #}
+
+    #beards = {
+    #    10 = { name = indian_beards       range = { 0.0 0.0 } }
+    #}
+
+    #mustaches = {
+    #    10 = { name = indian_mustaches        range = { 0.0 0.0 } }
+    #}
+
+    # coats = {
+    #   10 = { name = prussian_uniform_coats        range = { 0.0 1.0 } }
+    # }
+
+    # epaulettes = {
+    #   10 = { name = prussian_epaulettes       range = { 0.0 1.0 } }
+    # }
+
+    # sashes = {
+    #   10 = { name = prussian_sashes       range = { 0.0 1.0 } }
+    # }
+
+    # medals = {
+    #   10 = { name = all_medals        range = { 0.0 1.0 } }
+    # }
+
+    # headgear = {
+    #   10 = { name = generic_headgear      range = { 0.0 1.0 } }
+    # }
+
+}
+
+gold_kobold = {
+    template = "kobold"
+
+	skin_color = {
+		10 = { 0.25 0.7 0.35 0.85 }   
+	}
+
+    race_attachments = {
+		10 = {  name = kobold_gold_attachments			range = { 1.0 1.0 }	}
+	}
+}
+
+dark_kobold = {
+    template = "kobold"
+
+    race_attachments = {
+		10 = {  name = kobold_dark_attachments			range = { 1.0 1.0 }	}
+	}
+
+	skin_color = {
+		25 = { 0.0 0.55 0.005 0.6 }   
+	}
+}
+
+steel_kobold = {
+    template = "kobold"
+
+	skin_color = {
+		10 = { 0.75 0.6 0.85 0.75 }   
+	}
+
+    race_attachments = {
+		10 = {  name = kobold_steel_attachments			range = { 1.0 1.0 }	}
+	}
+}
+
+green_kobold = {
+    template = "kobold"
+
+	skin_color = {
+		10 = { 0.5 0.55 0.55 0.6 }   
+	}
+
+    race_attachments = {
+		10 = {  name = kobold_green_attachments			range = { 1.0 1.0 }	}
+	}
+}
+

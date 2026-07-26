@@ -1,0 +1,296 @@
+﻿northern_orc = {
+	color= rgb{ 194 109 46 }
+	religion = animist
+	heritage = heritage_orc
+	language = language_orcish
+
+	obsessions = {
+		meat
+	}
+
+	traditions = { tradition_monsteric }
+	male_common_first_names = {
+		Aniceto
+		Antonio
+		Bartolome
+		Camilo
+		Carlos
+		Claudio
+		David
+		Emiliano
+		Eugenio_2
+		Felipe
+		Fernando
+		Felix
+		Gregorio
+		Jacinto
+		Jesus
+		JosE_
+		Juan
+		Julio
+		Luis
+		Manuel
+		Marcos
+		Maximo
+		Narciso
+		Pablo
+		Pedro
+		Rodrigo
+		Roque
+		Simon_2
+		Teodoro
+		VI_ctor
+	}
+	female_common_first_names = {
+		Adela
+		Blanca
+		Carola
+		Celsa
+		Eliza
+		Ermelina
+		Hercilia
+		Lindaura
+		Maria
+		Modesta
+		Sara
+		Ubalda
+		Veronica
+	}
+	noble_last_names = {
+		Anzoategui
+		Campero
+		Santa_Cruz
+		Tiaraju
+		Tumpa
+	}
+	common_last_names = {
+		Abjaisu
+		Ayegua
+		Camba
+		Chuaie
+		Correa
+		Cunhagatu
+		Diaz_2
+		Fernandez
+		Galeano
+		Gonzalez
+		Guaracay
+		Guarani
+		Guerrero
+		Gomez
+		Jopara
+		Lopez
+		Mongelos
+		Morla
+		Ortiz
+		Parave
+		Picagua
+		Rodas
+		Riquelme
+		Rivarola
+		Tarayu
+		Torga
+		Velazquez
+		Yaguarete
+		Yrahi
+		Alvarez
+	}
+	ethnicities = {
+		1 = gray_orc
+	}
+	graphics = decentralised_americas
+}
+
+southern_orc = {
+	color= hsv{ 0.38 0.58 0.59 }
+	religion = animist
+	heritage = heritage_orc
+	language = language_orcish
+	traditions = { tradition_monsteric }
+    obsessions = {
+		meat
+	}
+	male_common_first_names = {
+		Anibal
+		Augusto
+		Bento
+		Bernardo
+		CE_sar
+		Daniel
+		David
+		Donato
+		Duarte
+		Ernesto
+		Estevao_2
+		Fernando
+		Francisco
+		Gabriel
+		Graciano
+		Hugo
+		JoA_o
+		Julio
+		Kananoe
+		Leopoldo
+		Lucas
+		Miguel
+		Nuno
+		Paulinho
+		Raoni
+		Rafael_2
+		Roberto
+		Sebastiao
+		Sergio
+		Simao
+		Vasco
+		Zeferino
+		Oscar_2
+	}
+	female_common_first_names = {
+		Catarina
+		Clara
+		Cristina
+		Maria
+		Teresa
+	}
+	noble_last_names = {
+		Aikana
+		Amahuaca
+		Apetina
+		Baniwa
+		Bororo
+		Canela
+		Guaycuru
+		Hupda
+		Jecupe
+		Metuktire
+		Minuane
+		Nambikwara
+		Paiakan
+		Parintintin
+		Umutina
+		Wayana
+		Yanomami
+	}
+	common_last_names = {
+		Arawak
+		Arawa
+		Bororo
+		Garifuna
+		Guayana
+		Ge
+		Jeiko
+		Kaingang
+		Kalinago
+		Kamakan
+		Karaja
+		Kayapo
+		Matses
+		Maxakali
+		Puri
+		Timbira
+		Xavante
+		Xerente
+		Xokieng
+		Yanomamo
+	}
+	ethnicities = {
+		1 = green_orc
+	}
+	graphics = decentralised_americas
+}
+
+goblin = {
+	color= hsv{ 0.25 0.43 0.55 }
+	religion = animist
+	heritage = heritage_goblin
+	language = language_goblinish
+	traditions = { tradition_monsteric }
+    obsessions = {
+		meat
+	}
+	male_common_first_names = {
+		Amare
+		Amha
+		Bekele
+		Berhanu
+		Berihun
+		Demissie
+		Desta
+		Geteye
+		Girma
+		Haile
+		Kelile
+		Negasi
+		Saleh
+	}
+	female_common_first_names = {
+		Menen_Asfaw
+		Belaynesh
+		Sehin_Mikael
+		Tsehai
+		Zenebework
+	}
+	noble_last_names = {
+		Ali_Aba_Deyas
+		Cherecha
+		Makonnen
+		Selassie
+		Solomon
+	}
+	common_last_names = {
+		Mariam
+		Melekot
+		Mikael
+		Petros
+		Seged
+		Wossen
+	}
+	ethnicities = {
+		1 = forest_goblin
+	}
+	graphics = brazilian
+	seal_and_signature_texture = "gfx/interface/diplomatic_treaties/seal_and_signature_cultures/diplomatic_treaties_seal_and_signature_african.dds"
+}
+
+sand_goblin = {
+	color= hsv{ 0.94 0.46 0.77 }
+	religion = animist
+	heritage = heritage_goblin
+	language = language_goblinish
+	traditions = { tradition_monsteric }
+    obsessions = {
+		meat
+	}
+	male_common_first_names = {
+		Alimirah
+		Amda
+		Baeda
+		Hanfere
+		Kadhafo
+		Kedafu
+		Mahammad
+		Sabraddin
+		Umar
+	}
+	female_common_first_names = {
+		Fatimah
+		Medina
+	}
+	noble_last_names = {
+		Jasa
+		Kadafo
+		Yayyo
+	}
+	common_last_names = {
+		Aydahis
+		Hanfadhe
+		Maryam
+		Seyon
+		Yayyo
+	}
+	ethnicities = {
+		1 = common_goblin
+	}
+	graphics = african
+	seal_and_signature_texture = "gfx/interface/diplomatic_treaties/seal_and_signature_cultures/diplomatic_treaties_seal_and_signature_african.dds"
+}

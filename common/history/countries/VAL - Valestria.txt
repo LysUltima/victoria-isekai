@@ -1,0 +1,10 @@
+﻿# Valestria (isekai: artifice tier 1)
+COUNTRIES = {
+	c:VAL ?= {
+		effect_starting_technology_artifice_tier_1 = yes
+		create_character = { template = template_ruler_val role = ruler }
+		effect_starting_politics_traditional = yes
+
+        activate_law = law_type:law_professional_army
+	}
+}

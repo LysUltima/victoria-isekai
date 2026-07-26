@@ -1,0 +1,55 @@
+﻿# Isekai TC: migrated copy of vanilla agitators_custom_loc.txt.
+# common/customizable_localization is NOT in metadata.json replace_paths, so the
+# vanilla file loads unless a same-named mod file overrides it (this file).
+# Text blocks whose triggers referenced deleted Earth content were removed; keys
+# left empty fall back to their original localization_key so callers still
+# resolve. Regenerate with tools/migrate_custom_loc.py.
+
+dynamic_french_pretender = {
+	type = country
+	text = {
+		trigger = {
+			has_variable = orleanist_restoration_var
+		}
+		localization_key = custom_orleanist
+	}
+	text = {
+		trigger = {
+			has_variable = legitimist_restoration_var
+		}
+		localization_key = custom_legitimist
+	}
+	text = {
+		trigger = {
+			has_variable = bonapartist_restoration_var
+		}
+		localization_key = custom_bonapartist
+	}
+}
+
+dynamic_ship_name = {
+	type = country
+	random_valid = yes
+	# French Ship Names
+	# Russian Ship Names
+	text = {
+		localization_key = custom_ship_gangut
+	}
+}
+
+dynamic_dreyfus_case_strength = {
+	type = country
+	text = {
+		localization_key = custom_dreyfus_case_strong
+	}
+}
+
+dynamic_paris_commune_drift = {
+	type = country
+	text = {
+		localization_key = pc_tick_advance
+	}
+}
+
+# generic_worker_profession: defined by this mod in ova_agitators_custom_loc.txt; vanilla's copy
+# loaded first and shadowed it ("Duplicated key"), so it is dropped here.

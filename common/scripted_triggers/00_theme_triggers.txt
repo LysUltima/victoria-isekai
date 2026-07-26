@@ -1,0 +1,73 @@
+﻿# Voice of the People
+votp_theme_trigger = {
+    OR = {
+        votp_theme_france_trigger = yes
+        always = no # was any_primary_culture = { has_discrimination_trait = language_francophone }, no mod analogue
+    }
+}
+
+votp_theme_france_trigger = {
+    always = no # France, no mod analogue
+}
+
+# Pivot of Empire
+
+poe_theme_trigger = {
+    always = no # Pivot of Empire (India), no mod analogue (western_plateau is Tarim Basin/Tibet, not India)
+}
+
+# National Awakening
+
+na_theme_trigger = {
+    OR = {
+        na_theme_austria_trigger = yes
+        always = no # was geographic_region_balkans_old, no mod analogue
+    }
+}
+
+na_theme_austria_trigger = {
+    always = no # Austria, no mod analogue
+}
+
+# Iberian Twilight
+itl_theme_trigger = {
+    OR = {
+        itl_portuguese_theme_trigger = yes
+        itl_spanish_theme_trigger = yes
+    }
+}
+
+itl_portuguese_theme_trigger = {
+    OR = {
+        itl_theme_portugal_trigger = yes
+        always = no # was any_primary_culture = { has_discrimination_trait = language_lusophone }, no mod analogue
+    }
+}
+
+itl_spanish_theme_trigger = {
+    OR = {
+        itl_theme_spain_trigger = yes
+        always = no # was any_primary_culture = { has_discrimination_trait = language_hispanophone }, no mod analogue
+    }
+}
+
+itl_theme_iberia_trigger = {
+    OR = {
+        itl_theme_spain_trigger = yes
+        itl_theme_portugal_trigger = yes
+    }
+}
+
+itl_theme_spain_trigger = {
+    always = no # Spain, no mod analogue
+}
+
+itl_theme_portugal_trigger = {
+    always = no # Portugal, no mod analogue
+}
+
+# The Great Wave
+
+tgw_theme_japan_trigger = {
+    always = no
+}

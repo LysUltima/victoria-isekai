@@ -1,0 +1,79 @@
+﻿@maleMin = -0.5
+@maleMax = 0.499
+@femaleMin = -0.4
+@femaleMax = 0.4
+@boyMin = -0.5
+@boyMax = 0.499
+@girlMin = -0.4
+@girlMax = 0.4
+
+@maleBsMin = 0.0
+@maleBsMax = 1.0
+@femaleBsMin = 0.0
+@femaleBsMax = 0.8
+@boyBsMin = 0.0
+@girlBsMin = 0.0
+@boyBsMax = 1.0
+@girlBsMax = 0.8
+
+morph_genes = {
+
+	POD_NOSschnoz = {
+		group = monstrous_face
+		nosies = { 
+			index = 0 
+			male = { 
+				setting = { attribute = "bs_nos_nose_profile_max"	value = { min = @maleBsMin max = @maleMax }	} 
+			}
+			female = { 
+				setting = { attribute = "bs_nos_nose_profile_max"	value = { min = @femaleBsMin max = @maleMax }	} 
+			}
+			boy = { 
+				setting = { attribute = "bs_nos_nose_profile_max"	value = { min = @boyBsMin max = @boyBsMax }	} 
+			}
+			girl = { 
+				setting = { attribute = "bs_nos_nose_profile_max"	value = { min = @girlBsMin max = @girlBsMax }	} 
+			}
+		}
+		schnozies = { 
+			index = 1 
+			male = { 
+				setting = { attribute = "bs_nos_nose_profile_min"	value = { min = @maleBsMin max = @maleMax }	} 
+			}
+			female = { 
+				setting = { attribute = "bs_nos_nose_profile_min"	value = { min = @femaleBsMin max = @maleMax }	} 
+			}
+			boy = { 
+				setting = { attribute = "bs_nos_nose_profile_min"	value = { min = @boyBsMin max = @boyBsMax }	} 
+			}
+			girl = { 
+				setting = { attribute = "bs_nos_nose_profile_min"	value = { min = @girlBsMin max = @girlBsMax }	} 
+			}
+		}
+	}
+
+    skin_color_override = {
+        inheritable = no
+		default_1 = { 
+			index = 0
+			male = {}
+			female = male
+			boy = male
+			girl = male
+		}
+		color_fantasy = {
+			index = 1
+			male = {
+				skin_hsv_shift_curve = {
+					curve = {
+						{ 0.0   { 0.0 0.0 0.0 } }
+						{ 1.0   { 1.0 1.0 1.0 } }
+					}
+				}
+			}
+			female = male
+			boy = male
+			girl = male
+		}
+	}	   
+}

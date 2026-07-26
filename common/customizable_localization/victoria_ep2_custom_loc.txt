@@ -1,0 +1,3 @@
+﻿# Emptied override: vanilla EP2/Japan customizable-localization functions, keyed to
+# vanilla countries/cultures/states with no analogue in this mod. Not referenced by
+# any loc key in localization/replace/english/.

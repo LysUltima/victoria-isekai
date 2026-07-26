@@ -1,0 +1,218 @@
+﻿POPS = {
+    s:STATE_NYUGMA_DRANGBDEN = {
+        region_state:IMM = {
+            create_pop = {
+                culture = khambu
+                size = 1460000
+            }
+            create_pop = {
+                culture = lan
+                size = 117600
+            }
+            create_pop = {
+                culture = tong
+                size = 82400
+            }
+        }
+    }
+    s:STATE_SERGYI_GYAMA = {
+        region_state:IMM = {
+            create_pop = {
+                culture = khambu
+                size = 1205000
+            }
+            create_pop = {
+                culture = lan
+                size = 159500
+            }
+        }
+    }
+    s:STATE_MINYAMS_DAMBCA = {
+        region_state:IMM = {
+            create_pop = {
+                culture = khambu
+                size = 1095000
+            }
+        }
+    }
+    s:STATE_THAYAS_KHRIMS = {
+        region_state:IMM = {
+            create_pop = {
+                culture = khambu
+                size = 3420000
+            }
+        }
+    }
+    s:STATE_NGONTAG_DGEBA = {
+        region_state:IMM = {
+            create_pop = {
+                culture = khambu
+                size = 3390000
+            }
+            create_pop = {
+                culture = lan
+                size = 122100
+            }
+        }
+    }
+    s:STATE_NYUGMA_ZHIGNAS = {
+        region_state:COS = {
+            create_pop = {
+                culture = khambu
+                size = 3890000
+            }
+            create_pop = {
+                culture = plains_catkin
+                size = 195300
+            }
+            create_pop = {
+                culture = arasni
+                size = 132600
+            }
+        }
+    }
+    s:STATE_ZIJID_THUNSIG = {
+        region_state:COS = {
+            create_pop = {
+                culture = khambu
+                size = 2760000
+            }
+        }
+    }
+    s:STATE_RABTU_ZHIBA = {
+        region_state:COS = {
+            create_pop = {
+                culture = khambu
+                size = 4335000
+            }
+            create_pop = {
+                culture = plains_catkin
+                size = 329800
+            }
+        }
+    }
+    s:STATE_TOGPA_BRAGDKAR = {
+        region_state:DRA = {
+            create_pop = {
+                culture = khambu
+                size = 2180000
+            }
+            create_pop = {
+                culture = tong
+                size = 328100
+            }
+            create_pop = {
+                culture = arasni
+                size = 84200
+            }
+        }
+    }
+    s:STATE_TAGTU_THARPA = {
+        region_state:LAM = {
+            create_pop = {
+                culture = khambu
+                size = 2320000
+            }
+            create_pop = {
+                culture = arasni
+                size = 173100
+            }
+        }
+    }
+    s:STATE_CHUBUR_GYATSO = {
+        region_state:CHA = {
+            create_pop = {
+                culture = khambu
+                size = 3560000
+            }
+        }
+    }
+    s:STATE_TRINPUNG_GANGRI = {
+        region_state:CHA = {
+            create_pop = {
+                culture = khambu
+                size = 1260000
+            }
+            create_pop = {
+                culture = arasni
+                size = 133600
+            }
+        }
+    }
+    s:STATE_ZILPA_RIWO = {
+        region_state:CHA = {
+            create_pop = {
+                culture = khambu
+                size = 1310000
+            }
+        }
+    }
+    s:STATE_LYAM_ALYE = {
+        region_state:ANT = {
+            create_pop = {
+                culture = arasni
+                size = 2940000
+            }
+            create_pop = {
+                culture = khambu
+                size = 234700
+            }
+        }
+    }
+    s:STATE_LUNO_SPARKI = {
+        region_state:ANT = {
+            create_pop = {
+                culture = arasni
+                size = 1930000
+            }
+            create_pop = {
+                culture = tong
+                size = 106300
+            }
+            create_pop = {
+                culture = khambu
+                size = 128100
+            }
+        }
+    }
+    s:STATE_KRONSE_PLARE = {
+        region_state:ANT = {
+            create_pop = {
+                culture = arasni
+                size = 1845000
+            }
+            create_pop = {
+                culture = tong
+                size = 81400
+            }
+        }
+    }
+    s:STATE_TSERE_PYAPYO = {
+        region_state:ANT = {
+            create_pop = {
+                culture = arasni
+                size = 2660000
+            }
+            create_pop = {
+                culture = plains_catkin
+                size = 109600
+            }
+            create_pop = {
+                culture = horsekin
+                size = 150100
+            }
+        }
+    }
+    s:STATE_SALK_WAR = {
+        region_state:LYK = {
+            create_pop = {
+                culture = arasni
+                size = 1910000
+            }
+            create_pop = {
+                culture = khambu
+                size = 151600
+            }
+        }
+    }
+}

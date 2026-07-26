@@ -1,0 +1,38 @@
+﻿accessory_genes = {
+
+	gene_cat_ears = {
+		inheritable = no
+
+		no_cat_ears = {
+			index = 0
+			male = {}
+			female = {}
+			boy = {}
+			girl = {}
+		}
+		black_cat_ears = {
+			index = 1
+			male = {
+				1 = male_headgear_cat_ears_1
+			}
+			female = {
+				1 = female_headgear_cat_ears_1
+			}
+
+			boy = male
+			girl = female
+		}
+		white_cat_ears = {
+			index = 2
+			male = {
+				1 = male_headgear_cat_ears_2
+			}
+			female = {
+				1 = female_headgear_cat_ears_2
+			}
+
+			boy = male
+			girl = female
+		}
+	}
+}

@@ -1,0 +1,80 @@
+﻿pmg_training = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_no_organization
+		pm_retainer_discipline
+		pm_general_training
+		pm_advanced_tactics_training
+		pm_training_streamlining
+		pm_nco_incorporation
+		pm_mobile_warfare_tactics
+	}
+}
+
+pmg_training_conscription = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_no_organization_conscription
+		pm_general_training_conscription
+		pm_advanced_tactics_training_conscription
+		pm_training_streamlining_conscription
+		pm_nco_incorporation_conscription
+		pm_mobile_warfare_tactics_conscription
+	}
+}
+
+pmg_naval_theory = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_no_naval_theory
+		pm_power_of_the_purse
+		pm_swarm_fleet_doctrine
+		pm_sea_lane_strategies
+		pm_battlefleet_tactics
+	}
+}
+
+
+pmg_base_building_naval_fortification = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_naval_fortification_basic
+		pm_naval_fortification_reinforced
+		pm_naval_fortification_advanced
+	}
+}
+
+pmg_base_building_naval_administration = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_simple_sailor_recruitment
+	}
+}
+
+pmg_naval_logistics_center = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_basic_naval_logistics_center
+	}
+}
+
+pmg_army_logistics_center = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_basic_army_logistics_center
+	}
+}

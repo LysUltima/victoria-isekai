@@ -1,0 +1,92 @@
+﻿# Isekai TC: geographic_regions was wiped by replace_paths (see CLAUDE.md architecture notes).
+# is_in_geographic_region / is_not_in_geographic_region require a geographic_region_* object
+# (not a bare strategic-region key), so every land strategic region gets a 1:1 wrapper here,
+# same pattern as vanilla's common/geographic_regions/06_new_strategic_regions.txt.
+geographic_region_isekai = {
+	short_key = "isekai"
+	strategic_regions = { sr:region_isekai }
+}
+geographic_region_borderlands = {
+	short_key = "borderlands"
+	strategic_regions = { sr:region_borderlands }
+}
+geographic_region_demonland = {
+	short_key = "demonland"
+	strategic_regions = { sr:region_demonland }
+}
+geographic_region_demonland_south = {
+	short_key = "demonland_south"
+	strategic_regions = { sr:region_demonland_south }
+}
+geographic_region_demonland_desert = {
+	short_key = "demonland_desert"
+	strategic_regions = { sr:region_demonland_desert }
+}
+geographic_region_north = {
+	short_key = "north"
+	strategic_regions = { sr:region_north }
+}
+geographic_region_north_isles = {
+	short_key = "north_isles"
+	strategic_regions = { sr:region_north_isles }
+}
+geographic_region_desert = {
+	short_key = "desert"
+	strategic_regions = { sr:region_desert }
+}
+geographic_region_desert_inner = {
+	short_key = "desert_inner"
+	strategic_regions = { sr:region_desert_inner }
+}
+geographic_region_desert_border = {
+	short_key = "desert_border"
+	strategic_regions = { sr:region_desert_border }
+}
+geographic_region_beastland = {
+	short_key = "beastland"
+	strategic_regions = { sr:region_beastland }
+}
+geographic_region_beastland_central = {
+	short_key = "beastland_central"
+	strategic_regions = { sr:region_beastland_central }
+}
+geographic_region_beastland_wild = {
+	short_key = "beastland_wild"
+	strategic_regions = { sr:region_beastland_wild }
+}
+geographic_region_western_plateau = {
+	short_key = "western_plateau"
+	strategic_regions = { sr:region_western_plateau }
+}
+geographic_region_xianxia = {
+	short_key = "xianxia"
+	strategic_regions = { sr:region_xianxia }
+}
+geographic_region_xianxia_yao = {
+	short_key = "xianxia_yao"
+	strategic_regions = { sr:region_xianxia_yao }
+}
+geographic_region_xianxia_diabolic = {
+	short_key = "xianxia_diabolic"
+	strategic_regions = { sr:region_xianxia_diabolic }
+}
+geographic_region_murim = {
+	short_key = "murim"
+	strategic_regions = { sr:region_murim }
+}
+geographic_region_southern_isles = {
+	short_key = "southern_isles"
+	strategic_regions = { sr:region_southern_isles }
+}
+geographic_region_eastern_isles = {
+	short_key = "eastern_isles"
+	strategic_regions = { sr:region_eastern_isles }
+}
+geographic_region_western_isles = {
+	short_key = "western_isles"
+	strategic_regions = { sr:region_western_isles }
+}
+geographic_region_western_isles_south = {
+	short_key = "western_isles_south"
+	strategic_regions = { sr:region_western_isles_south }
+}

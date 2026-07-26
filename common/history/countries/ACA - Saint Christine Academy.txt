@@ -1,0 +1,8 @@
+﻿# Saint Christine Academy (isekai: artifice tier 1)
+COUNTRIES = {
+	c:ACA ?= {
+		effect_starting_technology_artifice_tier_1 = yes
+		create_character = { template = template_ruler_aca role = ruler }
+		effect_starting_politics_academy = yes
+	}
+}

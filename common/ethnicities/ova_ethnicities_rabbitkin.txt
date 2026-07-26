@@ -1,0 +1,17 @@
+﻿rabbitkin_circumpolar = {
+    template = "ova_elf_face_circumpolar"
+
+    # platinum blonde (matches the moonlit rabbit ears)
+    hair_color = {
+        10 = { 0.04 0.02 0.13 0.08 }
+    }
+
+    # age without hair greying (keep platinum hair into old age)
+    gene_age = {
+        10 = { name = ova_beastkin_aging		range = { 0.0 1.0 } }
+    }
+
+    gene_rabbit_ears = {
+        10 = { name = all_rabbit_ears		range = { 0.0 1.0 } }
+    }
+}

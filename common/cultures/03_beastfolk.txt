@@ -1,0 +1,1025 @@
+﻿eastern_rabbitkin = {
+	color= hsv{ 0.55 0.15 0.95 }
+	religion = moonrabbit
+	heritage = heritage_rabbitkin
+	language = language_warrentongue
+	obsessions = {
+		tobacco
+	}
+	traditions = { }
+	male_common_first_names = {
+		Tarnok
+		Bekiro
+		Solumek
+		Haneruk
+		Wumashe
+		Kirdano
+		Ondusen
+		Talbaren
+		Rembahen
+		Silbanu
+		Doknaran
+		Wenteko
+		Harsuben
+		Palokim
+		Girmanto
+		Bushken
+		Nomareg
+		Detarano
+		Kelbonu
+		Yurdashen
+		Menrado
+		Ashuben
+		Wandorek
+		Turkanem
+		Ilombek
+		Saberenu
+		Konawir
+		Milaten
+		Hendaruk
+		Oskaben
+		Turandel
+		Wemakoro
+	}
+	female_common_first_names = {
+		Aselina
+		Bekira
+		Solama
+		Haneru
+		Wumasha
+		Kirdana
+		Ondusa
+		Talbara
+		Rembaha
+		Silbana
+		Doknara
+		Wenteka
+		Harsuba
+		Palokia
+		Girmanta
+		Bushkena
+		Nomarei
+		Detara
+		Kelbona
+		Yurdasha
+		Menrada
+		Ashubena
+		Wandori
+		Turkane
+		Ilombe
+		Saberena
+		Konawi
+		Milate
+		Hendaru
+		Oskabena
+		Turandi
+		Wemakora
+	}
+	noble_last_names = {
+		Atagoruk
+		Nanderesh
+		Kelrondu
+		Ombashekar
+		Silbaranu
+		Wentaresh
+		Harbenun
+		Talgorendu
+		Menradosh
+		Doknaresh
+		Ashubareku
+		Turkanembo
+		Ilombekar
+		Saberendu
+		Konawiresh
+		Milatengo
+		Hendarukesh
+		Oskabendu
+		Turandelesh
+		Wemakoresh
+		Girmantosh
+		Palokimba
+		Bushkerandu
+		Nomaregosh
+		Kelbonaresh
+		Yurdashengo
+		Rembahendu
+		Wandorekesh
+		Solumendaru
+		Haneruken
+	}
+	common_last_names = {
+		Tolgarek
+		Sennabosh
+		Ruminteg
+		Dovashek
+		Karendu
+		Lomasheg
+		Punterosh
+		Ashmareg
+		Wendukar
+		Haroshin
+		Kelbanesh
+		Munterash
+		Dashubek
+		Rongatesh
+		Selbagoru
+		Hantorek
+		Miroshanu
+		Panduresh
+		Wolkenda
+		Terabesh
+		Ganduma
+		Sorlanek
+		Beharunosh
+		Ilkaresh
+		Danturuk
+		Wembashosh
+		Kirontash
+		Palungosh
+		Onduresh
+		Marinesh
+		Washkoren
+		Delnoresh
+	}
+	ethnicities = {
+		1 = rabbitkin_circumpolar
+	}
+	graphics = east_asian
+}
+
+western_rabbitkin = {
+	color= hsv{ 0.42 0.10 0.97 }
+	religion = moonrabbit
+	heritage = heritage_rabbitkin
+	language = language_warrentongue
+	traditions = { }
+	male_common_first_names = {
+		Tarnok
+		Bekiro
+		Solumek
+		Haneruk
+		Wumashe
+		Kirdano
+		Ondusen
+		Talbaren
+		Rembahen
+		Silbanu
+		Doknaran
+		Wenteko
+		Harsuben
+		Palokim
+		Girmanto
+		Bushken
+		Nomareg
+		Detarano
+		Kelbonu
+		Yurdashen
+		Menrado
+		Ashuben
+		Wandorek
+		Turkanem
+		Ilombek
+		Saberenu
+		Konawir
+		Milaten
+		Hendaruk
+		Oskaben
+		Turandel
+		Wemakoro
+	}
+	female_common_first_names = {
+		Aselina
+		Bekira
+		Solama
+		Haneru
+		Wumasha
+		Kirdana
+		Ondusa
+		Talbara
+		Rembaha
+		Silbana
+		Doknara
+		Wenteka
+		Harsuba
+		Palokia
+		Girmanta
+		Bushkena
+		Nomarei
+		Detara
+		Kelbona
+		Yurdasha
+		Menrada
+		Ashubena
+		Wandori
+		Turkane
+		Ilombe
+		Saberena
+		Konawi
+		Milate
+		Hendaru
+		Oskabena
+		Turandi
+		Wemakora
+	}
+	noble_last_names = {
+		Atagoruk
+		Nanderesh
+		Kelrondu
+		Ombashekar
+		Silbaranu
+		Wentaresh
+		Harbenun
+		Talgorendu
+		Menradosh
+		Doknaresh
+		Ashubareku
+		Turkanembo
+		Ilombekar
+		Saberendu
+		Konawiresh
+		Milatengo
+		Hendarukesh
+		Oskabendu
+		Turandelesh
+		Wemakoresh
+		Girmantosh
+		Palokimba
+		Bushkerandu
+		Nomaregosh
+		Kelbonaresh
+		Yurdashengo
+		Rembahendu
+		Wandorekesh
+		Solumendaru
+		Haneruken
+	}
+	common_last_names = {
+		Tolgarek
+		Sennabosh
+		Ruminteg
+		Dovashek
+		Karendu
+		Lomasheg
+		Punterosh
+		Ashmareg
+		Wendukar
+		Haroshin
+		Kelbanesh
+		Munterash
+		Dashubek
+		Rongatesh
+		Selbagoru
+		Hantorek
+		Miroshanu
+		Panduresh
+		Wolkenda
+		Terabesh
+		Ganduma
+		Sorlanek
+		Beharunosh
+		Ilkaresh
+		Danturuk
+		Wembashosh
+		Kirontash
+		Palungosh
+		Onduresh
+		Marinesh
+		Washkoren
+		Delnoresh
+	}
+	ethnicities = {
+		1 = rabbitkin_circumpolar
+	}
+	graphics = east_asian
+}
+
+wolfkin = {
+	color= hsv{ 0.11 0.58 0.94 }
+	religion = uo_uo
+	heritage = heritage_wolfkin
+	language = language_packtongue
+	traditions = { }
+		male_common_first_names = {
+		Kodar
+		Nasker
+		Hokar
+		Fendar
+		Gorkan
+		Bakor
+		Charak
+		Dokar
+		Fanoo
+		Gaskar
+		Hanuk
+		Kelan
+		Lokar
+		Nadok
+		Okdar
+		Sakor
+		Farkan
+		Baskar
+		Hukan
+		Sandar
+		Boskar
+		Chanuk
+		Doskan
+		Ferok
+		Gonar
+		Harkan
+		Kogar
+		Nefar
+		Uangor
+		Dagor
+	}
+	female_common_first_names = {
+		Neefa
+		Sooba
+		Loheen
+		Fanee
+		Baloo
+		Dohee
+		Seehoo
+		Naloo
+		Feeda
+		Hooba
+		Leefa
+		Nooha
+		Sabee
+		Kanee
+		Falee
+		Gooba
+		Hafee
+		Loenoo
+		Noefee
+		Baheen
+		Doenoo
+		Safee
+		Kaloo
+		Nadee
+		Hoenee
+		Beefa
+		Sooga
+		Faloo
+		Nabee
+		Uafee
+	}
+	noble_last_names = {
+		Kodargan
+		Hokanger
+		Basoodar
+		Fanoker
+		Gorlaner
+		Chanadok
+		Doskagar
+		Sanokar
+		Fenengar
+		Bolooner
+		Harfergan
+		Sangkodar
+		Nangbakar
+		Kangferok
+		Fangosar
+		Langodar
+		Bangosker
+		Changanor
+		Dangofar
+		Gangoser
+		Uangodar
+		Sarbanok
+		Banogar
+		Farosker
+		Ganofer
+		Kogandar
+		Nefargan
+		Sagorner
+		Balofar
+		Dokanger
+	}
+	common_last_names = {
+		Fadoo
+		Nakar
+		Hoban
+		Sagoo
+		Lofar
+		Doneer
+		Bakoo
+		Fanar
+		Gosee
+		Hanoo
+		Kadoo
+		Lonagar
+		Nabar
+		Saloo
+		Fenar
+		Hodoo
+		Kanoo
+		Basker
+		Doloo
+		Gafar
+		Hanar
+		Kofar
+		Lasoo
+		Nagoo
+		Sabar
+		Fabor
+		Godoo
+		Hasar
+		Kanar
+		Lodar
+	}
+
+	ethnicities = {
+		1 = wolfkin_ethnicity
+	}
+	graphics = east_asian
+}
+
+dogkin = {
+	color= hsv{ 0.08 0.45 0.80 }
+	religion = uan_uan
+	heritage = heritage_wolfkin
+	language = language_packtongue
+	traditions = { }
+		male_common_first_names = {
+		Kodar
+		Nasker
+		Hokar
+		Fendar
+		Gorkan
+		Bakor
+		Charak
+		Dokar
+		Fanoo
+		Gaskar
+		Hanuk
+		Kelan
+		Lokar
+		Nadok
+		Okdar
+		Sakor
+		Farkan
+		Baskar
+		Hukan
+		Sandar
+		Boskar
+		Chanuk
+		Doskan
+		Ferok
+		Gonar
+		Harkan
+		Kogar
+		Nefar
+		Uangor
+		Dagor
+	}
+	female_common_first_names = {
+		Neefa
+		Sooba
+		Loheen
+		Fanee
+		Baloo
+		Dohee
+		Seehoo
+		Naloo
+		Feeda
+		Hooba
+		Leefa
+		Nooha
+		Sabee
+		Kanee
+		Falee
+		Gooba
+		Hafee
+		Loenoo
+		Noefee
+		Baheen
+		Doenoo
+		Safee
+		Kaloo
+		Nadee
+		Hoenee
+		Beefa
+		Sooga
+		Faloo
+		Nabee
+		Uafee
+	}
+	noble_last_names = {
+		Kodargan
+		Hokanger
+		Basoodar
+		Fanoker
+		Gorlaner
+		Chanadok
+		Doskagar
+		Sanokar
+		Fenengar
+		Bolooner
+		Harfergan
+		Sangkodar
+		Nangbakar
+		Kangferok
+		Fangosar
+		Langodar
+		Bangosker
+		Changanor
+		Dangofar
+		Gangoser
+		Uangodar
+		Sarbanok
+		Banogar
+		Farosker
+		Ganofer
+		Kogandar
+		Nefargan
+		Sagorner
+		Balofar
+		Dokanger
+	}
+	common_last_names = {
+		Fadoo
+		Nakar
+		Hoban
+		Sagoo
+		Lofar
+		Doneer
+		Bakoo
+		Fanar
+		Gosee
+		Hanoo
+		Kadoo
+		Lonagar
+		Nabar
+		Saloo
+		Fenar
+		Hodoo
+		Kanoo
+		Basker
+		Doloo
+		Gafar
+		Hanar
+		Kofar
+		Lasoo
+		Nagoo
+		Sabar
+		Fabor
+		Godoo
+		Hasar
+		Kanar
+		Lodar
+	}
+
+	ethnicities = {
+		1 = dogkin_ethnicity
+	}
+	graphics = south_asian
+}
+
+snow_foxkin = {
+	color= rgb{ 210 225 235 }
+	religion = embersea
+	heritage = heritage_foxkin
+	language = language_embertongue
+	traditions = { }
+	male_common_first_names = {
+		Akwiraron Akwirente
+		Domagaya
+		Ga-Na-Gua Guyasuta Ganio-dai-io Gyantwachia
+		Hadawa-ko Hayonhwonhish Honayawas Hutgohsodoneh
+		Kaintwakon
+		Skenandoa Sganyodaiyo Sakokwenionkwas Sagoyewatha Sayenqueraghta Sigwaahdohgwih Sosondowa
+		Tanacharison Thaonawyuthe Tejonihokarawa Taignoagny Tewahangarahken
+	}
+	female_common_first_names = {
+		Akat Alliquippa
+		Dehhewanis
+		Gahonnoneh Gowongo
+		Kaniehtiio Kateri Kawisenhawe
+		Tekakwitha Tyonajanegen
+	}
+	noble_last_names = {
+		Begaye
+		Katchongva
+		Naha
+		Sekaquaptewa
+	}
+	common_last_names = {
+		Banyacya
+		Chapella
+		Evehema
+		Honyestewa
+		Humetewa
+		Ishii
+		Loloma
+		Lomayesva
+		Zachai
+	}
+	ethnicities = {
+		1 = snow_foxkin_ethnicity
+	}
+	graphics = east_asian
+}
+
+forest_foxkin = {
+	color= rgb{ 200 90 20 }
+	religion = embersea
+	heritage = heritage_foxkin
+	language = language_embertongue
+	traditions = { }
+	male_common_first_names = {
+		Akwiraron Akwirente
+		Domagaya
+		Ga-Na-Gua Guyasuta Ganio-dai-io Gyantwachia
+		Hadawa-ko Hayonhwonhish Honayawas Hutgohsodoneh
+		Kaintwakon
+		Skenandoa Sganyodaiyo Sakokwenionkwas Sagoyewatha Sayenqueraghta Sigwaahdohgwih Sosondowa
+		Tanacharison Thaonawyuthe Tejonihokarawa Taignoagny Tewahangarahken
+	}
+	female_common_first_names = {
+		Akat Alliquippa
+		Dehhewanis
+		Gahonnoneh Gowongo
+		Kaniehtiio Kateri Kawisenhawe
+		Tekakwitha Tyonajanegen
+	}
+	noble_last_names = {
+		Begaye
+		Katchongva
+		Naha
+		Sekaquaptewa
+	}
+	common_last_names = {
+		Banyacya
+		Chapella
+		Evehema
+		Honyestewa
+		Humetewa
+		Ishii
+		Loloma
+		Lomayesva
+		Zachai
+	}
+	ethnicities = {
+		1 = forest_foxkin_ethnicity
+	}
+	graphics = east_asian
+}
+
+bearkin = {
+	color= hsv{ 0 0 0.5 }
+	religion = kamuy
+	heritage = heritage_bearkin
+	language = language_hidetongue
+	traditions = { }
+	name_format = last_first
+	male_common_first_names = {
+		Akarakay Antaaynu Apita Atuy Awta Aykoraynu
+		Cikomotaynu Cikunis Cimenpa
+		Ekasimatak Ekasipa Ekasiwakka Eytek
+		Haerire Harou Hasitaynu Haukase
+		Hemosite Hennauke Hepenrek
+		Ikotoy Imaarey Isar Isonnoas Itakisiroma
+		Kamokutaynu Kamuymar Kanetuaynu Kanikusiaynu Kannarik Kanniskor Kanririka Kansiyawmante
+		Keksike
+		Kimiyusaaynu Kimurakaaynu
+		Kosamaynu
+		Kucinkur Kukarkur Kuturaaynu
+		Menkakus
+		Monokute
+		Munkeke
+		Nisenrus Nisiktaaynu Nisirkeaynu
+		Notekarima
+		Nukanur
+		Onipis
+		Penkukar Penriuk
+		Pikki
+		Ponyaunpet Ponni
+		Ramante Ramranke
+		Resak
+		Rikunrik
+		Sahpo Saksaynu Sankekur Sanniyoaynu Satorki Surok
+		Sentaynu
+		Sianrek Sinrik Sirotmaaynu Siskuray Sisratoka Sitkureran Sitonay Sonko
+		Tanaynu Tarikonna
+		Tecirki
+		Toakanno Tosiyanke Towosirpa
+		Tukinoe Tunous Turusno
+		Usikante Wentuk Wikis
+		Utahu
+		Wokera Womannen Wonowankur
+		Yaenkur
+		Yayomanekuh
+		Yutormaka
+	}
+	female_common_first_names = {
+		Apenanka
+		Asir_Rera Asikor Asiriro
+		Cinita
+		Erattatuke Esohrankemah Esohranma
+		Horpeca
+		Huci Huisak Husko Hutcise
+		Ianpanu Imekanu Itomosimat Iutanimat
+		Kakura Karipa Kasinukar
+		Keutoranke
+		Kinarapuk
+		Monasinouk
+		Muysasmat
+		Noakante
+		Nuyno
+		Peramonkoro
+		Pirka
+		Rerura Resunotek
+		Sanketek Sanure
+		Tanemonkor
+		Tanerankemat
+		Tekakunkemah
+		Utoyki
+		Wokonririkmat
+	}
+	common_last_names={
+        "dynn_Akam"
+		"dynn_Amamsuke"
+		"dynn_Aptapet"
+		"dynn_Atkeusi"
+		"dynn_Cipasir"
+		"dynn_Ciroti"
+		"dynn_Esausi"
+		"dynn_Huranuy"
+		"dynn_Hurpira"
+		"dynn_Ioci"
+		"dynn_Iput"
+		"dynn_Iskar"
+		"dynn_Kusuri"
+		"dynn_Maske"
+		"dynn_Mopet"
+		"dynn_Moruran"
+		"dynn_Mukap"
+		"dynn_Nayoro"
+		"dynn_Nayporo"
+		"dynn_Nikap"
+		"dynn_Nimuoro"
+		"dynn_Nupurpet"
+		"dynn_Otarunay"
+		"dynn_Piporo"
+		"dynn_Piratur"
+		"dynn_Poropet"
+		"dynn_Rironay"
+		"dynn_Rusut"
+		"dynn_Sakkotan"
+		"dynn_Samani"
+		"dynn_Sar"
+		"dynn_Satporopet"
+		"dynn_Setanay"
+		"dynn_Sikot"
+		"dynn_Simukap"
+		"dynn_Sipet"
+		"dynn_Sipicar"
+		"dynn_Sirawoi"
+		"dynn_Sirpet"
+		"dynn_Sorapci"
+		"dynn_Soya"
+		"dynn_Tes_uni"
+		"dynn_Tokapusi"
+		"dynn_Tokor"
+		"dynn_Toya"
+		"dynn_Urarpet"
+		"dynn_Usor"
+		"dynn_Yuparo"
+	}
+	ethnicities = {
+		1 = bearkin_ethnicity
+	}
+	graphics = east_asian
+	seal_and_signature_texture = "gfx/interface/diplomatic_treaties/seal_and_signature_cultures/diplomatic_treaties_seal_and_signature_japanese.dds"
+}
+
+horsekin = {
+	color= rgb{ 74 125 155 }
+	religion = skysun
+	heritage = heritage_horsekin
+	language = language_windtongue
+	name_format = last_first
+
+	traditions = { }
+	male_common_first_names = {
+		Abagha Abika Abingga Abitu Achigh Aguchu Aitu Aituka Aitungga Ajai Ajinai Akhutai Alagh Alchi Alchidai Alingga Altan Ambaghai Anu Arkhai Arasen Asu Asuka Asungga
+		Baaridai Babur Badai Bagaridai Bage Baishinkhor_Dogshin Bajin Bala Barghujin Bartan Batu Bedugun Begter BegU_nU_tei Belgutei Belgunutei BelgU_nU_tei Berke Bilge
+		Bodonchar Bodonchar_Munkhag Bogen Bogorchu Bolkhadar Booju Borjigidai Boroghul Bughu Bugidai Bugunutei Bujeg Bukha Bukha_Khatagi Bukhatu_Salji Bulughan Buri Burkhan Burundai
+		Chagatai Chaghagan Chanai Chaujin_Ortagai Chigu	Chidukhul Chilagun Chiledu Chirhya_Lynhua Chormakhan Chulgetei Dagun Daritai Daru Daruka Darungga Dayir Dehingge Dibage Dodai Duua
+		Eljigedei Erge Fuju Ghazan Ghunan Godan Guchu Gughlug Guyug Habich_Baghatur Hachi_HU_lU_g Harghasun Horkhudagh Hulegu Husun Inalchi Inancha Iturgen
+		Jajiradai Jamugha Jebe Jeguredei Jiuge Jiujin Jochi Jurchedei Kadan Khabichi Khabul Khachi Khachigun Khadagh Khagatai Khaidu Khal Khorchi Khorilartai Khubilai Khudu Khutula Khuyildar Kogsegu Kokochu
+		Langju Lioju Liuge Liujin Maiju Megetu Megujin Menen_TU_dU_n Menggei Modahuo Mongke Morokha Munglig Nakhu Narin Nata Natabu Nataha Natahai Nataka Nayaga Nogai NU_gu
+		Odchigin Ogodei Okhotur Oljaitu Oronartai Qijin Qingge Sangge Sanju Semsochule Sengun_Bilge Shige Shiraghul Shirgugetu Shuge Subetei Suyiketu
+		Taghai Tamachi Targhutai Temuge Temujin Temur Todogen Toghoril Toghtoga Tokhtamis Tolui Torolchi Tumbinai_Setsen Tumen Uighurtai Ukhuna Usun
+		Wuge Wugezhi Wujin Wujun Yedi Yegu Yeke Yesugei Yesunge Yokhunan
+	}
+	female_common_first_names = {
+		Aigiarn Al-Alta Alan Alan_Gua Altani Borte Botokhui Bulughan Chabi Chagur Chakha Checheyigen Chotan Conchaka Dokez Doregene Doquz Ebegei Goland Gurbesu Hogelun Holuikhan Ibakha
+		Khadagan Khogaghchin Khojin Khorijin Khugurchin Khulan Khutulan Khutulun Kokachin Mandukhai Mongoljin Nomolun Oghul Orbei Orqina Sokhatai Sorkhaghatani Tekine Temulun TO_regene Yesugun Yesui Hoelun
+	}	
+	common_last_names = {
+		"dynn_Sartaq"
+		"dynn_Mengu-Timur"
+		"dynn_Timurid"
+		"dynn_Uriankhai"
+		"dynn_Bujakhin"
+		"dynn_Besud"
+		"dynn_Noyan"
+		"dynn_Jochid"
+		"dynn_Chagatayid"
+		"dynn_Borjigin"
+		"dynn_Chupanid"
+		"dynn_Injuid"
+		"dynn_Toluid"
+		"dynn_Ganbold"
+		"dynn_Bolormaa"
+		"dynn_Otgonbayar"
+		"dynn_Enkhtuyaa"
+		"dynn_Gantulga"
+		"dynn_LkhagvasU_ren"
+		"dynn_Enkhjargal"
+		"dynn_Ganzorig"
+		"dynn_Narantsetseg"
+		"dynn_PU_revsU_ren"
+		"dynn_Ganbaatar"
+		"dynn_MO_nkhtsetseg"
+		"dynn_MO_nkhbat"
+		"dynn_MO_nkh-Erdene"
+		"dynn_Jalair"
+		"dynn_Sartuul"
+		"dynn_Olkhunut"
+		"dynn_Khatagin"
+		"dynn_Iljigin"
+		"dynn_Tsookhor"
+		"dynn_Onggirat"
+		"dynn_Onggirat"
+		"dynn_Khunggirad"
+		"dynn_Mergid"
+		"dynn_Telingid"
+		"dynn_Borjigin"
+		"dynn_Aralkum"
+		"dynn_Dana"
+		"dynn_AqtO_be"
+		"dynn_Bailjar"
+		"dynn_Kaztal"
+		"dynn_Pecha"
+		"dynn_Kangly"
+		"dynn_Jadaran"
+		"dynn_Baarin"
+		"dynn_Bargujin"
+		"dynn_Borogchin"
+		"dynn_Mongoljin"
+		"dynn_Quralas"
+		"dynn_Tatar"
+		"dynn_ZU_bU_"
+		"dynn_Ikheres"
+		"dynn_Eljigin"
+		"dynn_Bairam"
+		"dynn_Orduk"
+		"dynn_Arpardi"
+		"dynn_Barlas"
+		"dynn_Khorchi"
+		"dynn_Qaraunas"
+		"dynn_Arlat"
+		"dynn_Dughlat"
+		"dynn_Kereyit"
+		"dynn_Begchik"
+		"dynn_Sunit"
+		"dynn_Keshmiti"
+		"dynn_Uduyid"
+		"dynn_Uvas"
+		"dynn_Khaad"
+		"dynn_Khalka"
+	}
+	ethnicities = {
+		1 = horsekin_ethnicity
+	}
+	graphics = east_asian
+}
+
+island_catkin = {
+	color= hsv{ 0.33 0.45 0.95 }
+	religion = aneneco
+	heritage = heritage_catkin
+	language = language_whiskertongue
+	traditions = { }
+	
+    male_common_first_names = {
+		Kato Renu Tavo Miko Surani Haleva Kotsu Ravo
+		Tomi Feluva Nasho Vitomu Sekaru Hataru Mirosu Panuva
+		Tsuvano Lokami Werusu Katomi Sanuvo Fetoru Rimasu Holavu
+		Netoshi Vokuta Ashimo Turavo Sorimu Havoshi Numeka Tevano
+	}
+ 
+	female_common_first_names = {
+		Amivi Selani Nashira Tolami Wenuvi Halisu Mirena Yosuvi
+		Petuna Kaneshi Soravi Vilume Tashomi Renuva Kolisha Amureshi
+		Fenami Sulavi Mokivi Tavishe Neroshi Valumi Hirosu Wetani
+		Loshemi Ravetu Sunavi Miloha Katevi Amosuvi Nelavi Torushi
+	}
+ 
+	noble_last_names = {
+		Kelvashiru Motavinu Raventoshi Halomisu Tsavorimu Nekatavo Suramoshi Velkatoru
+		Ashivanu Kotelvashi Miranovu Torisheva Panuvashi Solkameru Hetaronu Vokamiru
+		Nashelavu Kuravinu Feturanu Yosentari Amuvashi Renavoku Tomeshiru Halkuva
+		Sevantu Miravoshu Katsurenu Onareshi Punaveshi Selkatoru Vashenoru Kolavinu
+	}
+ 
+	common_last_names = {
+		Katomu Ravishi Meloku Tanavi Sekomu Havoru Nirosa Puleva
+		Tomasu Wenoku Salumi Kotevi Mashuru Renoku Faluva Sonemi
+		Vitaru Halomu Nekavi Torasu Melavo Kunashi Repovu Amiseku
+		Talomi Vokoru Senaru Miharu Katevu Losenu Furami Navishu
+	}
+
+	ethnicities = {
+		1 = catkin_east_asian
+	}
+	graphics = arabic
+}
+
+plains_catkin = {
+	color= hsv{ 0.15 0.40 0.90 }
+	religion = aneneco
+	heritage = heritage_catkin
+	language = language_whiskertongue
+	traditions = { }
+	
+    male_common_first_names = {
+		Kato Renu Tavo Miko Surani Haleva Kotsu Ravo
+		Tomi Feluva Nasho Vitomu Sekaru Hataru Mirosu Panuva
+		Tsuvano Lokami Werusu Katomi Sanuvo Fetoru Rimasu Holavu
+		Netoshi Vokuta Ashimo Turavo Sorimu Havoshi Numeka Tevano
+	}
+ 
+	female_common_first_names = {
+		Amivi Selani Nashira Tolami Wenuvi Halisu Mirena Yosuvi
+		Petuna Kaneshi Soravi Vilume Tashomi Renuva Kolisha Amureshi
+		Fenami Sulavi Mokivi Tavishe Neroshi Valumi Hirosu Wetani
+		Loshemi Ravetu Sunavi Miloha Katevi Amosuvi Nelavi Torushi
+	}
+ 
+	noble_last_names = {
+		Kelvashiru Motavinu Raventoshi Halomisu Tsavorimu Nekatavo Suramoshi Velkatoru
+		Ashivanu Kotelvashi Miranovu Torisheva Panuvashi Solkameru Hetaronu Vokamiru
+		Nashelavu Kuravinu Feturanu Yosentari Amuvashi Renavoku Tomeshiru Halkuva
+		Sevantu Miravoshu Katsurenu Onareshi Punaveshi Selkatoru Vashenoru Kolavinu
+	}
+ 
+	common_last_names = {
+		Katomu Ravishi Meloku Tanavi Sekomu Havoru Nirosa Puleva
+		Tomasu Wenoku Salumi Kotevi Mashuru Renoku Faluva Sonemi
+		Vitaru Halomu Nekavi Torasu Melavo Kunashi Repovu Amiseku
+		Talomi Vokoru Senaru Miharu Katevu Losenu Furami Navishu
+	}
+
+	ethnicities = {
+		1 = catkin_east_asian
+	}
+	graphics = east_asian
+}
+
+desert_catkin = {
+	color= rgb{ 225 200 120 }
+	religion = aneneco
+	heritage = heritage_catkin
+	language = language_whiskertongue
+	traditions = { }
+
+    obsessions = {
+        tobacco # catnip
+    }
+	
+    male_common_first_names = {
+		Kato Renu Tavo Miko Surani Haleva Kotsu Ravo
+		Tomi Feluva Nasho Vitomu Sekaru Hataru Mirosu Panuva
+		Tsuvano Lokami Werusu Katomi Sanuvo Fetoru Rimasu Holavu
+		Netoshi Vokuta Ashimo Turavo Sorimu Havoshi Numeka Tevano
+	}
+ 
+	female_common_first_names = {
+		Amivi Selani Nashira Tolami Wenuvi Halisu Mirena Yosuvi
+		Petuna Kaneshi Soravi Vilume Tashomi Renuva Kolisha Amureshi
+		Fenami Sulavi Mokivi Tavishe Neroshi Valumi Hirosu Wetani
+		Loshemi Ravetu Sunavi Miloha Katevi Amosuvi Nelavi Torushi
+	}
+ 
+	noble_last_names = {
+		Kelvashiru Motavinu Raventoshi Halomisu Tsavorimu Nekatavo Suramoshi Velkatoru
+		Ashivanu Kotelvashi Miranovu Torisheva Panuvashi Solkameru Hetaronu Vokamiru
+		Nashelavu Kuravinu Feturanu Yosentari Amuvashi Renavoku Tomeshiru Halkuva
+		Sevantu Miravoshu Katsurenu Onareshi Punaveshi Selkatoru Vashenoru Kolavinu
+	}
+ 
+	common_last_names = {
+		Katomu Ravishi Meloku Tanavi Sekomu Havoru Nirosa Puleva
+		Tomasu Wenoku Salumi Kotevi Mashuru Renoku Faluva Sonemi
+		Vitaru Halomu Nekavi Torasu Melavo Kunashi Repovu Amiseku
+		Talomi Vokoru Senaru Miharu Katevu Losenu Furami Navishu
+	}
+
+	ethnicities = {
+		1 = catkin_arab
+	}
+	graphics = arabic
+}

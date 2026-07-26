@@ -1,0 +1,7 @@
+﻿# Iroka (eastern_isles: spiritualism_artifice tier 2)
+COUNTRIES = {
+	c:IRO ?= {
+		effect_starting_technology_spiritualism_artifice_tier_2 = yes
+		effect_starting_politics_conservative = yes
+	}
+}

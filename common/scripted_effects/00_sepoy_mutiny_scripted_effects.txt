@@ -1,0 +1,62 @@
+﻿# All effects in this file are stubbed to no-ops: the Sepoy Mutiny content is
+# entirely India-flavor (Mughal/Bengal/Bombay/Madras/princely-states refs) with
+# no analogue in this mod, and none of these effects are called from any
+# mod-authored content (journal_entries/decisions that invoked them are wiped
+# by replace_paths).
+
+sepoy_mutiny_immediate_effects = {
+}
+
+sepoy_mutiny_bengal_effect_low = {
+}
+
+sepoy_mutiny_bengal_effect_medium = {
+}
+
+sepoy_mutiny_bengal_effect_high = {
+}
+
+sepoy_mutiny_bengal_effect_critical = {
+}
+
+sepoy_mutiny_bombay_effect_low = {
+}
+
+sepoy_mutiny_bombay_effect_medium = {
+}
+
+sepoy_mutiny_bombay_effect_high = {
+}
+
+sepoy_mutiny_bombay_effect_critical = {
+}
+
+sepoy_mutiny_madras_effect_low = {
+}
+
+sepoy_mutiny_madras_effect_medium = {
+}
+
+sepoy_mutiny_madras_effect_high = {
+}
+
+sepoy_mutiny_madras_effect_critical = {
+}
+
+sepoy_mutiny_princely_states_stance_effect = {
+}
+
+sepoy_mutiny_remove_puppet_effect = {
+}
+
+sepoy_mutiny_apply_laws_effect = {
+	set_country_type = unrecognized
+	activate_law = law_type:law_monarchy
+	activate_law = law_type:law_autocracy
+}
+
+sepoy_mutiny_tag_specific_war_goals = {
+}
+
+sepoy_mutiny_run_all_effects = {
+}

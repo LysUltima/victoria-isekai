@@ -1,0 +1,139 @@
+﻿### Reyorn harem storyline - the confession buttons
+# One button per courtship JE (je_ova_rey_court_*). Each is hidden until the
+# Affection bar is full (possible = affection >= cap), then it lights up and
+# lets John make his confession. Clicking it fires that heroine's confession
+# event as a popup; accepting ANY option there sets ova_rey_confessed_<x>, which
+# is the SOLE completion trigger of the courtship JE (the three gameplay
+# objectives are never required - they only help fill the bar). The button does
+# NOT advance the chain itself: it just sets the confessed flag, and the JE's
+# own complete/on_complete walks to the next state.
+
+ova_rey_confess_cat_button = {
+	name = "ova_rey_confess_cat_button"
+	desc = "ova_rey_confess_button_desc"
+
+	visible = {
+		NOT = { has_variable = ova_rey_confessed_cat }
+	}
+
+	possible = {
+		ova_has_living_champion = yes
+		custom_tooltip = {
+			text = ova_rey_confess_ready_tt
+			var:ova_rey_affection >= var:ova_rey_affection_cap
+		}
+	}
+
+	effect = {
+		custom_tooltip = ova_rey_confess_effect_tt
+		hidden_effect = {
+			trigger_event = { id = ova_rey.18 popup = yes }
+		}
+	}
+
+	ai_chance = { value = 100 }
+}
+
+ova_rey_confess_dog_button = {
+	name = "ova_rey_confess_dog_button"
+	desc = "ova_rey_confess_button_desc"
+
+	visible = {
+		NOT = { has_variable = ova_rey_confessed_dog }
+	}
+
+	possible = {
+		ova_has_living_champion = yes
+		custom_tooltip = {
+			text = ova_rey_confess_ready_tt
+			var:ova_rey_affection >= var:ova_rey_affection_cap
+		}
+	}
+
+	effect = {
+		custom_tooltip = ova_rey_confess_effect_tt
+		hidden_effect = {
+			trigger_event = { id = ova_rey.28 popup = yes }
+		}
+	}
+
+	ai_chance = { value = 100 }
+}
+
+ova_rey_confess_bear_button = {
+	name = "ova_rey_confess_bear_button"
+	desc = "ova_rey_confess_button_desc"
+
+	visible = {
+		NOT = { has_variable = ova_rey_confessed_bear }
+	}
+
+	possible = {
+		ova_has_living_champion = yes
+		custom_tooltip = {
+			text = ova_rey_confess_ready_tt
+			var:ova_rey_affection >= var:ova_rey_affection_cap
+		}
+	}
+
+	effect = {
+		custom_tooltip = ova_rey_confess_effect_tt
+		hidden_effect = {
+			trigger_event = { id = ova_rey.38 popup = yes }
+		}
+	}
+
+	ai_chance = { value = 100 }
+}
+
+ova_rey_confess_rabbit_button = {
+	name = "ova_rey_confess_rabbit_button"
+	desc = "ova_rey_confess_button_desc"
+
+	visible = {
+		NOT = { has_variable = ova_rey_confessed_rabbit }
+	}
+
+	possible = {
+		ova_has_living_champion = yes
+		custom_tooltip = {
+			text = ova_rey_confess_ready_tt
+			var:ova_rey_affection >= var:ova_rey_affection_cap
+		}
+	}
+
+	effect = {
+		custom_tooltip = ova_rey_confess_effect_tt
+		hidden_effect = {
+			trigger_event = { id = ova_rey.48 popup = yes }
+		}
+	}
+
+	ai_chance = { value = 100 }
+}
+
+ova_rey_confess_fox_button = {
+	name = "ova_rey_confess_fox_button"
+	desc = "ova_rey_confess_button_desc"
+
+	visible = {
+		NOT = { has_variable = ova_rey_confessed_fox }
+	}
+
+	possible = {
+		ova_has_living_champion = yes
+		custom_tooltip = {
+			text = ova_rey_confess_ready_tt
+			var:ova_rey_affection >= var:ova_rey_affection_cap
+		}
+	}
+
+	effect = {
+		custom_tooltip = ova_rey_confess_effect_tt
+		hidden_effect = {
+			trigger_event = { id = ova_rey.58 popup = yes }
+		}
+	}
+
+	ai_chance = { value = 100 }
+}

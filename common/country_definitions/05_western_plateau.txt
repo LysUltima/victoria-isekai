@@ -1,0 +1,83 @@
+﻿IMM = {
+    color = { 156 116 58 }
+
+    country_type = recognized
+    
+    tier = kingdom
+
+    cultures = { khambu }
+
+    capital = STATE_NYUGMA_DRANGBDEN
+}
+
+COS = {
+    color = { 41 44 117 }
+
+    country_type = recognized
+    
+    tier = kingdom
+
+    cultures = { khambu }
+
+    capital = STATE_NYUGMA_ZHIGNAS
+}
+
+DRA = {
+    color = { 209 224 219 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { khambu }
+
+    capital = STATE_TOGPA_BRAGDKAR
+}
+
+LAM = {
+    color = { 80 84 173 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { khambu }
+
+    capital = STATE_TAGTU_THARPA
+}
+
+CHA = {
+    color = { 47 138 74 }
+
+    country_type = recognized
+    
+    tier = kingdom
+
+    cultures = { khambu }
+
+    capital = STATE_CHUBUR_GYATSO
+}
+
+ANT = {
+    color = { 128 22 45 }
+
+    country_type = recognized
+    
+    tier = kingdom
+
+    cultures = { arasni }
+
+    capital = STATE_LYAM_ALYE
+}
+
+LYK = {
+    color = { 106 115 117 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { arasni }
+
+    capital = STATE_SALK_WAR
+}

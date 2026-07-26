@@ -1,0 +1,19 @@
+﻿pdxmesh = {
+	name = "male_headgear_gnome_hat_02_mesh"
+	file = "male_headgear_gnome_hat_02.mesh"
+
+	meshsettings = {
+		name = "male_headgear_gnome_hatShape"
+		index = 0
+		texture_diffuse = "gnome_hat_02_diffuse.dds"
+		texture_normal = "gnome_hat_02_normal.dds"
+		texture_specular = "gnome_hat_02_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "male_headgear_gnome_hat_02_entity"
+	pdxmesh = "male_headgear_gnome_hat_02_mesh"
+}

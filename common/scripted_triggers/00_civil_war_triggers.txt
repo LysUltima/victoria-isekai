@@ -1,0 +1,3 @@
+﻿is_special_civil_war_tag = {
+	always = no # was country_definition = cd:TPG, not present in this mod
+}

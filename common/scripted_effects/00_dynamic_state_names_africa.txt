@@ -1,0 +1,74 @@
+﻿# All effects in this file are stubbed to no-ops: this is vanilla Earth
+# dynamic-state-naming content (North Africa/Niger/Congo/Southern Africa/
+# Senegal/Zanj regions) with no analogue on this mod's custom map. Every
+# call site in 00_dynamic_state_names.txt is already gated behind
+# 'always = no' (vanilla geographic_region refs not present in this mod), so
+# these effects are unreachable; they previously still failed to parse due
+# to leftover vanilla province/state refs inside their bodies.
+
+assign_state_name_region_north_africa = {
+}
+
+assign_state_name_region_niger = {
+}
+
+assign_state_name_region_congo = {
+}
+
+assign_state_name_region_southern_africa = {
+}
+
+assign_state_name_region_zanj = {
+}
+
+assign_state_name_region_senegal = {
+}
+
+STATE_TUNISIA_state_name_assign = {
+}
+
+STATE_NORTH_CAMEROON_state_name_assign = {
+}
+
+STATE_BAS_CONGO_state_name_assign = {
+}
+
+STATE_CONGO_state_name_assign = {
+}
+
+STATE_SOUTH_CAMEROON_state_name_assign = {
+}
+
+STATE_CONGO_ORIENTALE_state_name_assign = {
+}
+
+STATE_ZULULAND_state_name_assign = {
+}
+
+STATE_TRANSVAAL_state_name_assign = {
+}
+
+STATE_VRYSTAAT_state_name_assign = {
+}
+
+STATE_LIBERIA_state_name_assign = {
+}
+
+STATE_GOLD_COAST_state_name_assign = {
+}
+
+STATE_SENEGAL_state_name_assign = {
+}
+
+STATE_GUINEA_state_name_assign = {
+}
+
+STATE_LOURENCO_MARQUES_state_name_assign = {
+}
+
+STATE_MOCAMBIQUE_state_name_assign = {
+}
+
+STATE_ZAMBEZIA_state_name_assign = {
+}
+

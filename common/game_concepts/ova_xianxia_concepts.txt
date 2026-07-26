@@ -1,0 +1,7 @@
+﻿### Xianxia storyline - game concepts (loc names/descs in ova_xianxia_l_english.yml)
+
+concept_ova_destined_one = {}
+
+concept_ova_dao_war = {}
+
+concept_ova_heavenly_tribulation = {}

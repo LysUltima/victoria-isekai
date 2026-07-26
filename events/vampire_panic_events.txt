@@ -1,0 +1,109 @@
+﻿# Isekai TC: migrated from vanilla events/vampire_panic_events.txt (2026-07-11).
+# Generic flavor/mechanic events, no real-world references. Verbatim copy.
+# Fixed post-migration (2026-07-11): dropped a s:STATE_WASHINGTON (Twilight/Forks easter egg) alt-flavor branch, stripped a per-religion event_image video cascade.
+
+namespace = vampire_panic
+
+# Something weird has happened
+vampire_panic.1 = {
+	type = country_event
+	placement = scope:vampire_state
+
+	title = vampire_panic.1.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					always = yes
+				}
+				desc = vampire_panic.1.d
+			}
+		}
+	}
+	flavor = vampire_panic.1.f
+
+		event_image = {
+		video = "africa_animism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	duration = 3
+
+	trigger = {
+		has_technology_researched = mass_communication #we have newspapers to spread the information
+		NOT = {	has_technology_researched = panacea_cultures	}
+		any_scope_state = {
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 2
+			}
+			any_scope_pop = {
+				is_pop_type = peasants #you have a rural population moving into a city
+			}
+			NOT = { any_scope_building = { is_building_type = building_university } }
+		}
+	}
+
+	immediate = {
+		ig:ig_devout ?= { save_scope_as = devout_ig }
+		random_scope_state = {
+			limit = {
+				any_scope_building = {
+					is_building_type = building_urban_center
+					level >= 2
+				}
+				any_scope_pop = {
+					is_pop_type = peasants
+					#percent >= 0.4
+				}
+			}
+			save_scope_as = vampire_state
+		}
+	}
+
+	option = { #ignore it
+		name = vampire_panic.1.a
+		default_option = yes
+		scope:vampire_state = {
+			add_radicals_in_state = {
+				value = small_radicals
+			}
+		}
+	}
+
+	option = { #send the academics to investigate
+		name = vampire_panic.1.b
+		scope:vampire_state = {
+			add_loyalists_in_state = {
+				pop_type = academics
+				value = 0.25
+			}
+		}
+		add_modifier = { #spend bureaucracy
+			name = vampire_research_modifier
+			days = normal_modifier_time
+		}
+		if = {
+			limit = { can_research = panacea_cultures }
+			add_technology_progress = { progress = 5850 technology = panacea_cultures	}
+		}
+	}
+
+	option = { #send the church
+		name = vampire_panic.1.c
+		trigger = {
+			ig:ig_devout ?= { ig_counts_as_marginal = no }
+		}
+		scope:vampire_state = {
+			add_loyalists_in_state = {
+				pop_type = clergymen
+				value = 0.15
+			}
+		}
+	}
+}

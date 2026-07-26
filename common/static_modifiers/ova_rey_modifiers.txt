@@ -1,0 +1,272 @@
+﻿# Reyorn harem storyline (John Paradox) - static modifiers.
+# Every date beat in events/ova_rey_events.txt now carries a SECOND effect that is
+# the literal consequence of what its option text says John did, and most of those
+# consequences land here. The rule the whole file exists to serve:
+#
+#   a courtship option's non-affection effect must be readable straight off the
+#   option text. Help her break the cartel -> her routes reopen. Pay the boy's
+#   fine -> the treasury pays it. Burn the manuscript -> the republic loses the
+#   knowledge in it. Nothing generic, nothing interchangeable.
+#
+# STATE modifiers (applied via s:STATE_<X>.region_state:REY) carry only state_* /
+# building_group_* types; COUNTRY modifiers carry only country_* / interest_group_*
+# types. Mixing them silently drops half the modifier, so the two are kept apart
+# and labelled below. All modifier-type keys verified against
+# C:\Program Files (x86)\Steam\steamapps\common\Victoria 3\game\common\modifier_type_definitions\.
+# Icons reused from vanilla gfx/interface/icons/timed_modifier_icons/ (no new art).
+# Every key below has a display-name loc entry in
+# localization/replace/english/ova_rey_l_english.yml.
+
+# ===========================================================================
+# KATZENBURG - Nasira al-Sahra, the desert-cat merchant heiress. Her arc is
+# trade: cartels, ledgers, caravans, the price of things. STATE modifiers here
+# go on Katzenburg, the capital.
+# ===========================================================================
+
+# STATE. The rival cartel is broken and the spice routes run gold again
+# (ova_rey.11 "help her outmaneuver the cartel").
+ova_rey_cat_routes_open = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	state_trade_capacity_add = 10
+	state_tax_capacity_mult = 0.1
+}
+
+# STATE. The cartel was left a free night to squeeze her, and it used it
+# (ova_rey.11 "the numbers can wait until morning").
+ova_rey_cat_cartel_grip = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	state_trade_capacity_add = -10
+	state_tax_capacity_mult = -0.05
+}
+
+# STATE. Her house and the hero's are partners now, handshake or ledger or vow
+# (ova_rey.14 partnership, ova_rey.16 the ledger handed back, ova_rey.18 the pledge).
+ova_rey_cat_partnership = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	state_trade_advantage_mult = 0.1
+	state_trade_capacity_add = 5
+}
+
+# STATE. Every loose thread in the cartel's books tightened, in one long night
+# (ova_rey.16 "audit it together").
+ova_rey_cat_open_ledger = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_tax_capacity_mult = 0.1
+	state_tax_waste_add = -0.05
+}
+
+# COUNTRY. A star-sapphire the size of a plum, kept by the hero and shown off
+# (ova_rey.15 "outbid the rival for yourself").
+ova_rey_cat_star_sapphire = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 10
+}
+
+# ===========================================================================
+# WELPENSTADT - Bruna Falk, the dogkin guard-captain. Her arc is order: the
+# watch, the wall, the law and the mercy of it. STATE modifiers go on Welpenstadt.
+# ===========================================================================
+
+# STATE. A watch that has been drilled, praised or vindicated stands taller
+# (ova_rey.22, .25, .26, .28).
+ova_rey_dog_watch_sharpened = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	state_turmoil_effects_mult = -0.15
+}
+
+# STATE. The poorest ward remembers the night nobody drew steel on it
+# (ova_rey.23 "hold the line without a drop of blood").
+ova_rey_dog_kennelward_calm = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	state_turmoil_effects_mult = -0.25
+}
+
+# STATE. It also remembers the night somebody did (ova_rey.23 / .25 crackdowns).
+ova_rey_dog_iron_hand = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	state_turmoil_effects_mult = 0.15
+}
+
+# COUNTRY. The republic's hero stood a watch and drilled in the ranks like any
+# other soldier, and the army has not stopped talking about it (ova_rey.21, .26, .29).
+ova_rey_dog_hero_in_the_ranks = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	interest_group_ig_armed_forces_approval_add = 2
+}
+
+# COUNTRY. He put his hand on the dogkin oath stone and meant it
+# (ova_rey.27 / .28). A thousand years of granite is a serious witness.
+ova_rey_dog_oathsworn = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_legitimacy_base_add = 5
+	interest_group_ig_armed_forces_approval_add = 2
+}
+
+# COUNTRY. He asked about the promotion paperwork. She did the promotion
+# paperwork. The ministries are quietly delighted (ova_rey.24, the poor option).
+ova_rey_dog_paperwork_filed = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_bureaucracy_add = 25
+}
+
+# ===========================================================================
+# BARENBERG - Ursla Steinfell, the bearkin mountain smith. Her arc is the forge
+# and the seam under it. STATE modifiers go on Barenberg.
+# ===========================================================================
+
+# STATE. Her hammer swings better when he is in the room, and so does every
+# hammer she has ever taught (ova_rey.30, .34, .37, .38, .39).
+ova_rey_bear_forge_heart = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_group_bg_military_industry_throughput_add = 0.05
+	building_group_bg_manufacturing_throughput_add = 0.05
+}
+
+# STATE. The collapsed gallery was held up long enough to be shored properly
+# (ova_rey.33 "hold the fallen beam with her").
+ova_rey_bear_gallery_shored = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_group_bg_mining_throughput_add = 0.05
+	building_group_bg_mining_laborers_mortality_mult = -0.1
+}
+
+# COUNTRY. The sword of her life exists, and everyone in two ranges knows whose
+# hands were on the tongs (ova_rey.35, .38).
+ova_rey_bear_masterwork = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 10
+	country_military_goods_cost_mult = -0.05
+}
+
+# ===========================================================================
+# HASENHAFEN - Lieselotte Klee, the rabbitkin harvest maiden. Her arc is the
+# fields, the weir and the warren. STATE modifiers go on Hasenhafen.
+# ===========================================================================
+
+# STATE. The harvest comes in whole (ova_rey.40, .43, .49).
+ova_rey_rabbit_full_baskets = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_group_bg_agriculture_throughput_add = 0.05
+}
+
+# STATE. The breach was closed and the low fields lived, and the village has
+# kept the sandbags where it can find them (ova_rey.43).
+ova_rey_rabbit_weir_held = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	building_group_bg_agriculture_throughput_add = 0.05
+	state_harvest_condition_flood_impact_mult = -0.25
+}
+
+# STATE. The low fields were written off and drowned (ova_rey.43, the poor option).
+ova_rey_rabbit_fields_drowned = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	building_group_bg_agriculture_throughput_add = -0.1
+}
+
+# STATE. The quietest sellers in Hasenhafen have found their voices, starting
+# with hers (ova_rey.45, .48).
+ova_rey_rabbit_market_voice = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	state_trade_capacity_add = 5
+	building_group_bg_agriculture_tax_mult = 0.1
+}
+
+# ===========================================================================
+# FUSCHTAL - Fenna Rotwald, the foxkin scholar. Her arc is knowledge: riddles,
+# libraries, ciphers, stars. Her consequences are national, not local: what a
+# scholar learns does not stay in the vale.
+# ===========================================================================
+
+# COUNTRY. Two worlds' knowledge traded across one table (ova_rey.50, .51, .57, .59).
+ova_rey_fox_two_worlds_lore = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
+	country_weekly_innovation_add = 5
+}
+
+# COUNTRY. The vale's scholars have decided the hero is one of theirs
+# (ova_rey.55, .56, .58).
+ova_rey_fox_scholars_favor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	interest_group_ig_intelligentsia_approval_add = 2
+	country_prestige_add = 5
+}
+
+# COUNTRY. The dangerous manuscript is ash. She is safe; the knowledge is not
+# coming back (ova_rey.53 "burn it before it costs her").
+ova_rey_fox_burned_chapter = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	country_weekly_innovation_add = -3
+}
+
+# COUNTRY. A sky charted twice over, against the constellations of another world
+# (ova_rey.57).
+ova_rey_fox_star_charts = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
+	country_weekly_innovation_add = 3
+	country_tech_spread_mult = 0.05
+}
+
+# ===========================================================================
+# Shared: things John does that are the same wherever he does them.
+# ===========================================================================
+
+# COUNTRY. The otherworlder has explained something from his world to people who
+# had no reason to believe him, and some of them wrote it down
+# (ova_rey.46 the lantern physics, ova_rey.56 the otherworld flourish).
+ova_rey_otherworld_lecture = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
+	country_weekly_innovation_add = 3
+}
+
+# COUNTRY. A state's daughter has married the republic's hero and the republic
+# is throwing the party (each ova_rey.X9; refreshed by each new wedding).
+ova_rey_wedding_jubilee = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_prestige_add = 10
+	country_legitimacy_base_add = 5
+}
+
+# STATE, permanent. This state's people are the hero's in-laws now, and everyone
+# who wants to be near the story moves there (each ova_rey.X9).
+ova_rey_married_into_the_hero = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_migration_pull_mult = 0.15
+}
+
+# COUNTRY. John Paradox is dead and the banners are down (ova_rey.78).
+ova_rey_republic_in_mourning = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	country_prestige_add = -10
+	country_legitimacy_base_add = -5
+}
+
+# COUNTRY, permanent. A quiet inauguration and a household of five peoples: the
+# republic's founding cultures simply widened (ova_rey.90 option a).
+ova_rey_many_peoples = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_acceptance_primary_culture_add = 5
+	country_legitimacy_base_add = 5
+}
+
+# COUNTRY. Every fur and feather in Reyorn, drunk in the same square
+# (ova_rey.90 option b).
+ova_rey_festival_of_furs = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 20
+	country_legitimacy_base_add = 5
+}
+
+# COUNTRY, permanent. He took the chair as First Citizen, not as anyone's
+# husband (ova_rey.90 option c).
+ova_rey_first_citizen = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_legitimacy_base_add = 15
+	interest_group_in_government_approval_add = 2
+}
+
+# COUNTRY, permanent. The Paradox Republic (ova_rey.91).
+ova_rey_paradox_republic = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_mult = 0.1
+	country_legitimacy_base_add = 10
+}

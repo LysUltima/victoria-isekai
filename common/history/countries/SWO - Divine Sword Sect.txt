@@ -1,0 +1,8 @@
+﻿# Divine Sword Sect (xianxia: spiritualism tier 1, sect)
+COUNTRIES = {
+	c:SWO ?= {
+		effect_starting_technology_spiritualism_tier_1 = yes
+		create_character = { template = template_ruler_swo role = ruler }
+		effect_starting_politics_sect = yes
+	}
+}

@@ -1,0 +1,185 @@
+﻿# Isekai TC: migrated from vanilla common/journal_entries/00_art_jes.txt (2026-07-11).
+# Fully generic art-tech journal entries (romanticism/realism/camera/film), no real-world
+# references. Verbatim copy. All referenced techs (romanticism/realism/camera/film) and the
+# building_art_academy PMs (pm_traditional_art/pm_realist_art/pm_photographic_art/pm_film_art)
+# are unchanged vanilla keys still present in this mod. Hooks: society_tech_events.302,
+# dt_society_events.2, camera_film_pm_events.1/.2 (all migrated alongside, see
+# events/tech_events/).
+
+je_romanticism = {
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	group = je_group_technology
+
+	is_shown_when_inactive = {
+		has_technology_researched = rationalism
+		NOT = { has_technology_researched = realism }
+		NOT = { has_variable = completed_romanticism_je }
+		NOT = { is_country_type = unrecognized }
+	}
+
+	possible = {
+		has_technology_researched = romanticism
+		NOT = { has_technology_researched = realism }
+		any_scope_state = {
+			has_building = building_urban_center
+		}
+	}
+
+	immediate = {
+	}
+
+	complete = {
+		any_scope_building = {
+			is_building_type = building_art_academy
+			has_active_production_method = pm_traditional_art
+			occupancy >= 0.9
+			level >= 2
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = society_tech_events.302 }
+		set_variable = {
+			name = completed_romanticism_je
+		}
+	}
+
+	fail = {
+		has_technology_researched = realism
+	}
+
+	timeout = 3650
+}
+
+je_realism = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_technology
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = realism_je_done }
+		has_technology_researched = romanticism
+		NOT = { has_technology_researched = memory_crystals }
+		NOT = { is_country_type = unrecognized } # prestige is useless to them
+	}
+
+	possible = {
+		has_technology_researched = realism
+		any_scope_building = {
+			is_building_type = building_art_academy
+		}
+	}
+
+	complete = {
+		any_scope_building = {
+			filter = {
+				is_building_type = building_art_academy
+			}
+			occupancy >= 0.9
+			has_active_production_method = pm_realist_art
+			percent = 1
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = dt_society_events.2 }
+		set_variable = {
+			name = realism_je_done
+		}
+	}
+
+	timeout = 3650
+}
+
+je_camera = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_technology
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = camera_je_done }
+		has_technology_researched = realism
+		NOT = { has_technology_researched = phantasm_projection }
+		NOT = { is_country_type = unrecognized }
+	}
+
+	possible = {
+		has_technology_researched = memory_crystals
+		any_scope_building = {
+			is_building_type = building_art_academy
+			level >= 3
+		}
+	}
+
+	complete = {
+		any_scope_building = {
+			is_building_type = building_art_academy
+			level >= 5
+			has_active_production_method = pm_photographic_art
+		}
+		any_scope_building = {
+			filter = {
+				is_building_type = building_art_academy
+			}
+			percent > 0.75
+			has_active_production_method = pm_photographic_art
+			occupancy > 0.75
+		}
+	}
+
+	on_complete = {
+		set_variable = camera_je_done
+		trigger_event = { id = camera_film_pm_events.1 }
+	}
+
+	invalid = {
+		has_technology_researched = phantasm_projection
+	}
+
+	timeout = 3650
+}
+
+je_film = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_technology
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = film_je_done }
+		has_technology_researched = memory_crystals
+		NOT = { is_country_type = unrecognized }
+	}
+
+	possible = {
+		has_technology_researched = phantasm_projection
+		any_scope_building = {
+			is_building_type = building_art_academy
+			level >= 3
+		}
+	}
+
+	complete = {
+		any_scope_building = {
+			is_building_type = building_art_academy
+			level >= 5
+			has_active_production_method = pm_film_art
+		}
+		any_scope_building = {
+			filter = {
+				is_building_type = building_art_academy
+			}
+			percent > 0.75
+			has_active_production_method = pm_film_art
+			occupancy > 0.75
+		}
+	}
+
+	on_complete = {
+		set_variable = film_je_done
+		trigger_event = { id = camera_film_pm_events.2 }
+	}
+
+	timeout = 3650
+}

@@ -1,0 +1,191 @@
+﻿CAT = {
+    color = { 11 7 36 }
+
+    country_type = unrecognized
+    
+    tier = kingdom
+
+    cultures = { plains_catkin }
+
+    capital = STATE_CATPITAL
+}
+
+TUC = {
+    color = { 112 23 17 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { island_catkin }
+
+    capital = STATE_TUCONYA
+}
+
+AIL = {
+    color = { 171 144 77 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { island_catkin }
+
+    capital = STATE_AILENYA
+}
+
+HAR = {
+    color = { 97 27 82 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { island_catkin }
+
+    capital = STATE_HARUNYA
+}
+
+URR = {
+    color = { 110 88 63 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { horsekin }
+
+    capital = STATE_URRUMA
+}
+
+WAP = {
+    color = { 117 0 6 }
+
+    country_type = unrecognized
+    
+    tier = kingdom
+
+    cultures = { forest_foxkin }
+
+    capital = STATE_WAPAPOW
+}
+
+HAT = {
+    color = { 163 100 38 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { snow_foxkin }
+
+    capital = STATE_HATEEHO
+}
+
+AHE = {
+    color = { 209 184 159 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { snow_foxkin }
+
+    capital = STATE_AHEE
+}
+
+UAN = {
+    color = { 161 61 39 }
+
+    country_type = unrecognized
+    
+    tier = kingdom
+
+    cultures = { dogkin }
+
+    capital = STATE_UANG_KO
+}
+
+ANE = {
+    color = { 193 185 201 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { eastern_rabbitkin }
+
+    capital = STATE_ANEPYON
+}
+
+MIR = {
+    color = { 163 122 122 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { western_rabbitkin }
+
+    capital = STATE_MIRAPYON
+}
+
+SIR = {
+    color = { 128 56 36 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { bearkin }
+
+    capital = STATE_SIROKANI
+}
+
+BEA = {
+    color = { 61 15 7 }
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { bearkin }
+
+    capital = STATE_PORONUPURI
+}
+
+NOR = {
+    color = { 173 79 62 }
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { horsekin }
+
+    capital = STATE_KHOKHUMA
+}
+
+SOU = {
+    color = { 112 30 38 }
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { horsekin }
+
+    capital = STATE_TENGERUMA
+}
+
+WOL = {
+    color = { 105 91 79 }
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { wolfkin }
+
+    capital = STATE_UO_FEE
+}

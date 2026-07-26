@@ -1,0 +1,862 @@
+﻿paris_commune_automated_opposition_paris = {
+	random_list = {
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_1_fired
+				}
+				always = no # blanked: vanilla ref 'c:PRC' not present in this mod
+			}
+			paris_commune_automation_pulse_1 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_2_fired
+				}
+				any_scope_character = {
+					has_role_of_type = general
+					is_busy = no
+					is_heir_of_own_country = no
+					is_ruler_of_own_country = no
+					is_immortal = no
+				}
+				always = no # blanked: vanilla ref 'c:PRC' not present in this mod
+			}
+			paris_commune_automation_pulse_2 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_3_fired
+				}
+			}
+			paris_commune_automation_pulse_3 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_4_fired
+				}
+				always = no # blanked: vanilla ref 'c:PRC' not present in this mod
+			}
+			paris_commune_automation_pulse_4 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_6_fired
+				}
+				always = no # blanked: vanilla ref 'c:PRC' not present in this mod
+			}
+			paris_commune_automation_pulse_6 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_9_fired
+				}
+				always = no # blanked: vanilla ref 'c:PRC' not present in this mod
+			}
+			paris_commune_automation_pulse_9 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_11_fired
+				}
+				always = no # blanked: vanilla ref 'c:PRC' not present in this mod
+			}
+			paris_commune_automation_pulse_11 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_12_fired
+				}
+				always = no # blanked: vanilla ref 'c:PRC' not present in this mod
+			}
+			paris_commune_automation_pulse_12 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_13_fired
+				}
+				always = no # blanked: vanilla ref 'c:PRC' not present in this mod
+			}
+			paris_commune_automation_pulse_13 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_14_fired
+				}
+				always = no # blanked: vanilla ref 'c:PRC' not present in this mod
+			}
+			paris_commune_automation_pulse_14 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_15_fired
+				}
+				always = no # blanked: vanilla ref 'c:PRC' not present in this mod
+			}
+			paris_commune_automation_pulse_15 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_16_fired
+				}
+			}
+			paris_commune_automation_pulse_16 = yes
+		}
+	}
+}
+
+paris_commune_automated_opposition_versailles = {
+	random_list = {
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_5_fired
+				}
+			}
+			paris_commune_automation_pulse_5 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_7_fired
+				}
+			}
+			paris_commune_automation_pulse_7 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_8_fired
+				}
+			}
+			paris_commune_automation_pulse_8 = yes
+		}
+		20 = {
+			trigger = {
+				NOT = {
+					has_variable = paris_commune_automation_pulse_10_fired
+				}
+			}
+			paris_commune_automation_pulse_10 = yes
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.1 - Commune PoV
+paris_commune_automation_pulse_1 = {
+	set_variable = { name = paris_commune_automation_pulse_1_fired days = short_modifier_time }
+	# Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	# Variable Effects
+	random_list = {
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 10
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_1_a
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 10
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_1_b
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_1_c
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.2 - Commune PoV
+paris_commune_automation_pulse_2 = {
+	set_variable = { name = paris_commune_automation_pulse_2_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	random_scope_character = {
+		limit = {
+			has_role_of_type = general
+			is_busy = no
+			is_heir_of_own_country = no
+			is_ruler_of_own_country = no
+		}
+		save_scope_as = executed_general_scope
+	}
+	#Variable Effects
+	random_list = {
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 10
+	        # }
+			scope:executed_general_scope = {
+				kill_character = yes
+			}
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_2_a
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 5
+	        # }
+			scope:executed_general_scope = {
+				# removed: imprisoned_general_var was only read by a deleted event
+				add_modifier = {
+					name = miraculous_survival_modifier
+				}
+				place_character_in_void = 10000
+			}
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_2_b
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -5
+	        # }
+			scope:executed_general_scope = {
+				kill_character = yes
+			}
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_2_c
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.3 - Commune PoV
+paris_commune_automation_pulse_3 = {
+	set_variable = { name = paris_commune_automation_pulse_3_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	#Variable Effects
+	random_list = {
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 10
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_3_a
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -10
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_3_b
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_3_c
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.4 - Commune PoV
+paris_commune_automation_pulse_4 = {
+	set_variable = { name = paris_commune_automation_pulse_4_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	#Variable Effects
+	random_list = {
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 10
+	        # }
+			# removed effect block: vanilla ref 's:STATE_ILE_DE_FRANCE' not present in this mod
+			if = {
+				limit = {
+					any_interest_group = {
+						leader = {
+							OR = {
+								has_ideology = ideology:ideology_feminist
+								AND = {
+									is_female = yes
+									OR = {
+										has_ideology = ideology:ideology_radical
+										has_ideology = ideology:ideology_communist
+										has_ideology = ideology:ideology_social_democrat
+										has_ideology = ideology:ideology_anarchist
+										has_ideology = ideology:ideology_vanguardist
+									}
+								}
+							}
+						}
+						ig_counts_as_marginal = no
+					}
+				}
+				every_interest_group = {
+					limit = {
+						leader = {
+							OR = {
+								has_ideology = ideology:ideology_feminist
+								AND = {
+									is_female = yes
+									OR = {
+										has_ideology = ideology:ideology_radical
+										has_ideology = ideology:ideology_communist
+										has_ideology = ideology:ideology_social_democrat
+										has_ideology = ideology:ideology_anarchist
+										has_ideology = ideology:ideology_vanguardist
+									}
+								}
+							}
+						}
+						ig_counts_as_marginal = no
+					}
+					leader = {
+						add_modifier = {
+							name = accusations_of_hysterical_mania_modifier
+							days = normal_modifier_time
+						}
+					}
+				}
+			}
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_4_a
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -10
+	        # }
+			# removed effect block: vanilla ref 's:STATE_ILE_DE_FRANCE' not present in this mod
+			post_notification = paris_commune_automation_pulse_4_b
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -5
+	        # }
+			# removed effect block: vanilla ref 's:STATE_ILE_DE_FRANCE' not present in this mod
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_4_c
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.5 - Versailles PoV
+paris_commune_automation_pulse_5 = {
+	set_variable = { name = paris_commune_automation_pulse_5_fired days = short_modifier_time }
+	#Shared Effects
+	ig:ig_armed_forces ?= {
+		save_scope_as = armed_forces_scope
+	}
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	#Variable Effects
+	random_list = {
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -5
+	        # }
+			# removed effect block: vanilla ref 's:STATE_ILE_DE_FRANCE' not present in this mod
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_5_a
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -10
+	        # }
+			# removed effect block: vanilla ref 's:STATE_ILE_DE_FRANCE' not present in this mod
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_5_b
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_5_c
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.6 - Commune PoV
+paris_commune_automation_pulse_6 = {
+	set_variable = { name = paris_commune_automation_pulse_6_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	#Variable Effects
+	random_list = {
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_6_a
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -5
+	        # }
+			post_notification = paris_commune_automation_pulse_6_b
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 10
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_6_c
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.7 - Versailles PoV
+paris_commune_automation_pulse_7 = {
+	set_variable = { name = paris_commune_automation_pulse_7_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	#Variable Effects
+	random_list = {
+		50 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_7_a
+		}
+		50 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 10
+	        # }
+			add_radicals = {
+				value = small_radicals
+				interest_group = ig:ig_trade_unions
+			}
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_7_b
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.8 - Versailles PoV
+paris_commune_automation_pulse_8 = {
+	set_variable = { name = paris_commune_automation_pulse_8_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+
+	random_scope_character = {
+		limit = {
+			has_role_of_type = general
+			is_busy = no
+		}
+		save_scope_as = cannon_seizing_general_scope
+	}
+	#Variable Effects
+	random_list = {
+		30 = {
+			random_list = {
+				60 = {
+					# change_global_variable = {
+			            # name = paris_commune_progress_var
+			            # add = -5
+			        # }
+					scope:cannon_seizing_general_scope = {
+						add_modifier = {
+							name = first_blood_modifier
+							days = short_modifier_time
+						}
+					}
+					post_notification = paris_commune_automation_pulse_8_a1
+				}
+				40 = {
+					# change_global_variable = {
+			            # name = paris_commune_progress_var
+			            # add = 10
+			        # }
+					scope:cannon_seizing_general_scope = {
+						add_modifier = {
+							name = humiliation_upon_humiliation_modifier
+							days = short_modifier_time
+						}
+					}
+					# removed effect block: vanilla ref 'c:PRC' not present in this mod
+					post_notification = paris_commune_automation_pulse_8_a2
+				}
+			}
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_8_b
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_8_c
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.9 - Commune PoV
+paris_commune_automation_pulse_9 = {
+	set_variable = { name = paris_commune_automation_pulse_9_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	random_interest_group = {
+		limit = {
+			always = no # was: is_same_interest_group_type = scope:paris_feminist_ig_scope (dead scope, never set)
+		}
+		save_scope_as = france_feminist_ig_scope
+	}
+	# removed effect block: vanilla ref 'c:FRA' not present in this mod
+	#Variable Effects
+	random_list = {
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			random_list = {
+				50 = {
+					trigger = {
+						NOT = {
+							any_scope_character = {
+								has_role_of_type = agitator
+								has_ideology = ideology:ideology_feminist
+							}
+						}
+					}
+					create_character = {
+						is_agitator = yes
+						interest_group = scope:france_feminist_ig_scope
+						ideology = ideology_feminist
+					}
+					post_notification = paris_commune_automation_pulse_9_a1
+				}
+				50 = {
+					post_notification = paris_commune_automation_pulse_9_a2
+				}
+			}
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_9_b
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_9_c
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.10 - Versailles PoV
+paris_commune_automation_pulse_10 = {
+	set_variable = { name = paris_commune_automation_pulse_10_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	random_scope_character = {
+		limit = {
+			has_role_of_type = general
+			is_busy = no
+		}
+		save_scope_as = issy_general
+	}
+	#Variable Effects
+	random_list = {
+		50 = {
+			random_list = {
+				60 = {
+					# change_global_variable = {
+						# name = paris_commune_progress_var
+						# add = 10
+					# }
+					post_notification = paris_commune_automation_pulse_10_a1
+				}
+				40 = {
+					# change_global_variable = {
+						# name = paris_commune_progress_var
+						# add = 5
+					# }
+					post_notification = paris_commune_automation_pulse_10_a2
+				}
+			}
+		}
+		50 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -10
+	        # }
+			add_modifier = {
+				name = guidelines_of_engagement_modifier
+				days = normal_modifier_time
+			}
+			scope:issy_general = {
+				if = {
+					limit = {
+						NOT = {
+							has_trait = war_criminal
+						}
+					}
+					add_trait = war_criminal
+				}
+			}
+			post_notification = paris_commune_automation_pulse_10_b
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.11 - Commune PoV
+paris_commune_automation_pulse_11 = {
+	set_variable = { name = paris_commune_automation_pulse_11_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	#Variable Effects
+	random_list = {
+		50 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_11_a
+		}
+		50 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_11_b
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.12 - Commune PoV
+paris_commune_automation_pulse_12 = {
+	set_variable = { name = paris_commune_automation_pulse_12_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	random_interest_group = {
+		limit = {
+			always = no # was: is_same_interest_group_type = scope:paris_radical_ig_scope (dead scope, never set)
+		}
+		save_scope_as = france_radical_ig_scope
+	}
+	# removed effect block: vanilla ref 'c:FRA' not present in this mod
+	#Variable Effects
+	random_list = {
+		30 = {
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_12_a
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 5
+	        # }
+			ig:ig_armed_forces ?= {
+				add_modifier = {
+					name = child_soldiery_modifier
+					days = short_modifier_time
+				}
+			}
+			post_notification = paris_commune_automation_pulse_12_b
+		}
+		30 = {
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			random_list = {
+				50 = {
+					trigger = {
+						NOT = {
+							any_scope_character = {
+								has_role_of_type = agitator
+								has_ideology = ideology:ideology_radical
+							}
+						}
+					}
+					create_character = {
+						is_agitator = yes
+						interest_group = scope:france_radical_ig_scope
+						ideology = ideology_radical
+					}
+					post_notification = paris_commune_automation_pulse_12_c1
+				}
+				50 = {
+					post_notification = paris_commune_automation_pulse_12_c2
+				}
+			}
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.13 - Commune PoV
+paris_commune_automation_pulse_13 = {
+	set_variable = { name = paris_commune_automation_pulse_13_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	#Variable Effects
+	random_list = {
+		30 = {
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_13_a
+		}
+		30 = {
+			# removed: scope:paris_scope effect, dead (scope never set elsewhere)
+			post_notification = paris_commune_automation_pulse_13_b
+		}
+		30 = {
+			# removed: scope:paris_scope effect, dead (scope never set elsewhere)
+			post_notification = paris_commune_automation_pulse_13_c
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.14 - Commune PoV
+paris_commune_automation_pulse_14 = {
+	set_variable = { name = paris_commune_automation_pulse_14_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	#Variable Effects
+	random_list = {
+		30 = {
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_14_a
+		}
+		30 = {
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_14_b
+		}
+		30 = {
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_14_c
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.15 - Commune PoV
+paris_commune_automation_pulse_15 = {
+	set_variable = { name = paris_commune_automation_pulse_15_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	#Variable Effects
+	random_list = {
+		50 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = -5
+	        # }
+			if = {
+				limit = {
+					has_law = law_type:law_monarchy
+				}
+				add_loyalists = {
+					value = small_radicals
+				}
+			}
+			else_if = {
+				add_radicals = {
+					value = small_radicals
+				}
+			}
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_15_a
+		}
+		50 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 5
+	        # }
+			if = {
+				limit = {
+					has_law = law_type:law_monarchy
+				}
+				ruler = {
+					add_modifier = {
+						name = an_enemy_of_the_republic
+						days = normal_modifier_time
+					}
+				}
+			}
+			else_if = {
+				add_radicals = {
+					strata = lower
+					value = small_radicals
+				}
+			}
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_15_b
+		}
+	}
+}
+
+# Simulates effect of paris_commune_pulse_events.16 - Commune PoV
+paris_commune_automation_pulse_16 = {
+	set_variable = { name = paris_commune_automation_pulse_16_fired days = short_modifier_time }
+	#Shared Effects
+	# removed effect block: vanilla ref 'c:PRC' not present in this mod
+	#Variable Effects
+	random_list = {
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 5
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_16_a
+		}
+		30 = {
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_16_b
+		}
+		30 = {
+			# change_global_variable = {
+	            # name = paris_commune_progress_var
+	            # add = 10
+	        # }
+			# removed effect block: vanilla ref 'c:PRC' not present in this mod
+			post_notification = paris_commune_automation_pulse_16_c
+		}
+	}
+}

@@ -1,0 +1,70 @@
+﻿l_english:
+  # --- ova_crusade_flavor.1 - the crusade in cheap print
+  ova_crusade_flavor.1.t: "The Crusade in Cheap Print"
+  ova_crusade_flavor.1.d: "Every bookstall in the capital is stacked with them: weekly serials about the summoned Heroes of the far crusade, each issue ending with the Demon Lord's fortress one chapter from falling. The geography is invented, the swordplay is impossible, and the printers cannot bind them fast enough. Schoolchildren trade the color plates. At least three heroines appear to have been made up entirely."
+  ova_crusade_flavor.1.f: "The war is a thousand miles away, which is the perfect distance for a war to be exciting."
+  ova_crusade_flavor.1.a: "Let the presses run."
+  ova_crusade_flavor.1.b: "Confiscate the trash. Print something improving."
+
+  # --- ova_crusade_flavor.2 - an alms collection for the holy war
+  ova_crusade_flavor.2.t: "Alms for the Holy War"
+  ova_crusade_flavor.2.d: "Travelling collectors in the white and gold of the Radiant Church have asked leave to pass the plate in our towns: a copper for the crusade, a blessing in return, and a paper sunburst for the window of every house that gives. The sum they gather will be modest. The argument about whether they should be allowed to gather it at all has already outgrown the sum several times over."
+  ova_crusade_flavor.2.f: "Faith travels light. Its collection boxes travel considerably heavier."
+  ova_crusade_flavor.2.a: "Let the plate go around."
+  ova_crusade_flavor.2.b: "Our own poor come first. Send them on."
+
+  # --- ova_crusade_flavor.3 - a mercenary comes home rich
+  ova_crusade_flavor.3.t: "The Man Who Came Back Rich"
+  ova_crusade_flavor.3.d: "A local man who took crusade coin three years ago has come home with a foreign medal, a purse that never seems to empty, and a repertoire of stories that grow a head taller with each telling. Half the young men of the district have heard about the pay. Rather fewer have heard about the parts of the stories he does not tell, and he is not offering."
+  ova_crusade_flavor.3.f: "Every returning soldier carries two accounts of the war. Only one of them buys drinks."
+  ova_crusade_flavor.3.a: "Every army needs its stories. Let him talk."
+  ova_crusade_flavor.3.b: "Quietly discourage the enlistment fever."
+
+  # --- ova_crusade_flavor.4 - the sideshow's captured demon
+  ova_crusade_flavor.4.t: "The Painted Demon"
+  ova_crusade_flavor.4.d: "A travelling showman has drawn record crowds with what his banners call a Genuine Captured Demon of the Far War, exhibited in chains at a silver piece a look. Persons who have paid their silver report a large gentleman painted red, wearing theatrical horns, and visibly bored. The showman insists the boredom is demonic cunning. The crowds keep paying."
+  ova_crusade_flavor.4.f: "Nobody in this town has ever seen a demon, which makes one surprisingly easy to exhibit."
+  ova_crusade_flavor.4.a: "Expose the fraud."
+  ova_crusade_flavor.4.b: "Buy a ticket like everyone else."
+
+  # --- ova_crusade_flavor.5 - a summoned Hero passes through
+  ova_crusade_flavor.5.t: "A Hero Passes Through"
+  ova_crusade_flavor.5.d: "Word ran ahead of the ship: a summoned Hero of the crusade, bound for the front, will pass through our territory this week. The roads are already lining with people who want to see an otherworlder with their own eyes, sell them something, or touch the hem of a legend. Whatever one thinks of the far war, a Hero in town is the event of the decade."
+  ova_crusade_flavor.5.f: "Legends are much like comets. Everyone turns out to watch, and nobody asks where they are going."
+  ova_crusade_flavor.5.a: "Host a reception worthy of the guest."
+  ova_crusade_flavor.5.b: "The crowds can have their day without us."
+
+  # --- ova_crusade_flavor.6 - crusade quartermasters drive prices up
+  ova_crusade_flavor.6.t: "War Prices"
+  ova_crusade_flavor.6.d: "The crusade eats everything: grain, leather, timber, nails, and it pays in good coin without haggling. Our merchants have discovered this, and so, at the market stalls, have our housewives. The same loaf costs a third more than it did last harvest, and the baker points at the quartermaster's wagon, and the quartermaster points at the Demon Lord, who is not available for comment."
+  ova_crusade_flavor.6.f: "A distant war is a rising tide. It lifts the merchants' boats and drowns the porridge."
+  ova_crusade_flavor.6.a: "Let the contracts flow."
+  ova_crusade_flavor.6.b: "Cap the price of bread."
+
+  # --- ova_crusade_flavor.7 - clergy debate someone else's holy war
+  ova_crusade_flavor.7.t: "Someone Else's Holy War"
+  ova_crusade_flavor.7.d: "Our own clergy have fallen to arguing about the far crusade. One faction preaches that a holy war anywhere is the business of the faithful everywhere, and would open the pulpits to the Radiant Church's cause. The other observes, with some asperity, that it is not our church, not our war, and not our sons, and that charity, like doctrine, begins at home."
+  ova_crusade_flavor.7.f: "Nothing divides a clergy like somebody else's certainty."
+  ova_crusade_flavor.7.a: "Our altars stay out of it."
+  ova_crusade_flavor.7.b: "Let the sympathizers preach."
+
+  # --- ova_crusade_flavor.8 - local youths run off to join
+  ova_crusade_flavor.8.t: "The Sons Who Sailed"
+  ova_crusade_flavor.8.d: "Eleven young men of the province are gone: signed aboard by a crusader company's recruiting agent with promises of pay, glory, and a cause worth a life. Their families learned of it from notes left on kitchen tables. This morning the families stood together at the palace gate, asking either that their sons be fetched home or that the men who took them be barred from ever taking more."
+  ova_crusade_flavor.8.f: "Glory is the one export every province produces and no customs house can stop."
+  ova_crusade_flavor.8.a: "They are grown men. Glory finds them, or it does not."
+  ova_crusade_flavor.8.b: "The recruiters can do their recruiting elsewhere."
+
+  # --- ova_crusade_flavor.9 - a supply contract for the crusade
+  ova_crusade_flavor.9.t: "Boots, Biscuit, and Blades"
+  ova_crusade_flavor.9.d: "A commissioner of the crusade has arrived with a ledger, a wax seal, and a standing order that would keep half our workshops busy for a year: boots by the thousand pair, hard biscuit by the ton, and blades by the crate, delivered to the staging ports, paid on delivery in Church gold. He does not care what god our workmen pray to. He cares that the boots arrive by autumn."
+  ova_crusade_flavor.9.f: "Holy wars are fought by the faithful and supplied by whoever answers letters promptly."
+  ova_crusade_flavor.9.a: "Sign, and gladly."
+  ova_crusade_flavor.9.b: "We sell to no army."
+
+  # --- ova_crusade_flavor.10 - two opposite battle reports
+  ova_crusade_flavor.10.t: "Twice-Told Victories"
+  ova_crusade_flavor.10.d: "Tuesday's broadsheet reports a glorious crusader victory at a pass nobody here can find on a map: the Demon Lord's host scattered, banners taken, the road to his fortress open. Thursday's broadsheet reports the same battle as a costly repulse. Both cite reliable travellers. Both sold out by noon. The pass, wherever it is, presumably knows which paper was right."
+  ova_crusade_flavor.10.f: "By the time news of a battle has crossed an ocean, it has usually changed sides at least once."
+  ova_crusade_flavor.10.a: "Print the victory. People prefer it."
+  ova_crusade_flavor.10.b: "Print neither until someone can prove something."

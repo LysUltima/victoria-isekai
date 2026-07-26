@@ -1,0 +1,646 @@
+﻿POPS = {
+    s:STATE_CATPITAL = {
+        region_state:CAT = {
+            create_pop = {
+                culture = plains_catkin
+                size = 2002500
+            }
+            create_pop = {
+                culture = forest_foxkin
+                size = 63400
+            }
+        }
+    }
+    s:STATE_MEOWNTAINS = {
+        region_state:CAT = {
+            create_pop = {
+                culture = plains_catkin
+                size = 1575000
+            }
+            create_pop = {
+                culture = forest_foxkin
+                size = 70500
+            }
+            create_pop = {
+                culture = khambu
+                size = 89200
+            }
+            create_pop = {
+                culture = horsekin
+                size = 72500
+            }
+        }
+    }
+    s:STATE_ANYA = {
+        region_state:CAT = {
+            create_pop = {
+                culture = plains_catkin
+                size = 1365000
+            }
+            create_pop = {
+                culture = khambu
+                size = 148300
+            }
+        }
+    }
+    s:STATE_ERENYA = {
+        region_state:CAT = {
+            create_pop = {
+                culture = plains_catkin
+                size = 1710000
+            }
+            create_pop = {
+                culture = arasni
+                size = 95700
+            }
+            create_pop = {
+                culture = horsekin
+                size = 76500
+            }
+        }
+    }
+    s:STATE_ISLANYA = {
+        region_state:CAT = {
+            create_pop = {
+                culture = island_catkin
+                size = 1290000
+            }
+        }
+    }
+    s:STATE_TUCONYA = {
+        region_state:TUC = {
+            create_pop = {
+                culture = island_catkin
+                size = 1515000
+            }
+        }
+    }
+    s:STATE_AILENYA = {
+        region_state:AIL = {
+            create_pop = {
+                culture = island_catkin
+                size = 1882500
+            }
+        }
+    }
+    s:STATE_HARUNYA = {
+        region_state:HAR = {
+            create_pop = {
+                culture = island_catkin
+                size = 1845000
+            }
+        }
+    }
+    s:STATE_URRUMA = {
+        region_state:URR = {
+            create_pop = {
+                culture = horsekin
+                size = 1095000
+            }
+            create_pop = {
+                culture = plains_catkin
+                size = 89000
+            }
+            create_pop = {
+                culture = forest_foxkin
+                size = 96300
+            }
+            create_pop = {
+                culture = arasni
+                size = 62000
+            }
+        }
+    }
+    s:STATE_RAUMA = {
+        region_state:URR = {
+            create_pop = {
+                culture = horsekin
+                size = 840000
+            }
+            create_pop = {
+                culture = forest_foxkin
+                size = 66000
+            }
+        }
+    }
+    s:STATE_WAPAPOW = {
+        region_state:WAP = {
+            create_pop = {
+                culture = forest_foxkin
+                size = 2347500
+            }
+            create_pop = {
+                culture = horsekin
+                size = 217600
+            }
+        }
+    }
+    s:STATE_JACHACHOW = {
+        region_state:WAP = {
+            create_pop = {
+                culture = forest_foxkin
+                size = 1312500
+            }
+            create_pop = {
+                culture = plains_catkin
+                size = 144800
+            }
+            create_pop = {
+                culture = horsekin
+                size = 74900
+            }
+        }
+    }
+    s:STATE_FRAKAKOW = {
+        region_state:WAP = {
+            create_pop = {
+                culture = forest_foxkin
+                size = 1470000
+            }
+            create_pop = {
+                culture = snow_foxkin
+                size = 49900
+            }
+            create_pop = {
+                culture = horsekin
+                size = 75800
+            }
+        }
+    }
+    s:STATE_AOWO = {
+        region_state:WAP = {
+            create_pop = {
+                culture = snow_foxkin
+                size = 885000
+            }
+        }
+    }
+    s:STATE_HATEEHO = {
+        region_state:HAT = {
+            create_pop = {
+                culture = snow_foxkin
+                size = 1260000
+            }
+        }
+    }
+    s:STATE_GERING = {
+        region_state:HAT = {
+            create_pop = {
+                culture = snow_foxkin
+                size = 817500
+            }
+            create_pop = {
+                culture = forest_foxkin
+                size = 29000
+            }
+        }
+    }
+    s:STATE_AHEE = {
+        region_state:AHE = {
+            create_pop = {
+                culture = snow_foxkin
+                size = 390000
+            }
+        }
+    }
+    s:STATE_UANG_KO = {
+        region_state:UAN = {
+            create_pop = {
+                culture = dogkin
+                size = 1837500
+            }
+            create_pop = {
+                culture = wolfkin
+                size = 180700
+            }
+        }
+    }
+    s:STATE_EE_NOO = {
+        region_state:UAN = {
+            create_pop = {
+                culture = dogkin
+                size = 510000
+            }
+            create_pop = {
+                culture = wolfkin
+                size = 21400
+            }
+        }
+    }
+    s:STATE_HU_SKEE = {
+        region_state:UAN = {
+            create_pop = {
+                culture = dogkin
+                size = 249700
+            }
+            create_pop = {
+                culture = wolfkin
+                size = 250300
+            }
+        }
+    }
+    s:STATE_SEE_BA = {
+        region_state:UAN = {
+            create_pop = {
+                culture = dogkin
+                size = 1110000
+            }
+            create_pop = {
+                culture = wolfkin
+                size = 66600
+            }
+        }
+    }
+    s:STATE_UAN_CHAN = {
+        region_state:UAN = {
+            create_pop = {
+                culture = dogkin
+                size = 480000
+            }
+        }
+    }
+    s:STATE_KOE_NOO = {
+        region_state:UAN = {
+            create_pop = {
+                culture = dogkin
+                size = 555000
+            }
+            create_pop = {
+                culture = faryan
+                size = 31300
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 32400
+            }
+        }
+    }
+    s:STATE_KO_LEE = {
+        region_state:UAN = {
+            create_pop = {
+                culture = dogkin
+                size = 236700
+            }
+            create_pop = {
+                culture = wolfkin
+                size = 200900
+            }
+            create_pop = {
+                culture = eastern_rabbitkin
+                size = 18700
+            }
+        }
+    }
+    s:STATE_ANEPYON = {
+        region_state:ANE = {
+            create_pop = {
+                culture = eastern_rabbitkin
+                size = 615000
+            }
+            create_pop = {
+                culture = western_rabbitkin
+                size = 31100
+            }
+        }
+    }
+    s:STATE_KAWEPYON = {
+        region_state:ANE = {
+            create_pop = {
+                culture = eastern_rabbitkin
+                size = 337500
+            }
+            create_pop = {
+                culture = western_rabbitkin
+                size = 34700
+            }
+        }
+    }
+    s:STATE_WUSAPYON = {
+        region_state:ANE = {
+            create_pop = {
+                culture = eastern_rabbitkin
+                size = 457500
+            }
+        }
+    }
+    s:STATE_KIPYON = {
+        region_state:ANE = {
+            create_pop = {
+                culture = eastern_rabbitkin
+                size = 607500
+            }
+        }
+    }
+    s:STATE_TEPYON = {
+        region_state:ANE = {
+            create_pop = {
+                culture = eastern_rabbitkin
+                size = 420000
+            }
+            create_pop = {
+                culture = wolfkin
+                size = 16300
+            }
+        }
+    }
+    s:STATE_MIRAPYON = {
+        region_state:MIR = {
+            create_pop = {
+                culture = western_rabbitkin
+                size = 637500
+            }
+            create_pop = {
+                culture = eastern_rabbitkin
+                size = 71300
+            }
+        }
+    }
+    s:STATE_HAPYON = {
+        region_state:MIR = {
+            create_pop = {
+                culture = western_rabbitkin
+                size = 352500
+            }
+            create_pop = {
+                culture = solenne
+                size = 12900
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 16600
+            }
+        }
+    }
+    s:STATE_BAIPYON = {
+        region_state:MIR = {
+            create_pop = {
+                culture = western_rabbitkin
+                size = 232500
+            }
+            create_pop = {
+                culture = eastern_rabbitkin
+                size = 9400
+            }
+        }
+    }
+    s:STATE_SEPYON = {
+        region_state:MIR = {
+            create_pop = {
+                culture = western_rabbitkin
+                size = 427500
+            }
+        }
+    }
+    s:STATE_SIROKANI = {
+        region_state:SIR = {
+            create_pop = {
+                culture = bearkin
+                size = 622500
+            }
+            create_pop = {
+                culture = mae
+                size = 36600
+            }
+        }
+    }
+    s:STATE_PORONUPURI = {
+        region_state:BEA = {
+            create_pop = {
+                culture = bearkin
+                size = 165000
+            }
+        }
+    }
+    s:STATE_CUPKA = {
+        region_state:BEA = {
+            create_pop = {
+                culture = bearkin
+                size = 120000
+            }
+        }
+    }
+    s:STATE_NAMWAKKA = {
+        region_state:BEA = {
+            create_pop = {
+                culture = bearkin
+                size = 75000
+            }
+        }
+    }
+    s:STATE_NISEYKOAN = {
+        region_state:BEA = {
+            create_pop = {
+                culture = bearkin
+                size = 135000
+            }
+        }
+    }
+    s:STATE_HURANUI = {
+        region_state:BEA = {
+            create_pop = {
+                culture = bearkin
+                size = 90000
+            }
+        }
+    }
+    s:STATE_OTANOSKI = {
+        region_state:BEA = {
+            create_pop = {
+                culture = bearkin
+                size = 135000
+            }
+        }
+    }
+    s:STATE_TOMAKOMA = {
+        region_state:BEA = {
+            create_pop = {
+                culture = bearkin
+                size = 105000
+            }
+        }
+    }
+    s:STATE_PEKERPET = {
+        region_state:BEA = {
+            create_pop = {
+                culture = bearkin
+                size = 120000
+            }
+        }
+    }
+    s:STATE_KAMUY = {
+        region_state:BEA = {
+            create_pop = {
+                culture = bearkin
+                size = 150000
+            }
+        }
+    }
+    s:STATE_KHOKHUMA = {
+        region_state:NOR = {
+            create_pop = {
+                culture = horsekin
+                size = 270000
+            }
+        }
+    }
+    s:STATE_GAZARUMA = {
+        region_state:NOR = {
+            create_pop = {
+                culture = horsekin
+                size = 210000
+            }
+        }
+    }
+    s:STATE_ALTANUMA = {
+        region_state:NOR = {
+            create_pop = {
+                culture = horsekin
+                size = 255000
+            }
+        }
+    }
+    s:STATE_TSAGAANUMA = {
+        region_state:NOR = {
+            create_pop = {
+                culture = horsekin
+                size = 315000
+            }
+        }
+    }
+    s:STATE_ZULZAIKHUMA = {
+        region_state:NOR = {
+            create_pop = {
+                culture = horsekin
+                size = 255000
+            }
+        }
+    }
+    s:STATE_KHARIINUMA = {
+        region_state:NOR = {
+            create_pop = {
+                culture = horsekin
+                size = 225000
+            }
+        }
+    }
+    s:STATE_MONGONUMA = {
+        region_state:NOR = {
+            create_pop = {
+                culture = horsekin
+                size = 225000
+            }
+        }
+    }
+    s:STATE_GOVSHIKHUMA = {
+        region_state:NOR = {
+            create_pop = {
+                culture = horsekin
+                size = 255000
+            }
+        }
+    }
+    s:STATE_NARIINUMA = {
+        region_state:NOR = {
+            create_pop = {
+                culture = horsekin
+                size = 180000
+            }
+        }
+    }
+    s:STATE_TENGERUMA = {
+        region_state:SOU = {
+            create_pop = {
+                culture = horsekin
+                size = 615000
+            }
+        }
+    }
+    s:STATE_AIRAGUMA = {
+        region_state:SOU = {
+            create_pop = {
+                culture = horsekin
+                size = 555000
+            }
+        }
+    }
+    s:STATE_SHILDEGUMA = {
+        region_state:SOU = {
+            create_pop = {
+                culture = horsekin
+                size = 420000
+            }
+        }
+    }
+    s:STATE_ULAANUMA = {
+        region_state:SOU = {
+            create_pop = {
+                culture = horsekin
+                size = 420000
+            }
+        }
+    }
+    s:STATE_KHADANUMA = {
+        region_state:SOU = {
+            create_pop = {
+                culture = horsekin
+                size = 495000
+            }
+        }
+    }
+    s:STATE_TSEREGUMA = {
+        region_state:SOU = {
+            create_pop = {
+                culture = horsekin
+                size = 315000
+            }
+        }
+    }
+    s:STATE_KHARUMA = {
+        region_state:SOU = {
+            create_pop = {
+                culture = horsekin
+                size = 270000
+            }
+        }
+    }
+    s:STATE_ZULUMA = {
+        region_state:SOU = {
+            create_pop = {
+                culture = horsekin
+                size = 210000
+            }
+        }
+    }
+    s:STATE_GALTANUMA = {
+        region_state:SOU = {
+            create_pop = {
+                culture = horsekin
+                size = 195000
+            }
+        }
+    }
+    s:STATE_UO_FEE = {
+        region_state:WOL = {
+            create_pop = {
+                culture = wolfkin
+                size = 150000
+            }
+        }
+    }
+    s:STATE_DO_GEE = {
+        region_state:WOL = {
+            create_pop = {
+                culture = wolfkin
+                size = 135000
+            }
+        }
+    }
+    s:STATE_BOK_SER = {
+        region_state:WOL = {
+            create_pop = {
+                culture = wolfkin
+                size = 180000
+            }
+        }
+    }
+}

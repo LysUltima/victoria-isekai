@@ -1,0 +1,266 @@
+﻿### Champions JE - Champion Expedition
+
+ova_champion_expedition = {
+	texture = "gfx/interface/icons/diplomatic_action_icons/take_state.dds"
+
+	groups = {
+		general
+	}
+
+	requires_approval = no
+	show_confirmation_box = no
+
+	selectable = {
+		NOT = { is_country_type = decentralized }
+		has_variable = ova_champion_char
+	}
+
+	potential = {
+		OR = {
+			scope:target_country = { is_country_type = decentralized }
+            scope:target_country = { has_technology_researched = demonic_scriptures }
+			has_technology_researched = demonic_scriptures
+			AND = {
+				c:DEM ?= scope:target_country
+				country_has_state_religion = rel:light_orthodoxy
+				ova_hero_crusade_active = yes
+			}
+			# the dao war: righteous and demonic paths may always send their
+			# champions into each other's mountains (2026-07-18 xianxia rework)
+			AND = {
+				ova_xianxia_on_righteous_side_trigger = yes
+				scope:target_country = { ova_xianxia_on_demonic_side_trigger = yes }
+			}
+			AND = {
+				ova_xianxia_on_demonic_side_trigger = yes
+				scope:target_country = { ova_xianxia_on_righteous_side_trigger = yes }
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_expedition_champion_ready_tt
+			ova_champion_is_available = yes
+		}
+		custom_tooltip = {
+			text = ova_expedition_single_tt
+			NOT = { ova_champion_is_adventuring = yes }
+		}
+		custom_tooltip = {
+			text = ova_expedition_lockout_tt
+			NOT = { has_variable = ova_expedition_lockout }
+		}
+		custom_tooltip = {
+			text = ova_expedition_reach_tt
+			OR = {
+				scope:target_country = { is_adjacent_to_country = root }
+				AND = {
+					c:DEM ?= scope:target_country
+					country_has_state_religion = rel:light_orthodoxy
+					ova_hero_crusade_active = yes
+					any_scope_state = { is_coastal = yes }
+				}
+				# the jianghu roads are open: dao-war enemies need no shared
+				# border to reach each other's gates
+				AND = {
+					ova_xianxia_on_righteous_side_trigger = yes
+					scope:target_country = { ova_xianxia_on_demonic_side_trigger = yes }
+				}
+				AND = {
+					ova_xianxia_on_demonic_side_trigger = yes
+					scope:target_country = { ova_xianxia_on_righteous_side_trigger = yes }
+				}
+			}
+		}
+		custom_tooltip = {
+			text = ova_expedition_blocked_by_sanctuary_tt
+			NOT = { ova_champion_sanctuary_with = { TARGET = scope:target_country } }
+		}
+	}
+
+	# root = the adventuring country in all three effect hooks. The
+	# ova_expedition_active marker makes "we are adventuring" checks
+	# direction-correct (has_diplomatic_pact can't tell initiator from target).
+	# Launching an expedition switches off both upkeep programs (Royal
+	# Patronage / Intensive Training) - the champion is abroad, not at court
+	# or in the training yard.
+	accept_effect = {
+		set_variable = ova_expedition_active
+		if = {
+			limit = { has_modifier = ova_champion_patronage_program }
+			remove_modifier = ova_champion_patronage_program
+		}
+		if = {
+			limit = { has_modifier = ova_champion_training_program }
+			remove_modifier = ova_champion_training_program
+		}
+	}
+
+	pact = {
+		cost = 0
+		is_two_sided_pact = no
+		show_in_outliner = yes
+
+		relations_progress_per_day = -3
+
+		# cancelling an expedition mid-campaign leaves the retinue scattered:
+		# no hinterland hunts for a year (ova_adventure_cooldown counts down
+		# on the champion monthly tick)
+		manual_break_effect = {
+			remove_variable = ova_expedition_active
+			remove_variable = ova_expedition_return
+			set_variable = { name = ova_adventure_cooldown value = 12 }
+		}
+
+		auto_break_effect = {
+			remove_variable = ova_expedition_active
+			remove_variable = ova_expedition_return
+		}
+
+		requirement_to_maintain = {
+			trigger = {
+				custom_tooltip = {
+					text = ova_expedition_needs_champion_tt
+					ova_has_living_champion = yes
+				}
+			}
+		}
+
+		# a break interlude or the champion's death locks expeditions out for
+		# months - this immediately cancels a running expedition too
+		requirement_to_maintain = {
+			trigger = {
+				custom_tooltip = {
+					text = ova_expedition_lockout_tt
+					NOT = { has_variable = ova_expedition_lockout }
+				}
+			}
+		}
+
+		requirement_to_maintain = {
+			trigger = {
+				custom_tooltip = {
+					text = ova_expedition_returned_tt
+					NOT = { has_variable = ova_expedition_return }
+				}
+			}
+		}
+
+		requirement_to_maintain = {
+			trigger = {
+				custom_tooltip = {
+					text = ova_expedition_blocked_by_sanctuary_tt
+					NOT = { ova_champion_sanctuary_with = { TARGET = scope:target_country } }
+				}
+			}
+		}
+
+		weekly_effect = {
+            custom_tooltip = {
+                text = ova_expedition_weekly_tt
+                random = {
+                    chance = 4
+                    ova_expedition_roll = yes
+                }
+            }
+		}
+	}
+
+	ai = {
+		check_acceptance_for_will_break = no
+
+		evaluation_chance = {
+			value = 0.25
+			if = {
+				limit = { var:ova_champion_level >= 30 }
+				add = 0.25
+			}
+		}
+
+		propose_score = {
+			value = 10
+			if = {
+				limit = { scope:target_country = { is_country_type = decentralized } }
+				add = 15
+			}
+			if = {
+				limit = {
+					c:DEM ?= scope:target_country
+					country_has_state_religion = rel:light_orthodoxy
+					ova_hero_crusade_active = yes
+				}
+				add = 25
+			}
+			add = {
+				value = var:ova_champion_level
+				multiply = 0.5
+			}
+            if = {
+                limit = {
+                    OR = {
+                        has_journal_entry = je_ova_victoria_4
+                        has_journal_entry = je_ova_victoria_6
+                        has_journal_entry = je_ova_victoria_8
+                    }
+                }
+                add = 100
+            }
+            # the dao war: a champion sent into the enemy path's mountains is
+            # worth more than any ordinary adventure
+            if = {
+                limit = {
+                    OR = {
+                        AND = {
+                            ova_xianxia_on_righteous_side_trigger = yes
+                            scope:target_country = { ova_xianxia_on_demonic_side_trigger = yes }
+                        }
+                        AND = {
+                            ova_xianxia_on_demonic_side_trigger = yes
+                            scope:target_country = { ova_xianxia_on_righteous_side_trigger = yes }
+                        }
+                    }
+                }
+                add = 30
+            }
+		}
+
+		will_propose = {
+			ova_champion_is_available = yes
+            OR = {
+                AND = {
+                    var:ova_champion_level >= 10
+                    OR = {
+                        scope:target_country = { is_country_type = decentralized }
+                        has_attitude = { who = scope:target_country attitude = antagonistic }
+                        has_attitude = { who = scope:target_country attitude = belligerent }
+                        has_attitude = { who = scope:target_country attitude = domineering }
+                        AND = {
+                            c:DEM ?= scope:target_country
+                            country_has_state_religion = rel:light_orthodoxy
+                            ova_hero_crusade_active = yes
+                        }
+                        # dao-war enemies need no attitude check - the war is
+                        # the attitude
+                        AND = {
+                            ova_xianxia_on_righteous_side_trigger = yes
+                            scope:target_country = { ova_xianxia_on_demonic_side_trigger = yes }
+                        }
+                        AND = {
+                            ova_xianxia_on_demonic_side_trigger = yes
+                            scope:target_country = { ova_xianxia_on_righteous_side_trigger = yes }
+                        }
+                    }
+                }
+                has_journal_entry = je_ova_victoria_4
+                has_journal_entry = je_ova_victoria_6
+                has_journal_entry = je_ova_victoria_8
+            }
+
+		}
+
+		will_break = {
+			NOT = { ova_has_living_champion = yes }
+		}
+	}
+}

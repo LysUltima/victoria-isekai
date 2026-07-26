@@ -1,0 +1,1283 @@
+﻿# ALCHEMY TREE (internal category: military)
+# Arabic / high-fantasy alchemy. Spirit Herbs -> Potions, Reagents (sulfur + spirit stones).
+# Homunculus Creation. Potion-based mobilization and battlefield medicine. The navy.
+# All prerequisites are within this tree.
+
+### ERA 1
+
+alembics = {
+	# Unlocks Pot Stills PM in Food Industry
+	# Unlocks Sweeteners PM in Food Industry
+	# Unlocks Fish Press PM in Fishing Wharfs
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/distillation.dds"
+	category = military
+
+	ai_weight = {
+		value = 2 # Root of the tree
+	}
+}
+
+battle_consumables = {
+	# Battle Consumables: talismans, scrolls and battle pills
+	# Unlocks Consumables Workshop building
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/percussion_cap.dds"
+	category = military
+
+	unlocking_technologies = {
+		alembics
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+transmutation_standards = {
+	# Unlocks Payroll Tax - Income Taxation Law
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/currency_standards.dds"
+	category = military
+
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+standing_army = {
+	# Unlocks Barracks building
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	category = military
+
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+navigation = {
+	# Unlocks Shipyards
+	# Unlocks Ports
+	# Increases Port max level by 2
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	category = military
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+medical_degrees = {
+	# Unlocks Private Health Insurance, Public Health Insurance - Health System Laws
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/medical_degrees.dds"
+	category = military
+
+	modifier = {
+		country_institution_health_system_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		alembics
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+international_trade = {
+	# Unlocks Trade Center building
+	# Unlocks Free Trade - Economic System Law
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/international_trade.dds"
+	category = military
+
+	unlocking_technologies = {
+		transmutation_standards
+	}
+
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+banking = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/banking.dds"
+	category = military
+
+	modifier = {
+		country_minting_mult = 0.1
+		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
+	}
+
+	unlocking_technologies = {
+		transmutation_standards
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+international_relations = {
+	# Unlocks Defensive Pact and Rivalry
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/international_diplomacy.dds"
+	category = military
+
+	unlocking_technologies = {
+		international_trade
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+
+
+mandatory_service = {
+	# Unlocks Army Model - National Militia
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/mandatory_service.dds"
+	category = military
+
+	modifier = {
+		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		standing_army
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+massed_levies = {
+	# Unlocks Line Infantry PM in Barracks
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/line_infantry.dds"
+	category = military
+
+	unlocking_technologies = {
+		mandatory_service
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+army_reserves = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/army_reserves.dds"
+	category = military
+
+	modifier = {
+		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		massed_levies
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+drydocks = {
+	# Increases Port max level by 3
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/drydock.dds"
+	category = military
+
+	unlocking_technologies = {
+		navigation
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for anyone with a navy
+		if = {
+			limit = { navy_size >= 5 }
+			add = 0.5
+		}
+	}
+}
+
+admiralty = {
+	# Unlocks building_naval_administration building
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+
+	unlocking_technologies = {
+		navigation
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+alchemical_boilers = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/paddle_steamer.dds"
+	category = military
+
+	modifier = {
+		ship_hull_damage_mult = 0.05
+		ship_crew_damage_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		admiralty
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 0.5
+		}
+	}
+}
+
+### ERA 2
+
+colonization = {
+	# Unlocks Colonial Resettlement, Colonial Exploitation - Colonial Affairs Laws
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/colonization.dds"
+	category = military
+
+	modifier = {
+		country_institution_colonial_affairs_max_investment_add = 2
+		country_infamy_generation_against_unrecognized_mult = -0.1
+	}
+
+	unlocking_technologies = {
+		international_relations
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+fractionating_alembics = {
+	# Unlocks Patent Stills PM in Food Industries
+	# Unlocks Cod Liver Oil PM in Fishing Wharfs
+    # Unlocks Potion Factories
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/fractional_distillation.dds"
+	category = military
+
+	unlocking_technologies = {
+		battle_consumables
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+alchemical_bleaching = {
+	# Unlocks Bone China PM in Glassworks
+	# Unlocks Sulfite Pulping PM in Paper Mills
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/chemical_bleaching.dds"
+	category = military
+
+	unlocking_technologies = {
+		battle_consumables
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+volatile_reagents = {
+	# Unlocks Reagent-Catalyzed Brewing PM in Potion Factories
+	# Unlocks Blasting Potions PM in Spirit Stone, Iron, Mythril, Sulfur, Gold Mines
+	# Countries get a +25% chance of discovering new resources
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/nitroglycerin.dds"
+	category = military
+
+	modifier = {
+		country_resource_discovery_chance_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		reagent_synthesis
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+apothecaries = {
+	# Increases the ratio of pop casualties that survive a battle
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/pharmaceuticals.dds"
+	category = military
+
+	modifier = {
+		country_institution_health_system_max_investment_add = 1
+		state_harvest_condition_disease_outbreak_impact_mult = -0.2
+	}
+
+	unlocking_technologies = {
+		medical_degrees
+        fractionating_alembics
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+fever_tonics = {
+	# Permits colonization of state regions with the Malaria trait
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/quinine.dds"
+	category = military
+
+	modifier = {
+		country_institution_colonial_affairs_max_investment_add = 1
+		country_institution_health_system_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		apothecaries
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_colonial_expansion
+			}
+			add = 3
+		}
+	}
+}
+
+homunculus_creation = {
+	# NEW TECH: Unlocks the Homunculus Factory government building
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/pharmaceuticals.dds"
+	category = military
+
+	unlocking_technologies = {
+		apothecaries
+	}
+
+	ai_weight = {
+		value = 2 # Population is power
+	}
+}
+
+central_banking = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/central_banking.dds"
+	category = military
+
+	modifier = {
+		country_minting_mult = 0.1
+		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
+	}
+
+	unlocking_technologies = {
+		banking
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+logistics = {
+	# increases number of conscriptable battalions
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/logistics_tech.dds"
+	category = military
+
+	modifier = {
+		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		army_reserves
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+battlefield_draughts = {
+	# Unlocks Health Potion Kits PM in Barracks
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/triage.dds"
+	category = military
+
+	unlocking_technologies = {
+		logistics
+        apothecaries
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+general_staff = {
+	# Unlocks Skirmish Infantry PM in Barracks / Conscription Centers
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/general_staff.dds"
+	category = military
+
+	unlocking_technologies = {
+		army_reserves
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+alchemical_propulsion = {
+	# Unlocks Complex Shipbuilding PM in Shipyards
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/screw_frigate.dds"
+	category = military
+
+	unlocking_technologies = {
+		alchemical_boilers
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 0.5
+		}
+	}
+}
+
+power_of_the_purse = {
+	# Unlocks the Power of the Purse PM in Naval Bases
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/power_of_the_purse.dds"
+	category = military
+
+	modifier = {
+		country_admiral_rank_impact_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		admiralty
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+### ERA 3
+
+stabilized_reagents = {
+	# Unlocks Vacuum Evaporation PM in Reagents Factory
+	# Unlocks Explosive Shells PM in Consumables Workshops
+	# Unlocks Stabilized Catalysis PM in Potion Factories
+	# Unlocks Refined Blasting Potions PM in Spirit Stone, Iron, Mythril, Sulfur, Gold Mines
+	# Countries get a +25% chance of discovering new resources
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = military
+
+	modifier = {
+		country_resource_discovery_chance_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		volatile_reagents
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+potion_synthesis = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/aniline.dds"
+	category = military
+
+	unlocking_technologies = {
+		homunculus_creation
+		magic_carpets
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+alchemical_concrete = {
+	# Alchemical Concrete: +15% construction throughput
+	# Unlocks Alchemical Concrete PM in Construction Sectors
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/reinforced_concrete.dds"
+	category = military
+
+	modifier = {
+		building_construction_sector_throughput_add = 0.15
+	}
+
+	unlocking_technologies = {
+		stabilized_reagents
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+civilizing_mission = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/civilizing_mission.dds"
+	category = military
+
+	modifier = {
+		country_institution_colonial_affairs_max_investment_add = 1
+		country_infamy_generation_against_unrecognized_mult = -0.25
+	}
+
+	unlocking_technologies = {
+		fever_tonics
+        colonization
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_colonial_expansion
+			}
+			add = 1
+		}
+	}
+}
+
+modern_nursing = {
+	# Unlocks Healing Draught Corps PM in Barracks
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/modern_nursing.dds"
+	category = military
+
+	unlocking_technologies = {
+		battlefield_draughts
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+enlistment_offices = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	modifier = {
+		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		logistics
+        general_staff
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+warded_hulls = {
+	# Unlocks Metal Shipbuilding PM in Shipyards
+	# Unlocks Ironclads PM in Naval Base
+	# Unlocks Steam Trawlers PM in Fishing Wharves
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/ironclad_tech.dds"
+	category = military
+
+	unlocking_technologies = {
+		alchemical_propulsion
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Very Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 2
+		}
+	}
+}
+
+coastal_warships = {
+	# Unlocks Monitors PM in Naval Base
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/monitor_tech.dds"
+	category = military
+
+	unlocking_technologies = {
+		warded_hulls
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 0.5
+		}
+	}
+}
+
+reagent_torpedoes = {
+	# Unlocks Torpedo Boat PM in Naval Base
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/self_propelled_torpedoes.dds"
+	category = military
+
+	unlocking_technologies = {
+		power_of_the_purse
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+swarm_fleet_doctrine = {
+	# Unlocks Jeune Ecole PM in Naval Base
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/jeune_ecole.dds"
+	category = military
+
+	modifier = {
+		country_admiral_rank_impact_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		reagent_torpedoes
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+### ERA 4
+
+alchemical_thread = {
+	# Unlocks the Alchemical Thread PM in Potion Factories
+	# Unlocks the Bleached Paper PM in Paper Mills
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/art_silk.dds"
+	category = military
+
+	unlocking_technologies = {
+		potion_synthesis
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+automated_vialworks = {
+	# Unlocks the Automatic Vialworks PM in Glassworks
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/automatic_bottle_blowers.dds"
+	category = military
+
+	unlocking_technologies = {
+        crystal_glass
+        stabilized_reagents
+		potion_synthesis
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+monster_wards = {
+	# Permits colonization of state regions with severe malaria
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/malaria_prevention.dds"
+	category = military
+
+	modifier = {
+		country_institution_colonial_affairs_max_investment_add = 1
+		country_institution_health_system_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		civilizing_mission
+        modern_nursing
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_colonial_expansion
+			}
+			add = 1
+		}
+	}
+}
+
+international_exchange_standards = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/international_exchange_standards.dds"
+	category = military
+
+	modifier = {
+		country_minting_mult = 0.1
+		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
+	}
+
+	unlocking_technologies = {
+		gantry_cranes
+		identification_documents
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+war_propaganda = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/war_propaganda.dds"
+	category = military
+
+	modifier = {
+		unit_morale_loss_mult = -0.05
+		state_conscription_rate_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		enlistment_offices
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+armored_warships = {
+	# Unlocks Pre-Dreadnoughts
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/pre_dreadnought.dds"
+	category = military
+
+	unlocking_technologies = {
+		warded_hulls
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+sea_lane_strategies = {
+	# Unlocks Sea Lane Strategies PM in Naval Bases
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/sea_lane_strategies.dds"
+	category = military
+
+	modifier = {
+		country_admiral_rank_impact_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		swarm_fleet_doctrine
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+landing_craft = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/landing_craft.dds"
+	category = military
+
+	unlocking_technologies = {
+		swarm_fleet_doctrine
+		coastal_warships
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 1
+		}
+	}
+}
+
+submersible_hulls = {
+	# Unlocks Submarine PM on Naval Bases
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/submarine.dds"
+	category = military
+
+	unlocking_technologies = {
+		reagent_torpedoes
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+grand_warships = {
+	# Unlocks Dreadnoughts PM in Naval Bases
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/dreadnought.dds"
+	category = military
+
+	unlocking_technologies = {
+		armored_warships
+		sea_lane_strategies
+		alchemical_dockyards
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 0.5
+		}
+	}
+}
+
+### ERA 5
+
+panacea_cultures = {
+	# Unlocks the Battle Potions mobilization option (4th supplements tier)
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/antibiotics.dds"
+	category = military
+
+	modifier = {
+		country_institution_health_system_max_investment_add = 1
+		state_harvest_condition_disease_outbreak_impact_mult = -0.15
+	}
+
+	unlocking_technologies = {
+		monster_wards
+		war_propaganda
+		psychoanalysis
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+modern_financial_instruments = {
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/modern_financial_instruments.dds"
+	category = military
+	modifier = {
+		country_minting_mult = 0.1
+		country_loan_interest_rate_add = -0.02
+		country_government_dividends_efficiency_add = 0.05
+	}
+	unlocking_technologies = {
+		international_exchange_standards
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+macroeconomics = {
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/macroeconomics.dds"
+	category = military
+
+	modifier = {
+		country_max_companies_add = 1
+		state_market_access_price_impact = 0.05
+	}
+
+	unlocking_technologies = {
+		international_exchange_standards
+		floating_harbor
+		multilateral_alliances
+	}
+
+	ai_weight = {
+		value = 3 # very important tech
+	}
+}
+
+miasmic_reagents = {
+	# Unlocks Miasmic Reagent War Automata PM in Barracks
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/chemical_warfare.dds"
+	category = military
+
+	unlocking_technologies = {
+		automated_vialworks
+        war_propaganda
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+torpedo_cutters = {
+	# Unlocks Destroyer PM on Naval Bases
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/destroyers.dds"
+	category = military
+
+	unlocking_technologies = {
+		submersible_hulls
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+titan_warships = {
+	# Unlocks Battleships PM in Naval Bases
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/battleship_tech.dds"
+	category = military
+
+	unlocking_technologies = {
+		grand_warships
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 0.5
+		}
+	}
+}
+
+airship_carriers = {
+	# Unlocks Carriers PM in Naval Bases
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/carrier_tech.dds"
+	category = military
+
+	unlocking_technologies = {
+		grand_warships
+		landing_craft
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 0.5
+		}
+	}
+}
+
+battlefleet_tactics = {
+	# Unlocks Battlefleet Tactics PM in Naval Bases
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/battlefleet_tactics.dds"
+	category = military
+
+	modifier = {
+		country_admiral_rank_impact_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		titan_warships
+		sea_lane_strategies
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+alchemical_dockyards = {
+	# Unlocks Modern Port PM in Ports
+	# Increases Max Port Level by 4
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/concrete_dockyards.dds"
+	category = military
+
+	modifier = {
+		ship_ship_type_supply_ship_supply_capacity_mult = 0.1
+		country_ship_group_capital_ships_construction_progress_max_add = 10
+	}
+
+	unlocking_technologies = {
+		warded_hulls
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for anyone with a navy
+		if = {
+			limit = { navy_size >= 5 }
+			add = 0.5
+		}
+	}
+}
+
+magic_carpets = {
+	# Unlocks Magic Carpets PM in Airship Works
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
+	category = military
+
+	unlocking_technologies = {
+		international_trade
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+### REAGENTS & POTION INDUSTRY
+
+reagent_synthesis = {
+	# Unlocks Reagents Factory (split from Spirit Fertilizer Works / spirit_field_cultivation)
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/nitroglycerin.dds"
+	category = military
+
+	unlocking_technologies = {
+		alchemical_bleaching
+        fractionating_alembics
+	}
+
+	ai_weight = {
+		value = 1.5 # Reagents feed potions, consumables and blasting
+	}
+}
+
+### PORT & GLASS TECHS (restored to the Alchemy tree)
+
+alchemical_cranes = {
+	# Unlocks Hydraulic Cranes PM in Ports
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/hydraulic_cranes.dds"
+	category = military
+
+	unlocking_technologies = {
+		drydocks
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for anyone with a navy
+		if = {
+			limit = { navy_size >= 5 }
+			add = 0.5
+		}
+	}
+}
+
+gantry_cranes = {
+	# Unlocks Metal Shipbuilding PM in Shipyards
+	# Unlocks Core-Engine Trawlers / Hunting Fleets PMs in Fishing Wharfs and Leviathan Hunting Stations
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/gantry_crane.dds"
+	category = military
+
+	unlocking_technologies = {
+		alchemical_cranes
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+floating_harbor = {
+	# Unlocks Floating Harbor PM in Ports
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/floating_harbor.dds"
+	category = military
+
+	unlocking_technologies = {
+		gantry_cranes
+		alchemical_concrete
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for anyone with a navy
+		if = {
+			limit = { navy_size >= 5 }
+			add = 0.5
+		}
+	}
+}
+
+crystal_glass = {
+	# Unlocks Crystal Glass PM in Glassworks
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/crystal_glass.dds"
+	category = military
+
+	unlocking_technologies = {
+		alchemical_bleaching
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+### CONSTRUCTION (Alchemy parity line)
+
+alchemical_architecture = {
+	# Unlocks Spirit Thread Lattice PM in Construction Sectors
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/arc_welding.dds"
+	category = military
+
+	unlocking_technologies = {
+		alchemical_thread
+	}
+
+	ai_weight = {
+		value = 1.5 # Top construction tier for Alchemy nations
+	}
+}
+
+
+### ISEKAI TC: moved from Spiritualism - diplomacy, papers, and mind-medicine fit the Alchemy tradition
+
+multilateral_alliances = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/multilateral_alliances.dds"
+	category = military
+
+	modifier = {
+		country_infamy_generation_mult = -0.25
+		country_diplomatic_play_maneuvers_mult = 0.5
+		country_allow_multiple_alliances_bool = yes
+	}
+
+	unlocking_technologies = {
+		civilizing_mission
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { country_rank >= rank_value:great_power }
+			add = 2
+		}
+	}
+}
+
+identification_documents = {
+	# Unlocks Identification Documents PM in Government Administrations
+	# Unlocks Closed Borders Law in Migration
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/identification_documents.dds"
+	category = military
+
+	modifier = {
+		state_tax_capacity_add = 25
+		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		central_banking
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+psychoanalysis = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/psychoanalysis.dds"
+	category = military
+
+	modifier = {
+		country_influence_mult = 0.25
+		country_diplomatic_play_maneuvers_mult = 0.25
+		state_bureaucracy_population_base_cost_factor_mult = -0.05
+	}
+
+	unlocking_technologies = {
+		modern_nursing
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}

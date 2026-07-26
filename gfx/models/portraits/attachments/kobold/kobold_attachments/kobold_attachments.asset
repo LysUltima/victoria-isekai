@@ -1,0 +1,294 @@
+﻿pdxmesh = {
+	name = "male_kobold_attachments_mesh"
+	file = "male_kobold_attachments.mesh"
+
+
+	blend_shape = { id = "male_kobold_attachments"				type = "male_kobold_attachments.mesh"  }
+
+
+
+	meshsettings = {
+		name = "male_kobold_attachmentsShape"
+		index = 0
+		texture_diffuse = "kobold_diffuse.dds"
+		texture_normal = "kobold_normal.dds"
+		texture_specular = "kobold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+
+entity = {
+	name = "male_kobold_attachments_entity"
+	pdxmesh = "male_kobold_attachments_mesh"
+	
+	attribute = { name = "race_attachments"					blend_shape = "male_kobold_attachments" }
+	}
+
+
+pdxmesh = {
+	name = "female_kobold_attachments_mesh"
+	file = "female_kobold_attachments.mesh"
+
+
+	blend_shape = { id = "female_kobold_attachments"				type = "female_kobold_attachments.mesh"  }
+
+
+	meshsettings = {
+		name = "female_kobold_attachmentsShape"
+		index = 0
+		texture_diffuse = "kobold_diffuse.dds"
+		texture_normal = "kobold_normal.dds"
+		texture_specular = "kobold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+
+entity = {
+	name = "female_kobold_attachments_entity"
+	pdxmesh = "female_kobold_attachments_mesh"
+	
+	attribute = { name = "race_attachments"					blend_shape = "female_kobold_attachments" }
+	}
+
+
+pdxmesh = {
+	name = "male_kobold_gold_attachments_mesh"
+	file = "male_kobold_attachments.mesh"
+
+
+	blend_shape = { id = "male_kobold_attachments"				type = "male_kobold_attachments.mesh"  }
+
+
+
+	meshsettings = {
+		name = "male_kobold_attachmentsShape"
+		index = 0
+		texture_diffuse = "kobold_diffuse_gold.dds"
+		texture_normal = "kobold_normal.dds"
+		texture_specular = "kobold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+
+entity = {
+	name = "male_kobold_gold_attachments_entity"
+	pdxmesh = "male_kobold_gold_attachments_mesh"
+	
+	attribute = { name = "race_attachments"					blend_shape = "male_kobold_attachments" }
+	}
+
+
+pdxmesh = {
+	name = "female_kobold_gold_attachments_mesh"
+	file = "female_kobold_attachments.mesh"
+
+
+	blend_shape = { id = "female_kobold_attachments"				type = "female_kobold_attachments.mesh"  }
+
+
+	meshsettings = {
+		name = "female_kobold_attachmentsShape"
+		index = 0
+		texture_diffuse = "kobold_diffuse_gold.dds"
+		texture_normal = "kobold_normal.dds"
+		texture_specular = "kobold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+
+entity = {
+	name = "female_kobold_gold_attachments_entity"
+	pdxmesh = "female_kobold_gold_attachments_mesh"
+	
+	attribute = { name = "race_attachments"					blend_shape = "female_kobold_attachments" }
+	}	
+
+
+pdxmesh = {
+	name = "male_kobold_dark_attachments_mesh"
+	file = "male_kobold_attachments.mesh"
+
+
+	blend_shape = { id = "male_kobold_attachments"				type = "male_kobold_attachments.mesh"  }
+
+
+
+	meshsettings = {
+		name = "male_kobold_attachmentsShape"
+		index = 0
+		texture_diffuse = "kobold_diffuse_dark.dds"
+		texture_normal = "kobold_normal.dds"
+		texture_specular = "kobold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+
+entity = {
+	name = "male_kobold_dark_attachments_entity"
+	pdxmesh = "male_kobold_dark_attachments_mesh"
+	
+	attribute = { name = "race_attachments"					blend_shape = "male_kobold_attachments" }
+	}
+
+
+pdxmesh = {
+	name = "female_kobold_dark_attachments_mesh"
+	file = "female_kobold_attachments.mesh"
+
+
+	blend_shape = { id = "female_kobold_attachments"				type = "female_kobold_attachments.mesh"  }
+
+
+	meshsettings = {
+		name = "female_kobold_attachmentsShape"
+		index = 0
+		texture_diffuse = "kobold_diffuse_dark.dds"
+		texture_normal = "kobold_normal.dds"
+		texture_specular = "kobold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+
+entity = {
+	name = "female_kobold_dark_attachments_entity"
+	pdxmesh = "female_kobold_dark_attachments_mesh"
+	
+	attribute = { name = "race_attachments"					blend_shape = "female_kobold_attachments" }
+	}
+
+pdxmesh = {
+	name = "male_kobold_steel_attachments_mesh"
+	file = "male_kobold_attachments.mesh"
+
+
+	blend_shape = { id = "male_kobold_attachments"				type = "male_kobold_attachments.mesh"  }
+
+
+
+	meshsettings = {
+		name = "male_kobold_attachmentsShape"
+		index = 0
+		texture_diffuse = "kobold_diffuse_steel.dds"
+		texture_normal = "kobold_normal.dds"
+		texture_specular = "kobold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+
+entity = {
+	name = "male_kobold_steel_attachments_entity"
+	pdxmesh = "male_kobold_steel_attachments_mesh"
+	
+	attribute = { name = "race_attachments"					blend_shape = "male_kobold_attachments" }
+	}
+
+
+pdxmesh = {
+	name = "female_kobold_steel_attachments_mesh"
+	file = "female_kobold_attachments.mesh"
+
+
+	blend_shape = { id = "female_kobold_attachments"				type = "female_kobold_attachments.mesh"  }
+
+
+	meshsettings = {
+		name = "female_kobold_attachmentsShape"
+		index = 0
+		texture_diffuse = "kobold_diffuse_steel.dds"
+		texture_normal = "kobold_normal.dds"
+		texture_specular = "kobold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "female_kobold_steel_attachments_entity"
+	pdxmesh = "female_kobold_steel_attachments_mesh"
+	
+	attribute = { name = "race_attachments"					blend_shape = "female_kobold_attachments" }
+	}		
+
+
+pdxmesh = {
+	name = "male_kobold_green_attachments_mesh"
+	file = "male_kobold_attachments.mesh"
+
+
+	blend_shape = { id = "male_kobold_attachments"				type = "male_kobold_attachments.mesh"  }
+
+
+
+	meshsettings = {
+		name = "male_kobold_attachmentsShape"
+		index = 0
+		texture_diffuse = "kobold_diffuse_green.dds"
+		texture_normal = "kobold_normal.dds"
+		texture_specular = "kobold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+
+entity = {
+	name = "male_kobold_green_attachments_entity"
+	pdxmesh = "male_kobold_green_attachments_mesh"
+	
+	attribute = { name = "race_attachments"					blend_shape = "male_kobold_attachments" }
+	}
+
+
+pdxmesh = {
+	name = "female_kobold_green_attachments_mesh"
+	file = "female_kobold_attachments.mesh"
+
+
+	blend_shape = { id = "female_kobold_attachments"				type = "female_kobold_attachments.mesh"  }
+
+
+	meshsettings = {
+		name = "female_kobold_attachmentsShape"
+		index = 0
+		texture_diffuse = "kobold_diffuse_green.dds"
+		texture_normal = "kobold_normal.dds"
+		texture_specular = "kobold_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+
+entity = {
+	name = "female_kobold_green_attachments_entity"
+	pdxmesh = "female_kobold_green_attachments_mesh"
+	
+	attribute = { name = "race_attachments"					blend_shape = "female_kobold_attachments" }
+	}				
+
+
+
+

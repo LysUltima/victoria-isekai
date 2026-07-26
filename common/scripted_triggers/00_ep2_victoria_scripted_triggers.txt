@@ -1,0 +1,331 @@
+﻿pop_typically_counts_as_middle_strata = { # Pop scope
+    OR = {
+        is_pop_type = shopkeepers
+        is_pop_type = engineers
+        is_pop_type = bureaucrats
+        is_pop_type = officers
+        is_pop_type = academics
+        is_pop_type = clergymen
+        is_pop_type = farmers
+    }
+}
+
+country_has_monarchy_law = {
+    OR = {
+        has_law = law_type:law_monarchy
+        has_law = law_type:law_social_monarchy
+    }
+}
+
+country_has_non_monarchy_law = {
+    OR = {
+        has_law = law_type:law_chiefdom
+        has_law = law_type:law_colonial_administration
+        has_law = law_type:law_parliamentary_republic
+        has_law = law_type:law_theocracy
+        has_law = law_type:law_council_republic
+        has_law = law_type:law_corporate_state
+    }
+}
+
+character_is_daimyo = {
+    owner ?= {
+        always = no # cu:japanese
+    }
+    always = no
+}
+
+character_has_been_patronized = {
+    trigger_if = {
+        limit = {
+            AND = {
+                has_role_of_type = agitator
+                OR = {
+                    has_role_of_type = general
+                    has_role_of_type = admiral
+                }
+            }
+        }
+        has_modifier = modifier_agitator_commander_political_patronage
+    }
+    trigger_else_if = {
+        limit = {
+            has_role_of_type = agitator
+        }
+        has_modifier = modifier_agitator_political_patronage
+    }
+    trigger_else_if = {
+        limit = {
+            NOT = {
+                has_role_of_type = politician
+            }
+            OR = {
+                has_role_of_type = general
+                has_role_of_type = admiral
+            }
+        }
+        has_modifier = modifier_commander_political_patronage
+    }
+    trigger_else = {
+        has_modifier = modifier_political_patronage
+    }
+}
+
+character_has_been_ostracized = {
+    trigger_if = {
+        limit = {
+            AND = {
+                has_role_of_type = agitator
+                OR = {
+                    has_role_of_type = general
+                    has_role_of_type = admiral
+                }
+            }
+        }
+        has_modifier = modifier_agitator_commander_political_smears
+    }
+    trigger_else_if = {
+        limit = {
+            has_role_of_type = agitator
+        }
+        has_modifier = modifier_agitator_political_smears
+    }
+    trigger_else_if = {
+        limit = {
+            NOT = {
+                has_role_of_type = politician
+            }
+            OR = {
+                has_role_of_type = general
+                has_role_of_type = admiral
+            }
+        }
+        has_modifier = modifier_commander_political_smears
+    }
+    trigger_else = {
+        has_modifier = modifier_political_smears
+    }
+}
+
+owner_is_root_or_subject_of_root = {
+    OR = {
+        owner = ROOT
+        owner = {
+            is_subject_of = ROOT
+        }
+    }
+}
+
+character_has_valid_reason_for_coup = {
+    save_temporary_scope_as = coupist_to_be
+    OR = {
+        owner ?= { # Case 1 - owner is enacting a law the character does not approve of
+            save_temporary_scope_as = couped_to_be
+            exists = currently_enacting_law
+            OR = {
+                scope:coupist_to_be ?= {
+                    law_enactment_stance = { # Refers to any_scope_character
+                        law = scope:couped_to_be.currently_enacting_law.type # Refers to owner
+                        value < neutral # Disapproves of the law
+                    }
+                }
+                AND = {
+                    scope:coupist_to_be ?= {
+                        law_enactment_stance = { # Refers to any_scope_character
+                            law = scope:couped_to_be.currently_enacting_law.type # Refers to owner
+                            value < approve # Character does not approve of the law
+                        }
+                        interest_group ?= {
+                            law_enactment_stance = { # Refers to any_scope_character's interest group
+                                law = scope:couped_to_be.currently_enacting_law.type # Refers to owner
+                                value < neutral # Interest group opposes the law
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        this.interest_group = {
+            OR = {
+                has_modifier = modifier_failed_to_meet_petition # Case 2 - owner has failed a petition for this.interest_group
+                has_modifier = negotiation_failed_quest # Case 3 - owner has failed a negotiation for this.interest_group
+            }
+        }
+        OR = {
+            has_trait = special_character_napoleonic_return # Case 4 - this just has a coupiful personality
+            has_trait = special_character_blanqui_is_free
+        }
+        # Not in this trigger, but exposed elsewhere:
+        # Case 5 - Foreign-Backed Coup
+        # Case 6 - Foreign-Backed Coup
+    }
+}
+
+company_is_zaibatsu = {
+    OR = {
+        always = no # company_mitsui
+        always = no # company_mitsubishi
+        always = no # company_yasuda
+        always = no # company_sumitomo
+    }
+}
+
+country_has_isolationism_or_sakoku = {
+    OR = {
+        has_law = law_type:law_isolationism
+        has_law = law_type:law_sakoku
+    }
+}
+
+country_has_isolationism = {
+    has_law = law_type:law_isolationism
+}
+
+is_domain_alliance_gov = {
+    AND = {
+        is_revolutionary = yes
+        always = no  # var:civil_war_type_var ?= movement_type:movement_meiji_restorationist
+        has_law = law_type:law_monarchy
+        always = no # cu:japanese
+    }
+}
+
+country_is_abolishing_bakufu = {
+    AND = {
+        has_law = law_type:law_bakufu
+        OR = {
+            is_enacting_law = law_type:law_technocracy
+            is_enacting_law = law_type:law_oligarchy
+            is_enacting_law = law_type:law_landed_voting
+            is_enacting_law = law_type:law_wealth_voting
+            is_enacting_law = law_type:law_census_voting
+            is_enacting_law = law_type:law_universal_suffrage
+            is_enacting_law = law_type:law_anarchy
+            is_enacting_law = law_type:law_single_party_state
+        }
+    }
+}
+
+character_is_valid_for_events = {
+   NOT = { has_role = character_role_emperor_of_japan } # no mod equivalent
+   NOT = { has_variable = golpista_var }
+   is_adult = yes
+}
+
+country_has_emperor_in_power = {
+    OR = {
+        country_is_abolishing_bakufu = yes
+        NOT = {
+            has_law = law_type:law_bakufu
+        }
+    }
+    NOT = {
+		country_is_taikunate = yes
+    }
+}
+
+country_has_tokugawa_in_power = {
+    OR = {
+		country_is_taikunate = yes
+        has_law = law_type:law_bakufu
+    }
+    NOT = {
+        country_is_abolishing_bakufu = yes
+    }
+}
+
+country_has_former_shogun_in_government = {
+    any_scope_character = {
+        has_variable = shogun_var
+        is_interest_group_leader = yes
+        interest_group ?= {
+            is_in_government = yes
+        }
+    }
+}
+
+sonnojoi_have_shojoi_ideology = {
+	any_political_movement = {
+		always = no # is_political_movement_type = movement_meiji_restorationist
+		always = no # has_core_ideology = ideology:ideology_meiji_restorationist_movement_shojoi
+	}
+}
+
+country_has_pending_meiji_restoration = {
+    OR = {
+        always = no # has_inactive_journal_entry = je_meiji_restoration
+        always = no # has_journal_entry = je_meiji_restoration
+    }
+}
+
+japanese_character_is_marked_for_death_chance = {
+    OR = {
+        always = no # The Ninko Emperor dies quite young (has_template = JAP_ninko_yamato)
+        always = no # Ienari mustn't live past 1842 (has_template = JAP_ienari_tokugawa)
+        always = no # Iesada had serious health issues (has_template = JAP_iesada_tokugawa)
+        always = no # Iemochi also dies very young (has_template = JAP_iemochi_tokugawa)
+        always = no # The Komei Emperor will die at an extremely inconvenient time (has_template = JAP_komei_yamato)
+    }
+}
+
+law_is_governance_principles_law = { # law scope
+    OR = {
+        type ?= law_type:law_monarchy
+        type ?= law_type:law_theocracy
+        type ?= law_type:law_social_monarchy
+        type ?= law_type:law_corporate_state
+        type ?= law_type:law_chiefdom
+        type ?= law_type:law_presidential_republic
+        type ?= law_type:law_parliamentary_republic
+        type ?= law_type:law_council_republic
+    }
+}
+
+country_has_nobility = {
+    OR = {
+        has_law_or_variant = law_type:law_theocracy
+        country_has_monarchy_law = yes
+        AND = {
+            has_law = law_type:law_colonial_administration
+            overlord ?= {
+                country_has_nobility = yes
+            }
+        }
+    }
+}
+
+country_has_springtime_revolution = {
+    any_civil_war = {
+        is_civil_war_type = revolution
+        civil_war_progress >= $THRESHOLD$
+        custom_tooltip = {
+            text = caused_by_liberal_or_socialist_movement_tt
+            political_movement ?= {
+                OR = {
+                    movement_is_liberal = yes
+                    movement_is_socialist = yes
+                }
+            }
+        }
+    }
+    capital = {
+        is_in_revolt = yes
+    }
+}
+
+country_is_taikunate = {
+    custom_tooltip = {
+        text = has_taikunate_tt
+        any_active_law = {
+            has_amendment = amendment_type:amendment_taikunate
+        }
+    }
+}
+
+character_is_taikun = {
+    owner ?= {
+        always = no # cu:japanese
+        country_is_taikunate = yes
+    }
+    has_variable = former_shogun_var
+}

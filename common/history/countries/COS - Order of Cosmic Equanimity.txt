@@ -1,0 +1,8 @@
+﻿# Order of Cosmic Equanimity (western_plateau: spiritualism tier 2, sect)
+COUNTRIES = {
+	c:COS ?= {
+		effect_starting_technology_spiritualism_tier_2 = yes
+		create_character = { template = template_ruler_cos role = ruler }
+		effect_starting_politics_sect = yes
+	}
+}

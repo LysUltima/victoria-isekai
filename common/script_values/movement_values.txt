@@ -1,0 +1,34 @@
+﻿average_german_fervor = {
+    value = 0
+    add = cu:vardish
+    add = cu:vardish
+    divide = 2
+}
+
+average_south_slavic_fervor = {
+    value = 0
+    # removed effect line: was culture = cu:serb (no mod analogue)
+    # removed effect line: was culture = cu:croat (no mod analogue)
+    # removed effect line: was culture = cu:bosniak (no mod analogue)
+    # removed effect line: was culture = cu:slovene (no mod analogue)
+    if = {
+        limit = {
+            AND = {
+                always = no # vanilla ref 'c:BUL' not present in this mod
+                always = no # blanked: vanilla ref 'c:BUL' not present in this mod
+            }
+        }
+        # removed effect line: vanilla ref 'cu:bulgarian' not present in this mod
+        divide = 5
+    }
+    else = {
+        divide = 4
+    }
+}
+
+average_italian_fervor = {
+    value = 0
+    add = cu:aurora
+    add = cu:aurora
+    divide = 2
+}

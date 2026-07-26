@@ -1,0 +1,1249 @@
+﻿BUILDINGS = {
+    s:STATE_NIRAI_KANAI = {
+        region_state:TID = {
+            create_building = {
+                building = "building_wheat_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:TID"
+                        levels = 3
+                        region = "STATE_NIRAI_KANAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:TID"
+                        levels = 2
+                        region = "STATE_NIRAI_KANAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tea_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:TID"
+                        levels = 2
+                        region = "STATE_NIRAI_KANAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tea_plantation"
+                    "worker_exploitation_tea"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_silk_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:TID"
+                        levels = 2
+                        region = "STATE_NIRAI_KANAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_silk_plantation"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:TID"
+                        levels = 1
+                        region = "STATE_NIRAI_KANAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_textile_mill"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:TID"
+                        levels = 1
+                        region = "STATE_NIRAI_KANAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_handsewn_clothes"
+                    "pm_craftsman_sewing"
+                    "pm_traditional_looms"
+                }
+            }
+        }
+    }
+    s:STATE_URUMA = {
+        region_state:URU = {
+            create_building = {
+                building = "building_wheat_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:URU"
+                        levels = 3
+                        region = "STATE_URUMA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:URU"
+                        levels = 2
+                        region = "STATE_URUMA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_banana_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:URU"
+                        levels = 2
+                        region = "STATE_URUMA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_banana_plantation"
+                    "worker_exploitation_banana"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tea_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:URU"
+                        levels = 2
+                        region = "STATE_URUMA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tea_plantation"
+                    "worker_exploitation_tea"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:URU"
+                        levels = 1
+                        region = "STATE_URUMA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_furniture_manufactory"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:URU"
+                        levels = 1
+                        region = "STATE_URUMA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_handcrafted_furniture"
+                    "pm_luxury_furniture"
+                    "pm_automation_disabled"
+                }
+            }
+        }
+    }
+    s:STATE_UTAKI = {
+        region_state:UTA = {
+            create_building = {
+                building = "building_wheat_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:UTA"
+                        levels = 3
+                        region = "STATE_UTAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:UTA"
+                        levels = 2
+                        region = "STATE_UTAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_silk_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:UTA"
+                        levels = 2
+                        region = "STATE_UTAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_silk_plantation"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tea_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:UTA"
+                        levels = 2
+                        region = "STATE_UTAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tea_plantation"
+                    "worker_exploitation_tea"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:UTA"
+                        levels = 1
+                        region = "STATE_UTAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_textile_mill"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:UTA"
+                        levels = 1
+                        region = "STATE_UTAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_handsewn_clothes"
+                    "pm_craftsman_sewing"
+                    "pm_traditional_looms"
+                }
+            }
+        }
+    }
+    s:STATE_UFUMI = {
+        region_state:UFU = {
+            create_building = {
+                building = "building_wheat_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:UFU"
+                        levels = 3
+                        region = "STATE_UFUMI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:UFU"
+                        levels = 2
+                        region = "STATE_UFUMI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tobacco_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:UFU"
+                        levels = 2
+                        region = "STATE_UFUMI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tobacco_plantation"
+                    "hand_rolled"
+                    "lectors_tobacco"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tea_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:UFU"
+                        levels = 2
+                        region = "STATE_UFUMI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tea_plantation"
+                    "worker_exploitation_tea"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:UFU"
+                        levels = 1
+                        region = "STATE_UFUMI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_furniture_manufactory"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:UFU"
+                        levels = 1
+                        region = "STATE_UFUMI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_handcrafted_furniture"
+                    "pm_luxury_furniture"
+                    "pm_automation_disabled"
+                }
+            }
+        }
+    }
+    s:STATE_MANIA_KOWHAI = {
+        region_state:WHA = {
+            create_building = {
+                building = "building_millet_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:WHA"
+                        levels = 2
+                        region = "STATE_MANIA_KOWHAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_cotton_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:WHA"
+                        levels = 1
+                        region = "STATE_MANIA_KOWHAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_cotton_plantation"
+                    "worker_exploitation_cotton"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_TAHATIKA_TAPARA = {
+        region_state:KAI = {
+            create_building = {
+                building = "building_millet_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KAI"
+                        levels = 2
+                        region = "STATE_TAHATIKA_TAPARA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_cotton_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KAI"
+                        levels = 1
+                        region = "STATE_TAHATIKA_TAPARA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_cotton_plantation"
+                    "worker_exploitation_cotton"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_PAPAKU_O_TE_RA = {
+        region_state:RAN = {
+            create_building = {
+                building = "building_millet_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:RAN"
+                        levels = 2
+                        region = "STATE_PAPAKU_O_TE_RA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tobacco_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:RAN"
+                        levels = 1
+                        region = "STATE_PAPAKU_O_TE_RA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tobacco_plantation"
+                    "hand_rolled"
+                    "lectors_tobacco"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_RAUPO_MOANA = {
+        region_state:TAR = {
+            create_building = {
+                building = "building_millet_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:TAR"
+                        levels = 2
+                        region = "STATE_RAUPO_MOANA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tobacco_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:TAR"
+                        levels = 2
+                        region = "STATE_RAUPO_MOANA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tobacco_plantation"
+                    "hand_rolled"
+                    "lectors_tobacco"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_KAINGA_MAROKE = {
+        region_state:WAI = {
+            create_building = {
+                building = "building_millet_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:WAI"
+                        levels = 3
+                        region = "STATE_KAINGA_MAROKE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tobacco_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:WAI"
+                        levels = 2
+                        region = "STATE_KAINGA_MAROKE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tobacco_plantation"
+                    "hand_rolled"
+                    "lectors_tobacco"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_cotton_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:WAI"
+                        levels = 2
+                        region = "STATE_KAINGA_MAROKE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_cotton_plantation"
+                    "worker_exploitation_cotton"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_MOTU_HUMARIE = {
+        region_state:HAW = {
+            create_building = {
+                building = "building_millet_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HAW"
+                        levels = 2
+                        region = "STATE_MOTU_HUMARIE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_cotton_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HAW"
+                        levels = 1
+                        region = "STATE_MOTU_HUMARIE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_cotton_plantation"
+                    "worker_exploitation_cotton"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_MOUTERE_TARAPIROPIRO = {
+        region_state:WHN = {
+            create_building = {
+                building = "building_millet_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:WHN"
+                        levels = 2
+                        region = "STATE_MOUTERE_TARAPIROPIRO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tobacco_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:WHN"
+                        levels = 1
+                        region = "STATE_MOUTERE_TARAPIROPIRO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tobacco_plantation"
+                    "hand_rolled"
+                    "lectors_tobacco"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_PALIANUENUE = {
+        region_state:AHU = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:AHU"
+                        levels = 3
+                        region = "STATE_PALIANUENUE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_coffee_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:AHU"
+                        levels = 2
+                        region = "STATE_PALIANUENUE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_coffee_plantation"
+                    "coffee_plantation_patio_drying"
+                    "worker_exploitation_coffee"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_silk_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:AHU"
+                        levels = 2
+                        region = "STATE_PALIANUENUE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_silk_plantation"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_ONELOA = {
+        region_state:KAM = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KAM"
+                        levels = 3
+                        region = "STATE_ONELOA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_silk_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KAM"
+                        levels = 2
+                        region = "STATE_ONELOA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_silk_plantation"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tea_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KAM"
+                        levels = 2
+                        region = "STATE_ONELOA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tea_plantation"
+                    "worker_exploitation_tea"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_KAULUWELA = {
+        region_state:MAL = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:MAL"
+                        levels = 3
+                        region = "STATE_KAULUWELA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_coffee_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:MAL"
+                        levels = 2
+                        region = "STATE_KAULUWELA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_coffee_plantation"
+                    "coffee_plantation_patio_drying"
+                    "worker_exploitation_coffee"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_PAEMUKU = {
+        region_state:HOK = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HOK"
+                        levels = 2
+                        region = "STATE_PAEMUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_banana_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HOK"
+                        levels = 1
+                        region = "STATE_PAEMUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_banana_plantation"
+                    "worker_exploitation_banana"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_KAIULI = {
+        region_state:KAN = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KAN"
+                        levels = 3
+                        region = "STATE_KAIULI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_coffee_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KAN"
+                        levels = 2
+                        region = "STATE_KAIULI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_coffee_plantation"
+                    "coffee_plantation_patio_drying"
+                    "worker_exploitation_coffee"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_sugar_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KAN"
+                        levels = 2
+                        region = "STATE_KAIULI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_sugar_plantation"
+                    "ox_driven_rollers_sugar"
+                    "default_labour"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_UAHIWERA = {
+        region_state:POL = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:POL"
+                        levels = 3
+                        region = "STATE_UAHIWERA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_silk_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:POL"
+                        levels = 2
+                        region = "STATE_UAHIWERA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_silk_plantation"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_sugar_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:POL"
+                        levels = 2
+                        region = "STATE_UAHIWERA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_sugar_plantation"
+                    "ox_driven_rollers_sugar"
+                    "default_labour"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_AINAONE = {
+        region_state:LAA = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:LAA"
+                        levels = 3
+                        region = "STATE_AINAONE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_silk_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:LAA"
+                        levels = 2
+                        region = "STATE_AINAONE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_silk_plantation"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_WAILUKU = {
+        region_state:MAK = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:MAK"
+                        levels = 2
+                        region = "STATE_WAILUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_coffee_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:MAK"
+                        levels = 2
+                        region = "STATE_WAILUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_coffee_plantation"
+                    "coffee_plantation_patio_drying"
+                    "worker_exploitation_coffee"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_ULUWEHI = {
+        region_state:KLA = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KLA"
+                        levels = 2
+                        region = "STATE_ULUWEHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_silk_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KLA"
+                        levels = 2
+                        region = "STATE_ULUWEHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_silk_plantation"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_MOKUMANO = {
+        region_state:AHI = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:AHI"
+                        levels = 1
+                        region = "STATE_MOKUMANO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_AOLANI = {
+        region_state:POM = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:POM"
+                        levels = 2
+                        region = "STATE_AOLANI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_silk_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:POM"
+                        levels = 1
+                        region = "STATE_AOLANI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_silk_plantation"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+}

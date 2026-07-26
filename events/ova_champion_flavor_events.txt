@@ -1,0 +1,766 @@
+﻿### Champions JE - generic FLAVOR events (all countries with a champion)
+# Namespace ova_champion_flavor. Fired from je_ova_champion's on_monthly_pulse
+# random_events (the one foundation edit the flavor agent is allowed) and from
+# the coup journal entry (je_ova_champion_coup). Uses ONLY the shared champion
+# interface plus verified vanilla effects and the flavor helpers in
+# ova_champion_flavor_effects.txt.
+#
+#  .1 -.6   Champion DEMANDS. What the champion pushes for matches their own
+#           ideology / interest group (like the demands interest groups make
+#           over a law). Granting starts the reform through the NORMAL
+#           legislative process (start_enactment - not instant) and builds
+#           renown; a lesser gesture placates them cheaply; refusing stirs the
+#           matching movement and risks a coup.
+#  .12      The overmighty-champion stir (very high renown), can lead to a coup.
+#  .30-.36  Minor renown / XP flavor.
+#  .40-.49  Ten more flavor events, inconsequential to consequential.
+#  .60-.62  Coup pulse events (player agency while je_ova_champion_coup runs).
+#  .63/.64  Coup resolution (throne seized / coup broken and champion exiled).
+#
+# Coups and movement stirs are REPEATABLE - no once-only guard.
+
+namespace = ova_champion_flavor
+
+# =========================================================================
+#  DEMANDS. Common demand gate (shared by .1-.6): champion available, at home,
+#  not the ruler, no coup running, no law already enacting, and renown high
+#  enough that the crown must take them seriously.
+# =========================================================================
+
+ova_champion_flavor.1 = { # the Champion's audience: a negotiation (see iberia negotiation.1)
+	type = country_event
+	placement = root
+	is_popup = yes
+	duration = 3
+
+	title = ova_champion_flavor.1.t
+
+	desc = {
+		first_valid = {
+			triggered_desc = { desc = ova_champion_flavor.1.d  trigger = { var:ova_demand_variant = 1 } }
+			triggered_desc = { desc = ova_champion_flavor.1.d2 trigger = { var:ova_demand_variant = 2 } }
+			triggered_desc = { desc = ova_champion_flavor.1.d3 trigger = { always = yes } }
+		}
+	}
+	flavor = {
+		first_valid = {
+			triggered_desc = { desc = ova_champion_flavor.1.f  trigger = { var:ova_demand_variant = 1 } }
+			triggered_desc = { desc = ova_champion_flavor.1.f2 trigger = { var:ova_demand_variant = 2 } }
+			triggered_desc = { desc = ova_champion_flavor.1.f3 trigger = { always = yes } }
+		}
+	}
+
+	event_image = { trigger = { var:ova_demand_variant = 1 } video = "unspecific_politicians_arguing" }
+	event_image = { trigger = { var:ova_demand_variant = 2 } video = "unspecific_signed_contract" }
+	event_image = { trigger = { var:ova_demand_variant = 3 } video = "unspecific_ruler_speaking_to_people" }
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		NOT = { has_journal_entry = je_ova_champion_coup }
+		NOT = { exists = currently_enacting_law }
+		var:ova_champion_popularity >= 30
+		var:ova_champion_char ?= { is_ruler_of_own_country = no }
+	}
+
+	immediate = {
+		set_variable = ova_champion_demand_pending
+		ova_champion_set_demand_options = yes
+	}
+
+	# whatever the crown decides, tidy the per-demand option variables
+	after = {
+		ova_champion_clear_demand_options = yes
+		remove_variable = ova_champion_demand_pending
+	}
+
+	option = { # 1 - buy them off (bribe)
+		name = ova_champion_flavor.1.o1
+		trigger = { OR = { var:ova_demand_opt_a = 1 var:ova_demand_opt_b = 1 var:ova_demand_opt_c = 1 } }
+		ai_chance = { base = 10 }
+		ova_champion_bribe_demand = yes
+	}
+	option = { # 2 - a seat at the council (high office)
+		name = ova_champion_flavor.1.o2
+		trigger = { OR = { var:ova_demand_opt_a = 2 var:ova_demand_opt_b = 2 var:ova_demand_opt_c = 2 } }
+		ai_chance = { base = 10 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+		add_modifier = { name = ova_champion_high_office days = 730 }
+	}
+	option = { # 3 - pledge to grow the army
+		name = ova_champion_flavor.1.o3
+		trigger = { OR = { var:ova_demand_opt_a = 3 var:ova_demand_opt_b = 3 var:ova_demand_opt_c = 3 } }
+		ai_chance = { base = 10 }
+		add_treasury = -30000
+		ova_champion_add_popularity = { AMOUNT = 8 }
+		add_modifier = { name = ova_champion_army_pledge days = 730 }
+	}
+	option = { # 4 - champion their cause (start the reform)
+		name = ova_champion_flavor.1.o4
+		trigger = {
+			ova_champion_demand_law_available = yes
+			OR = { var:ova_demand_opt_a = 4 var:ova_demand_opt_b = 4 var:ova_demand_opt_c = 4 }
+		}
+		ai_chance = { base = 10 }
+		ova_champion_grant_cause_law = yes
+	}
+	option = { # 5 - fund their grand works
+		name = ova_champion_flavor.1.o5
+		trigger = { OR = { var:ova_demand_opt_a = 5 var:ova_demand_opt_b = 5 var:ova_demand_opt_c = 5 } }
+		ai_chance = { base = 5 }
+		add_treasury = -50000
+		ova_champion_add_popularity = { AMOUNT = 10 }
+		add_modifier = { name = ova_champion_patronage days = 365 }
+	}
+	option = { # 6 - cut taxes to please the people
+		name = ova_champion_flavor.1.o6
+		trigger = {
+			tax_level >= medium
+			OR = { var:ova_demand_opt_a = 6 var:ova_demand_opt_b = 6 var:ova_demand_opt_c = 6 }
+		}
+		ai_chance = { base = 5 }
+		set_tax_level = low
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+	option = { # 7 - lavish largesse on the people
+		name = ova_champion_flavor.1.o7
+		trigger = { OR = { var:ova_demand_opt_a = 7 var:ova_demand_opt_b = 7 var:ova_demand_opt_c = 7 } }
+		ai_chance = { base = 5 }
+		add_treasury = -40000
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+
+	#### The refuse option stays at the bottom
+	option = { # refuse everything
+		name = ova_champion_flavor.1.cancel
+		default_option = yes
+		ai_chance = { base = 1 }
+		ova_champion_refuse_demand = { MOVEMENT = movement_radical }
+	}
+}
+
+ova_champion_flavor.12 = { # an overmighty champion (very high renown)
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.12.t
+	desc = ova_champion_flavor.12.d
+	flavor = ova_champion_flavor.12.f
+	duration = 3
+	cooldown = { months = 18 }
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		NOT = { has_journal_entry = je_ova_champion_coup }
+		var:ova_champion_popularity >= 70
+		var:ova_champion_char ?= { is_ruler_of_own_country = no }
+	}
+
+	immediate = { }
+
+	option = { # honor them lavishly and hope loyalty holds
+		name = ova_champion_flavor.12.a
+		default_option = yes
+		add_treasury = -30000
+		ova_champion_add_popularity = { AMOUNT = 5 }
+		random_list = {
+			80 = { }
+			20 = { ova_champion_start_coup = yes }
+		}
+	}
+	option = { # move to clip their wings
+		name = ova_champion_flavor.12.b
+		ova_champion_add_popularity = { AMOUNT = -10 }
+		add_modifier = { name = ova_champion_disillusioned days = 365 }
+		random_list = {
+			55 = { }
+			45 = { ova_champion_start_coup = yes }
+		}
+	}
+}
+
+# ========================================================== MINOR FLAVOR
+
+ova_champion_flavor.30 = { # a famous duel, won
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.30.t
+	desc = ova_champion_flavor.30.d
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+	}
+	immediate = { }
+	option = {
+		name = ova_champion_flavor.30.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 15 }
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+}
+
+ova_champion_flavor.31 = { # a wandering master's tutelage
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.31.t
+	desc = ova_champion_flavor.31.d
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		var:ova_champion_level < 55
+	}
+	immediate = { }
+	option = { # study under the master
+		name = ova_champion_flavor.31.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 40 }
+	}
+	option = { # pay the master to stay on
+		name = ova_champion_flavor.31.b
+		add_treasury = -20000
+		ova_champion_add_xp = { AMOUNT = 60 }
+		ova_champion_add_popularity = { AMOUNT = 3 }
+	}
+}
+
+ova_champion_flavor.32 = { # an embarrassment at court
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.32.t
+	desc = ova_champion_flavor.32.d
+	duration = 3
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		var:ova_champion_popularity >= 10
+	}
+	immediate = { }
+	option = { # laugh it off
+		name = ova_champion_flavor.32.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = -8 }
+	}
+	option = { # buy the broadsheets' silence
+		name = ova_champion_flavor.32.b
+		add_treasury = -15000
+		ova_champion_add_popularity = { AMOUNT = -2 }
+	}
+}
+
+ova_champion_flavor.33 = { # the legend spreads on its own
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.33.t
+	desc = ova_champion_flavor.33.d
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+	}
+	immediate = { }
+	option = {
+		name = ova_champion_flavor.33.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+}
+
+ova_champion_flavor.34 = { # disciples flock to the banner
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.34.t
+	desc = ova_champion_flavor.34.d
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		var:ova_champion_level < 55
+	}
+	immediate = { }
+	option = {
+		name = ova_champion_flavor.34.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_champion_flavor.35 = { # slander from a rival court
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.35.t
+	desc = ova_champion_flavor.35.d
+	duration = 3
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		var:ova_champion_popularity >= 20
+	}
+	immediate = { }
+	option = { # ignore the gossip
+		name = ova_champion_flavor.35.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = -6 }
+	}
+	option = { # answer it with a public feat
+		name = ova_champion_flavor.35.b
+		ova_champion_add_xp = { AMOUNT = 15 }
+		ova_champion_add_popularity = { AMOUNT = 6 }
+	}
+}
+
+ova_champion_flavor.36 = { # a quiet season of drill
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.36.t
+	desc = ova_champion_flavor.36.d
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+	}
+	immediate = { }
+	option = {
+		name = ova_champion_flavor.36.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+# ==================================================== TEN MORE FLAVOR EVENTS
+
+ova_champion_flavor.40 = { # a rival champion's challenge
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.40.t
+	desc = ova_champion_flavor.40.d
+	flavor = ova_champion_flavor.40.f
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		var:ova_champion_popularity >= 15
+	}
+	immediate = { }
+	option = { # accept the duel
+		name = ova_champion_flavor.40.a
+		default_option = yes
+		random_list = {
+			70 = { # win
+				ova_champion_add_xp = { AMOUNT = 25 }
+				ova_champion_add_popularity = { AMOUNT = 12 }
+			}
+			30 = { # win but bloodied
+				ova_champion_add_xp = { AMOUNT = 15 }
+				ova_champion_add_popularity = { AMOUNT = 8 }
+				ova_champion_injure = { MONTHS = 3 }
+			}
+		}
+	}
+	option = { # decline the challenge
+		name = ova_champion_flavor.40.b
+		ova_champion_add_popularity = { AMOUNT = -6 }
+	}
+}
+
+ova_champion_flavor.41 = { # a festival in the champion's honor
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.41.t
+	desc = ova_champion_flavor.41.d
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		var:ova_champion_popularity >= 20
+	}
+	immediate = { }
+	option = { # fund a grand festival
+		name = ova_champion_flavor.41.a
+		default_option = yes
+		add_treasury = -20000
+		ova_champion_add_popularity = { AMOUNT = 12 }
+	}
+	option = { # a modest observance
+		name = ova_champion_flavor.41.b
+		ova_champion_add_popularity = { AMOUNT = 3 }
+	}
+}
+
+ova_champion_flavor.42 = { # the champion falls ill
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.42.t
+	desc = ova_champion_flavor.42.d
+	duration = 3
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+	}
+	immediate = { }
+	option = { # let them convalesce
+		name = ova_champion_flavor.42.a
+		default_option = yes
+		ova_champion_injure = { MONTHS = 3 }
+	}
+	option = { # summon the finest healers
+		name = ova_champion_flavor.42.b
+		add_treasury = -25000
+	}
+}
+
+ova_champion_flavor.43 = { # a monster stirs near the capital
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.43.t
+	desc = ova_champion_flavor.43.d
+	duration = 3
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+	}
+	immediate = { }
+	option = { # loose the champion upon it
+		name = ova_champion_flavor.43.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 25 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+}
+
+ova_champion_flavor.44 = { # an assassination attempt
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.44.t
+	desc = ova_champion_flavor.44.d
+	flavor = ova_champion_flavor.44.f
+	duration = 3
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		var:ova_champion_popularity >= 25
+	}
+	immediate = { }
+	option = { # double the guard
+		name = ova_champion_flavor.44.a
+		default_option = yes
+		add_treasury = -15000
+		ova_champion_add_popularity = { AMOUNT = 3 }
+	}
+	option = { # let the champion hunt the plotters
+		name = ova_champion_flavor.44.b
+		random_list = {
+			65 = { # they root out the plot
+				ova_champion_add_xp = { AMOUNT = 20 }
+				ova_champion_add_popularity = { AMOUNT = 8 }
+			}
+			35 = { # a wound for their trouble
+				ova_champion_add_popularity = { AMOUNT = 4 }
+				ova_champion_injure = { MONTHS = 4 }
+			}
+		}
+	}
+}
+
+ova_champion_flavor.45 = { # the champion's wanderlust
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.45.t
+	desc = ova_champion_flavor.45.d
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		var:ova_champion_level < 55
+	}
+	immediate = { }
+	option = { # let them roam and learn
+		name = ova_champion_flavor.45.a
+		default_option = yes
+		ova_champion_seclude = { MONTHS = 4 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+	option = { # keep them close
+		name = ova_champion_flavor.45.b
+		ova_champion_add_popularity = { AMOUNT = -4 }
+	}
+}
+
+ova_champion_flavor.46 = { # a prodigy appears
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.46.t
+	desc = ova_champion_flavor.46.d
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+	}
+	immediate = { }
+	option = { # let the champion mentor them
+		name = ova_champion_flavor.46.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 15 }
+		ova_champion_add_popularity = { AMOUNT = 6 }
+	}
+}
+
+ova_champion_flavor.47 = { # request: fund a training endowment
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.47.t
+	desc = ova_champion_flavor.47.d
+	flavor = ova_champion_flavor.47.f
+	duration = 3
+	cooldown = { months = 18 }
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		var:ova_champion_char ?= { is_ruler_of_own_country = no }
+	}
+	immediate = { }
+	option = { # fund the endowment
+		name = ova_champion_flavor.47.a
+		default_option = yes
+		add_treasury = -50000
+		ova_champion_add_xp = { AMOUNT = 40 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+		add_modifier = { name = ova_champion_patronage days = 365 }
+	}
+	option = { # decline politely
+		name = ova_champion_flavor.47.b
+		ova_champion_add_popularity = { AMOUNT = -5 }
+	}
+}
+
+ova_champion_flavor.48 = { # relics of a fallen hero
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.48.t
+	desc = ova_champion_flavor.48.d
+	duration = 3
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+	}
+	immediate = { }
+	option = { # the champion studies the relic
+		name = ova_champion_flavor.48.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+	option = { # sell it to a collector
+		name = ova_champion_flavor.48.b
+		add_treasury = 300000
+		ova_champion_add_popularity = { AMOUNT = -3 }
+	}
+}
+
+ova_champion_flavor.49 = { # the champion's fame draws pilgrims
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.49.t
+	desc = ova_champion_flavor.49.d
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	trigger = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		var:ova_champion_popularity >= 30
+	}
+	immediate = { }
+	option = { # welcome the pilgrims
+		name = ova_champion_flavor.49.a
+		default_option = yes
+		add_modifier = { name = ova_champion_pilgrim_trade days = 365 multiplier = money_amount_multiplier_small }
+		ova_champion_add_popularity = { AMOUNT = 6 }
+	}
+}
+
+# ========================================================= COUP PULSE EVENTS
+# Fire from je_ova_champion_coup's on_monthly_pulse. They are the crown's chance
+# to influence the coup bar (pushed via add_progress on the coup JE scope).
+
+ova_champion_flavor.60 = { # the loyal regiments muster
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.60.t
+	desc = ova_champion_flavor.60.d
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { has_journal_entry = je_ova_champion_coup }
+	immediate = { }
+	option = { # pay to rally the loyalists
+		name = ova_champion_flavor.60.a
+		default_option = yes
+		add_treasury = -30000
+		je:je_ova_champion_coup ?= {
+			add_progress = { name = ova_champion_coup_bar value = -25 }
+		}
+	}
+	option = { # trust the crisis to pass
+		name = ova_champion_flavor.60.b
+	}
+}
+
+ova_champion_flavor.61 = { # behead the conspiracy
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.61.t
+	desc = ova_champion_flavor.61.d
+	flavor = ova_champion_flavor.61.f
+	duration = 3
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { has_journal_entry = je_ova_champion_coup }
+	immediate = { }
+	option = { # strike at the plotters
+		name = ova_champion_flavor.61.a
+		default_option = yes
+		random_list = {
+			55 = { # the strike lands
+				je:je_ova_champion_coup ?= {
+					add_progress = { name = ova_champion_coup_bar value = -40 }
+				}
+			}
+			45 = { # it backfires and rallies them
+				je:je_ova_champion_coup ?= {
+					add_progress = { name = ova_champion_coup_bar value = 20 }
+				}
+				add_radicals = { value = small_radicals strata = lower }
+			}
+		}
+	}
+	option = { # do not risk it
+		name = ova_champion_flavor.61.b
+	}
+}
+
+ova_champion_flavor.62 = { # the coup gathers strength
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.62.t
+	desc = ova_champion_flavor.62.d
+	duration = 3
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	trigger = { has_journal_entry = je_ova_champion_coup }
+	immediate = {
+		je:je_ova_champion_coup ?= {
+			add_progress = { name = ova_champion_coup_bar value = 15 }
+		}
+	}
+	option = { # crack down hard
+		name = ova_champion_flavor.62.a
+		default_option = yes
+		add_radicals = { value = medium_radicals strata = lower }
+		je:je_ova_champion_coup ?= {
+			add_progress = { name = ova_champion_coup_bar value = -10 }
+		}
+	}
+	option = { # let it burn out
+		name = ova_champion_flavor.62.b
+	}
+}
+
+# ======================================================== COUP RESOLUTION
+
+ova_champion_flavor.63 = { # the champion takes the throne
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.63.t
+	desc = ova_champion_flavor.63.d
+	flavor = ova_champion_flavor.63.f
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion_flavor.63.a
+		default_option = yes
+		ova_champion_coup_victory = yes
+	}
+}
+
+ova_champion_flavor.64 = { # the coup is broken
+	type = country_event
+	placement = root
+	title = ova_champion_flavor.64.t
+	desc = ova_champion_flavor.64.d
+	flavor = ova_champion_flavor.64.f
+	duration = 3
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion_flavor.64.a
+		default_option = yes
+		ova_champion_coup_defeated = yes
+	}
+}

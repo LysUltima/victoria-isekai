@@ -1,0 +1,216 @@
+﻿pmg_base_building_logging_camp = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_simple_forestry
+		pm_saw_mills
+		pm_electric_saw_mills
+	}
+}
+
+pmg_hardwood = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_hardwood
+		pm_hardwood
+		pm_increased_hardwood
+	}
+}
+
+pmg_equipment = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_no_equipment
+		pm_core_yarders
+		pm_steam_donkey_building_logging_camp
+		pm_sentient_logging_automata
+	}
+}
+
+pmg_transportation_building_logging_camp = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_road_carts
+		pm_rail_transport_building_logging_camp
+		pm_log_carts
+	}
+}
+
+pmg_base_building_fishing_wharf = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_simple_fishing
+		pm_fishing_trawlers
+		pm_steam_trawlers
+	}
+}
+
+pmg_refrigeration_building_fishing_wharf = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_unrefrigerated
+		pm_refrigerated_storage_building_fishing_wharf
+		pm_refrigerated_rail_cars_building_fishing_wharf
+		pm_flash_freezing_building_fishing_wharf
+	}
+}
+
+pmg_base_building_whaling_station = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_simple_whaling
+		pm_wooden_whaling_ships
+		pm_steam_whaling_ships
+	}
+}
+
+pmg_refrigeration_building_whaling_station = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_unrefrigerated
+		pm_refrigerated_storage_building_whaling_station
+		pm_refrigerated_rail_cars_building_whaling_station
+		pm_flash_freezing_building_whaling_station
+	}
+}
+
+pmg_equipment_building_whaling_station = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_no_hunting_equipment_building_whaling_station
+		pm_consumable_traps_building_whaling_station
+		pm_explosive_harpoons_building_whaling_station
+	}
+}
+
+pmg_base_building_spirit_beast_hunting = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_spirit_beast_hunting
+		pm_warded_hunting_parties
+		pm_bound_spirit_beast_hunts
+	}
+}
+
+pmg_equipment_building_spirit_beast_hunting = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_no_hunting_equipment
+		pm_consumable_traps
+		pm_explosive_snares
+	}
+}
+
+pmg_refrigeration_building_spirit_beast_hunting = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_unrefrigerated
+		pm_refrigerated_storage_building_spirit_beast_hunting
+		pm_refrigerated_rail_cars_building_spirit_beast_hunting
+		pm_flash_freezing_building_spirit_beast_hunting
+	}
+}
+
+### ISEKAI TC: Potion Enhancement lines (Alchemy)
+
+pmg_potion_enhancement_building_logging_camp = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_potion_enhancement
+		pm_vigor_potions_building_logging_camp
+		pm_greater_vigor_potions_building_logging_camp
+	}
+}
+
+pmg_potion_enhancement_building_fishing_wharf = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_potion_enhancement
+		pm_vigor_potions_building_fishing_wharf
+		pm_greater_vigor_potions_building_fishing_wharf
+	}
+}
+
+### ISEKAI TC: Anima Rigs
+
+pmg_base_building_oil_rig = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_anima_siphoning
+		pm_automata_deep_siphons
+	}
+}
+
+pmg_potion_enhancement_building_oil_rig = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_potion_enhancement
+		pm_vigor_potions_building_oil_rig
+		pm_greater_vigor_potions_building_oil_rig
+	}
+}
+
+pmg_train_automation_building_oil_rig = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_road_carts
+		pm_rail_transport_mine
+	}
+}
+
+### ISEKAI TC: Enchanted Palm Orchard
+
+pmg_base_building_enchanted_palm_orchard = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_palm_tending
+		pm_palm_saw_mills
+		pm_palm_electric_saw_mills
+	}
+}
+
+pmg_spirit_grove_building_enchanted_palm_orchard = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_spirit_grove
+		pm_stone_fed_groves
+		pm_fertilized_groves
+	}
+}
+
+pmg_potion_enhancement_building_enchanted_palm_orchard = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_potion_enhancement
+		pm_vigor_potions_building_enchanted_palm_orchard
+		pm_greater_vigor_potions_building_enchanted_palm_orchard
+	}
+}
+
+### ISEKAI TC: Forests of the Departed
+
+pmg_base_building_forests_of_the_departed = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_tend_the_departed
+		pm_grave_saw_mills
+		pm_lantern_lit_forestry
+	}
+}
+
+pmg_soul_gleaning_building_forests_of_the_departed = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_soul_gleaning
+		pm_soul_gleaning
+		pm_stone_anchored_gleaning
+	}
+}
+
+pmg_potion_enhancement_building_forests_of_the_departed = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_potion_enhancement
+		pm_vigor_potions_building_forests_of_the_departed
+		pm_greater_vigor_potions_building_forests_of_the_departed
+	}
+}

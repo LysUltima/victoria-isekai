@@ -1,0 +1,653 @@
+﻿### Isekai hero storyline - AI strategies
+# Both strategies are full copies of vanilla ai_strategy_territorial_expansion
+# (common/ai_strategies/02_diplomatic_strategies.txt) with every Earth
+# reference (the c:FRA/house_bonaparte weight bonus, the
+# geographic_region_europe weight penalty) stripped, then a storyline-specific
+# possible/weight/aggression layered on top per tools/design/ISEKAI_STORYLINE_SPEC.md A9.
+
+ai_strategy_ova_radiant_crusader = {
+	icon = "gfx/interface/icons/ai_strategy_icons/territorial_expansion.dds"
+
+	type = diplomatic
+
+	will_form_power_bloc = {
+		always = no
+	}
+
+	undesirable_infamy_level = {
+		value = 50
+
+		if = {
+			limit = {
+				has_technology_researched = pan-nationalism
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_technology_researched = nationalism
+			}
+			multiply = 1.25
+		}
+	}
+
+	unacceptable_infamy_level = {
+		value = 100
+	}
+
+	ideological_opinion_effect_mult = {
+		value = 0.75
+	}
+
+	wargoal_maneuvers_fraction = {
+		value = 0.15
+	}
+
+	diplomatic_play_neutrality = {
+		value = 25
+	}
+
+	diplomatic_play_boldness = {
+		value = 25
+	}
+
+	recklessness = {
+		value = 0.25
+	}
+
+	aggression = {
+		value = 1
+
+		if = {
+			limit = {
+				NOT = { is_country_type = unrecognized }
+				scope:target_country = { is_country_type = unrecognized }
+			}
+			add = 1
+		}
+
+		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
+		if = {
+			limit = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}
+			}
+			multiply = 0.25
+		}
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		multiply = {
+			value = "ai_ideological_opinion(scope:target_country)"
+			multiply = -0.1
+			add = 1
+			max = 2.0
+			min = 0.5
+		}
+
+		# The Radiant Crusade's whole purpose - press the war against the Demonic Empire
+		if = {
+			limit = { c:DEM ?= scope:target_country }
+			add = 2.0
+		}
+	}
+
+	building_group_weights = {
+		bg_army = 1.5
+	}
+
+	secret_goal_weights = {
+		protect = 0.5
+		conquer = 1.5
+	}
+
+	wargoal_weights = {
+		annex_country = 1.5
+		conquer_state = 2.0
+		return_state = 1.5
+		force_nationalization = 0.25
+	}
+
+	secret_goal_scores = {
+		conquer = {
+			trigger = {
+				NOT = { scope:target_country = { is_subject_of = root } }
+				can_reach_target_country = yes
+				has_strategic_adjacency = scope:target_country
+				scope:target_country.country_rank <= root.country_rank
+			}
+			score = {
+				if = {
+					limit = {
+						NOT = { is_country_type = unrecognized }
+						scope:target_country = { NOT = { is_country_type = unrecognized } }
+					}
+					add = 25
+				}
+				else_if = {
+					limit = {
+						scope:target_country = { is_country_type = unrecognized }
+					}
+					add = 50
+				}
+				# the crusade's whole purpose: the Demonic Empire above all
+				if = {
+					limit = { c:DEM ?= scope:target_country }
+					add = 100
+				}
+			}
+		}
+		# even where conquest is out of reach, a Radiant crown HATES the
+		# Demonic Empire - which also opens champion expeditions into it
+		# (the expedition action reads attitudes)
+		antagonize = {
+			trigger = {
+				c:DEM ?= scope:target_country
+			}
+			score = {
+				value = 200
+			}
+		}
+	}
+
+	possible = {
+		OR = {
+			has_journal_entry = je_ova_hero_summoning
+			c:LUX ?= THIS
+		}
+		exists = c:DEM
+	}
+
+	weight = {
+		value = 100
+	}
+}
+
+ai_strategy_ova_demonic_reclamation = {
+	icon = "gfx/interface/icons/ai_strategy_icons/territorial_expansion.dds"
+
+	type = diplomatic
+
+	will_form_power_bloc = {
+		OR = {
+			global_country_ranking <= 3
+			AND = {
+				country_rank >= rank_value:great_power
+				has_technology_researched = nationalism
+			}
+		}
+	}
+
+	undesirable_infamy_level = {
+		value = 50
+
+		if = {
+			limit = {
+				has_technology_researched = pan-nationalism
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_technology_researched = nationalism
+			}
+			multiply = 1.25
+		}
+	}
+
+	unacceptable_infamy_level = {
+		value = 100
+	}
+
+	ideological_opinion_effect_mult = {
+		value = 0.75
+	}
+
+	wargoal_maneuvers_fraction = {
+		value = 0.15
+	}
+
+	diplomatic_play_neutrality = {
+		value = 25
+	}
+
+	diplomatic_play_boldness = {
+		value = 25
+	}
+
+	recklessness = {
+		value = 0.25
+	}
+
+	aggression = {
+		value = 1
+
+		if = {
+			limit = {
+				NOT = { is_country_type = unrecognized }
+				scope:target_country = { is_country_type = unrecognized }
+			}
+			add = 1
+		}
+
+		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
+		if = {
+			limit = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}
+			}
+			multiply = 0.25
+		}
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		multiply = {
+			value = "ai_ideological_opinion(scope:target_country)"
+			multiply = -0.1
+			add = 1
+			max = 2.0
+			min = 0.5
+		}
+
+		# Reclamation above all: any crown holding soil in the demon homeland
+		# (sr:region_demonland) that has not sworn itself to the Ash Throne is
+		# a target - the old marches, the Church's foothold on Ruina, and every
+		# province the foreign champions have carved off since
+		if = {
+			limit = {
+				scope:target_country = {
+					NOT = { is_subject_of = ROOT }
+					any_scope_state = { region = sr:region_demonland }
+				}
+			}
+			add = 2.0
+		}
+
+		# Sinra's march at Newhold sits on demon desert soil too
+		if = {
+			limit = {
+				c:SIN ?= scope:target_country
+			}
+			add = 1.0
+		}
+
+		# never against the Concord Aurorae - the dawn is a sworn friend
+		# (kept last so it zeroes the reclamation bonus too: AUR holds demon
+		# marches, but she holds them as a friend)
+		if = {
+			limit = {
+				scope:target_country = { has_variable = ova_new_dawn }
+			}
+			multiply = 0
+		}
+	}
+
+	building_group_weights = {
+		bg_army = 1.5
+	}
+
+	secret_goal_weights = {
+		protect = 0.5
+		conquer = 1.5
+	}
+
+	wargoal_weights = {
+		annex_country = 1.5
+		conquer_state = 2.0
+		# the empire holds claims on its stolen homeland states
+		return_state = 2.0
+		force_nationalization = 0.25
+	}
+
+	secret_goal_scores = {
+		conquer = {
+			trigger = {
+				NOT = { scope:target_country = { is_subject_of = root } }
+				can_reach_target_country = yes
+				# the usual gates (adjacency, rank) do not apply to the
+				# reclamation: a crown squatting on the homeland is a target
+				# no matter how large it is
+				OR = {
+					AND = {
+						has_strategic_adjacency = scope:target_country
+						scope:target_country.country_rank <= root.country_rank
+					}
+					scope:target_country = {
+						NOT = { has_variable = ova_new_dawn }
+						any_scope_state = { region = sr:region_demonland }
+					}
+				}
+			}
+			score = {
+				if = {
+					limit = {
+						NOT = { is_country_type = unrecognized }
+						scope:target_country = { NOT = { is_country_type = unrecognized } }
+					}
+					add = 25
+				}
+				else_if = {
+					limit = {
+						scope:target_country = { is_country_type = unrecognized }
+					}
+					add = 50
+				}
+				# the reclamation's whole purpose: every state of
+				# sr:region_demonland back under the Ash Throne
+				if = {
+					limit = {
+						scope:target_country = {
+							NOT = { has_variable = ova_new_dawn }
+							any_scope_state = { region = sr:region_demonland }
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		# even where conquest is out of reach, the empire never forgives a
+		# crown that holds the homeland
+		antagonize = {
+			trigger = {
+				scope:target_country = {
+					NOT = { has_variable = ova_new_dawn }
+					NOT = { is_subject_of = ROOT }
+					any_scope_state = { region = sr:region_demonland }
+				}
+			}
+			score = {
+				value = 150
+			}
+		}
+		# the dawn kept faith with the tribes - keep faith with the dawn
+		befriend = {
+			trigger = {
+				scope:target_country = { has_variable = ova_new_dawn }
+			}
+			score = {
+				value = 500
+			}
+		}
+	}
+
+	possible = {
+		c:DEM ?= THIS
+	}
+
+	weight = {
+		value = 200
+	}
+}
+
+# The old crown after Victoria's rebellion: the establishment keeps the tag
+# LYS, and means to drag the seceded marches (AUR, the Concord Aurorae) back
+# under the imperial banner.
+ai_strategy_ova_loyalist_restoration = {
+	icon = "gfx/interface/icons/ai_strategy_icons/territorial_expansion.dds"
+
+	type = diplomatic
+
+	will_form_power_bloc = {
+		OR = {
+			global_country_ranking <= 3
+			AND = {
+				country_rank >= rank_value:great_power
+				has_technology_researched = nationalism
+			}
+		}
+	}
+
+	undesirable_infamy_level = {
+		value = 50
+
+		if = {
+			limit = {
+				has_technology_researched = pan-nationalism
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_technology_researched = nationalism
+			}
+			multiply = 1.25
+		}
+	}
+
+	unacceptable_infamy_level = {
+		value = 100
+	}
+
+	ideological_opinion_effect_mult = {
+		value = 0.75
+	}
+
+	wargoal_maneuvers_fraction = {
+		value = 0.15
+	}
+
+	diplomatic_play_neutrality = {
+		value = 25
+	}
+
+	diplomatic_play_boldness = {
+		value = 25
+	}
+
+	recklessness = {
+		value = 0.25
+	}
+
+	aggression = {
+		value = 1
+
+		if = {
+			limit = {
+				NOT = { is_country_type = unrecognized }
+				scope:target_country = { is_country_type = unrecognized }
+			}
+			add = 1
+		}
+
+		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
+		if = {
+			limit = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}
+			}
+			multiply = 0.25
+		}
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		multiply = {
+			value = "ai_ideological_opinion(scope:target_country)"
+			multiply = -0.1
+			add = 1
+			max = 2.0
+			min = 0.5
+		}
+
+		# The old crown against the usurper's dawn
+		if = {
+			limit = {
+				scope:target_country = { has_variable = ova_new_dawn }
+			}
+			add = 2.0
+		}
+	}
+
+	building_group_weights = {
+		bg_army = 1.5
+	}
+
+	secret_goal_weights = {
+		protect = 0.5
+		conquer = 1.5
+	}
+
+	wargoal_weights = {
+		annex_country = 1.5
+		conquer_state = 2.0
+		return_state = 1.5
+		force_nationalization = 0.25
+	}
+
+	secret_goal_scores = {
+		conquer = {
+			trigger = {
+				NOT = { scope:target_country = { is_subject_of = root } }
+				can_reach_target_country = yes
+				has_strategic_adjacency = scope:target_country
+				scope:target_country.country_rank <= root.country_rank
+			}
+			score = {
+				if = {
+					limit = {
+						NOT = { is_country_type = unrecognized }
+						scope:target_country = { NOT = { is_country_type = unrecognized } }
+					}
+					add = 25
+				}
+				else_if = {
+					limit = {
+						scope:target_country = { is_country_type = unrecognized }
+					}
+					add = 50
+				}
+			}
+		}
+	}
+
+	possible = {
+		c:LYS ?= THIS
+		has_global_variable = ova_truth_exposed
+		NOT = { has_variable = ova_new_dawn }
+	}
+
+	weight = {
+		value = 300
+	}
+}
+
+# Victoria's Concord Aurorae: survive the war of the dawn, keep faith with
+# the Demonic Empire, and never bow to the old crown again.
+ai_strategy_ova_dawn_concord = {
+	icon = "gfx/interface/icons/ai_strategy_icons/territorial_expansion.dds"
+
+	type = diplomatic
+
+	will_form_power_bloc = {
+		always = no
+	}
+
+	undesirable_infamy_level = {
+		value = 50
+	}
+
+	unacceptable_infamy_level = {
+		value = 100
+	}
+
+	ideological_opinion_effect_mult = {
+		value = 0.75
+	}
+
+	wargoal_maneuvers_fraction = {
+		value = 0.15
+	}
+
+	diplomatic_play_neutrality = {
+		value = 25
+	}
+
+	diplomatic_play_boldness = {
+		value = 25
+	}
+
+	recklessness = {
+		value = 0.25
+	}
+
+	aggression = {
+		value = 1
+
+		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
+		if = {
+			limit = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}
+			}
+			multiply = 0.25
+		}
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		multiply = {
+			value = "ai_ideological_opinion(scope:target_country)"
+			multiply = -0.1
+			add = 1
+			max = 2.0
+			min = 0.5
+		}
+
+		# never against the Demonic Empire - the dawn was built on that peace
+		if = {
+			limit = { c:DEM ?= scope:target_country }
+			multiply = 0
+		}
+
+		# The dawn against the old crown that calls it treason
+		if = {
+			limit = { c:LYS ?= scope:target_country }
+			add = 2.0
+		}
+	}
+
+	building_group_weights = {
+		bg_army = 1.5
+	}
+
+	secret_goal_weights = {
+		protect = 1.0
+		conquer = 1.0
+	}
+
+	wargoal_weights = {
+		annex_country = 1.5
+		conquer_state = 1.5
+		return_state = 1.5
+		force_nationalization = 0.25
+	}
+
+	secret_goal_scores = {
+		antagonize = {
+			trigger = {
+				c:LYS ?= scope:target_country
+			}
+			score = {
+				value = 200
+			}
+		}
+		befriend = {
+			trigger = {
+				c:DEM ?= scope:target_country
+			}
+			score = {
+				value = 500
+			}
+		}
+	}
+
+	possible = {
+		has_variable = ova_new_dawn
+	}
+
+	weight = {
+		value = 300
+	}
+}

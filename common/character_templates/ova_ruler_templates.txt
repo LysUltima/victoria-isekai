@@ -1,0 +1,934 @@
+﻿# Ruler templates for every Isekai/Xianxia/Murim country and every
+# sect-government country (list per CLAUDE.md / effect_starting_politics_sect),
+# plus the Demon King and his daughter. Regenerate with
+# tools/gen_character_templates.py --write. Wired into each country's
+# common/history/countries/ file via create_character = { template = ... role = ruler }.
+
+# LYS (plain)
+template_ruler_lys = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# ACA (plain)
+template_ruler_aca = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# VAL (plain)
+template_ruler_val = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# EST (plain)
+template_ruler_est = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# LUX (plain)
+template_ruler_lux = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# NIS (plain)
+template_ruler_nis = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# ALE (plain)
+template_ruler_ale = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# REY (plain)
+template_ruler_rey = {
+	first_name = "Elisabeth"
+	last_name = "Ackermann"
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = yes
+	home_region = STATE_KATZENBURG
+	age = 28
+	interest_group = ig_rural_folk
+    ideology = ideology_market_liberal
+	traits = {
+		romantic
+		ambitious
+	}
+}
+
+# SKA (plain)
+template_ruler_ska = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# VIN (plain)
+template_ruler_vin = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# SIN (plain)
+template_ruler_sin = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# ELV (plain)
+template_ruler_elv = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# DWA (plain)
+template_ruler_dwa = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# FEN (plain)
+template_ruler_fen = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# YAO (plain)
+template_ruler_yao = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# SWO (foundation)
+template_ruler_swo = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# HEA (foundation)
+template_ruler_hea = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# FLO (foundation)
+template_ruler_flo = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# PUR (foundation)
+template_ruler_pur = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# MYS (foundation)
+template_ruler_mys = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# FEA (foundation)
+template_ruler_fea = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# SPI (foundation)
+template_ruler_spi = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# VER (foundation)
+template_ruler_ver = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# SNO (foundation)
+template_ruler_sno = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# BLO (foundation)
+template_ruler_blo = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# GHO (foundation)
+template_ruler_gho = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# SHA (foundation)
+template_ruler_sha = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# NIN (foundation)
+template_ruler_nin = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# HWA (foundation)
+template_ruler_hwa = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# SOR (foundation)
+template_ruler_sor = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# MUD (foundation)
+template_ruler_mud = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# JEG (foundation)
+template_ruler_jeg = {
+	first_name = culture
+	last_name = Jegal
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# TAN (foundation)
+template_ruler_tan = {
+	first_name = culture
+	last_name = Tang
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# NAM (foundation)
+template_ruler_nam = {
+	first_name = culture
+	last_name = Namgung
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# PAE (foundation)
+template_ruler_pae = {
+	first_name = culture
+	last_name = Paeng
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# SAM (foundation)
+template_ruler_sam = {
+	first_name = culture
+	last_name = Sama
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# IMM (foundation)
+template_ruler_imm = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# COS (foundation)
+template_ruler_cos = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# DRA (foundation)
+template_ruler_dra = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# LAM (foundation)
+template_ruler_lam = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# CRI (foundation)
+template_ruler_cri = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# UND (foundation)
+template_ruler_und = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+
+# LAN (foundation)
+template_ruler_lan = {
+	first_name = culture
+	last_name = culture
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = default
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_foundation_establishment
+	}
+}
+

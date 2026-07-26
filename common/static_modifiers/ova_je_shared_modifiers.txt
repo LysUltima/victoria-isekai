@@ -1,0 +1,5 @@
+﻿# Shared static modifiers for the isekai/murim/xianxia JE storylines.
+ova_unbreakable_covenant = {
+    icon = "gfx/interface/icons/principles_icons/defensive_coorperation.dds"
+    power_bloc_cohesion_add = 1000
+}

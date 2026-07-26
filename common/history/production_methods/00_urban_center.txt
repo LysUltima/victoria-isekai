@@ -1,0 +1,722 @@
+﻿PRODUCTION_METHODS = {
+	c:ACA ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:ALE ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:ASH ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:ASI ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:BLO ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:CHA ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:COS ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:CRI ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:DEM ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:DRA ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:DWA ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:ELV ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:EST ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:FAW ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:FEA ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:FEN ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:FLO ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:GHA ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:GHO ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:HAN ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:HEA ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:IKH ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:IRO ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:JUM ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:KON ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:LAM ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:LAN ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:LUJ ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:LUX ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:LYS ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:MYS ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:NIN ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:NIS ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:PUR ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:REY ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:SHA ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:SHI ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:SKA ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:SNO ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:SPI ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:SUN ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:SWO ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:UND ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:VAL ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:VER ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:VIN ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:YAO ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_street_lighting
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+	c:YOL ?= {
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_market_squares
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_gas_streetlights
+		}
+		activate_production_method = {
+			building_type = building_urban_center
+			production_method = pm_no_public_transport
+		}
+	}
+
+}

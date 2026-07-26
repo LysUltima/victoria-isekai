@@ -1,0 +1,14 @@
+﻿# Isekai TC: disabled 2026-07-14. Both scripted effects here (krakatoa_tsunami_effect,
+# tsunami_effect) are unreferenced anywhere else in the mod - confirmed by grepping the whole
+# mod tree. Their sole purpose was the vanilla Krakatoa-eruption journal-entry storyline
+# (common/journal_entries/00_krakatoa.txt, events/krakatoa_events.txt), which this mod wipes/
+# blanks entirely (fantasy map has no Indonesia/Krakatoa), and vanilla's own consumer of the
+# `is_tsunami_state` variable this file set (the named on_action `krakatoa_on_action` in
+# common/on_actions/00_on_actions_monthly.txt) was already dropped during the on_actions
+# migration pass and never carried over. `is_tsunami_state` and `tsunami_list` are therefore
+# fully dead - see tools/audit/decisions_V2.md. Porting the full storyline (new journal entry,
+# new events, new tsunami-zone geography) is out of scope for this cleanup pass; if a generic
+# "volcanic disaster with tsunami follow-up" mechanic is wanted later, this file is the place
+# to rebuild it, using the engine's `in_volcanic_zone` state trigger (already used by
+# natural_disaster_events.7 in events/natural_disasters_events.txt) plus a
+# mod-authored coastal-state list instead of the vanilla `geographic_region_krakatoa_tsunami_zone`.

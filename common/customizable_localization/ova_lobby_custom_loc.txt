@@ -1,0 +1,50 @@
+﻿# Isekai TC: NOTE - common/customizable_localization is NOT in metadata.json replace_paths, so
+# vanilla's victoria_custom_loc.txt/00_ep1_custom_loc.txt do load. Both are overridden by migrated
+# copies alongside this file, which drop their impressive_cultech_text / army_or_navy_custom_loc
+# so the versions below win. Defined here with only those two functions - both still
+# called from vanilla's unmodified sphere_of_influence_2/4_l_english.yml (lobby_events.24 /
+# lobby_events.12, kept alive in this mod via events/00_lobbies_events_01.txt and
+# events/00_lobbies_events_04.txt, which still set the fully generic var:impressive_cultech = 1-4
+# and army_is_strongest_var). Both are fully generic (art movements / army-vs-navy phrasing), no
+# real-world country/culture reference, so restored as-is.
+
+impressive_cultech_text = {
+	type = country
+	text = { # Film
+		trigger = {
+			var:impressive_cultech = 1
+		}
+		localization_key = impressive_cultech_film
+	}
+	text = { # Camera
+		trigger = {
+			var:impressive_cultech = 2
+		}
+		localization_key = impressive_cultech_camera
+	}
+	text = { # Realism
+		trigger = {
+			var:impressive_cultech = 3
+		}
+		localization_key = impressive_cultech_realism
+	}
+	text = { # Romanticism
+		trigger = {
+			var:impressive_cultech = 4
+		}
+		localization_key = impressive_cultech_romanticism
+	}
+}
+
+army_or_navy_custom_loc = {
+	type = country
+	text = {
+		trigger = {
+			has_variable = army_is_strongest_var
+		}
+		localization_key = x_army_custom_loc
+	}
+	text = {
+		localization_key = x_navy_custom_loc
+	}
+}

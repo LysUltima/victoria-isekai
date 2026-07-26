@@ -1,0 +1,61 @@
+﻿pdxmesh = {
+	name = "male_half_orc_attachments_mesh"
+	file = "male_half_orc_attachments.mesh"
+
+
+	blend_shape = { id = "male_half_orc_attachments"				type = "male_half_orc_attachments.mesh"  }
+
+
+
+	meshsettings = {
+		name = "male_half_orc_attachmentsShape"
+		index = 0
+		texture_diffuse = "half_orc_diffuse.dds"
+		texture_normal = "half_orc_normal.dds"
+		texture_specular = "half_orc_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+
+entity = {
+	name = "male_half_orc_attachments_entity"
+	pdxmesh = "male_half_orc_attachments_mesh"
+	
+	attribute = { name = "race_attachments"					blend_shape = "male_half_orc_attachments" }
+	}
+
+
+pdxmesh = {
+	name = "female_half_orc_attachments_mesh"
+	file = "female_half_orc_attachments.mesh"
+
+
+	blend_shape = { id = "female_half_orc_attachments"				type = "female_half_orc_attachments.mesh"  }
+
+
+	meshsettings = {
+		name = "female_half_orc_attachmentsShape"
+		index = 0
+		texture_diffuse = "half_orc_diffuse.dds"
+		texture_normal = "half_orc_normal.dds"
+		texture_specular = "half_orc_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+
+entity = {
+	name = "female_half_orc_attachments_entity"
+	pdxmesh = "female_half_orc_attachments_mesh"
+	
+	attribute = { name = "race_attachments"					blend_shape = "female_half_orc_attachments" }
+	}
+
+
+
+

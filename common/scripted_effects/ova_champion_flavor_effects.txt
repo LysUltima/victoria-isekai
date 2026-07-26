@@ -1,0 +1,273 @@
+﻿### Champions JE - flavor-layer helper effects (country scope)
+# Owned by the champion-flavor layer. Built on the shared champion interface
+# (ova_champion_effects.txt) plus verified vanilla effects.
+
+# Enact a reform the champion demanded. The law is NOT set instantly - it goes
+# through the normal legislative process (start_enactment), exactly like a law
+# won in an interest-group negotiation, so the government still has to see it
+# through. Usage: ova_champion_grant_reform = { LAW = law_protected_speech RENOWN = 20 }
+ova_champion_grant_reform = {
+	remove_variable = ova_champion_demand_pending
+	start_enactment = law_type:$LAW$
+	ova_champion_add_popularity = { AMOUNT = $RENOWN$ }
+	add_modifier = { name = ova_champion_beloved_reformer days = 365 }
+}
+
+# The champion's own cause: the reform their interest group / ideology pushes for
+# (mirrors the vanilla IG petitions). Starts the matching law through the normal
+# legislative process, then rewards renown. Only ever offered when
+# ova_champion_demand_law_available is true (option 4 of the demand event).
+ova_champion_grant_cause_law = {
+	remove_variable = ova_champion_demand_pending
+	if = {   # Devout -> State Religion
+		limit = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_devout has_ideology = ideology:ideology_theocrat } }
+			NOT = { has_law = law_type:law_state_religion }
+		}
+		start_enactment = law_type:law_state_religion
+	}
+	else_if = { # Intelligentsia -> Right of Assembly
+		limit = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_intelligentsia has_ideology = ideology:ideology_liberal_leader has_ideology = ideology:ideology_positivist } }
+			OR = { has_law = law_type:law_censorship has_law = law_type:law_outlawed_dissent }
+		}
+		start_enactment = law_type:law_right_of_assembly
+	}
+	else_if = { # Rural Folk -> National Militia (roll back conscription)
+		limit = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_rural_folk has_ideology = ideology:ideology_pacifist has_ideology = ideology:ideology_land_reformer } }
+			has_law = law_type:law_mass_conscription
+		}
+		start_enactment = law_type:law_national_militia
+	}
+	else_if = { # Trade Unions -> Public Schools
+		limit = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_trade_unions has_ideology = ideology:ideology_social_democrat has_ideology = ideology:ideology_reformer } }
+			OR = { has_law = law_type:law_religious_schools has_law = law_type:law_private_schools has_law = law_type:law_terakoya }
+		}
+		start_enactment = law_type:law_public_schools
+	}
+	else_if = { # Industrialists -> Proportional Taxation (drop graduated)
+		limit = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_industrialists has_ideology = ideology:ideology_market_liberal has_ideology = ideology:ideology_protectionist } }
+			has_law = law_type:law_graduated_taxation
+		}
+		start_enactment = law_type:law_proportional_taxation
+	}
+	else_if = { # Armed Forces -> Mass Conscription
+		limit = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_armed_forces has_ideology = ideology:ideology_jingoist_leader } }
+			NOT = { has_law = law_type:law_mass_conscription }
+		}
+		start_enactment = law_type:law_mass_conscription
+	}
+	else_if = { # Petty Bourgeoisie -> National Supremacy
+		limit = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_petty_bourgeoisie has_ideology = ideology:ideology_ethno_nationalist has_ideology = ideology:ideology_authoritarian } }
+			NOT = { has_law = law_type:law_national_supremacy }
+			has_technology_researched = mass_communication
+		}
+		start_enactment = law_type:law_national_supremacy
+	}
+	ova_champion_add_popularity = { AMOUNT = 20 }
+	add_modifier = { name = ova_champion_beloved_reformer days = 365 }
+}
+
+# Pick THREE distinct, valid concession options for the demand event and store
+# them in ova_demand_opt_a/b/c (mirrors the vanilla negotiation set_neg_options).
+# Options 1,2,3,5,7 are always valid; 4 (their law) needs a live cause;
+# 6 (tax cut) needs taxes above the floor. Also sets a 1-3 flavor variant.
+ova_champion_set_demand_options = {
+	random_list = { 10 = { set_variable = { name = ova_demand_variant value = 1 } } 10 = { set_variable = { name = ova_demand_variant value = 2 } } 10 = { set_variable = { name = ova_demand_variant value = 3 } } }
+	# opt A
+	random_list = {
+		10 = { set_variable = { name = ova_demand_opt_a value = 1 } }
+		10 = { set_variable = { name = ova_demand_opt_a value = 2 } }
+		10 = { set_variable = { name = ova_demand_opt_a value = 3 } }
+		10 = { trigger = { ova_champion_demand_law_available = yes } set_variable = { name = ova_demand_opt_a value = 4 } }
+		10 = { set_variable = { name = ova_demand_opt_a value = 5 } }
+		10 = { trigger = { tax_level >= medium } set_variable = { name = ova_demand_opt_a value = 6 } }
+		10 = { set_variable = { name = ova_demand_opt_a value = 7 } }
+	}
+	# opt B (!= A)
+	random_list = {
+		10 = { trigger = { NOT = { var:ova_demand_opt_a = 1 } } set_variable = { name = ova_demand_opt_b value = 1 } }
+		10 = { trigger = { NOT = { var:ova_demand_opt_a = 2 } } set_variable = { name = ova_demand_opt_b value = 2 } }
+		10 = { trigger = { NOT = { var:ova_demand_opt_a = 3 } } set_variable = { name = ova_demand_opt_b value = 3 } }
+		10 = { trigger = { ova_champion_demand_law_available = yes NOT = { var:ova_demand_opt_a = 4 } } set_variable = { name = ova_demand_opt_b value = 4 } }
+		10 = { trigger = { NOT = { var:ova_demand_opt_a = 5 } } set_variable = { name = ova_demand_opt_b value = 5 } }
+		10 = { trigger = { tax_level >= medium NOT = { var:ova_demand_opt_a = 6 } } set_variable = { name = ova_demand_opt_b value = 6 } }
+		10 = { trigger = { NOT = { var:ova_demand_opt_a = 7 } } set_variable = { name = ova_demand_opt_b value = 7 } }
+	}
+	# opt C (!= A and != B)
+	random_list = {
+		10 = { trigger = { NOT = { var:ova_demand_opt_a = 1 } NOT = { var:ova_demand_opt_b = 1 } } set_variable = { name = ova_demand_opt_c value = 1 } }
+		10 = { trigger = { NOT = { var:ova_demand_opt_a = 2 } NOT = { var:ova_demand_opt_b = 2 } } set_variable = { name = ova_demand_opt_c value = 2 } }
+		10 = { trigger = { NOT = { var:ova_demand_opt_a = 3 } NOT = { var:ova_demand_opt_b = 3 } } set_variable = { name = ova_demand_opt_c value = 3 } }
+		10 = { trigger = { ova_champion_demand_law_available = yes NOT = { var:ova_demand_opt_a = 4 } NOT = { var:ova_demand_opt_b = 4 } } set_variable = { name = ova_demand_opt_c value = 4 } }
+		10 = { trigger = { NOT = { var:ova_demand_opt_a = 5 } NOT = { var:ova_demand_opt_b = 5 } } set_variable = { name = ova_demand_opt_c value = 5 } }
+		10 = { trigger = { tax_level >= medium NOT = { var:ova_demand_opt_a = 6 } NOT = { var:ova_demand_opt_b = 6 } } set_variable = { name = ova_demand_opt_c value = 6 } }
+		10 = { trigger = { NOT = { var:ova_demand_opt_a = 7 } NOT = { var:ova_demand_opt_b = 7 } } set_variable = { name = ova_demand_opt_c value = 7 } }
+	}
+}
+
+# Clear the per-demand option variables (called after the event resolves).
+ova_champion_clear_demand_options = {
+	remove_variable = ova_demand_opt_a
+	remove_variable = ova_demand_opt_b
+	remove_variable = ova_demand_opt_c
+	remove_variable = ova_demand_variant
+}
+
+# Buy the champion off instead of granting their demand: a GDP-scaled recurring
+# expense for a while, and the champion is bought quiet (no coup risk). No law
+# changes. Cost shown in loc via money_amount_multiplier_medium.
+ova_champion_bribe_demand = {
+	remove_variable = ova_champion_demand_pending
+	if = {
+		limit = { has_modifier = ova_champion_bribe }
+		remove_modifier = ova_champion_bribe
+	}
+	add_modifier = {
+		name = ova_champion_bribe
+		days = 730
+		multiplier = money_amount_multiplier_medium
+	}
+	ova_champion_add_popularity = { AMOUNT = 5 }
+}
+
+# A lesser gesture instead of the reform: the champion is placated, not thrilled.
+# No law changes, no coup risk, a little renown, and the demand is cleared (it may
+# recur after its cooldown).
+ova_champion_placate_demand = {
+	remove_variable = ova_champion_demand_pending
+	ova_champion_add_popularity = { AMOUNT = 3 }
+}
+
+# A temporary swell of unrest behind the movement matching a refused demand:
+# the movement forms (activism) and its natural supporters turn radical
+# (radicalism), plus a timed country agitation modifier. This is deliberately
+# NOT a revolution (which cannot be started by effect) - just pressure.
+# Usage: ova_champion_stir_movement = { MOVEMENT = movement_liberal }
+ova_champion_stir_movement = {
+	create_political_movement = { type = $MOVEMENT$ }
+	add_radicals = { value = medium_radicals strata = lower }
+	add_radicals = { value = small_radicals strata = middle }
+	if = {
+		limit = { NOT = { has_modifier = ova_champion_agitation } }
+		add_modifier = { name = ova_champion_agitation days = 365 }
+	}
+}
+
+# The crown refused a champion's demand. Docks renown, sours the court, stirs the
+# matching movement, and - from a high-renown champion who is not the ruler and
+# is not already couping - carries a chance to launch a coup. Repeatable.
+# Usage: ova_champion_refuse_demand = { MOVEMENT = movement_liberal }
+ova_champion_refuse_demand = {
+	remove_variable = ova_champion_demand_pending
+	ova_champion_add_popularity = { AMOUNT = -12 }
+	add_modifier = { name = ova_champion_disillusioned days = 365 }
+	ova_champion_stir_movement = { MOVEMENT = $MOVEMENT$ }
+	if = {
+		limit = {
+			var:ova_champion_popularity >= 40
+			var:ova_champion_char ?= { is_ruler_of_own_country = no }
+			NOT = { has_journal_entry = je_ova_champion_coup }
+		}
+		random_list = {
+			70 = { }
+			30 = { ova_champion_start_coup = yes }
+		}
+	}
+}
+
+# Weekly coup progress push (called from je_ova_champion_coup on_weekly_pulse,
+# country scope). The coup gains ground from the champion's renown, cultivation
+# level, and otherworlder mystique, and loses ground to the crown's legitimacy.
+# Pushed onto the bar via add_progress on the JE scope (the reliable pattern).
+ova_champion_coup_tick = {
+	if = {
+		limit = { has_journal_entry = je_ova_champion_coup }
+		save_temporary_scope_value_as = {
+			name = ova_coup_delta
+			value = {
+				value = 0
+				add = { value = var:ova_champion_popularity divide = 8 }
+				add = { value = var:ova_champion_level divide = 20 }
+				subtract = { value = legitimacy divide = 25 }
+				if = {
+					limit = { var:ova_champion_char ?= { has_trait = trait_otherworlder } }
+					add = 2
+				}
+				# a cultivator on the throne resists a cultivator's coup: the ruler's own
+				# realm pushes the momentum back, mirroring the champion's level term
+				if = { limit = { ruler ?= { has_trait = trait_return_to_the_void } } subtract = 3 }
+				else_if = { limit = { ruler ?= { has_trait = trait_soul_formation } } subtract = 2.5 }
+				else_if = { limit = { ruler ?= { has_trait = trait_nascent_soul } } subtract = 2 }
+				else_if = { limit = { ruler ?= { has_trait = trait_golden_core } } subtract = 1.5 }
+				else_if = { limit = { ruler ?= { has_trait = trait_foundation_establishment } } subtract = 1 }
+				else_if = { limit = { ruler ?= { has_trait = trait_qi_gathering } } subtract = 0.5 }
+			}
+		}
+		je:je_ova_champion_coup ?= {
+			add_progress = { name = ova_champion_coup_bar value = scope:ova_coup_delta }
+		}
+	}
+}
+
+# Launch the coup: raise the coup journal entry (its progress bar decides the
+# outcome) and lock adventuring out while it runs. Guarded so it can never
+# double up or fire against a champion who already rules.
+ova_champion_start_coup = {
+	if = {
+		limit = {
+			ova_has_living_champion = yes
+			var:ova_champion_char ?= { is_ruler_of_own_country = no }
+			NOT = { has_journal_entry = je_ova_champion_coup }
+		}
+		add_journal_entry = { type = je_ova_champion_coup }
+		ova_champion_coup_block_refresh = yes
+	}
+}
+
+# Keep adventuring blocked while a coup runs: the expedition action honours
+# ova_expedition_lockout (and breaks a running expedition on it), and the
+# hinterland hunt button is gated by ova_adventure_cooldown. Topped up to 2
+# every month by the coup JE so they never lapse mid-coup.
+ova_champion_coup_block_refresh = {
+	set_variable = { name = ova_expedition_lockout value = 2 }
+	set_variable = { name = ova_adventure_cooldown value = 2 }
+}
+
+ova_champion_coup_unblock = {
+	remove_variable = ova_expedition_lockout
+	remove_variable = ova_adventure_cooldown
+}
+
+# Coup succeeds: the champion takes the throne. A crown seized has no mandate,
+# so legitimacy suffers and the old guard turns radical.
+ova_champion_coup_victory = {
+	var:ova_champion_char ?= { set_character_as_ruler = yes }
+	add_modifier = { name = ova_champion_usurper days = 730 }
+	add_radicals = { value = medium_radicals strata = upper }
+	ova_champion_add_popularity = { AMOUNT = 15 }
+	ova_champion_coup_unblock = yes
+}
+
+# Coup fails: the champion is exiled and the crown is left shaken.
+ova_champion_coup_defeated = {
+	add_modifier = { name = ova_champion_coup_crushed days = 365 }
+	add_radicals = { value = medium_radicals strata = lower }
+	ova_champion_exile = yes
+}
+
+# Banish the champion from the realm. Exiling handles role cleanup, then the
+# shared cleanup clears all champion bookkeeping (which also re-locks the
+# expedition action for a year and strips the identity traits).
+ova_champion_exile = {
+	var:ova_champion_char ?= {
+		exile_character = yes
+		clean_up_exile_character_roles = yes
+	}
+	ova_champion_cleanup = yes
+}

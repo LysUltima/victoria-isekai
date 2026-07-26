@@ -1,0 +1,52 @@
+﻿### Isekai hero storyline - triggers (country scope, unless noted)
+
+# The Radiant Crusade is a live cause: Lux Aeternae exists and still holds its
+# own Eternal Crusade journal entry (i.e. it hasn't failed - no recognized DEM,
+# no vanished Church).
+ova_hero_crusade_active = {
+	exists = c:LUX
+	c:LUX ?= { has_journal_entry = je_ova_eternal_crusade }
+}
+
+# This country is bound to the Church's summoning pact (holds the isekai
+# summoning journal entry, whether auto-activated as LYS or petitioned in).
+ova_hero_is_summoning_holder = {
+	has_journal_entry = je_ova_hero_summoning
+}
+
+# True if this country's capital sits in the isekai heartland (either half of
+# the split strategic region) - used to gate the home-front flavor JE and
+# various AI/decision weights to the human marches actually touched by the war.
+ova_hero_capital_in_isekai = {
+	capital = {
+		OR = {
+			region = sr:region_isekai
+			region = sr:region_isekai
+		}
+	}
+}
+
+# Chapter 1 of Victoria's arc: a Champion Hall stands with all three of its
+# support wings staffed - every side production-method group switched off its
+# "no program" base PM (Martial Training, Scholarly Tutelage, and Patronage
+# all active on the same hall).
+ova_victoria_hall_ready = {
+	any_scope_state = {
+		any_scope_building = {
+			is_building_type = building_champion_hall
+			level >= 1
+			NOT = { has_active_production_method = pm_ova_training_none }
+			NOT = { has_active_production_method = pm_ova_tutelage_none }
+			NOT = { has_active_production_method = pm_ova_patronage_none }
+		}
+	}
+}
+
+# True if this country's living champion carries the story's plot armor
+# (Victoria, Kang Jin-woo). Used to keep scripted death events away from
+# characters whose journal chains have not finished yet.
+ova_champion_plot_armored = {
+	has_variable = ova_champion_char
+	exists = var:ova_champion_char
+	var:ova_champion_char ?= { has_variable = ova_plot_armor }
+}

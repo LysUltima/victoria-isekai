@@ -1,0 +1,97 @@
+﻿accessory_genes = {
+
+	# Forest foxkin only (reddish fox ears). Snow foxkin wears the white cat ears
+	# via gene_cat_ears (white_cat_ears) instead.
+	gene_fox_ears = {
+		inheritable = no
+
+		no_fox_ears = {
+			index = 0
+			male = {}
+			female = {}
+			boy = {}
+			girl = {}
+		}
+		forest_fox_ears = {
+			index = 1
+			male = {
+				1 = male_headgear_fox_ears_1
+			}
+			female = {
+				1 = female_headgear_fox_ears_1
+			}
+			boy = male
+			girl = female
+		}
+	}
+
+	# Wolfkin and dogkin both use this.
+	gene_wolf_ears = {
+		inheritable = no
+
+		no_wolf_ears = {
+			index = 0
+			male = {}
+			female = {}
+			boy = {}
+			girl = {}
+		}
+		all_wolf_ears = {
+			index = 1
+			male = {
+				1 = male_headgear_wolf_ears_1
+			}
+			female = {
+				1 = female_headgear_wolf_ears_1
+			}
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_bear_ears = {
+		inheritable = no
+
+		no_bear_ears = {
+			index = 0
+			male = {}
+			female = {}
+			boy = {}
+			girl = {}
+		}
+		all_bear_ears = {
+			index = 1
+			male = {
+				1 = male_headgear_bear_ears_1
+			}
+			female = {
+				1 = female_headgear_bear_ears_1
+			}
+			boy = male
+			girl = female
+		}
+	}
+
+	gene_horse_ears = {
+		inheritable = no
+
+		no_horse_ears = {
+			index = 0
+			male = {}
+			female = {}
+			boy = {}
+			girl = {}
+		}
+		all_horse_ears = {
+			index = 1
+			male = {
+				1 = male_headgear_horse_ears_1
+			}
+			female = {
+				1 = female_headgear_horse_ears_1
+			}
+			boy = male
+			girl = female
+		}
+	}
+}

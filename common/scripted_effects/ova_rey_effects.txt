@@ -1,0 +1,560 @@
+﻿### Reyorn harem storyline - scripted effects (John Paradox)
+# John Paradox is a summoned otherworlder Hero, raised through the shared
+# champion layer exactly like Victoria (ova_champion_*). His tale is a chain of
+# five dating-sim courtship JEs (je_ova_rey_court_cat / _dog / _bear / _rabbit
+# / _fox), one per state of the beastfolk republic, each targeting the beastkin
+# woman of that state, followed by a capstone (je_ova_rey_ascension) in which he
+# stands for the presidency and every heroine he actually won becomes a primary
+# culture of Reyorn.
+#
+# Country variables:
+#   ova_rey_john_char        - character scope of John Paradox (== ova_champion_char)
+#   ova_rey_affection        - 0..cap, the CURRENT courtship's affection score
+#   ova_rey_affection_cap    - the target that fills the bar (kept == REY_AFFECTION_CAP)
+#   ova_rey_tried_<x>        - a LATER state's courtship has been opened (dog/bear/
+#                              rabbit/fox; cat is added once from history, no flag)
+#   ova_rey_won_<x>          - her heart was won (the JE completed) -> a primary culture
+#   ova_rey_confessed_<x>    - she accepted John's confession (the confession
+#                              button; this ALONE completes the courtship)
+#   ova_rey_all_dates_<x>    - all eight dates have played; if affection is still
+#                              under 20 at that point the courtship fails at once
+#   ova_rey_obj1/2/3_<x>     - each of her three gameplay objectives is done
+#   ova_rey_seen_NN          - a date beat has fired (strict beat ladders)
+#   ova_rey_ascension_opened - the capstone JE has been granted
+#   ova_rey_ascended         - John has taken the presidency
+#
+# THE AFFECTION CAP is 50. It is written as the literal divisor in the bar math
+# below AND stored in ova_rey_affection_cap for the confession gate / loc; if
+# you change one, change both. Beat option values are best +5 / good +3 / poor
+# +1 across EIGHT date beats (the intro plus seven dates); completing each of
+# the three gameplay objectives adds a +10 lump. Eight best choices give 40, so
+# the bar (50) always needs at least one objective; a poorer run can be caught
+# up with more objectives (three objectives = +30). After all eight dates, if
+# affection is still under 20 the courtship fails at once (the ova_rey_all_dates_<x>
+# flag set by the eighth date makes the JE fail trigger true). Filling the bar
+# reveals the confession button (ova_rey_buttons.txt), and accepting it is the
+# ONLY thing that completes the courtship - the objectives are never mandatory.
+#
+# Each courtship has THREE gameplay objectives (ova_rey_obj1/2/3_<x>), checked
+# on the monthly pulse by effect_ova_rey_objectives_check; the FIRST is always
+# the home-state building (lv10, or lv20 for the farm and barracks), the other
+# two are NOT satisfiable at game start and require active play:
+#   cat    - Textile Mills lv10 (Katzenburg) | law_free_trade | law_laissez_faire
+#   dog    - Barracks lv20 (Welpenstadt)      | law_national_guard | Champion Level 14
+#   bear   - Arms Factory lv10 (Barenberg)    | Champion Renown 10 | Champion Level 20
+#   rabbit - Wheat Farm lv20 (Hasenhafen)     | Champion Renown 15 | Champion Level 26
+#   fox    - University lv10 (Fuschtal)        | Champion Renown 20 | Champion Level 32
+# Design rules (all from user feedback, keep them):
+#  - Only cat/dog carry laws, and only ones an Artifice Reyorn can actually
+#    enact (unlocking tech HELD: international_trade for free_trade/laissez_faire,
+#    law_enforcement for national_guard) and that are NOT in Reyorn's start law
+#    set. Avoid: law_national_militia (razes barracks), law_terakoya (Japan
+#    culture-locked), charitable_health_system (the DEFAULT health law -> already
+#    active), poor_laws (welfare default ambiguous), and any law needing a
+#    Spiritualism tech Reyorn lacks (empiricism/human_rights/socialism).
+#  - NO technology-research objectives: a high-tech Reyorn beelines any era-2
+#    tech, so it self-completes and is not a real goal.
+#  - NO army_size / navy_size objectives: army size == total barracks levels, so
+#    an army goal just duplicates a Barracks building goal (and the starting
+#    military count is not fixed). Renown/Level need real champion-system play
+#    (Champion Hall, patronage, expeditions) and start at 0 / 8, so they are
+#    genuine, escalating goals. Completing one sets its flag, +10 affection once.
+
+# ---------------------------------------------------------------------------
+# Startup. Called from REY's history file. Opens the first courtship (the
+# capital cat state); that JE's immediate summons John a few days in.
+# ---------------------------------------------------------------------------
+effect_ova_rey_start = {
+	# No ova_rey_tried_cat flag: the cat JE is added exactly once, here, and
+	# effect_ova_rey_next_courtship walks dog -> bear -> rabbit -> fox (it never
+	# re-checks cat), so a "tried_cat" marker would be set-but-never-read (the
+	# engine warns on that). Same reason there is no ova_rey_story_active marker.
+	effect_ova_rey_init_affection = yes
+	add_journal_entry = { type = je_ova_rey_court_cat }
+}
+
+# Summon John Paradox.
+effect_ova_rey_john_arrives = {
+	if = {
+		limit = {
+			NOT = { exists = var:ova_champion_char }
+			NOT = { has_variable = ova_rey_john_char }
+		}
+		ova_champion_grant_otherworlder = yes
+		ova_champion_create_from_template = { TEMPLATE = template_john_paradox LEVEL = 8 }
+	}
+    if = {
+		limit = {
+			NOT = { has_variable = ova_rey_john_char }
+			has_variable = ova_champion_char
+			exists = var:ova_champion_char
+		}
+		set_variable = { name = ova_rey_john_char value = var:ova_champion_char }
+		var:ova_champion_char ?= {
+			set_variable = ova_plot_armor
+			set_character_immortal = yes
+		}
+	}
+}
+
+# Reset the affection score at the start of each courtship. The bar itself is a
+# fresh JE instance (starts at 0), so only the variable needs zeroing.
+effect_ova_rey_init_affection = {
+	set_variable = { name = ova_rey_affection value = 0 }
+	set_variable = { name = ova_rey_affection_cap value = 50 }
+}
+
+# THE affection entry point. Adds AMOUNT to the score and pushes the matching
+# slice onto whichever courtship bar is live (points * 100 / 50). One live JE
+# at a time, so the if-ladder resolves to exactly one push. Mirrors the champion
+# bar-sync idiom (save a temp scope value, then je:je_x = { add_progress }).
+# Usage: effect_ova_rey_add_affection = { AMOUNT = 5 }
+effect_ova_rey_add_affection = {
+	change_variable = { name = ova_rey_affection add = $AMOUNT$ }
+	save_temporary_scope_value_as = {
+		name = ova_rey_aff_delta
+		value = {
+			value = $AMOUNT$
+			multiply = 100
+			divide = 50
+		}
+	}
+	if = {
+		limit = { has_journal_entry = je_ova_rey_court_cat }
+		je:je_ova_rey_court_cat ?= { add_progress = { name = ova_rey_affection_bar value = scope:ova_rey_aff_delta } }
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_rey_court_dog }
+		je:je_ova_rey_court_dog ?= { add_progress = { name = ova_rey_affection_bar value = scope:ova_rey_aff_delta } }
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_rey_court_bear }
+		je:je_ova_rey_court_bear ?= { add_progress = { name = ova_rey_affection_bar value = scope:ova_rey_aff_delta } }
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_rey_court_rabbit }
+		je:je_ova_rey_court_rabbit ?= { add_progress = { name = ova_rey_affection_bar value = scope:ova_rey_aff_delta } }
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_rey_court_fox }
+		je:je_ova_rey_court_fox ?= { add_progress = { name = ova_rey_affection_bar value = scope:ova_rey_aff_delta } }
+	}
+}
+
+# ---------------------------------------------------------------------------
+# Date-beat consequence helpers. Every option in events/ova_rey_events.txt
+# carries, besides its affection, ONE effect that is the literal consequence of
+# what the option text says John did - her routes reopen, the fine is paid out
+# of the treasury, the manuscript burns. Most of those land on the heroine's own
+# state, and the state-scope boilerplate is identical every time, so it lives
+# here instead of forty times over in the event file.
+#
+# region_state:REY is the same idiom effect_ova_rey_objectives_check uses: REY is
+# mod-authored and never renamed, and ?= keeps a lost state harmless (the beat
+# still plays, it simply has nowhere to land its consequence).
+# Usage: effect_ova_rey_state_mod = { STATE = STATE_KATZENBURG MOD = ova_rey_cat_routes_open DAYS = 1825 }
+# ---------------------------------------------------------------------------
+effect_ova_rey_state_mod = {
+	s:$STATE$.region_state:REY ?= {
+		add_modifier = { name = $MOD$ days = $DAYS$ }
+	}
+}
+
+# Her own people approve (or do not). CULTURE is the bare culture key, so the
+# reaction is hers and her kin's, not the whole state's.
+# Usage: effect_ova_rey_state_loyalists = { STATE = STATE_KATZENBURG CULTURE = desert_catkin AMOUNT = small_radicals }
+effect_ova_rey_state_loyalists = {
+	s:$STATE$.region_state:REY ?= {
+		add_loyalists_in_state = {
+			culture = cu:$CULTURE$
+			value = $AMOUNT$
+		}
+	}
+}
+
+effect_ova_rey_state_radicals = {
+	s:$STATE$.region_state:REY ?= {
+		add_radicals_in_state = {
+			culture = cu:$CULTURE$
+			value = $AMOUNT$
+		}
+	}
+}
+
+# The wedding itself (each ova_rey.X9). The republic throws a jubilee, her state
+# becomes the hero's in-laws for good, and her own people celebrate hardest.
+# Each bride's state gets its OWN instance of the permanent state modifier, so
+# five weddings really do stack; the country jubilee is timed and simply refreshes.
+# Usage: effect_ova_rey_wedding = { STATE = STATE_KATZENBURG CULTURE = desert_catkin }
+effect_ova_rey_wedding = {
+	add_modifier = { name = ova_rey_wedding_jubilee days = 1825 }
+	effect_ova_rey_state_mod = { STATE = $STATE$ MOD = ova_rey_married_into_the_hero DAYS = -1 }
+	effect_ova_rey_state_loyalists = { STATE = $STATE$ CULTURE = $CULTURE$ AMOUNT = medium_radicals }
+}
+
+# ---------------------------------------------------------------------------
+# Beat dispatch. Each courtship is a STRICT ladder of EIGHT date beats (the
+# intro plus seven dates), driven off the yearly pulse plus the ova_rey.94 relay
+# (four beats a year, so all eight land inside ~2 years). Same reasoning as the
+# Victoria / Returner tick ladders: a uniform random_events roll would keep
+# landing on beats whose turn has passed. Each beat still carries its own trigger
+# and re-offers if it fizzles. The confession is NOT in the ladder any more: it
+# is a scripted button (ova_rey_buttons.txt) that appears once the bar is full.
+# ---------------------------------------------------------------------------
+effect_ova_rey_courtship_tick = {
+	if = {
+		limit = { has_journal_entry = je_ova_rey_court_cat }
+		effect_ova_rey_cat_tick = yes
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_rey_court_dog }
+		effect_ova_rey_dog_tick = yes
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_rey_court_bear }
+		effect_ova_rey_bear_tick = yes
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_rey_court_rabbit }
+		effect_ova_rey_rabbit_tick = yes
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_rey_court_fox }
+		effect_ova_rey_fox_tick = yes
+	}
+}
+
+effect_ova_rey_cat_tick = {
+	if =      { limit = { NOT = { has_variable = ova_rey_seen_10 } } trigger_event = { id = ova_rey.10 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_11 } } trigger_event = { id = ova_rey.11 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_12 } } trigger_event = { id = ova_rey.12 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_13 } } trigger_event = { id = ova_rey.13 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_14 } } trigger_event = { id = ova_rey.14 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_15 } } trigger_event = { id = ova_rey.15 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_16 } } trigger_event = { id = ova_rey.16 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_17 } } trigger_event = { id = ova_rey.17 } }
+}
+
+effect_ova_rey_dog_tick = {
+	if =      { limit = { NOT = { has_variable = ova_rey_seen_20 } } trigger_event = { id = ova_rey.20 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_21 } } trigger_event = { id = ova_rey.21 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_22 } } trigger_event = { id = ova_rey.22 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_23 } } trigger_event = { id = ova_rey.23 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_24 } } trigger_event = { id = ova_rey.24 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_25 } } trigger_event = { id = ova_rey.25 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_26 } } trigger_event = { id = ova_rey.26 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_27 } } trigger_event = { id = ova_rey.27 } }
+}
+
+effect_ova_rey_bear_tick = {
+	if =      { limit = { NOT = { has_variable = ova_rey_seen_30 } } trigger_event = { id = ova_rey.30 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_31 } } trigger_event = { id = ova_rey.31 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_32 } } trigger_event = { id = ova_rey.32 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_33 } } trigger_event = { id = ova_rey.33 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_34 } } trigger_event = { id = ova_rey.34 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_35 } } trigger_event = { id = ova_rey.35 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_36 } } trigger_event = { id = ova_rey.36 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_37 } } trigger_event = { id = ova_rey.37 } }
+}
+
+effect_ova_rey_rabbit_tick = {
+	if =      { limit = { NOT = { has_variable = ova_rey_seen_40 } } trigger_event = { id = ova_rey.40 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_41 } } trigger_event = { id = ova_rey.41 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_42 } } trigger_event = { id = ova_rey.42 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_43 } } trigger_event = { id = ova_rey.43 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_44 } } trigger_event = { id = ova_rey.44 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_45 } } trigger_event = { id = ova_rey.45 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_46 } } trigger_event = { id = ova_rey.46 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_47 } } trigger_event = { id = ova_rey.47 } }
+}
+
+effect_ova_rey_fox_tick = {
+	if =      { limit = { NOT = { has_variable = ova_rey_seen_50 } } trigger_event = { id = ova_rey.50 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_51 } } trigger_event = { id = ova_rey.51 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_52 } } trigger_event = { id = ova_rey.52 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_53 } } trigger_event = { id = ova_rey.53 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_54 } } trigger_event = { id = ova_rey.54 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_55 } } trigger_event = { id = ova_rey.55 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_56 } } trigger_event = { id = ova_rey.56 } }
+	else_if = { limit = { NOT = { has_variable = ova_rey_seen_57 } } trigger_event = { id = ova_rey.57 } }
+}
+
+# ---------------------------------------------------------------------------
+# The three gameplay objectives of each courtship, checked on the active JE's
+# monthly pulse. Each is one-way (its flag latches when first met, so a later
+# dip below the threshold does not un-win it) and grants +10 affection once.
+# Separate `if`s (not else_if) so several can clear in the same pulse. Building
+# checks use the region_state:REY idiom (Reyorn is mod-authored, never renamed;
+# ?= keeps a lost state harmless). See the file header for the full objective
+# table and the design rules; the short version:
+#   cat    - Textile Mills lv5 (Katzenburg) | law_free_trade | law_laissez_faire
+#   dog    - Barracks lv20 (Welpenstadt)      | law_national_guard | Champion Level 12
+#   bear   - Arms Factory lv5 (Barenberg)    | Champion Renown 10 | Champion Level 14
+#   rabbit - Wheat Farm lv20 (Hasenhafen)     | Champion Renown 15 | Champion Level 26
+#   fox    - University lv10 (Fuschtal)        | Champion Renown 20 | Champion Level 32
+# Only cat/dog carry laws (enactable by an Artifice Reyorn - international_trade
+# and law_enforcement are held - and not in its start law set). Everyone else
+# uses the summoned hero's own Renown/Level, which start at 0/8 and need real
+# champion-system play. No tech-research goals (a high-tech Reyorn self-completes
+# them) and no army/navy-size goals (army size just tracks barracks levels).
+# ---------------------------------------------------------------------------
+effect_ova_rey_objectives_check = {
+	# ---- Katzenburg / Nasira (cat) ----
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_cat
+			NOT = { has_variable = ova_rey_obj1_cat }
+			s:STATE_KATZENBURG.region_state:REY ?= {
+				any_scope_building = { is_building_type = building_textile_mill level >= 5 }
+			}
+		}
+		set_variable = ova_rey_obj1_cat
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_cat
+			NOT = { has_variable = ova_rey_obj2_cat }
+			has_law = law_type:law_free_trade
+		}
+		set_variable = ova_rey_obj2_cat
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_cat
+			NOT = { has_variable = ova_rey_obj3_cat }
+			has_law = law_type:law_laissez_faire
+		}
+		set_variable = ova_rey_obj3_cat
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+
+	# ---- Welpenstadt / Bruna (dog) ----
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_dog
+			NOT = { has_variable = ova_rey_obj1_dog }
+			s:STATE_WELPENSTADT.region_state:REY ?= {
+				any_scope_building = { is_building_type = building_barrack level >= 20 }
+			}
+		}
+		set_variable = ova_rey_obj1_dog
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_dog
+			NOT = { has_variable = ova_rey_obj2_dog }
+			has_law = law_type:law_national_guard
+		}
+		set_variable = ova_rey_obj2_dog
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_dog
+			NOT = { has_variable = ova_rey_obj3_dog }
+			ova_has_living_champion = yes
+			var:ova_champion_level >= 12
+		}
+		set_variable = ova_rey_obj3_dog
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+
+	# ---- Barenberg / Ursla (bear) ----
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_bear
+			NOT = { has_variable = ova_rey_obj1_bear }
+			s:STATE_BARENBERG.region_state:REY ?= {
+				any_scope_building = { is_building_type = building_arms_industry level >= 5 }
+			}
+		}
+		set_variable = ova_rey_obj1_bear
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_bear
+			NOT = { has_variable = ova_rey_obj2_bear }
+			ova_has_living_champion = yes
+			var:ova_champion_popularity >= 6
+		}
+		set_variable = ova_rey_obj2_bear
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_bear
+			NOT = { has_variable = ova_rey_obj3_bear }
+			ova_has_living_champion = yes
+			var:ova_champion_level >= 15
+		}
+		set_variable = ova_rey_obj3_bear
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+
+	# ---- Hasenhafen / Lieselotte (rabbit) ----
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_rabbit
+			NOT = { has_variable = ova_rey_obj1_rabbit }
+			s:STATE_HASENHAFEN.region_state:REY ?= {
+				any_scope_building = { is_building_type = building_wheat_farm level >= 20 }
+			}
+		}
+		set_variable = ova_rey_obj1_rabbit
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_rabbit
+			NOT = { has_variable = ova_rey_obj2_rabbit }
+			ova_has_living_champion = yes
+			var:ova_champion_popularity >= 9
+		}
+		set_variable = ova_rey_obj2_rabbit
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_rabbit
+			NOT = { has_variable = ova_rey_obj3_rabbit }
+			ova_has_living_champion = yes
+			var:ova_champion_level >= 18
+		}
+		set_variable = ova_rey_obj3_rabbit
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+
+	# ---- Fuschtal / Fenna (fox) ----
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_fox
+			NOT = { has_variable = ova_rey_obj1_fox }
+			s:STATE_FUSCHTAL.region_state:REY ?= {
+				any_scope_building = { is_building_type = building_university level >= 10 }
+			}
+		}
+		set_variable = ova_rey_obj1_fox
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_fox
+			NOT = { has_variable = ova_rey_obj2_fox }
+			ova_has_living_champion = yes
+			var:ova_champion_popularity >= 14
+		}
+		set_variable = ova_rey_obj2_fox
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+	if = {
+		limit = {
+			has_journal_entry = je_ova_rey_court_fox
+			NOT = { has_variable = ova_rey_obj3_fox }
+			ova_has_living_champion = yes
+			var:ova_champion_level >= 22
+		}
+		set_variable = ova_rey_obj3_fox
+		effect_ova_rey_add_affection = { AMOUNT = 10 }
+	}
+}
+
+# ---------------------------------------------------------------------------
+# Walk the fixed courting order: cat (opened from history) -> dog -> bear ->
+# rabbit -> fox, then the ascension capstone. Called from every courtship JE's
+# on_complete / on_timeout / on_fail. Each rung marks its state tried so a
+# failed courtship is never re-offered, and re-inits the affection score for
+# the next heroine.
+# ---------------------------------------------------------------------------
+effect_ova_rey_next_courtship = {
+	if = {
+		limit = { NOT = { has_variable = ova_rey_tried_dog } }
+		set_variable = ova_rey_tried_dog
+		effect_ova_rey_init_affection = yes
+		add_journal_entry = { type = je_ova_rey_court_dog }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_rey_tried_bear } }
+		set_variable = ova_rey_tried_bear
+		effect_ova_rey_init_affection = yes
+		add_journal_entry = { type = je_ova_rey_court_bear }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_rey_tried_rabbit } }
+		set_variable = ova_rey_tried_rabbit
+		effect_ova_rey_init_affection = yes
+		add_journal_entry = { type = je_ova_rey_court_rabbit }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_rey_tried_fox } }
+		set_variable = ova_rey_tried_fox
+		effect_ova_rey_init_affection = yes
+		add_journal_entry = { type = je_ova_rey_court_fox }
+	}
+	else = {
+		if = {
+			limit = { NOT = { has_variable = ova_rey_ascension_opened } }
+			set_variable = ova_rey_ascension_opened
+			add_journal_entry = { type = je_ova_rey_ascension }
+		}
+	}
+}
+
+# ---------------------------------------------------------------------------
+# The capstone. Add each beastkin culture John actually won as a primary
+# culture of Reyorn, and (if the republic somehow is not one yet) make the
+# presidency real. Run once, from ova_rey.90's ascension option.
+# ---------------------------------------------------------------------------
+effect_ova_rey_grant_cultures = {
+	if = { limit = { has_variable = ova_rey_won_cat    NOT = { country_has_primary_culture = cu:desert_catkin } }    add_primary_culture = cu:desert_catkin }
+	if = { limit = { has_variable = ova_rey_won_dog    NOT = { country_has_primary_culture = cu:dogkin } }           add_primary_culture = cu:dogkin }
+	if = { limit = { has_variable = ova_rey_won_bear   NOT = { country_has_primary_culture = cu:bearkin } }          add_primary_culture = cu:bearkin }
+	if = { limit = { has_variable = ova_rey_won_rabbit NOT = { country_has_primary_culture = cu:western_rabbitkin } } add_primary_culture = cu:western_rabbitkin }
+	if = { limit = { has_variable = ova_rey_won_fox    NOT = { country_has_primary_culture = cu:forest_foxkin } }    add_primary_culture = cu:forest_foxkin }
+}
+
+effect_ova_rey_take_presidency = {
+	set_variable = ova_rey_ascended
+	if = {
+		limit = { has_variable = ova_rey_john_char exists = var:ova_rey_john_char }
+		var:ova_rey_john_char ?= { set_character_as_ruler = yes }
+	}
+	if = {
+		limit = { NOT = { has_law = law_type:law_presidential_republic } }
+		activate_law = law_type:law_presidential_republic
+	}
+	effect_ova_rey_grant_cultures = yes
+}
+
+# ---------------------------------------------------------------------------
+# The tale is over (all five states courted and the presidency taken, or John
+# somehow dead): plot armor comes off John and every heroine won. Safe to call
+# with any of them already gone.
+# ---------------------------------------------------------------------------
+effect_ova_rey_story_over = {
+	if = {
+		limit = { has_variable = ova_rey_john_char exists = var:ova_rey_john_char }
+		var:ova_rey_john_char ?= {
+			if = { limit = { has_variable = ova_plot_armor } remove_variable = ova_plot_armor }
+			set_character_immortal = no
+		}
+	}
+	effect_ova_rey_release_heroine = { CHAR = ova_rey_char_cat }
+	effect_ova_rey_release_heroine = { CHAR = ova_rey_char_dog }
+	effect_ova_rey_release_heroine = { CHAR = ova_rey_char_bear }
+	effect_ova_rey_release_heroine = { CHAR = ova_rey_char_rabbit }
+	effect_ova_rey_release_heroine = { CHAR = ova_rey_char_fox }
+}
+
+effect_ova_rey_release_heroine = {
+	if = {
+		limit = { has_variable = $CHAR$ exists = var:$CHAR$ }
+		var:$CHAR$ ?= {
+			if = { limit = { has_variable = ova_plot_armor } remove_variable = ova_plot_armor }
+			set_character_immortal = no
+		}
+	}
+}

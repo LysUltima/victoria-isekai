@@ -1,0 +1,52 @@
+﻿ruinborn_chendhyan = {
+	template = "moon_elf"
+
+	
+	skin_color = {
+		10 = { 0.05 0.53 0.15 0.54 }
+	}
+	eye_color = {
+        # Green
+        80 = { 0.33 0.5 0.67 0.8 }
+		# Brown
+		10 = { 0.05 0.7 0.35 1.0 }
+	}
+	hair_color = {
+        # Black
+        10 = { 0.01 0.95 0.97 0.99 }
+	}
+
+    gene_nose_size = {
+        17 = { name = nose_size   range = { 0.4 0.5 }      }
+        74 = { name = nose_size   range = { 0.5 0.55 }      }
+        7 = { name = nose_size   range = { 0.55 0.65 }      }
+    }
+
+    gene_nose_nostril_width = {
+        7 = { name = nose_nostril_width   range = { 0.4 0.45 }      }
+        84 = { name = nose_nostril_width   range = { 0.45 0.55 }      }
+        17 = { name = nose_nostril_width   range = { 0.55 0.65 }      }
+    }
+
+    gene_ear_size = {
+
+        7 = { name = ear_size   range = { 0.5 0.6 }      }
+        84 = { name = ear_size   range = { 0.6 0.7 }      }
+
+    }
+
+	hairstyles = {
+		10 = { name = native_american_hairstyles 		range = { 0.0 1.0 } }
+	}
+
+	beards = {
+		10 = { name = no_beard 		range = { 0.0 1.0 } }
+	}
+
+	mustaches = {
+		10 = { name = no_mustache 		range = { 0.0 1.0 } }
+	}
+
+}
+
+	

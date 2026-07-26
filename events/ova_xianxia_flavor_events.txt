@@ -1,0 +1,495 @@
+﻿### Xianxia jianghu flavor events (Agent C, sole owner of this file)
+# Namespace ova_xianxia_flavor. Not storyline-specific, so it no longer depends on a journal
+# entry: fired directly from the regular on_action xianxia_flavor_monthly_events
+# (common/on_actions/ova_flavor_on_actions.txt), hooked into the engine's on_monthly_pulse_country
+# (common/on_actions/00_code_on_actions.txt) - do not renumber these fixed ids, the on_action's
+# weights are wired against them. This used to also roll (subsets, or in je_ova_xianxia_jianghu's
+# case entirely) from the on_monthly_pulse random_events of je_ova_xianxia_jianghu (now deleted -
+# it was a pure flavor carrier with no victory condition of its own) and je_ova_xianxia_blood_lotus
+# / je_ova_xianxia_jade_mandate / je_ova_xianxia_righteous_banner / je_ova_xianxia_covenant_banner
+# (still extant storyline JEs, whose pulse no longer touches flavor); every event's own trigger
+# (ova_xianxia_is_participant_trigger, the same gate jianghu used) already covers the full eligible
+# population. These are lived-in color for every
+# one of the 13 sects plus FEN/YAO while the dao war is undecided - not the Destined One's own
+# chain (that is Agent B's ova_xianxia namespace) and not champion XP/renown bookkeeping (the
+# universal champion JE owns that). Uses only verified vanilla effects/triggers, Agent-A-owned
+# ova_xianxia_* triggers/variables, champion-foundation ova_champion_* effects/triggers, and the
+# ova_xianxia_flavor_* modifiers defined in common/static_modifiers/ova_xianxia_flavor_modifiers.txt.
+#
+#  .1  the pill-furnace explosion        (jianghu economy: alchemy hall mishap)
+#  .2  the jade-slip auction season      (jianghu economy: auction hosting fees)
+#  .3  a wandering sword immortal asks for tea   (champion duel flavor)
+#  .4  the incense economy of the ancestral shrines   (jianghu economy: shrine tolls)
+#  .5  counterfeit cultivation manuals flood the market   (jianghu economy: manual forgeries)
+#  .6  a spirit-beast tide out of the hills   (jianghu economy: hunting throughput)
+#  .7  two elders feud over a qi vein    (jianghu economy: mining throughput / politics)
+#  .8  the mortal town at the mountain foot petitions the sect   (politics: loyalists/radicals)
+#  .9  a demonic preacher at the crossroads   (works for demonic hosts too - conversion flavor)
+#  .10 the heavenly omen nobody can read (renown/prestige trifle)
+#  .11 a rogue cultivator turns himself in with a stolen treasure   (jianghu economy)
+#  .12 the sword tablet no junior can lift   (champion duel flavor)
+#  .13 the matchmaker season             (sect politics: marriage-alliance gossip)
+#  .14 storytellers retell the Destined Ones wrong
+
+namespace = ova_xianxia_flavor
+
+ova_xianxia_flavor.1 = { # the pill-furnace explosion
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.1.t
+	desc = ova_xianxia_flavor.1.d
+	flavor = ova_xianxia_flavor.1.f
+
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # pay for repairs and hush it up
+		name = ova_xianxia_flavor.1.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # make an example of the elder
+		name = ova_xianxia_flavor.1.b
+		add_radicals = { value = small_radicals }
+		add_modifier = { name = ova_xianxia_flavor_furnace_scars days = 365 }
+	}
+}
+
+ova_xianxia_flavor.2 = { # the jade-slip auction season
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.2.t
+	desc = ova_xianxia_flavor.2.d
+	flavor = ova_xianxia_flavor.2.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # take a cut as auction host
+		name = ova_xianxia_flavor.2.a
+		default_option = yes
+		add_modifier = { name = ova_xianxia_flavor_auction_boom days = 365 multiplier = money_amount_multiplier_small }
+	}
+	option = { # sit this season out
+		name = ova_xianxia_flavor.2.b
+	}
+}
+
+ova_xianxia_flavor.3 = { # a wandering sword immortal asks for tea
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.3.t
+	desc = ova_xianxia_flavor.3.d
+	flavor = ova_xianxia_flavor.3.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+		ova_has_living_champion = yes
+		NOT = { ova_champion_is_adventuring = yes }
+	}
+
+	immediate = { }
+
+	option = { # let the sects finest test blades with him
+		name = ova_xianxia_flavor.3.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 15 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+	option = { # tea only, no blades
+		name = ova_xianxia_flavor.3.b
+	}
+}
+
+ova_xianxia_flavor.4 = { # the incense economy of the ancestral shrines
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.4.t
+	desc = ova_xianxia_flavor.4.d
+	flavor = ova_xianxia_flavor.4.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # sell blessed incense at the gate
+		name = ova_xianxia_flavor.4.a
+		default_option = yes
+		add_modifier = { name = ova_xianxia_incense_trade days = 365 multiplier = money_amount_multiplier_small }
+		add_radicals = { value = very_small_radicals }
+	}
+	option = { # burn it freely for all who climb the mountain
+		name = ova_xianxia_flavor.4.b
+		add_loyalists = { value = small_radicals }
+	}
+}
+
+ova_xianxia_flavor.5 = { # counterfeit cultivation manuals flood the market
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.5.t
+	desc = ova_xianxia_flavor.5.d
+	flavor = ova_xianxia_flavor.5.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # buy up the stock for the archive
+		name = ova_xianxia_flavor.5.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_modifier = { name = ova_xianxia_flavor_manual_glut days = 365 }
+	}
+	option = { # burn the forgeries publicly
+		name = ova_xianxia_flavor.5.b
+		add_radicals = { value = very_small_radicals }
+	}
+}
+
+ova_xianxia_flavor.6 = { # a spirit-beast tide out of the hills
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.6.t
+	desc = ova_xianxia_flavor.6.d
+	flavor = ova_xianxia_flavor.6.f
+
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # mobilize every hunter in the sect
+		name = ova_xianxia_flavor.6.a
+		default_option = yes
+		add_modifier = { name = ova_xianxia_flavor_beast_tide_bounty days = 365 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_xp = { AMOUNT = 10 }
+		}
+	}
+	option = { # let the outer disciples handle it
+		name = ova_xianxia_flavor.6.b
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_xianxia_flavor.7 = { # two elders feud over a qi vein
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.7.t
+	desc = ova_xianxia_flavor.7.d
+	flavor = ova_xianxia_flavor.7.f
+
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # rule in favor of the senior elder
+		name = ova_xianxia_flavor.7.a
+		default_option = yes
+		add_radicals = { value = small_radicals }
+	}
+	option = { # split the vein between them
+		name = ova_xianxia_flavor.7.b
+		add_modifier = { name = ova_xianxia_flavor_vein_dispute days = 365 }
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_xianxia_flavor.8 = { # the mortal town at the mountain foot petitions the sect
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.8.t
+	desc = ova_xianxia_flavor.8.d
+	flavor = ova_xianxia_flavor.8.f
+
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # grant the petition
+		name = ova_xianxia_flavor.8.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # turn the mortals away
+		name = ova_xianxia_flavor.8.b
+		add_radicals = { value = small_radicals }
+	}
+}
+
+ova_xianxia_flavor.9 = { # a demonic preacher at the crossroads
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.9.t
+	desc = ova_xianxia_flavor.9.d
+	flavor = ova_xianxia_flavor.9.f
+
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+		exists = c:BLO
+	}
+
+	immediate = { }
+
+	option = { # expel him / preach him boldly
+		name = ova_xianxia_flavor.9.a
+		default_option = yes
+		if = {
+			limit = { NOT = { ova_xianxia_is_demonic_sect_trigger = yes } }
+			change_relations = { country = c:BLO value = -10 }
+		}
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # let him speak / let them gather
+		name = ova_xianxia_flavor.9.b
+		if = {
+			limit = { NOT = { ova_xianxia_is_demonic_sect_trigger = yes } }
+			change_relations = { country = c:BLO value = 10 }
+		}
+		add_radicals = { value = small_radicals }
+	}
+}
+
+ova_xianxia_flavor.10 = { # the heavenly omen nobody can read
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.10.t
+	desc = ova_xianxia_flavor.10.d
+	flavor = ova_xianxia_flavor.10.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # consult the sects diviners
+		name = ova_xianxia_flavor.10.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 5 }
+		}
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # ignore the sky and tend to the mountain
+		name = ova_xianxia_flavor.10.b
+	}
+}
+
+ova_xianxia_flavor.11 = { # a rogue cultivator turns himself in with a stolen treasure
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.11.t
+	desc = ova_xianxia_flavor.11.d
+	flavor = ova_xianxia_flavor.11.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # accept the treasure, forgive the debt
+		name = ova_xianxia_flavor.11.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # turn him over to the sect he wronged
+		name = ova_xianxia_flavor.11.b
+		add_radicals = { value = very_small_radicals }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 5 }
+		}
+	}
+}
+
+ova_xianxia_flavor.12 = { # the sword tablet no junior can lift
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.12.t
+	desc = ova_xianxia_flavor.12.d
+	flavor = ova_xianxia_flavor.12.f
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+		ova_has_living_champion = yes
+		NOT = { ova_champion_is_adventuring = yes }
+	}
+
+	immediate = { }
+
+	option = { # let him try
+		name = ova_xianxia_flavor.12.a
+		default_option = yes
+		random_list = {
+			60 = {
+				ova_champion_add_xp = { AMOUNT = 20 }
+				ova_champion_add_popularity = { AMOUNT = 10 }
+			}
+			40 = {
+				ova_champion_injure = { MONTHS = 2 }
+			}
+		}
+	}
+}
+
+ova_xianxia_flavor.13 = { # the matchmaker season
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.13.t
+	desc = ova_xianxia_flavor.13.d
+	flavor = ova_xianxia_flavor.13.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # encourage the alliances
+		name = ova_xianxia_flavor.13.a
+		default_option = yes
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # forbid entangling alliances
+		name = ova_xianxia_flavor.13.b
+		add_radicals = { value = small_radicals }
+	}
+}
+
+ova_xianxia_flavor.14 = { # storytellers retell the Destined Ones wrong
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_xianxia_flavor.14.t
+	desc = ova_xianxia_flavor.14.d
+	flavor = ova_xianxia_flavor.14.f
+
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+		any_country = {
+			has_variable = ova_xianxia_mc_type
+		}
+	}
+
+	immediate = { }
+
+	option = { # let the tale grow taller
+		name = ova_xianxia_flavor.14.a
+		default_option = yes
+		if = {
+			limit = {
+				has_variable = ova_xianxia_mc_type
+				ova_has_living_champion = yes
+			}
+			ova_champion_add_popularity = { AMOUNT = 5 }
+		}
+		add_loyalists = { value = very_small_radicals }
+	}
+}

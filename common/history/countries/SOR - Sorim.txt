@@ -1,0 +1,8 @@
+﻿# Sorim (murim: spiritualism tier 3, sect)
+COUNTRIES = {
+	c:SOR ?= {
+		effect_starting_technology_spiritualism_tier_3 = yes
+		create_character = { template = template_ruler_sor role = ruler }
+		effect_starting_politics_sect = yes
+	}
+}

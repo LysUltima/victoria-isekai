@@ -1,0 +1,8 @@
+﻿# Purple Mist Palace (xianxia: spiritualism tier 1, sect)
+COUNTRIES = {
+	c:PUR ?= {
+		effect_starting_technology_spiritualism_tier_1 = yes
+		create_character = { template = template_ruler_pur role = ruler }
+		effect_starting_politics_sect = yes
+	}
+}

@@ -1,0 +1,60 @@
+﻿l_english:
+ # Isekai TC: text overrides for migrated vanilla events that needed real-world references
+ # removed/reworded but were otherwise generic enough to keep verbatim (see
+ # tools/migration/progress.tsv and tools/migration/skip_log.md for the full migration log).
+
+ # independence.txt (2026-07-11) - dropped "European" from flavor text
+ independence.2.f: "The Governor did not have time to pack up his furniture before he left. Half a dozen fine chairs graced his dining room, surrounding a table that had hastily been stripped of the silverware and its silken cloth by the fleeing prior occupants. Those fine chairs now hosted six fine gentlemen. Some of them, fortunate enough to warrant an invitation to the Governor's dinners, had been here before. The remainder were rougher, newer. If any here would were inclined to present something bold, it would be one of them."
+
+ # ip4_election_rigging.txt (2026-07-11) - dropped "Panama hat"/"Cuban cigar" from flavor text
+ caciquismo.1.f: "The atmosphere in the casino hung heavy with smoke. In a corner booth, a man in a wide-brimmed hat waved a fat cigar in the air, a faux-melancholic expression on his face.\n\n\"We, the liberals, were convinced that we would win the elections. However, God's will has been otherwise.\"\n\nHe placed the cigar into his mouth, and let out a puff of smoke. A smile played around his lips.\n\n\"It seems that it is we, the conservatives, who have won the elections.\""
+
+ # subjecthood_events.txt (2026-07-11) - dropped the real historical figure Napoleon and the
+ # $french$ culture macro from flavor text, replaced with a generic unnamed-ruler anecdote
+ subjecthood_events.3.f: "\"When the old conqueror-king took his crown, he swore to govern in the sole interest, happiness, and glory of his people. This is what granted him his power, and allowed him to triumph over all of his foes. If the [SCOPE.sCharacter('ruler_scope').GetPrimaryRoleTitle] wished, [SCOPE.sCharacter('ruler_scope').GetSheHe] could do the same, with the [SCOPE.sCulture('relevant_primary_culture').GetNameNoFormatting] people in mind.\"\n\nThe [SCOPE.sCharacter('ruler_scope').GetPrimaryRoleTitle] regarded the petitioner with a thoughtful expression on [SCOPE.sCharacter('ruler_scope').GetHerHis] face.\n\n\"And what became of that conqueror-king?\"\n\n\"He became immortal, my [SCOPE.sCharacter('ruler_scope').GetCustom('getLadyLordSpouse')|l].\""
+
+ # negotiation_events.txt (2026-07-11) - the 7 flavor-text quotes attributed to real historical
+ # statesmen (Bismarck, Henry Clay, Li Hongzhang, Gladstone, Rutherford B. Hayes, Lord
+ # Palmerston, James Russell Lowell) kept their generic aphorism content but were reattributed to
+ # unnamed in-world speakers.
+ negotiation.1.f: "\"When a man says he approves of something in principle, it means he hasn't the slightest intention of carrying it out in practice.\" \n\n- an old chancellor's saying"
+ negotiation.1.f4: "\"All legislation, all government, all society is founded upon the principle of mutual concession, politeness, comity, courtesy; upon these everything is based...Let him who elevates himself above humanity, above its weaknesses, its infirmities, its wants, its necessities, say, if he pleases, I will never compromise; but let no one who is not above the frailties of our common nature disdain compromises.\" \n\n- a retired minister's memoirs"
+ negotiation.1.f5: "\"Although we are conservatives, in view of the present situation, we must change to survive.\"\n\n- a provincial governor's private letter"
+ negotiation.1.f6: "\"The heated mind resents the chill touch and relentless scrutiny of logic.\" \n\n- an elder statesman"
+ negotiation.1.f7: "\"He serves his party best who serves the country best.\"\n\n- a former head of state"
+ negotiation.1.f8: "\"We have no eternal allies, and we have no perpetual enemies. Our interests are eternal and perpetual, and those interests it is our duty to follow.\"\n\n- a veteran diplomat"
+ negotiation.1.f9: "\"Compromise makes a good umbrella, but a poor roof; it is temporary expedient, often wise in party politics, almost sure to be unwise in statesmanship.\"\n\n- an old court philosopher"
+
+ # silkworm_diseases.txt (2026-07-11) - dropped real historical figures Mahatma Gandhi and Louis
+ # Pasteur from flavor-text quote attributions, reattributed to unnamed in-world speakers. Also
+ # dropped the geographic_region_europe/geographic_region_north_america spread-gate from
+ # silkworm_diseases.1's trigger and je_silkworm_diseases's on_monthly_pulse (common/journal_entries/
+ # 01_silkworm_diseases.txt) - kept the pasteurization-tech + silk-plantation conditions, which
+ # already gate this sensibly without a hardcoded real-world region.
+ silkworm_diseases.6.f: "\"Man becomes great exactly in the degree in which he works for the welfare of his fellow-men.\"\n\n- an old philosopher's teaching"
+ silkworm_diseases.7.f: "\"...it is created there again by the bad seeds that are prepared there or that are imported there, and the day when we raise, in a locality of great culture, only seeds deprived of corpuscles, almost all the generations there will be guaranteed against pébrine and will become, not to mention consider that this disease, clear to reproduce.\"\n\n- from the research notes of a court alchemist"
+ silkworm_diseases.8.f: "\"From 4 to 6 o'clock in the evening, all the couples are arranged separately on the small cloths, then immediately afterwards they are discarding throwing the males, without worrying about their more or less corpuscular state. After the females have laid eggs, they are each locked up in a corner of their linen with the aid of a pin, preferably passing it through the wings, so that the moth cannot travel.\"\n\n- from the research notes of a court alchemist"
+
+ # production_tech_events.txt (2026-07-11) - dropped real-world references: .501.f's "Napoleon of
+ # industry" turn of phrase, and .601.f's attribution to the real historical writer George
+ # William Russell.
+ production_tech_events.501.f: "\"A child has been arrested for picking up coal alongside newly-laid tracks. If the youth had been smart enough to steal the whole railroad, he would've been hailed as a titan of industry.\""
+ production_tech_events.601.f: "\"When steam first began to pump and wheels go round at so many revolutions per minute, what are called business habits were intended to make the life of man run in harmony with the steam engine, and his movement rival the engine in punctuality.\"" # an old industrialist's maxim
+
+ # fascism_events.txt (2026-07-11) - dropped "All roads lead to Rome" idiom, reworded to keep the
+ # same meaning (centralized unity) without the real place name.
+ fascism_events.4.b: "All roads lead to the capital."
+
+ # nihilism.txt (2026-07-11) - reattributed 6 flavor-text quotes from real historical figures
+ # (Fyodor Dostoevsky x2, Ivan Turgenev x2, Dmitry Pisarev x2) to unnamed in-world speakers.
+ nihilism.2.f: "\"Your worst sin is that you have destroyed and betrayed yourself for nothing.\"\n\n- from an old novel of ideas"
+ nihilism.3.f: "\"...you think I am attacking them for talking nonsense? Not a bit! I like them to talk nonsense. That's man's one privilege over all creation. Through error you come to the truth! I am a man because I err! You never reach any truth without making fourteen mistakes and very likely a hundred and fourteen. And a fine thing, too, in its way; but we can't even make mistakes on our own account! Talk nonsense, but talk your own nonsense, and I'll kiss you for it. To go wrong in one's own way is better than to go right in someone else's.\"\n\n- from an old novel of ideas"
+ nihilism.4.f: "\"The fact is that previously they were simply dunces and now they've suddenly become nihilists.\"\n\n- an old novelist's observation"
+ nihilism.5.f: "\"The tiny space I occupy is so infinitely small in comparison with the rest of space, in which I am not, and which has nothing to do with me; and the period of time in which it is my lot to live is so petty beside the eternity in which I have not been, and shall not be... And in this atom, this mathematical point, the blood is circulating, the brain is working and wanting something... Isn't it loathsome? Isn't it petty?\"\n\n- an old novelist's observation"
+ nihilism.10.f: "\"The life of a limited person almost always flows more smoothly and pleasantly than the life of a genius or even just an intelligent person. Clever people do not get along with those phenomena to which the masses become accustomed without the slightest difficulty. Intelligent people, depending on the various conditions of temperament and development, are in the most heterogeneous relationship to these phenomena.\"\n\n- a nihilist essayist"
+ nihilism.13.f: "\"What can be smashed must be smashed. Whatever withstands the blow is fit to survive; what flies into pieces is rubbish. In any case, strike out right and left, no harm can come of it.\"\n\n- a nihilist essayist"
+
+ # 00_lobbies_events_04.txt (2026-07-11) - dropped "Napoleon"/"Danes" from .11.f, and
+ # "Impressionism"/"French wine"/"Chinese silk" from .12.f
+ lobby_events.11.f: "\"Those damnable fools! I had investments there! Does their [SCOPE.sCountry('relevant_country').GetRuler.GetPrimaryRoleTitle] think [SCOPE.sCountry('relevant_country').GetRuler.GetHerselfHimself] to be some conquering emperor? Who will be next to take advantage?\"\n\n\"Our neighbors to the north, I expect.\"\n\n\"Yes, yes, I suppose so. Regardless, you know what to do, now.\"\n\nHe departed with a slammed door and a scowl. The secretary, left behind, had already prepared an envelope addressed to [SCOPE.sCountry('relevant_country').GetCapital.GetCityHubName]. With luck, it would arrive within the month, and permit something to be salvaged of this mess."
+ lobby_events.12.f: "[SCOPE.sCountry('relevant_country').GetAdjectiveNoFormatting] art. The words now seemed to fit together seamlessly as fine wine or fine silk, acquiring a meaning greater than the sum of their parts. He could spend the rest of his life in this gallery, import enough masterworks to coat every wall in his home, and yet remain just as enraptured as he was when he first laid his eyes on it.\n\nEach painting was a window into a culture he could spend a lifetime attempting to comprehend, each brush-stroke driven by a vigor which had grown from a foreign seed. How much could he understand about [SCOPE.sCountry('relevant_country').GetNameNoFormatting] through these, if he merely had the time and ability?"

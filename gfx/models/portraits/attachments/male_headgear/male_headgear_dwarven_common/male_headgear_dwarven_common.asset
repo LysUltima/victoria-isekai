@@ -1,0 +1,19 @@
+﻿pdxmesh = {
+	name = "male_headgear_dwarven_common_mesh"
+	file = "male_headgear_dwarven_common.mesh"
+
+	meshsettings = {
+		name = "male_headgear_dwarven_commonShape"
+		index = 0
+		texture_diffuse = "dwarven_common_diffuse.dds"
+		texture_normal = "dwarven_common_normal.dds"
+		texture_specular = "dwarven_common_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "male_headgear_dwarven_common_entity"
+	pdxmesh = "male_headgear_dwarven_common_mesh"
+}

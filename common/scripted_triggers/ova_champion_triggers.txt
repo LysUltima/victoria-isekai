@@ -1,0 +1,72 @@
+﻿### OVA shared champion layer - triggers (country scope)
+
+ova_has_living_champion = {
+	has_variable = ova_champion_char
+	exists = var:ova_champion_char
+}
+
+# A foreign power maintains a sabotage campaign against our champion:
+# no XP/renown gain, no adventures, until every campaign lapses.
+# Tracked by a variable LIST on the victim (ova_sabotage_saboteurs, one
+# entry per sabotaging country so overlapping campaigns don't cancel each
+# other out), populated by the sabotage action's accept_effect and trimmed
+# by its break effects - a plain has_variable_list check with NO
+# scope-dependent loc, so it is safe to surface directly in button/action
+# tooltips (the old any_country + has_diplomatic_pact form emitted
+# "who = prev" loc and tripped jomini_trigger_description).
+ova_champion_is_sabotaged = {
+	has_variable_list = ova_sabotage_saboteurs
+}
+
+# Alive, not injured, not away in seclusion, not sabotaged - may adventure.
+ova_champion_is_available = {
+	ova_has_living_champion = yes
+	NOT = { has_variable = ova_champion_injured_months }
+	NOT = { has_variable = ova_champion_secluded_months }
+	NOT = { ova_champion_is_sabotaged = yes }
+}
+
+# OUR expedition pact is running: the champion is abroad. Direction-correct
+# (a country merely TARGETED by an expedition is not "adventuring"): the
+# variable is set by the expedition action's accept_effect and cleared by its
+# break effects. Blocks closed-door training and hinterland hunts.
+ova_champion_is_adventuring = {
+	has_variable = ova_expedition_active
+}
+
+# True if the country runs a Champion Hall with the given PM active.
+# Usage: ova_champion_hall_pm = { PM = pm_ova_ascendant_arena }
+ova_champion_hall_pm = {
+	any_scope_state = {
+		any_scope_building = {
+			is_building_type = building_champion_hall
+			has_active_production_method = $PM$
+		}
+	}
+}
+
+# A Champion Sanctuary forbids ROOT from adventuring into / sabotaging $TARGET$.
+# True if ANY of: a mutual sanctuary binds us and $TARGET$; a directed
+# (unilateral) sanctuary in which $TARGET$ is the protected SOURCE and we are the
+# bound target; or a WAR-ENFORCED sanctuary (ova_demand_sanctuary war goal) that
+# put $TARGET$ in our ova_sanctuary_bound_list.
+# Usage: ova_champion_sanctuary_with = { TARGET = scope:target_country }
+ova_champion_sanctuary_with = {
+	OR = {
+		any_scope_treaty = {
+			binds = $TARGET$
+			any_scope_article = { has_type = ova_champion_sanctuary }
+		}
+		any_scope_treaty = {
+			binds = $TARGET$
+			any_scope_article = {
+				has_type = ova_champion_sanctuary_imposed
+				source_country = $TARGET$
+			}
+		}
+		is_target_in_variable_list = {
+			name = ova_sanctuary_bound_list
+			target = $TARGET$
+		}
+	}
+}

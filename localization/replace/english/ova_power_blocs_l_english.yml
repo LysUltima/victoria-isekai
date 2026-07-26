@@ -1,0 +1,18 @@
+﻿l_english:
+  # Power bloc history-entry names (loc key = the bare `name = KEY` set in create_power_bloc;
+  # NOT drawn from common/power_bloc_names, that pool is only used by AI-formed blocs).
+  DEMONIC_EMPIRE: "Demonic Empire"
+  BLOOD_LOTUS_COVENANT: "Blood Lotus Covenant"
+  ORTHODOX_MARTIAL_ALLIANCE: "Orthodox Martial Alliance"
+  RADIANT_CRUSADE: "Radiant Crusade"
+  FENG_DYNASTY: "Feng Dynasty"
+  YAO_DYNASTY: "Yao Dynasty"
+  EMPIRE_OF_THE_DAWNING_SUN: "Empire of the Dawning Sun"
+
+  # Custom power bloc identities (common/power_bloc_identities/ova_power_bloc_identities.txt)
+  identity_radiant_crusade: "Crusading Faith"
+  identity_radiant_crusade_desc: "A holy alliance bound by shared worship of the Goddess and the sacred duty to summon and protect heroes against the encroaching dark. Its leader may compel member states toward the true faith, and the devout everywhere draw strength from its unity."
+  identity_martial_alliance: "Martial Orthodoxy"
+  identity_martial_alliance_desc: "An armed compact of orthodox sects sworn to defend the martial world's proper Way against heresy and demonic corruption. Members cannot make war upon one another and stand ready to answer any call against the Cult."
+  identity_demonic_covenant: "Forbidden Canon"
+  identity_demonic_covenant_desc: "A covenant of demonic-path sects bound by a shared forbidden cultivation canon passed hand to hand across generations. Its secrets spread quickly among the sworn, and its practice unsettles the righteous of the land."

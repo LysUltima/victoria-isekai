@@ -1,0 +1,349 @@
+﻿l_english:
+  # Demonic Empire (DEM)
+  HUB_NAME_STATE_EX_TENEBRIS_city: "Tenebris"
+  HUB_NAME_STATE_EX_TENEBRIS_farm: "Agercaliginis"
+  HUB_NAME_STATE_EX_TENEBRIS_mine: "Profundum"
+  HUB_NAME_STATE_EX_TENEBRIS_wood: "Silvaterna"
+  
+  HUB_NAME_STATE_LUCENT_UMBRAE_city: "Lucentia"
+  HUB_NAME_STATE_LUCENT_UMBRAE_farm: "Prata Umbra"
+  HUB_NAME_STATE_LUCENT_UMBRAE_mine: "Fossalumina"
+  HUB_NAME_STATE_LUCENT_UMBRAE_wood: "Frondescant"
+  
+  HUB_NAME_STATE_SOMNIA_NOCTIS_city: "Noctis"
+  HUB_NAME_STATE_SOMNIA_NOCTIS_farm: "Ceresomni"
+  HUB_NAME_STATE_SOMNIA_NOCTIS_mine: "Ferrunoctis"
+  HUB_NAME_STATE_SOMNIA_NOCTIS_wood: "Lignumvaga"
+  
+  HUB_NAME_STATE_CEU_ARDENT_city: "Ardentia"
+  HUB_NAME_STATE_CEU_ARDENT_farm: "Messium Ignis"
+  HUB_NAME_STATE_CEU_ARDENT_mine: "Ignisaxum"
+  HUB_NAME_STATE_CEU_ARDENT_wood: "Arborardent"
+  
+  HUB_NAME_STATE_NE_PEREANT_city: "Pereantus"
+  HUB_NAME_STATE_NE_PEREANT_farm: "Aeternager"
+  HUB_NAME_STATE_NE_PEREANT_mine: "Durametallum"
+  HUB_NAME_STATE_NE_PEREANT_wood: "Silvaperdurans"
+  
+  HUB_NAME_STATE_ADHUC_CANTAVI_city: "Cantavium"
+  HUB_NAME_STATE_ADHUC_CANTAVI_farm: "Vocis Pratum"
+  HUB_NAME_STATE_ADHUC_CANTAVI_mine: "Sonosaxum"
+  HUB_NAME_STATE_ADHUC_CANTAVI_wood: "Resonans Silva"
+  
+  HUB_NAME_STATE_RESTAT_VOX_city: "Voxreliqua"
+  HUB_NAME_STATE_RESTAT_VOX_farm: "Ager Vocis"
+  HUB_NAME_STATE_RESTAT_VOX_mine: "Silensfossa"
+  HUB_NAME_STATE_RESTAT_VOX_wood: "Murmurarbor"
+  
+  HUB_NAME_STATE_QUAE_AMAVI_city: "Amavium"
+  HUB_NAME_STATE_QUAE_AMAVI_farm: "Cerescara"
+  HUB_NAME_STATE_QUAE_AMAVI_mine: "Profundamans"
+  HUB_NAME_STATE_QUAE_AMAVI_wood: "Dilectasilva"
+  
+  HUB_NAME_STATE_RUIT_SPES_city: "Ruina Spes"
+  HUB_NAME_STATE_RUIT_SPES_farm: "Vana Messis"
+  HUB_NAME_STATE_RUIT_SPES_mine: "Fragminsaxum"
+  HUB_NAME_STATE_RUIT_SPES_wood: "Caducasilva"
+  HUB_NAME_STATE_RUIT_SPES_port: "Portus Spem"
+  
+  HUB_NAME_STATE_CADUNT_STELLAE_city: "Stellacadens"
+  HUB_NAME_STATE_CADUNT_STELLAE_farm: "Astrager"
+  HUB_NAME_STATE_CADUNT_STELLAE_mine: "Meteorferrum"
+  HUB_NAME_STATE_CADUNT_STELLAE_wood: "Noctisilva"
+  HUB_NAME_STATE_CADUNT_STELLAE_port: "Astrumare"
+  
+  HUB_NAME_STATE_ASTRORUM_city: "Astrorum"
+  HUB_NAME_STATE_ASTRORUM_farm: "Ager Caelestis"
+  HUB_NAME_STATE_ASTRORUM_mine: "Luminfossa"
+  HUB_NAME_STATE_ASTRORUM_wood: "Sidusilva"
+  
+  HUB_NAME_STATE_EX_CAELO_city: "Caelum"
+  HUB_NAME_STATE_EX_CAELO_farm: "Devexus Ager"
+  HUB_NAME_STATE_EX_CAELO_mine: "Aethersaxum"
+  HUB_NAME_STATE_EX_CAELO_wood: "Divinarbor"
+  HUB_NAME_STATE_EX_CAELO_port: "Naviscaelum"
+  
+  HUB_NAME_STATE_RUINA_city: "Ruinaria"
+  HUB_NAME_STATE_RUINA_farm: "Cinisager"
+  HUB_NAME_STATE_RUINA_mine: "Ruderfossa"
+  HUB_NAME_STATE_RUINA_wood: "Putridasilva"
+  HUB_NAME_STATE_RUINA_port: "Portus Ruinae"
+  
+  HUB_NAME_STATE_LUMINA_FRACTA_city: "Fractalumina"
+  HUB_NAME_STATE_LUMINA_FRACTA_farm: "Lucepratum"
+  HUB_NAME_STATE_LUMINA_FRACTA_mine: "Scindisaxum"
+  HUB_NAME_STATE_LUMINA_FRACTA_wood: "Fissarbor"
+  HUB_NAME_STATE_LUMINA_FRACTA_port: "Vitrumare"
+  
+  HUB_NAME_STATE_IN_SPECULA_city: "Specularium"
+  HUB_NAME_STATE_IN_SPECULA_farm: "Visum Pratum"
+  HUB_NAME_STATE_IN_SPECULA_mine: "Oculifossa"
+  HUB_NAME_STATE_IN_SPECULA_wood: "Vigil Silva"
+  HUB_NAME_STATE_IN_SPECULA_port: "Portus Specula"
+  
+  HUB_NAME_STATE_TREMIT_LUMEN_city: "Tremoria"
+  HUB_NAME_STATE_TREMIT_LUMEN_farm: "Agertremens"
+  HUB_NAME_STATE_TREMIT_LUMEN_mine: "Micantisaxum"
+  HUB_NAME_STATE_TREMIT_LUMEN_wood: "Vibransilva"
+  HUB_NAME_STATE_TREMIT_LUMEN_port: "Onda Tremens"
+  
+  HUB_NAME_STATE_LATENT_VIAE_city: "Latentia"
+  HUB_NAME_STATE_LATENT_VIAE_farm: "Occultager"
+  HUB_NAME_STATE_LATENT_VIAE_mine: "Caecafossa"
+  HUB_NAME_STATE_LATENT_VIAE_wood: "Umbrasilva"
+  
+  HUB_NAME_STATE_IN_SILENTIO_city: "Silentium"
+  HUB_NAME_STATE_IN_SILENTIO_farm: "Quietus Ager"
+  HUB_NAME_STATE_IN_SILENTIO_mine: "Mutasaxum"
+  HUB_NAME_STATE_IN_SILENTIO_wood: "Silesilva"
+  HUB_NAME_STATE_IN_SILENTIO_port: "Placidum Mare"
+  
+  HUB_NAME_STATE_FUGIT_TEMPUS_city: "Tempus"
+  HUB_NAME_STATE_FUGIT_TEMPUS_farm: "Fugax Pratum"
+  HUB_NAME_STATE_FUGIT_TEMPUS_mine: "Aevumfossa"
+  HUB_NAME_STATE_FUGIT_TEMPUS_wood: "Horasilva"
+  HUB_NAME_STATE_FUGIT_TEMPUS_port: "Navisaevum"
+  
+  HUB_NAME_STATE_SICUT_LACRIMAE_city: "Lacrimae"
+  HUB_NAME_STATE_SICUT_LACRIMAE_farm: "Fletus Ager"
+  HUB_NAME_STATE_SICUT_LACRIMAE_mine: "Dolorsaxum"
+  HUB_NAME_STATE_SICUT_LACRIMAE_wood: "Tristisilva"
+  HUB_NAME_STATE_SICUT_LACRIMAE_port: "Sinus Lacrimae"
+
+  # Yoliselv (YOL)
+  HUB_NAME_STATE_YOLTENI_city: "Yolteni"
+  HUB_NAME_STATE_YOLTENI_farm: "Yolsei"
+  HUB_NAME_STATE_YOLTENI_mine: "Tenyri"
+  HUB_NAME_STATE_YOLTENI_wood: "Olotheni"
+  
+  HUB_NAME_STATE_NAIRENTHOYU_city: "Nairen"
+  HUB_NAME_STATE_NAIRENTHOYU_farm: "Thoyulei"
+  HUB_NAME_STATE_NAIRENTHOYU_mine: "Nyrthos"
+  HUB_NAME_STATE_NAIRENTHOYU_wood: "Airenthal"
+  
+  HUB_NAME_STATE_ASYNOSA_city: "Asyn"
+  HUB_NAME_STATE_ASYNOSA_farm: "Synosei"
+  HUB_NAME_STATE_ASYNOSA_mine: "Nosaril"
+  HUB_NAME_STATE_ASYNOSA_wood: "Ysaeth"
+  
+  HUB_NAME_STATE_RAIEIN_city: "Raiea"
+  HUB_NAME_STATE_RAIEIN_farm: "Aleina"
+  HUB_NAME_STATE_RAIEIN_mine: "Ryneth"
+  HUB_NAME_STATE_RAIEIN_wood: "Yneira"
+
+  # Palnia (PAL)
+  HUB_NAME_STATE_PALNIA_city: "Palnograd"
+  HUB_NAME_STATE_PALNIA_farm: "Polniza"
+  HUB_NAME_STATE_PALNIA_mine: "Krayesk"
+  HUB_NAME_STATE_PALNIA_wood: "Lespalna"
+  HUB_NAME_STATE_PALNIA_port: "Primorpal"
+
+  # Gigantine Mountains (GIG)
+  HUB_NAME_STATE_NO_RETURN_city: "Despair's End"
+  HUB_NAME_STATE_NO_RETURN_farm: "Sorrowstill"
+  HUB_NAME_STATE_NO_RETURN_mine: "Bleakshaft"
+  HUB_NAME_STATE_NO_RETURN_wood: "Deadwood Ridge"
+  
+  HUB_NAME_STATE_DEATH_PEAK_city: "Death's Summit"
+  HUB_NAME_STATE_DEATH_PEAK_farm: "Graveacre"
+  HUB_NAME_STATE_DEATH_PEAK_mine: "Skullcrag Mine"
+  HUB_NAME_STATE_DEATH_PEAK_wood: "Bonepine Timber"
+  
+  HUB_NAME_STATE_LAST_BREATH_city: "Last Gasp"
+  HUB_NAME_STATE_LAST_BREATH_farm: "Gasping Fields"
+  HUB_NAME_STATE_LAST_BREATH_mine: "Chokehold Depths"
+  HUB_NAME_STATE_LAST_BREATH_wood: "Wheezing Thicket"
+
+  # Goblinland (GOB)
+  HUB_NAME_STATE_DERRAGOB_city: "Derrag"
+  HUB_NAME_STATE_DERRAGOB_farm: "Gubmuck"
+  HUB_NAME_STATE_DERRAGOB_mine: "Zargrag"
+  HUB_NAME_STATE_DERRAGOB_wood: "Derralogg"
+  
+  HUB_NAME_STATE_ASGEBOG_city: "Asgeb"
+  HUB_NAME_STATE_ASGEBOG_farm: "Bogslopp"
+  HUB_NAME_STATE_ASGEBOG_mine: "Gebzog"
+  HUB_NAME_STATE_ASGEBOG_wood: "Brakwood"
+  
+  HUB_NAME_STATE_GORREBO_city: "Gorreb"
+  HUB_NAME_STATE_GORREBO_farm: "Gorrgrub"
+  HUB_NAME_STATE_GORREBO_mine: "Rebzog"
+  HUB_NAME_STATE_GORREBO_wood: "Borrbranch"
+  
+  HUB_NAME_STATE_BOMEGGUD_city: "Bomeg"
+  HUB_NAME_STATE_BOMEGGUD_farm: "Meggfeed"
+  HUB_NAME_STATE_BOMEGGUD_mine: "Gudzog"
+  HUB_NAME_STATE_BOMEGGUD_wood: "Bomlogg"
+  
+  HUB_NAME_STATE_BROMAROB_city: "Bromar"
+  HUB_NAME_STATE_BROMAROB_farm: "Marrgrub"
+  HUB_NAME_STATE_BROMAROB_mine: "Robzog"
+  HUB_NAME_STATE_BROMAROB_wood: "Brokwood"
+  
+  HUB_NAME_STATE_GOBBEGOB_city: "Gobbeg"
+  HUB_NAME_STATE_GOBBEGOB_farm: "Gobbfeed"
+  HUB_NAME_STATE_GOBBEGOB_mine: "Gobbzog"
+  HUB_NAME_STATE_GOBBEGOB_wood: "Gobblogg"
+  
+  HUB_NAME_STATE_WERRAZUB_city: "Werraz"
+  HUB_NAME_STATE_WERRAZUB_farm: "Zubgrub"
+  HUB_NAME_STATE_WERRAZUB_mine: "Werzog"
+  HUB_NAME_STATE_WERRAZUB_wood: "Razwood"
+  
+  HUB_NAME_STATE_ZABBAGOB_city: "Zabbag"
+  HUB_NAME_STATE_ZABBAGOB_farm: "Zabbfeed"
+  HUB_NAME_STATE_ZABBAGOB_mine: "Gobbzog Deep"
+  HUB_NAME_STATE_ZABBAGOB_wood: "Zabblogg"
+  HUB_NAME_STATE_ZABBAGOB_port: "Zabbadok"
+  
+  HUB_NAME_STATE_DAMOZOG_city: "Damoz"
+  HUB_NAME_STATE_DAMOZOG_farm: "Mozgrub"
+  HUB_NAME_STATE_DAMOZOG_mine: "Zogzog"
+  HUB_NAME_STATE_DAMOZOG_wood: "Damwood"
+  
+  HUB_NAME_STATE_GEBBAGGOG_city: "Gebbag"
+  HUB_NAME_STATE_GEBBAGGOG_farm: "Baggfeed"
+  HUB_NAME_STATE_GEBBAGGOG_mine: "Gogzog"
+  HUB_NAME_STATE_GEBBAGGOG_wood: "Gebblogg"
+  
+  HUB_NAME_STATE_MEGGEDOB_city: "Megged"
+  HUB_NAME_STATE_MEGGEDOB_farm: "Megggrub"
+  HUB_NAME_STATE_MEGGEDOB_mine: "Dobzog"
+  HUB_NAME_STATE_MEGGEDOB_wood: "Meggwood"
+  
+  HUB_NAME_STATE_ZOGG_DEG_city: "Zogg Deg"
+  HUB_NAME_STATE_ZOGG_DEG_farm: "Deggfeed"
+  HUB_NAME_STATE_ZOGG_DEG_mine: "Zoggzog"
+  HUB_NAME_STATE_ZOGG_DEG_wood: "Degglogg"
+  HUB_NAME_STATE_ZOGG_DEG_port: "Zoggdok"
+  
+  HUB_NAME_STATE_GER_DRUB_city: "Ger Drub"
+  HUB_NAME_STATE_GER_DRUB_farm: "Gergrub"
+  HUB_NAME_STATE_GER_DRUB_mine: "Drubzog"
+  HUB_NAME_STATE_GER_DRUB_wood: "Gerwood"
+  HUB_NAME_STATE_GER_DRUB_port: "Drubdok"
+  
+  HUB_NAME_STATE_GRUB_DER_city: "Grub Der"
+  HUB_NAME_STATE_GRUB_DER_farm: "Grubfeed"
+  HUB_NAME_STATE_GRUB_DER_mine: "Derzog"
+  HUB_NAME_STATE_GRUB_DER_wood: "Grublogg"
+  HUB_NAME_STATE_GRUB_DER_port: "Derdok"
+  
+  HUB_NAME_STATE_HOR_GOB_city: "Hor Gob"
+  HUB_NAME_STATE_HOR_GOB_farm: "Horgrub"
+  HUB_NAME_STATE_HOR_GOB_mine: "Gobzog Mine"
+  HUB_NAME_STATE_HOR_GOB_wood: "Horwood"
+  HUB_NAME_STATE_HOR_GOB_port: "Hordok"
+  
+  HUB_NAME_STATE_HEP_TROK_city: "Hep Trok"
+  HUB_NAME_STATE_HEP_TROK_farm: "Hepfeed"
+  HUB_NAME_STATE_HEP_TROK_mine: "Trokzog"
+  HUB_NAME_STATE_HEP_TROK_wood: "Heplogg"
+  HUB_NAME_STATE_HEP_TROK_port: "Trokdok"
+
+  # Sand Goblin Domain (SAN)
+  HUB_NAME_STATE_SSUME_NAKO_city: "Ssume"
+  HUB_NAME_STATE_SSUME_NAKO_farm: "Nakos"
+  HUB_NAME_STATE_SSUME_NAKO_mine: "Mennak"
+  HUB_NAME_STATE_SSUME_NAKO_wood: "Sumok"
+  
+  HUB_NAME_STATE_TASSO_POME_city: "Tasso"
+  HUB_NAME_STATE_TASSO_POME_farm: "Pomma"
+  HUB_NAME_STATE_TASSO_POME_mine: "Tassok"
+  HUB_NAME_STATE_TASSO_POME_wood: "Pomos"
+  
+  HUB_NAME_STATE_UPS_KOP_city: "Koppo"
+  HUB_NAME_STATE_UPS_KOP_farm: "Upsa"
+  HUB_NAME_STATE_UPS_KOP_mine: "Koppos"
+  HUB_NAME_STATE_UPS_KOP_wood: "Ussop"
+  
+  HUB_NAME_STATE_PRESSOK_city: "Pressok"
+  HUB_NAME_STATE_PRESSOK_farm: "Ressak"
+  HUB_NAME_STATE_PRESSOK_mine: "Sokko"
+  HUB_NAME_STATE_PRESSOK_wood: "Peppok"
+  
+  HUB_NAME_STATE_TASSO_HOP_city: "Hoppo"
+  HUB_NAME_STATE_TASSO_HOP_farm: "Tassoh"
+  HUB_NAME_STATE_TASSO_HOP_mine: "Hoppos"
+  HUB_NAME_STATE_TASSO_HOP_wood: "Ossah"
+  
+  HUB_NAME_STATE_MOSSOPOK_city: "Mossop"
+  HUB_NAME_STATE_MOSSOPOK_farm: "Sopok"
+  HUB_NAME_STATE_MOSSOPOK_mine: "Mokkos"
+  HUB_NAME_STATE_MOSSOPOK_wood: "Posso"
+  
+  HUB_NAME_STATE_GESSO_PAN_city: "Gesso"
+  HUB_NAME_STATE_GESSO_PAN_farm: "Pannas"
+  HUB_NAME_STATE_GESSO_PAN_mine: "Sessok"
+  HUB_NAME_STATE_GESSO_PAN_wood: "Pannok"
+  
+  HUB_NAME_STATE_KASSEMA_city: "Kassema"
+  HUB_NAME_STATE_KASSEMA_farm: "Semmas"
+  HUB_NAME_STATE_KASSEMA_mine: "Kassok"
+  HUB_NAME_STATE_KASSEMA_wood: "Massok"
+  
+  HUB_NAME_STATE_RENOSSA_city: "Renossa"
+  HUB_NAME_STATE_RENOSSA_farm: "Nossas"
+  HUB_NAME_STATE_RENOSSA_mine: "Rennok"
+  HUB_NAME_STATE_RENOSSA_wood: "Sennos"
+  
+  HUB_NAME_STATE_RESSA_NAKO_city: "Ressa"
+  HUB_NAME_STATE_RESSA_NAKO_farm: "Nakkos"
+  HUB_NAME_STATE_RESSA_NAKO_mine: "Ressok"
+  HUB_NAME_STATE_RESSA_NAKO_wood: "Nassok"
+
+  # Southern Desert (SDE)
+  HUB_NAME_STATE_BURNING_DREAM_city: "Dreamscorch"
+  HUB_NAME_STATE_BURNING_DREAM_farm: "Burned Till"
+  HUB_NAME_STATE_BURNING_DREAM_mine: "Ember Shaft"
+  HUB_NAME_STATE_BURNING_DREAM_wood: "Cinderwood"
+  
+  HUB_NAME_STATE_SCORCHING_HAZE_city: "Scorched Haze"
+  HUB_NAME_STATE_SCORCHING_HAZE_farm: "Sunbaked Acres"
+  HUB_NAME_STATE_SCORCHING_HAZE_mine: "Heatstroke Mine"
+  HUB_NAME_STATE_SCORCHING_HAZE_wood: "Witherwood"
+  HUB_NAME_STATE_SCORCHING_HAZE_port: "Drydock Haze"
+  
+  HUB_NAME_STATE_TREMBLING_PEAKS_city: "Tremor Peak"
+  HUB_NAME_STATE_TREMBLING_PEAKS_farm: "Quaketerus"
+  HUB_NAME_STATE_TREMBLING_PEAKS_mine: "Faultline Deep"
+  HUB_NAME_STATE_TREMBLING_PEAKS_wood: "Shiver Timber"
+  HUB_NAME_STATE_TREMBLING_PEAKS_port: "Tremor Bay"
+
+  HUB_NAME_STATE_BURROWING_HAVEN_city: "Haven's Delve"
+  HUB_NAME_STATE_BURROWING_HAVEN_farm: "Root-tilled Fields"
+  HUB_NAME_STATE_BURROWING_HAVEN_mine: "Deep Warrens"
+  HUB_NAME_STATE_BURROWING_HAVEN_wood: "Undercanopy"
+
+  HUB_NAME_STATE_SINGING_MIRAGE_city: "Echoing Oasis"
+  HUB_NAME_STATE_SINGING_MIRAGE_farm: "Whispering Fields"
+  HUB_NAME_STATE_SINGING_MIRAGE_mine: "Resonant Shaft"
+  HUB_NAME_STATE_SINGING_MIRAGE_wood: "Humming Thicket"
+  HUB_NAME_STATE_SINGING_MIRAGE_port: "Siren's Cove"
+
+  HUB_NAME_STATE_LACHRYMATE_VALLEY_city: "Weeping Hollow"
+  HUB_NAME_STATE_LACHRYMATE_VALLEY_farm: "Sorrow's Harvest"
+  HUB_NAME_STATE_LACHRYMATE_VALLEY_mine: "Crying Caverns"
+  HUB_NAME_STATE_LACHRYMATE_VALLEY_wood: "Mournful Timber"
+  HUB_NAME_STATE_LACHRYMATE_VALLEY_port: "Tearfall Harbor"
+
+  HUB_NAME_STATE_DESPAIRING_DUNES_city: "Bleak Sands"
+  HUB_NAME_STATE_DESPAIRING_DUNES_farm: "Barren Yield"
+  HUB_NAME_STATE_DESPAIRING_DUNES_mine: "Hopeless Pit"
+  HUB_NAME_STATE_DESPAIRING_DUNES_wood: "Deadwood Ridge"
+
+  HUB_NAME_STATE_ARDENT_FLAME_city: "Pyre City"
+  HUB_NAME_STATE_ARDENT_FLAME_farm: "Ash-fed Acres"
+  HUB_NAME_STATE_ARDENT_FLAME_mine: "Magma Vein"
+  HUB_NAME_STATE_ARDENT_FLAME_wood: "Kindling Forest"
+  HUB_NAME_STATE_ARDENT_FLAME_port: "Ember Harbor"
+
+  HUB_NAME_STATE_RUINING_TEARS_city: "Shattered Weep"
+  HUB_NAME_STATE_RUINING_TEARS_farm: "Blighted Harvest"
+  HUB_NAME_STATE_RUINING_TEARS_mine: "Eroded Depths"
+  HUB_NAME_STATE_RUINING_TEARS_wood: "Decaying Wood"
+
+  HUB_NAME_STATE_SPLITTING_SANDS_city: "Fractured Dune"
+  HUB_NAME_STATE_SPLITTING_SANDS_farm: "Sundered Acres"
+  HUB_NAME_STATE_SPLITTING_SANDS_mine: "Fissure Pit"
+  HUB_NAME_STATE_SPLITTING_SANDS_wood: "Splintered Scrub"

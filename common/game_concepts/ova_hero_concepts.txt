@@ -1,0 +1,7 @@
+﻿### Isekai hero storyline - game concepts (loc names/descs in ova_hero_l_english.yml)
+
+concept_ova_hero = {}
+
+concept_ova_summoning_pact = {}
+
+concept_ova_eternal_crusade = {}

@@ -1,0 +1,410 @@
+﻿### Champions JE - Champion Hall production methods
+# The active PMs are read by ova_champion_monthly_tick: the Martial and
+# Scholarly lines grant XP (tier 1/2/3/4 = +1/+2/+3/+4), the Patronage line
+# grants renown points (+1/+2/+3/+4). That script-driven growth is invisible to
+# the engine's auto-tooltip AND PMs have no _desc field, so each active PM
+# carries a no-effect boolean display modifier (country_ova_champion_xp_N_bool /
+# _renown_N_bool, defined in modifier_type_definitions/15_ova_champion_modifier_types.txt)
+# as its CUSTOM TOOLTIP - the confirmed vanilla pattern (cf. state_control_strait_bool).
+# Inputs are EXPONENTIAL (lead good doubles each tier: 10 -> 20 -> 40 -> 80) and
+# more VARIED each tier (a new good folded in).
+
+pm_ova_champion_hall = {
+	texture = "gfx/interface/icons/production_method_icons/scholastic_education.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_services_add = 5
+		}
+
+		level_scaled = {
+			building_employment_bureaucrats_add = 250
+		}
+	}
+
+    country_modifiers = {
+        workforce_scaled = {
+            country_weekly_innovation_add = 0.5
+        }
+    }
+}
+
+# --- Martial Training line (XP) ------------------------------------------
+pm_ova_training_none = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+
+	building_modifiers = {
+	}
+}
+
+pm_ova_sparring_yards = {
+    ai_value = 100
+	country_modifiers = {
+		unscaled = {
+			country_ova_champion_xp_1_bool = yes
+		}
+        workforce_scaled = {
+            country_weekly_innovation_add = 0.1
+        }
+	}
+
+	texture = "gfx/interface/icons/production_method_icons/scholastic_education.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_small_arms_add = 10 # enchanted arms
+            goods_output_services_add = 5
+		}
+
+		level_scaled = {
+			building_employment_soldiers_add = 500
+		}
+	}
+}
+
+pm_ova_masters_arena = {
+    ai_value = 100
+	country_modifiers = {
+		unscaled = {
+			country_ova_champion_xp_2_bool = yes
+		}
+        workforce_scaled = {
+            country_weekly_innovation_add = 0.25
+        }
+	}
+
+	texture = "gfx/interface/icons/production_method_icons/scholastic_education.dds"
+
+	unlocking_technologies = {
+		battle_consumables
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_small_arms_add = 20 # enchanted arms
+			goods_input_ammunition_add = 10 # battle consumables
+            goods_output_services_add = 10
+		}
+
+		level_scaled = {
+			building_employment_soldiers_add = 750
+		}
+	}
+}
+
+pm_ova_grand_dojo = {
+	country_modifiers = {
+		unscaled = {
+			country_ova_champion_xp_3_bool = yes
+		}
+        workforce_scaled = {
+            country_weekly_innovation_add = 0.5
+        }
+	}
+
+	texture = "gfx/interface/icons/production_method_icons/scholastic_education.dds"
+
+	unlocking_technologies = {
+		rune_etched_arms
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_small_arms_add = 40 # enchanted arms
+			goods_input_ammunition_add = 20 # battle consumables
+			goods_input_liquor_add = 10 # warriors' fire-wine
+            goods_output_services_add = 15
+		}
+
+		level_scaled = {
+			building_employment_soldiers_add = 1000
+		}
+	}
+}
+
+pm_ova_ascendant_arena = {
+    ai_value = 100
+	country_modifiers = {
+		unscaled = {
+			country_ova_champion_xp_4_bool = yes
+		}
+        workforce_scaled = {
+            country_weekly_innovation_add = 1
+        }
+	}
+
+	texture = "gfx/interface/icons/production_method_icons/scholastic_education.dds"
+
+	unlocking_technologies = {
+		martial_ascension
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_small_arms_add = 80 # enchanted arms
+			goods_input_ammunition_add = 40 # battle consumables
+			goods_input_liquor_add = 20 # warriors' fire-wine
+			goods_input_fine_art_add = 15 # heroic monuments and reliefs
+            goods_output_services_add = 20
+		}
+
+		level_scaled = {
+			building_employment_soldiers_add = 1500
+		}
+	}
+}
+
+# --- Scholarly Tutelage line (XP) ----------------------------------------
+pm_ova_tutelage_none = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+
+	building_modifiers = {
+	}
+}
+
+pm_ova_hall_library = {
+    ai_value = 100
+	country_modifiers = {
+		unscaled = {
+			country_ova_champion_xp_1_bool = yes
+		}
+        workforce_scaled = {
+            country_weekly_innovation_add = 0.1
+        }
+	}
+
+	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
+
+	unlocking_technologies = {
+		academia
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_paper_add = 10
+            goods_output_services_add = 5
+		}
+
+		level_scaled = {
+			building_employment_academics_add = 500
+		}
+	}
+}
+
+pm_ova_arcane_library = {
+    ai_value = 100
+	country_modifiers = {
+		unscaled = {
+			country_ova_champion_xp_2_bool = yes
+		}
+        workforce_scaled = {
+            country_weekly_innovation_add = 0.25
+        }
+	}
+
+	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
+
+	unlocking_technologies = {
+		seal_script_engraving
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_paper_add = 20
+			goods_input_coal_add = 10 # spirit stones
+            goods_output_services_add = 10
+		}
+
+		level_scaled = {
+			building_employment_academics_add = 750
+		}
+	}
+}
+
+pm_ova_grand_athenaeum = {
+    ai_value = 100
+	country_modifiers = {
+		unscaled = {
+			country_ova_champion_xp_3_bool = yes
+		}
+        workforce_scaled = {
+            country_weekly_innovation_add = 0.5
+        }
+	}
+
+	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
+
+	unlocking_technologies = {
+		grand_talisman_arrays
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_paper_add = 40
+			goods_input_coal_add = 20 # spirit stones
+			goods_input_tea_add = 10 # scholars' tea
+            goods_output_services_add = 15
+		}
+
+		level_scaled = {
+			building_employment_academics_add = 1000
+		}
+	}
+}
+
+pm_ova_celestial_archive = {
+    ai_value = 100
+	country_modifiers = {
+		unscaled = {
+			country_ova_champion_xp_4_bool = yes
+		}
+        workforce_scaled = {
+            country_weekly_innovation_add = 1
+        }
+	}
+
+	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
+
+	unlocking_technologies = {
+		return_to_the_void
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_paper_add = 80
+			goods_input_coal_add = 40 # spirit stones
+			goods_input_tea_add = 20 # scholars' tea
+			goods_input_porcelain_add = 15 # ritual vessels
+            goods_output_services_add = 20
+		}
+
+		level_scaled = {
+			building_employment_academics_add = 1500
+		}
+	}
+}
+
+# --- Champion's Patronage line (renown) ----------------------------------
+pm_ova_patronage_none = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+
+	building_modifiers = {
+	}
+}
+
+pm_ova_hall_patronage = {
+	country_modifiers = {
+		unscaled = {
+			country_ova_champion_renown_1_bool = yes
+		}
+        workforce_scaled = {
+            country_weekly_innovation_add = 0.1
+        }
+	}
+
+	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_luxury_clothes_add = 10
+            goods_output_services_add = 5
+		}
+
+		level_scaled = {
+			building_employment_clerks_add = 250
+		}
+	}
+}
+
+pm_ova_grand_patronage = {
+    ai_value = 100
+	country_modifiers = {
+		unscaled = {
+			country_ova_champion_renown_2_bool = yes
+		}
+        workforce_scaled = {
+            country_weekly_innovation_add = 0.25
+        }
+	}
+
+	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
+
+	unlocking_technologies = {
+		joint_stock_companies
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_luxury_clothes_add = 20
+			goods_input_porcelain_add = 10
+            goods_output_services_add = 10
+		}
+
+		level_scaled = {
+			building_employment_clerks_add = 500
+		}
+	}
+}
+
+pm_ova_royal_pageants = {
+    ai_value = 100
+	country_modifiers = {
+		unscaled = {
+			country_ova_champion_renown_3_bool = yes
+		}
+        workforce_scaled = {
+            country_weekly_innovation_add = 0.5
+        }
+	}
+
+	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
+
+	unlocking_technologies = {
+		nationalism
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_luxury_clothes_add = 40
+			goods_input_porcelain_add = 20
+			goods_input_wine_add = 10 # feast-day vintages
+            goods_output_services_add = 15
+		}
+
+		level_scaled = {
+			building_employment_clerks_add = 750
+		}
+	}
+}
+
+pm_ova_imperial_apotheosis = {
+    ai_value = 100
+	country_modifiers = {
+		unscaled = {
+			country_ova_champion_renown_4_bool = yes
+		}
+        workforce_scaled = {
+            country_weekly_innovation_add = 1
+        }
+	}
+
+	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
+
+	unlocking_technologies = {
+		mass_communication
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_luxury_clothes_add = 80
+			goods_input_porcelain_add = 40
+			goods_input_wine_add = 20 # feast-day vintages
+			goods_input_fine_art_add = 15 # portraits, statues, and shrines
+            goods_output_services_add = 20
+		}
+
+		level_scaled = {
+			building_employment_clerks_add = 1000
+		}
+	}
+}

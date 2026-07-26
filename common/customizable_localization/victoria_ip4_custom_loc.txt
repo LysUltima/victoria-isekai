@@ -1,0 +1,280 @@
+﻿# Isekai TC: migrated copy of vanilla victoria_ip4_custom_loc.txt.
+# common/customizable_localization is NOT in metadata.json replace_paths, so the
+# vanilla file loads unless a same-named mod file overrides it (this file).
+# Text blocks whose triggers referenced deleted Earth content were removed; keys
+# left empty fall back to their original localization_key so callers still
+# resolve. Regenerate with tools/migrate_custom_loc.py.
+
+unite_can_description = {
+	type = country
+	text = {
+		localization_key = canada_unite_gbr_desc
+	}
+}
+
+unite_aus_description = {
+	type = country
+	text = {
+		localization_key = australia_unite_gbr_desc
+	}
+}
+
+anarchist_assassination_circumstances = {
+	type = character
+	random_valid = yes
+	text = {
+		localization_key = circumstances_spa
+	}
+	text = {
+		localization_key = circumstances_fair
+	}
+	text = {
+		localization_key = circumstances_walking
+	}
+	text = {
+		localization_key = circumstances_parade
+	}
+	text = {
+		trigger = {
+			NOR = {
+				is_ruler_of_own_country = yes # It seems a bit silly for the King to visit a department store
+				is_heir_of_own_country = yes
+			}
+		}
+		localization_key = circumstances_store
+	}
+}
+
+byzantium_reason_text = {
+	type = country
+	text = {
+		localization_key = blank_tt
+	}
+}
+
+iberia_union_name = {
+	type = country
+	text = {
+		trigger = {
+			country_has_monarchy_law = yes
+		}
+		localization_key = iberia_union_type_real_union
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_law_or_variant = law_type:law_presidential_republic
+				has_law_or_variant = law_type:law_parliamentary_republic
+				AND = {
+					has_law_or_variant = law_type:law_council_republic
+					NOT = { has_law_or_variant = law_type:law_anarchy }
+				}
+			}
+		}
+		localization_key = iberia_union_type_federation
+	}
+	text = {
+		trigger = {
+			has_law_or_variant = law_type:law_corporate_state
+		}
+		localization_key = iberia_union_type_union
+	}
+	text = {
+		trigger = {
+			has_law_or_variant = law_type:law_theocracy
+		}
+		localization_key = iberia_union_type_concordat
+	}
+	text = {
+		trigger = {
+			has_law_or_variant = law_type:law_anarchy
+		}
+		localization_key = iberia_union_type_confederation
+	}
+}
+
+iberia_union_desc = {
+	type = country
+	text = {
+		trigger = {
+			country_has_monarchy_law = yes
+		}
+		localization_key = iberia_union_desc_monarchy
+	}
+	text = {
+		trigger = {
+			has_law_or_variant = law_type:law_theocracy
+		}
+		localization_key = iberia_union_desc_theocracy
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_law_or_variant = law_type:law_presidential_republic
+				has_law_or_variant = law_type:law_parliamentary_republic
+				has_law_or_variant = law_type:law_corporate_state
+			}
+		}
+		localization_key = iberia_union_desc_republic
+	}
+	text = {
+		trigger = {
+			has_law_or_variant = law_type:law_council_republic
+			NOT = { has_law_or_variant = law_type:law_anarchy }
+		}
+		localization_key = iberia_union_desc_communist
+	}
+	text = {
+		trigger = {
+			has_law_or_variant = law_type:law_anarchy
+		}
+		localization_key = iberia_union_desc_anarchy
+	}
+}
+
+iberia_name_to_be = {
+	type = country
+	text = {
+		trigger = {
+			has_law_or_variant = law_type:law_theocracy
+		}
+		localization_key = dyn_c_iberian_concordat_def
+	}
+	text = {
+		trigger = {
+			has_law_or_variant = law_type:law_council_republic
+				has_law_or_variant = law_type:law_anarchy
+		}
+		localization_key = dyn_c_iberian_confederation_def
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_law_or_variant = law_type:law_presidential_republic
+				has_law_or_variant = law_type:law_parliamentary_republic
+				AND = {
+					has_law_or_variant = law_type:law_council_republic
+					NOT = {
+						has_law_or_variant = law_type:law_anarchy
+					}
+				}
+			}
+		}
+		localization_key = dyn_c_iberian_federation_def
+	}
+	text = {
+		trigger = {
+			OR = {
+				country_has_monarchy_law = yes
+				has_law_or_variant = law_type:law_corporate_state
+			}
+		}
+		localization_key = dyn_c_iberian_union_def
+	}
+	text = {
+		trigger = {
+			has_law_or_variant = law_type:law_anarchy
+		}
+		localization_key = IBE
+	}
+}
+
+iberian_union_political_text = {
+	type = country
+	text = {
+		localization_key = blank_tt
+	}
+}
+
+to_the_or_not_to_the = {
+	type = country
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = the
+	}
+}
+
+dynasty_to_instate = {
+	type = character
+	text = {
+		localization_key = constitutionalist_claimant
+	}
+}
+
+# get_political_boss_name: defined by this mod in ova_ip4_custom_loc.txt; vanilla's copy
+# loaded first and shadowed it ("Duplicated key"), so it is dropped here.
+
+spa_provisional_government_loc = {
+	type = country
+	text = {
+		localization_key = two_spains.4.t_1
+	}
+}
+
+spa_provisional_government_reason_loc = {
+	type = country
+	text = {
+		localization_key = je_spain_provisional_government_reason_snippet_2
+	}
+}
+
+spa_couped_dynasty_loc = {
+	type = country
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = spa_ruling
+	}
+}
+
+get_coup_je_text = {
+	type = country
+	text = {
+		trigger = {
+			var:coup_reason_var ?= 1
+		}
+		localization_key = coup_je_reason_text_1
+	}
+	text = {
+		trigger = {
+			var:coup_reason_var ?= 2
+		}
+		localization_key = coup_je_reason_text_2
+	}
+	text = {
+		trigger = {
+			var:coup_reason_var ?= 3
+		}
+		localization_key = coup_je_reason_text_3
+	}
+	text = {
+		trigger = {
+			var:coup_reason_var ?= 4
+		}
+		localization_key = coup_je_reason_text_4
+	}
+	text = {
+		trigger = {
+			var:coup_reason_var ?= 5
+		}
+		localization_key = coup_je_reason_text_5
+	}
+	text = {
+		trigger = {
+			var:coup_reason_var ?= 6
+		}
+		localization_key = coup_je_reason_text_6
+	}
+	text = {
+		trigger = {
+			var:coup_reason_var ?= 7
+		}
+		localization_key = coup_je_reason_text_7
+	}
+	text = {
+		localization_key = coup_je_reason_text_0
+	}
+}

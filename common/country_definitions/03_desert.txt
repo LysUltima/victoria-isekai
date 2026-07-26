@@ -1,0 +1,168 @@
+﻿SUN = {
+    color = { 199 186 133 }
+
+    country_type = recognized
+    
+    tier = empire
+
+    cultures = { nadirene }
+
+    capital = STATE_AYN_ASH_SHAMS
+}
+
+ASI = {
+    color = { 148 69 47 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { ghazalin }
+
+    capital = STATE_AL_ASIL_AL_GHARIB
+}
+
+LUJ = {
+    color = { 122 98 61 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { qadirin }
+
+    capital = STATE_JAZIRAT_ATH_TIBR
+}
+
+TAM = {
+    color = { 89 53 25 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { zaharin }
+
+    capital = STATE_BILAD_BANI_TAMIM
+}
+
+ASA = {
+    color = { 156 103 65 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { zaharin }
+
+    capital = STATE_BILAD_BANI_ASAT
+}
+
+GHA = {
+    color = { 69 125 75 }
+
+    country_type = recognized
+    
+    tier = kingdom
+
+    cultures = { qadirin }
+
+    capital = STATE_RAWDAT_AL_FURAT
+}
+
+JUM = {
+    color = { 144 164 171 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { qadirin }
+
+    capital = STATE_SILSILAT_AL_JUMAN
+}
+
+FAW = {
+    color = { 200 22 22 }
+
+    country_type = recognized
+    
+    tier = kingdom
+
+    cultures = { faryan }
+
+    capital = STATE_QALCAT_AL_NASR
+}
+
+IKH = {
+    color = { 154 189 94 }
+
+    country_type = recognized
+    
+    tier = kingdom
+
+    cultures = { faryan }
+
+    capital = STATE_AYN_AL_WAFA
+}
+
+DSC = { # Qattara -- desert catkin kingdom (releasable)
+    color = { 225 200 120 }
+
+    country_type = unrecognized
+
+    tier = kingdom
+
+    cultures = { desert_catkin }
+
+    capital = STATE_QALCAT_AL_NASR
+}
+
+# uncolonized
+DES = {
+    color = { 18 46 107 }
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { zaharin }
+
+    capital = STATE_AL_MARAI_AL_SAHILIYYAH
+}
+
+SCO = {
+    color = { 156 117 78 }
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { zaharin }
+
+    capital = STATE_AL_BAYDA_AL_MAHLAKAH
+}
+
+BUR = {
+    color = { 161 42 21 }
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { southern_orc }
+
+    capital = STATE_AJAM_AL_GHULAM
+}
+
+DAY = {
+    color = { 158 126 79 }
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { zaharin }
+
+    capital = STATE_JIBAL_AL_SUKHUR
+}

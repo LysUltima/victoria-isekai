@@ -1,0 +1,4 @@
+﻿# Isekai TC: migrated from vanilla events/misc_regional_events.txt (2026-07-11).
+# Empty file (namespace declaration only, no events defined). Verbatim copy.
+
+namespace = regional_events

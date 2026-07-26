@@ -1,0 +1,2 @@
+﻿# Emptied override: vanilla achievements here are keyed to vanilla countries/regions
+# with no analogue in this mod.

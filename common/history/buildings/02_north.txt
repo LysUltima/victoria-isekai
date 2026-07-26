@@ -1,0 +1,394 @@
+﻿BUILDINGS = {
+    s:STATE_AGRALEKKE = {
+        region_state:AGR = {
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:AGR"
+                        levels = 1
+                        region = "STATE_AGRALEKKE"
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:AGR"
+                        levels = 1
+                        region = "STATE_AGRALEKKE"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_SELMME = {
+        region_state:SEL = {
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:SEL"
+                        levels = 2
+                        region = "STATE_SELMME"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_BRULMME = {
+        region_state:BRU = {
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:BRU"
+                        levels = 1
+                        region = "STATE_BRULMME"
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:BRU"
+                        levels = 2
+                        region = "STATE_BRULMME"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_IIVA_KAARENA = {
+        region_state:IIV = {
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:IIV"
+                        levels = 2
+                        region = "STATE_IIVA_KAARENA"
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:IIV"
+                        levels = 3
+                        region = "STATE_IIVA_KAARENA"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_SYAA_SEE = {
+        region_state:SYA = {
+        }
+    }
+    s:STATE_AMII_TENII = {
+        region_state:AMI = {
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:AMI"
+                        levels = 1
+                        region = "STATE_AMII_TENII"
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
+                building = "building_forests_of_the_departed"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:AMI"
+                        levels = 1
+                        region = "STATE_AMII_TENII"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_MIRAA_MITAA = {
+        region_state:MIA = {
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:MIA"
+                        levels = 2
+                        region = "STATE_MIRAA_MITAA"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_MAAMA_VAA = {
+        region_state:MAA = {
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:MAA"
+                        levels = 2
+                        region = "STATE_MAAMA_VAA"
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:MAA"
+                        levels = 1
+                        region = "STATE_MAAMA_VAA"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_VESTROYENE = {
+        region_state:SVA = {
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:SVA"
+                        levels = 2
+                        region = "STATE_VESTROYENE"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_NORDREYJAR = {
+        region_state:HRG = {
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HRG"
+                        levels = 2
+                        region = "STATE_NORDREYJAR"
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:HRG"
+                        levels = 2
+                        region = "STATE_NORDREYJAR"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_FJALLSOGN = {
+        region_state:SKL = {
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:SKL"
+                        levels = 2
+                        region = "STATE_FJALLSOGN"
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
+                building = "building_forests_of_the_departed"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SKL"
+                        levels = 1
+                        region = "STATE_FJALLSOGN"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_HAMRABYGD = {
+        region_state:STO = {
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:STO"
+                        levels = 2
+                        region = "STATE_HAMRABYGD"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_SLETTALAND = {
+        region_state:GRA = {
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:GRA"
+                        levels = 2
+                        region = "STATE_SLETTALAND"
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:GRA"
+                        levels = 1
+                        region = "STATE_SLETTALAND"
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
+                building = "building_forests_of_the_departed"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:GRA"
+                        levels = 1
+                        region = "STATE_SLETTALAND"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_VATNAFJALL = {
+        region_state:VAT = {
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:VAT"
+                        levels = 2
+                        region = "STATE_VATNAFJALL"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_SUDRELD = {
+        region_state:ELD = {
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:ELD"
+                        levels = 2
+                        region = "STATE_SUDRELD"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_BLIDEY = {
+        region_state:NYL = {
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:NYL"
+                        levels = 1
+                        region = "STATE_BLIDEY"
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:NYL"
+                        levels = 3
+                        region = "STATE_BLIDEY"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+    s:STATE_BRENNANDIGJA = {
+        region_state:SOL = {
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:SOL"
+                        levels = 3
+                        region = "STATE_BRENNANDIGJA"
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:SOL"
+                        levels = 1
+                        region = "STATE_BRENNANDIGJA"
+                    }
+                }
+                reserves = 1
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+﻿### Murim storyline - "The Reckoning" diplomatic play
+# Script-created only (effect_ova_murim_launch_reckoning, with war = yes and
+# annex_as_civil_war = yes): the Returner's host, with its sworn marches riding beside
+# it, against the Heavenly Demon Sect - the bad-ending war of the chain. Mirrored war
+# goals so BOTH sides hold ova_murim_sundering against each other (the Cult means to
+# annex the whole Alliance through its head, and the host means to break the mountain).
+# No negotiated peace: this war ends the way the first war of the murim was always
+# going to end, with one side owning the other.
+
+dp_ova_murim_reckoning = {
+	requires_interest_marker = no
+	enable_switch_sides = yes
+	allow_negotiated_peace = no
+	mirror_war_goal = yes
+	initiator_can_add_war_goals = no
+	target_can_add_war_goals = no
+	add_infamy_for_starting_initiator_wargoals = no
+
+	war_goal = ova_murim_sundering
+
+	texture = "gfx/interface/icons/war_goals/annex_country.dds"
+
+	selectable_in_lens = {
+		always = no
+	}
+
+	possible = {
+		has_global_variable = ova_murim_reckoning_called
+	}
+
+	on_weekly_pulse = {}
+
+	on_war_begins = {}
+
+	on_war_end = {}
+}

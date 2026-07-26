@@ -1,0 +1,182 @@
+﻿# Feng Dynasty and sects
+FEN = {
+    color = { 181 30 7 }
+
+    country_type = recognized
+    
+    tier = empire
+
+    cultures = { lan }
+
+    capital = STATE_YONGAN
+}
+
+SWO = {
+    color = { 48 83 140 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { lan }
+
+    capital = STATE_SHENJIAN
+}
+
+HEA = {
+    color = { 104 150 173 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { lan }
+
+    capital = STATE_TIANYIN
+}
+
+FLO = {
+    color = { 204 167 195 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { lan }
+
+    capital = STATE_HUAYUN
+}
+
+PUR = {
+    color = { 109 69 143 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { lan }
+
+    capital = STATE_ZIXIA
+}
+
+MYS = {
+    color = { 47 32 92 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { lan }
+
+    capital = STATE_XUANYUE
+}
+
+FEA = {
+    color = { 171 79 86 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { lan }
+
+    capital = STATE_YUDAO
+}
+
+# Yao dynasty and sects
+YAO = {
+    color = { 227 176 45 }
+
+    country_type = recognized
+    
+    tier = empire
+
+    cultures = { tong }
+
+    capital = STATE_MINGJING
+}
+
+SPI = {
+    color = { 104 59 163 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { tong }
+
+    capital = STATE_LINGGU
+}
+
+VER = {
+    color = { 219 51 18 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { tong }
+
+    capital = STATE_ZHUMING
+}
+
+SNO = {
+    color = { 184 215 224 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { tong }
+
+    capital = STATE_XUEHUA
+}
+
+# Demonic sects
+BLO = {
+    color = { 71 7 14 }
+
+    country_type = unrecognized
+    
+    tier = kingdom
+
+    cultures = { lian }
+
+    capital = STATE_XIELIAN
+}
+
+GHO = {
+    color = { 64 31 22 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { lian }
+
+    capital = STATE_GUISHAN
+}
+
+SHA = {
+    color = { 17 21 64 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { lian }
+
+    capital = STATE_YINGSHA
+}
+
+NIN = {
+    color = { 54 49 42 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { lian }
+
+    capital = STATE_JIUYOU
+}

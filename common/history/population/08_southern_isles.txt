@@ -1,0 +1,38 @@
+﻿POPULATION = {
+    c:CRI = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:HAD = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:JAD = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:KUI = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:LAN = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:PUL = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:SUR = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:UND = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:XIL = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+}

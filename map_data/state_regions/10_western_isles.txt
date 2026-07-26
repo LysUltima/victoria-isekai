@@ -1,0 +1,755 @@
+﻿# TID Tidakani
+STATE_NIRAI_KANAI = {
+    id = 365
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x67103E" "x682333" "x712D2A" "x741B38" "x763332" "x782F3A" "x791A38" "x7C1045" "x7C1A27" "x7D1A2D" "x7E1827" "x7E1926" "x812648" "x822D37" "x841342" "x86102A" "x871F25" }
+    traits = { "state_trait_natural_harbors" }
+    city = "x7C1045"
+    port = "x67103E"
+    farm = "x7D1A2D"
+    mine = "x7E1827"
+    wood = "x7E1926"
+    arable_land = 120
+    arable_resources = { "building_livestock_ranch" "building_wheat_farm" "building_tobacco_plantation" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 20
+        building_logging_camp = 12
+        building_whaling_station = 13
+    }
+    naval_exit_id = 3028
+}
+# URU Uruma
+STATE_URUMA = {
+    id = 366
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x361D34" "x492C31" }
+    traits = { "state_trait_malaria" }
+    city = "x492C31"
+    port = "x492C31"
+    farm = "x361D34"
+    mine = "x492C31"
+    wood = "x361D34"
+    arable_land = 100
+    arable_resources = { "building_livestock_ranch" "building_wheat_farm" "building_tobacco_plantation" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 9
+        building_logging_camp = 11
+        building_whaling_station = 5
+    }
+    naval_exit_id = 3028
+}
+# UTA Utaki
+STATE_UTAKI = {
+    id = 367
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x4FAA31" "x50AB37" "x56AB2C" "x5BB422" "x62B229" }
+    city = "x4FAA31"
+    port = "x5BB422"
+    farm = "x62B229"
+    mine = "x56AB2C"
+    wood = "x50AB37"
+    arable_land = 108
+    arable_resources = { "building_livestock_ranch" "building_wheat_farm" "building_tobacco_plantation" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 12
+        building_logging_camp = 10
+        building_whaling_station = 8
+    }
+    naval_exit_id = 3028
+}
+# UFU Ufumi
+STATE_UFUMI = {
+    id = 368
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x14D32F" "x1ED847" "x22D733" "x2AC041" }
+    city = "x22D733"
+    port = "x14D32F"
+    farm = "x1ED847"
+    mine = "x2AC041"
+    wood = "x1ED847"
+    arable_land = 112
+    arable_resources = { "building_livestock_ranch" "building_wheat_farm" "building_tobacco_plantation" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 11
+        building_logging_camp = 12
+        building_whaling_station = 6
+    }
+    naval_exit_id = 3028
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 14
+    }
+}
+# WHA Whakatāne
+STATE_MANIA_KOWHAI = {
+    # Mānia Kōwhai
+    id = 369
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x002116" "x002118" "x00220D" "x002310" "x002515" "x002B27" "x002B29" "x002C1F" "x002D21" "x003018" "x003106" "x003203" "x003204" "x003727" "x003C24" "x004027" "x004225" "x023003" "x032327" "x05211E" "x05300D" "x054220" "x063324" "x094308" "x0C3703" "x0E4328" "x0F2B0F" "x10201A" "x10240C" "x123621" "x12380E" "x123B1C" "x132403" "x133211" "x142324" "x14301B" "x143A15" }
+    city = "x002D21"
+    port = "x002B27"
+    farm = "x094308"
+    mine = "x063324"
+    wood = "x003018"
+    arable_land = 80
+    arable_resources = { "building_livestock_ranch" "building_millet_farm" "building_cotton_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 20
+        building_logging_camp = 7
+    }
+    naval_exit_id = 3032
+}
+# KAI Kaitangata
+STATE_TAHATIKA_TAPARA = {
+    # Tahatika Tāpara
+    id = 370
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "xECE126" "xF0E10F" "xF2D017" "xF2D308" "xF2E614" "xF3D505" "xF6CF17" "xF6D40D" "xF7D424" "xF7E614" "xF8D422" "xFACC14" "xFBD914" "xFEDD00" "xFFC800" "xFFC803" "xFFC90C" "xFFCA1C" "xFFCB00" "xFFCD1F" "xFFCF06" "xFFD11C" "xFFD321" "xFFD60A" "xFFDB0C" "xFFDF05" "xFFDF0D" "xFFE014" "xFFE502" "xFFE50D" "xFFE620" "xFFE70A" "xFFE903" "xFFE912" "xFFE916" }
+    city = "xECE126"
+    port = "xFFC800"
+    farm = "xFFCA1C"
+    mine = "xF7D424"
+    wood = "xF3D505"
+    arable_land = 80
+    arable_resources = { "building_livestock_ranch" "building_millet_farm" "building_cotton_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 19
+        building_logging_camp = 7
+    }
+    naval_exit_id = 3032
+}
+# RAN Rangitoto
+STATE_PAPAKU_O_TE_RA = {
+    # Pāpaku-o-te-Rā
+    id = 371
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x51DA18" "x51EE0E" "x52F300" "x53F110" "x54EC16" "x55E110" "x58D904" "x5AE900" "x5AEF01" "x5BCD1B" "x5BD70F" "x5DD81B" "x60D40A" "x62D707" "x63F100" "x64E40D" "x66E717" "x67D10F" "x6AD517" "x6BE010" "x6DE518" "x72D800" "x73D309" "x73E100" "x73EB01" "x75E208" "x76E91B" "x77E406" "x78D301" }
+    city = "x60D40A"
+    port = "x5AEF01"
+    farm = "x77E406"
+    mine = "x76E91B"
+    wood = "x5AE900"
+    arable_land = 77
+    arable_resources = { "building_livestock_ranch" "building_millet_farm" "building_cotton_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 16
+        building_logging_camp = 10
+    }
+    naval_exit_id = 3032
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 14
+    }
+}
+# TAR Taranaki
+STATE_RAUPO_MOANA = {
+    # Raupō Moana
+    id = 372
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x858B24" "x8B7511" "x8B840A" "x918D1E" "x919C19" "x947616" "x957E21" "x978E1C" "x98960F" "x9B931F" "x9B9805" "x9C9C0F" "x9D7614" "x9D8F01" "xA1860C" "xA37B07" "xA59C28" "xA69C1B" "xA87D16" "xAA8008" "xAA8D1B" "xAB7B24" "xAB9216" "xAB9926" }
+    city = "xA69C1B"
+    port = "x947616"
+    farm = "x9B9805"
+    mine = "x919C19"
+    wood = "x9D7614"
+    arable_land = 94
+    arable_resources = { "building_livestock_ranch" "building_millet_farm" "building_cotton_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 20
+        building_logging_camp = 8
+    }
+    naval_exit_id = 3032
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 25
+    }
+}
+# WAI Waitaha
+STATE_KAINGA_MAROKE = {
+    # Kāinga Maroke
+    id = 373
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x89952A" "x899D18" "x8A981A" "x8B962A" "x8BB23C" "x92A130" "x92B328" "x93A431" "x95A028" "x9AB23C" "x9BA52F" "x9DA31C" "x9FB71E" "xA1B129" "xA49831" "xA79C23" "xA99E35" "xAA9C21" "xAC9730" "xACB421" "xAE983B" "xAE9916" "xAF933D" "xAFAA15" }
+    traits = { "state_trait_natural_harbors" }
+    city = "xAC9730"
+    port = "xACB421"
+    farm = "xAE9916"
+    mine = "x8A981A"
+    wood = "x89952A"
+    arable_land = 115
+    arable_resources = { "building_livestock_ranch" "building_millet_farm" "building_cotton_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 20
+        building_logging_camp = 10
+    }
+    naval_exit_id = 3041
+}
+# HAW Hawaiki
+STATE_MOTU_HUMARIE = {
+    # Motu Hūmārie
+    id = 374
+    subsistence_building = "building_subsistence_fishing_village"
+    provinces = { "x1C8346" "x21943B" "x2F8242" "x348449" }
+    city = "x2F8242"
+    port = "x2F8242"
+    farm = "x1C8346"
+    mine = "x21943B"
+    wood = "x348449"
+    arable_land = 68
+    arable_resources = { "building_livestock_ranch" "building_millet_farm" "building_cotton_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 10
+        building_logging_camp = 8
+        building_sulfur_mine = 47
+    }
+    naval_exit_id = 3032
+}
+# WHN Whangārei
+STATE_MOUTERE_TARAPIROPIRO = {
+    # Moutere Tarapiropiro
+    id = 375
+    subsistence_building = "building_subsistence_fishing_village"
+    provinces = { "xE32812" "xEA0E20" "xFF0D32" }
+    city = "xEA0E20"
+    port = "xEA0E20"
+    farm = "xFF0D32"
+    mine = "xEA0E20"
+    wood = "xFF0D32"
+    arable_land = 82
+    arable_resources = { "building_livestock_ranch" "building_millet_farm" "building_cotton_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 10
+        building_logging_camp = 10
+    }
+    naval_exit_id = 3041
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 11
+    }
+}
+# AHU Ahuena
+STATE_PALIANUENUE = {
+    # Paliānuenue
+    id = 376
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "xBE9700" "xBF8F04" "xBF9000" "xC07814" "xC08200" "xC09E03" "xC39403" "xC47E09" "xC69200" "xC88200" "xCA7600" "xCB7C06" "xCB8F0D" "xCB9407" "xCC7A07" "xCC8E04" "xCE9B00" "xCF9C00" "xD08207" "xD17700" "xD18800" "xD19213" "xD19E00" "xD28100" "xD28E00" "xD58811" "xD78F15" "xD87A00" "xD88400" "xDA8B00" "xDB9110" "xDC9600" "xDE8A00" "xDF8F00" "xDF9E00" "xE07F00" "xE27C12" "xE58B0A" "xE68700" }
+    city = "xCC7A07"
+    port = "xCB8F0D"
+    farm = "xDB9110"
+    mine = "xDF9E00"
+    wood = "xD88400"
+    arable_land = 135
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 20
+        building_iron_mine = 25
+        building_logging_camp = 13
+    }
+    naval_exit_id = 3032
+}
+# KAM Kamaka
+STATE_ONELOA = {
+    # Oneloa
+    id = 377
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x61903E" "x648B36" "x64931F" "x70A823" "x738833" "x779F2B" "x7DAD22" "x848C3B" "x84921B" "x88AD26" }
+    city = "x848C3B"
+    port = "x648B36"
+    farm = "x88AD26"
+    mine = "x64931F"
+    wood = "x70A823"
+    arable_land = 125
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 12
+        building_logging_camp = 12
+        building_sulfur_mine = 45
+    }
+    naval_exit_id = 3011
+}
+# MAL Mālamalama
+STATE_KAULUWELA = {
+    # Kauluwela
+    id = 378
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "xC04920" "xD02812" "xD84933" "xE32F24" "xE73B1F" }
+    city = "xE73B1F"
+    port = "xC04920"
+    farm = "xD02812"
+    mine = "xE32F24"
+    wood = "xD84933"
+    arable_land = 104
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 12
+        building_logging_camp = 9
+        building_sulfur_mine = 37
+    }
+    naval_exit_id = 3032
+}
+# HOK Hōkūlele
+STATE_PAEMUKU = {
+    # Paemuku
+    id = 379
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "xE9D612" "xEFC618" "xF1BF10" "xF6C014" "xFDC22D" "xFFCE0C" }
+    traits = { "state_trait_malaria" }
+    city = "xE9D612"
+    port = "xEFC618"
+    farm = "xF6C014"
+    mine = "xF1BF10"
+    wood = "xFFCE0C"
+    arable_land = 76
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 12
+        building_logging_camp = 10
+    }
+    naval_exit_id = 3032
+}
+# KAN Kanaloa
+STATE_KAIULI = {
+    # Kaiuli
+    id = 380
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x9EF931" "xABE91E" "xB2F826" "xB6FF24" "xBAE92A" "xBDFC24" "xC2F22A" "xC4FF0F" }
+    city = "x9EF931"
+    port = "xB2F826"
+    farm = "xBAE92A"
+    mine = "xC2F22A"
+    wood = "xABE91E"
+    arable_land = 122
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 15
+        building_logging_camp = 12
+    }
+    naval_exit_id = 3032
+}
+# POL Poliahu
+STATE_UAHIWERA = {
+    # Uahiwera
+    id = 381
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x8EB773" "x90C691" "x92B591" "x93B377" "xA9AB75" }
+    city = "x93B377"
+    port = "x90C691"
+    farm = "xA9AB75"
+    mine = "x92B591"
+    wood = "x8EB773"
+    arable_land = 115
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 13
+        building_logging_camp = 10
+        building_sulfur_mine = 25
+    }
+    naval_exit_id = 3032
+}
+# LAA Lanakila
+STATE_AINAONE = {
+    # Ainaone
+    id = 382
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x837716" "x83780E" "x845F31" "x86800C" "x897A1A" "x927E11" "x936817" "x945F2D" "x967B0F" "x98801A" "x99770C" "x9F6B1F" "xA25B2A" "xA5832D" "xA68031" "xA8721F" "xA96527" "xAA6F2C" }
+    traits = { "state_trait_malaria" }
+    city = "xA25B2A"
+    port = "x967B0F"
+    farm = "xA8721F"
+    mine = "x83780E"
+    wood = "x98801A"
+    arable_land = 105
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 18
+        building_logging_camp = 12
+        building_sulfur_mine = 67
+    }
+    naval_exit_id = 3032
+}
+# MAK Makani
+STATE_WAILUKU = {
+    # Wailuku
+    id = 383
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x295A2F" "x2A5A37" "x2B562B" "x2E5835" "x3B5829" "x447820" "x4A5827" "x4D5721" "x4F5A3F" }
+    traits = { "state_trait_malaria" }
+    city = "x4F5A3F"
+    port = "x4A5827"
+    farm = "x2A5A37"
+    mine = "x3B5829"
+    wood = "x4D5721"
+    arable_land = 94
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 12
+        building_logging_camp = 10
+        building_sulfur_mine = 68
+    }
+    naval_exit_id = 3032
+}
+# KLA Kalahele
+STATE_ULUWEHI = {
+    # Uluwehi
+    id = 384
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x173100" "x1C2B00" "x1C3415" "x222D08" "x243A00" "x2C2618" "x2D3404" "x2F1D08" "x313B16" "x323D00" "x372000" "x3D3016" }
+    traits = { "state_trait_malaria" }
+    city = "x2F1D08"
+    port = "x173100"
+    farm = "x243A00"
+    mine = "x1C3415"
+    wood = "x2D3404"
+    arable_land = 92
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 18
+        building_logging_camp = 10
+    }
+    naval_exit_id = 3032
+}
+# AHI Ahiuka
+STATE_MOKUMANO = {
+    # Mokumano
+    id = 385
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "xA6A69A" "xACAEAB" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "xA6A69A"
+    port = "xACAEAB"
+    farm = "xACAEAB"
+    mine = "xA6A69A"
+    wood = "xA6A69A"
+    arable_land = 51
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 7
+        building_logging_camp = 7
+    }
+    naval_exit_id = 3032
+}
+# POM Pōmaikaʻi
+STATE_AOLANI = {
+    # Aolani
+    id = 386
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x679A18" "x68A235" "x6D9520" "x6F8D35" "x73AA0E" "x749C32" "x75A014" "x789328" "x78B121" "x79B02B" "x7CA21F" "x7D9832" "x7DAF10" "x7F9A1D" "x82A12E" "x83B10D" "x849E31" "x899C22" "x8AAB1F" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" "state_trait_natural_harbors" }
+    city = "x7F9A1D"
+    port = "x82A12E"
+    farm = "x899C22"
+    mine = "x68A235"
+    wood = "x749C32"
+    arable_land = 75
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 20
+        building_logging_camp = 10
+        building_sulfur_mine = 40
+    }
+    naval_exit_id = 3032
+}
+# TUA Tuatolu
+STATE_NIUMATA = {
+    # Niumata
+    id = 387
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x5B032D" "x600A09" "x601326" "x620210" "x621A08" "x66080D" "x6C2522" "x761D28" "x7B222E" "x7D060C" "x7E061B" "x7E2011" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" "state_trait_natural_harbors" }
+    city = "x7B222E"
+    port = "x600A09"
+    farm = "x620210"
+    mine = "x7D060C"
+    wood = "x66080D"
+    arable_land = 60
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_coal_mine = 36
+        building_fishing_wharf = 16
+        building_logging_camp = 8
+        building_whaling_station = 12
+    }
+    naval_exit_id = 3011
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 19
+    }
+}
+
+STATE_GATAVAI = {
+    # Gatavai
+    id = 388
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x1A8C2D" "x1B7434" "x2D7122" "x397638" "x3B6E1B" "x3B7137" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x397638"
+    port = "x3B6E1B"
+    farm = "x1B7434"
+    mine = "x1A8C2D"
+    wood = "x2D7122"
+    arable_land = 88
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 10
+        building_lead_mine = 38
+        building_logging_camp = 9
+        building_whaling_station = 7
+        building_sulfur_mine = 55
+    }
+    naval_exit_id = 3011
+}
+
+STATE_MATAFAGA = {
+    # Matafaga
+    id = 389
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x2CFE2D" "x2EEB24" "x30F914" "x31FF30" "x32F90A" "x33DD0B" "x36E91F" "x41FF13" "x4AFF1F" "x4CE42D" "x51EE08" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x33DD0B"
+    port = "x4AFF1F"
+    farm = "x51EE08"
+    mine = "x36E91F"
+    wood = "x2CFE2D"
+    arable_land = 74
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 16
+        building_logging_camp = 7
+        building_whaling_station = 11
+        building_sulfur_mine = 27
+    }
+    naval_exit_id = 3011
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 11
+    }
+}
+
+STATE_ALOFI = {
+    # Alofi
+    id = 390
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "xAC7410" "xAE5B18" "xB56A27" "xB67013" "xB7650A" "xB8712C" "xBA6F09" "xBE6D2D" "xBF661B" "xC46007" "xC6642C" "xCA7211" "xCC7121" "xCE7809" "xCF6E15" "xCF6F14" "xD05A2B" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "xCC7121"
+    port = "xCA7211"
+    farm = "xB56A27"
+    mine = "xCE7809"
+    wood = "xAE5B18"
+    arable_land = 72
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_coal_mine = 43
+        building_fishing_wharf = 17
+        building_logging_camp = 8
+        building_whaling_station = 14
+    }
+    naval_exit_id = 3011
+}
+# TRO Tarona
+STATE_MURIVAI = {
+    # Murivai
+    id = 391
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "xAF0604" "xB41600" "xB61000" "xB90000" "xB91000" "xBD0400" "xBF1101" "xC3090E" "xC31400" "xC50000" "xC61800" "xC90E0F" "xCC0005" "xCE0906" "xD40000" "xD41000" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "xBD0400"
+    port = "xAF0604"
+    farm = "xD40000"
+    mine = "xB90000"
+    wood = "xC50000"
+    arable_land = 78
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 16
+        building_iron_mine = 41
+        building_logging_camp = 10
+        building_whaling_station = 11
+        building_sulfur_mine = 66
+    }
+    naval_exit_id = 3011
+}
+
+STATE_ARORANGI = {
+    # Arorangi
+    id = 392
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x80FF0F" "x82F819" "x85EF00" "x85EF0F" "x9CFB0A" "xA2F30F" }
+    traits = { "state_trait_tropical_rainforest" }
+    city = "xA2F30F"
+    port = "x85EF00"
+    farm = "x9CFB0A"
+    mine = "x80FF0F"
+    wood = "x82F819"
+    arable_land = 63
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 9
+        building_iron_mine = 32
+        building_logging_camp = 7
+        building_whaling_station = 12
+    }
+    naval_exit_id = 3011
+}
+
+STATE_ONEURA = {
+    # Oneura
+    id = 393
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x222639" "x232F24" "x282C44" "x2F3B28" "x32381E" "x363126" "x384326" "x3A3E20" "x3A4D3C" "x3B4224" "x404035" "x413027" "x41483F" "x43462F" "x45492B" "x474C32" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x404035"
+    port = "x413027"
+    farm = "x32381E"
+    mine = "x474C32"
+    wood = "x384326"
+    arable_land = 90
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_coal_mine = 47
+        building_fishing_wharf = 18
+        building_logging_camp = 10
+        building_whaling_station = 17
+        building_sulfur_mine = 61
+    }
+    naval_exit_id = 3011
+}
+# NUK Nukutere
+STATE_MATAEIA = {
+    # Mataʻeia
+    id = 394
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x7F790A" "x7F7E24" "x7F8C0A" "x817323" "x829225" "x84731A" "x86872E" "x879A25" "x888817" "x8C8A13" "x8D8D2E" "x8D9129" "x947E1F" "x957B30" "x9A8120" "x9C7811" "x9C8E31" "x9E780D" "xA47415" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x8D9129"
+    port = "x7F7E24"
+    farm = "x9E780D"
+    mine = "x86872E"
+    wood = "x957B30"
+    arable_land = 107
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 15
+        building_logging_camp = 9
+        building_whaling_station = 9
+    }
+    naval_exit_id = 3011
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 29
+    }
+}
+
+STATE_VAIARI = {
+    # Vaiari
+    id = 395
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x4A9307" "x4DAC20" "x528806" "x5F840C" "x68891B" "x6BA705" "x6E8A11" "x70872C" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x6BA705"
+    port = "x5F840C"
+    farm = "x4A9307"
+    mine = "x6E8A11"
+    wood = "x68891B"
+    arable_land = 77
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 12
+        building_logging_camp = 7
+        building_whaling_station = 6
+        building_sulfur_mine = 28
+    }
+    naval_exit_id = 3011
+}
+# TAO Tanoa
+STATE_HIHIFO = {
+    # Hihifo
+    id = 396
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x5A1D1B" "x5C2307" "x602605" "x622617" "x641419" "x650626" "x661029" "x661F1C" "x6A020C" "x6B1D16" "x6C0628" "x6D0315" "x6D041D" "x6D151F" "x6F1B27" "x700413" "x73100D" "x740226" "x751A0B" "x760514" "x791A0E" "x7B1D1F" "x7D0E0D" "x7D130A" "x7F1E2A" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x7B1D1F"
+    port = "x7D0E0D"
+    farm = "x760514"
+    mine = "x73100D"
+    wood = "x791A0E"
+    arable_land = 110
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 20
+        building_iron_mine = 63
+        building_logging_camp = 10
+        building_whaling_station = 17
+    }
+    naval_exit_id = 3007
+}
+
+STATE_MATAMOANA = {
+    # Matamoana
+    id = 397
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x20822F" "x248D2B" "x29782B" "x299A28" "x2B7B0A" "x2C8922" "x34881E" "x38852A" "x3A8719" "x3A9B09" "x3F7C13" "x407B2B" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x2B7B0A"
+    port = "x20822F"
+    farm = "x34881E"
+    mine = "x2C8922"
+    wood = "x3F7C13"
+    arable_land = 95
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 13
+        building_logging_camp = 9
+        building_whaling_station = 8
+        building_sulfur_mine = 41
+    }
+    naval_exit_id = 3011
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 16
+    }
+}
+# VAE Vaerua
+STATE_ASAU = {
+    # Asau
+    id = 398
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x5E4C0F" "x5F5E35" "x605436" "x625E15" "x635C19" "x654924" "x665A28" "x6A3730" "x6B4E27" "x6D3814" "x6D3E17" "x6D5C30" "x6E3E1B" "x6F411B" "x734A20" "x734E19" "x754E35" "x763735" "x765D10" "x78471A" "x785C16" "x795118" "x795121" "x7A4817" "x7E3930" "x7F4232" "x813E14" "x845124" "x853C30" "x855418" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x635C19"
+    port = "x754E35"
+    farm = "x785C16"
+    mine = "x654924"
+    wood = "x7E3930"
+    arable_land = 84
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 20
+        building_logging_camp = 10
+        building_whaling_station = 13
+        building_sulfur_mine = 34
+    }
+    naval_exit_id = 3007
+}
+
+STATE_FEKEI = {
+    # Fekei
+    id = 399
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x74AA25" "x75B903" "x79A521" "x81B30D" "x849802" "x899519" "x8CA70C" "x8DA620" "x8DB922" "x8EA50D" "x90A120" "x91B324" "x959C1F" "x95B406" "x969404" "x969C1F" "x96AC1E" "x97B810" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x81B30D"
+    port = "x959C1F"
+    farm = "x90A120"
+    mine = "x79A521"
+    wood = "x75B903"
+    arable_land = 91
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 17
+        building_logging_camp = 10
+        building_whaling_station = 15
+        building_sulfur_mine = 40
+    }
+    naval_exit_id = 3007
+}

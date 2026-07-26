@@ -1,0 +1,34 @@
+﻿l_english:
+  # ================================================= HEIR TRAINING DECISIONS
+  decision_ova_train_heir_capital: "Train the Heir in the Capital"
+  decision_ova_train_heir_capital_desc: "Set our heir to cultivate at the Cultivation Grounds of our own capital. Each realm they attain takes five years and demands both the matching technique (technology) and a greater Cultivation Grounds running the right realm's methods: #b Qi Gathering#! needs a level 5 Cultivation Grounds, #b Foundation Establishment#! a level 10, #b Golden Core#! a level 15 running Golden Core methods, and so on up to #b Void Return#! at level 30. One realm per term."
+  decision_ova_train_heir_academy: "Send the Heir to the Academy"
+  decision_ova_train_heir_academy_desc: "Entrust our heir to the great Academy of the north. They must be #b under 16#!, and we must be on good terms with the Academy and hold an established interest in the isekai north. There they will study until they come of age at #b 20#!, returning a #b Foundation Establishment#! cultivator. While they study, the Academy guarantees our independence, but our heir is beyond other training until they return."
+  decision_ova_train_heir_sect: "Send the Heir to a Sect"
+  decision_ova_train_heir_sect_desc: "Entrust our heir to a friendly neighboring Martial Sect. They must be #b under 16#!. They will train until they come of age at #b 20#!, returning a #b Foundation Establishment#! cultivator, and if the sect's techniques exceed our own, they will keep advancing one realm every five years, up to the sect's ceiling, until they inherit our throne. The sect guarantees our independence for a century. Our heir is beyond other training until they return."
+
+  ova_heir_not_in_training_tt: "Our heir must not already be in a #b training program#!"
+  ova_heir_under_16_tt: "Our heir must be #b under 16#!"
+  ova_heir_uncultivated_or_qi_tt: "Our heir must not yet have reached #b Foundation Establishment#!"
+  ova_heir_academy_relations_tt: "We must be on #b good terms#! with the Academy"
+  ova_heir_academy_interest_tt: "We must hold an #b interest#! in the isekai north"
+
+  # ================================================= HEIR TRAINING EVENTS
+  ova_champion_heir.1.t: "The Heir's Breakthrough"
+  ova_champion_heir.1.d: "Five years of relentless cultivation in the capital's halls have borne fruit. Our heir, #b [ROOT.GetCountry.MakeScope.Var('ova_heir_trainee').GetCharacter.GetFullName]#!, has broken through to a new cultivation realm before the eyes of the court, the very air trembling with their ascension. The elders who trained them can barely conceal their pride."
+  ova_champion_heir.1.a: "A worthy heir indeed."
+
+  ova_champion_heir.3.t: "The Heir Returns from the Academy"
+  ova_champion_heir.3.d: "Our heir, #b [ROOT.GetCountry.MakeScope.Var('ova_heir_trainee').GetCharacter.GetFullName]#!, has come of age and returned from the Academy of the north, no longer the child we sent away, but a poised young cultivator of the Foundation Establishment realm, schooled in arts we could never have taught them at home. The Academy's masters send their regards, and their bill."
+  ova_champion_heir.3.f: "They left a student. They return something rather more dangerous."
+  ova_champion_heir.3.a: "Welcome them home."
+
+  ova_champion_heir.5.t: "The Heir Returns from the Sect"
+  ova_champion_heir.5.d: "Our heir, #b [ROOT.GetCountry.MakeScope.Var('ova_heir_trainee').GetCharacter.GetFullName]#!, has come of age in the halls of a foreign sect and returned a Foundation Establishment cultivator, hardened by years of brutal discipline among strangers. If the sect's mysteries run deeper than our own, they will keep rising in the years to come, unless the throne claims them first."
+  ova_champion_heir.5.f: "The sect kept its word, and kept its secrets. Most of them."
+  ova_champion_heir.5.a: "Our heir has come into their power."
+
+  # ================================================= MARTIAL SECT ASCENSION JE
+  je_ova_sect_ascension: "The Sect Ascends"
+  je_ova_sect_ascension_reason: "Under a #b Martial Sect#!, the whole realm cultivates as one. There is no need to single out an heir for training. Every soul in the sect rises together. #b Every ten years, each character in our country advances one cultivation realm#!, up to the ceiling of the techniques we have researched. This is the way of the sect: strength shared, strength multiplied."
+  je_ova_sect_ascension_status: "The sect cultivates as one. Every decade, all its members ascend a realm, up to the limit of our researched techniques."

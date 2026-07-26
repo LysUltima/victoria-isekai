@@ -1,0 +1,34 @@
+﻿ruinborn_taychendi = {
+	template = "moon_elf"
+
+	
+	skin_color = {
+        10 = { 0.3 0.25 0.5 0.35 }
+	}
+	eye_color = {
+		# Brown
+		50 = { 0.05 0.7 0.35 1.0 }
+		# Black
+		50 = { 0.05 0.95 0.35 1.0 }
+	}
+	hair_color = {
+		
+		# Black
+		95 = { 0.01 0.9 0.5 0.99 }
+	}
+
+    hairstyles = {
+        10 = { name = indian_hairstyles       range = { 0.0 1.0 } }
+    }
+
+    beards = {
+        10 = { name = indian_beards       range = { 0.0 1.0 } }
+    }
+
+    mustaches = {
+        10 = { name = indian_mustaches        range = { 0.0 1.0 } }
+    }
+
+}
+
+	

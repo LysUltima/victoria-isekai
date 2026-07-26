@@ -1,0 +1,224 @@
+﻿### Champions JE - sabotage a rival's champion
+ova_sabotage_champion = {
+	texture = "gfx/interface/icons/diplomatic_action_icons/change_regime.dds"
+
+	groups = {
+		general
+	}
+
+	requires_approval = no
+	show_confirmation_box = no
+
+	selectable = {
+		NOT = { is_country_type = decentralized }
+	}
+
+	potential = {
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_sabotage_requires_champion_tt
+			scope:target_country = { ova_has_living_champion = yes }
+		}
+		custom_tooltip = {
+			text = ova_sabotage_blocked_by_sanctuary_tt
+			NOT = { ova_champion_sanctuary_with = { TARGET = scope:target_country } }
+		}
+	}
+
+	# maintain a per-victim variable LIST so overlapping sabotage campaigns
+	# from several rivals don't cancel each other out: root added on accept,
+	# removed on either break. ova_champion_is_sabotaged reads
+	# has_variable_list on this same list, and ova_sabotage_watch_button
+	# iterates it to name the saboteurs.
+	accept_effect = {
+		scope:target_country = {
+			if = {
+				limit = {
+					NOT = {
+						is_target_in_variable_list = {
+							name = ova_sabotage_saboteurs
+							target = root
+						}
+					}
+				}
+				add_to_variable_list = {
+					name = ova_sabotage_saboteurs
+					target = root
+				}
+			}
+		}
+	}
+
+	pact = {
+		cost = 100
+		is_two_sided_pact = no
+		show_in_outliner = yes
+
+		relations_progress_per_day = -2
+
+		income_transfer = 0.05
+		max_paying_country_income_to_transfer = 0.025
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = yes
+        income_transfer_to_pops = {
+			allow_non_fully_accepted = yes
+			upper_strata_pops = {
+				value = 0.5
+				if = {
+					limit = {
+						OR = {
+							has_law_or_variant = law_type:law_autocracy
+							has_law_or_variant = law_type:law_oligarchy
+						}
+					}
+					add = 0.5
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_law_or_variant = law_type:law_wealth_voting
+							has_law_or_variant = law_type:law_landed_voting
+						}
+					}
+					add = 0.25
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_anarchy
+					}
+					subtract = 0.25
+				}
+
+				max = 1
+				min = 0
+			}
+			middle_strata_pops = {
+				value = 0.25
+
+				if = {
+					limit = {
+						OR = {
+							has_law_or_variant = law_type:law_census_voting
+							has_law_or_variant = law_type:law_universal_suffrage
+						}
+					}
+					add = 0.25
+				}
+
+				max = 1
+				min = 0
+			}
+			lower_strata_pops = {
+				value = 0.0
+
+				if = {
+					limit = {
+						OR = {
+							has_law_or_variant = law_type:law_universal_suffrage
+							has_law_or_variant = law_type:law_anarchy
+						}
+					}
+					add = 0.25
+				}
+
+				max = 1
+				min = 0
+			}
+		}
+
+		manual_break_effect = {
+			scope:target_country = {
+				remove_list_variable = {
+					name = ova_sabotage_saboteurs
+					target = root
+				}
+			}
+		}
+
+		auto_break_effect = {
+			scope:target_country = {
+				remove_list_variable = {
+					name = ova_sabotage_saboteurs
+					target = root
+				}
+			}
+		}
+
+		requirement_to_maintain = {
+			trigger = {
+				custom_tooltip = {
+					text = ova_sabotage_requires_champion_tt
+					scope:target_country = { ova_has_living_champion = yes }
+				}
+			}
+		}
+
+		requirement_to_maintain = {
+			trigger = {
+				custom_tooltip = {
+					text = "DIPLOMATIC_PACT_REQUIREMENT_AT_PEACE"
+					NOT = { has_war_with = scope:target_country }
+				}
+			}
+		}
+
+		requirement_to_maintain = {
+			trigger = {
+				custom_tooltip = {
+					text = ova_sabotage_blocked_by_sanctuary_tt
+					NOT = { ova_champion_sanctuary_with = { TARGET = scope:target_country } }
+				}
+			}
+		}
+	}
+
+	ai = {
+		check_acceptance_for_will_break = no
+
+		evaluation_chance = {
+			value = 0.2
+		}
+
+		propose_score = {
+			value = -10
+			# the more renowned their champion, the more we want it hobbled
+			add = {
+				value = scope:target_country.var:ova_champion_popularity
+				multiply = 0.5
+			}
+			# don't sabotage if we are broke
+			if = {
+				limit = { scaled_gold_reserves < 0.2 }
+				add = -30
+			}
+		}
+
+		will_propose = {
+			scope:target_country = { 
+                ova_has_living_champion = yes
+            }
+            has_attitude = { who = scope:target_country attitude = belligerent }
+            NOT = { 
+                scope:target_country = {
+                    has_variable = ova_victoria_char
+                }
+            }
+            NOT = { 
+                scope:target_country = {
+                    has_variable = ova_murim_returner_host
+                }
+            }
+		}
+
+        will_break = {
+            scaled_debt > 0.0
+        }
+	}
+
+    
+}

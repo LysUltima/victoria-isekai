@@ -1,0 +1,2007 @@
+﻿### Murim storyline - journal entries
+# Heavenly Demon Sect (c:CHE) vs Orthodox Martial Alliance, plus the Returner (Kang Jin-woo)
+# chain. NONE of these JEs call ova_champion_monthly_tick (the universal je_ova_champion owns
+# that) and none use a current_value champion-level progress bar - the champion foundation's
+# own two scripted progress bars already show level/renown everywhere. The day-one cohesion
+# lock on HWA's Orthodox Martial Alliance bloc is applied from history
+# (common/history/power_blocs/ova_power_blocs.txt), not from any JE immediate; only the exit
+# paths below remove it.
+#
+# 2026-07-18 second rework (the hero's road). The chain:
+#   returner_1 (the strange disciple's rise, 8 beats, level 20)
+#   -> je_ova_murim_ally_home (his OWN banner first: staff a Champion Hall, win the young
+#      mistress/senior of his house) -> up to 8 more je_ova_murim_ally_* courtships, each a
+#      4-beat chain (intro creates the companion, two TRIAL beats with a selfless and a
+#      selfish option, the pledge) + a clearly stated objective (armies, buildings, realm
+#      ranks, decisions, relations) under a hard FIVE-YEAR timeout
+#   -> the succession endgame (.150: demonic cult assassins kill the old master; the
+#      Returner takes the seat only now, at the very last moment)
+#      GOOD (>= 75% selfless choices AND his own house courted without one selfish choice):
+#        wedding into the host clan / acclamation as sect patriarch, every sworn banner
+#        becomes a MARCH, then je_ova_murim_final_battle (a champion expedition into the
+#        Cult triggers the duel he wins)
+#      BAD: the seat taken by force (plot armor off), je_ova_murim_war_conference (raise
+#        30 battalions), then the scripted Reckoning war (dp_ova_murim_reckoning, mirrored
+#        full-annexation goals)
+#   Both endings run effect_ova_murim_shatter_cult: the Cult's five mountains become the
+#   five successor sects (marches of the host in the good ending), conquered banner states
+#   go home, and whatever the Cult held outside the murim falls to the host.
+#
+# Beats are dispatched through if/else_if tick ladders (effect_ova_murim_*_tick) from
+# on_yearly_pulse plus hidden relay events (ova_murim.90/.93/.94), NOT through
+# random_events - a uniform roll would land on beats whose turn has passed. Cadence rule
+# (from the Victoria chain): beats / per-year rate <= ~2 years per chapter.
+
+# ============================================================================
+# War journal entries
+# ============================================================================
+
+# The three war JEs are raised from history (common/history/global/00_global.txt
+# adds them per tag and fires the intro proclamations ova_murim.4/.5), not from
+# is_shown_when_inactive/immediate - the xianxia war JEs' 2026-07-18 pattern.
+je_ova_murim_heavenly_demon = {
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	group = je_group_internal_affairs
+
+	on_monthly_pulse = {
+		effect = {
+			# CHE never hosts the Returner, but the dispatcher self-gates on
+			# ova_murim_is_alliance_sect_trigger - calling it here is harmless and
+			# keeps a single call-site shape across all three war JEs.
+			effect_ova_murim_returner_dispatch = yes
+		}
+		random_events = {
+			700 = 0
+			20 = ova_murim.50
+			15 = ova_murim.51
+			15 = ova_murim.52
+			15 = ova_murim.53
+			10 = ova_murim.54
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = ova_murim_cult_victory_tt
+			ova_murim_cult_has_won_trigger = yes
+		}
+	}
+
+	on_complete = {
+		add_modifier = { name = ova_murim_master_of_the_murim days = -1 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 100 }
+		}
+		trigger_event = { id = ova_murim.70 days = 3 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = ova_murim_cult_subjugated_tt
+			is_subject = yes
+		}
+	}
+
+	weight = 5000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# The cohesion lock on the Orthodox Martial Alliance bloc is applied by history
+# (common/history/power_blocs/ova_power_blocs.txt), and the JE itself plus its
+# intro proclamation (.5) come from history/global too - this JE only ever
+# REMOVES the lock, on the exit paths below.
+je_ova_murim_alliance_banner = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+	on_monthly_pulse = {
+		effect = {
+			effect_ova_murim_returner_dispatch = yes
+		}
+		random_events = {
+			700 = 0
+			15 = ova_murim.55
+			15 = ova_murim.56
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = ova_murim_alliance_victory_tt
+			ova_murim_cult_defeated_trigger = yes
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { is_power_bloc_leader = yes }
+			power_bloc = { remove_modifier = ova_unbreakable_covenant }
+		}
+		add_modifier = { name = ova_murim_orthodox_victory days = -1 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 80 }
+		}
+		trigger_event = { id = ova_murim.71 days = 3 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = ova_murim_cult_victory_other_tt
+			OR = {
+				ova_murim_cult_has_won_trigger = yes
+				# bowing WITHIN the Alliance (the Eight Banners arc's sworn
+				# marches) is not defeat - only an outside yoke is
+				AND = {
+					is_subject = yes
+					ova_murim_is_subject_of_alliance_trigger = no
+				}
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = { is_power_bloc_leader = yes }
+			power_bloc = { remove_modifier = ova_unbreakable_covenant }
+		}
+	}
+
+	weight = 5000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# One definition shown for each of the 7 non-leader Alliance sects (mirrors vanilla's
+# je_chinese_missions single-def-gated-by-tag pattern) - morale flavor, the skirmish pump, and a
+# home for each sect's own share of the Returner story.
+je_ova_murim_sect_banner = {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	group = je_group_internal_affairs
+
+	on_monthly_pulse = {
+		effect = {
+			effect_ova_murim_returner_dispatch = yes
+		}
+		random_events = {
+			750 = 0
+			12 = ova_murim.55
+			12 = ova_murim.56
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = ova_murim_alliance_victory_tt
+			ova_murim_cult_defeated_trigger = yes
+		}
+	}
+
+	on_complete = {
+		add_modifier = { name = ova_murim_orthodox_victory days = -1 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 80 }
+		}
+		trigger_event = { id = ova_murim.71 days = 3 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = ova_murim_cult_victory_other_tt
+			OR = {
+				ova_murim_cult_has_won_trigger = yes
+				# joining the Returner's household (a sworn march under a
+				# fellow banner) is not defeat - only an outside yoke is
+				AND = {
+					is_subject = yes
+					ova_murim_is_subject_of_alliance_trigger = no
+				}
+			}
+		}
+	}
+
+	weight = 3000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ============================================================================
+# The Returner chain (Kang Jin-woo) - strictly sequential: the rise, then the
+# Eight Banners arc (his own house first), then the succession endgame and one
+# of two endings. All chain JEs are host-country only: they only ever activate
+# via add_journal_entry (effect_ova_murim_returner_arrives / on_complete /
+# effect_ova_murim_next_ally chaining). Like the foundation's
+# je_ova_champion_coup they define NO is_shown_when_inactive (default no) - an
+# is_shown_when_inactive keyed on the host variable would self-activate later
+# chapters the moment the Returner arrives, skipping the chain. Shared fail
+# (repeated verbatim per Paradox's non-reusable JE-body syntax): the Returner
+# dead, OR the Cult has mastered the murim - on_fail routes through
+# effect_ova_murim_fail_events (.72 death / .73 calamity) and
+# effect_ova_murim_story_over (insight off, plot armor off). The realm
+# status_desc chain (Third-Rate .. Life-and-Death Realm) is likewise repeated
+# verbatim in every chapter.
+# ============================================================================
+
+# ------------------------------------------------------------------------
+# Chapter 1: The Strange Disciple. He kneels at the gate, and spends two
+# years being right about things a beggar boy has no business being right
+# about. Beats: .3 -> .10 -> .11 -> .16 -> .12 -> .13 -> .15 -> .14 (ladder
+# in effect_ova_murim_ch1_tick; relay ova_murim.90 at 90/180/270 days = 4
+# beats a year, 8 beats in ~2 years). Objective: the chapter's beats told,
+# and the Returner risen to the First-Rate rank (level 20).
+# ------------------------------------------------------------------------
+je_ova_murim_returner_1 = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		add_modifier = { name = ova_murim_returners_insight days = -1 }
+	}
+
+	# The lazy character capture must run soon after arrival, so it keeps the
+	# monthly pulse; the story beats ride the yearly tick ladder below.
+	on_monthly_pulse = {
+		effect = {
+			# create_character is deferred - the arrival effect could not save
+			# him directly, so the first pulse after his champion record exists
+			# captures the character into the Returner-specific variable.
+			if = {
+				limit = {
+					NOT = { has_variable = ova_murim_returner_char }
+					has_variable = ova_champion_char
+					exists = var:ova_champion_char
+				}
+				set_variable = { name = ova_murim_returner_char value = var:ova_champion_char }
+				# plot armor: the Returner's story needs him alive until his
+				# tale resolves (the good ending keeps it to the epilogue; the
+				# seat taken by force strips it early)
+				var:ova_champion_char ?= {
+					set_variable = ova_plot_armor
+					set_character_immortal = yes
+				}
+			}
+		}
+	}
+
+	# Four beats a year: the pulse offers one now and schedules the relay
+	# event (ova_murim.90) three times, at 90, 180 and 270 days.
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_murim_ch1_tick = yes
+			trigger_event = { id = ova_murim.90 days = 90 }
+			trigger_event = { id = ova_murim.90 days = 180 }
+			trigger_event = { id = ova_murim.90 days = 270 }
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	# ova_murim_seen_14 is only ever set by this chapter's own final beat, so
+	# a champion who leveled fast cannot skip the story (the Victoria chain's
+	# seen-flag guard, applied from the start here).
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_returner_1_complete_tt
+			AND = {
+				has_variable = ova_murim_seen_14
+				ova_has_living_champion = yes
+				var:ova_champion_level >= 20
+			}
+		}
+	}
+
+	on_complete = {
+		# seven gates and his own besides - the Eight Banners arc begins with
+		# the house that took him in
+		effect_ova_murim_next_ally = yes
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_returner_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_murim_story_over = yes
+		effect_ova_murim_fail_events = yes
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Eight Banners arc, first gate: HIS OWN HOUSE. Before any other banner can
+# be courted, the strange disciple must make his own hall believe in him:
+# raise and fully staff a Champion Hall (all three side wings active, the
+# same standard Victoria's first chapter sets), and win the pledge of the
+# young mistress (clan hosts) or senior disciple (sect hosts) of his house.
+# Beats .140 -> .141 -> .142 -> .143 through the shared dispatcher; relay
+# ova_murim.94 at 180 days = 2 beats a year, story told in ~2 years, five
+# years on the clock. A selfish trial choice alienates his own house and
+# locks the good ending away for good.
+# ------------------------------------------------------------------------
+je_ova_murim_ally_home = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_murim.140 days = 10 }
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_murim_ally_tick = yes
+			trigger_event = { id = ova_murim.94 days = 180 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		effect_ova_murim_next_ally = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_home_sworn_tt
+			has_variable = ova_murim_ally_sworn_home
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_home_hall_tt
+			ova_victoria_hall_ready = yes
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 20 }
+		}
+		effect_ova_murim_next_ally = yes
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_home_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+				has_variable = ova_murim_ally_failed_home
+				has_variable = ova_murim_ally_passed_home
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+				}
+			}
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+		else = {
+			# his own house has seen what he is - the tale walks on regardless
+			effect_ova_murim_next_ally = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Eight Banners arc: Seok Hye-gang, the iron-body monk of Sorim (sworn
+# brother). Beats .100 -> .101 -> .102 -> .103 (dispatcher + relay .94 at
+# 180 days = 2 beats a year, ~2 years of story in a 5-year window).
+# Objective: Hye-gang's pledge, Sorim's warm regard (relations 50), and an
+# army of at least 15 battalions - the monks bow to no banner that cannot
+# hold its own gate. A selfish trial choice alienates Sorim for good.
+# ------------------------------------------------------------------------
+je_ova_murim_ally_sor = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_murim.100 days = 10 }
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_murim_ally_tick = yes
+			trigger_event = { id = ova_murim.94 days = 180 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		effect_ova_murim_next_ally = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_sor_sworn_tt
+			has_variable = ova_murim_ally_sworn_sor
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_sor_relations_tt
+			c:SOR ?= { relations:root >= 50 }
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_sor_objective_tt
+			army_size >= 15
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 20 }
+		}
+		change_relations = { country = c:SOR value = 25 }
+		effect_ova_murim_next_ally = yes
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+				has_variable = ova_murim_ally_failed_sor
+				has_variable = ova_murim_ally_passed_sor
+				NOT = { exists = c:SOR }
+				c:SOR ?= { is_subject = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+				}
+			}
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+		else = {
+			# this courtship ended, but the tale walks on to the next gate
+			effect_ova_murim_next_ally = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Eight Banners arc: Paeng Ha-ran, the saber heiress of the Paeng clan, the
+# She-Bear of Hobuk (companion). Beats .104 -> .105 -> .106 -> .107.
+# Objective: her pledge, the Paeng's warm regard (relations 50), and the
+# Hobuk Saber Trials staged in their honor (decision). Five years; a
+# selfish trial choice alienates the Paeng for good.
+# ------------------------------------------------------------------------
+je_ova_murim_ally_pae = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_murim.104 days = 10 }
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_murim_ally_tick = yes
+			trigger_event = { id = ova_murim.94 days = 180 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		effect_ova_murim_next_ally = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_pae_sworn_tt
+			has_variable = ova_murim_ally_sworn_pae
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_pae_relations_tt
+			c:PAE ?= { relations:root >= 50 }
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_pae_objective_tt
+			has_variable = ova_murim_saber_trials_done
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 20 }
+		}
+		change_relations = { country = c:PAE value = 25 }
+		effect_ova_murim_next_ally = yes
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+				has_variable = ova_murim_ally_failed_pae
+				has_variable = ova_murim_ally_passed_pae
+				NOT = { exists = c:PAE }
+				c:PAE ?= { is_subject = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+				}
+			}
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+		else = {
+			# this courtship ended, but the tale walks on to the next gate
+			effect_ova_murim_next_ally = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Eight Banners arc: Tang So-yeol, the poison maiden of the Tang clan
+# (companion). Beats .108 -> .109 -> .110 -> .111. Objective: her pledge,
+# the Tang's warm regard (relations 50), and the lost Tang fire formulas
+# recovered for the clan (decision). Five years; a selfish trial choice
+# alienates the Tang for good.
+# ------------------------------------------------------------------------
+je_ova_murim_ally_tan = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_murim.108 days = 10 }
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_murim_ally_tick = yes
+			trigger_event = { id = ova_murim.94 days = 180 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		effect_ova_murim_next_ally = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_tan_sworn_tt
+			has_variable = ova_murim_ally_sworn_tan
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_tan_relations_tt
+			c:TAN ?= { relations:root >= 50 }
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_tan_objective_tt
+			has_variable = ova_murim_fire_formulas_done
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 20 }
+		}
+		change_relations = { country = c:TAN value = 25 }
+		effect_ova_murim_next_ally = yes
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+				has_variable = ova_murim_ally_failed_tan
+				has_variable = ova_murim_ally_passed_tan
+				NOT = { exists = c:TAN }
+				c:TAN ?= { is_subject = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+				}
+			}
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+		else = {
+			# this courtship ended, but the tale walks on to the next gate
+			effect_ova_murim_next_ally = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Eight Banners arc: Namgung Wol-hee, the proud young mistress of the
+# Namgung clan (companion). Beats .112 -> .113 -> .114 -> .115. Objective:
+# her pledge, the Namgung's warm regard (relations 50), and the Returner
+# risen to the Peak Realm (level 30) - the clan of the imperial sword bows
+# to no blade below it. Five years; a selfish trial choice alienates the
+# Namgung for good.
+# ------------------------------------------------------------------------
+je_ova_murim_ally_nam = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_murim.112 days = 10 }
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_murim_ally_tick = yes
+			trigger_event = { id = ova_murim.94 days = 180 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		effect_ova_murim_next_ally = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_nam_sworn_tt
+			has_variable = ova_murim_ally_sworn_nam
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_nam_relations_tt
+			c:NAM ?= { relations:root >= 50 }
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_nam_objective_tt
+			AND = {
+				ova_has_living_champion = yes
+				var:ova_champion_level >= 30
+			}
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 20 }
+		}
+		change_relations = { country = c:NAM value = 25 }
+		effect_ova_murim_next_ally = yes
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+				has_variable = ova_murim_ally_failed_nam
+				has_variable = ova_murim_ally_passed_nam
+				NOT = { exists = c:NAM }
+				c:NAM ?= { is_subject = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+				}
+			}
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+		else = {
+			# this courtship ended, but the tale walks on to the next gate
+			effect_ova_murim_next_ally = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Eight Banners arc: Jegal Seo-yeon, the strategist of the Jegal clan
+# (companion). Beats .116 -> .117 -> .118 -> .119. Objective: her pledge,
+# the Jegal's warm regard (relations 50), and an archive worth reading -
+# two levels of Universities standing in our lands. Five years; a selfish
+# trial choice alienates the Jegal for good.
+# ------------------------------------------------------------------------
+je_ova_murim_ally_jeg = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_murim.116 days = 10 }
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_murim_ally_tick = yes
+			trigger_event = { id = ova_murim.94 days = 180 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		effect_ova_murim_next_ally = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_jeg_sworn_tt
+			has_variable = ova_murim_ally_sworn_jeg
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_jeg_relations_tt
+			c:JEG ?= { relations:root >= 50 }
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_jeg_objective_tt
+			any_scope_state = {
+				any_scope_building = {
+					is_building_type = building_university
+					level >= 2
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 20 }
+		}
+		change_relations = { country = c:JEG value = 25 }
+		effect_ova_murim_next_ally = yes
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+				has_variable = ova_murim_ally_failed_jeg
+				has_variable = ova_murim_ally_passed_jeg
+				NOT = { exists = c:JEG }
+				c:JEG ?= { is_subject = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+				}
+			}
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+		else = {
+			# this courtship ended, but the tale walks on to the next gate
+			effect_ova_murim_next_ally = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Eight Banners arc: Wi Cheong-ha, the taoist priestess of Mudang
+# (companion). Beats .120 -> .121 -> .122 -> .123. Objective: her pledge,
+# Mudang's warm regard (relations 50), and the mountain shrine endowed in
+# the household's name (decision). Five years; a selfish trial choice
+# alienates Mudang for good.
+# ------------------------------------------------------------------------
+je_ova_murim_ally_mud = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_murim.120 days = 10 }
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_murim_ally_tick = yes
+			trigger_event = { id = ova_murim.94 days = 180 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		effect_ova_murim_next_ally = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_mud_sworn_tt
+			has_variable = ova_murim_ally_sworn_mud
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_mud_relations_tt
+			c:MUD ?= { relations:root >= 50 }
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_mud_objective_tt
+			has_variable = ova_murim_shrine_endowment_done
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 20 }
+		}
+		change_relations = { country = c:MUD value = 25 }
+		effect_ova_murim_next_ally = yes
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+				has_variable = ova_murim_ally_failed_mud
+				has_variable = ova_murim_ally_passed_mud
+				NOT = { exists = c:MUD }
+				c:MUD ?= { is_subject = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+				}
+			}
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+		else = {
+			# this courtship ended, but the tale walks on to the next gate
+			effect_ova_murim_next_ally = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Eight Banners arc: Sama Ryeon, the information broker of the Sama clan
+# (companion). Beats .124 -> .125 -> .126 -> .127. Objective: her pledge,
+# the Sama's warm regard (relations 50), and every debt in her ledger on
+# the household settled in gold (decision). Five years; a selfish trial
+# choice alienates the Sama for good.
+# ------------------------------------------------------------------------
+je_ova_murim_ally_sam = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_murim.124 days = 10 }
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_murim_ally_tick = yes
+			trigger_event = { id = ova_murim.94 days = 180 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		effect_ova_murim_next_ally = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_sam_sworn_tt
+			has_variable = ova_murim_ally_sworn_sam
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_sam_relations_tt
+			c:SAM ?= { relations:root >= 50 }
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_sam_objective_tt
+			has_variable = ova_murim_sama_ledger_done
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 20 }
+		}
+		change_relations = { country = c:SAM value = 25 }
+		effect_ova_murim_next_ally = yes
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+				has_variable = ova_murim_ally_failed_sam
+				has_variable = ova_murim_ally_passed_sam
+				NOT = { exists = c:SAM }
+				c:SAM ?= { is_subject = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+				}
+			}
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+		else = {
+			# this courtship ended, but the tale walks on to the next gate
+			effect_ova_murim_next_ally = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Eight Banners arc: Yeon Seol-mae, the plum blossom sword saintess of
+# Hwasan (companion). Beats .128 -> .129 -> .130 -> .131. Objective: her
+# pledge, Hwasan's warm regard (relations 50), and an army of at least 15
+# battalions - the oldest banner will not lean on a house that cannot hold
+# its own wall. Five years; a selfish trial choice alienates Hwasan for
+# good.
+# ------------------------------------------------------------------------
+je_ova_murim_ally_hwa = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_murim.128 days = 10 }
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_murim_ally_tick = yes
+			trigger_event = { id = ova_murim.94 days = 180 }
+		}
+	}
+
+	timeout = 1825
+
+	on_timeout = {
+		effect_ova_murim_next_ally = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_hwa_sworn_tt
+			has_variable = ova_murim_ally_sworn_hwa
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_hwa_relations_tt
+			c:HWA ?= { relations:root >= 50 }
+		}
+		custom_tooltip = {
+			text = je_ova_murim_ally_hwa_objective_tt
+			army_size >= 15
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 20 }
+		}
+		change_relations = { country = c:HWA value = 25 }
+		effect_ova_murim_next_ally = yes
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_ally_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+				has_variable = ova_murim_ally_failed_hwa
+				has_variable = ova_murim_ally_passed_hwa
+				NOT = { exists = c:HWA }
+				c:HWA ?= { is_subject = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+				}
+			}
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+		else = {
+			# this courtship ended, but the tale walks on to the next gate
+			effect_ova_murim_next_ally = yes
+		}
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# GOOD ENDING: The Last March North. Added by the coronation events
+# (.151/.152) after the assassins take the old master and the hall raises
+# the Returner up willingly. One objective, plainly stated: send him north
+# at the head of a champion expedition into the Cult's own lands. The
+# moment the expedition pact is struck, the ascent begins (.81 -> .82) and
+# the duel at the summit ends the war of the murim in one evening - the
+# hall believed in him, and the story keeps faith with the halls that keep
+# it. on_complete shatters the Cult into the five successor sects, all of
+# them sworn marches of the household.
+# ------------------------------------------------------------------------
+je_ova_murim_final_battle = {
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_murim.80 days = 10 }
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					ova_murim_expedition_into_cult_trigger = yes
+					ova_murim_returner_is_alive_trigger = yes
+					NOT = { has_variable = ova_murim_duel_done }
+				}
+				set_variable = ova_murim_duel_done
+				trigger_event = { id = ova_murim.81 days = 5 }
+			}
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_final_battle_complete_tt
+			OR = {
+				has_variable = ova_murim_duel_won
+				ova_murim_cult_defeated_trigger = yes
+			}
+		}
+	}
+
+	on_complete = {
+		add_modifier = { name = ova_murim_second_life_fulfilled days = -1 }
+		if = {
+			limit = {
+				NOT = { has_variable = ova_murim_duel_won }
+				ova_has_living_champion = yes
+			}
+			# the Cult fell to armies rather than to the duel - the tale still
+			# closes, a little less loudly
+			ova_champion_add_xp = { AMOUNT = 60 }
+			ova_champion_add_popularity = { AMOUNT = 30 }
+		}
+		effect_ova_murim_shatter_cult = yes
+		effect_ova_murim_story_over = yes
+		trigger_event = { id = ova_murim.84 days = 3 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_returner_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_murim_story_over = yes
+		effect_ova_murim_fail_events = yes
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# BAD ENDING, first half: The War Conference. Added by .153 after the seat
+# is taken by force. The hall did not choose him, so the mountain must be
+# taken the long way: raise an army of at least 30 battalions while the
+# council beats play out (.30 -> .33 -> .31 -> .32 -> .34 -> .35 via
+# effect_ova_murim_war_council_tick; relay ova_murim.93 at 120/240 days =
+# 3 beats a year, 6 beats in 2 years). on_complete declares the Reckoning
+# (dp_ova_murim_reckoning, mirrored full-annexation goals, no negotiated
+# peace) and opens je_ova_murim_reckoning.
+# ------------------------------------------------------------------------
+je_ova_murim_war_conference = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_murim.30 days = 10 }
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_murim_war_council_tick = yes
+			trigger_event = { id = ova_murim.93 days = 120 }
+			trigger_event = { id = ova_murim.93 days = 240 }
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_war_conference_army_tt
+			army_size >= 30
+		}
+		custom_tooltip = {
+			text = je_ova_murim_war_conference_council_tt
+			has_variable = ova_murim_seen_35
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = ova_murim.156 days = 5 }
+		effect_ova_murim_launch_reckoning = yes
+		add_journal_entry = { type = je_ova_murim_reckoning }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_returner_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_murim_story_over = yes
+		effect_ova_murim_fail_events = yes
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# BAD ENDING, second half: The Reckoning. The scripted war itself -
+# mirrored annexation goals, the sworn marches riding as subjects, the
+# rest of the Alliance piling in through its own hatreds. Completes when
+# the Heavenly Demon Sect is destroyed or subjugated; on_complete runs the
+# same shatter as the good ending (the five successor sects stand alone
+# here - no marches for the man who took the seat by force) and closes the
+# tale.
+# ------------------------------------------------------------------------
+je_ova_murim_reckoning = {
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	group = je_group_internal_affairs
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_murim_realm_none
+				trigger = {
+					NOT = { ova_has_living_champion = yes }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_third_rate
+				trigger = {
+					var:ova_champion_level < 10
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_second_rate
+				trigger = {
+					var:ova_champion_level < 20
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_first_rate
+				trigger = {
+					var:ova_champion_level < 30
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_peak
+				trigger = {
+					var:ova_champion_level < 40
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_profound
+				trigger = {
+					var:ova_champion_level < 50
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_murim_realm_life_death
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_murim_reckoning_complete_tt
+			ova_murim_cult_defeated_trigger = yes
+		}
+	}
+
+	on_complete = {
+		add_modifier = { name = ova_murim_second_life_fulfilled days = -1 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_xp = { AMOUNT = 60 }
+			ova_champion_add_popularity = { AMOUNT = 30 }
+		}
+		effect_ova_murim_shatter_cult = yes
+		effect_ova_murim_story_over = yes
+		trigger_event = { id = ova_murim.39 days = 3 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_murim_reckoning_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_murim_returner_char
+					NOT = { exists = var:ova_murim_returner_char }
+				}
+				ova_murim_cult_has_won_trigger = yes
+				is_subject = yes
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_murim_story_over = yes
+		effect_ova_murim_fail_events = yes
+	}
+
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}

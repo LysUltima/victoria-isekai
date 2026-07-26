@@ -1,0 +1,81 @@
+﻿# Government types for the law_martial_sect governance principle (peer of monarchy/theocracy).
+# The sect is the state: the strongest cultivator reigns as Patriarch, the elders govern.
+# Leadership passes by martial prowess and designation, not blood, so transfer_of_power is
+# dictatorial (mirrors the theocracy government family). No vanilla government type keys on
+# law_martial_sect, so these are the only valid types for a Martial Sect country; the most
+# specific (by distribution-of-power law) come first, with a catch-all base type last.
+
+gov_martial_sect_council = {						# Ruled by a Council of Sect Elders
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_SECT_GRAND_ELDER"
+	female_ruler = "RULER_TITLE_SECT_GRAND_ELDER"
+
+	possible = {
+		has_law_or_variant = law_type:law_martial_sect
+		has_law_or_variant = law_type:law_oligarchy
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_martial_sect_conclave = {						# Elders chosen by a broader disciple franchise
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_SECT_PATRIARCH"
+	female_ruler = "RULER_TITLE_SECT_MATRIARCH"
+
+	possible = {
+		has_law_or_variant = law_type:law_martial_sect
+		country_has_voting_franchise = yes
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_martial_sect_autocracy = {						# The Patriarch's word carries the weight of heaven
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_SECT_PATRIARCH"
+	female_ruler = "RULER_TITLE_SECT_MATRIARCH"
+
+	possible = {
+		has_law_or_variant = law_type:law_martial_sect
+		has_law_or_variant = law_type:law_autocracy
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_martial_sect = {								# Catch-all Martial Sect government
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_SECT_PATRIARCH"
+	female_ruler = "RULER_TITLE_SECT_MATRIARCH"
+
+	possible = {
+		has_law_or_variant = law_type:law_martial_sect
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}

@@ -1,0 +1,211 @@
+﻿root_owns_state_in_region = { #checks if any_scope_state owned by root
+	any_scope_state = {
+		owner = root
+	}
+}
+
+### Climate triggers
+
+is_arabic_farmland = {
+	OR = {
+		region = sr:region_desert
+		region = sr:region_desert_inner
+	}
+}
+
+is_jungle_hills = {
+	OR = {
+		region = sr:region_southern_isles
+        region = sr:region_western_isles
+        region = sr:region_western_isles_south
+		region = sr:region_xianxia_diabolic
+	}
+}
+
+is_asian_farmland = {
+	OR = {
+		region = sr:region_southern_isles
+		region = sr:region_xianxia
+        region = sr:region_murim
+		region = sr:region_xianxia_yao
+		region = sr:region_xianxia_diabolic
+        region = sr:region_western_plateau
+		region = sr:region_eastern_isles
+	}
+}
+
+is_subtropic_farmland = {
+	region = sr:region_xianxia
+    region = sr:region_demonland
+    region = sr:region_demonland_south
+}
+
+is_arid_region = {
+	OR = {
+		region = sr:region_desert
+		region = sr:region_desert_inner
+        region = sr:region_demonland_desert
+        region = sr:region_desert_border
+	}
+}
+
+# Harvest Condition Triggers
+
+is_vulnerable_to_droughts = {
+	NOR = {
+		region = sr:region_north
+		region = sr:region_north_isles
+		region = sr:region_western_plateau
+	}
+}
+
+is_vulnerable_to_floods = {
+	NOR = {
+		region = sr:region_desert
+		region = sr:region_desert_inner
+        region = sr:region_demonland_desert
+        region = sr:region_desert_border
+	}
+}
+
+is_vulnerable_to_frosts = {
+	NOR = {
+		region = sr:region_desert
+		region = sr:region_desert_inner
+        region = sr:region_demonland_desert
+        region = sr:region_desert_border
+		region = sr:region_southern_isles
+		region = sr:region_xianxia
+		region = sr:region_xianxia_yao
+		region = sr:region_xianxia_diabolic
+	}
+}
+
+is_vulnerable_to_wildfires = {
+	NOT = {
+		any_scope_state = {
+			has_state_trait = state_trait_desert
+		}
+	}
+}
+
+is_vulnerable_to_hailstorm = {
+	is_vulnerable_to_frosts = yes
+}
+
+is_vulnerable_to_locust_swarms = {
+	OR = {
+		region = sr:region_desert
+		region = sr:region_desert_inner
+        region = sr:region_demonland_desert
+	}
+}
+
+is_vulnerable_to_heatwaves = {
+	NOR = {
+		region = sr:region_north
+		region = sr:region_north_isles
+		region = sr:region_western_plateau
+	}
+}
+
+is_vulnerable_to_disease_outbreak = {
+	always = yes
+}
+
+is_vulnerable_to_extreme_winds = {
+	always = yes
+}
+
+is_vulnerable_to_torrential_rains = {
+	is_arid_region = no
+}
+
+has_potential_for_pollinator_surge = {
+	always = yes
+}
+
+has_potential_for_optimal_sunlight = {
+	always = yes
+}
+
+has_potential_for_moderate_rainfall = {
+	is_arid_region = no
+}
+
+is_country_on_same_continent = {
+	custom_description = {
+		text = "is_country_on_same_continent"
+		subject = this
+		object = $TARGET$
+
+		trigger_if = {
+			limit = {
+				this.capital.state_region = {
+					region = sr:region_isekai
+				}
+			}
+			$TARGET$.capital.state_region = {
+				region = sr:region_isekai
+			}
+		}
+		trigger_else_if = {
+			limit = {
+				this.capital.state_region = {
+					always = no # geographic_region_americas (no mod analogue)
+				}
+			}
+			$TARGET$.capital.state_region = {
+				always = no # geographic_region_americas (no mod analogue)
+			}
+		}
+		trigger_else_if = {
+			limit = {
+				this.capital.state_region = {
+					always = no # geographic_region_africa (no mod analogue)
+				}
+			}
+			$TARGET$.capital.state_region = {
+				always = no # geographic_region_africa (no mod analogue)
+			}
+		}
+		trigger_else_if = {
+			limit = {
+				this.capital.state_region = {
+					OR = {
+						region = sr:region_xianxia
+						region = sr:region_xianxia_yao
+						region = sr:region_xianxia_diabolic
+					}
+				}
+			}
+			$TARGET$.capital.state_region = {
+				OR = {
+					region = sr:region_xianxia
+					region = sr:region_xianxia_yao
+					region = sr:region_xianxia_diabolic
+				}
+			}
+		}
+	}
+}
+
+is_vulnerable_to_earthquakes = {
+	OR = { # these are an approximation of fault zones and replaces an old scripted trigger
+		region = sr:region_western_plateau
+		region = sr:region_eastern_isles
+		# geographic_region_great_rift_valley (no mod analogue)
+	}
+}
+
+is_vulnerable_to_ice = {
+	always = no # geographic_region_polar_seas (no mod analogue)
+}
+
+is_vulnerable_to_tropical_storm = {
+	always = no # geographic_region_tropical_seas (no mod analogue)
+}
+
+is_important_strait_state_region = {
+	always = no # STATE_UPPER_ANDALUSIA / STATE_AL_RIF / STATE_SINAI / STATE_NORTH_SUMATRA / STATE_MALAYA / STATE_PANAMA (Earth strait states, no mod equivalent tagged)
+}

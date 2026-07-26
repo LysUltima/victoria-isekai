@@ -1,0 +1,210 @@
+﻿### Murim storyline - decisions
+# Shape verified: common/decisions/00_decisions.txt (revive_olympic_games_decision - is_shown /
+# possible / when_taken / ai_chance). All champion state handled by the shared layer
+# (ova_champion_* effects/triggers); murim wrappers in common/scripted_effects/ova_murim_effects.txt
+# and common/scripted_triggers/ova_murim_triggers.txt. The foundation's own buttons
+# (Choose a Champion / Hunt the Hinterlands / Royal Patronage / Closed-Door Training) already
+# cover champion raising and the two upkeep toggles - this file adds ONLY murim-flavored jianghu
+# outings and the four Eight Banners OBJECTIVE decisions on top; do not duplicate the foundation.
+#
+# The four objective decisions (saber trials / fire formulas / shrine endowment / Sama ledger)
+# each satisfy one banner JE's stated objective. Their conditions are visible in the decision
+# (a stated treasury or realm requirement), and the JE tooltip names the decision as its goal.
+
+# =====================================================================
+# Eight Banners OBJECTIVE decisions
+# =====================================================================
+
+# PAE objective: stage the Hobuk Saber Trials in the Paeng's honor. Costs a season's
+# treasury; available only while courting the Paeng banner.
+ova_murim_saber_trials_decision = {
+	is_shown = {
+		has_journal_entry = je_ova_murim_ally_pae
+		NOT = { has_variable = ova_murim_saber_trials_done }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_murim_saber_trials_cost_tt
+			gold_reserves >= 100000
+		}
+	}
+
+	when_taken = {
+		add_treasury = { value = -100000 }
+		set_variable = ova_murim_saber_trials_done
+		trigger_event = { id = ova_murim.144 days = 3 }
+	}
+
+	ai_chance = {
+		value = 10
+	}
+}
+
+# TAN objective: recover the lost Tang fire formulas for the clan. Requires the Second-Rate
+# rank (level 10) - the archives are guarded by the clan's own poison arrays. Available only
+# while courting the Tang banner.
+ova_murim_fire_formulas_decision = {
+	is_shown = {
+		has_journal_entry = je_ova_murim_ally_tan
+		NOT = { has_variable = ova_murim_fire_formulas_done }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_murim_fire_formulas_level_tt
+			ova_has_living_champion = yes
+			var:ova_champion_level >= 10
+		}
+	}
+
+	when_taken = {
+		set_variable = ova_murim_fire_formulas_done
+		trigger_event = { id = ova_murim.145 days = 3 }
+	}
+
+	ai_chance = {
+		value = 10
+	}
+}
+
+# MUD objective: endow the mountain shrine of Mudang in the household's name. Costs a
+# season's treasury; available only while courting the Mudang banner.
+ova_murim_shrine_endowment_decision = {
+	is_shown = {
+		has_journal_entry = je_ova_murim_ally_mud
+		NOT = { has_variable = ova_murim_shrine_endowment_done }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_murim_shrine_endowment_cost_tt
+			gold_reserves >= 100000
+		}
+	}
+
+	when_taken = {
+		add_treasury = { value = -100000 }
+		set_variable = ova_murim_shrine_endowment_done
+		trigger_event = { id = ova_murim.146 days = 3 }
+	}
+
+	ai_chance = {
+		value = 10
+	}
+}
+
+# SAM objective: settle every debt in Sama Ryeon's ledger in gold. Costs a full year's
+# treasury; available only while courting the Sama banner.
+ova_murim_sama_ledger_decision = {
+	is_shown = {
+		has_journal_entry = je_ova_murim_ally_sam
+		NOT = { has_variable = ova_murim_sama_ledger_done }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_murim_sama_ledger_cost_tt
+			gold_reserves >= 200000
+		}
+	}
+
+	when_taken = {
+		add_treasury = { value = -200000 }
+		set_variable = ova_murim_sama_ledger_done
+		trigger_event = { id = ova_murim.147 days = 3 }
+	}
+
+	ai_chance = {
+		value = 10
+	}
+}
+
+# =====================================================================
+# Jianghu outings (flavor; share the foundation's adventuring cooldown)
+# =====================================================================
+
+# 1) Seek a Lost Manual: chance of a legendary technique (XP) or qi deviation (injury).
+ova_murim_seek_lost_manual_decision = {
+	is_shown = {
+		ova_murim_is_alliance_sect_trigger = yes
+		ova_has_living_champion = yes
+        has_variable = ova_murim_returner_host
+	}
+
+	possible = {
+		ova_murim_outing_ready_trigger = yes
+	}
+
+	when_taken = {
+		effect_ova_murim_outing_cooldown = yes
+		random_list = {
+			60 = {
+				trigger_event = { id = ova_murim.60 days = 3 }
+			}
+			40 = {
+				trigger_event = { id = ova_murim.61 days = 3 }
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 4
+	}
+}
+
+# 2) Host the Grand Martial Tournament - open to every sect and to the Cult alike, champion or not.
+ova_murim_grand_tournament_decision = {
+	is_shown = {
+		ova_murim_is_alliance_sect_trigger = yes
+		NOT = { has_variable = ova_murim_tournament_cooldown }
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = ova_murim_tournament_cooldown }
+		}
+	}
+
+	when_taken = {
+		add_treasury = { value = -200000 }
+		set_variable = { name = ova_murim_tournament_cooldown days = 1825 }
+		trigger_event = { id = ova_murim.64 days = 5 }
+	}
+
+	ai_chance = {
+		value = 5
+		if = {
+			limit = { scaled_gold_reserves < 0.1 }
+			multiply = 0
+		}
+	}
+}
+
+# 3) Purge Cult Spies - Alliance sects only, while the Cult still exists. Repeatable once a decade.
+ova_murim_purge_cult_spies_decision = {
+	is_shown = {
+		ova_murim_is_alliance_sect_trigger = yes
+		exists = c:CHE
+        has_variable = ova_murim_returner_host
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = ova_murim_purge_done_once }
+		}
+	}
+
+	when_taken = {
+		set_variable = { name = ova_murim_purge_done_once days = 3650 }
+		trigger_event = { id = ova_murim.65 days = 3 }
+	}
+
+	ai_chance = {
+		value = 3
+		if = {
+			limit = { is_at_war = yes }
+			add = 5
+		}
+	}
+}

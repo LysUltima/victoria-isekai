@@ -1,0 +1,7 @@
+﻿# Burning Wastes (desert: alchemy tier 4)
+COUNTRIES = {
+	c:BUR ?= {
+		effect_starting_technology_alchemy_tier_4 = yes
+		effect_starting_politics_traditional = yes
+	}
+}

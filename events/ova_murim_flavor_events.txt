@@ -1,0 +1,426 @@
+﻿### Murim gangho (jianghu) flavor events (Agent C, sole owner of this file)
+# Namespace ova_murim_flavor. Not storyline-specific, so it no longer depends on a journal
+# entry: fired directly from the regular on_action murim_flavor_monthly_events
+# (common/on_actions/ova_flavor_on_actions.txt), hooked into the engine's on_monthly_pulse_country
+# (common/on_actions/00_code_on_actions.txt) - do not renumber these fixed ids, the on_action's
+# weights are wired against them. This used to also roll (subsets, or in je_ova_murim_gangho's
+# case entirely) from the on_monthly_pulse random_events of je_ova_murim_gangho (now deleted - it
+# was a pure flavor carrier with no victory condition of its own) and je_ova_murim_heavenly_demon /
+# je_ova_murim_alliance_banner / je_ova_murim_sect_banner (still extant storyline JEs, whose pulse
+# no longer touches flavor); every event's own trigger (ova_murim_is_sect_or_cult_trigger, the
+# same gate gangho used) already covers the full eligible population. These are lived-in color
+# for every murim sect or the Heavenly Demon Cult
+# while the sect/cult war is undecided - not the Returner's own chain (that is Agent B's
+# ova_murim namespace) and not champion XP/renown bookkeeping (the universal champion JE owns
+# that). Uses only verified vanilla effects/triggers, Agent-A-owned ova_murim_* triggers/
+# variables, champion-foundation ova_champion_* effects/triggers, and the ova_murim_flavor_*
+# modifiers defined in common/static_modifiers/ova_murim_flavor_modifiers.txt.
+#
+#  .1  the teahouse storyteller           (renown/prestige trifle)
+#  .2  a wandering swordsman asks for a bout   (champion duel flavor)
+#  .3  the escort agency boom             (gangho economy: escort fees)
+#  .4  the night market of forbidden manuals   (gangho economy: manual forgeries)
+#  .5  the beggars union knows everything (intel flavor; small XP)
+#  .6  a masked vigilante in the market town
+#  .7  disciples brawl over seating precedence
+#  .8  the physician who refuses no one
+#  .9  a Cult preacher at the crossroads  (works for CHE too - conversion flavor)
+#  .10 the salt road bandit king          (gangho economy: sect tolls)
+#  .11 pilgrims at the ancestral shrines  (gangho economy: shrine tolls)
+#  .12 rumors of the Returner
+
+namespace = ova_murim_flavor
+
+ova_murim_flavor.1 = { # the teahouse storyteller
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_murim_flavor.1.t
+	desc = ova_murim_flavor.1.d
+	flavor = ova_murim_flavor.1.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_is_sect_or_cult_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # feed him a flattering verse
+		name = ova_murim_flavor.1.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 5 }
+		}
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # let him tell it plain
+		name = ova_murim_flavor.1.b
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_murim_flavor.2 = { # a wandering swordsman asks for a bout
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_murim_flavor.2.t
+	desc = ova_murim_flavor.2.d
+	flavor = ova_murim_flavor.2.f
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		ova_murim_is_sect_or_cult_trigger = yes
+		ova_has_living_champion = yes
+		NOT = { ova_champion_is_adventuring = yes }
+	}
+
+	immediate = { }
+
+	option = { # accept the bout
+		name = ova_murim_flavor.2.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+	option = { # decline politely
+		name = ova_murim_flavor.2.b
+	}
+}
+
+ova_murim_flavor.3 = { # the escort agency boom
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_murim_flavor.3.t
+	desc = ova_murim_flavor.3.d
+	flavor = ova_murim_flavor.3.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	trigger = {
+		ova_murim_is_sect_or_cult_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # license the escort houses
+		name = ova_murim_flavor.3.a
+		default_option = yes
+		add_modifier = { name = ova_murim_flavor_escort_fees days = 365 multiplier = money_amount_multiplier_small }
+		add_modifier = { name = ova_murim_flavor_escort_boom days = 365 }
+	}
+	option = { # leave the roads to wandering blades
+		name = ova_murim_flavor.3.b
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_murim_flavor.4 = { # the night market of forbidden manuals
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_murim_flavor.4.t
+	desc = ova_murim_flavor.4.d
+	flavor = ova_murim_flavor.4.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		ova_murim_is_sect_or_cult_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # buy up the stalls
+		name = ova_murim_flavor.4.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_modifier = { name = ova_murim_flavor_manual_forgery days = 365 }
+	}
+	option = { # burn the forgeries
+		name = ova_murim_flavor.4.b
+		add_radicals = { value = very_small_radicals }
+	}
+}
+
+ova_murim_flavor.5 = { # the beggars union knows everything
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_murim_flavor.5.t
+	desc = ova_murim_flavor.5.d
+	flavor = ova_murim_flavor.5.f
+
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		ova_murim_is_sect_or_cult_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # pay for their silence and their eyes
+		name = ova_murim_flavor.5.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_modifier = { name = ova_murim_flavor_beggars_network days = 365 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_xp = { AMOUNT = 5 }
+		}
+	}
+	option = { # ignore the beggars
+		name = ova_murim_flavor.5.b
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_murim_flavor.6 = { # a masked vigilante in the market town
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_murim_flavor.6.t
+	desc = ova_murim_flavor.6.d
+	flavor = ova_murim_flavor.6.f
+
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	trigger = {
+		ova_murim_is_sect_or_cult_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # let the masked one work
+		name = ova_murim_flavor.6.a
+		default_option = yes
+		add_modifier = { name = ova_murim_flavor_vigilante_order days = 365 }
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # hunt him down
+		name = ova_murim_flavor.6.b
+		add_radicals = { value = small_radicals }
+	}
+}
+
+ova_murim_flavor.7 = { # disciples brawl over seating precedence
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_murim_flavor.7.t
+	desc = ova_murim_flavor.7.d
+	flavor = ova_murim_flavor.7.f
+
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		ova_murim_is_sect_or_cult_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # rule on precedence firmly
+		name = ova_murim_flavor.7.a
+		default_option = yes
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # let the elders sort it out
+		name = ova_murim_flavor.7.b
+		add_radicals = { value = very_small_radicals }
+	}
+}
+
+ova_murim_flavor.8 = { # the physician who refuses no one
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_murim_flavor.8.t
+	desc = ova_murim_flavor.8.d
+	flavor = ova_murim_flavor.8.f
+
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		ova_murim_is_sect_or_cult_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # subsidize her clinic
+		name = ova_murim_flavor.8.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # let her charge like everyone else
+		name = ova_murim_flavor.8.b
+		add_modifier = { name = ova_murim_flavor_physician_fees days = 365 multiplier = money_amount_multiplier_small }
+	}
+}
+
+ova_murim_flavor.9 = { # a Cult preacher at the crossroads
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_murim_flavor.9.t
+	desc = ova_murim_flavor.9.d
+	flavor = ova_murim_flavor.9.f
+
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+
+	trigger = {
+		ova_murim_is_sect_or_cult_trigger = yes
+		exists = c:CHE
+	}
+
+	immediate = { }
+
+	option = { # expel him / preach boldly
+		name = ova_murim_flavor.9.a
+		default_option = yes
+		if = {
+			limit = { NOT = { c:CHE ?= THIS } }
+			change_relations = { country = c:CHE value = -10 }
+		}
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # let him speak / let them gather
+		name = ova_murim_flavor.9.b
+		if = {
+			limit = { NOT = { c:CHE ?= THIS } }
+			change_relations = { country = c:CHE value = 10 }
+		}
+		add_radicals = { value = small_radicals }
+	}
+}
+
+ova_murim_flavor.10 = { # the salt road bandit king
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_murim_flavor.10.t
+	desc = ova_murim_flavor.10.d
+	flavor = ova_murim_flavor.10.f
+
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+
+	trigger = {
+		ova_murim_is_sect_or_cult_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # pay the bandit king's toll
+		name = ova_murim_flavor.10.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+	}
+	option = { # send blades to clear the road
+		name = ova_murim_flavor.10.b
+		add_modifier = { name = ova_murim_flavor_bandit_toll days = 365 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_xp = { AMOUNT = 10 }
+		}
+	}
+}
+
+ova_murim_flavor.11 = { # pilgrims at the ancestral shrines
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_murim_flavor.11.t
+	desc = ova_murim_flavor.11.d
+	flavor = ova_murim_flavor.11.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+		ova_murim_is_sect_or_cult_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # host them freely
+		name = ova_murim_flavor.11.a
+		default_option = yes
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # sell blessed tokens at the gate
+		name = ova_murim_flavor.11.b
+		add_modifier = { name = ova_murim_flavor_shrine_tokens days = 365 multiplier = money_amount_multiplier_small }
+		add_radicals = { value = very_small_radicals }
+	}
+}
+
+ova_murim_flavor.12 = { # rumors of the Returner
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_murim_flavor.12.t
+	desc = ova_murim_flavor.12.d
+	flavor = ova_murim_flavor.12.f
+
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		ova_murim_is_sect_or_cult_trigger = yes
+		has_global_variable = ova_murim_returner_fate
+	}
+
+	immediate = { }
+
+	option = { # let the tale grow taller
+		name = ova_murim_flavor.12.a
+		default_option = yes
+		if = {
+			limit = {
+				has_variable = ova_murim_returner_host
+				ova_has_living_champion = yes
+			}
+			ova_champion_add_popularity = { AMOUNT = 5 }
+		}
+		add_loyalists = { value = very_small_radicals }
+	}
+}

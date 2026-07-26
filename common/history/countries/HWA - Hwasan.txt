@@ -1,0 +1,14 @@
+﻿# Hwasan (murim: spiritualism tier 3, sect)
+COUNTRIES = {
+	c:HWA ?= {
+		effect_starting_technology_spiritualism_tier_3 = yes
+		create_character = { template = template_ruler_hwa role = ruler }
+		effect_starting_politics_sect = yes
+
+		# Murim war-of-the-murim JE + intro proclamation, raised here at start (the
+		# war-JE pattern: the JE defines no is_shown_when_inactive and no immediate).
+		# Self-contained, so it needs no global-last ordering.
+		add_journal_entry = { type = je_ova_murim_alliance_banner }
+		trigger_event = { id = ova_murim.5 days = 5 }
+	}
+}

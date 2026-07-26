@@ -1,0 +1,54 @@
+﻿POPULATION = {
+    c:ASA = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:ASI = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:BUR = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:DAY = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:DES = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:FAW = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:GHA = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:IKH = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:JUM = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:LUJ = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:SCO = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:SUN = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:TAM = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+}

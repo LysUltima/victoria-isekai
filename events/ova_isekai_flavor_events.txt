@@ -1,0 +1,979 @@
+﻿### Isekai regional home-front flavor events (Agent C, sole owner of this file)
+# Namespace ova_isekai_flavor. Not storyline-specific, so it no longer depends on a journal
+# entry: fired directly from the regular on_action isekai_flavor_monthly_events
+# (common/on_actions/ova_flavor_on_actions.txt), hooked into the engine's on_monthly_pulse_country
+# (common/on_actions/00_code_on_actions.txt) - do not renumber these fixed ids, the on_action's
+# weights are wired against them. Each event's own trigger now carries the eligibility that used
+# to live on je_ova_isekai_home_front's is_shown_when_inactive (human nation, capital in the
+# isekai region, while the Demonic Empire still exists and the war still burns) - not champion
+# events (champion XP/renown is Agent A/B's ova_hero namespace). Uses only verified
+# vanilla effects/triggers plus the ova_isekai_flavor_* modifiers defined in
+# common/static_modifiers/ova_isekai_flavor_modifiers.txt.
+#
+#  .1  refugee column from the marches         (war economy: who pays)
+#  .2  hero-mania among the youth
+#  .3  war-orphan charity drive
+#  .4  the Church's tithe collectors            (war economy: who profits)
+#  .5  mercenary boom                           (war economy: who profits)
+#  .6  border panic (false alarm)
+#  .7  the profiteers' banquet                  (war economy: who profits)
+#  .8  pilgrimage to a summoning site
+#  .9  a demon peddler in town
+#  .10 veterans come home changed               (war economy: who pays)
+#  .11 the relic auction                        (war economy: who profits)
+#  .12 "not our war" pamphlets
+#  .13 rumor of a miracle at the front
+#  .14 letters from the front, read aloud in the square
+
+namespace = ova_isekai_flavor
+
+ova_isekai_flavor.1 = { # a refugee column from the marches
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.1.t
+	desc = ova_isekai_flavor.1.d
+	flavor = ova_isekai_flavor.1.f
+
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		exists = c:DEM
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # take them in
+		name = ova_isekai_flavor.1.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # turn them back at the border
+		name = ova_isekai_flavor.1.b
+		add_radicals = { value = small_radicals }
+	}
+}
+
+ova_isekai_flavor.2 = { # wooden swords and broken fences
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.2.t
+	desc = ova_isekai_flavor.2.d
+	flavor = ova_isekai_flavor.2.f
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		exists = c:DEM
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # let them play at heroes
+		name = ova_isekai_flavor.2.a
+		default_option = yes
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # confiscate the wooden swords
+		name = ova_isekai_flavor.2.b
+		add_radicals = { value = very_small_radicals }
+	}
+}
+
+ova_isekai_flavor.3 = { # the war-orphan charity drive
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.3.t
+	desc = ova_isekai_flavor.3.d
+	flavor = ova_isekai_flavor.3.f
+
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		exists = c:DEM
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # fund a grand orphanage
+		name = ova_isekai_flavor.3.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_modifier = { name = ova_isekai_flavor_charity_relief days = 365 }
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # a modest almshouse will do
+		name = ova_isekai_flavor.3.b
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_isekai_flavor.4 = { # the Church's tithe collectors
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.4.t
+	desc = ova_isekai_flavor.4.d
+	flavor = ova_isekai_flavor.4.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	trigger = {
+		exists = c:DEM
+		exists = c:LUX
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # pay the tithe in full
+		name = ova_isekai_flavor.4.a
+		default_option = yes
+		save_temporary_scope_value_as = { name = ova_isekai_tithe_fee value = money_amount_multiplier_small }
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		c:LUX ?= { add_treasury = scope:ova_isekai_tithe_fee }
+		add_modifier = { name = ova_isekai_flavor_tithe_resentment days = 365 }
+	}
+	option = { # resist the collectors
+		name = ova_isekai_flavor.4.b
+		change_relations = { country = c:LUX value = -10 }
+		add_loyalists = { value = small_radicals }
+	}
+}
+
+ova_isekai_flavor.5 = { # the mercenary boom
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.5.t
+	desc = ova_isekai_flavor.5.d
+	flavor = ova_isekai_flavor.5.f
+
+	event_image = { video = "unspecific_armored_train" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		exists = c:DEM
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # license the free companies
+		name = ova_isekai_flavor.5.a
+		default_option = yes
+		add_modifier = { name = ova_isekai_flavor_war_profiteers days = 365 multiplier = money_amount_multiplier_small }
+	}
+	option = { # crack down on unlicensed bands
+		name = ova_isekai_flavor.5.b
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = small_radicals }
+	}
+}
+
+ova_isekai_flavor.6 = { # border panic (a demon raid rumor, false)
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.6.t
+	desc = ova_isekai_flavor.6.d
+	flavor = ova_isekai_flavor.6.f
+
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+
+	trigger = {
+		exists = c:DEM
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # calm the countryside
+		name = ova_isekai_flavor.6.a
+		default_option = yes
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # muster the militia anyway
+		name = ova_isekai_flavor.6.b
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_isekai_flavor.7 = { # the profiteers' banquet
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.7.t
+	desc = ova_isekai_flavor.7.d
+	flavor = ova_isekai_flavor.7.f
+
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	trigger = {
+		exists = c:DEM
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # attend and toast the war
+		name = ova_isekai_flavor.7.a
+		default_option = yes
+		add_modifier = { name = ova_isekai_flavor_war_profiteers days = 365 multiplier = money_amount_multiplier_small }
+		add_radicals = { value = very_small_radicals }
+	}
+	option = { # decline, and let them know you watch
+		name = ova_isekai_flavor.7.b
+		add_loyalists = { value = small_radicals }
+	}
+}
+
+ova_isekai_flavor.8 = { # pilgrimage to a summoning site
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.8.t
+	desc = ova_isekai_flavor.8.d
+	flavor = ova_isekai_flavor.8.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		exists = c:DEM
+		exists = c:LUX
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # host the pilgrims
+		name = ova_isekai_flavor.8.a
+		default_option = yes
+		add_modifier = { name = ova_isekai_flavor_pilgrim_fervor days = 365 multiplier = money_amount_multiplier_small }
+	}
+	option = { # charge a toll for passage
+		name = ova_isekai_flavor.8.b
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+		change_relations = { country = c:LUX value = -10 }
+	}
+}
+
+ova_isekai_flavor.9 = { # a demon peddler in town
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.9.t
+	desc = ova_isekai_flavor.9.d
+	flavor = ova_isekai_flavor.9.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	trigger = {
+		exists = c:DEM
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # let him trade
+		name = ova_isekai_flavor.9.a
+		default_option = yes
+		add_modifier = { name = ova_isekai_flavor_demon_trade days = 365 multiplier = money_amount_multiplier_small }
+		change_relations = { country = c:DEM value = 10 }
+	}
+	option = { # run him out of town
+		name = ova_isekai_flavor.9.b
+		change_relations = { country = c:DEM value = -10 }
+	}
+}
+
+ova_isekai_flavor.10 = { # veterans come home changed
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.10.t
+	desc = ova_isekai_flavor.10.d
+	flavor = ova_isekai_flavor.10.f
+
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		exists = c:DEM
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # pensions and care
+		name = ova_isekai_flavor.10.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # let them fend for themselves
+		name = ova_isekai_flavor.10.b
+		ig:ig_armed_forces ?= {
+			add_modifier = { name = ova_isekai_flavor_veteran_unrest days = 365 }
+		}
+		add_radicals = { value = small_radicals }
+	}
+}
+
+ova_isekai_flavor.11 = { # the relic auction
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.11.t
+	desc = ova_isekai_flavor.11.d
+	flavor = ova_isekai_flavor.11.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	trigger = {
+		exists = c:DEM
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # bid for the crown's collection
+		name = ova_isekai_flavor.11.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # let foreign collectors have them
+		name = ova_isekai_flavor.11.b
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+	}
+}
+
+ova_isekai_flavor.12 = { # "not our war" pamphlets
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.12.t
+	desc = ova_isekai_flavor.12.d
+	flavor = ova_isekai_flavor.12.f
+
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		exists = c:DEM
+		exists = c:LUX
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # suppress the pamphlets
+		name = ova_isekai_flavor.12.a
+		default_option = yes
+		add_radicals = { value = small_radicals }
+	}
+	option = { # let them print
+		name = ova_isekai_flavor.12.b
+		add_loyalists = { value = small_radicals }
+		change_relations = { country = c:LUX value = -10 }
+	}
+}
+
+ova_isekai_flavor.13 = { # rumor of a miracle at the front
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.13.t
+	desc = ova_isekai_flavor.13.d
+	flavor = ova_isekai_flavor.13.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		exists = c:DEM
+		exists = c:LUX
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # endorse the miracle
+		name = ova_isekai_flavor.13.a
+		default_option = yes
+		add_modifier = { name = ova_isekai_flavor_pilgrim_fervor days = 365 }
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # quietly investigate
+		name = ova_isekai_flavor.13.b
+		change_relations = { country = c:LUX value = -10 }
+	}
+}
+
+ova_isekai_flavor.14 = { # letters from the front, read aloud in the square
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.14.t
+	desc = ova_isekai_flavor.14.d
+	flavor = ova_isekai_flavor.14.f
+
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		exists = c:DEM
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # read them aloud in the square
+		name = ova_isekai_flavor.14.a
+		default_option = yes
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # read them privately, family by family
+		name = ova_isekai_flavor.14.b
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+# ============================================================================
+# Stock fantasy-isekai color (.15-.28). Doubling the home-front flavor set.
+# These are deliberately NOT about the demon war or the Church's secret - pure
+# adventurers-and-dungeons flavor, the ordinary wonder of living in this world.
+# Same eligibility (human nation, capital in the isekai heartland), but without
+# the war gate, so they keep firing whatever becomes of the crusade.
+# ============================================================================
+
+ova_isekai_flavor.15 = { # a wandering bard's new ballad
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.15.t
+	desc = ova_isekai_flavor.15.d
+	flavor = ova_isekai_flavor.15.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # give the bard a stage
+		name = ova_isekai_flavor.15.a
+		default_option = yes
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # tax the tavern takings
+		name = ova_isekai_flavor.15.b
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+	}
+}
+
+ova_isekai_flavor.16 = { # the adventurers' guild opens a branch
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.16.t
+	desc = ova_isekai_flavor.16.d
+	flavor = ova_isekai_flavor.16.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # charter the guild
+		name = ova_isekai_flavor.16.a
+		default_option = yes
+		add_modifier = { name = ova_isekai_flavor_adventurer_boom days = 365 multiplier = money_amount_multiplier_small }
+	}
+	option = { # let the crown keep the monster-slaying contracts
+		name = ova_isekai_flavor.16.b
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_isekai_flavor.17 = { # a slime in the granary
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.17.t
+	desc = ova_isekai_flavor.17.d
+	flavor = ova_isekai_flavor.17.f
+
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # hire a party to clear it out
+		name = ova_isekai_flavor.17.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # the militia can manage a few slimes
+		name = ova_isekai_flavor.17.b
+		add_radicals = { value = very_small_radicals }
+	}
+}
+
+ova_isekai_flavor.18 = { # a traveling menagerie with a "tame" wyvern
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.18.t
+	desc = ova_isekai_flavor.18.d
+	flavor = ova_isekai_flavor.18.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # welcome the show to the capital
+		name = ova_isekai_flavor.18.a
+		default_option = yes
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # a caged wyvern is a fire waiting to happen
+		name = ova_isekai_flavor.18.b
+		add_radicals = { value = very_small_radicals }
+	}
+}
+
+ova_isekai_flavor.19 = { # the harvest festival
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.19.t
+	desc = ova_isekai_flavor.19.d
+	flavor = ova_isekai_flavor.19.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # sponsor a grand festival
+		name = ova_isekai_flavor.19.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_modifier = { name = ova_isekai_flavor_festival_cheer days = 365 }
+	}
+	option = { # let the villages hold their own
+		name = ova_isekai_flavor.19.b
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_isekai_flavor.20 = { # a dungeon under the old mill
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.20.t
+	desc = ova_isekai_flavor.20.d
+	flavor = ova_isekai_flavor.20.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # license expeditions and tax the loot
+		name = ova_isekai_flavor.20.a
+		default_option = yes
+		add_modifier = { name = ova_isekai_flavor_dungeon_boom days = 365 multiplier = money_amount_multiplier_small }
+	}
+	option = { # seal it and post a guard
+		name = ova_isekai_flavor.20.b
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_isekai_flavor.21 = { # entrance-exam season at the magic academy
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.21.t
+	desc = ova_isekai_flavor.21.d
+	flavor = ova_isekai_flavor.21.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # fund scholarships for common-born talent
+		name = ova_isekai_flavor.21.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # let the noble houses keep the places
+		name = ova_isekai_flavor.21.b
+		add_radicals = { value = very_small_radicals }
+	}
+}
+
+ova_isekai_flavor.22 = { # a dragon sighting (probably a big lizard)
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.22.t
+	desc = ova_isekai_flavor.22.d
+	flavor = ova_isekai_flavor.22.f
+
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # send scouts before anyone panics
+		name = ova_isekai_flavor.22.a
+		default_option = yes
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # a dragon-hunt makes for good morale, real or not
+		name = ova_isekai_flavor.22.b
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = small_radicals }
+	}
+}
+
+ova_isekai_flavor.23 = { # the potion-seller's miracle tonic
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.23.t
+	desc = ova_isekai_flavor.23.d
+	flavor = ova_isekai_flavor.23.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # have the alchemists' guild test it
+		name = ova_isekai_flavor.23.a
+		default_option = yes
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # let the market sort the fraud from the cure
+		name = ova_isekai_flavor.23.b
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+		add_radicals = { value = very_small_radicals }
+	}
+}
+
+ova_isekai_flavor.24 = { # a masquerade at the ducal palace
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.24.t
+	desc = ova_isekai_flavor.24.d
+	flavor = ova_isekai_flavor.24.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # attend, and be seen
+		name = ova_isekai_flavor.24.a
+		default_option = yes
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # send regrets; there is work to do
+		name = ova_isekai_flavor.24.b
+		add_treasury = { value = money_amount_multiplier_small }
+	}
+}
+
+ova_isekai_flavor.25 = { # a stray demi-human child
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.25.t
+	desc = ova_isekai_flavor.25.d
+	flavor = ova_isekai_flavor.25.f
+
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # place the child with a kind family
+		name = ova_isekai_flavor.25.a
+		default_option = yes
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # the orphanage will take one more
+		name = ova_isekai_flavor.25.b
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+	}
+}
+
+ova_isekai_flavor.26 = { # the blacksmith's enchanted commission
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.26.t
+	desc = ova_isekai_flavor.26.d
+	flavor = ova_isekai_flavor.26.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # commission a masterwork for the armory
+		name = ova_isekai_flavor.26.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # standard steel will serve
+		name = ova_isekai_flavor.26.b
+		add_treasury = { value = money_amount_multiplier_small }
+	}
+}
+
+ova_isekai_flavor.27 = { # a falling star
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.27.t
+	desc = ova_isekai_flavor.27.d
+	flavor = ova_isekai_flavor.27.f
+
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # send scholars to find where it fell
+		name = ova_isekai_flavor.27.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # let the temples read what omens they like
+		name = ova_isekai_flavor.27.b
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_isekai_flavor.28 = { # the ice-mage's relief in a hot summer
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_isekai_flavor.28.t
+	desc = ova_isekai_flavor.28.d
+	flavor = ova_isekai_flavor.28.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		ova_hero_capital_in_isekai = yes
+	}
+
+	immediate = { }
+
+	option = { # pay the mages to cool the markets
+		name = ova_isekai_flavor.28.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # everyone survived summer before magic was cheap
+		name = ova_isekai_flavor.28.b
+		add_radicals = { value = very_small_radicals }
+	}
+}

@@ -1,0 +1,282 @@
+﻿POPS = {
+    s:STATE_NIRAI_KANAI = {
+        region_state:TID = {
+            create_pop = {
+                culture = deigo
+                size = 1537523
+            }
+        }
+    }
+    s:STATE_URUMA = {
+        region_state:URU = {
+            create_pop = {
+                culture = deigo
+                size = 1076121
+            }
+        }
+    }
+    s:STATE_UTAKI = {
+        region_state:UTA = {
+            create_pop = {
+                culture = deigo
+                size = 1336732
+            }
+        }
+    }
+    s:STATE_UFUMI = {
+        region_state:UFU = {
+            create_pop = {
+                culture = deigo
+                size = 1347898
+            }
+        }
+    }
+    s:STATE_MANIA_KOWHAI = {
+        region_state:WHA = {
+            create_pop = {
+                culture = whenua
+                size = 870106
+            }
+        }
+    }
+    s:STATE_TAHATIKA_TAPARA = {
+        region_state:KAI = {
+            create_pop = {
+                culture = whenua
+                size = 857419
+            }
+        }
+    }
+    s:STATE_PAPAKU_O_TE_RA = {
+        region_state:RAN = {
+            create_pop = {
+                culture = whenua
+                size = 825113
+            }
+        }
+    }
+    s:STATE_RAUPO_MOANA = {
+        region_state:TAR = {
+            create_pop = {
+                culture = whenua
+                size = 1014427
+            }
+        }
+    }
+    s:STATE_KAINGA_MAROKE = {
+        region_state:WAI = {
+            create_pop = {
+                culture = whenua
+                size = 1227410
+            }
+        }
+    }
+    s:STATE_MOTU_HUMARIE = {
+        region_state:HAW = {
+            create_pop = {
+                culture = whenua
+                size = 701115
+            }
+        }
+    }
+    s:STATE_MOUTERE_TARAPIROPIRO = {
+        region_state:WHN = {
+            create_pop = {
+                culture = whenua
+                size = 914618
+            }
+        }
+    }
+    s:STATE_PALIANUENUE = {
+        region_state:AHU = {
+            create_pop = {
+                culture = kanaka
+                size = 1456761
+            }
+        }
+    }
+    s:STATE_ONELOA = {
+        region_state:KAM = {
+            create_pop = {
+                culture = kanaka
+                size = 1357941
+            }
+        }
+    }
+    s:STATE_KAULUWELA = {
+        region_state:MAL = {
+            create_pop = {
+                culture = kanaka
+                size = 1136783
+            }
+        }
+    }
+    s:STATE_PAEMUKU = {
+        region_state:HOK = {
+            create_pop = {
+                culture = kanaka
+                size = 672303
+            }
+        }
+    }
+    s:STATE_KAIULI = {
+        region_state:KAN = {
+            create_pop = {
+                culture = kanaka
+                size = 1315471
+            }
+        }
+    }
+    s:STATE_UAHIWERA = {
+        region_state:POL = {
+            create_pop = {
+                culture = kanaka
+                size = 1274773
+            }
+        }
+    }
+    s:STATE_AINAONE = {
+        region_state:LAA = {
+            create_pop = {
+                culture = kanaka
+                size = 1003927
+            }
+        }
+    }
+    s:STATE_WAILUKU = {
+        region_state:MAK = {
+            create_pop = {
+                culture = kanaka
+                size = 839309
+            }
+        }
+    }
+    s:STATE_ULUWEHI = {
+        region_state:KLA = {
+            create_pop = {
+                culture = kanaka
+                size = 888954
+            }
+        }
+    }
+    s:STATE_MOKUMANO = {
+        region_state:AHI = {
+            create_pop = {
+                culture = kanaka
+                size = 436005
+            }
+        }
+    }
+    s:STATE_AOLANI = {
+        region_state:POM = {
+            create_pop = {
+                culture = kanaka
+                size = 669437
+            }
+        }
+    }
+    s:STATE_NIUMATA = {
+        region_state:TUA = {
+            create_pop = {
+                culture = tagata
+                size = 287777
+            }
+        }
+    }
+    s:STATE_GATAVAI = {
+        region_state:TUA = {
+            create_pop = {
+                culture = tagata
+                size = 313391
+            }
+        }
+    }
+    s:STATE_MATAFAGA = {
+        region_state:TUA = {
+            create_pop = {
+                culture = tagata
+                size = 219969
+            }
+        }
+    }
+    s:STATE_ALOFI = {
+        region_state:TUA = {
+            create_pop = {
+                culture = tagata
+                size = 284307
+            }
+        }
+    }
+    s:STATE_MURIVAI = {
+        region_state:TRO = {
+            create_pop = {
+                culture = tagata
+                size = 302750
+            }
+        }
+    }
+    s:STATE_ARORANGI = {
+        region_state:TRO = {
+            create_pop = {
+                culture = tagata
+                size = 244694
+            }
+        }
+    }
+    s:STATE_ONEURA = {
+        region_state:TRO = {
+            create_pop = {
+                culture = tagata
+                size = 316711
+            }
+        }
+    }
+    s:STATE_MATAEIA = {
+        region_state:NUK = {
+            create_pop = {
+                culture = tagata
+                size = 406502
+            }
+        }
+    }
+    s:STATE_VAIARI = {
+        region_state:NUK = {
+            create_pop = {
+                culture = tagata
+                size = 213511
+            }
+        }
+    }
+    s:STATE_HIHIFO = {
+        region_state:TAO = {
+            create_pop = {
+                culture = tagata
+                size = 448824
+            }
+        }
+    }
+    s:STATE_MATAMOANA = {
+        region_state:TAO = {
+            create_pop = {
+                culture = tagata
+                size = 331147
+            }
+        }
+    }
+    s:STATE_ASAU = {
+        region_state:VAE = {
+            create_pop = {
+                culture = tagata
+                size = 289699
+            }
+        }
+    }
+    s:STATE_FEKEI = {
+        region_state:VAE = {
+            create_pop = {
+                culture = tagata
+                size = 302684
+            }
+        }
+    }
+}

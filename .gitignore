@@ -1,0 +1,7 @@
+CLAUDE.md
+.claude/
+vic3-tiger.conf
+tools/mapeditor
+tools/history_econ
+*.py
+*.pyc

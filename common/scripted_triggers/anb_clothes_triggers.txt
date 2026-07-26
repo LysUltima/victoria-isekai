@@ -1,0 +1,36 @@
+﻿elven_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		#Anbennar
+		OR = {
+            culture = cu:dark_elf
+            culture = cu:wood_elf
+        }  
+	}
+}
+
+elven_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		OR = {
+            culture = cu:dark_elf
+            culture = cu:wood_elf
+        }  
+	}
+}
+
+female_officer_clothers_trigger = {
+	exists = scope:character
+	scope:character = {
+		is_female = yes
+		is_ruler_of_own_country = no
+		OR = {
+			has_role_of_type = general
+			has_role_of_type = admiral
+		}
+	}
+}
+
+no_portrait_trigger = {
+	always = no
+}

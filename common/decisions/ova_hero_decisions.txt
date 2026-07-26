@@ -1,0 +1,165 @@
+﻿### Isekai hero storyline - decisions
+
+# 1) Join the summoning pact by petition
+ova_hero_petition_summoning_decision = {
+	is_shown = {
+		NOT = { is_country_type = decentralized }
+		ova_hero_crusade_active = yes
+		NOT = { has_journal_entry = je_ova_hero_summoning }
+		NOT = { has_variable = ova_hero_renounced }
+        country_has_state_religion = rel:light_orthodoxy
+        AND = {
+            exists = c:LUX
+            NOT = { c:LUX ?= THIS }
+        }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_hero_petition_relations_tt
+			c:LUX ?= { relations:root >= -20 }
+		}
+	}
+
+	when_taken = {
+		add_journal_entry = { type = je_ova_hero_summoning }
+		trigger_event = { id = ova_hero.3 days = 3 }
+	}
+
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				OR = {
+					is_adjacent_to_country = c:DEM
+                    AND = {
+                        exists = c:LUX
+                        power_bloc ?= c:LUX.power_bloc
+                    }
+				}
+			}
+			add = 25
+		}
+		if = {
+			limit = { ova_hero_capital_in_isekai = yes }
+			add = 10
+		}
+		if = {
+			limit = { scaled_gold_reserves < 0.1 }
+			multiply = 0
+		}
+	}
+}
+
+# 2) Leave the pact.
+ova_hero_renounce_summonings_decision = {
+	is_shown = {
+		has_journal_entry = je_ova_hero_summoning
+        always = no
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = ova_hero_renounced }
+		}
+	}
+
+	when_taken = {
+		set_variable = ova_hero_renounced
+		change_relations = { country = c:LUX value = -50 }
+	}
+
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				has_global_variable = ova_truth_exposed
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				c:LUX ?= { relations:root <= relations_threshold:poor }
+			}
+			add = 10
+		}
+	}
+}
+
+# 3) Four years at Saint Christine's Academy - the Church's finishing school
+#    for Heroes. Uses the shared seclusion effect (its own +60 XP lands via
+#    the champion monthly tick when the course ends); the whole event chain
+#    lives in events/ova_academy_events.txt (namespace ova_academy), and one
+#    of the four graduation scenes (ova_academy.181-.184) stamps
+#    ova_hero_academy_graduated.
+#    John Paradox (Reyorn's summoned Hero, marked by ova_rey_john_char) is
+#    barred: his tale is the harem courtship, not a stint at the Radiant
+#    Church's school, and its beats would make no sense for him.
+ova_hero_academy_decision = {
+	is_shown = {
+		has_journal_entry = je_ova_hero_summoning
+		ova_has_living_champion = yes
+        NOT = { has_variable = ova_hero_academy_graduated }
+        NOT = { has_variable = ova_rey_john_char }
+	}
+
+	possible = {
+		ova_champion_is_available = yes
+		NOT = { ova_champion_is_adventuring = yes }
+		NOT = { has_modifier = ova_hero_academy_term }
+	}
+
+	when_taken = {
+		add_modifier = { name = ova_hero_academy_term days = 1460 }
+		ova_champion_seclude = { MONTHS = 48 }
+		trigger_event = { id = ova_academy.1 days = 3 }
+	}
+
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				var:ova_champion_level < 30
+				scaled_gold_reserves > 0.1
+			}
+			add = 15
+		}
+	}
+}
+
+# 4) Profiteer from the eternal war without joining the pact - sell blades to
+#    both faiths. DEM and LUX themselves cannot take this.
+ova_hero_war_brokerage_decision = {
+	is_shown = {
+		NOT = { is_country_type = decentralized }
+		exists = c:DEM
+		ova_hero_crusade_active = yes
+		NOT = { has_journal_entry = je_ova_hero_summoning }
+		NOR = {
+			c:DEM ?= THIS
+			c:LUX ?= THIS
+		}
+        OR = {
+            has_interest_marker_in_region = sr:region_isekai
+            has_interest_marker_in_region = sr:region_isekai
+        }
+        has_interest_marker_in_region = sr:region_demonland
+	}
+
+	possible = {
+		NOT = { has_modifier = ova_hero_war_brokerage }
+	}
+
+	when_taken = {
+		add_modifier = { name = ova_hero_war_brokerage days = 1825 }
+		change_relations = { country = c:DEM value = -10 }
+	}
+
+	ai_chance = {
+		value = 0
+		if = {
+			limit = { ova_hero_capital_in_isekai = yes }
+			add = 10
+		}
+	}
+}

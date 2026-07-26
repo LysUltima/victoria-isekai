@@ -1,0 +1,13 @@
+﻿l_english:
+ state_trait_major_river:0 "Major River"
+ state_trait_major_river_desc:0 "A great river winds through this region, easing the movement of goods and people."
+ state_trait_mountain_range:0 "Mountain Range"
+ state_trait_mountain_range_desc:0 "Rugged peaks make construction and infrastructure difficult to maintain."
+ state_trait_tropical_rainforest:0 "Tropical Rainforest"
+ state_trait_tropical_rainforest_desc:0 "Dense jungle canopy yields abundant timber, but hampers construction and infrastructurey."
+ state_trait_desert:0 "Desert"
+ state_trait_desert_desc:0 "Rugged dunes cover the terrain. Only the most courageous may pass."
+ state_trait_great_oasis:0 "Great Oasis"
+ state_trait_great_oasis_desc:0 "A grand oasis provides respite for the thirsty."
+ state_trait_blessed_land:0 "Blessed Land"
+ state_trait_blessed_land_desc:0 "Land blessed by a deity."

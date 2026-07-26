@@ -1,0 +1,19 @@
+pdxmesh = {
+	name = "female_headgear_fox_ears_1_mesh"
+	file = "female_headgear_fox_ears.mesh"
+
+	meshsettings = {
+		name = "female_headgear_fox_earsShape"
+		index = 0
+		texture_diffuse = "fox_ears_forest_diffuse.dds"
+		texture_normal = "fox_ears_normal.dds"
+		texture_specular = "fox_ears_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "female_headgear_fox_ears_1_entity"
+	pdxmesh = "female_headgear_fox_ears_1_mesh"
+}

@@ -1,0 +1,16 @@
+﻿# Cultural heritage groups for OVA's mod-unique cultures (one per race/ethnic cluster).
+heritage_group_isekai_human = { type = heritage }
+heritage_group_elf = { type = heritage }
+heritage_group_dwarf = { type = heritage }
+heritage_group_greenskin = { type = heritage }
+heritage_group_demonic = { type = heritage }
+heritage_group_beastfolk = { type = heritage }
+heritage_group_xianxia_human = { type = heritage }
+heritage_group_moana = { type = heritage }
+heritage_group_desert_human = { type = heritage }
+
+# Artificial life created in the vats of homunculus factories.
+heritage_group_constructed = { type = heritage }
+
+# People of the far world, brought here by the summoning rite.
+heritage_group_otherworld = { type = heritage }

@@ -1,0 +1,369 @@
+﻿DEFAULT = {
+	# Important ideologies
+	dynamic_country_name = {
+		name = generic_revolt_anti_slavery
+		adjective = generic_revolt_anti_slavery_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_anti_slavery
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_pro_slavery
+		adjective = generic_revolt_pro_slavery_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_pro_slavery
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_absolutist
+		adjective = generic_revolt_absolutist_adj
+
+		is_revolutionary = yes
+		priority = 1000
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_royalist_absolutist
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_royalist
+		adjective = generic_revolt_royalist_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_royalist_constitutional
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_labor
+		adjective = generic_revolt_labor_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_labor
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_socialist
+		adjective = generic_revolt_socialist_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_socialist
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_anarchist
+		adjective = generic_revolt_anarchist_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_anarchist
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_communist
+		adjective = generic_revolt_communist_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_communist
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_fascist
+		adjective = generic_revolt_fascist_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_fascist
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_corporatist
+		adjective = generic_revolt_corporatist_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_corporatist
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_liberal
+		adjective = generic_revolt_liberal_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_liberal
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_radical
+		adjective = generic_revolt_radical_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_radical
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_nihilist
+		adjective = generic_revolt_nihilist_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_nihilist
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_positivist
+		adjective = generic_revolt_positivist_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_positivist
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_land_reform
+		adjective = generic_revolt_land_reform_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_land_reform
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_feminist
+		adjective = generic_revolt_feminist_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_feminist
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_reactionary
+		adjective = generic_revolt_reactionary_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_reactionary
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_modernizer
+		adjective = generic_revolt_modernizer_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_modernizer
+			}
+		}
+	}
+
+	# Removed: the bonapartist / legitimist / orleanist / utilitarian / carlist /
+	# miguelist revolt names keyed off movement types (movement_bonapartist etc.)
+	# that are real-world dynastic factions with no analogue in this mod, so they
+	# are not defined in common/political_movements and the names never resolved.
+
+	# Majority movements
+	dynamic_country_name = {
+		name = generic_revolt_nationalist
+		adjective = generic_revolt_nationalist_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				# the italian / german / yugoslav national movement types are
+				# real-world-only and not defined in this mod
+				var:civil_war_type_var ?= movement_type:movement_cultural_majority
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_fundamentalist
+		adjective = generic_revolt_fundamentalist_adj
+
+		is_revolutionary = yes
+		priority = 10
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+				var:civil_war_type_var ?= movement_type:movement_religious_majority
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_slave_revolt
+		adjective = generic_revolt_slave_revolt_adj
+
+		is_revolutionary = yes
+		priority = 100
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				var:civil_war_type_var ?= movement_type:movement_slave_revolt
+			}
+		}
+	}
+	# Generic fallbacks
+	dynamic_country_name = {
+		name = generic_revolt_1
+		adjective = generic_revolt_1_adj
+
+		is_revolutionary = yes
+		priority = 0
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_2
+		adjective = generic_revolt_2_adj
+
+		is_revolutionary = yes
+		priority = 0
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = generic_revolt_3
+		adjective = generic_revolt_3_adj
+
+		is_revolutionary = yes
+		priority = 0
+
+		trigger = {
+			exists = scope:actor
+			scope:actor ?= {
+				is_secessionist = no
+			}
+		}
+	}
+}

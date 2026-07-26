@@ -1,0 +1,83 @@
+﻿### Champions JE - "Demand Champion Sanctuary" war goal
+# kind = custom (no predefined code effect; the whole outcome is on_enforced,
+# cf. vanilla restore_union). Winning the play forces the loser into a
+# UNILATERAL sanctuary: the loser (scope:target_country) is bound not to send
+# its Champion adventuring into, nor to sabotage the Champion of, the winner
+# (root). Stored as a directed entry in the loser's ova_sanctuary_bound_list,
+# which ova_champion_sanctuary_with checks alongside the treaty articles.
+# This is the war you declare when a rival will not stop sabotaging you.
+
+ova_demand_sanctuary = {
+	icon = "gfx/interface/icons/war_goals/enforce_treaty_article.dds"
+
+	kind = custom
+
+	settings = {
+		require_target_be_part_of_war
+
+		# Validation
+		validate_conflicts_war_goals_all
+	}
+
+	execution_priority = 10
+
+	contestion_type = control_any_target_country_state
+
+	target_type = country
+
+	possible = {
+        always = yes
+	}
+
+	valid = {
+	}
+
+	maneuvers = {
+		value = 0
+
+		add = {
+			desc = "MANEUVERS_BASE_VALUE"
+			value = 2
+		}
+	}
+
+	infamy = {
+		value = 0
+
+		add = {
+			desc = "INFAMY_BASE_VALUE"
+			value = 1
+		}
+
+		min = {
+			desc = "INFAMY_MINIMUM_VALUE"
+			value = 1
+		}
+	}
+
+	on_enforced = {
+		# root = the war goal holder (the protected party); scope:target_country
+		# = the loser, who is bound not to act against root.
+		root = { save_scope_as = ova_sanctuary_protector }
+		scope:target_country ?= {
+			if = {
+				limit = {
+					NOT = {
+						is_target_in_variable_list = {
+							name = ova_sanctuary_bound_list
+							target = scope:ova_sanctuary_protector
+						}
+					}
+				}
+				add_to_variable_list = {
+					name = ova_sanctuary_bound_list
+					target = scope:ova_sanctuary_protector
+				}
+			}
+		}
+	}
+
+	ai = {
+		is_significant_demand = no
+	}
+}

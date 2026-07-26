@@ -1,0 +1,362 @@
+﻿### Generic crusade flavor events - the far war as the whole world sees it
+# Namespace ova_crusade_flavor. Fired from the regular on_action
+# crusade_flavor_yearly_events (common/on_actions/ova_flavor_on_actions.txt),
+# hooked into the engine's on_yearly_pulse_country
+# (common/on_actions/00_code_on_actions.txt) - do not renumber these fixed ids,
+# the on_action's weights are wired against them.
+#
+# DELIBERATELY SURFACE-LEVEL. These events repeat the Church's public story of
+# the Eternal Crusade at face value: a holy war against the Demon Lord, far
+# away, glorious and profitable and slightly absurd. They fire for ANY
+# centralized nation anywhere in the world (only DEM and LUX themselves are
+# excluded - both have their own event sets) and must NEVER touch the truth:
+# no angels, no doubted scriptures, no sympathy for the demons' claim. The slow
+# reveal belongs to the Victoria chain and the DEM home front alone.
+#
+#  .1  penny serials about the summoned Heroes
+#  .2  an alms collection for the holy war
+#  .3  a mercenary comes home rich from the front
+#  .4  a sideshow exhibits a "captured demon"
+#  .5  a summoned Hero passes through on the way to the front
+#  .6  crusade quartermasters drive prices up
+#  .7  local clergy debate someone else's holy war
+#  .8  local youths run off to join the crusade
+#  .9  a supply contract for the crusade
+#  .10 two broadsheets, two opposite battle reports
+
+namespace = ova_crusade_flavor
+
+ova_crusade_flavor.1 = { # the crusade in cheap print
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_crusade_flavor.1.t
+	desc = ova_crusade_flavor.1.d
+	flavor = ova_crusade_flavor.1.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		ova_hero_crusade_active = yes
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		NOT = { c:LUX ?= THIS }
+	}
+
+	immediate = { }
+
+	option = { # let the presses run
+		name = ova_crusade_flavor.1.a
+		default_option = yes
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # confiscate the trash
+		name = ova_crusade_flavor.1.b
+		add_radicals = { value = very_small_radicals }
+	}
+}
+
+ova_crusade_flavor.2 = { # alms for the holy war
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_crusade_flavor.2.t
+	desc = ova_crusade_flavor.2.d
+	flavor = ova_crusade_flavor.2.f
+
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		ova_hero_crusade_active = yes
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		NOT = { c:LUX ?= THIS }
+	}
+
+	immediate = { }
+
+	option = { # let the plate go around
+		name = ova_crusade_flavor.2.a
+		default_option = yes
+		change_relations = { country = c:LUX value = 10 }
+	}
+	option = { # our poor come first
+		name = ova_crusade_flavor.2.b
+		change_relations = { country = c:LUX value = -10 }
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_crusade_flavor.3 = { # the man who came back rich
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_crusade_flavor.3.t
+	desc = ova_crusade_flavor.3.d
+	flavor = ova_crusade_flavor.3.f
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_hero_crusade_active = yes
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		NOT = { c:LUX ?= THIS }
+	}
+
+	immediate = { }
+
+	option = { # every army needs its stories
+		name = ova_crusade_flavor.3.a
+		default_option = yes
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # discourage the enlistment fever
+		name = ova_crusade_flavor.3.b
+		add_radicals = { value = very_small_radicals }
+	}
+}
+
+ova_crusade_flavor.4 = { # the painted demon
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_crusade_flavor.4.t
+	desc = ova_crusade_flavor.4.d
+	flavor = ova_crusade_flavor.4.f
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		ova_hero_crusade_active = yes
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		NOT = { c:LUX ?= THIS }
+	}
+
+	immediate = { }
+
+	option = { # expose the fraud
+		name = ova_crusade_flavor.4.a
+		default_option = yes
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # buy a ticket like everyone else
+		name = ova_crusade_flavor.4.b
+	}
+}
+
+ova_crusade_flavor.5 = { # a Hero passes through
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_crusade_flavor.5.t
+	desc = ova_crusade_flavor.5.d
+	flavor = ova_crusade_flavor.5.f
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_hero_crusade_active = yes
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		NOT = { c:LUX ?= THIS }
+	}
+
+	immediate = { }
+
+	option = { # host a reception worthy of the guest
+		name = ova_crusade_flavor.5.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = small_radicals }
+	}
+	option = { # the crowds can have their day without us
+		name = ova_crusade_flavor.5.b
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_crusade_flavor.6 = { # war prices
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_crusade_flavor.6.t
+	desc = ova_crusade_flavor.6.d
+	flavor = ova_crusade_flavor.6.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	trigger = {
+		ova_hero_crusade_active = yes
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		NOT = { c:LUX ?= THIS }
+	}
+
+	immediate = { }
+
+	option = { # let the contracts flow
+		name = ova_crusade_flavor.6.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small }
+		add_radicals = { value = very_small_radicals }
+	}
+	option = { # cap the price of bread
+		name = ova_crusade_flavor.6.b
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_crusade_flavor.7 = { # someone else's holy war
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_crusade_flavor.7.t
+	desc = ova_crusade_flavor.7.d
+	flavor = ova_crusade_flavor.7.f
+
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		ova_hero_crusade_active = yes
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		NOT = { c:LUX ?= THIS }
+	}
+
+	immediate = { }
+
+	option = { # our altars stay out of it
+		name = ova_crusade_flavor.7.a
+		default_option = yes
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # let the sympathizers preach
+		name = ova_crusade_flavor.7.b
+		change_relations = { country = c:LUX value = 5 }
+		add_radicals = { value = very_small_radicals }
+	}
+}
+
+ova_crusade_flavor.8 = { # the sons who sailed
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_crusade_flavor.8.t
+	desc = ova_crusade_flavor.8.d
+	flavor = ova_crusade_flavor.8.f
+
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		ova_hero_crusade_active = yes
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		NOT = { c:LUX ?= THIS }
+	}
+
+	immediate = { }
+
+	option = { # glory finds them, or it does not
+		name = ova_crusade_flavor.8.a
+		default_option = yes
+		add_radicals = { value = very_small_radicals }
+	}
+	option = { # the recruiters can do their recruiting elsewhere
+		name = ova_crusade_flavor.8.b
+		change_relations = { country = c:LUX value = -5 }
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_crusade_flavor.9 = { # boots, biscuit, and blades
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_crusade_flavor.9.t
+	desc = ova_crusade_flavor.9.d
+	flavor = ova_crusade_flavor.9.f
+
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	trigger = {
+		ova_hero_crusade_active = yes
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		NOT = { c:LUX ?= THIS }
+	}
+
+	immediate = { }
+
+	option = { # sign, and gladly
+		name = ova_crusade_flavor.9.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small }
+		change_relations = { country = c:LUX value = 5 }
+	}
+	option = { # we sell to no army
+		name = ova_crusade_flavor.9.b
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_crusade_flavor.10 = { # twice-told victories
+	type = country_event
+	placement = root
+	duration = 3
+
+	title = ova_crusade_flavor.10.t
+	desc = ova_crusade_flavor.10.d
+	flavor = ova_crusade_flavor.10.f
+
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		ova_hero_crusade_active = yes
+		NOT = { is_country_type = decentralized }
+		NOT = { c:DEM ?= THIS }
+		NOT = { c:LUX ?= THIS }
+	}
+
+	immediate = { }
+
+	option = { # print the victory, people prefer it
+		name = ova_crusade_flavor.10.a
+		default_option = yes
+		add_loyalists = { value = very_small_radicals }
+	}
+	option = { # print neither until someone can prove something
+		name = ova_crusade_flavor.10.b
+		add_radicals = { value = very_small_radicals }
+	}
+}

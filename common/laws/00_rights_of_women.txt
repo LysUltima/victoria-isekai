@@ -1,0 +1,420 @@
+﻿# group = this is the law_group a law belongs to
+# icon = graphical icon shown in-game
+# modifier = {} modifier on country for having adopted this law
+
+law_no_womens_rights = {
+	group = lawgroup_rights_of_women
+	icon = "gfx/interface/icons/law_icons/no_womens_rights.dds"
+
+	progressiveness = -100
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+	}
+
+	is_visible = {
+		NOT = {
+			has_law = law_type:law_women_in_the_fields
+		}
+		NOT = {
+			ova_country_is_matriarchal_society = yes
+		}
+	}
+
+	modifier = {
+		state_birth_rate_mult = 0.05
+	}
+
+	ai_will_do = {
+		literacy_rate < 0.4
+		exists = ruler
+		ruler = {
+			has_ideology = ideology:ideology_traditionalist
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+}
+
+law_women_in_the_fields = {
+	group = lawgroup_rights_of_women
+	parent = law_no_womens_rights # Inherits ideological stances from parent
+
+	icon = "gfx/interface/icons/law_icons/women_in_the_fields.dds"
+
+	progressiveness = -100
+
+	is_visible = {
+		always = no
+		NOR = {
+			has_law = law_type:law_no_womens_rights
+			has_law_or_variant = law_type:law_women_own_property
+			has_law_or_variant = law_type:law_women_in_the_workplace
+			has_law_or_variant = law_type:law_womens_suffrage
+		}
+	}
+
+	modifier = {
+		state_birth_rate_mult = -0.10
+		state_working_adult_ratio_add = 0.3
+		state_conscription_rate_add = 0.4
+		building_training_rate_mult = 1.0
+		state_middle_strata_standard_of_living_add = -8
+		state_lower_strata_standard_of_living_add = -4
+		state_middle_strata_expected_sol_add = -4
+		state_lower_strata_expected_sol_add = -2
+	}
+
+	on_enact = {
+	}
+
+	disallowing_laws = {
+	}
+
+	ai_will_do = {
+		always = no
+		exists = ruler
+		ruler = {
+			has_ideology = ideology:ideology_traditionalist
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+	}
+}
+
+law_women_own_property = {
+	group = lawgroup_rights_of_women
+	icon = "gfx/interface/icons/law_icons/women_own_property.dds"
+
+	progressiveness = -50
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+	}
+
+	is_visible = {
+		NOT = {
+			ova_country_is_matriarchal_society = yes
+		}
+	}
+
+	modifier = {
+		state_working_adult_ratio_add = 0.05
+	}
+
+	ai_will_do = {
+		OR = {
+			has_law_or_variant = law_type:law_no_womens_rights
+			AND = {
+				exists = ruler
+				ruler = {
+					has_ideology = ideology:ideology_traditionalist
+				}
+			}
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+}
+
+law_women_in_the_workplace = {
+	group = lawgroup_rights_of_women
+	icon = "gfx/interface/icons/law_icons/women_in_the_workplace.dds"
+
+	progressiveness = 0
+
+	unlocking_technologies = {
+		feminism
+	}
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+	}
+
+	is_visible = {
+		NOT = {
+			ova_country_is_matriarchal_society = yes
+		}
+	}
+
+	modifier = {
+		state_working_adult_ratio_add = 0.1
+		state_birth_rate_mult = -0.05
+	}
+
+	ai_will_do = {
+		OR = {
+			has_law_or_variant = law_type:law_no_womens_rights
+			has_law_or_variant = law_type:law_women_own_property
+			AND = {
+				exists = ruler
+				ruler = {
+					has_ideology = ideology:ideology_traditionalist
+				}
+			}
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+}
+
+law_womens_suffrage = {
+	group = lawgroup_rights_of_women
+	icon = "gfx/interface/icons/law_icons/womens_suffrage.dds"
+
+	progressiveness = 50
+
+	unlocking_technologies = {
+		feminism
+	}
+
+	unlocking_laws = {
+		law_census_voting
+		law_landed_voting
+		law_wealth_voting
+		law_universal_suffrage
+		law_single_party_state
+		law_anarchy
+	}
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+	}
+
+	is_visible = {
+		NOT = {
+			ova_country_is_matriarchal_society = yes
+		}
+	}
+
+	modifier = {
+		state_working_adult_ratio_add = 0.15
+		state_birth_rate_mult = -0.05
+		state_dependent_political_participation_add = 0.33
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+}
+
+############################################################
+# Matriarchal branch (dark elves, beastfolk)
+# Mirrors the regular line: only women rule, own, and command.
+# Locked per country - a matriarchal society never sees the
+# patriarchal laws and vice versa (is_visible on both branches).
+############################################################
+
+law_matriarchy = {
+	group = lawgroup_rights_of_women
+	parent = law_no_womens_rights # Inherits ideological stances from parent
+	icon = "gfx/interface/icons/law_icons/womens_suffrage.dds"
+
+	progressiveness = -100
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+	}
+
+	is_visible = {
+		OR = {
+			ova_country_is_matriarchal_society = yes
+			any_primary_culture = {
+				ova_culture_is_matriarchal = yes
+			}
+		}
+	}
+
+	modifier = {
+		state_birth_rate_mult = 0.05
+	}
+
+	ai_will_do = {
+		OR = {
+			# A matriarchal people restoring the mother's line
+			AND = {
+				NOT = { ova_country_is_matriarchal_society = yes }
+				any_primary_culture = {
+					ova_culture_is_matriarchal = yes
+				}
+			}
+			# Mirror of law_no_womens_rights: reactionary rollback
+			AND = {
+				literacy_rate < 0.4
+				exists = ruler
+				ruler = {
+					has_ideology = ideology:ideology_traditionalist
+				}
+			}
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+}
+
+law_men_own_property = {
+	group = lawgroup_rights_of_women
+	parent = law_women_own_property # Inherits ideological stances from parent
+	icon = "gfx/interface/icons/law_icons/women_own_property.dds"
+
+	progressiveness = -50
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+	}
+
+	is_visible = {
+		ova_country_is_matriarchal_society = yes
+	}
+
+	modifier = {
+		state_working_adult_ratio_add = 0.05
+	}
+
+	ai_will_do = {
+		OR = {
+			has_law = law_type:law_matriarchy
+			AND = {
+				exists = ruler
+				ruler = {
+					has_ideology = ideology:ideology_traditionalist
+				}
+			}
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+}
+
+law_men_in_the_workplace = {
+	group = lawgroup_rights_of_women
+	parent = law_women_in_the_workplace # Inherits ideological stances from parent
+	icon = "gfx/interface/icons/law_icons/women_in_the_workplace.dds"
+
+	progressiveness = 0
+
+	unlocking_technologies = {
+		feminism
+	}
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+	}
+
+	is_visible = {
+		ova_country_is_matriarchal_society = yes
+	}
+
+	modifier = {
+		state_working_adult_ratio_add = 0.1
+		state_birth_rate_mult = -0.05
+	}
+
+	ai_will_do = {
+		OR = {
+			has_law = law_type:law_matriarchy
+			has_law = law_type:law_men_own_property
+			AND = {
+				exists = ruler
+				ruler = {
+					has_ideology = ideology:ideology_traditionalist
+				}
+			}
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+}
+
+law_mens_suffrage = {
+	group = lawgroup_rights_of_women
+	parent = law_womens_suffrage # Inherits ideological stances from parent
+	icon = "gfx/interface/icons/law_icons/universal_suffrage.dds"
+
+	progressiveness = 50
+
+	unlocking_technologies = {
+		feminism
+	}
+
+	unlocking_laws = {
+		law_census_voting
+		law_landed_voting
+		law_wealth_voting
+		law_universal_suffrage
+		law_single_party_state
+		law_anarchy
+	}
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+	}
+
+	is_visible = {
+		ova_country_is_matriarchal_society = yes
+	}
+
+	modifier = {
+		state_working_adult_ratio_add = 0.15
+		state_birth_rate_mult = -0.05
+		state_dependent_political_participation_add = 0.33
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+}

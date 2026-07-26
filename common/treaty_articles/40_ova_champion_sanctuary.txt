@@ -1,0 +1,185 @@
+﻿### Champions JE - Champion Sanctuary treaty articles
+# Two articles, both enforcement handled script-side by ova_champion_sanctuary_with
+# (checked in the expedition/sabotage diplomatic actions):
+#
+#   ova_champion_sanctuary          - MUTUAL: neither party may adventure into
+#                                     nor sabotage the other's champion.
+#   ova_champion_sanctuary_imposed  - DIRECTED (unilateral): the TARGET party
+#                                     swears not to adventure into nor sabotage
+#                                     the SOURCE party's champion; the source is
+#                                     NOT bound in return.
+# Both are ordinary (negotiated) treaty articles - NOT can_be_enforced (that
+# needs a war goal with target_type = treaty_article + a contestion type, which
+# we don't provide). To FORCE the unilateral sanctuary by war, use the
+# dp_ova_demand_sanctuary diplomatic play (custom war goal - see
+# war_goal_types/40_ova_demand_sanctuary.txt).
+# Both grant a token amount of regional involvement (max_target_involvement).
+
+ova_champion_sanctuary = {
+	kind = mutual
+	cost = 50
+
+	relations_progress_per_day = 1
+	relations_improvement_max = 30
+
+	# token projection into each other's region
+	max_target_involvement = 500
+	target_involvement_applies_to = mutual
+
+	icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/defensive_pact_treaties.dds"
+
+	flags = {
+		# can_be_enforced
+		can_be_renegotiated
+		friendly
+	}
+
+	usage_limit = once_per_treaty
+
+	mutual_exclusions = {
+		ova_champion_sanctuary
+		ova_champion_sanctuary_imposed
+	}
+
+	visible = {
+	}
+
+	possible = {
+        always = yes
+	}
+
+	requirement_to_maintain = {
+		trigger = {
+			custom_tooltip = {
+				text = ova_sanctuary_effect_tt
+				always = yes
+			}
+		}
+	}
+
+	ai = {
+		treaty_categories = {
+			military_defense
+		}
+
+		evaluation_chance = {
+			value = 0.05
+		}
+
+		proposal_weight = {
+			value = 1
+		}
+
+		article_ai_usage = {
+			offer
+			request
+		}
+
+		inherent_accept_score = {
+			value = 0
+
+			save_temporary_scope_as = target
+			scope:other_country = {
+				save_temporary_scope_as = actor
+			}
+
+			add = {
+				desc = "DIPLOMATIC_ACCEPTANCE_BASE_ADDITIONAL"
+				value = 5
+			}
+
+			# far keener to sign if someone is currently sabotaging us
+			if = {
+				limit = { ova_champion_is_sabotaged = yes }
+				add = {
+					desc = "DIPLOMATIC_ACCEPTANCE_NEIGHBORS"
+					value = 25
+				}
+			}
+		}
+	}
+}
+
+ova_champion_sanctuary_imposed = {
+	kind = directed
+	cost = 50
+
+    # Should not increase relations
+	# relations_progress_per_day = 0.5
+	# relations_improvement_max = 20
+
+	# the protected source projects a little into the bound target's region
+	max_target_involvement = 500
+	target_involvement_applies_to = source_country
+
+	icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/defensive_pact_treaties.dds"
+
+	# NOT can_be_enforced: treaty-article war enforcement needs a war goal with
+	# target_type = treaty_article AND a contestion type bound to it, which we
+	# do not define (the engine strips the flag and logs a warning otherwise).
+	# The war route to force this sanctuary is the dp_ova_demand_sanctuary
+	# diplomatic play (custom war goal) instead - see war_goal_types/40_*.
+	flags = {
+		can_be_renegotiated
+		ai_consider_threaten_naval_hostilities
+	}
+
+	maintenance_paid_by = source_country
+	usage_limit = once_per_side
+
+	mutual_exclusions = {
+		ova_champion_sanctuary
+		ova_champion_sanctuary_imposed
+	}
+
+	visible = {
+	}
+
+	possible = {
+        always = yes
+	}
+
+	requirement_to_maintain = {
+		trigger = {
+			custom_tooltip = {
+				text = ova_sanctuary_imposed_effect_tt
+				always = yes
+			}
+		}
+	}
+
+	ai = {
+		treaty_categories = {
+			military_defense
+		}
+
+		evaluation_chance = {
+			value = 0.05
+		}
+
+		proposal_weight = {
+			value = 1
+		}
+
+		article_ai_usage = {
+			offer
+			request
+		}
+
+		inherent_accept_score = {
+			value = 0
+
+			scope:source_country = {
+				save_temporary_scope_as = actor
+			}
+			scope:target_country = {
+				save_temporary_scope_as = target
+			}
+
+			add = {
+				desc = "DIPLOMATIC_ACCEPTANCE_BASE_ADDITIONAL"
+				value = -10
+			}
+		}
+	}
+}

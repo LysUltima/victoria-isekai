@@ -1,0 +1,151 @@
+﻿building_logging_camp = {
+	building_group = bg_logging
+	icon = "gfx/interface/icons/building_icons/logging_camp.dds"
+	city_type = wood
+	required_construction = construction_cost_low
+	terrain_manipulator = forestry
+	levels_per_mesh = 50
+
+	production_method_groups = {
+		pmg_base_building_logging_camp
+		pmg_hardwood
+		pmg_equipment
+		pmg_transportation_building_logging_camp
+		pmg_potion_enhancement_building_logging_camp
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+}
+
+### ISEKAI TC: Anima Rigs (vanilla oil rig keys reused; siphons anima from spirit veins)
+
+building_oil_rig = {
+	building_group = bg_oil_extraction
+	icon = "gfx/interface/icons/building_icons/oil_rig.dds"
+	city_type = mine
+	levels_per_mesh = 25
+	required_construction = construction_cost_medium
+
+	unlocking_technologies = {
+		romanticism
+	}
+
+	production_method_groups = {
+		pmg_base_building_oil_rig
+		pmg_potion_enhancement_building_oil_rig
+		pmg_train_automation_building_oil_rig
+	}
+
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_mining.dds"
+}
+
+### ISEKAI TC: Enchanted Palm Orchard (logging variant - less wood, some spirit fruit)
+
+building_enchanted_palm_orchard = {
+	building_group = bg_enchanted_grove
+	icon = "gfx/interface/icons/building_icons/dreamwood.dds"
+	city_type = wood
+	required_construction = construction_cost_low
+	terrain_manipulator = forestry
+	levels_per_mesh = 50
+
+	production_method_groups = {
+		pmg_base_building_enchanted_palm_orchard
+		pmg_spirit_grove_building_enchanted_palm_orchard
+		pmg_potion_enhancement_building_enchanted_palm_orchard
+		pmg_equipment
+		pmg_transportation_building_logging_camp
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+}
+
+### ISEKAI TC: Forests of the Departed (logging variant - less wood, spirit herbs; souls gleaned as anima)
+
+building_forests_of_the_departed = {
+	building_group = bg_departed_forest
+	icon = "gfx/interface/icons/building_icons/mushroom_logging.dds"
+	city_type = wood
+	required_construction = construction_cost_low
+	terrain_manipulator = forestry
+	levels_per_mesh = 50
+
+	production_method_groups = {
+		pmg_base_building_forests_of_the_departed
+		pmg_soul_gleaning_building_forests_of_the_departed
+		pmg_potion_enhancement_building_forests_of_the_departed
+		pmg_equipment
+		pmg_transportation_building_logging_camp
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+}
+
+building_spirit_beast_hunting = {
+	building_group = bg_spirit_beast_hunting
+	icon = "gfx/interface/icons/building_icons/cattle_ranch.dds"
+	city_type = none
+	levels_per_mesh = 50
+	required_construction = construction_cost_low
+
+	production_method_groups = {
+		pmg_base_building_spirit_beast_hunting
+		pmg_equipment_building_spirit_beast_hunting
+		pmg_refrigeration_building_spirit_beast_hunting
+	}
+
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+}
+
+building_fishing_wharf = {
+	building_group = bg_fishing
+	icon = "gfx/interface/icons/building_icons/fishing_wharf.dds"
+	city_type = port
+	levels_per_mesh = 1
+	required_construction = construction_cost_low
+
+	production_method_groups = {
+		pmg_base_building_fishing_wharf
+		pmg_refrigeration_building_fishing_wharf
+		pmg_potion_enhancement_building_fishing_wharf
+	}
+
+	potential = {
+		is_sea_adjacent = yes
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_fishing.dds"
+}
+
+building_whaling_station = {
+	building_group = bg_whaling
+	icon = "gfx/interface/icons/building_icons/whaling_station.dds"
+	city_type = port
+	levels_per_mesh = 1
+	required_construction = construction_cost_low
+
+	unlocking_technologies = {
+		navigation
+	}
+
+	production_method_groups = {
+		pmg_base_building_whaling_station
+		pmg_refrigeration_building_whaling_station
+		pmg_equipment_building_whaling_station
+	}
+
+	potential = {
+		is_sea_adjacent = yes
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_fishing.dds"
+}

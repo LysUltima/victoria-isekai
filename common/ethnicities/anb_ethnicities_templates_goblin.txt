@@ -1,0 +1,322 @@
+﻿# Receives data from /genes
+# Ethnicity templates are used in other ethnicities and templates in this folder
+
+common_goblin = {
+    template = "ethnicity_template"
+
+	@neg1_min = 0.4
+	@neg1_max = 0.5
+
+	@neg2_min = 0.3
+	@neg2_max = 0.4
+
+	@neg3_min = 0.1
+	@neg3_max = 0.3
+
+	@pos1_min = 0.5
+	@pos1_max = 0.6
+
+	@pos2_min = 0.6
+	@pos2_max = 0.7
+
+	@pos3_min = 0.7
+	@pos3_max = 0.9
+
+	@beauty1min = 0.35
+	@beauty1max = 0.65
+
+	@beauty2min = 0.4
+	@beauty2max = 0.6
+
+	@beauty3min = 0.45
+	@beauty3max = 0.55
+
+	@blend1min = 0.0
+	@blend1max = 0.2
+
+	@blend2min = 0.2
+	@blend2max = 0.5
+
+	@blend3min = 0.5
+	@blend3max = 0.8
+
+	skin_color = {
+		10 = { 0.35 0.55 0.45 0.85 }    #foresty green
+	}
+	eye_color = {
+		# Brown
+		10 = { 0.1 0.2 0.4 0.8 }
+        # Red
+        10 = { 0.0 0.2 0.025 0.8 }
+        # Yellowy Browns
+        10 = { 0.3 0.2 0.4 0.8 }
+
+        #Goblin nezkaru/half goblin genes
+        # Green
+        1 = { 0.33 0.5 0.67 0.8 }
+        # Blue
+        1 = { 0.67 0.5 1.0 0.8 }
+
+	}
+	hair_color = {
+		# Black
+		20 = { 0.0 0.9 0.2 0.99 }
+	}
+
+    gene_eye_distance = {
+
+
+        12 = { name = eye_distance   range = { 0.7 0.8 }      }
+        74 = { name = eye_distance   range = { 0.8 0.9 }      }
+        12 = { name = eye_distance   range = { 0.9 1.0 }      }
+
+
+    }
+
+    gene_ear_size = {
+
+        10 = { name = ear_size   range = { 0.0 1.0 }      }
+
+
+    }
+
+    gene_ear_out = {
+
+        10 = { name = ear_out   range = { 0.0 1.0 }      }
+
+
+    }
+
+    
+    gene_eye_size = {
+
+
+        17 = { name = eye_size   range = { 0.2 0.35 }      }
+        64 = { name = eye_size   range = { 0.35 0.45 }      }
+        17 = { name = eye_size   range = { 0.45 0.5 }      }
+
+
+    }
+
+    gene_eyebrows_shape = {
+        10 = {  name = no_eyebrows             range = { 0.0 0.0 }     }
+    }
+
+    gene_eyebrows_fullness = {
+        10 = {  name = no_eyebrows             range = { 0.0 0.0 }     }
+    }
+
+    gene_mouth_width = {
+
+        17 = { name = mouth_width   range = { 0.7 0.8 }      }
+        64 = { name = mouth_width   range = { 0.8 0.9 }      }
+        17 = { name = mouth_width   range = { 0.9 1.0 }      }
+        1 = { name = mouth_width   range = { 0.9 1.0 }      }
+
+    }
+
+
+    gene_forehead_width = {
+
+        1 = { name = forehead_width   range = { 0.1 0.2 }      }
+        7 = { name = forehead_width   range = { 0.2 0.45 }      }
+        84 = { name = forehead_width   range = { 0.45 0.55 }      }
+        7 = { name = forehead_width   range = { 0.55 0.8 }      }
+        1 = { name = forehead_width   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_head_height = {
+
+        47 = { name = head_height   range = { 0.35 0.45 }      }    #shorter head
+        7 = { name = head_height   range = { 0.45 0.55 }      }
+
+    }
+
+    gene_head_profile = {
+
+
+        64 = { name = head_profile   range = { 0.6 0.7 }      }
+        17 = { name = head_profile   range = { 0.7 0.8 }      }    #long profiles
+        1 = { name = head_profile   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_head_top_height = {
+
+
+        84 = { name = head_top_height   range = { 0.45 0.55 }      }
+        37 = { name = head_top_height   range = { 0.55 0.8 }      } #big brain
+        1 = { name = head_top_height   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_head_top_width = {
+
+        1 = { name = head_top_width   range = { 0.1 0.2 }      }
+        44 = { name = head_top_width   range = { 0.2 0.4 }      }
+        44 = { name = head_top_width   range = { 0.4 0.5 }      } #thinner to make <> face shape
+
+    }
+
+    gene_head_width = {
+
+        1 = { name = head_width   range = { 0.1 0.2 }      }
+        17 = { name = head_width   range = { 0.2 0.45 }      }
+        64 = { name = head_width   range = { 0.45 0.55 }      }
+        17 = { name = head_width   range = { 0.55 0.8 }      }
+        1 = { name = head_width   range = { 0.8 0.9 }      }
+
+    }
+
+	
+gene_bs_body_type = {
+
+        7 = { name = body_fat_head_fat_low   range = { 0.2 0.45 }      }
+        20 = { name = body_fat_head_fat_low   range = { 0.45 0.55 }     }
+        7 = { name = body_fat_head_fat_low   range = { 0.55 0.8 }      }
+
+        7 = { name = body_fat_head_fat_medium   range = { 0.2 0.45 }      }
+        20 = { name = body_fat_head_fat_medium   range = { 0.45 0.55 }      }
+        7 = { name = body_fat_head_fat_medium   range = { 0.55 0.8 }      }
+
+        7 = { name = body_fat_head_fat_full   range = { 0.2 0.45 }      }
+        20 = { name = body_fat_head_fat_full   range = {0.45 0.55 }      }
+        7 = { name = body_fat_head_fat_full   range = { 0.55 0.8 }      }
+
+	}
+
+	gene_height = {
+
+        20 = { name = short_height  range = { 0.1 0.2  }      }
+        50 = { name = short_height  range = { 0.2 0.3 }      }
+        20 = { name = short_height  range = { 0.3 0.5 }      }
+
+	}
+
+	
+
+    gene_face_dacals = {
+
+        10 = { name = face_dacal_01   range = { 1.0 1.0 }      }
+        10 = { name = face_dacal_02   range = { 1.0 1.0 }      }
+        10 = { name = face_dacal_03   range = { 1.0 1.0 }      }
+        10 = { name = face_dacal_04   range = { 1.0 1.0 }      }
+        10 = { name = face_dacal_05   range = { 1.0 1.0 }      }
+ 
+    }
+
+    gene_stubble = {
+
+		10 = { name = stubble_low   range = { 0.0 0.0 }      }
+	}
+
+	hairstyles = {
+		10 = { name = european_hairstyles 		range = { 0.0 1.0 } }
+        10 = { name = no_hairstyles 		range = { 0.0 1.0 } }
+	}
+
+	beards = {
+		10 = { name = goblin_beards 		    range = { 0.0 1.0 } }   #its just goatees n shizz
+        50 = { name = no_beard                      range = { 0.0 1.0 } }
+	}
+
+	mustaches = {
+		10 = { name = european_mustaches 		range = { 0.0 1.0 } }
+        50 = { name = no_mustache       range = { 0.0 1.0 } }
+	}
+    eye_pupil = {
+		5 = {  name = harimari_pupils	range = { 1.0 1.0 }	}
+	}
+
+	# coats = {
+	# 	10 = { name = prussian_uniform_coats		range = { 0.0 1.0 } }
+	# }
+
+	# epaulettes = {
+	# 	10 = { name = prussian_epaulettes		range = { 0.0 1.0 } }
+	# }
+
+	# sashes = {
+	# 	10 = { name = prussian_sashes		range = { 0.0 1.0 } }
+	# }
+
+	# medals = {
+	# 	10 = { name = all_medals		range = { 0.0 1.0 } }
+	# }
+
+	# headgear = {
+	# 	10 = { name = generic_headgear		range = { 0.0 1.0 } }
+	# }
+
+
+
+    #Anbennar Additions my friends
+
+    race_features = {
+		5 = {  name = goblin_features			range = { 1.0 1.0 }	}
+	}
+
+
+
+        ##exether 2d portraits
+
+        gene_no_portrait={ 
+            1 = { name = no_portrait range = { 0.0 0.0 } }
+        }
+    
+        base_skins ={ #I don't know if this actually needs to be here. I'm just trying to put the square peg in the square hole.
+            1 = { name = gene_no_flat_skin range = { 1.0 1.0 } }
+        }
+}
+
+forest_goblin = {
+    template = "common_goblin"
+
+	skin_color = {
+		10 = { 0.52 0.55 0.6 0.8 }   
+	}
+
+	eye_color = {
+        # Yellowy Green
+        10 = { 0.4 0.2 0.5 0.8 }
+        # Yellow
+        10 = { 0.3 0.2 0.4 0.8 }
+
+	}
+
+}
+
+cave_goblin = {
+    template = "common_goblin"
+
+	skin_color = {
+		10 = { 0.74 0.8 0.78 0.85 }   #gray
+        10 = { 0.5 0.5 0.8 0.51 }   #black
+	}
+}
+
+exodus_goblin = {
+    template = "common_goblin"
+
+	skin_color = {
+		10 = { 0.15 0.55 0.3 0.8 }   
+	}
+
+	hairstyles = {  #cos they are bulwari
+		10 = { name = arabic_hairstyles 		range = { 0.0 1.0 } }
+        10 = { name = no_hairstyles 		range = { 0.0 1.0 } }
+	}
+
+	beards = {
+		10 = { name = goblin_beards 		    range = { 0.0 1.0 } }   #its just goatees n shizz
+        50 = { name = no_beard                      range = { 0.0 1.0 } }
+        10 = { name = arabic_beards                      range = { 0.0 1.0 } }
+	}
+
+	mustaches = {
+		10 = { name = arabic_mustaches 		range = { 0.0 1.0 } }
+        50 = { name = no_mustache       range = { 0.0 1.0 } }
+	}
+
+}

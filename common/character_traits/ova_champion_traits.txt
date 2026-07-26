@@ -1,0 +1,69 @@
+﻿### Champions JE - champion identity traits
+# Two script-only traits (possible = { always = no } - never randomly rolled,
+# granted/removed purely by ova_champion_effects.txt on a character scope):
+#
+#   trait_champion     - held by EVERY champion; marks champion-ness and gives
+#                        a small universal edge (presence, command). Added in
+#                        ova_champion_create / _adopt, removed by cleanup/kill.
+#   trait_otherworlder - held additionally by summoned isekai Heroes. Gameplay
+#                        that used to check has_journal_entry = je_ova_hero_
+#                        summoning now checks this trait instead. Its
+#                        out-of-context knowledge translates to tech bonuses
+#                        while the Hero RULES (country_modifier) or LEADS an
+#                        interest group (interest_group_modifier), and modern
+#                        hygiene/medicine keeps them unnaturally healthy
+#                        (character_health_add, "vaccines").
+
+trait_champion = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/basic_political_operator.dds"
+
+	character_modifier = {
+		character_popularity_add = 10
+		character_health_add = 0.1
+		# a champion is a figure the whole realm reckons with - they weigh
+		# heavily in politics (prominence)
+		character_prominence_add = 15
+	}
+
+	command_modifier = {
+		unit_morale_recovery_mult = 0.05
+		unit_offense_mult = 0.05
+		unit_defense_mult = 0.05
+	}
+
+	possible = {
+		always = no
+	}
+}
+
+trait_otherworlder = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/inspirational_orator1.dds"
+
+	# always: the Hero's constitution is bolstered by knowledge of modern
+	# medicine and vaccination from their old world
+	character_modifier = {
+		character_health_add = 0.5
+		character_popularity_add = 10
+		# an otherworlder's strangeness and fame make them loom even larger in
+		# the political nation (prominence, on top of trait_champion's)
+		character_prominence_add = 15
+	}
+
+	# when the Hero RULES: their otherworldly know-how accelerates the realm
+	country_modifier = {
+		country_tech_spread_mult = 0.15
+		country_weekly_innovation_add = 5
+	}
+
+	# when the Hero LEADS an interest group: they steer it toward progress
+	interest_group_modifier = {
+		interest_group_approval_add = 2
+		interest_group_pop_attraction_mult = 0.1
+	}
+
+	possible = {
+		always = no
+	}
+}

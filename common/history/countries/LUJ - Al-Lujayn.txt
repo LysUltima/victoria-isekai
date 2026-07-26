@@ -1,0 +1,7 @@
+﻿# Al-Lujayn (desert: alchemy tier 1)
+COUNTRIES = {
+	c:LUJ ?= {
+		effect_starting_technology_alchemy_tier_1 = yes
+		effect_starting_politics_conservative = yes
+	}
+}

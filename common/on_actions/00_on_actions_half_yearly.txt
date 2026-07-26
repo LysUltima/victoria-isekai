@@ -1,0 +1,58 @@
+﻿# Fired off on_half_yearly_pulse_country
+# Isekai TC: migrated from vanilla 1.13.7. Every entry here only fired now-deleted
+# real-world flavour events (Lincoln, Oscar Wilde, anarchism, Korea, Montenegro), so nothing
+# remains except silkworm, lobby proposals, coup aftermath, and (restored 2026-07-14) movement.
+# silkworm_half_yearly_events restored 2026-07-11 alongside silkworm_diseases.txt migration.
+# lobbies_proposals_half_yearly_events restored 2026-07-11 alongside 00_lobbies_events_04.txt
+# migration. coup_aftermath_half_yearly_events restored 2026-07-11 alongside coup_events.txt
+# migration. movement_half_yearly_events restored 2026-07-14 (E2 audit pass) - movement_events.txt
+# is a verbatim, fully generic migrated copy; the call was simply missed in the earlier pruning.
+
+silkworm_half_yearly_events = {
+	random_events = {
+		chance_to_happen = 20
+		20 = silkworm_diseases.1
+	}
+}
+
+lobbies_proposals_half_yearly_events = {
+	random_events = {
+		chance_to_happen = 10
+		10 = lobby_proposal.1
+		10 = lobby_proposal.2
+		10 = lobby_proposal.3
+		10 = lobby_proposal.4
+	}
+}
+
+# Coup Aftermath Events
+coup_aftermath_half_yearly_events = {
+	random_events = {
+		25 = coup_aftermath_events.1
+		25 = coup_aftermath_events.2
+		25 = coup_aftermath_events.3
+		25 = coup_aftermath_events.4
+	}
+}
+
+# Movement Events
+movement_half_yearly_events = {
+	random_events = {
+		chance_to_happen = 10
+		5 = movement_events.1
+		5 = movement_events.2
+		5 = movement_events.3
+		5 = movement_events.4
+		5 = movement_events.5
+		5 = movement_events.6
+		5 = movement_events.7
+		5 = movement_events.8
+		5 = movement_events.9
+		5 = movement_events.10
+		5 = movement_events.11
+		5 = movement_events.12
+		5 = movement_events.13
+		5 = movement_events.14
+		5 = movement_events.15
+	}
+}

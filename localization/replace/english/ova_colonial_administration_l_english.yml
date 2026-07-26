@@ -1,0 +1,32 @@
+﻿l_english:
+ # Isekai TC: loc for 00_establish_colonial_administration.txt / 00_colonial_administration_buttons.txt
+ # (2026-07-11), remapped per user instruction to this mod's colonial-frontier regions -
+ # region_demonland_south, region_beastland_wild, region_western_isles, region_western_isles_south,
+ # region_southern_isles - instead of the real-world African sub-regions. je_colonial_administration
+ # itself and the shared tooltip keys (je_colonial_administration_button_tt_1/_2,
+ # colonial_transfer_two_subjects_tt, transfer_stuff_to_subject_tt, colonial_administration_cooldown)
+ # are already generic vanilla text, unedited.
+
+ je_colonial_administration_reason: "In order to best leverage our rule over distant holdings, a #bold Colonial Administration#! may be established over a given frontier region. #bold Colonial Administrations#! will expand into neighboring [Concept('concept_decentralized_nation', '$concept_decentralized_nations$')] on their own, and may be given jurisdiction over our other regional holdings.\n\n#lore The scramble for the frontier is underway in earnest. Every power worth its salt is seeking a foothold in these untamed lands as new jewels for their crowns. Rich in untapped resources and filled with peoples yet to be put to work, power and prestige are the prizes for the victors. Make no mistake: blood will be spilled long before the scramble ends. The frontier awaits.#!"
+
+ je_colonial_administration_button_demonland_south: "Establish Colony in [SCOPE.sStateRegion('demonland_south_region_scope').GetStrategicRegion.GetName]"
+ je_colonial_administration_button_demonland_south_desc: "South of the demon empire's heartland, this scorched frontier is a hard, unforgiving country. What little grows here grows strange and potent, and the sands themselves are said to hold buried wealth for those bold enough to dig."
+ je_colonial_administration_button_beastland_wild: "Establish Colony in [SCOPE.sStateRegion('beastland_wild_region_scope').GetStrategicRegion.GetName]"
+ je_colonial_administration_button_beastland_wild_desc: "The untamed wilds beyond the beastfolk settlements teem with game, timber, and tribes who answer to no crown. Securing this country will open its bounty of furs and hides to our merchants."
+ je_colonial_administration_button_western_isles: "Establish Colony in [SCOPE.sStateRegion('western_isles_region_scope').GetStrategicRegion.GetName]"
+ je_colonial_administration_button_western_isles_desc: "Scattered across open water, this archipelago has long been a waypoint for trading fleets. Pearls, exotic timber, and command of the sea lanes await whichever power secures it."
+ je_colonial_administration_button_western_isles_south: "Establish Colony in [SCOPE.sStateRegion('western_isles_south_region_scope').GetStrategicRegion.GetName]"
+ je_colonial_administration_button_western_isles_south_desc: "The southern reach of the isles lies further still from any mainland, its atolls and lagoons largely untouched. Distant they may be, but no less valuable to a power with the ships to hold them."
+ je_colonial_administration_button_southern_isles: "Establish Colony in [SCOPE.sStateRegion('southern_isles_region_scope').GetStrategicRegion.GetName]"
+ je_colonial_administration_button_southern_isles_desc: "Dense jungle archipelagos thick with spirit herbs and hidden qi veins. The cultivation sects that call these isles home have never answered to any distant throne - yet."
+
+ je_colonial_administration_button_expand_demonland_south: "Expand Our Colony in [SCOPE.sStateRegion('demonland_south_region_scope').GetStrategicRegion.GetName]"
+ je_colonial_administration_button_expand_demonland_south_desc: "We currently hold lands in [SCOPE.sStateRegion('demonland_south_region_scope').GetStrategicRegion.GetName] that would be better administered by our colonial subject. If we have more than one colonial [concept_subject] in this [concept_strategic_region], they will be merged together."
+ je_colonial_administration_button_expand_beastland_wild: "Expand Our Colony in [SCOPE.sStateRegion('beastland_wild_region_scope').GetStrategicRegion.GetName]"
+ je_colonial_administration_button_expand_beastland_wild_desc: "We currently hold lands in [SCOPE.sStateRegion('beastland_wild_region_scope').GetStrategicRegion.GetName] that would be better administered by our colonial subject. If we have more than one colonial [concept_subject] in this [concept_strategic_region], they will be merged together."
+ je_colonial_administration_button_expand_western_isles: "Expand Our Colony in [SCOPE.sStateRegion('western_isles_region_scope').GetStrategicRegion.GetName]"
+ je_colonial_administration_button_expand_western_isles_desc: "We currently hold lands in [SCOPE.sStateRegion('western_isles_region_scope').GetStrategicRegion.GetName] that would be better administered by our colonial subject. If we have more than one colonial [concept_subject] in this [concept_strategic_region], they will be merged together."
+ je_colonial_administration_button_expand_western_isles_south: "Expand Our Colony in [SCOPE.sStateRegion('western_isles_south_region_scope').GetStrategicRegion.GetName]"
+ je_colonial_administration_button_expand_western_isles_south_desc: "We currently hold lands in [SCOPE.sStateRegion('western_isles_south_region_scope').GetStrategicRegion.GetName] that would be better administered by our colonial subject. If we have more than one colonial [concept_subject] in this [concept_strategic_region], they will be merged together."
+ je_colonial_administration_button_expand_southern_isles: "Expand Our Colony in [SCOPE.sStateRegion('southern_isles_region_scope').GetStrategicRegion.GetName]"
+ je_colonial_administration_button_expand_southern_isles_desc: "We currently hold lands in [SCOPE.sStateRegion('southern_isles_region_scope').GetStrategicRegion.GetName] that would be better administered by our colonial subject. If we have more than one colonial [concept_subject] in this [concept_strategic_region], they will be merged together."

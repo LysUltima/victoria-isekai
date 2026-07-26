@@ -1,0 +1,5 @@
+From;To;Type;Through;start_x;start_y;stop_x;stop_y;adjacency_rule_name;Comment
+x1E5F00,xA04E00,sea,-1,3331,1838,3305,1826,,demonland-isekai strait
+x272714,xBD4E38,sea,-1,6908,2280,6913,2282,,iroka-hanamuke
+x98801A,x4F5A3F,sea,-1,2634,866,2630,881,,lanakila-makani
+xE27C12,xD02812,sea,-1,2095,1036,2100,1033,big moana island 1

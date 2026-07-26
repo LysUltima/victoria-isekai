@@ -1,0 +1,344 @@
+﻿### Xianxia storyline - decisions
+# Shape verified: common/decisions/00_decisions.txt (revive_olympic_games_decision - is_shown /
+# possible / when_taken / ai_chance). All champion state handled by the shared layer
+# (ova_champion_* effects/triggers); xianxia wrappers in
+# common/scripted_effects/ova_xianxia_effects.txt and
+# common/scripted_triggers/ova_xianxia_triggers.txt. The foundation's own buttons (Choose a
+# Champion / Hunt the Hinterlands / Royal Patronage / Closed-Door Training) already cover
+# champion raising and the two upkeep toggles - this file adds ONLY xianxia-flavored jianghu
+# outings and story goals on top; do not duplicate the foundation.
+# 2026-07-18: decisions 1/2/3 now stamp the realm-chapter goal flags
+# (ova_xianxia_secret_realm_done / rivals_defeated / competition_won) and decisions 7-9 are new
+# chapter goals (secret manual / natal weapon / tribulation treasures). Every ai_chance gains a
+# has_journal_entry boost so the AI actively works toward whichever realm chapter it has open.
+
+# 1) Enter a Secret Realm: a chance at treasure, or at peril. Returners/Readers (type 4/5) tip
+#    the odds toward the good outcome - they remember, more or less, where the traps are.
+#    Either outcome counts as having ventured (the Golden Core chapter's goal).
+ova_xianxia_secret_realm_decision = {
+	is_shown = {
+		ova_xianxia_is_sect_trigger = yes
+		ova_has_living_champion = yes
+	}
+
+	possible = {
+		ova_xianxia_outing_ready_trigger = yes
+	}
+
+	when_taken = {
+		effect_ova_xianxia_outing_cooldown = yes
+        if = {
+            limit = {
+                OR = {
+                    var:ova_xianxia_mc_type ?= 4
+                    var:ova_xianxia_mc_type ?= 5
+                }
+            }
+            trigger_event = { id = ova_xianxia.60 days = 3 }
+        }
+        else = {
+            random_list = {
+                50 = {
+                    trigger_event = { id = ova_xianxia.60 days = 3 }
+                }
+                50 = {
+                    trigger_event = { id = ova_xianxia.61 days = 3 }
+                }
+            }
+        }
+	}
+
+	ai_chance = {
+		value = 4
+		if = {
+			limit = {
+				has_journal_entry = je_ova_xianxia_mc_3
+				NOT = { has_variable = ova_xianxia_secret_realm_done }
+			}
+			add = 20
+		}
+	}
+}
+
+# 2) Challenge a Rival Destined One: two protagonists cannot share one sky. A victory counts
+#    toward the Nascent Soul chapter's goal.
+ova_xianxia_challenge_rival_decision = {
+	is_shown = {
+		ova_xianxia_is_sect_trigger = yes
+		ova_has_living_champion = yes
+		has_variable = ova_xianxia_mc_type
+	}
+
+	possible = {
+		ova_xianxia_outing_ready_trigger = yes
+		ova_xianxia_rival_exists_trigger = yes
+	}
+
+	when_taken = {
+		effect_ova_xianxia_outing_cooldown = yes
+		trigger_event = { id = ova_xianxia.50 days = 3 }
+	}
+
+	ai_chance = {
+		value = 4
+		if = {
+			limit = {
+				has_journal_entry = je_ova_xianxia_mc_4
+				NOT = { var:ova_xianxia_rivals_defeated >= 1 }
+				NOT = { has_variable = ova_xianxia_competition_won }
+			}
+			add = 20
+		}
+	}
+}
+
+# 3) Host the Grand Sect Competition - open to every sect and imperial court alike, champion or
+#    not. A living champion carrying the field counts toward the Nascent Soul chapter's goal.
+ova_xianxia_grand_competition_decision = {
+	is_shown = {
+		ova_xianxia_is_participant_trigger = yes
+		NOT = { has_variable = ova_xianxia_competition_cooldown }
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = ova_xianxia_competition_cooldown }
+		}
+	}
+
+	when_taken = {
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		set_variable = { name = ova_xianxia_competition_cooldown days = 1825 }
+		trigger_event = { id = ova_xianxia.64 days = 5 }
+	}
+
+	ai_chance = {
+		value = 5
+		if = {
+			limit = {
+				has_journal_entry = je_ova_xianxia_mc_4
+				NOT = { var:ova_xianxia_rivals_defeated >= 1 }
+				NOT = { has_variable = ova_xianxia_competition_won }
+			}
+			add = 15
+		}
+		if = {
+			limit = { scaled_gold_reserves < 0.1 }
+			multiply = 0
+		}
+	}
+}
+
+# 4) Blood Sacrifice - demonic sects only. Power at a cost the orthodox dao forbids.
+ova_xianxia_blood_sacrifice_decision = {
+	is_shown = {
+		ova_xianxia_is_demonic_sect_trigger = yes
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = ova_xianxia_sacrifice_cooldown }
+		}
+	}
+
+	when_taken = {
+		set_variable = { name = ova_xianxia_sacrifice_cooldown days = 365 }
+		random_scope_state = {
+			limit = { is_incorporated = yes }
+			add_devastation = 5
+		}
+		add_radicals = { value = small_radicals }
+		add_modifier = { name = ova_xianxia_blood_rites days = 730 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_xp = { AMOUNT = 25 }
+		}
+	}
+
+	ai_chance = {
+		value = 3
+		if = {
+			limit = { is_at_war = yes }
+			add = 5
+		}
+	}
+}
+
+# 5) Face the Heavenly Tribulation - the gamble that crowns the Destined One chain. The AI holds
+#    back until the Return to the Void chapter is open (level 50 and the omens seen), when the
+#    success odds are at their best.
+ova_xianxia_heavenly_tribulation_decision = {
+	is_shown = {
+		has_variable = ova_xianxia_mc_type
+		NOT = { has_variable = ova_xianxia_tribulation_passed }
+	}
+
+	possible = {
+		ova_xianxia_outing_ready_trigger = yes
+		ova_has_living_champion = yes
+		var:ova_champion_level >= 40
+		hidden_trigger = {
+			NOT = { has_variable = ova_xianxia_tribulation_cooldown }
+		}
+	}
+
+	when_taken = {
+		effect_ova_xianxia_outing_cooldown = yes
+		set_variable = { name = ova_xianxia_tribulation_cooldown days = 730 }
+		trigger_event = { id = ova_xianxia.62 days = 3 }
+	}
+
+	ai_chance = {
+		value = 2
+		if = {
+			limit = { has_journal_entry = je_ova_xianxia_mc_6 }
+			add = 40
+		}
+	}
+}
+
+# 6) Consult the Golden Finger - ask the archetype cheat for its guidance, type-branched.
+ova_xianxia_consult_cheat_decision = {
+	is_shown = {
+		has_variable = ova_xianxia_mc_type
+		ova_has_living_champion = yes
+	}
+
+	possible = {
+		hidden_trigger = {
+			NOT = { has_variable = ova_xianxia_consult_cooldown }
+		}
+	}
+
+	when_taken = {
+		set_variable = { name = ova_xianxia_consult_cooldown days = 730 }
+		if = {
+			limit = { var:ova_xianxia_mc_type ?= 1 }
+			trigger_event = { id = ova_xianxia.80 days = 3 }
+		}
+		else_if = {
+			limit = { var:ova_xianxia_mc_type ?= 2 }
+			trigger_event = { id = ova_xianxia.81 days = 3 }
+		}
+		else_if = {
+			limit = { var:ova_xianxia_mc_type ?= 3 }
+			trigger_event = { id = ova_xianxia.82 days = 3 }
+		}
+		else_if = {
+			limit = { var:ova_xianxia_mc_type ?= 4 }
+			trigger_event = { id = ova_xianxia.83 days = 3 }
+		}
+		else_if = {
+			limit = { var:ova_xianxia_mc_type ?= 5 }
+			trigger_event = { id = ova_xianxia.84 days = 3 }
+		}
+	}
+
+	ai_chance = {
+		value = 10
+	}
+}
+
+# 7) Comprehend a Secret Manual - the Foundation Establishment chapter's goal. A jade slip with
+#    half its strokes worn away, bought at auction; each golden finger has its own way with the
+#    missing half (event .66 branches by type).
+ova_xianxia_secret_manual_decision = {
+	is_shown = {
+		has_variable = ova_xianxia_mc_type
+		NOT = { has_variable = ova_xianxia_manual_learned }
+	}
+
+	possible = {
+		ova_has_living_champion = yes
+		hidden_trigger = {
+			NOT = { has_variable = ova_xianxia_manual_learned }
+		}
+	}
+
+	when_taken = {
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		trigger_event = { id = ova_xianxia.66 days = 3 }
+	}
+
+	ai_chance = {
+		value = 5
+		if = {
+			limit = { has_journal_entry = je_ova_xianxia_mc_2 }
+			add = 25
+		}
+		if = {
+			limit = { scaled_gold_reserves < 0.1 }
+			multiply = 0
+		}
+	}
+}
+
+# 8) Forge the Natal Weapon - the Soul Formation chapter's goal. Star-iron, spirit-vein fire,
+#    and seven days at the forge; the finished blade also steadies him under the tribulation
+#    (event .62 rolls better with it).
+ova_xianxia_natal_weapon_decision = {
+	is_shown = {
+		has_variable = ova_xianxia_mc_type
+		NOT = { has_variable = ova_xianxia_weapon_forged }
+	}
+
+	possible = {
+		ova_has_living_champion = yes
+		var:ova_champion_level >= 40
+		hidden_trigger = {
+			NOT = { has_variable = ova_xianxia_weapon_forged }
+		}
+	}
+
+	when_taken = {
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		trigger_event = { id = ova_xianxia.67 days = 3 }
+	}
+
+	ai_chance = {
+		value = 5
+		if = {
+			limit = { has_journal_entry = je_ova_xianxia_mc_5 }
+			add = 25
+		}
+		if = {
+			limit = { scaled_gold_reserves < 0.1 }
+			multiply = 0
+		}
+	}
+}
+
+# 9) Gather Tribulation Treasures - the Soul Formation chapter's other goal. Lightning-ward
+#    talismans, thunder-bathed wood, a cracked turtle shell older than the sect; every ward
+#    carried into the open weights the tribulation roll (event .62).
+ova_xianxia_tribulation_treasures_decision = {
+	is_shown = {
+		has_variable = ova_xianxia_mc_type
+		NOT = { has_variable = ova_xianxia_treasures_gathered }
+	}
+
+	possible = {
+		ova_has_living_champion = yes
+		var:ova_champion_level >= 40
+		hidden_trigger = {
+			NOT = { has_variable = ova_xianxia_treasures_gathered }
+		}
+	}
+
+	when_taken = {
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		trigger_event = { id = ova_xianxia.68 days = 3 }
+	}
+
+	ai_chance = {
+		value = 5
+		if = {
+			limit = { has_journal_entry = je_ova_xianxia_mc_5 }
+			add = 25
+		}
+		if = {
+			limit = { scaled_gold_reserves < 0.1 }
+			multiply = 0
+		}
+	}
+}

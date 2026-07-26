@@ -1,0 +1,108 @@
+﻿# Isekai TC: migrated from vanilla common/journal_entries/00_urbanization.txt (2026-07-11).
+# Fully generic urbanization JEs, no real-world references. Verbatim copy. References
+# events/urbanization_events.txt - not yet migrated.
+
+je_urbanization_events_1 = {
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	group = je_group_technology
+
+	is_shown_when_inactive = {
+		pop_type_percent_country = {
+			pop_type = peasants
+			percent > 0.6
+		}
+	}
+
+	possible = {
+		NOR = {
+			has_law_or_variant = law_type:law_serfdom
+			has_law_or_variant = law_type:law_land_based_taxation
+		}
+		pop_type_percent_country = { #added again so the tooltip is nicer
+			pop_type = peasants
+			percent > 0.6
+		}
+	}
+
+	complete = {
+		pop_type_percent_country = {
+			pop_type = peasants
+			percent < 0.35
+		}
+		NOT = {
+			has_law_or_variant = law_type:law_serfdom
+			has_law_or_variant = law_type:law_land_based_taxation
+		}
+		ig:ig_industrialists ?= {
+			ig_counts_as_marginal = no
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = urbanization_events.1 }
+	}
+
+	weight = 10
+	transferable = no
+}
+
+je_urbanization_events_2 = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_technology
+
+	is_shown_when_inactive = {
+		any_scope_state = {
+			is_incorporated = yes
+			has_building = building_urban_center
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 5
+			}
+		}
+		NOT = { has_law_or_variant = law_type:law_agrarianism }
+	}
+
+	complete = {
+		any_scope_state = {
+			filter = {
+				is_incorporated = yes
+			}
+			percent >= 0.75
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 5
+			}
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 10
+			}
+		}
+	}
+
+	on_yearly_pulse = {
+		random_events = {
+			30 = 0
+			10 = urbanization_events.2
+			20 = urbanization_events.4
+			20 = urbanization_events.6
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = urbanization_events.5 }
+	}
+
+	weight = 10
+	transferable = no
+}

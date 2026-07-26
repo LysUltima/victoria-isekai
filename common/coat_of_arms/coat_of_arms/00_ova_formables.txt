@@ -1,0 +1,332 @@
+﻿# Coats of arms for the culture formables (see common/country_formation/ and
+# country_definitions/20_formables.txt). Hand-authored like the other empire/kingdom
+# tiers; uses the oc_ palette from common/named_colors/00_ova_coa_colors.txt so no new
+# col_TAG entries are required. FRM and VMO are the two multi-culture realms.
+
+#### Empire-tier formables ####
+
+SAK = { # Sakuragoku -- sakura empire (rising sun, imperial chrysanthemum)
+	pattern = "pattern_solid.tga"
+	color1 = oc_pearl_white
+	color2 = oc_blood_red
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = col_HAN
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+	colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.6 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_frame_snowflake.dds"
+		color1 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_sakura.dds"
+		color1 = col_HAN
+		color2 = sc_ASH_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.39 } scale = { 0.6 0.85 } }
+	}
+}
+
+MAE = { # Prunhwa -- mae empire (crowned tiger, plum blossom)
+	pattern = "pattern_gironny_16.dds"
+	color1 = col_HWA
+	color2 = oc_bone
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_bone
+		color2 = col_SHA
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_plum.dds"
+		color1 = col_HWA
+		color2 = col_HWA
+		color3 = oc_pearl_white
+		instance = { position = { 0.35 0.35 } scale = { .35 .35 } }
+        instance = { position = { 0.65 0.65 } scale = { .35 .35 } }
+        instance = { position = { 0.5 0.5 } scale = { .35 .35 } }
+        instance = { position = { 0.35 0.65 } scale = { .35 .35 } }
+        instance = { position = { 0.65 0.35 } scale = { .35 .35 } }
+
+        instance = { position = { 0.5 0.75 } scale = { .2 .2 } }
+        instance = { position = { 0.5 0.25 } scale = { .2 .2 } }
+        instance = { position = { 0.25 0.5 } scale = { .2 .2 } }
+        instance = { position = { 0.75 0.5 } scale = { .2 .2 } }
+	}
+}
+
+KHA = { # Miradzong -- khambu empire (wind horse, buddhist moon)
+	pattern = "pattern_solid.tga"
+	color1 = oc_blood_red
+	color2 = oc_gold
+	colored_emblem = {
+		texture = "ce_wind_horse.dds"
+		color1 = oc_gold
+		color2 = oc_gold
+		instance = { position = { 0.5 0.54 } scale = { 0.66 0.66 } }
+	}
+	colored_emblem = {
+		texture = "ce_buddhist_moon.dds"
+		color1 = oc_saffron
+		color2 = oc_saffron
+		instance = { position = { 0.5 0.16 } scale = { 0.22 0.22 } }
+	}
+}
+
+VMO = { # Vaimotu -- whenua + kanaka empire (crowned sun over the ocean)
+	pattern = "pattern_horizontal_stripes_01.dds"
+	color1 = oc_deep_sea
+	color2 = oc_gold
+	colored_emblem = {
+		texture = "ce_sun.dds"
+		color1 = oc_gold
+		color2 = oc_gold
+		instance = { position = { 0.5 0.44 } scale = { 0.56 0.56 } }
+	}
+	colored_emblem = {
+		texture = "ce_waves_02.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		instance = { position = { 0.5 0.84 } scale = { 0.7 0.32 } }
+	}
+}
+
+#### Kingdom-tier formables ####
+
+RAB = { # Warrenmark -- rabbitkin kingdom (leaping rabbit)
+	pattern = "pattern_solid.tga"
+	color1 = oc_moss_green
+	color2 = oc_pearl_white
+    colored_emblem = {
+		texture = "ce_rubh_el_hizb_arch.dds"
+		color1 = oc_jade_green
+		color2 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 1 1 } }
+	}
+	colored_emblem = {
+		texture = "ce_seal_pictorial_vertical_rabbit.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		instance = { position = { 0.65 0.5 } scale = { 0.8 0.8 } }
+        instance = { position = { 0.35 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+SDW = { # Stonehold -- stone dwarf kingdom (bulwark shield)
+	pattern = "pattern_horizontal_stripes_01.dds"
+	color1 = oc_silver
+	color2 = oc_bronze
+	colored_emblem = {
+		texture = "ce_norse_mjolnir_skane.dds"
+		color1 = oc_iron
+		color2 = oc_bronze
+		instance = { position = { 0.5 0.5 } scale = { 1 1 } }
+	}
+}
+
+SNE = { # Frostreach -- snow elf kingdom (silver star)
+	pattern = "pattern_solid.tga"
+	color1 = oc_frost_white
+	color2 = oc_frost_white
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_blood_red
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_yggdrasil.dds"
+		color1 = oc_silver
+		color2 = oc_silver
+		instance = { position = { 0.5 0.5 } scale = { .9 1 } }
+	}
+}
+
+DEI = { # Deigokai -- deigo kingdom (dragon)
+	pattern = "pattern_solid.tga"
+	color1 = oc_blood_red
+	color2 = oc_gold
+	colored_emblem = {
+		texture = "ce_dragon.dds"
+		color1 = oc_gold
+		color2 = oc_gold
+		instance = { position = { 0.5 0.44 } scale = { 0.7 0.7 } }
+	}
+}
+
+FRM = { # Frostmark -- fjordic + frostholm kingdom (norse longship on frost/tundra field)
+	pattern = "pattern_horizontal_stripes_01.dds"
+	color1 = oc_deep_blue
+	color2 = oc_moss_green
+	colored_emblem = {
+		texture = "ce_norse_fenrir_tullstorp.dds"
+		color1 = oc_frost_white
+		color2 = oc_iron
+        color2 = oc_deep_blue
+		instance = { position = { 0.5 0.5 } scale = { 1.1 1.1 } }
+	}
+}
+
+WHE = { # Whenuroa -- whenua kingdom (koru spiral)
+	pattern = "pattern_solid.tga"
+	color1 = oc_void_black
+	color2 = oc_blood_red
+	colored_emblem = {
+		texture = "ce_pagan_spiral_03.dds"
+		color1 = oc_blood_red
+		color2 = oc_blood_red
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+KNK = { # Kanakea -- kanaka kingdom (the lagoon swell)
+	pattern = "pattern_horizontal_stripes_01.dds"
+	color1 = oc_jade_teal
+	color2 = oc_gold
+	colored_emblem = {
+		texture = "ce_waves_04.dds"
+		color1 = oc_gold
+		color2 = oc_gold
+		instance = { position = { 0.5 0.5 } scale = { 0.64 0.64 } }
+	}
+}
+
+NEK = { # Neconya -- cat empire
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_CAT
+	color2 = oc_pale_gold
+	colored_emblem = {
+		texture = "ce_seal_pictorial_vertical_tiger.dds"
+		color1 = sc_CAT_1
+		color2 = sc_CAT_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.2 0.5 } scale = { 0.7 0.7 } }
+	}
+    colored_emblem = {
+		texture = "ce_seal_pictorial_vertical_tiger.dds"
+		color1 = sc_CAT_1
+		color2 = sc_CAT_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+    colored_emblem = {
+		texture = "ce_seal_pictorial_vertical_tiger.dds"
+		color1 = sc_CAT_1
+		color2 = sc_CAT_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.8 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+KIT = { # Wahee -- fox empire
+	pattern = "pattern_gironny_16.dds"
+	color1 = col_AHE
+	color2 = col_WAP
+    colored_emblem = {
+		texture = "ce_kamon_hole.dds"
+		color1 = col_WAP
+		instance = { position = { 0.5 0.5 } scale = { 1 1 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_frame_snowflake.dds"
+		color1 = col_AHE
+		instance = { position = { 0.5 0.5 } scale = { .9 .9 } }
+	}
+	colored_emblem = {
+		texture = "ce_fox.dds"
+		color1 = oc_amber
+		color2 = oc_bone
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+DSC = { # Qattara -- desert catkin kingdom
+	pattern = "pattern_solid.tga"
+	color1 = col_CAT
+	color2 = oc_amber
+	colored_emblem = {
+		texture = "ce_seal_pictorial_central_tiger.dds"
+		color1 = sc_CAT_1
+		color2 = oc_ivory
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+ALT = { # Alta -- altan kingdom
+	pattern = "pattern_per_saltire.dds"
+	color1 = col_FAW
+	color2 = oc_pale_gold
+	colored_emblem = {
+		texture = "ce_mena_ceremonial_sword.dds"
+		color1 = oc_earth_brown
+		color2 = sc_FAW_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+AHD = { # Ashencorn -- demon splinter clan
+	pattern = "pattern_per_saltire.dds"
+	color1 = col_DEM
+	color2 = oc_blood_red
+	colored_emblem = {
+		texture = "ce_horn.dds"
+		color1 = sc_DEM_1
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+}
+
+DUS = { # Duskmarch -- demon splinter clan
+	pattern = "pattern_per_saltire.dds"
+	color1 = col_DEM
+	color2 = oc_blood_red
+}
+
+VEI = { # Veilwing -- demon splinter clan
+	pattern = "pattern_per_saltire.dds"
+	color1 = col_DEM
+	color2 = oc_blood_red
+	colored_emblem = {
+		texture = "ce_owl.dds"
+		color1 = sc_DEM_1
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+}
+
+RUI = { # Ruinreach -- demon splinter clan
+	pattern = "pattern_per_saltire.dds"
+	color1 = col_DEM
+	color2 = oc_ember
+}
+
+NOX = { # Noxhold -- demon splinter clan
+	pattern = "pattern_per_saltire.dds"
+	color1 = col_DEM
+	color2 = oc_blood_red
+	colored_emblem = {
+		texture = "ce_crescent_mask.dds"
+		color1 = sc_DEM_1
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+}
+
+VOI = { # Voidmarch -- demon splinter clan
+	pattern = "pattern_per_saltire.dds"
+	color1 = col_DEM
+	color2 = oc_soul_violet
+}
+

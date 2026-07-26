@@ -1,0 +1,173 @@
+﻿# Starting power blocs for the isekai/murim/xianxia JE storylines.
+# Shape copied verbatim from vanilla common/history/power_blocs/00_power_blocs.txt (BRITISH_EMPIRE /
+# METTERNICH_SYSTEM / ZOLLVEREIN entries): a single ungated `principle = ` at creation (vanilla proves
+# this is NOT blocked by that principle's own `visible = { has_dlc_feature = power_bloc_features }`
+# UI-only gate — Britain's history entry sets principle_vassalization_1 unconditionally despite that
+# principle having exactly that visible gate). Only a *second*, later-added principle needs the
+# `if = { limit = { has_dlc_feature = power_bloc_features } power_bloc = { add_principle = ... } } }`
+# wrapper vanilla uses (see c:DEM below, pre-existing, untouched) — our three JE-storyline blocs only
+# need one principle each so that wrapper is omitted for them.
+#
+# c:DEM's own pre-existing empire bloc is left as-is (not part of this deliverable, but it is fully
+# vanilla-verified: identity_sovereign_empire + principle_vassalization_1 mirror the vanilla British
+# Empire entry exactly). The isekai JE storyline can dissolve it via `power_bloc = { ... }` effects
+# when the empire shatters into the splinter clans in common/country_definitions/01a_demon_splinters.txt.
+
+POWER_BLOCS = {
+	c:DEM ?= {
+		create_power_bloc = {
+			name = DEMONIC_EMPIRE
+
+			map_color = { 0 127 255 }
+
+			founding_date = 1063.03.04
+			identity = identity_sovereign_empire
+			principle = principle_vassalization_1
+		}
+	}
+
+	# "The Blood Lotus Covenant" — leader BLO (Blood Lotus Sect), members GHO SHA NIN
+	# (the other demonic-path xianxia sects). Bound by a shared forbidden cultivation canon.
+	c:BLO ?= {
+		create_power_bloc = {
+			name = BLOOD_LOTUS_COVENANT
+
+			map_color = { 120 20 30 }
+
+			founding_date = 1820.10.31
+			identity = identity_demonic_covenant
+			principle = principle_defensive_cooperation_3
+
+			member = c:GHO
+			member = c:SHA
+			member = c:NIN
+		}
+        if = {
+			limit = {
+				has_dlc_feature = power_bloc_features
+			}
+			power_bloc = {
+				add_principle = principle_market_unification_2
+			}
+		}
+		power_bloc = {
+			add_modifier = ova_unbreakable_covenant
+		}
+	}
+
+	# "The Orthodox Martial Alliance" — leader HWA, members all 7 other recognized murim sects.
+	# c:CHE (Heavenly Demon Cult, unrecognized) is deliberately excluded — this alliance exists to
+	# oppose it.
+	c:HWA ?= {
+		create_power_bloc = {
+			name = ORTHODOX_MARTIAL_ALLIANCE
+
+			map_color = { 90 110 140 }
+
+			founding_date = 1791.9.9
+			identity = identity_martial_alliance
+			principle = principle_defensive_cooperation_3
+
+			member = c:SOR
+			member = c:MUD
+			member = c:JEG
+			member = c:TAN
+			member = c:NAM
+			member = c:PAE
+			member = c:SAM
+		}
+        if = {
+			limit = {
+				has_dlc_feature = power_bloc_features
+			}
+			power_bloc = {
+				add_principle = principle_market_unification_2
+			}
+		}
+		power_bloc = {
+			add_modifier = ova_unbreakable_covenant
+		}
+	}
+
+	# "The Radiant Crusade" — leader LUX (Church of the Goddess "Lux Aeterna")
+	c:LUX ?= {
+		create_power_bloc = {
+			name = RADIANT_CRUSADE
+
+			map_color = { 230 210 150 }
+
+			founding_date = 1802.3.21
+			identity = identity_radiant_crusade
+			principle = principle_defensive_cooperation_3
+
+			member = c:LYS
+			member = c:REY
+            member = c:VAL
+            member = c:EST
+            member = c:NIS
+            member = c:ALE
+            member = c:VIN
+            member = c:SKA
+            member = c:ACA
+		}
+        power_bloc = {
+            add_leverage = {
+                target = c:LYS
+                value = 1000
+            }
+            add_leverage = {
+                target = c:REY
+                value = 1000
+            }
+            add_leverage = {
+                target = c:VAL
+                value = 1000
+            }
+            add_leverage = {
+                target = c:ACA
+                value = 200
+            }
+            add_leverage = {
+                target = c:EST
+                value = 200
+            }
+            add_modifier = ova_unbreakable_covenant
+        }
+	}
+
+    c:FEN ?= {
+		create_power_bloc = {
+			name = FENG_DYNASTY
+
+			map_color = { 255 127 127 }
+
+			founding_date = 163.08.06
+			identity = identity_sovereign_empire
+			principle = principle_vassalization_1
+		}
+	}
+
+    c:YAO ?= {
+		create_power_bloc = {
+			name = YAO_DYNASTY
+
+			map_color = { 255 255 127 }
+
+			founding_date = 801.12.12
+			identity = identity_sovereign_empire
+			principle = principle_vassalization_1
+		}
+	}
+
+    c:SUN ?= {
+		create_power_bloc = {
+			name = EMPIRE_OF_THE_DAWNING_SUN
+
+			map_color = { 255 255 190 }
+
+			founding_date = 1674.5.13
+			identity = identity_sovereign_empire
+			principle = principle_vassalization_1
+		}
+	}
+}

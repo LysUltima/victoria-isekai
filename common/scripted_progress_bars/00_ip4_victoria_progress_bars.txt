@@ -1,0 +1,62 @@
+﻿# Isekai TC: common/scripted_progress_bars is wiped by replace_paths. je_ip4_coup_progress_bar
+# is re-created here (2026-07-11) - it was referenced by common/journal_entries/01_coup.txt
+# (already migrated in an earlier session) but never had a definition anywhere in the mod, a
+# pre-existing gap found while working on 00_fascism.txt's progress bar. Fully generic, no
+# real-world references, copied from vanilla common/scripted_progress_bars/00_ip4_victoria_progress_bars.txt.
+
+# For je_ip4_coup
+
+je_ip4_coup_progress_bar = {
+	name = "je_ip4_coup_progress_bar"
+	desc = "je_ip4_coup_progress_bar_desc"
+
+	default = yes
+
+	weekly_progress = {
+		owner = {
+			if = { # Does the general actually want to coup the government?
+				limit = {
+					any_scope_character = {
+						has_variable = golpista_var
+						loyalty >= define:NCharacters|LOYALTY_NEUTRAL_THRESHOLD
+					}
+				}
+				subtract = {
+					desc = "appeased_golpista_igs_tt"
+					every_scope_character = {
+						limit = {
+							has_variable = golpista_var
+						}
+						value = this.loyalty
+						divide = 10
+					}
+				}
+			}
+			add = {
+				desc = "commander_coup_strength_tt"
+				every_scope_character = {
+					limit = {
+						has_variable = golpista_var
+					}
+					value = commander_coup_strength
+				}
+			}
+			if = {
+				limit = {
+					has_variable = orchestrate_coup_aborted
+				}
+				subtract = {
+					desc = "orchestrate_coup_aborted"
+					value = 5
+				}
+			}
+			subtract = {
+				desc = "country_coup_resistance_tt"
+				value = owner.country_coup_resistance
+			}
+		}
+	}
+	start_value = 10
+	min_value = 0
+	max_value = 120
+}

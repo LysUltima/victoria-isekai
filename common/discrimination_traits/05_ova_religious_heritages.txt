@@ -1,0 +1,25 @@
+﻿# Religious heritages for OVA's mod-unique religions.
+heritage_light = { type = heritage trait_group = heritage_group_light_faith }
+heritage_lunar = { type = heritage trait_group = heritage_group_light_faith }
+
+heritage_cultivation = { type = heritage trait_group = heritage_group_eastern_ova }
+heritage_snowlotus = { type = heritage trait_group = heritage_group_eastern_ova }
+heritage_verdant = { type = heritage trait_group = heritage_group_eastern_ova }
+heritage_kami = { type = heritage trait_group = heritage_group_eastern_ova }
+
+heritage_moana_spirit = { type = heritage trait_group = heritage_group_moana_faith }
+
+heritage_sahar_faith = { type = heritage trait_group = heritage_group_desert_faith }
+heritage_farvahar = { type = heritage trait_group = heritage_group_desert_faith }
+
+heritage_seven_skies = { type = heritage trait_group = heritage_group_beastkin_faiths }
+heritage_neco = { type = heritage trait_group = heritage_group_beastkin_faiths }
+heritage_uan = { type = heritage trait_group = heritage_group_beastkin_faiths }
+heritage_moonrabbit = { type = heritage trait_group = heritage_group_beastkin_faiths }
+
+heritage_grove_rite = { type = heritage trait_group = heritage_group_elf_faith }
+heritage_aesir = { type = heritage trait_group = heritage_group_elf_faith }
+heritage_forge_rite = { type = heritage trait_group = heritage_group_elf_faith }
+
+# heritage_materialist is defined by vanilla common/discrimination_traits/03_religious_heritages.txt
+# (not wiped by replace_paths) and reused as-is for the atheist religion; redefining it here caused a duplicate-key error.

@@ -1,0 +1,47 @@
+﻿# ------------------------------------------------------------------------
+# Placeholder subgoals for the three storyline suggested-start objectives
+# (common/objectives/02_ova_storyline_objectives.txt). An objective with an
+# empty objective_subgoals list errors at runtime, so each carries exactly one
+# subgoal. It does nothing but add je_ova_storyline_note, which completes
+# instantly (complete = always yes), so the objective self-satisfies at game
+# start and never sits in the panel as an unfinished task. The actual
+# storylines fire independently from history/on_actions.
+# One subgoal per objective (kept separate so each objective has its own
+# final_subgoal); all three add the same trivially-completing JE.
+# ------------------------------------------------------------------------
+
+sg_ova_isekai_begin = {
+	category = sgcat_ova_storyline
+	is_repeatable = no
+	trigger = {}
+	on_start = {
+		add_journal_entry = {
+			type = je_ova_storyline_note
+			objective_subgoal = sg_ova_isekai_begin
+		}
+	}
+}
+
+sg_ova_murim_begin = {
+	category = sgcat_ova_storyline
+	is_repeatable = no
+	trigger = {}
+	on_start = {
+		add_journal_entry = {
+			type = je_ova_storyline_note
+			objective_subgoal = sg_ova_murim_begin
+		}
+	}
+}
+
+sg_ova_xianxia_begin = {
+	category = sgcat_ova_storyline
+	is_repeatable = no
+	trigger = {}
+	on_start = {
+		add_journal_entry = {
+			type = je_ova_storyline_note
+			objective_subgoal = sg_ova_xianxia_begin
+		}
+	}
+}

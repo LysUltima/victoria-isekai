@@ -1,0 +1,13 @@
+﻿last_date = "1860.1.1"
+
+tests = {
+	springtime_of_the_peoples = {
+		acceptable_fail_rate = 0.0
+		success = {
+			always = no
+		}
+		fail = {
+			game_date > "1860.1.1"
+		}
+	}
+}

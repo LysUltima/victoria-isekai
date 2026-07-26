@@ -1,0 +1,314 @@
+﻿# Xianxia storyline - Blood Lotus Covenant (BLO/GHO/SHA/NIN) vs Great Feng/Great Yao sects
+# (SWO/HEA/FLO/PUR/MYS/FEA/SPI/VER/SNO) - shared scripted triggers.
+# Used by common/journal_entries/ova_xianxia_journal.txt, common/decisions/ova_xianxia_decisions.txt,
+# events/ova_xianxia_events.txt and events/ova_xianxia_flavor_events.txt.
+#
+# Character/champion state checks live in the SHARED champion layer
+# (common/scripted_triggers/ova_champion_triggers.txt: ova_has_living_champion,
+# ova_champion_is_available, ova_champion_is_adventuring) - this file only adds xianxia-specific
+# wrappers on top, per tools/design/XIANXIA_STORYLINE_SPEC.md.
+#
+# Verified vanilla patterns used here:
+#  - `c:TAG ?= THIS` country-identity check: common/journal_entries/00_taiping.txt (je_chinese_missions)
+#  - `is_subject` / `is_subject_of = c:TAG`: common/journal_entries/00_hawaii.txt,
+#    common/journal_entries/00_german_unification.txt, common/scripted_triggers/00_clothes_triggers.txt
+#  - `calc_true_if = { amount >= N ... }`: common/journal_entries/05_austria_journal_entries.txt,
+#    common/scripted_triggers/ova_murim_triggers.txt (ova_murim_cult_owns_five_capitals_trigger)
+#  - `has_variable` / `exists = var:x` character-alive check: ova_hero_l_english.yml's
+#    ova_victoria_char pattern (common/journal_entries/ova_hero_journal.txt je_ova_victoria_1)
+#  - `any_country = { NOT = { THIS = ROOT } ... }`: common/ai_strategies/02_diplomatic_strategies.txt
+
+# Any of the 6 Great Feng vassal sects or 3 Great Yao vassal sects - THIS = one of the 9
+# righteous tags.
+ova_xianxia_is_righteous_sect_trigger = {
+	OR = {
+		c:SWO ?= THIS
+		c:HEA ?= THIS
+		c:FLO ?= THIS
+		c:PUR ?= THIS
+		c:MYS ?= THIS
+		c:FEA ?= THIS
+		c:SPI ?= THIS
+		c:VER ?= THIS
+		c:SNO ?= THIS
+	}
+}
+
+# The 4 demonic-path sects of the Blood Lotus Covenant - THIS = BLO/GHO/SHA/NIN.
+ova_xianxia_is_demonic_sect_trigger = {
+	OR = {
+		c:BLO ?= THIS
+		c:GHO ?= THIS
+		c:SHA ?= THIS
+		c:NIN ?= THIS
+	}
+}
+
+# Any of the 13 sects that may host a Destined One (righteous or demonic path).
+ova_xianxia_is_sect_trigger = {
+	OR = {
+		ova_xianxia_is_righteous_sect_trigger = yes
+		ova_xianxia_is_demonic_sect_trigger = yes
+	}
+}
+
+# The 13 sects plus the two imperial courts FEN and YAO - all war-layer participants
+# (FEN/YAO never host a Destined One, but they take part in the dao war).
+ova_xianxia_is_participant_trigger = {
+	OR = {
+		ova_xianxia_is_sect_trigger = yes
+		c:FEN ?= THIS
+		c:YAO ?= THIS
+	}
+}
+
+# THIS fights for the demonic path.
+ova_xianxia_on_demonic_side_trigger = {
+	ova_xianxia_is_demonic_sect_trigger = yes
+}
+
+# THIS fights for the righteous path - the 9 sects plus the two imperial courts.
+ova_xianxia_on_righteous_side_trigger = {
+	OR = {
+		ova_xianxia_is_righteous_sect_trigger = yes
+		c:FEN ?= THIS
+		c:YAO ?= THIS
+	}
+}
+
+# True while at least one demonic-path tag still stands as an independent, existing country.
+ova_xianxia_demonic_side_still_stands_trigger = {
+	OR = {
+		AND = { exists = c:BLO c:BLO = { is_subject = no } }
+		AND = { exists = c:GHO c:GHO = { is_subject = no } }
+		AND = { exists = c:SHA c:SHA = { is_subject = no } }
+		AND = { exists = c:NIN c:NIN = { is_subject = no } }
+	}
+}
+
+# The demonic path's second victory condition - it owns (or holds subject) at least 5 of the
+# 9 righteous sect capitals. Scope-agnostic (hardcodes the demonic tags, not ROOT), copying the
+# murim ova_murim_cult_owns_five_capitals_trigger shape.
+ova_xianxia_demonic_owns_five_capitals_trigger = {
+	calc_true_if = {
+		amount >= 5
+		s:STATE_SHENJIAN = {
+            any_scope_state = {
+                OR = {
+                    owner = c:BLO
+                    owner = c:GHO
+                    owner = c:SHA
+                    owner = c:NIN
+                    owner = { is_subject_of = c:BLO }
+                    owner = { is_subject_of = c:GHO }
+                    owner = { is_subject_of = c:SHA }
+                    owner = { is_subject_of = c:NIN }
+                }
+            }
+		}
+		s:STATE_TIANYIN = {
+            any_scope_state = {
+                OR = {
+                    owner = c:BLO
+                    owner = c:GHO
+                    owner = c:SHA
+                    owner = c:NIN
+                    owner = { is_subject_of = c:BLO }
+                    owner = { is_subject_of = c:GHO }
+                    owner = { is_subject_of = c:SHA }
+                    owner = { is_subject_of = c:NIN }
+                }
+            }
+		}
+		s:STATE_HUAYUN = {
+            any_scope_state = {
+                OR = {
+                    owner = c:BLO
+                    owner = c:GHO
+                    owner = c:SHA
+                    owner = c:NIN
+                    owner = { is_subject_of = c:BLO }
+                    owner = { is_subject_of = c:GHO }
+                    owner = { is_subject_of = c:SHA }
+                    owner = { is_subject_of = c:NIN }
+                }
+            }
+		}
+		s:STATE_ZIXIA = {
+            any_scope_state = {
+                OR = {
+                    owner = c:BLO
+                    owner = c:GHO
+                    owner = c:SHA
+                    owner = c:NIN
+                    owner = { is_subject_of = c:BLO }
+                    owner = { is_subject_of = c:GHO }
+                    owner = { is_subject_of = c:SHA }
+                    owner = { is_subject_of = c:NIN }
+                }
+            }
+		}
+		s:STATE_XUANYUE = {
+            any_scope_state = {
+                OR = {
+                    owner = c:BLO
+                    owner = c:GHO
+                    owner = c:SHA
+                    owner = c:NIN
+                    owner = { is_subject_of = c:BLO }
+                    owner = { is_subject_of = c:GHO }
+                    owner = { is_subject_of = c:SHA }
+                    owner = { is_subject_of = c:NIN }
+                }
+            }
+		}
+		s:STATE_YUDAO = {
+            any_scope_state = {
+                OR = {
+                    owner = c:BLO
+                    owner = c:GHO
+                    owner = c:SHA
+                    owner = c:NIN
+                    owner = { is_subject_of = c:BLO }
+                    owner = { is_subject_of = c:GHO }
+                    owner = { is_subject_of = c:SHA }
+                    owner = { is_subject_of = c:NIN }
+                }
+            }
+		}
+		s:STATE_LINGGU = {
+            any_scope_state = {
+                OR = {
+                    owner = c:BLO
+                    owner = c:GHO
+                    owner = c:SHA
+                    owner = c:NIN
+                    owner = { is_subject_of = c:BLO }
+                    owner = { is_subject_of = c:GHO }
+                    owner = { is_subject_of = c:SHA }
+                    owner = { is_subject_of = c:NIN }
+                }
+            }
+		}
+		s:STATE_ZHUMING = {
+            any_scope_state = {
+                OR = {
+                    owner = c:BLO
+                    owner = c:GHO
+                    owner = c:SHA
+                    owner = c:NIN
+                    owner = { is_subject_of = c:BLO }
+                    owner = { is_subject_of = c:GHO }
+                    owner = { is_subject_of = c:SHA }
+                    owner = { is_subject_of = c:NIN }
+                }
+            }
+		}
+		s:STATE_XUEHUA = {
+            any_scope_state = {
+                OR = {
+                    owner = c:BLO
+                    owner = c:GHO
+                    owner = c:SHA
+                    owner = c:NIN
+                    owner = { is_subject_of = c:BLO }
+                    owner = { is_subject_of = c:GHO }
+                    owner = { is_subject_of = c:SHA }
+                    owner = { is_subject_of = c:NIN }
+                }
+            }
+		}
+	}
+}
+
+# The demonic path's victory: Great Feng is gone or bowed to the Covenant, OR the demonic path
+# holds 5 of the 9 righteous capitals. Scope-agnostic - safe to call from any country scope.
+ova_xianxia_demonic_victory_trigger = {
+	ova_xianxia_demonic_side_still_stands_trigger = yes
+	OR = {
+		NOT = { exists = c:FEN }
+		c:FEN ?= {
+			OR = {
+				is_subject_of = c:BLO
+				is_subject_of = c:GHO
+				is_subject_of = c:SHA
+				is_subject_of = c:NIN
+			}
+		}
+		ova_xianxia_demonic_owns_five_capitals_trigger = yes
+	}
+}
+
+# The righteous path's victory: the Blood Lotus Sect (the Covenant's head) is gone, or is itself
+# a subject of anyone outside the demonic path.
+ova_xianxia_righteous_victory_trigger = {
+	OR = {
+		NOT = { exists = c:BLO }
+		c:BLO ?= {
+			is_subject = yes
+			NOT = { is_subject_of = c:GHO }
+			NOT = { is_subject_of = c:SHA }
+			NOT = { is_subject_of = c:NIN }
+		}
+	}
+}
+
+# The Destined One hosted by THIS is alive - a champion character var was captured for it and
+# still resolves. Set lazily by je_ova_xianxia_mc_1's on_monthly_pulse (create_character is
+# deferred, so the arrival effect cannot save it directly).
+ova_xianxia_mc_is_alive_trigger = {
+	has_variable = ova_xianxia_mc_char
+	exists = var:ova_xianxia_mc_char
+}
+
+# ROOT may send its champion on a xianxia outing right now: a living, available champion, not
+# currently on the shared expedition, and not on the shared hinterland/outing cooldown.
+ova_xianxia_outing_ready_trigger = {
+	ova_champion_is_available = yes
+	NOT = { ova_champion_is_adventuring = yes }
+	NOT = { has_variable = ova_adventure_cooldown }
+}
+
+# True if ANY other sect currently hosts a living Destined One of its own - our rival pool for
+# the Duel of Destinies chain.
+ova_xianxia_rival_exists_trigger = {
+	any_country = {
+		NOT = { THIS = ROOT }
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		ova_has_living_champion = yes
+	}
+}
+
+# --- AI-strategy target checks (scope:target_country forms, the murim
+# --- ova_murim_target_is_alliance_sect_trigger pattern). Used by
+# --- common/ai_strategies/12_ova_xianxia_strategies.txt and the champion
+# --- expedition AI to point each side of the dao war at the other.
+
+# The strategy's target is one of the four demonic-path sects.
+ova_xianxia_target_is_demonic_trigger = {
+	OR = {
+		c:BLO ?= scope:target_country
+		c:GHO ?= scope:target_country
+		c:SHA ?= scope:target_country
+		c:NIN ?= scope:target_country
+	}
+}
+
+# The strategy's target fights for the righteous side - the two imperial
+# courts or any of the nine sworn sects.
+ova_xianxia_target_is_righteous_side_trigger = {
+	OR = {
+		c:FEN ?= scope:target_country
+		c:YAO ?= scope:target_country
+		c:SWO ?= scope:target_country
+		c:HEA ?= scope:target_country
+		c:FLO ?= scope:target_country
+		c:PUR ?= scope:target_country
+		c:MYS ?= scope:target_country
+		c:FEA ?= scope:target_country
+		c:SPI ?= scope:target_country
+		c:VER ?= scope:target_country
+		c:SNO ?= scope:target_country
+	}
+}

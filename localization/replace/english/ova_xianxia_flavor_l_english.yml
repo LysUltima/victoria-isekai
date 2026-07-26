@@ -1,0 +1,103 @@
+﻿l_english:
+  # --- ova_xianxia_flavor.1 - the pill-furnace explosion
+  ova_xianxia_flavor.1.t: "The Pill-Furnace Explosion"
+  ova_xianxia_flavor.1.d: "An elders furnace overpressures mid-refinement, and a wing of the alchemy hall goes up in green-black smoke that smells faintly of scorched herbs and worse. No one is killed, though three disciples will carry burn scars, and the whole mountain heard the bang."
+  ova_xianxia_flavor.1.f: "The elder in question insists the recipe was sound and the batch was cursed. The batch cannot defend itself."
+  ova_xianxia_flavor.1.a: "Pay for repairs and hush it up"
+  ova_xianxia_flavor.1.b: "Make an example of the elder"
+
+  # --- ova_xianxia_flavor.2 - the jade-slip auction season
+  ova_xianxia_flavor.2.t: "The Jade-Slip Auction Season"
+  ova_xianxia_flavor.2.d: "Sects across the jianghu send their finest jade slips to the great autumn auctions - techniques, elixir recipes, treasures pried from dead mens hands and never quite explained. Hosting a stall takes only a table, a scale, and a reputation for not cheating buyers too badly."
+  ova_xianxia_flavor.2.f: "One lot this year is listed only as unidentified. It sold for more than anything with a proper description."
+  ova_xianxia_flavor.2.a: "Take a cut as auction host"
+  ova_xianxia_flavor.2.b: "Sit this season out"
+
+  # --- ova_xianxia_flavor.3 - a wandering sword immortal asks for tea
+  ova_xianxia_flavor.3.t: "A Wandering Sword Immortal Asks for Tea"
+  ova_xianxia_flavor.3.d: "An old cultivator in a patched robe bows at the gate, asks politely for a bowl of tea, and mentions - almost as an afterthought, over the second cup - that he would not mind testing blades with whoever the sect considers its finest."
+  ova_xianxia_flavor.3.f: "He drinks the tea slowly, as though he has nowhere else in the world to be. Perhaps he does not."
+  ova_xianxia_flavor.3.a: "Let the sects finest test blades with him"
+  ova_xianxia_flavor.3.b: "Tea only, no blades"
+
+  # --- ova_xianxia_flavor.4 - the incense economy of the ancestral shrines
+  ova_xianxia_flavor.4.t: "The Incense Economy of the Ancestral Shrines"
+  ova_xianxia_flavor.4.d: "The shrine keepers have noticed exactly how much a devout disciple will pay for a stick of blessed incense before a life-or-death trial. Faith and commerce have never been strangers here, only occasional roommates."
+  ova_xianxia_flavor.4.f: "The incense smoke has stained the shrine roof black in places no restoration seems able to reach."
+  ova_xianxia_flavor.4.a: "Sell blessed incense at the gate"
+  ova_xianxia_flavor.4.b: "Burn it freely for all who climb the mountain"
+
+  # --- ova_xianxia_flavor.5 - counterfeit cultivation manuals flood the market
+  ova_xianxia_flavor.5.t: "Counterfeit Cultivation Manuals Flood the Market"
+  ova_xianxia_flavor.5.d: "Peddlers sell manuals claiming lineage to sects that never wrote a page of them - invented forms, borrowed titles, the occasional genuine fragment smuggled out of a dead masters library. Most of it is worthless. One page in twenty is not."
+  ova_xianxia_flavor.5.f: "A forgers guild would be too grand a word for it. It is three old men, a printing block, and a very good ear for what juniors want to believe about themselves."
+  ova_xianxia_flavor.5.a: "Buy up the stock for the archive"
+  ova_xianxia_flavor.5.b: "Burn the forgeries publicly"
+
+  # --- ova_xianxia_flavor.6 - a spirit-beast tide out of the hills
+  ova_xianxia_flavor.6.t: "A Spirit-Beast Tide Out of the Hills"
+  ova_xianxia_flavor.6.d: "A tide of spirit beasts pours down out of the wild hills, driven by some disturbance deeper in the qi veins than anyone has yet named. The outer hunters cannot keep pace with the carcasses, let alone the living ones."
+  ova_xianxia_flavor.6.f: "One old hunter swears the beasts are running from something, not toward anything. Nobody wants to ask what."
+  ova_xianxia_flavor.6.a: "Mobilize every hunter in the sect"
+  ova_xianxia_flavor.6.b: "Let the outer disciples handle it"
+
+  # --- ova_xianxia_flavor.7 - two elders feud over a qi vein
+  ova_xianxia_flavor.7.t: "Two Elders Feud Over a Qi Vein"
+  ova_xianxia_flavor.7.d: "Two senior elders each claim first discovery of a rich qi vein beneath the sects own mountain, and neither will yield an inch of precedence. Their disciples have taken to glaring at each other across the dining hall."
+  ova_xianxia_flavor.7.f: "Both elders insist this is a matter of principle, not pride. Everyone else has stopped pretending to believe them."
+  ova_xianxia_flavor.7.a: "Rule in favor of the senior elder"
+  ova_xianxia_flavor.7.b: "Split the vein between them"
+
+  # --- ova_xianxia_flavor.8 - the mortal town at the mountain foot petitions the sect
+  ova_xianxia_flavor.8.t: "The Mortal Town at the Mountain Foot Petitions the Sect"
+  ova_xianxia_flavor.8.d: "Village elders climb the long stair to ask for wells cleared of spirit vermin and grain enough to see the mortal town through a hard winter. They bow low, the way mortals bow to those who could simply refuse and lose nothing."
+  ova_xianxia_flavor.8.f: "One old woman in the delegation has climbed this stair every winter for forty years. She has never once been received by the same disciple twice."
+  ova_xianxia_flavor.8.a: "Grant the petition"
+  ova_xianxia_flavor.8.b: "Turn the mortals away"
+
+  # --- ova_xianxia_flavor.9 - a demonic preacher at the crossroads
+  ova_xianxia_flavor.9.t: "A Demonic Preacher at the Crossroads"
+  ova_xianxia_flavor.9.d: "A robed preacher of the demonic dao stands at the crossroads promising power without a masters leash - or, to a Covenant sects own disciples, simply reminding the home crowd of the doctrine. Whether he is a stranger stirring up an orthodox mountain or one of the faithful come to preach, the crossroads always draws a crowd."
+  ova_xianxia_flavor.9.f: "He has a good voice for it. That is, in its own way, the most dangerous thing about him."
+  ova_xianxia_flavor.9.a: "Expel him / preach him boldly"
+  ova_xianxia_flavor.9.b: "Let him speak / let them gather"
+
+  # --- ova_xianxia_flavor.10 - the heavenly omen nobody can read
+  ova_xianxia_flavor.10.t: "The Heavenly Omen Nobody Can Read"
+  ova_xianxia_flavor.10.d: "A comet with a tail like a dragons whisker crosses the night sky for nine nights running, and every diviner in the jianghu offers a different reading - a coming tribulation, a coming birth, a coming war, or nothing at all but a rock on fire, depending which school trained them."
+  ova_xianxia_flavor.10.f: "The one thing every diviner agrees on is that whatever it means, it does not mean nothing. This is not, strictly speaking, reassuring."
+  ova_xianxia_flavor.10.a: "Consult the sects diviners"
+  ova_xianxia_flavor.10.b: "Ignore the sky and tend to the mountain"
+
+  # --- ova_xianxia_flavor.11 - a rogue cultivator turns himself in with a stolen treasure
+  ova_xianxia_flavor.11.t: "A Rogue Cultivator Turns Himself In"
+  ova_xianxia_flavor.11.d: "A rogue cultivator kneels at the gate at dawn, sets down a treasure stolen from a rival sect years before, and asks only that the old debt be considered paid. He looks tired in a way that has nothing to do with the road he walked to get here."
+  ova_xianxia_flavor.11.f: "He does not ask for forgiveness, only an ending. Most rogue cultivators, in the end, only ever want the second thing."
+  ova_xianxia_flavor.11.a: "Accept the treasure, forgive the debt"
+  ova_xianxia_flavor.11.b: "Turn him over to the sect he wronged"
+
+  # --- ova_xianxia_flavor.12 - the sword tablet no junior can lift
+  ova_xianxia_flavor.12.t: "The Sword Tablet No Junior Can Lift"
+  ova_xianxia_flavor.12.d: "An ancient tablet in the inner hall carries a sword intent so heavy that generations of juniors have failed to so much as lift it from its stand. Most leave with bruised pride. A rare few leave with bruised ribs."
+  ova_xianxia_flavor.12.f: "The tablet has no name carved on it, only a single character worn nearly smooth: patience."
+  ova_xianxia_flavor.12.a: "Let him try"
+
+  # --- ova_xianxia_flavor.13 - the matchmaker season
+  ova_xianxia_flavor.13.t: "The Matchmaker Season"
+  ova_xianxia_flavor.13.d: "Matchmakers descend on every sect gate each autumn, weighing marriage alliances between disciples of rival houses like goods at a market stall - a golden core here, a promising bloodline there, and no shortage of elders eager to trade a daughter for a treaty."
+  ova_xianxia_flavor.13.f: "The matchmakers themselves claim total impartiality. Their fee schedule suggests otherwise."
+  ova_xianxia_flavor.13.a: "Encourage the alliances"
+  ova_xianxia_flavor.13.b: "Forbid entangling alliances"
+
+  # --- ova_xianxia_flavor.14 - storytellers retell the Destined Ones wrong
+  ova_xianxia_flavor.14.t: "Storytellers Retell the Destined Ones Wrong"
+  ova_xianxia_flavor.14.d: "Teahouse storytellers across the jianghu embellish every Destined Ones tale beyond all recognition - in one version he tamed a spirit beast the size of a mountain, in another he answered the heavenly tribulation with a single sneeze and it apologized. Half is invented. All of it sells more tea."
+  ova_xianxia_flavor.14.f: "Somewhere in all the retellings, wonderfully wrong as most of them are, a grain of the true story survives."
+  ova_xianxia_flavor.14.a: "Let the tale grow taller"
+
+  # --- Static modifier display names (every modifier needs one)
+  ova_xianxia_flavor_furnace_scars: "Furnace Scandal"
+  ova_xianxia_flavor_auction_boom: "Jade-Slip Auction Boom"
+  ova_xianxia_flavor_manual_glut: "Archived Manual Fragments"
+  ova_xianxia_flavor_beast_tide_bounty: "Beast Tide Bounty"
+  ova_xianxia_flavor_vein_dispute: "Divided Qi Vein"

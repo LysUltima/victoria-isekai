@@ -1,0 +1,5 @@
+﻿japan_generate_scripted_heirs = {
+	# Emptied: created rulers from vanilla Earth character templates (JAP_*),
+	# wiped by replace_paths (common/character_templates). Kept as a no-op stub because
+	# live code still calls it; the Earth-flavour body was dead. See CLAUDE.md.
+}

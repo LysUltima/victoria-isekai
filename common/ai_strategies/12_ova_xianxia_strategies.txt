@@ -1,0 +1,375 @@
+﻿### Xianxia storyline - AI strategies
+# Both strategies are full copies of vanilla ai_strategy_territorial_expansion
+# (common/ai_strategies/02_diplomatic_strategies.txt) with every Earth
+# reference stripped, then a storyline-specific possible/weight/aggression
+# layered on top per tools/design/XIANXIA_STORYLINE_SPEC.md A5 - same template
+# common/ai_strategies/11_ova_murim_strategies.txt uses.
+
+ai_strategy_ova_righteous_path = {
+	icon = "gfx/interface/icons/ai_strategy_icons/territorial_expansion.dds"
+
+	type = diplomatic
+
+	will_form_power_bloc = {
+		OR = {
+			global_country_ranking <= 3
+			AND = {
+				country_rank >= rank_value:great_power
+				has_technology_researched = nationalism
+			}
+		}
+	}
+
+	undesirable_infamy_level = {
+		value = 50
+
+		if = {
+			limit = {
+				has_technology_researched = pan-nationalism
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_technology_researched = nationalism
+			}
+			multiply = 1.25
+		}
+	}
+
+	unacceptable_infamy_level = {
+		value = 100
+	}
+
+	ideological_opinion_effect_mult = {
+		value = 0.75
+	}
+
+	wargoal_maneuvers_fraction = {
+		value = 0.15
+	}
+
+	diplomatic_play_neutrality = {
+		value = 25
+	}
+
+	diplomatic_play_boldness = {
+		value = 25
+	}
+
+	recklessness = {
+		value = 0.25
+	}
+
+	aggression = {
+		value = 1
+
+		if = {
+			limit = {
+				NOT = { is_country_type = unrecognized }
+				scope:target_country = { is_country_type = unrecognized }
+			}
+			add = 1
+		}
+
+		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
+		if = {
+			limit = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}
+			}
+			multiply = 0.25
+		}
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		multiply = {
+			value = "ai_ideological_opinion(scope:target_country)"
+			multiply = -0.1
+			add = 1
+			max = 2.0
+			min = 0.5
+		}
+
+		# The righteous path's whole purpose - press the dao war against the Blood Lotus Covenant
+		if = {
+			limit = {
+				OR = {
+					c:BLO ?= scope:target_country
+					c:GHO ?= scope:target_country
+					c:SHA ?= scope:target_country
+					c:NIN ?= scope:target_country
+				}
+			}
+			add = 1.5
+		}
+	}
+
+	building_group_weights = {
+		bg_army = 1.5
+	}
+
+	secret_goal_weights = {
+		protect = 0.5
+		conquer = 1.5
+	}
+
+	wargoal_weights = {
+		annex_country = 1.5
+		conquer_state = 2.0
+		return_state = 1.5
+		force_nationalization = 0.25
+	}
+
+	secret_goal_scores = {
+		conquer = {
+			trigger = {
+				NOT = { scope:target_country = { is_subject_of = root } }
+				can_reach_target_country = yes
+				# the usual adjacency/rank gates apply to ordinary neighbours,
+				# but never to the demonic path: the righteous side means to
+				# burn the lotus root and stem whatever its rank or how far the
+				# carrion hills run (the murim/isekai gate-bypass pattern)
+				OR = {
+					AND = {
+						has_strategic_adjacency = scope:target_country
+						scope:target_country.country_rank <= root.country_rank
+					}
+					ova_xianxia_target_is_demonic_trigger = yes
+				}
+			}
+			score = {
+				if = {
+					limit = {
+						NOT = { is_country_type = unrecognized }
+						scope:target_country = { NOT = { is_country_type = unrecognized } }
+					}
+					add = 25
+				}
+				else_if = {
+					limit = {
+						scope:target_country = { is_country_type = unrecognized }
+					}
+					add = 50
+				}
+				# the dao war, above every ordinary quarrel
+				if = {
+					limit = { ova_xianxia_target_is_demonic_trigger = yes }
+					add = 100
+				}
+			}
+		}
+		# even where conquest is out of reach, the righteous path never makes
+		# peace with the Blood Lotus Covenant
+		antagonize = {
+			trigger = {
+				ova_xianxia_target_is_demonic_trigger = yes
+			}
+			score = {
+				value = 150
+			}
+		}
+	}
+
+	possible = {
+		OR = {
+			ova_xianxia_is_righteous_sect_trigger = yes
+			c:FEN ?= THIS
+			c:YAO ?= THIS
+		}
+		exists = c:BLO
+	}
+
+	weight = {
+		value = 150
+	}
+}
+
+ai_strategy_ova_demonic_path = {
+	icon = "gfx/interface/icons/ai_strategy_icons/territorial_expansion.dds"
+
+	type = diplomatic
+
+	will_form_power_bloc = {
+		OR = {
+			global_country_ranking <= 3
+			AND = {
+				country_rank >= rank_value:great_power
+				has_technology_researched = nationalism
+			}
+		}
+	}
+
+	undesirable_infamy_level = {
+		value = 50
+
+		if = {
+			limit = {
+				has_technology_researched = pan-nationalism
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_technology_researched = nationalism
+			}
+			multiply = 1.25
+		}
+	}
+
+	unacceptable_infamy_level = {
+		value = 100
+	}
+
+	ideological_opinion_effect_mult = {
+		value = 0.75
+	}
+
+	wargoal_maneuvers_fraction = {
+		value = 0.15
+	}
+
+	diplomatic_play_neutrality = {
+		value = 25
+	}
+
+	diplomatic_play_boldness = {
+		value = 25
+	}
+
+	recklessness = {
+		value = 0.25
+	}
+
+	aggression = {
+		value = 1
+
+		if = {
+			limit = {
+				NOT = { is_country_type = unrecognized }
+				scope:target_country = { is_country_type = unrecognized }
+			}
+			add = 1
+		}
+
+		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
+		if = {
+			limit = {
+				has_attitude = {
+					who = scope:target_country
+					attitude = antagonistic
+				}
+			}
+			multiply = 0.25
+		}
+
+		# More aggressive against ideological enemies, a bit less aggressive against ideological allies
+		multiply = {
+			value = "ai_ideological_opinion(scope:target_country)"
+			multiply = -0.1
+			add = 1
+			max = 2.0
+			min = 0.5
+		}
+
+		# The Covenant's whole purpose - drown the Jade Throne of Great Feng
+		if = {
+			limit = {
+				c:FEN ?= scope:target_country
+			}
+			add = 2.0
+		}
+
+		# A lesser, but still real, hunger for the nine righteous banners
+		if = {
+			limit = {
+				OR = {
+					c:SWO ?= scope:target_country
+					c:HEA ?= scope:target_country
+					c:FLO ?= scope:target_country
+					c:PUR ?= scope:target_country
+					c:MYS ?= scope:target_country
+					c:FEA ?= scope:target_country
+					c:SPI ?= scope:target_country
+					c:VER ?= scope:target_country
+					c:SNO ?= scope:target_country
+					c:YAO ?= scope:target_country
+				}
+			}
+			add = 1.0
+		}
+	}
+
+	building_group_weights = {
+		bg_army = 1.5
+	}
+
+	secret_goal_weights = {
+		protect = 0.5
+		conquer = 1.5
+	}
+
+	wargoal_weights = {
+		annex_country = 1.5
+		conquer_state = 2.0
+		return_state = 1.5
+		force_nationalization = 0.25
+	}
+
+	secret_goal_scores = {
+		conquer = {
+			trigger = {
+				NOT = { scope:target_country = { is_subject_of = root } }
+				can_reach_target_country = yes
+				# ordinary neighbours are gated by adjacency and rank; the Jade
+				# Throne and its sworn sects never are - the lotus means to
+				# drink them all
+				OR = {
+					AND = {
+						has_strategic_adjacency = scope:target_country
+						scope:target_country.country_rank <= root.country_rank
+					}
+					ova_xianxia_target_is_righteous_side_trigger = yes
+				}
+			}
+			score = {
+				if = {
+					limit = {
+						NOT = { is_country_type = unrecognized }
+						scope:target_country = { NOT = { is_country_type = unrecognized } }
+					}
+					add = 25
+				}
+				else_if = {
+					limit = {
+						scope:target_country = { is_country_type = unrecognized }
+					}
+					add = 50
+				}
+				# the dao war, above every ordinary conquest
+				if = {
+					limit = { ova_xianxia_target_is_righteous_side_trigger = yes }
+					add = 100
+				}
+			}
+		}
+		# the Covenant never rests easy beside a standing righteous banner
+		antagonize = {
+			trigger = {
+				ova_xianxia_target_is_righteous_side_trigger = yes
+			}
+			score = {
+				value = 150
+			}
+		}
+	}
+
+	possible = {
+		ova_xianxia_is_demonic_sect_trigger = yes
+	}
+
+	weight = {
+		value = 200
+	}
+}

@@ -1,0 +1,8 @@
+﻿# Namgung (murim: spiritualism tier 3)
+COUNTRIES = {
+	c:NAM ?= {
+		effect_starting_technology_spiritualism_tier_3 = yes
+		create_character = { template = template_ruler_nam role = ruler }
+		effect_starting_politics_traditional = yes
+	}
+}

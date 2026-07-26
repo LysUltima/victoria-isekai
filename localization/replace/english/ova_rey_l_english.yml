@@ -1,0 +1,167 @@
+﻿l_english:
+  # ===================================================================
+  # Reyorn harem storyline (John Paradox) - journal entries, objective
+  # tooltips, affection-tier status lines, and the Affection bar loc.
+  # Isekai light-novel voice, curly apostrophes, never em dashes. Defs:
+  # common/journal_entries/ova_rey_journal.txt. The bar desc/second_desc
+  # MUST stay apostrophe-free (progress-bar parsing gotcha).
+  # ===================================================================
+
+  # --- The Affection bar
+  ova_rey_affection_bar: "Affection"
+  ova_rey_affection_bar_desc: "Affection"
+  ova_rey_affection_bar_second_desc: "Fill the bar, then make your confession"
+
+  # --- Shared affection-tier status lines
+  je_ova_rey_status_cool: "She regards this otherworlder with cool curiosity, and nothing warmer yet."
+  je_ova_rey_status_warming: "She has stopped pretending she is not glad to see him coming."
+  je_ova_rey_status_fond: "She is fond of him now, and no longer hides it well."
+  je_ova_rey_status_smitten: "She is quite thoroughly smitten. One good push more, and the question asks itself."
+  je_ova_rey_status_won: "Her heart is his. Make your confession from the journal button and win her."
+
+  je_ova_rey_john_gone_tt: "John Paradox is dead, and his tale with him"
+  je_ova_rey_confessed_tt: "She has said yes: John has made his confession"
+  je_ova_rey_cold_tt: "Eight dates came and went and her heart stayed cool (under 20 Affection)"
+
+  # --- The confession button (ova_rey_buttons.txt), shown on each courtship JE
+  ova_rey_confess_cat_button: "Confess to Nasira"
+  ova_rey_confess_dog_button: "Confess to Bruna"
+  ova_rey_confess_bear_button: "Confess to Ursla"
+  ova_rey_confess_rabbit_button: "Confess to Lieselotte"
+  ova_rey_confess_fox_button: "Confess to Fenna"
+  ova_rey_confess_button_desc: "Her heart is ready. Say the words, and win her hand. Nothing else is required."
+  ova_rey_confess_ready_tt: "The Affection bar must be full first"
+  ova_rey_confess_effect_tt: "Make John’s confession and win her heart"
+
+  # ===================================================================
+  # Chapter 1: Katzenburg - Nasira, the desert-cat merchant heiress
+  # ===================================================================
+  je_ova_rey_court_cat: "The Cat of Katzenburg"
+  je_ova_rey_court_cat_reason: "The republic summoned a hero from another world and got John Paradox: an otherworlder with a champion’s soul and an eye for a pretty face. He has decided, before anything so dull as governing, to win the heart of a beastfolk daughter of every one of Reyorn’s five states. He begins in the capital, with Nasira al-Sahra, the desert-cat merchant heiress who prices everything and gives away nothing. Fill her Affection bar across eight dates, then confess from the journal button once it is full: that confession alone wins her. Three optional deeds each pour a great lump of affection into the bar and help you get there: raise a house of silks (Textile Mills at level 5 in Katzenburg), throw open the republic’s markets (enact Free Trade), and set its merchants free (enact Laissez-Faire). Leave her cold after all eight dates, or let the five-year season run out, and John will simply try the next state."
+  je_ova_rey_cat_heart_tt: "Her heart is won (the Affection bar is full)"
+  je_ova_rey_cat_obj1_tt: "A house of silks stands in Katzenburg (Textile Mills at level 5)"
+  je_ova_rey_cat_obj2_tt: "The republic trades freely (enact Free Trade)"
+  je_ova_rey_cat_obj3_tt: "The capital’s merchants run free (enact Laissez-Faire)"
+
+  # ===================================================================
+  # Chapter 2: Welpenstadt - Bruna, the dogkin guard-captain
+  # ===================================================================
+  je_ova_rey_court_dog: "The Captain of Welpenstadt"
+  je_ova_rey_court_dog_reason: "In Welpenstadt the gate is held by Bruna Falk, a dogkin guard-captain as loyal as she is tireless, who has never once let anyone past her inspection twice. John means to be the one exception she keeps forever. Fill her Affection bar across eight dates at her side, then confess from the journal button once it is full: that confession alone wins her. Three optional deeds each pour a great lump of affection into the bar and help you get there: raise a proper garrison (Barracks at level 20 in Welpenstadt), stand up a citizens’ watch to keep the peace (enact the National Guard), and become a hero she can look up to (reach Champion Level 12). Leave her cold after all eight dates, or let the season run out, and she will salute him one last time and John will move on to the next state."
+  je_ova_rey_dog_heart_tt: "Her heart is won (the Affection bar is full)"
+  je_ova_rey_dog_obj1_tt: "A great garrison stands in Welpenstadt (Barracks at level 20)"
+  je_ova_rey_dog_obj2_tt: "A citizens’ watch keeps the peace (enact the National Guard)"
+  je_ova_rey_dog_obj3_tt: "John Paradox has reached Champion Level 12"
+
+  # ===================================================================
+  # Chapter 3: Barenberg - Ursla, the bearkin mountain smith
+  # ===================================================================
+  je_ova_rey_court_bear: "The Smith of Barenberg"
+  je_ova_rey_court_bear_reason: "High in Barenberg the forges roar for Ursla Steinfell, a bearkin smith who can bend an iron bar and blush at a kind word in the same breath. John means to be worth both. Fill her Affection bar across eight dates on the mountain beside her, then confess from the journal button once it is full: that confession alone wins her. Three optional deeds each pour a great lump of affection into the bar and help you get there: build her forges into an arsenal for the republic (Arms Factory at level 5 in Barenberg), win the proud mountain with a hero’s legend (reach Renown Level 6), and grow strong enough to stand beside her (reach Champion Level 15). Leave her cold after all eight dates, or come up short by season’s end, and she will clap him once on the shoulder in farewell and John will try the next state."
+  je_ova_rey_bear_heart_tt: "Her heart is won (the Affection bar is full)"
+  je_ova_rey_bear_obj1_tt: "Her forges arm the republic (Arms Factory at level 10 in Barenberg)"
+  je_ova_rey_bear_obj2_tt: "John Paradox has reached Renown Level 6"
+  je_ova_rey_bear_obj3_tt: "John Paradox has reached Champion Level 15"
+
+  # ===================================================================
+  # Chapter 4: Hasenhafen - Lieselotte, the rabbitkin harvest maiden
+  # ===================================================================
+  je_ova_rey_court_rabbit: "The Maiden of Hasenhafen"
+  je_ova_rey_court_rabbit_reason: "Out in the fields of Hasenhafen lives Lieselotte Klee, a rabbitkin harvest maiden as gentle and easily startled as she is kind, whose smile is worth more than the whole crop. John means to earn it. Fill her Affection bar across eight dates among the clover, then confess from the journal button once it is full: that confession alone wins her. Three optional deeds each pour a great lump of affection into the bar and help you get there: bring in a harvest to overflow her barns (Wheat Farm at level 20 in Hasenhafen), win her timid folk over with your fame (reach Renown Level 9), and grow strong enough to keep them safe (reach Champion Level 18). Leave her cold after all eight dates, or let the bar sit short when the season ends, and she will wave goodbye with tears she will not explain and John will move on to the next state."
+  je_ova_rey_rabbit_heart_tt: "Her heart is won (the Affection bar is full)"
+  je_ova_rey_rabbit_obj1_tt: "A harvest overflows in Hasenhafen (Wheat Farm at level 20)"
+  je_ova_rey_rabbit_obj2_tt: "John Paradox has reached Renown Level 9"
+  je_ova_rey_rabbit_obj3_tt: "John Paradox has reached Champion Level 18"
+
+  # ===================================================================
+  # Chapter 5: Fuschtal - Fenna, the foxkin scholar
+  # ===================================================================
+  je_ova_rey_court_fox: "The Fox of Fuschtal"
+  je_ova_rey_court_fox_reason: "In the wooded vale of Fuschtal, Fenna Rotwald asks riddles for a living and keeps her real answers to herself. She is the cleverest woman John has met in two worlds, and the hardest to read. Fill her Affection bar across eight dates matching wits with her, then confess from the journal button once it is full: that confession alone wins her. Three optional deeds each pour a great lump of affection into the bar and help you get there: raise an archive worthy of her mind (University at level 10 in Fuschtal), become the legend the whole vale argues about (reach Renown Level 14), and become the peerless hero even she must admire (reach Champion Level 22). Leave her cold after all eight dates, or fail to fill the bar in time, and she will smile a last unreadable smile and John will make for the capital instead."
+  je_ova_rey_fox_heart_tt: "Her heart is won (the Affection bar is full)"
+  je_ova_rey_fox_obj1_tt: "An archive worthy of her stands in Fuschtal (University at level 10)"
+  je_ova_rey_fox_obj2_tt: "John Paradox has reached Renown Level 14"
+  je_ova_rey_fox_obj3_tt: "John Paradox has reached Champion Level 22"
+
+  # ===================================================================
+  # Capstone: the presidency of Reyorn
+  # ===================================================================
+  je_ova_rey_ascension: "The Paradox Presidency"
+  je_ova_rey_ascension_reason: "John Paradox has courted his way clean across the republic, and the beastfolk of Reyorn have begun to say the otherworlder should not merely marry into their people but lead them. Every bride he truly won brings her whole nation to his side. Stand for the presidency, and enshrine the peoples of the women who chose him as founding cultures of a new Reyorn."
+  je_ova_rey_ascension_tt: "John Paradox has taken the presidency of Reyorn"
+  je_ova_rey_ascension_status_wait: "The republic waits on the otherworlder to take the chair that is already his in all but name."
+  je_ova_rey_ascension_status_done: "President Paradox holds the republic, and its people are many."
+
+  # ===================================================================
+  # Date-beat consequence modifiers. Defs:
+  # common/static_modifiers/ova_rey_modifiers.txt. Each one is the literal
+  # outcome of a courtship option, so the name should read like the thing
+  # that happened, not like a bonus.
+  # ===================================================================
+  # Katzenburg / Nasira
+  ova_rey_cat_routes_open: "The Spice Routes Reopened"
+  ova_rey_cat_cartel_grip: "The Cartel’s Grip"
+  ova_rey_cat_partnership: "Partners in the Bazaar"
+  ova_rey_cat_open_ledger: "An Honest Ledger"
+  ova_rey_cat_star_sapphire: "The Star-Sapphire"
+
+  # Welpenstadt / Bruna
+  ova_rey_dog_watch_sharpened: "The Watch Stands Taller"
+  ova_rey_dog_kennelward_calm: "The Kennelward Remembers"
+  ova_rey_dog_iron_hand: "The Iron Hand"
+  ova_rey_dog_hero_in_the_ranks: "A Hero in the Ranks"
+  ova_rey_dog_oathsworn: "Sworn on the Oath Stone"
+  ova_rey_dog_paperwork_filed: "The Paperwork, Filed"
+
+  # Barenberg / Ursla
+  ova_rey_bear_forge_heart: "Heart in the Forge"
+  ova_rey_bear_gallery_shored: "The Gallery Shored"
+  ova_rey_bear_masterwork: "The Steinfell Masterwork"
+
+  # Hasenhafen / Lieselotte
+  ova_rey_rabbit_full_baskets: "Baskets Brought In Full"
+  ova_rey_rabbit_weir_held: "The Weir Held"
+  ova_rey_rabbit_fields_drowned: "The Low Fields Drowned"
+  ova_rey_rabbit_market_voice: "Voices at the Market"
+
+  # Fuschtal / Fenna
+  ova_rey_fox_two_worlds_lore: "Lore of Two Worlds"
+  ova_rey_fox_scholars_favor: "The Vale’s Scholars"
+  ova_rey_fox_burned_chapter: "The Chapter That Burned"
+  ova_rey_fox_star_charts: "Two Skies, Charted"
+
+  # Shared
+  ova_rey_otherworld_lecture: "An Otherworlder Explains"
+  ova_rey_wedding_jubilee: "A Hero’s Wedding"
+  ova_rey_married_into_the_hero: "Married Into the Hero’s House"
+  ova_rey_republic_in_mourning: "The Banners Are Lowered"
+  ova_rey_many_peoples: "A Household of Many Peoples"
+  ova_rey_festival_of_furs: "Festival of Every Fur and Feather"
+  ova_rey_first_citizen: "First Citizen Paradox"
+  ova_rey_paradox_republic: "The Paradox Republic"
+
+  # ===================================================================
+  # Hardcoded character name keys. The templates in
+  # common/character_templates/ova_story_templates.txt use these bare tokens as
+  # first_name / last_name; without a loc key the game renders the raw token and
+  # vic3-tiger flags it as missing localization. The display ORDER (first-last vs
+  # last-first) comes from each culture's name_format, not from here. "John"
+  # already has a key in character_names_l_english.yml, so it is not repeated.
+  # ===================================================================
+  # template_john_paradox (cu:otherworld_english)
+  Paradox: "Paradox"
+  # template_ova_rey_cat - Nasira al-Sahra (cu:desert_catkin)
+  Nasira: "Nasira"
+  al-Sahra: "al-Sahra"
+  # template_ova_rey_dog - Bruna Falk (cu:dogkin)
+  Bruna: "Bruna"
+  Falk: "Falk"
+  # template_ova_rey_bear - Ursla Steinfell (cu:bearkin)
+  Ursla: "Ursla"
+  Steinfell: "Steinfell"
+  # template_ova_rey_rabbit - Lieselotte Klee (cu:western_rabbitkin)
+  Lieselotte: "Lieselotte"
+  Klee: "Klee"
+  # template_ova_rey_fox - Fenna Rotwald (cu:forest_foxkin)
+  Fenna: "Fenna"
+  Rotwald: "Rotwald"

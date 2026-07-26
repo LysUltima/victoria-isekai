@@ -1,0 +1,1476 @@
+﻿# ARTIFICE TREE (internal category: production)
+# Magic-industry / arcanepunk. Spirit Stones -> Magic Cores -> Automata.
+# War Automata replace Artillery. Labor-saving automation PMs.
+# All prerequisites are within this tree.
+
+### ERA 1
+
+manufacturies = {
+	# Unlocks Mercantilism Law
+	# Unlocks Food Industry, Textile Mills, Furniture Manufacturies, Glassworks, Tooling Workshops, Paper Mills
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+urbanization = {
+	# Unlocks Urban Centers building
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	category = production
+
+	modifier = {
+		state_infrastructure_from_population_add = 2
+		state_infrastructure_from_population_max_add = 40
+		state_building_construction_sector_max_level_add = 10
+		country_max_weekly_construction_progress_add = 10
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+democracy = {
+	# Unlocks Right of Assembly - Freedom of Speech Law
+	# Unlocks Landed Voting, Wealth Voting, Census Voting - Distribution of Power Laws
+	# Unlocks Presidential Republic, Parliamentary Republic - Governance Principles Law
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/democracy.dds"
+	category = production
+
+	modifier = {
+		country_institution_social_security_max_investment_add = 2
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+spirit_stone_mining = {
+	# Unlocks Spirit Stone Mine, Iron Mine, Mythril Mine, Sulfur Mine
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/shaft_mining.dds"
+	category = production
+
+	unlocking_technologies = {
+		manufacturies
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+cotton_gin = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/cotton_gin.dds"
+	category = production
+
+	modifier = {
+		building_cotton_plantation_throughput_add = 0.25
+	}
+
+	unlocking_technologies = {
+		manufacturies
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+lathe = {
+	# Unlocks Lathes PM in Furniture Manufacturies
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/lathe.dds"
+	category = production
+
+	unlocking_technologies = {
+		cotton_gin
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+sawmills = {
+	# Unlocks Saw Mills PM in Logging Camps (split from core_founding)
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	unlocking_technologies = {
+		manufacturies
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+clockwork_mechanisms = {
+	# Precision escapements and gear-trains for manufacturing
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/lathe.dds"
+	category = production
+
+	modifier = {
+		building_group_bg_manufacturing_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		lathe
+        sawmills
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+arcane_surveying = {
+	# Dowsing engines and leyline theodolites
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/prospecting_tech.dds"
+	category = production
+
+	modifier = {
+		building_group_bg_mining_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		prospecting
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+mana_lamps = {
+	# Spirit stone street lighting
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/crystal_glass.dds"
+	category = production
+
+	modifier = {
+		state_infrastructure_from_population_max_add = 10
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		urbanization
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+core_founding = {
+	# Unlocks Core Foundries (Magic Cores) - moved to Era 2, split from sawmills
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/steelworking.dds"
+	category = production
+
+	unlocking_technologies = {
+        clockwork_mechanisms
+        arcane_surveying
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+prospecting = {
+	# Unlocks possibility to discover Gold Fields
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/prospecting_tech.dds"
+	category = production
+
+	unlocking_technologies = {
+		spirit_stone_mining
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+stock_exchange = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/stock_exchanges.dds"
+	category = production
+
+	modifier = {
+		state_market_access_price_impact = 0.1
+	}
+
+	unlocking_technologies = {
+		urbanization
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+law_enforcement = {
+	# Unlocks Local Police, Dedicated Police - Policing Laws
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/law_enforcement.dds"
+	category = production
+
+	modifier = {
+		country_institution_police_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		democracy
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+artillery = {
+	# Unlocks War Automata Production PM in War Automata Foundries
+	# Unlocks War Automata PM in Barracks
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/artillery.dds"
+	category = production
+
+	unlocking_technologies = {
+		core_founding
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+### ERA 2
+
+mana_core_engine = {
+	# Unlocks Automata Industries
+	# Unlocks Core-Engine Pump PM in Spirit Stone Mine, Iron Mine, Mythril Mine, Sulfur Mine
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/atmospheric_engine.dds"
+	category = production
+
+	unlocking_technologies = {
+		core_founding
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				country_rank >= rank_value:unrecognized_major_power
+			}
+			add = 2
+		}
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+mana_conduit_boilers = {
+	# Unlocks Mana Conduit PMs in Furniture Manufacturies, Tooling Workshops, Paper Mills, Core Foundries, Automata Industries
+	# Unlocks Condensing Core Pump in Spirit Stone, Iron, Mythril, Sulfur Mines
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/watertube_boiler.dds"
+	category = production
+
+	unlocking_technologies = {
+		mana_core_engine
+        merchant_airships
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+mechanical_tools = {
+	# Unlocks Precision Tools PM in Furniture Workshops
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/mechanical_tools.dds"
+	category = production
+
+	unlocking_technologies = {
+		lathe
+		core_founding
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+railways = {
+	# Unlocks Railways
+	# Unlocks Rail Transport PMs in mines, plantations, logging camps
+	# Unlocks Public Trams in Urban Centers
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/railways.dds"
+	category = production
+
+	unlocking_technologies = {
+		mechanical_tools
+		mana_core_engine
+	}
+
+	ai_weight = {
+		value = 2 # Important tech for everyone
+
+		if = {
+			limit = {
+				country_rank >= rank_value:unrecognized_major_power
+			}
+			add = 2
+		}
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+canneries = {
+	# Unlocks Cannery PM in Food Industries
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/canneries.dds"
+	category = production
+
+	unlocking_technologies = {
+		lathe
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+mechanized_workshops = {
+	# Unlocks Slaughterhouses PM in Livestock Ranches
+	# Unlocks Sewing Machines PM and Mechanized Looms PM in Textile Mills
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/mechanized_workshops.dds"
+	category = production
+
+	modifier = {
+		building_economy_of_scale_level_cap_add = 10
+	}
+
+	unlocking_technologies = {
+		canneries
+		mechanical_tools
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				 has_strategy = ai_strategy_industrial_expansion
+			}
+			add = 1
+		}
+	}
+}
+
+resonance_forging = {
+	# Unlocks Resonance Forging PM in Core Foundries
+	# Unlocks Magic Core Tools PM in Tooling Workshops
+	# Unlocks Core-Infused Consumables secondary PM in Consumables Workshops
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/bessemer_process.dds"
+	category = production
+
+	unlocking_technologies = {
+		core_founding
+        mana_lamps
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				 has_strategy = ai_strategy_industrial_expansion
+			}
+			add = 1
+		}
+	}
+}
+
+merchant_airships = {
+	# Merchant Airships - Era 2: unlocks the Core-Lifted Airships PM
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/zeppelins.dds"
+	category = production
+
+	modifier = {
+		state_market_access_price_impact = 0.05
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		airship_flight
+        law_enforcement
+        stock_exchange
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+corporate_charters = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/corporate_charters.dds"
+	category = production
+
+	modifier = {
+		country_max_companies_add = 1
+		country_free_charters_add = 2
+	}
+
+	unlocking_technologies = {
+        merchant_airships
+        clockwork_mechanisms
+	}
+
+	ai_weight = {
+		value = 3 # very important tech
+	}
+}
+
+egalitarianism = {
+	# Unlocks Universal Suffrage - Distribution of Power Law
+	# Unlocks Egalitarian - Citizenship Law
+	# Unlocks Proportional Taxation - Income Taxation Law
+	# New leaders may spawn with the Radical Ideology
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/egalitarianism.dds"
+	category = production
+
+	modifier = {
+		state_expected_sol_from_literacy = 1
+		country_institution_social_security_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		democracy
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_progressive_agenda
+			}
+			add = 2
+		}
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_conservative_agenda
+					has_strategy = ai_strategy_reactionary_agenda
+				}
+			}
+			add = -0.5
+		}
+	}
+}
+
+mobile_automata_doctrine = {
+	# Unlocks Mobile War Automata PM in Barracks
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/napoleonic_warfare.dds"
+	category = production
+
+	unlocking_technologies = {
+		artillery
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+bursting_cores = {
+	# Unlocks Bursting Core War Automata Production PM in War Automata Foundries
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/shell_gun.dds"
+	category = production
+
+	unlocking_technologies = {
+		artillery
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+### ERA 3
+
+hauler_automata = {
+	# Unlocks Hauler Automata PM in Logging Camps
+	# Unlocks Hauler Automata PM in Spirit Stone, Iron, Mythril, Sulfur Mines
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/steam_donkey.dds"
+	category = production
+
+	unlocking_technologies = {
+		mana_conduit_boilers
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+reaper_automata = {
+	# Unlocks Reaper Automata PM on Rye, Wheat, Rice, Maize, Millet Farms
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/threshing_machine.dds"
+	category = production
+
+	unlocking_technologies = {
+		hauler_automata
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_agricultural_expansion
+					has_strategy = ai_strategy_plantation_economy
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+rotary_core_engines = {
+	# Unlocks Rotary Core Engine PM in Furniture Manufacturies, Tooling Workshops, Paper Mills, Core Foundries, Automata Industries
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/rotary_valve_engine.dds"
+	category = production
+
+	unlocking_technologies = {
+		mana_conduit_boilers
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+core_railway_cars = {
+	# Unlocks Magic Core Passenger Carriages PM and Armored Cars PM in Railways
+	# Increases Railway max level by 1
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/steel_railway_cars.dds"
+	category = production
+
+	unlocking_technologies = {
+		railways
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+mythril_frame_buildings = {
+	# Unlocks Covered Markets PM in Urban Centers
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/steel_frame_buildings.dds"
+	category = production
+	modifier = {
+		state_infrastructure_from_population_add = 1
+		state_infrastructure_from_population_max_add = 20
+		state_building_construction_sector_max_level_add = 5
+		country_max_weekly_construction_progress_add = 5
+		country_prestige_mult = 0.05
+		state_harvest_condition_flood_impact_mult = -0.05
+	}
+
+	unlocking_technologies = {
+		resonance_forging
+	}
+
+	ai_weight = {
+		value = 2 # Important in general
+	}
+}
+
+sealed_crucible_forging = {
+	# Unlocks Open Hearth Process PM in Core Foundries
+	# Unlocks Resonant Core Consumables secondary PM in Consumables Workshops
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/open_hearth_process.dds"
+	category = production
+
+	unlocking_technologies = {
+		resonance_forging
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+shift_work = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/shift_work.dds"
+	category = production
+
+	modifier = {
+		building_economy_of_scale_level_cap_add = 20
+	}
+
+	unlocking_technologies = {
+		mechanized_workshops
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+vacuum_canning = {
+	# Unlocks Vacuum Canning PM in Food Industries
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/vacuum_canning.dds"
+	category = production
+
+	unlocking_technologies = {
+		mechanized_workshops
+        baking_powder
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+labor_movement = {
+	# Unlocks Regulatory Bodies - Labor Rights Law
+	# Unlocks Restricted Child Labor - Children's Rights Laws
+	# Unlocks Wage Controls - Social Security Laws
+	# Increases attraction of Trade Unions IG
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/labor_movement.dds"
+	category = production
+
+	modifier = {
+		state_expected_sol_from_literacy = 1
+		country_institution_workplace_safety_max_investment_add = 3
+		country_agitator_slots_add = 1
+	}
+
+	unlocking_technologies = {
+		egalitarianism
+	}
+
+	on_researched = {
+		set_global_variable = labour_movement_researched
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_egalitarian_agenda
+			}
+			add = 2
+		}
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_conservative_agenda
+					has_strategy = ai_strategy_reactionary_agenda
+				}
+			}
+			add = -0.5
+		}
+	}
+}
+
+socialism = {
+	# Unlocks Council Republic - Governance Principles Law
+	# Unlocks Graduated Taxation - Income Taxation Law
+	# New leaders may spawn with the Social Democrat, Communist Ideologies
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/socialism.dds"
+	category = production
+
+	modifier = {
+		state_expected_sol_from_literacy = 1
+		country_institution_workplace_safety_max_investment_add = 2
+	}
+
+	on_researched = {
+		if = {
+			limit = {
+				NOT = { has_variable = socialism_researched }
+			}
+			set_variable = socialism_researched
+			ig:ig_trade_unions ?= {
+				add_ideology = ideology_socialist
+			}
+		}
+	}
+
+	unlocking_technologies = {
+		labor_movement
+		joint_stock_companies
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+human_rights = {
+	# Unlocks Worker Protections - Labor Rights Law
+	# Unlocks Protected Speech - Freedom of Speech Law
+	# Unlocks Compulsory Schooling - Children's Rights Laws
+	# Unlocks Old Age Pensions - Social Security Laws
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/human_rights.dds"
+	category = production
+
+	modifier = {
+		country_institution_social_security_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		egalitarianism
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_progressive_agenda
+			}
+			add = 0.5
+		}
+		if = {
+			limit = {
+				has_strategy = ai_strategy_egalitarian_agenda
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_conservative_agenda
+					has_strategy = ai_strategy_reactionary_agenda
+				}
+			}
+			add = -0.5
+		}
+	}
+}
+
+greater_war_automata = {
+	# Unlocks Greater War Automata Production PM in War Automata Foundries
+	# Unlocks Greater War Automata PM in Barracks
+	# Unlocks Railway Guns PM in Railways
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/breech_loading_artillery.dds"
+	category = production
+
+	unlocking_technologies = {
+		bursting_cores
+        mobile_automata_doctrine
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+calculation_engines = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/military_statistics.dds"
+	category = production
+
+	modifier = {
+		military_formation_organization_gain_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		greater_war_automata
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+### ERA 4
+
+conveyors = {
+	# Unlocks the Assembly Lines PM in Furniture Manufacturies, Tooling Workshops, Automata Industries
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/conveyers.dds"
+	category = production
+
+	unlocking_technologies = {
+		shift_work
+		vacuum_canning
+		dough_rollers
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+field_automata = {
+	# Unlocks Field Automata PM in Rye Farms, Wheat Farms, Millet Farms
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/mechanized_farming.dds"
+	category = production
+
+	unlocking_technologies = {
+		reaper_automata
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_agricultural_expansion
+					has_strategy = ai_strategy_plantation_economy
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+pneumatic_tools = {
+	# +10% construction throughput
+	# Countries get a +25% chance of discovering new resources
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/pneumatic_tools.dds"
+	category = production
+
+	modifier = {
+		building_construction_sector_throughput_add = 0.1
+		goods_output_hardwood_mult = 0.25
+		country_resource_discovery_chance_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		rotary_core_engines
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+elevator = {
+	# Unlocks Arcades PM in Urban Center
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/elevator.dds"
+	category = production
+
+	modifier = {
+		state_infrastructure_from_population_add = 1
+		state_infrastructure_from_population_max_add = 20
+		state_building_construction_sector_max_level_add = 5
+		country_max_weekly_construction_progress_add = 5
+	}
+
+	unlocking_technologies = {
+		mythril_frame_buildings
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+corporate_management = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/corporate_management.dds"
+	category = production
+
+	modifier = {
+		country_max_companies_add = 1
+		state_urbanization_per_level_mult = -0.25
+	}
+
+	unlocking_technologies = {
+		socialism
+		mutual_funds
+	}
+
+	ai_weight = {
+		value = 2 # important tech
+	}
+}
+
+feminism = {
+	# Unlocks Women in the Workplace - Rights of Women Law
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/feminism.dds"
+	category = production
+
+	on_researched = {
+		if = {
+			limit = {
+				NOT = { has_variable = feminism_researched }
+			}
+			set_variable = feminism_researched
+			custom_tooltip = {
+				text = liberal_and_egalitarian_amended_tt
+				every_interest_group = {
+					limit = {
+						has_ideology = ideology:ideology_liberal
+					}
+					remove_ideology = ideology_liberal
+					add_ideology = ideology_liberal_modern
+				}
+				every_interest_group = {
+					limit = {
+						has_ideology = ideology:ideology_egalitarian
+					}
+					remove_ideology = ideology_egalitarian
+					add_ideology = ideology_egalitarian_modern
+				}
+			}
+		}
+	}
+
+	modifier = {
+		country_institution_social_security_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		human_rights
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_egalitarian_agenda
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_conservative_agenda
+					has_strategy = ai_strategy_reactionary_agenda
+				}
+			}
+			add = -0.5
+		}
+	}
+}
+
+siege_automata_doctrine = {
+	# Unlocks Siege War Automata PM in Barracks
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/wargaming.dds"
+	category = production
+
+	modifier = {
+		unit_army_offense_mult = 0.1
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		calculation_engines
+        field_automata
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+### ERA 5
+
+dough_rollers = {
+	# Unlocks the Automated Bakery PM in Food Industries
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/rollers.dds"
+	category = production
+
+	unlocking_technologies = {
+		mechanized_workshops
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+arc_welding = {
+	# Unlocks Arc Welding Shipbuilding PM in Shipyards
+	# Unlocks Very Fast PM in Construction Camps
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/arc_welding.dds"
+	category = production
+
+	unlocking_technologies = {
+		pneumatic_tools
+		elevator
+		core_railway_cars
+	}
+
+	modifier = {
+		country_ship_group_capital_ships_construction_progress_max_add = 20
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+central_planning = {
+	# Unlocks Command Economy - Economic System Law
+	# Unlocks Vertical Filing Cabinets PM in Government Administrations
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/central_planning.dds"
+	category = production
+
+	modifier = {
+		state_tax_capacity_add = 25
+		country_authority_mult = 0.1
+		country_government_dividends_efficiency_add = 0.05
+		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
+		state_literacy_growth_add = 0.0002
+	}
+
+	unlocking_technologies = {
+		corporate_management
+        feminism
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+mass_surveillance = {
+	# Unlocks Personal Files PM in Government Administrations
+	# Unlocks Militarized Police - Policing Law
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/mass_surveillance.dds"
+	category = production
+
+	modifier = {
+		state_tax_capacity_add = 25
+		country_support_separatism_resistance_mult = 0.25
+		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		central_planning
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+nco_training = {
+	# Unlocks Advanced Officer Training PM in Barracks
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/nco_training.dds"
+	category = production
+
+	modifier = {
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		siege_automata_doctrine
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+warded_bastions = {
+	# Increases defense
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/concrete_fortifications.dds"
+	category = production
+
+	modifier = {
+		unit_army_defense_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		siege_automata_doctrine
+		auto_cycling_war_cores
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+colossal_war_automata = {
+	# Colossal War Automata
+	# Unlocks Colossal Automata PM in Airship Works
+	# Unlocks Automata Legion PMs in Barracks
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/mobile_armor.dds"
+	category = production
+
+	unlocking_technologies = {
+		warded_bastions
+		nco_training
+		arc_welding
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+airship_flight = {
+	# AIRSHIPS - Era 1 Artifice; basic hulls lifted by raw spirit stones
+	# Unlocks Airship Works
+	# Unlocks Airship Recon PM in Barracks
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/military_aviation.dds"
+	category = production
+
+	unlocking_technologies = {
+		spirit_stone_mining
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+### MOVED FROM ALCHEMY (rebalance)
+
+baking_powder = {
+	# Unlocks Baking Powder PM in Food Industries
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/baking_powder.dds"
+	category = production
+
+	unlocking_technologies = {
+		canneries
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+joint_stock_companies = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/joint_stock_companies.dds"
+	category = production
+
+	modifier = {
+		country_max_companies_add = 1
+		state_urbanization_per_level_mult = -0.1
+	}
+
+	unlocking_technologies = {
+        corporate_charters
+        egalitarianism
+	}
+
+	ai_weight = {
+		value = 2 # important tech
+	}
+}
+
+core_miniaturization = {
+	# Pocket-sized magic cores; heavy industry precision
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/electric_arc_process.dds"
+	category = production
+
+	modifier = {
+		building_group_bg_heavy_industry_throughput_add = 0.05
+		goods_output_engines_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		core_lathing
+		pressure_lift_cells
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+servitor_automata = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/conveyers.dds"
+	category = production
+
+	modifier = {
+		state_bureaucracy_population_base_cost_factor_mult = -0.05
+		state_tax_capacity_add = 25
+	}
+
+	unlocking_technologies = {
+		conveyors
+		anima_drilling
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+
+### ISEKAI TC: moved from Spiritualism - perfected war automata are Artifice work
+
+auto_cycling_war_cores = {
+	# Unlocks Auto-Casting Arrays PM in Enchanted Arms Ateliers
+	# Unlocks Array Casters PMs in Barracks and Conscription Centers
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/machine_gun.dds"
+	category = production
+
+	unlocking_technologies = {
+		greater_war_automata
+	}
+
+	ai_weight = {
+		value = 1.5 # important for everyone
+	}
+}
+
+
+### ISEKAI TC: moved from Alchemy - joint-stock finance belongs to the Artifice corporate line
+
+mutual_funds = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/mutual_funds.dds"
+	category = production
+
+	modifier = {
+		country_minting_mult = 0.1
+		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
+	}
+
+	unlocking_technologies = {
+		socialism
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+
+### ISEKAI TC: Anima & Sentient Automata line (new Artifice techs)
+
+anima_drilling = {
+	# Unlocks the Automata Deep Siphons PM in Anima Rigs
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/pumpjacks.dds"
+	category = production
+
+	unlocking_technologies = {
+		hauler_automata
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_resource_expansion
+			}
+			add = 2
+		}
+	}
+}
+
+core_lathing = {
+	# Unlocks the Precision Core Assembly PM in Automata Industries and the Lathed Arc-Core PM in Consumables Workshops
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/lathe.dds"
+	category = production
+
+	unlocking_technologies = {
+		rotary_core_engines
+		sealed_crucible_forging
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+pressure_lift_cells = {
+	# Unlocks the Pressure-Cell Airships PM in Airship Works
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/zeppelins.dds"
+	category = production
+
+	unlocking_technologies = {
+		pneumatic_tools
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+autonomous_workforces = {
+	# Unlocks the Sentient Automata Crews automation PM in most industries, mines and logging camps
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/conveyers.dds"
+	category = production
+
+	unlocking_technologies = {
+		servitor_automata
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_industrial_expansion
+			}
+			add = 2
+		}
+	}
+}
+
+awakened_cores = {
+	# Unlocks the Awakened Automata PM in Sentient Automata Works
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/combustion_engine.dds"
+	category = production
+
+	unlocking_technologies = {
+		servitor_automata
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+automated_agriculture = {
+	# Unlocks the Sentient Field Automata PMs on farms and ranches
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/mechanized_farming.dds"
+	category = production
+
+	unlocking_technologies = {
+		field_automata
+		servitor_automata
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_agricultural_expansion
+			}
+			add = 2
+		}
+	}
+}

@@ -1,0 +1,53 @@
+﻿### Xianxia jianghu flavor - modifiers (Agent C, sole owner of this file)
+# Namespace ova_xianxia_flavor. Applied only by events/ova_xianxia_flavor_events.txt.
+# Kept separate from Agent A's common/static_modifiers/ova_xianxia_modifiers.txt (dao-war /
+# Destined One outcomes) per tools/design/XIANXIA_STORYLINE_SPEC.md - Agent C defines its own
+# small set here, at most 5, and never touches Agent A's file.
+# All modifier-type keys are verified either by prior use in
+# common/static_modifiers/ova_murim_flavor_modifiers.txt (building_group_bg_service_throughput_add,
+# country_tech_spread_mult, country_legitimacy_base_add - all confirmed real vanilla keys in
+# C:\Program Files (x86)\Steam\steamapps\common\Victoria 3\game\common\modifier_type_definitions\
+# 00_modifier_types.txt and 01_building_modifier_types.txt) or by direct grep against this mod's own
+# common/modifier_type_definitions/01_building_modifier_types.txt
+# (building_group_bg_spirit_beast_hunting_throughput_add at line 2141, building_group_bg_mining_
+# throughput_add at line 675 - the latter also already used by Agent A's
+# ova_xianxia_spirit_vein_windfall in ova_xianxia_modifiers.txt). Icons reused from vanilla
+# gfx/interface/icons/timed_modifier_icons/ (no new art). Static modifiers need no loc entry for the
+# tooltip (engine auto-generates it), but per spec every modifier here still gets a bare display-name
+# loc entry in ova_xianxia_flavor_l_english.yml.
+
+# A public reckoning over the pill-furnace explosion spreads word of the sect's lax discipline
+# (ova_xianxia_flavor.1, option b)
+ova_xianxia_flavor_furnace_scars = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	country_legitimacy_base_add = -5
+}
+
+# Hosting the season's jade-slip auction draws buyers, sellers, and their coin through the gates
+# (ova_xianxia_flavor.2, option a)
+ova_xianxia_flavor_auction_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_group_bg_service_throughput_add = 0.1
+	country_expenses_add = -1
+}
+
+# The archived forgeries are ninety-five parts worthless and one part genuine fragment - still
+# worth the shelf space (ova_xianxia_flavor.5, option a)
+ova_xianxia_flavor_manual_glut = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
+	country_tech_spread_mult = 0.05
+}
+
+# Every hunter in the sect turned out for the beast tide, and the hunting grounds are stripped
+# efficient for a season after (ova_xianxia_flavor.6, option a)
+ova_xianxia_flavor_beast_tide_bounty = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_group_bg_spirit_beast_hunting_throughput_add = 0.1
+}
+
+# Splitting one qi vein between two feuding elders means neither extraction crew works it
+# efficiently (ova_xianxia_flavor.7, option b)
+ova_xianxia_flavor_vein_dispute = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	building_group_bg_mining_throughput_add = -0.05
+}

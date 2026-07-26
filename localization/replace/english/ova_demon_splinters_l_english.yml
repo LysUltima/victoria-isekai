@@ -1,0 +1,15 @@
+﻿l_english:
+  # Demon splinter clans, spawned via event when the Demonic Empire (c:DEM) shatters.
+  # See common/country_definitions/01a_demon_splinters.txt.
+  AHD: "Ashhorn Dominion"
+  AHD_ADJ: "Ashhorn"
+  DUS: "Duskhorn Legion"
+  DUS_ADJ: "Duskhorn"
+  VEI: "Veilwing Dominion"
+  VEI_ADJ: "Veilwing"
+  RUI: "Ruinwing Host"
+  RUI_ADJ: "Ruinwing"
+  NOX: "Noxumbra Conclave"
+  NOX_ADJ: "Noxumbran"
+  VOI: "Voidpath Enclave"
+  VOI_ADJ: "Voidpath"

@@ -1,0 +1,343 @@
+﻿### Champions JE - buttons
+
+# Informational only - no effect. Exists purely so its tooltip can list, by
+# name, every country currently running an ova_sabotage_champion campaign
+# against us (ova_sabotage_saboteurs, a variable list kept in sync by that
+# action's accept/manual_break/auto_break effects - see
+# diplomatic_actions/60_ova_sabotage.txt). The counter-only
+# ova_champion_is_sabotaged trigger still gates growth/adventuring; this
+# button is display-only.
+ova_sabotage_watch_button = {
+	name = "ova_sabotage_watch_button"
+	desc = "ova_sabotage_watch_button_desc"
+
+	visible = {
+		ova_champion_is_sabotaged = yes
+	}
+
+	# The saboteur list is rendered from the EFFECT block: effect tooltips
+	# expand iterator effects per concrete entry, so every_in_list +
+	# save_temporary_scope_as + a per-entry custom_tooltip prints each
+	# sabotaging country by name (a custom_tooltip in `possible` is static
+	# text and can never enumerate the list - the old approach showed nothing).
+	effect = {
+		custom_tooltip = ova_sabotage_watch_countries_tt
+		every_in_list = {
+			variable = ova_sabotage_saboteurs
+			save_temporary_scope_as = ova_saboteur_entry
+			custom_tooltip = ova_sabotage_watch_entry_tt
+		}
+		custom_tooltip = ova_sabotage_watch_click_tt
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}
+
+ova_choose_champion_button = {
+	name = "ova_choose_champion_button"
+	desc = "ova_choose_champion_button_desc"
+
+	visible = {
+		NOT = { has_variable = ova_champion_char }
+		NOT = { has_variable = ova_champion_choosing }
+	}
+
+	possible = {
+        OR = {
+            custom_tooltip = {
+                text = ova_hero_light_orthodoxy_requires_summoning_tt
+                NOT = {
+                    AND = {
+                        country_has_state_religion = rel:light_orthodoxy
+                        ova_hero_crusade_active = yes
+                    }
+                }
+            }
+            c:LUX ?= THIS
+        }
+        OR = {
+            NOT = { ova_xianxia_is_sect_trigger = yes }
+		    has_variable = ova_xianxia_declined
+        }
+		# A murim (mae-culture) nation keeps the champion seat empty for
+		# Kang Jin-woo until the Returner's tale is settled: the dispatcher
+		# refuses a country that already holds a champion, so grabbing a
+		# generic one would lock his storyline out. Lifts once
+		# ova_murim_returner_fate is set (placed with a host, or gone
+		# forever), or if the Cult (CHE) is gone so no Returner can arrive.
+		# The Cult itself is exempt. Mirrors this button's ai_chance guard.
+		custom_tooltip = {
+			text = ova_murim_await_returner_tt
+			NOT = {
+				AND = {
+					country_has_primary_culture = cu:mae
+					NOT = { c:CHE ?= THIS }
+					exists = c:CHE
+					NOT = { has_global_variable = ova_murim_returner_fate }
+				}
+			}
+		}
+		
+	}
+
+	effect = {
+		set_variable = ova_champion_choosing
+		trigger_event = { id = ova_champion.1 popup = yes }
+	}
+
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				NOT = { has_variable = ova_champion_char }
+				NOT = { has_journal_entry = je_ova_hero_summoning }
+				# AI murim nations (any mae-culture country except the Cult
+				# itself) keep the champion seat open for Kang Jin-woo while his
+				# tale is still undecided: the Returner dispatcher refuses a
+				# country that already has a champion, so an AI sect grabbing a
+				# generic one would lock the murim storyline out. Released once
+				# ova_murim_returner_fate is set (placed or refused forever), or
+				# if CHE is gone (no Cult, no Returner dispatch). Players are
+				# unaffected - this is ai_chance only.
+				NOT = {
+					AND = {
+						country_has_primary_culture = cu:mae
+						NOT = { c:CHE ?= THIS }
+						exists = c:CHE
+						NOT = { has_global_variable = ova_murim_returner_fate }
+					}
+				}
+			}
+			add = 100
+		}
+	}
+}
+
+# Hunt the monsters of our own untamed hinterlands.
+ova_hinterland_hunt_button = {
+	name = "ova_hinterland_hunt_button"
+	desc = "ova_hinterland_hunt_button_desc"
+
+	visible = {
+		has_variable = ova_champion_char
+	}
+
+	possible = {
+		ova_champion_is_available = yes
+		custom_tooltip = {
+			text = ova_champion_not_adventuring_tt
+			NOT = { ova_champion_is_adventuring = yes }
+		}
+		NOT = { has_variable = ova_adventure_cooldown }
+		any_scope_state = {
+			has_potential_resource = building_spirit_beast_hunting
+		}
+	}
+
+	# Most hunts are uneventful (.15, a token trickle of XP); the notable
+	# outcomes - trophies, legend, wounds, death - are the minority.
+	# Wrapped so the button tooltip reads as prose, not raw event ids.
+	effect = {
+		custom_tooltip = ova_hinterland_hunt_effect_tt
+		hidden_effect = {
+		set_variable = { name = ova_adventure_cooldown value = 6 }
+		if = {
+			limit = { var:ova_champion_level < 20 }
+			random_list = {
+				55 = { trigger_event = { id = ova_champion.15 } }
+				8 = { trigger_event = { id = ova_champion.10 } }
+				10 = { trigger_event = { id = ova_champion.11 } }
+				12 = { trigger_event = { id = ova_champion.12 } }
+				12 = { trigger_event = { id = ova_champion.13 } }
+				3 = { trigger_event = { id = ova_champion.14 } }
+			}
+		}
+		else_if = {
+			limit = { var:ova_champion_level < 40 }
+			random_list = {
+				55 = { trigger_event = { id = ova_champion.15 } }
+				12 = { trigger_event = { id = ova_champion.10 } }
+				14 = { trigger_event = { id = ova_champion.11 } }
+				10 = { trigger_event = { id = ova_champion.12 } }
+				8 = { trigger_event = { id = ova_champion.13 } }
+				1 = { trigger_event = { id = ova_champion.14 } }
+			}
+		}
+		else = {
+			random_list = {
+				55 = { trigger_event = { id = ova_champion.15 } }
+				18 = { trigger_event = { id = ova_champion.10 } }
+				15 = { trigger_event = { id = ova_champion.11 } }
+				9 = { trigger_event = { id = ova_champion.12 } }
+				3 = { trigger_event = { id = ova_champion.14 } }
+			}
+		}
+		}
+	}
+
+	ai_chance = {
+		value = 0
+		if = {
+			limit = { var:ova_champion_level >= 10 }
+			add = 25
+		}
+	}
+}
+
+# Royal Patronage - a TOGGLE. While on, the program modifier
+# (ova_champion_patronage_program, expense scaled by money_amount_multiplier_medium)
+# is applied and the champion's Renown climbs. The modifier is reapplied every
+# five years (on_five_year_pulse_country -> ova_champion_refresh_programs) so
+# the cost tracks GDP over time. selected = the toggle is on; the effect flips it.
+# Mutually exclusive with Intensive Training, and unavailable while the
+# champion is abroad on an expedition (launching an expedition switches both
+# programs off - see 61_ova_expedition.txt's accept_effect).
+ova_patronage_button = {
+	name = "ova_patronage_button"
+	desc = "ova_patronage_button_desc"
+
+	visible = {
+		has_variable = ova_champion_char
+	}
+
+	selected = {
+		has_modifier = ova_champion_patronage_program
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_program_expedition_tt
+			NOT = { ova_champion_is_adventuring = yes }
+		}
+		custom_tooltip = {
+			text = ova_program_exclusive_patronage_tt
+			OR = {
+				has_modifier = ova_champion_patronage_program
+				NOT = { has_modifier = ova_champion_training_program }
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = ova_patronage_toggle_tt
+		hidden_effect = {
+			if = {
+				limit = { has_modifier = ova_champion_patronage_program }
+				remove_modifier = ova_champion_patronage_program
+			}
+			else = {
+				add_modifier = {
+					name = ova_champion_patronage_program
+					days = -1
+					multiplier = money_amount_multiplier_medium
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 0
+		# fund patronage once the champion has some renown to build on and we
+		# can afford it (never while the training program holds the slot)
+		if = {
+			limit = {
+				NOT = { has_modifier = ova_champion_patronage_program }
+				NOT = { has_modifier = ova_champion_training_program }
+				scaled_gold_reserves > 0.2
+				var:ova_champion_level >= 5
+			}
+			add = 15
+		}
+		# stop paying if the coffers run low
+		if = {
+			limit = {
+				has_modifier = ova_champion_patronage_program
+				scaled_gold_reserves < 0.2
+			}
+			add = 100
+		}
+	}
+}
+
+# Intensive Training - a TOGGLE. While on, the program modifier
+# (ova_champion_training_program, expense scaled by money_amount_multiplier_small)
+# is applied and the champion gains XP. Reapplied every five years so the cost
+# tracks GDP. Mutually exclusive with Royal Patronage, and unavailable while
+# the champion is abroad on an expedition (launching an expedition switches
+# both programs off - see 61_ova_expedition.txt's accept_effect).
+ova_training_button = {
+	name = "ova_training_button"
+	desc = "ova_training_button_desc"
+
+	visible = {
+		has_variable = ova_champion_char
+	}
+
+	selected = {
+		has_modifier = ova_champion_training_program
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_program_expedition_tt
+			NOT = { ova_champion_is_adventuring = yes }
+		}
+		custom_tooltip = {
+			text = ova_program_exclusive_training_tt
+			OR = {
+				has_modifier = ova_champion_training_program
+				NOT = { has_modifier = ova_champion_patronage_program }
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = ova_training_toggle_tt
+		hidden_effect = {
+			if = {
+				limit = { has_modifier = ova_champion_training_program }
+				remove_modifier = ova_champion_training_program
+			}
+			else = {
+				add_modifier = {
+					name = ova_champion_training_program
+					days = -1
+					multiplier = money_amount_multiplier_small
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 0
+		# train up a champion who still has room to grow, if affordable
+		# (never while the patronage program holds the slot)
+		if = {
+			limit = {
+				NOT = { has_modifier = ova_champion_training_program }
+				NOT = { has_modifier = ova_champion_patronage_program }
+                OR = {
+                    AND = {
+                        var:ova_champion_level < 40
+				        scaled_gold_reserves > 0.2
+                    }
+                    has_journal_entry = je_ova_victoria_3
+                }
+			}
+			add = 15
+		}
+		# stop once the champion is near the cap or money runs low
+		if = {
+			limit = {
+				has_modifier = ova_champion_training_program
+				OR = {
+					var:ova_champion_level >= 55
+					scaled_gold_reserves < 0.2
+				}
+			}
+			add = 100
+		}
+	}
+}

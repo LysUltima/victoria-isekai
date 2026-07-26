@@ -1,0 +1,58 @@
+﻿l_english:
+ # ===================================================================
+ # Suggested starts: the three storyline objectives shown in the
+ # new-game "Play Objective" panel. Top-level name/desc frames the
+ # campaign; the per-tag name/desc pitch each recommended nation's
+ # starting situation. Isekai light-novel voice, curly apostrophes,
+ # never em dashes. Defs: common/objectives/02_ova_storyline_objectives.txt
+ # ===================================================================
+
+ # ---- Isekai / the summoned hero ----
+ objective_ova_isekai:0 "A Hero From Another World"
+ objective_ova_isekai_desc:0 "The summoning bells toll, and a girl from another world opens her eyes on a battlefield she never chose. This is the isekai campaign: the Radiant crusade against the newly risen demon lands, and the eighteen centuries of lies buried beneath the holy banners. Each recommended nation holds one corner of that story."
+ objective_ova_isekai_idle_header:0 "The Otherworld Turns"
+ objective_ova_isekai_idle_hint:0 "Your part in the story is yours to write."
+
+ objective_ova_isekai_name_LYS:0 "#v $LYS$#!"
+ objective_ova_isekai_desc_LYS:0 "#lore A young empire whose otherwordly summoning was answered by Victoria Clausewitz. Lysna’s arcane workshops are the envy of the continent, yet its newest provinces sit on demon soil, and the Church that blessed the summoning would sooner she stayed a loyal sword. Raise the hero, learn what the crusade is truly for, and decide the shape of a new dawn.#!"
+ objective_ova_isekai_name_DEM:0 "#v $DEM$#!"
+ objective_ova_isekai_desc_DEM:0 "#lore For the first time in memory the demon tribes stand under one crown, and the human world has named them its single great enemy. The curse that once made them monsters is fading, their legions are disciplined and proud, and a crusade built on falsehood marches toward their red-leaved forests. Prove the whole world wrong.#!"
+ objective_ova_isekai_name_LUX:0 "#v $LUX$#!"
+ objective_ova_isekai_desc_LUX:0 "#lore From Insula Luce, the isle where the Goddess sleeps, the Radiant Church rules the faithful and calls the holy war. Aeternan doctrine goes unquestioned, its treasury grows fat on the summoning tithe. Hold the conscience of the world, or be undone by it.#!"
+ objective_ova_isekai_name_REY:0 "#v $REY$#!"
+ objective_ova_isekai_desc_REY:0 "#lore A proud republic founded in the ideals of freedom and equality. Summoned by the Church's call was John Paradox, an otherworlder Hero who would rather play a dating sim over a grand strategy. Win the heart of the beastkin woman of each of Reyorn’s five states, raise your summoned hero into a living legend, and let him charm his way to the presidency of a nation.#!"
+
+ # ---- Murim / rivers and lakes ----
+ objective_ova_murim:0 "The World of Rivers and Lakes"
+ objective_ova_murim_desc:0 "In the murim, the martial world, swordsaints and sworn brothers and blood feuds settle what kings cannot. Steel decides the ranking of the sects, and a Returner has come back carrying the memory of a future already lost. Choose an orthodox banner or the demonic cult and write your name into the gangho."
+ objective_ova_murim_idle_header:0 "Steel Sings in the Gangho"
+ objective_ova_murim_idle_hint:0 "Rank in the martial world is taken, never given."
+
+ objective_ova_murim_name_HWA:0 "#v $HWA$#!"
+ objective_ova_murim_desc_HWA:0 "#lore The plum-blossom sect, oldest and proudest of the orthodox schools and the natural head of any righteous alliance. Hwasan’s swordwork is legend, its disciples burn to restore the sect’s golden age, and the demonic cult is stirring once more. Gather the just under one banner and stand as the shield of the murim.#!"
+ objective_ova_murim_name_CHE:0 "#v $CHE$#!"
+ objective_ova_murim_desc_CHE:0 "#lore The great demonic cult, the one name that makes every orthodox elder reach for his blade. Under the Heavenly Demon the sect answers to no alliance and fears no siege. The whole righteous world will march to end you, so end them first, and rule the rivers and lakes outright.#!"
+ objective_ova_murim_name_NAM:0 "#v $NAM$#!"
+ objective_ova_murim_desc_NAM:0 "#lore The Namgung clan, a noble house of the orthodox world whose sword-and-lightning arts have guarded its name for generations. Prestige, discipline, and old rivalries all rest on your shoulders. Lead the proud families of the just, or eclipse every one of them.#!"
+ objective_ova_murim_name_PAE:0 "#v $PAE$#!"
+ objective_ova_murim_desc_PAE:0 "#lore The saber clan of the north, the Five Tigers of Paeng, whose blades are as blunt and honest as their pride. Long overshadowed by the great sword sects, Paeng hungers to prove the saber the equal of any weapon. Take the field and cut a path to the top of the ranking.#!"
+
+ # ---- Xianxia / the immortal dao ----
+ objective_ova_xianxia:0 "The Long Road to Immortality"
+ objective_ova_xianxia_desc:0 "Mortals are not meant to challenge heaven, and yet they do, gathering qi across a lifetime toward the golden core, the nascent soul, ascension itself. As the sects choose sides in a war of dao, a few children of Heaven are born. Cultivate, contend, and defy the tribulation."
+ objective_ova_xianxia_idle_header:0 "Heaven Watches the Bold"
+ objective_ova_xianxia_idle_hint:0 "Every breakthrough is earned against the will of the world."
+
+ objective_ova_xianxia_name_HEA:0 "#v $HEA$#!"
+ objective_ova_xianxia_desc_HEA:0 "#lore A righteous sect that cultivates through music, its qi carried on a single perfect note. Serene, respected, and quietly formidable, the Heavenly Note keeps to the orthodox way as the great dao war gathers. Refine your art, rally the just, and let your song shake the heavens.#!"
+ objective_ova_xianxia_name_FLO:0 "#v $FLO$#!"
+ objective_ova_xianxia_desc_FLO:0 "#lore An elegant orthodox sect as graceful as its name and far sharper than it appears. The Flowering Cloud’s disciples are courted by every righteous banner and envied by every demonic one. Rise through the immortal ranks and make the Pavilion a name spoken in awe.#!"
+ objective_ova_xianxia_name_BLO:0 "#v $BLO$#!"
+ objective_ova_xianxia_desc_BLO:0 "#lore A demonic sect that feeds its cultivation on blood and forbidden arts, blooming brightest where others bleed. Feared, hunted, and utterly unrepentant, the Blood Lotus answers only to power. Walk the crooked path, defy the righteous world, and seize immortality by force.#!"
+ objective_ova_xianxia_name_NIN:0 "#v $NIN$#!"
+ objective_ova_xianxia_desc_NIN:0 "#lore A heterodox sect drawing on the yin arts of the nine hells, bound into the covenant that opposes the righteous banners. The Nine Nether’s methods are dark and its ambitions darker still. Master the forbidden dao and drag the heavens down to you.#!"
+
+ # ---- Placeholder JE backing the auto-completing subgoals ----
+ je_ova_storyline_note:0 "A Tale Begins"
+ je_ova_storyline_note_reason:0 "Your chosen path is set. The world will write the rest."
+ je_ova_storyline_note_complete_tt:0 "The story is already in motion."

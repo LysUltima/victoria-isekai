@@ -1,0 +1,75 @@
+﻿### OVA shared champion layer - modifiers
+# ova_champion_patronage is a MARKER the monthly tick reads: while present it
+# adds Renown points (NOT prestige - the Royal Patronage button is a separate
+# toggle). Storyline decisions apply it with a duration. Kept effect-free so
+# its only in-game consequence is the scripted Renown gain.
+
+ova_champion_patronage = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+}
+
+# Toggle markers for the two upkeep programs (Royal Patronage / Closed-Door
+# Training). The button adds/removes the modifier - checked with has_modifier
+# instead of a variable so the program shows up in the country modifier list
+# and the budget. The GDP-scaled monthly cost is still billed in the tick; the
+# flat country_expenses_add here is the visible budget line.
+ova_champion_patronage_program = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_expenses_add = 1
+}
+
+ova_champion_training_program = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_expenses_add = 1
+}
+
+# Re-applied monthly with multiplier = champion renown (0..100)
+ova_champion_renown = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 1
+}
+
+# Champion at Golden Core / Nascent Soul
+ova_champion_ascendant_guardian = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	unit_offense_mult = 0.05
+	unit_defense_mult = 0.05
+}
+
+# Champion at Soul Formation / Return to the Void
+ova_champion_living_legend = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	unit_offense_mult = 0.10
+	unit_defense_mult = 0.10
+	unit_morale_recovery_mult = 0.05
+	country_prestige_add = 25
+}
+
+# Expedition loot floods the hall with supplies: the Champion Hall works
+# overtime for a year (it sells services - throughput scales its output).
+ova_champion_war_spoils = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_champion_hall_throughput_add = 0.50
+}
+
+# A champion has fallen - storyline events apply this with a duration.
+ova_champion_mourning = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	country_legitimacy_base_add = -10
+	country_prestige_mult = -0.05
+}
+
+# An expedition brought home a holy relic / ancient treasure - a temporary
+# prestige boon (applied by ova_champion.41 / .51).
+ova_champion_sacred_relic = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 30
+}
+
+# Cursed loot / a dying enemy's hex clings to the expedition (applied by
+# ova_champion.46 / .56).
+ova_champion_dark_omen = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	country_prestige_mult = -0.05
+	country_authority_mult = -0.10
+}

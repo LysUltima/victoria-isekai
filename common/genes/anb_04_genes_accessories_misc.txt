@@ -1,0 +1,69 @@
+﻿accessory_genes = {
+
+	#####################################
+	#									#
+	# 			 MISC					#
+	#									#
+	#####################################
+ 
+	gene_ogre_horns = {
+		inheritable = no
+		
+		no_horns = {
+			index = 0
+			male = {}
+			female = {}
+			boy = {}
+			girl = {}
+		}
+		all_horns = {
+			index = 2
+			male = {
+				1 = male_headgear_ogre_horns_1
+				1 = male_headgear_ogre_horns_2
+				1 = male_headgear_ogre_horns_3
+			}
+			female = {
+				1 = female_headgear_ogre_horns_1
+				1 = female_headgear_ogre_horns_2
+				1 = female_headgear_ogre_horns_3
+			}
+
+			boy = male
+			girl = female
+		}
+	}
+
+
+# #####################################
+# #									#
+# # 		    Props       	    #
+# #									#
+# #####################################
+
+ 	anbennar_props = {
+ 		inheritable = no
+
+		no_prop = {
+				index = 0
+				male = {
+					1 = empty
+				}		   
+				female = male
+				boy = male
+				girl = male
+			}
+
+		prop_goblin_goggle = {
+			index = 1
+			male = {
+				1 = "prop_goblin_goggle"
+			}
+			female = {
+				1 = empty
+			}
+			boy = male
+			girl = female
+		}
+    }
+} 

@@ -1,0 +1,7 @@
+﻿# Palnia (demonland: artifice tier 3)
+COUNTRIES = {
+	c:PAL ?= {
+		effect_starting_technology_artifice_tier_3 = yes
+		effect_starting_politics_pirate = yes
+	}
+}

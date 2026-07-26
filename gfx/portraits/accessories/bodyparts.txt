@@ -1,0 +1,61 @@
+﻿#####################################
+#									#
+# 			Female					#
+#									#
+#####################################
+
+
+female_eye_L = {
+	entity = { required_tags = "gnoll_pupil"  		shared_pose_entity = head entity = female_eye_L_gnoll_entity }
+	entity = { required_tags = "kobold_pupil"    	shared_pose_entity = head entity = female_eye_L_kobold_entity }
+	entity = { required_tags = "lizardfolk_pupil"  	shared_pose_entity = head entity = female_eye_L_lizardfolk_entity }
+	entity = { required_tags = "harimari_pupil"  	shared_pose_entity = head entity = female_eye_L_harimari_entity }
+	entity = { required_tags = ""  					shared_pose_entity = head entity = female_eye_L_human_entity }
+}
+
+female_eye_R = {
+	entity = { required_tags = "gnoll_pupil"  		shared_pose_entity = head entity = female_eye_R_gnoll_entity }
+	entity = { required_tags = "kobold_pupil"    	shared_pose_entity = head entity = female_eye_R_kobold_entity }
+	entity = { required_tags = "lizardfolk_pupil"  	shared_pose_entity = head entity = female_eye_R_lizardfolk_entity }
+	entity = { required_tags = "harimari_pupil"  	shared_pose_entity = head entity = female_eye_R_harimari_entity }
+	entity = { required_tags = ""  					shared_pose_entity = head entity = female_eye_R_human_entity }
+}
+
+female_eyelashes = {
+	entity = { entity = "female_eyelashes_entity"		shared_pose_entity = head }
+}
+female_teeth = {
+	entity = { entity = "female_teeth_entity"		shared_pose_entity = head }
+}
+
+
+#####################################
+#									#
+# 			Male					#
+#									#
+#####################################
+
+
+male_eye_L = {
+	entity = { required_tags = "gnoll_pupil"  		shared_pose_entity = head entity = male_eye_L_gnoll_entity }
+	entity = { required_tags = "kobold_pupil"    	shared_pose_entity = head entity = male_eye_L_kobold_entity }
+	entity = { required_tags = "lizardfolk_pupil"  	shared_pose_entity = head entity = male_eye_L_lizardfolk_entity }
+	entity = { required_tags = "harimari_pupil"  	shared_pose_entity = head entity = male_eye_L_harimari_entity }
+	entity = { required_tags = ""  					shared_pose_entity = head entity = male_eye_L_human_entity }
+}
+
+male_eye_R = {
+	entity = { required_tags = "gnoll_pupil"  		shared_pose_entity = head entity = male_eye_R_gnoll_entity }
+	entity = { required_tags = "kobold_pupil"    	shared_pose_entity = head entity = male_eye_R_kobold_entity }
+	entity = { required_tags = "lizardfolk_pupil"  	shared_pose_entity = head entity = male_eye_R_lizardfolk_entity }
+	entity = { required_tags = "harimari_pupil"  	shared_pose_entity = head entity = male_eye_R_harimari_entity }
+	entity = { required_tags = ""  					shared_pose_entity = head entity = male_eye_R_human_entity }
+}
+
+male_eyelashes = {
+	entity = { entity = "male_eyelashes_entity"		shared_pose_entity = head }
+}
+male_teeth = {
+	entity = { entity = "male_teeth_entity"		shared_pose_entity = head }
+}
+

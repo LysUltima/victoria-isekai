@@ -1,0 +1,168 @@
+﻿### Champions JE - heir cultivation-training decisions
+# Three ways to raise the heir's cultivation realm. ALL are disabled under a
+# Martial Sect government (which instead advances every character automatically -
+# see je_ova_sect_ascension). Academy and sect training lock the heir out of
+# other programs until they come of age (20); capital training runs in 5-year
+# terms, one realm at a time.
+
+# 1) Train the heir in our own capital's Cultivation Grounds. Each realm needs
+#    the matching Spiritualism tech and a bigger Cultivation Grounds (5 levels
+#    per rung) running the right realm's Production Method. Takes 5 years.
+decision_ova_train_heir_capital = {
+	is_shown = {
+		exists = heir
+		NOT = { has_law = law_type:law_martial_sect }
+		has_technology_researched = qi_gathering
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_heir_not_in_training_tt
+			NOT = { has_variable = ova_heir_in_training }
+		}
+		ova_heir_can_train_capital = yes
+	}
+
+	when_taken = {
+		ova_heir_train_capital_start = yes
+	}
+
+	ai_chance = {
+		value = 0
+		if = {
+			limit = { NOT = { has_variable = ova_heir_in_training } }
+			add = 20
+		}
+	}
+}
+
+# 2) Send the heir to the Academy (ACA). Comes of age (20) as a Foundation
+#    Establishment cultivator; a guarantee of our independence in the meantime.
+decision_ova_train_heir_academy = {
+	is_shown = {
+		exists = heir
+		NOT = { has_law = law_type:law_martial_sect }
+		exists = c:ACA
+		NOT = { c:ACA ?= this }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_heir_not_in_training_tt
+			NOT = { has_variable = ova_heir_in_training }
+		}
+		custom_tooltip = {
+			text = ova_heir_under_16_tt
+			heir ?= { age < 16 }
+		}
+		custom_tooltip = {
+			text = ova_heir_uncultivated_or_qi_tt
+			heir ?= {
+				NOR = {
+					has_trait = trait_foundation_establishment
+					has_trait = trait_golden_core
+					has_trait = trait_nascent_soul
+					has_trait = trait_soul_formation
+					has_trait = trait_return_to_the_void
+				}
+			}
+		}
+		custom_tooltip = {
+			text = ova_heir_academy_relations_tt
+			c:ACA ?= { relations:root >= 0 }
+		}
+		custom_tooltip = {
+			text = ova_heir_academy_interest_tt
+			has_interest_marker_in_region = sr:region_isekai
+		}
+		NOT = { any_enemy_in_diplo_play = { c:ACA ?= this } }
+	}
+
+	when_taken = {
+		ova_heir_train_academy_start = yes
+	}
+
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				NOT = { has_variable = ova_heir_in_training }
+				heir ?= { age < 16 }
+			}
+			add = 10
+		}
+	}
+}
+
+# 3) Send the heir to an allied or subject Sect (same power bloc, a defensive
+#    pact/alliance, or our own subject). Comes of age (20) as a Foundation
+#    Establishment cultivator, and - if the sect out-techs us - keeps climbing
+#    one realm every five years until the sect's ceiling (or they take a
+#    throne). In return we extend a century-long guarantee of the sect's
+#    independence.
+decision_ova_train_heir_sect = {
+	is_shown = {
+		exists = heir
+		NOT = { has_law = law_type:law_martial_sect }
+		ova_has_friendly_sect_neighbor = yes
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_heir_not_in_training_tt
+			NOT = { has_variable = ova_heir_in_training }
+		}
+		custom_tooltip = {
+			text = ova_heir_under_16_tt
+			heir ?= { age < 16 }
+		}
+		custom_tooltip = {
+			text = ova_heir_uncultivated_or_qi_tt
+			heir ?= {
+				NOR = {
+					has_trait = trait_foundation_establishment
+					has_trait = trait_golden_core
+					has_trait = trait_nascent_soul
+					has_trait = trait_soul_formation
+					has_trait = trait_return_to_the_void
+				}
+			}
+		}
+		ova_has_friendly_sect_neighbor = yes
+	}
+
+	when_taken = {
+		random_country = {
+			limit = {
+				has_law = law_type:law_martial_sect
+				NOT = { any_enemy_in_diplo_play = { root ?= this } }
+				OR = {
+					is_subject_of = root
+					is_in_same_power_bloc = root
+					any_scope_treaty = {
+						binds = root
+						any_scope_article = {
+							OR = {
+								has_type = alliance
+								has_type = defensive_pact
+							}
+						}
+					}
+				}
+			}
+			save_scope_as = ova_sect_scope
+		}
+		ova_heir_train_sect_start = yes
+	}
+
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				NOT = { has_variable = ova_heir_in_training }
+				heir ?= { age < 16 }
+			}
+			add = 10
+		}
+	}
+}

@@ -1,0 +1,21 @@
+﻿# Mod-unique cultural traditions (discrimination-trait axis).
+# This file overrides vanilla common/discrimination_traits/02_traditions.txt so that
+# NO real-world traditions (caucasian, sinosphere, russosphere, persianate, himalayan,
+# danubian, helvetic, rumelian, israelite, lusitanian) remain defined or referenced.
+# Traditions are kept sparse: most cultures carry none. Only a few meaningful,
+# cross-culture bonds are modelled here.
+
+# Shared by the peoples of the demon empire (dark elves and all demonkin).
+tradition_demonic = {
+	type = tradition
+}
+
+# Shared by the wild, monstrous peoples (orcs, goblins, and the feral demon-kin).
+tradition_monsteric = {
+	type = tradition
+}
+
+# Shared by the core cultivation societies of the xianxia heartland and the murim.
+tradition_cultivation = {
+	type = tradition
+}

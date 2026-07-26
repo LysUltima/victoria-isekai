@@ -1,0 +1,100 @@
+﻿# Isekai TC: migrated from vanilla common/journal_entries/00_establish_colonial_administration.txt
+# (2026-07-11), remapped per user instruction to this mod's colonial-frontier regions instead of
+# the real-world African sub-regions (west/east/southern/equatorial Africa): region_demonland_south,
+# region_beastland_wild, region_western_isles, region_western_isles_south, region_southern_isles
+# (5 regions, one more than vanilla's 4 - all 5 get an establish/expand button pair). Internal
+# variable/scope names use the region names directly (demonland_south/beastland_wild/
+# western_isles/western_isles_south/southern_isles) instead of inventing new place-names.
+# common/scripted_buttons is wiped by replace_paths, so the 10 scripted_button defs this JE
+# depends on are re-created in common/scripted_buttons/00_colonial_administration_buttons.txt.
+# Feeds events/colonial_administration_events.txt (already migrated) via
+# senegal/zanj/southern_africa/congo_subject_var pattern, renamed to match the 5 new region
+# variable names (also updates that file and its restored on_action guards).
+
+je_colonial_administration = {
+	icon = "gfx/interface/icons/invention_icons/colonization.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		NOT = { is_country_type = unrecognized }
+		is_not_in_geographic_region = geographic_region_demonland_south
+		is_not_in_geographic_region = geographic_region_beastland_wild
+		is_not_in_geographic_region = geographic_region_western_isles
+		is_not_in_geographic_region = geographic_region_western_isles_south
+		is_not_in_geographic_region = geographic_region_southern_isles
+		OR = {
+			has_interest_marker_in_region = sr:region_demonland_south
+			has_interest_marker_in_region = sr:region_beastland_wild
+			has_interest_marker_in_region = sr:region_western_isles
+			has_interest_marker_in_region = sr:region_western_isles_south
+			has_interest_marker_in_region = sr:region_southern_isles
+		}
+	}
+
+	possible = {
+		NOT = { is_country_type = unrecognized }
+		is_subject = no
+		any_scope_state = {
+			OR = {
+				is_in_geographic_region = geographic_region_demonland_south
+				is_in_geographic_region = geographic_region_beastland_wild
+				is_in_geographic_region = geographic_region_western_isles
+				is_in_geographic_region = geographic_region_western_isles_south
+				is_in_geographic_region = geographic_region_southern_isles
+			}
+		}
+		has_technology_researched = civilizing_mission
+	}
+
+	immediate = {
+		random_state_region = {
+			limit = {
+				region = sr:region_demonland_south
+			}
+			save_scope_as = demonland_south_region_scope
+		}
+		random_state_region = {
+			limit = {
+				region = sr:region_beastland_wild
+			}
+			save_scope_as = beastland_wild_region_scope
+		}
+		random_state_region = {
+			limit = {
+				region = sr:region_western_isles
+			}
+			save_scope_as = western_isles_region_scope
+		}
+		random_state_region = {
+			limit = {
+				region = sr:region_western_isles_south
+			}
+			save_scope_as = western_isles_south_region_scope
+		}
+		random_state_region = {
+			limit = {
+				region = sr:region_southern_isles
+			}
+			save_scope_as = southern_isles_region_scope
+		}
+	}
+
+	# Establish Colonial Administration
+	scripted_button = je_colonial_administration_button_demonland_south
+	scripted_button = je_colonial_administration_button_beastland_wild
+	scripted_button = je_colonial_administration_button_western_isles
+	scripted_button = je_colonial_administration_button_western_isles_south
+	scripted_button = je_colonial_administration_button_southern_isles
+
+	# Expand Colonial Administration
+	scripted_button = je_colonial_administration_button_expand_demonland_south
+	scripted_button = je_colonial_administration_button_expand_beastland_wild
+	scripted_button = je_colonial_administration_button_expand_western_isles
+	scripted_button = je_colonial_administration_button_expand_western_isles_south
+	scripted_button = je_colonial_administration_button_expand_southern_isles
+
+	weight = 100
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

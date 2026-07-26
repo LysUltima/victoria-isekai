@@ -1,0 +1,188 @@
+﻿# All effects in this file are stubbed to no-ops: this is vanilla Earth
+# dynamic-state-naming content (Anatolia/Japan/Indonesia/South China/Manchuria/
+# Indochina/India regions) with no analogue on this mod's custom map. Every
+# call site in 00_dynamic_state_names.txt is already gated behind
+# 'always = no' (vanilla geographic_region refs not present in this mod), so
+# these effects are unreachable; they previously still failed to parse due
+# to leftover vanilla province/state refs inside their bodies.
+
+assign_state_name_region_anatolia = {
+}
+
+assign_state_name_region_japan = {
+}
+
+assign_state_name_region_south_china = {
+}
+
+assign_state_name_region_indonesia = {
+}
+
+assign_state_name_region_madras = {
+}
+
+assign_state_name_region_bombay = {
+}
+
+assign_state_name_region_bengal = {
+}
+
+assign_state_name_region_punjab = {
+}
+
+assign_state_name_region_central_india = {
+}
+
+assign_state_name_region_manchuria = {
+}
+
+assign_state_name_region_indochina = {
+}
+
+STATE_EAST_AEGEAN_ISLANDS_state_name_assign = {
+}
+
+STATE_EASTERN_THRACE_state_name_assign = {
+}
+
+STATE_AYDIN_state_name_assign = {
+}
+
+STATE_HUDAVENDIGAR_state_name_assign = {
+}
+
+STATE_CYPRUS_state_name_assign = {
+}
+
+STATE_SAKHALIN_state_name_assign = {
+}
+
+STATE_HOKKAIDO_state_name_assign = {
+}
+
+STATE_TOHOKU_state_name_assign = {
+}
+
+STATE_KANTO_state_name_assign = {
+}
+
+STATE_HOKUSHINETSU_state_name_assign = {
+}
+
+STATE_TOKAI_state_name_assign = {
+}
+
+STATE_KANSAI_state_name_assign = {
+}
+
+STATE_KYOTO_state_name_assign = {
+}
+
+STATE_SHIKOKU_state_name_assign = {
+}
+
+STATE_CHUGOKU_state_name_assign = {
+}
+
+STATE_KYUSHU_state_name_assign = {
+}
+
+STATE_RYUKYU_ISLANDS_state_name_assign = {
+}
+
+STATE_FORMOSA_state_name_assign = {
+}
+
+STATE_WEST_JAVA_state_name_assign = {
+}
+
+STATE_AMUR_state_name_assign = {
+}
+
+STATE_SEOUL_state_name_assign = {
+}
+
+STATE_BUSAN_state_name_assign = {
+}
+
+STATE_SARIWON_state_name_assign = {
+}
+
+STATE_PYONGYANG_state_name_assign = {
+}
+
+STATE_YANGHO_state_name_assign = {
+}
+
+STATE_KURNOOL_state_name_assign = {
+}
+
+STATE_OUTER_MANCHURIA_state_name_assign = {
+}
+
+STATE_MADRAS_state_name_assign = {
+}
+
+STATE_TRAVANCORE_state_name_assign = {
+}
+
+STATE_MYSORE_state_name_assign = {
+}
+
+STATE_CIRCARS_state_name_assign = {
+}
+
+STATE_HYDERABAD_state_name_assign = {
+}
+
+STATE_BOMBAY_state_name_assign = {
+}
+
+STATE_GUJARAT_state_name_assign = {
+}
+
+STATE_WEST_BENGAL_state_name_assign = {
+}
+
+STATE_EAST_BENGAL_state_name_assign = {
+}
+
+STATE_ASSAM_state_name_assign = {
+}
+
+STATE_AWADH_state_name_assign = {
+}
+
+STATE_ORISSA_state_name_assign = {
+}
+
+STATE_DELHI_state_name_assign = {
+}
+
+STATE_RAJPUTANA_state_name_assign = {
+}
+
+STATE_HILL_PUNJAB_state_name_assign = {
+}
+
+STATE_CENTRAL_PROVINCES_state_name_assign = {
+}
+
+STATE_AGRA_state_name_assign = {
+}
+
+STATE_TONKIN_state_name_assign = {
+}
+
+STATE_ANNAM_state_name_assign = {
+}
+
+STATE_MEKONG_state_name_assign = {
+}
+
+STATE_CAMBODIA_state_name_assign = {
+}
+
+STATE_LAOS_state_name_assign = {
+}
+

@@ -1,0 +1,41 @@
+﻿l_english:
+ # Isekai TC: task #12 - full loc rewrite for events/oil_rush_events.txt, reframing the "oil rush"
+ # boomtown-corruption story as an "anima rush" - anima are souls (per user note), so this event
+ # chain is now about the ugly, exploitative business of soul-harvesting rather than petroleum.
+ # Internal keys (oil_rush.*, scope:oil_state, etc.) are unchanged per golden rule #1 - the good
+ # itself is already renamed oil -> "Anima" in ova_conversion_l_english.yml.
+
+ oil_rush.1.t: "Anima!"
+ oil_rush.1.d: "The discovery of anima wells in [ROOT.GetState.GetName] is causing people to flock to the state, hoping to find jobs in this booming trade."
+ oil_rush.1.f: "\"Gold? Silver? Diamonds? For what? Trinkets and finery for the gentry, glamor to hide that their time is past? Listen, my friend, nostalgia may be gilded, but the future, ah, the future runs on anima.\""
+ oil_rush.1.a: "Encourage this trend. Anima is the future!"
+ oil_rush.1.b: "Progress is best tempered with caution."
+ oil_rush.1.c: "Always! Always encourage an anima rush, wherever it is found."
+ oil_rush.1.e: "Caution is always wise, no matter the time or place."
+
+ oil_rush.2.t: "Anima Rush Subsides"
+ oil_rush.2.d: "With the groundwork of the [SCOPE.sState('oil_state').GetName] anima trade complete, its appeal and promise is waning among those seeking to carve out their own fortune."
+ oil_rush.2.f: "\"The nature of these operations is that eventually, a few people will hold all the cards. The trade lives on, but our hands are played. We were not among the few.\""
+ oil_rush.2.a: "But anima will last forever..."
+ oil_rush.2.b: "Shuffle the expertise into manufacturing."
+
+ oil_rush.3.t: "Wild Wells"
+ oil_rush.3.d: "Blowouts, soul-fires and other lethal accidents are becoming more common as the hunt for anima in [ROOT.GetState.GetName] grows more ruthless."
+ oil_rush.3.f: "\"You think you've seen fire, but you have never seen fire like this,\" he said, giving the young man a stern look. \"And you better pray you don't, because if you haven't been out on the anima fields, the only place you'd ever see it is hell itself.\""
+ oil_rush.3.a: "Where there is anima, there will be blood."
+ oil_rush.3.b: "Pressure the owners to take a more careful approach."
+
+ oil_rush.4.t: "The [ROOT.GetState.GetName] Conduit"
+ oil_rush.4.d: "Anima concerns operating in [ROOT.GetState.GetName] have requested government assistance in funding a soul-conduit, promising that its construction will be accompanied by other infrastructure improvements."
+ oil_rush.4.f: "\"Binding a soul inside a vessel, sealing that vessel inside another, and driving the whole mess across the realm by rail. Trust me, in the future they will laugh at how we once did this. Now let me show you how simple it could be. It'll be just like turning a tap.\""
+ oil_rush.4.a: "We will contribute to the funding of this project."
+ oil_rush.4.b: "This is not in budget for [ROOT.GetState.GetOwner.GetName]"
+
+ oil_rush.5.t: "Stolen Souls, Stolen Coin"
+ oil_rush.5.d: "An inquiry has revealed that government politician [SCOPE.sCharacter('bribed_politician').GetFullName]'s recent wealth has been accumulated through bribes from anima concerns, allowing them to lease land without bidding."
+ oil_rush.5.f: "\"In an investigation like this, there's a way to know you're on the right track. It's that records of what you look for starts to go missing. The harder you look, the more disappears, until it appears as if a man conjured his fortune from nothing. Once you've forced them to make it look like magic, you can start figuring out the trick.\""
+ oil_rush.5.a: "We must make an example of all parties in this scandal."
+ oil_rush.5.tt: "[SCOPE.sCharacter('bribed_politician').GetFullName] receives a harsh sentence and is forced to resign."
+ oil_rush.5.b: "An elected official abusing [SCOPE.sCharacter('bribed_politician').GetHerHis] position is a severe crime."
+ oil_rush.5.c: "Corporate leaders undermining our government cannot be allowed to walk free."
+ oil_rush.5.e: "Even great people make mistakes. This can all be settled with some fines."

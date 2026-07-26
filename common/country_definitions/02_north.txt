@@ -1,0 +1,179 @@
+﻿# Dwarves
+AGR = {
+    color = { 55 54 66 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { stone_dwarf }
+
+    capital = STATE_AGRALEKKE
+}
+
+SEL = {
+    color = { 152 151 186 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { stone_dwarf }
+
+    capital = STATE_SELMME
+}
+
+BRU = {
+    color = { 106 97 117 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { stone_dwarf }
+
+    capital = STATE_BRULMME
+}
+
+# Elves
+IIV = {
+    color = { 126 158 127 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { snow_elf }
+
+    capital = STATE_IIVA_KAARENA
+}
+
+SYA = {
+    color = { 154 176 184 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { snow_elf }
+
+    capital = STATE_SYAA_SEE
+}
+
+AMI = {
+    color = { 150 102 102 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { snow_elf }
+
+    capital = STATE_AMII_TENII
+}
+
+MIA = {
+    color = { 101 110 94 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { snow_elf }
+
+    capital = STATE_MIRAA_MITAA
+}
+
+MAA = {
+    color = { 104 80 110 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { snow_elf }
+
+    capital = STATE_MAAMA_VAA
+}
+
+# Humans (colonies)
+SVA = {
+    color = { 104 80 110 } # Deep Ice Lavender
+    country_type = unrecognized
+    tier = principality
+    cultures = { fjordic }
+    capital = STATE_VESTROYENE
+}
+
+HRG = {
+    color = { 140 165 180 } # Frost Blue
+    country_type = unrecognized
+    tier = principality
+    cultures = { fjordic }
+    capital = STATE_NORDREYJAR
+}
+
+SKL = {
+    color = { 70 95 120 } # Stormy Mountain Slate
+    country_type = unrecognized
+    tier = principality
+    cultures = { fjordic }
+    capital = STATE_FJALLSOGN
+}
+
+STO = {
+    color = { 110 115 115 } # Crag Gray
+    country_type = unrecognized
+    tier = principality
+    cultures = { fjordic }
+    capital = STATE_HAMRABYGD
+}
+
+GRA = {
+    color = { 85 115 90 } # Tundra Green
+    country_type = unrecognized
+    tier = principality
+    cultures = { frostholm }
+    capital = STATE_SLETTALAND
+}
+
+VAT = {
+    color = { 55 90 100 } # Fjord Teal
+    country_type = unrecognized
+    tier = principality
+    cultures = { frostholm }
+    capital = STATE_VATNAFJALL
+}
+
+ELD = {
+    color = { 145 95 75 } # Volcanic Ash Brown
+    country_type = unrecognized
+    tier = principality
+    cultures = { frostholm }
+    capital = STATE_SUDRELD
+}
+
+NYL = {
+    color = { 100 130 95 } # Temperate Pine Green
+    country_type = unrecognized
+    tier = principality
+    cultures = { frostholm }
+    capital = STATE_BLIDEY
+}
+
+SOL = {
+    color = { 160 110 65 } # Obsidian and Sulfur Orange
+    country_type = unrecognized
+    tier = principality
+    cultures = { frostholm }
+    capital = STATE_BRENNANDIGJA
+}
+
+# Orcs 
+ORC = {
+    color = { 94 120 76 }
+    country_type = decentralized
+    tier = kingdom
+    cultures = { northern_orc }
+    capital = STATE_ORC_PLAINS
+}

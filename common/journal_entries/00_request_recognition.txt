@@ -1,0 +1,77 @@
+﻿# Isekai TC: migrated from vanilla common/journal_entries/00_request_recognition.txt
+# (2026-07-11). Fully generic diplomatic-recognition JE, no real-world references. Verbatim
+# copy. Hooks events/soi_events/00_earn_recognition_events.txt (already migrated).
+
+je_earn_recognition = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_foreign_affairs
+
+	scripted_progress_bar = earn_recognition_progress_bar
+
+	is_shown_when_inactive = {
+		is_country_type = unrecognized
+	}
+
+	possible = {
+		is_country_type = unrecognized
+		NOT = {
+			has_law_or_variant = law_type:law_isolationism
+		}
+		OR = {
+			AND = {
+				OR = {
+					custom_tooltip = {
+						text = is_subject_of_great_power_tt
+						any_overlord_or_above = {
+							country_rank >= rank_value:great_power
+						}
+					}
+					country_rank >= rank_value:unrecognized_major_power
+				}
+				has_technology_researched = colonization
+			}
+			AND = {
+				country_rank >= rank_value:unrecognized_regional_power
+				has_technology_researched = civilizing_mission
+			}
+			AND = {
+				country_rank >= rank_value:unrecognized_power
+				has_technology_researched = international_exchange_standards
+			}
+		}
+	}
+
+	complete = {
+		any_country = {
+			country_rank >= rank_value:great_power
+			relations:root >= relations_threshold:amicable
+		}
+		custom_tooltip = {
+			text = je_earn_recognition_complete_tt
+			scope:journal_entry ?= {
+				"scripted_bar_progress(earn_recognition_progress_bar)" >= 200
+			}
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = {
+			text = je_earn_recognition_tt
+			trigger_event = { id = earn_recognition_events.1 days = 0 popup = yes }
+		}
+		show_as_tooltip = {
+			set_country_type = recognized
+		}
+	}
+
+	fail = {
+	}
+
+	on_fail = {
+	}
+
+	weight = 100
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

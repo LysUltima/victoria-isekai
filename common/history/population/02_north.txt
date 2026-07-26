@@ -1,0 +1,74 @@
+﻿POPULATION = {
+    c:AGR = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:AMI = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:BRU = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:ELD = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:GRA = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:HRG = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:IIV = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:MAA = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:MIA = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:NYL = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:ORC = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:SEL = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:SKL = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:SOL = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:STO = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:SVA = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:SYA = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:VAT = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+}

@@ -1,0 +1,154 @@
+﻿### Champions JE - heir cultivation-training events
+# Scheduled by the heir-training decisions (ova_champion_heir_decisions.txt).
+#   .1 capital graduation (after 5 years) - visible
+#   .2 academy age check (hidden, yearly) -> .3 academy graduation (at age 20)
+#   .4 sect age check (hidden, yearly)    -> .5 sect graduation (at age 20)
+#   .6 sect post-graduation ascension (hidden, every 5 years until capped)
+# The trainee character is stored in var:ova_heir_trainee (survives heir changes);
+# the sect in var:ova_heir_sect.
+
+namespace = ova_champion_heir
+
+# ------------------------------------------------- capital: 5-year graduation
+ova_champion_heir.1 = {
+	type = country_event
+	placement = root
+	title = ova_champion_heir.1.t
+	desc = ova_champion_heir.1.d
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { has_variable = ova_heir_trainee }
+	immediate = { }
+	option = {
+		name = ova_champion_heir.1.a
+		default_option = yes
+		if = {
+			limit = { var:ova_heir_trainee = { is_character_alive = yes } }
+			var:ova_heir_trainee = { ova_advance_cultivation_trait = yes }
+		}
+		ova_heir_training_end = yes
+		remove_variable = ova_heir_trainee
+	}
+}
+
+# ------------------------------------------------- academy: yearly age check
+ova_champion_heir.2 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					NOT = { exists = var:ova_heir_trainee }
+					var:ova_heir_trainee = { is_character_alive = no }
+				}
+			}
+			# the trainee is gone: quietly end the arrangement
+			ova_heir_training_end = yes
+			remove_variable = ova_heir_trainee
+		}
+		else_if = {
+			limit = { var:ova_heir_trainee = { age >= 20 } }
+			trigger_event = { id = ova_champion_heir.3 popup = yes }
+		}
+		else = {
+			trigger_event = { id = ova_champion_heir.2 days = 365 }
+		}
+	}
+}
+
+ova_champion_heir.3 = { # academy graduation
+	type = country_event
+	placement = root
+	title = ova_champion_heir.3.t
+	desc = ova_champion_heir.3.d
+	flavor = ova_champion_heir.3.f
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { has_variable = ova_heir_trainee }
+	immediate = { }
+	option = {
+		name = ova_champion_heir.3.a
+		default_option = yes
+		if = {
+			limit = { var:ova_heir_trainee = { is_character_alive = yes } }
+			var:ova_heir_trainee = { ova_heir_reach_foundation = yes }
+		}
+		ova_heir_training_end = yes
+		remove_variable = ova_heir_trainee
+	}
+}
+
+# ------------------------------------------------- sect: yearly age check
+ova_champion_heir.4 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					NOT = { exists = var:ova_heir_trainee }
+					var:ova_heir_trainee = { is_character_alive = no }
+				}
+			}
+			ova_heir_training_end = yes
+			remove_variable = ova_heir_trainee
+			remove_variable = ova_heir_sect
+		}
+		else_if = {
+			limit = { var:ova_heir_trainee = { age >= 20 } }
+			trigger_event = { id = ova_champion_heir.5 popup = yes }
+		}
+		else = {
+			trigger_event = { id = ova_champion_heir.4 days = 365 }
+		}
+	}
+}
+
+ova_champion_heir.5 = { # sect graduation (Foundation Establishment)
+	type = country_event
+	placement = root
+	title = ova_champion_heir.5.t
+	desc = ova_champion_heir.5.d
+	flavor = ova_champion_heir.5.f
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { has_variable = ova_heir_trainee }
+	immediate = { }
+	option = {
+		name = ova_champion_heir.5.a
+		default_option = yes
+		if = {
+			limit = { var:ova_heir_trainee = { is_character_alive = yes } }
+			var:ova_heir_trainee = { ova_heir_reach_foundation = yes }
+		}
+		# the training LOCK lifts at adulthood, but the sect keeps refining them
+		ova_heir_training_end = yes
+		# begin the every-five-years ascension (kept while the sect out-techs us)
+		trigger_event = { id = ova_champion_heir.6 days = 1825 }
+	}
+}
+
+# --------------------------------- sect: post-graduation ascension, every 5 yr
+ova_champion_heir.6 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = { ova_heir_sect_can_advance = yes }
+			ova_heir_sect_advance = yes
+			trigger_event = { id = ova_champion_heir.6 days = 1825 }
+		}
+		else = {
+			# capped by the sect's tech, or the former heir now rules: stop
+			remove_variable = ova_heir_trainee
+			remove_variable = ova_heir_sect
+		}
+	}
+}

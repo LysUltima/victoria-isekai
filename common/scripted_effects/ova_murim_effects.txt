@@ -1,0 +1,1486 @@
+﻿# Heavenly Demon Sect (c:CHE) vs Orthodox Martial Alliance storyline - scripted effects.
+# ALL character bookkeeping (creation, levels, popularity, injury, seclusion, death, traits,
+# army buffs) is delegated to the SHARED champion layer in
+# common/scripted_effects/ova_champion_effects.txt - this file only implements the Returner
+# (Kang Jin-woo) dispatch/arrival/refusal wrappers, the Eight Banners courtship machinery,
+# the succession endgame, and the shattering of the Cult. All effects run in COUNTRY scope
+# unless noted.
+#
+# 2026-07-18 second rework (the hero's road): the succession chapter is GONE - the
+# Returner never takes the seat until the very end of the tale. After chapter 1 the
+# arc courts every banner including the host's own (je_ova_murim_ally_home comes
+# first), each courtship a 4-beat chain (intro creates the companion, two TRIAL beats
+# with a selfless and a selfish option each, then the pledge) under a 5-year journal
+# timeout. Selfless choices cost the Returner (wounds, forfeits, no growth) and lift
+# the banner instead; selfish choices make him monstrously strong and alienate that
+# banner forever (its JE fails). When every banner has been courted or lost, the
+# demonic cult's assassins kill the old master (.150) and the chain forks on
+# ova_murim_good_path_trigger: the wedding/acclamation ending (marches, then the
+# final battle by champion expedition) or the seat taken by force (war conference,
+# then the scripted Reckoning war). Both endings break CHE via
+# effect_ova_murim_shatter_cult, restoring the five great orthodox factions the Cult
+# destroyed generations ago (Amita/Gonryun/Jongnam Sects, Moyong Clan, Gaebang).
+#
+# Country variables used here:
+#   ova_murim_returner_host    - marks the host country (the sect he joined)
+#   ova_murim_returner_char    - character var for Kang Jin-woo, set LAZILY by
+#                                je_ova_murim_returner_1's on_monthly_pulse (create_character is
+#                                deferred, so the arrival effect below cannot save him directly)
+#   ova_murim_good_score       - +1 per selfless choice, -3 per selfish one; >= 0 at the
+#                                succession means at least 75% of choices were selfless
+#   ova_murim_offer_pending    - timed 90-day guard against a double offer while one is already out
+#   ova_murim_declined         - permanent per-country opt-out (that country turned him away once)
+#   ova_murim_fallback_months  - HWA's counter toward the "no player claimed him" fallback (.2)
+#   ova_murim_seen_NN          - per-beat seen flags driving the chapter tick ladders below
+#   ova_murim_ally_tried_X     - the arc already courted banner X (X = home/sor/pae/tan/
+#                                nam/jeg/mud/sam/hwa; set when its JE is added)
+#   ova_murim_ally_char_X      - character var for X's scripted companion (set inside the INTRO
+#                                beat's create_character on_created block, with plot armor)
+#   ova_murim_ally_sworn_X     - the pledge was accepted; the courtship's personal half is done
+#   ova_murim_ally_failed_X    - a selfish trial choice alienated banner X (fails its JE)
+#   ova_murim_ally_passed_X    - the host declined X's pledge; that banner is not courted again
+#   ova_murim_reckoning_started- the succession endgame has begun (guards a double .150)
+#   ova_murim_good_end         - the good ending was taken (.151/.152); shatter grants marches
+#   ova_murim_restored_X       - shatter resurrected dead banner X (marks it for a march)
+#   ova_murim_duel_done        - the final battle has been triggered (single shot)
+#   ova_murim_duel_won         - the Heavenly Demon fell to Kang Jin-woo's blade (.82)
+# Global variables: ova_murim_returner_fate - unset = pending, 1 = placed with a host, 2 = gone
+#   forever (every player sect declined, including HWA itself);
+#   ova_murim_reckoning_called - gates dp_ova_murim_reckoning's possible block.
+
+# Monthly dispatcher, called from all three war JEs' on_monthly_pulse. Offers the Returner to a
+# player-run Alliance sect first; if none claims him within 3 months, he defaults to Hwasan's gate.
+effect_ova_murim_returner_dispatch = {
+	# a player-run Orthodox sect gets the Returner offer personally
+	if = {
+		limit = {
+			NOT = { has_global_variable = ova_murim_returner_fate }
+			exists = c:CHE
+			is_player = yes
+			ova_murim_is_alliance_sect_trigger = yes
+			NOT = { has_variable = ova_champion_char }
+			NOT = { has_variable = ova_murim_offer_pending }
+			NOT = { has_variable = ova_murim_declined }
+		}
+		set_variable = { name = ova_murim_offer_pending days = 90 }
+		trigger_event = { id = ova_murim.1 days = 5 }
+	}
+	# no player sect claims him: he defaults to the gates of Hwasan
+	if = {
+		limit = {
+            exists = c:HWA
+			c:HWA ?= THIS
+			NOT = { has_global_variable = ova_murim_returner_fate }
+			exists = c:CHE
+		}
+        if = {
+            limit = {
+                has_variable = ova_murim_fallback_months
+            }
+            change_variable = { name = ova_murim_fallback_months add = 1 }
+        }
+        else = {
+            set_variable = { name = ova_murim_fallback_months value = 1 }
+        }
+		if = {
+			limit = {
+				var:ova_murim_fallback_months >= 3
+				NOT = { has_variable = ova_champion_char }
+				NOT = { has_variable = ova_murim_offer_pending }
+				NOT = { has_variable = ova_murim_declined }
+			}
+			set_variable = { name = ova_murim_offer_pending days = 90 }
+			trigger_event = { id = ova_murim.2 days = 5 }
+		}
+	}
+}
+
+# The accepting host takes him in. Guarded so a multiplayer double-accept race is a silent no-op
+# for whichever country's option resolves second.
+effect_ova_murim_returner_arrives = {
+	if = {
+		limit = { NOT = { has_global_variable = ova_murim_returner_fate } }
+		set_global_variable = { name = ova_murim_returner_fate value = 1 }
+		remove_variable = ova_murim_offer_pending
+		set_variable = ova_murim_returner_host
+        set_variable = { name = ova_murim_good_score value = 0 }
+		ova_champion_create_from_template = { TEMPLATE = template_kang_jinwoo LEVEL = 12 }
+		add_journal_entry = { type = je_ova_murim_returner_1 }
+		trigger_event = { id = ova_murim.3 days = 7 }
+	}
+}
+
+# HWA itself declines the boy at its own gate - there is no further fallback, so his tale ends here.
+effect_ova_murim_returner_refused_forever = {
+	set_global_variable = { name = ova_murim_returner_fate value = 2 }
+	remove_variable = ova_murim_offer_pending
+}
+
+# Shared outing cooldown (murim jianghu outings and the foundation's hinterland hunts share one
+# clock, by design - both gate on the same ova_adventure_cooldown variable).
+effect_ova_murim_outing_cooldown = {
+	set_variable = { name = ova_adventure_cooldown value = 6 }
+}
+
+# ---------------------------------------------------------------------------
+# The hero's ledger. Every trial beat's selfless option calls the first,
+# every selfish option the second. Selfless choices must outnumber selfish
+# ones three to one (score >= 0, i.e. 75%) for the good ending.
+# ---------------------------------------------------------------------------
+effect_ova_murim_good_choice = {
+	change_variable = { name = ova_murim_good_score add = 1 }
+}
+
+effect_ova_murim_bad_choice = {
+	change_variable = { name = ova_murim_good_score add = -3 }
+}
+
+# ---------------------------------------------------------------------------
+# Returner chapter ticks - one story beat at a time, in order.
+# Called from each chapter JE's on_yearly_pulse and its hidden relay event
+# (ova_murim.90/.93/.94). The beats are dispatched through these ladders
+# rather than through the JE's own random_events, because every chapter is a
+# STRICT chain: each beat sets a seen flag in its immediate and refuses to
+# fire twice. A random_events roll picks uniformly among the listed ids, so
+# most pulses it would land on a beat whose turn has already passed or has
+# not yet come. The ladder instead always offers exactly the next unseen
+# beat. Each event still carries its OWN trigger (the Returner alive, the
+# Cult still standing): a beat whose conditions are not met simply fizzles
+# and is offered again at the next tick. Same dispatcher pattern as the
+# Victoria chain's effect_ova_victoria_chN_tick ladders.
+# ---------------------------------------------------------------------------
+
+# Chapter 1: the eerily knowing boy spends two years being right. Eight
+# beats at four a year (yearly pulse + the .90 relay at 90/180/270 days).
+effect_ova_murim_ch1_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_murim_seen_3 } }
+		trigger_event = { id = ova_murim.3 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_10 } }
+		trigger_event = { id = ova_murim.10 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_11 } }
+		trigger_event = { id = ova_murim.11 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_16 } }
+		trigger_event = { id = ova_murim.16 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_12 } }
+		trigger_event = { id = ova_murim.12 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_13 } }
+		trigger_event = { id = ova_murim.13 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_15 } }
+		trigger_event = { id = ova_murim.15 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_14 } }
+		trigger_event = { id = ova_murim.14 }
+	}
+}
+
+# ---------------------------------------------------------------------------
+# The Eight Banners arc. effect_ova_murim_next_ally walks a fixed courting
+# order - the host's OWN banner first (je_ova_murim_ally_home), then SOR,
+# PAE, TAN, NAM, JEG, MUD, SAM, HWA, skipping the host's tag and any banner
+# that no longer exists or already bows to someone. Called from
+# je_ova_murim_returner_1's on_complete and from every ally JE's
+# on_complete/on_fail/on_timeout; when no banner remains to court it opens
+# the succession endgame (.150, the assassins) instead. Each rung marks its
+# banner tried so a failed courtship is never re-offered.
+# ---------------------------------------------------------------------------
+effect_ova_murim_next_ally = {
+	if = {
+		limit = {
+			NOT = { has_variable = ova_murim_ally_tried_home }
+		}
+		set_variable = ova_murim_ally_tried_home
+		add_journal_entry = { type = je_ova_murim_ally_home }
+	}
+	else_if = {
+		limit = {
+			NOT = { c:SOR ?= THIS }
+			NOT = { has_variable = ova_murim_ally_tried_sor }
+			exists = c:SOR
+			c:SOR ?= { is_subject = no }
+		}
+		set_variable = ova_murim_ally_tried_sor
+		add_journal_entry = { type = je_ova_murim_ally_sor }
+	}
+	else_if = {
+		limit = {
+			NOT = { c:PAE ?= THIS }
+			NOT = { has_variable = ova_murim_ally_tried_pae }
+			exists = c:PAE
+			c:PAE ?= { is_subject = no }
+		}
+		set_variable = ova_murim_ally_tried_pae
+		add_journal_entry = { type = je_ova_murim_ally_pae }
+	}
+	else_if = {
+		limit = {
+			NOT = { c:TAN ?= THIS }
+			NOT = { has_variable = ova_murim_ally_tried_tan }
+			exists = c:TAN
+			c:TAN ?= { is_subject = no }
+		}
+		set_variable = ova_murim_ally_tried_tan
+		add_journal_entry = { type = je_ova_murim_ally_tan }
+	}
+	else_if = {
+		limit = {
+			NOT = { c:NAM ?= THIS }
+			NOT = { has_variable = ova_murim_ally_tried_nam }
+			exists = c:NAM
+			c:NAM ?= { is_subject = no }
+		}
+		set_variable = ova_murim_ally_tried_nam
+		add_journal_entry = { type = je_ova_murim_ally_nam }
+	}
+	else_if = {
+		limit = {
+			NOT = { c:JEG ?= THIS }
+			NOT = { has_variable = ova_murim_ally_tried_jeg }
+			exists = c:JEG
+			c:JEG ?= { is_subject = no }
+		}
+		set_variable = ova_murim_ally_tried_jeg
+		add_journal_entry = { type = je_ova_murim_ally_jeg }
+	}
+	else_if = {
+		limit = {
+			NOT = { c:MUD ?= THIS }
+			NOT = { has_variable = ova_murim_ally_tried_mud }
+			exists = c:MUD
+			c:MUD ?= { is_subject = no }
+		}
+		set_variable = ova_murim_ally_tried_mud
+		add_journal_entry = { type = je_ova_murim_ally_mud }
+	}
+	else_if = {
+		limit = {
+			NOT = { c:SAM ?= THIS }
+			NOT = { has_variable = ova_murim_ally_tried_sam }
+			exists = c:SAM
+			c:SAM ?= { is_subject = no }
+		}
+		set_variable = ova_murim_ally_tried_sam
+		add_journal_entry = { type = je_ova_murim_ally_sam }
+	}
+	else_if = {
+		limit = {
+			NOT = { c:HWA ?= THIS }
+			NOT = { has_variable = ova_murim_ally_tried_hwa }
+			exists = c:HWA
+			c:HWA ?= { is_subject = no }
+		}
+		set_variable = ova_murim_ally_tried_hwa
+		add_journal_entry = { type = je_ova_murim_ally_hwa }
+	}
+	else = {
+		# no banner left to court - the assassins come for the old master
+		if = {
+			limit = { NOT = { has_variable = ova_murim_reckoning_started } }
+			set_variable = ova_murim_reckoning_started
+			trigger_event = { id = ova_murim.150 days = 30 }
+		}
+	}
+}
+
+# Shared ally-chapter dispatcher: exactly one ally JE is ever active (the arc
+# is a strict chain), so one relay event (ova_murim.94) and one entry effect
+# serve all nine chapters. Called from every ally JE's on_yearly_pulse and
+# from the relay.
+effect_ova_murim_ally_tick = {
+	if = {
+		limit = { has_journal_entry = je_ova_murim_ally_home }
+		effect_ova_murim_ally_home_tick = yes
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_murim_ally_sor }
+		effect_ova_murim_ally_sor_tick = yes
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_murim_ally_pae }
+		effect_ova_murim_ally_pae_tick = yes
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_murim_ally_tan }
+		effect_ova_murim_ally_tan_tick = yes
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_murim_ally_nam }
+		effect_ova_murim_ally_nam_tick = yes
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_murim_ally_jeg }
+		effect_ova_murim_ally_jeg_tick = yes
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_murim_ally_mud }
+		effect_ova_murim_ally_mud_tick = yes
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_murim_ally_sam }
+		effect_ova_murim_ally_sam_tick = yes
+	}
+	else_if = {
+		limit = { has_journal_entry = je_ova_murim_ally_hwa }
+		effect_ova_murim_ally_hwa_tick = yes
+	}
+}
+
+# Per-banner beat ladders: intro (creates the companion) -> trial -> trial ->
+# pledge, two beats a year (yearly pulse + the .94 relay at 180 days), so
+# each courtship's story spans about two years of its five-year window. The
+# pledge event is the last rung; a declined pledge sets ova_murim_ally_passed_X
+# and a selfish trial choice sets ova_murim_ally_failed_X - either fails the
+# JE and moves the arc along.
+effect_ova_murim_ally_home_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_murim_seen_140 } }
+		trigger_event = { id = ova_murim.140 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_141 } }
+		trigger_event = { id = ova_murim.141 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_142 } }
+		trigger_event = { id = ova_murim.142 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_143 } }
+		trigger_event = { id = ova_murim.143 }
+	}
+}
+
+effect_ova_murim_ally_sor_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_murim_seen_100 } }
+		trigger_event = { id = ova_murim.100 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_101 } }
+		trigger_event = { id = ova_murim.101 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_102 } }
+		trigger_event = { id = ova_murim.102 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_103 } }
+		trigger_event = { id = ova_murim.103 }
+	}
+}
+
+effect_ova_murim_ally_pae_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_murim_seen_104 } }
+		trigger_event = { id = ova_murim.104 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_105 } }
+		trigger_event = { id = ova_murim.105 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_106 } }
+		trigger_event = { id = ova_murim.106 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_107 } }
+		trigger_event = { id = ova_murim.107 }
+	}
+}
+
+effect_ova_murim_ally_tan_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_murim_seen_108 } }
+		trigger_event = { id = ova_murim.108 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_109 } }
+		trigger_event = { id = ova_murim.109 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_110 } }
+		trigger_event = { id = ova_murim.110 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_111 } }
+		trigger_event = { id = ova_murim.111 }
+	}
+}
+
+effect_ova_murim_ally_nam_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_murim_seen_112 } }
+		trigger_event = { id = ova_murim.112 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_113 } }
+		trigger_event = { id = ova_murim.113 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_114 } }
+		trigger_event = { id = ova_murim.114 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_115 } }
+		trigger_event = { id = ova_murim.115 }
+	}
+}
+
+effect_ova_murim_ally_jeg_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_murim_seen_116 } }
+		trigger_event = { id = ova_murim.116 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_117 } }
+		trigger_event = { id = ova_murim.117 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_118 } }
+		trigger_event = { id = ova_murim.118 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_119 } }
+		trigger_event = { id = ova_murim.119 }
+	}
+}
+
+effect_ova_murim_ally_mud_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_murim_seen_120 } }
+		trigger_event = { id = ova_murim.120 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_121 } }
+		trigger_event = { id = ova_murim.121 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_122 } }
+		trigger_event = { id = ova_murim.122 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_123 } }
+		trigger_event = { id = ova_murim.123 }
+	}
+}
+
+effect_ova_murim_ally_sam_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_murim_seen_124 } }
+		trigger_event = { id = ova_murim.124 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_125 } }
+		trigger_event = { id = ova_murim.125 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_126 } }
+		trigger_event = { id = ova_murim.126 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_127 } }
+		trigger_event = { id = ova_murim.127 }
+	}
+}
+
+effect_ova_murim_ally_hwa_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_murim_seen_128 } }
+		trigger_event = { id = ova_murim.128 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_129 } }
+		trigger_event = { id = ova_murim.129 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_130 } }
+		trigger_event = { id = ova_murim.130 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_131 } }
+		trigger_event = { id = ova_murim.131 }
+	}
+}
+
+# The war council (bad ending only, je_ova_murim_war_conference): the maps,
+# the traitor elder, the Ten Great Demons, the assassins, the caravan, and at
+# last a letter in a hand no one at the table has ever seen before. Six beats
+# at three a year (yearly pulse + the .93 relay at 120/240 days) = two years.
+effect_ova_murim_war_council_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_murim_seen_30 } }
+		trigger_event = { id = ova_murim.30 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_33 } }
+		trigger_event = { id = ova_murim.33 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_31 } }
+		trigger_event = { id = ova_murim.31 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_32 } }
+		trigger_event = { id = ova_murim.32 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_34 } }
+		trigger_event = { id = ova_murim.34 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_murim_seen_35 } }
+		trigger_event = { id = ova_murim.35 }
+	}
+}
+
+# ---------------------------------------------------------------------------
+# The succession endgame (fired by .151/.152/.153 once the assassins have
+# taken the old master).
+# ---------------------------------------------------------------------------
+
+# The good ending's coronation: the hall raises him up willingly (a clan by
+# wedding, a sect by acclamation). Legitimate, loved, unbloodied.
+effect_ova_murim_take_the_seat = {
+	set_variable = ova_murim_good_end
+	var:ova_murim_returner_char ?= { set_character_as_ruler = yes }
+	add_modifier = { name = ova_murim_peace_succession days = -1 }
+	if = {
+		limit = { ova_has_living_champion = yes }
+		ova_champion_add_popularity = { AMOUNT = 30 }
+	}
+}
+
+# The bad ending's seizure: he takes the empty seat because no one left in
+# the hall can stop him. The plot armor comes off here - a man who chose
+# power over people answers to fate like anyone else.
+effect_ova_murim_take_the_seat_by_force = {
+	var:ova_murim_returner_char ?= {
+		set_character_as_ruler = yes
+		if = {
+			limit = { has_variable = ova_plot_armor }
+			remove_variable = ova_plot_armor
+		}
+		set_character_immortal = no
+	}
+	add_modifier = { name = ova_murim_sword_succession days = 1825 }
+	add_radicals = {
+		value = small_radicals
+		strata = upper
+	}
+}
+
+# Every banner whose courtship was completed (pledge sworn) bows to the new
+# master of the household as a sworn march. Called from both coronation
+# events - a banner sworn in friendship follows him willingly; a banner sworn
+# before the seizure is already bound to the household by its companion's
+# oath and follows him regardless.
+effect_ova_murim_crown_marches = {
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_sworn_sor
+			exists = c:SOR
+			NOT = { c:SOR ?= THIS }
+			c:SOR ?= { is_subject = no }
+		}
+		create_diplomatic_pact = {
+			country = c:SOR
+			type = puppet
+		}
+		c:SOR ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		change_relations = { country = c:SOR value = 25 }
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_sworn_pae
+			exists = c:PAE
+			NOT = { c:PAE ?= THIS }
+			c:PAE ?= { is_subject = no }
+		}
+		create_diplomatic_pact = {
+			country = c:PAE
+			type = puppet
+		}
+		c:PAE ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		change_relations = { country = c:PAE value = 25 }
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_sworn_tan
+			exists = c:TAN
+			NOT = { c:TAN ?= THIS }
+			c:TAN ?= { is_subject = no }
+		}
+		create_diplomatic_pact = {
+			country = c:TAN
+			type = puppet
+		}
+		c:TAN ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		change_relations = { country = c:TAN value = 25 }
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_sworn_nam
+			exists = c:NAM
+			NOT = { c:NAM ?= THIS }
+			c:NAM ?= { is_subject = no }
+		}
+		create_diplomatic_pact = {
+			country = c:NAM
+			type = puppet
+		}
+		c:NAM ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		change_relations = { country = c:NAM value = 25 }
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_sworn_jeg
+			exists = c:JEG
+			NOT = { c:JEG ?= THIS }
+			c:JEG ?= { is_subject = no }
+		}
+		create_diplomatic_pact = {
+			country = c:JEG
+			type = puppet
+		}
+		c:JEG ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		change_relations = { country = c:JEG value = 25 }
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_sworn_mud
+			exists = c:MUD
+			NOT = { c:MUD ?= THIS }
+			c:MUD ?= { is_subject = no }
+		}
+		create_diplomatic_pact = {
+			country = c:MUD
+			type = puppet
+		}
+		c:MUD ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		change_relations = { country = c:MUD value = 25 }
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_sworn_sam
+			exists = c:SAM
+			NOT = { c:SAM ?= THIS }
+			c:SAM ?= { is_subject = no }
+		}
+		create_diplomatic_pact = {
+			country = c:SAM
+			type = puppet
+		}
+		c:SAM ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		change_relations = { country = c:SAM value = 25 }
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_sworn_hwa
+			exists = c:HWA
+			NOT = { c:HWA ?= THIS }
+			c:HWA ?= { is_subject = no }
+		}
+		create_diplomatic_pact = {
+			country = c:HWA
+			type = puppet
+		}
+		c:HWA ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		change_relations = { country = c:HWA value = 25 }
+	}
+}
+
+# The bad ending's war: the host declares the Reckoning on the Heavenly
+# Demon Sect - mirrored full-annexation goals, no negotiated peace, sworn
+# marches riding as subjects and the rest of the Alliance free to pile in
+# through its own strategies. Called from je_ova_murim_war_conference's
+# on_complete.
+effect_ova_murim_launch_reckoning = {
+	if = {
+		limit = {
+			exists = c:CHE
+			NOT = { has_global_variable = ova_murim_reckoning_called }
+		}
+		set_global_variable = ova_murim_reckoning_called
+		# The host declares the Reckoning on the Heavenly Demon Sect: mirrored
+		# full-annexation goals, no negotiated peace, winner takes the loser as
+		# a civil war ends. Any sworn marches ride automatically
+		# (join_overlord_wars); the wider Alliance keeps fighting the Cult
+		# through the war-of-the-murim layer and its own AI strategies.
+		create_diplomatic_play = {
+			name = ova_murim_reckoning_war
+			war = yes
+			annex_as_civil_war = yes
+			type = dp_ova_murim_reckoning
+			target_country = c:CHE
+		}
+	}
+}
+
+# ---------------------------------------------------------------------------
+# The shattering of the Heavenly Demon Sect. Runs in HOST country scope from
+# either ending's on_complete:
+#  - GOOD (the final battle): c:CHE still exists, broken from within - every
+#    state it holds is redistributed directly off its hands.
+#  - BAD (the Reckoning war): the war's annex goal has already folded all of
+#    CHE into the host - the same redistribution runs over the host's own
+#    holdings in the thirteen murim state regions.
+# Redistribution rules (both endings):
+#  - each of the eight banner home states goes back to its original sect or
+#    clan; if that banner is dead, it is recreated on the spot
+#    (ova_murim_restored_X marks it for a march in the good ending);
+#  - each of the Cult's five mountain states RESTORES one of the great orthodox
+#    factions the Heavenly Demon Sect destroyed generations ago and built its
+#    mountains upon (AMT Amita Sect / GON Gonryun Sect / JON Jongnam Sect /
+#    MOY Moyong Clan / GAE Gaebang - releasable tags defined in
+#    common/country_definitions/07b_ova_murim_splinters.txt);
+#  - whatever the Cult held outside the murim goes to the host;
+#  - in the GOOD ending (ova_murim_good_end) every restored orthodox faction and
+#    every resurrected banner is bound to the host as a puppet; in the bad
+#    ending they stand free.
+# Also scrubs the Alliance bloc's unbreakable-covenant modifier (defensive -
+# je_ova_murim_alliance_banner's own completion normally handles it).
+# ---------------------------------------------------------------------------
+effect_ova_murim_shatter_cult = {
+	if = {
+		limit = { exists = c:CHE }
+		# --- banner home states conquered by the Cult go home
+		if = {
+			limit = {
+				NOT = { c:HWA ?= THIS }
+				s:STATE_HWASAN = { any_scope_state = { owner ?= c:CHE } }
+			}
+			s:STATE_HWASAN = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_reclaim_hwa
+				}
+			}
+			if = {
+				limit = { exists = c:HWA }
+				scope:ova_murim_reclaim_hwa = { set_state_owner = c:HWA }
+			}
+			else = {
+				create_country = { origin = c:CHE tag = HWA state = scope:ova_murim_reclaim_hwa }
+				set_variable = ova_murim_restored_hwa
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:SOR ?= THIS }
+				s:STATE_SUNGSAN = { any_scope_state = { owner ?= c:CHE } }
+			}
+			s:STATE_SUNGSAN = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_reclaim_sor
+				}
+			}
+			if = {
+				limit = { exists = c:SOR }
+				scope:ova_murim_reclaim_sor = { set_state_owner = c:SOR }
+			}
+			else = {
+				create_country = { origin = c:CHE tag = SOR state = scope:ova_murim_reclaim_sor }
+				set_variable = ova_murim_restored_sor
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:PAE ?= THIS }
+				s:STATE_HOBUK = { any_scope_state = { owner ?= c:CHE } }
+			}
+			s:STATE_HOBUK = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_reclaim_pae
+				}
+			}
+			if = {
+				limit = { exists = c:PAE }
+				scope:ova_murim_reclaim_pae = { set_state_owner = c:PAE }
+			}
+			else = {
+				create_country = { origin = c:CHE tag = PAE state = scope:ova_murim_reclaim_pae }
+				set_variable = ova_murim_restored_pae
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:SAM ?= THIS }
+				s:STATE_HONAM = { any_scope_state = { owner ?= c:CHE } }
+			}
+			s:STATE_HONAM = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_reclaim_sam
+				}
+			}
+			if = {
+				limit = { exists = c:SAM }
+				scope:ova_murim_reclaim_sam = { set_state_owner = c:SAM }
+			}
+			else = {
+				create_country = { origin = c:CHE tag = SAM state = scope:ova_murim_reclaim_sam }
+				set_variable = ova_murim_restored_sam
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:MUD ?= THIS }
+				s:STATE_MUDANGSAN = { any_scope_state = { owner ?= c:CHE } }
+			}
+			s:STATE_MUDANGSAN = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_reclaim_mud
+				}
+			}
+			if = {
+				limit = { exists = c:MUD }
+				scope:ova_murim_reclaim_mud = { set_state_owner = c:MUD }
+			}
+			else = {
+				create_country = { origin = c:CHE tag = MUD state = scope:ova_murim_reclaim_mud }
+				set_variable = ova_murim_restored_mud
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:JEG ?= THIS }
+				s:STATE_YANGJU = { any_scope_state = { owner ?= c:CHE } }
+			}
+			s:STATE_YANGJU = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_reclaim_jeg
+				}
+			}
+			if = {
+				limit = { exists = c:JEG }
+				scope:ova_murim_reclaim_jeg = { set_state_owner = c:JEG }
+			}
+			else = {
+				create_country = { origin = c:CHE tag = JEG state = scope:ova_murim_reclaim_jeg }
+				set_variable = ova_murim_restored_jeg
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:TAN ?= THIS }
+				s:STATE_SACHEON = { any_scope_state = { owner ?= c:CHE } }
+			}
+			s:STATE_SACHEON = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_reclaim_tan
+				}
+			}
+			if = {
+				limit = { exists = c:TAN }
+				scope:ova_murim_reclaim_tan = { set_state_owner = c:TAN }
+			}
+			else = {
+				create_country = { origin = c:CHE tag = TAN state = scope:ova_murim_reclaim_tan }
+				set_variable = ova_murim_restored_tan
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:NAM ?= THIS }
+				s:STATE_NAMWON = { any_scope_state = { owner ?= c:CHE } }
+			}
+			s:STATE_NAMWON = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_reclaim_nam
+				}
+			}
+			if = {
+				limit = { exists = c:NAM }
+				scope:ova_murim_reclaim_nam = { set_state_owner = c:NAM }
+			}
+			else = {
+				create_country = { origin = c:CHE tag = NAM state = scope:ova_murim_reclaim_nam }
+				set_variable = ova_murim_restored_nam
+			}
+		}
+		# --- the five mountains of the Cult restore the five great orthodox
+		# factions it destroyed to build them
+		if = {
+			limit = { s:STATE_MAGYEONG = { any_scope_state = { owner ?= c:CHE } } }
+			s:STATE_MAGYEONG = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_splinter_amt
+				}
+			}
+			create_country = { origin = c:CHE tag = AMT state = scope:ova_murim_splinter_amt }
+		}
+		if = {
+			limit = { s:STATE_CHEONSEONG = { any_scope_state = { owner ?= c:CHE } } }
+			s:STATE_CHEONSEONG = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_splinter_gon
+				}
+			}
+			create_country = { origin = c:CHE tag = GON state = scope:ova_murim_splinter_gon }
+		}
+		if = {
+			limit = { s:STATE_BAEKHWA = { any_scope_state = { owner ?= c:CHE } } }
+			s:STATE_BAEKHWA = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_splinter_jon
+				}
+			}
+			create_country = { origin = c:CHE tag = JON state = scope:ova_murim_splinter_jon }
+		}
+		if = {
+			limit = { s:STATE_GYEONGGI = { any_scope_state = { owner ?= c:CHE } } }
+			s:STATE_GYEONGGI = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_splinter_moy
+				}
+			}
+			create_country = { origin = c:CHE tag = MOY state = scope:ova_murim_splinter_moy }
+		}
+		if = {
+			limit = { s:STATE_SEOLDO = { any_scope_state = { owner ?= c:CHE } } }
+			s:STATE_SEOLDO = {
+				random_scope_state = {
+					limit = { owner ?= c:CHE }
+					save_scope_as = ova_murim_splinter_gae
+				}
+			}
+			create_country = { origin = c:CHE tag = GAE state = scope:ova_murim_splinter_gae }
+		}
+		# --- whatever the Cult still holds outside the murim falls to the host
+		if = {
+			limit = { exists = c:CHE }
+			c:CHE ?= {
+				every_scope_state = {
+					set_state_owner = ROOT
+				}
+			}
+		}
+	}
+	else = {
+		# The Reckoning already folded the Cult into the host - redistribute
+		# the host's own holdings in the murim's thirteen state regions.
+		if = {
+			limit = {
+				NOT = { c:HWA ?= THIS }
+				s:STATE_HWASAN = { any_scope_state = { owner = ROOT } }
+			}
+			s:STATE_HWASAN = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_reclaim_hwa
+				}
+			}
+			if = {
+				limit = { exists = c:HWA }
+				scope:ova_murim_reclaim_hwa = { set_state_owner = c:HWA }
+			}
+			else = {
+				create_country = { origin = ROOT tag = HWA state = scope:ova_murim_reclaim_hwa }
+				set_variable = ova_murim_restored_hwa
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:SOR ?= THIS }
+				s:STATE_SUNGSAN = { any_scope_state = { owner = ROOT } }
+			}
+			s:STATE_SUNGSAN = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_reclaim_sor
+				}
+			}
+			if = {
+				limit = { exists = c:SOR }
+				scope:ova_murim_reclaim_sor = { set_state_owner = c:SOR }
+			}
+			else = {
+				create_country = { origin = ROOT tag = SOR state = scope:ova_murim_reclaim_sor }
+				set_variable = ova_murim_restored_sor
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:PAE ?= THIS }
+				s:STATE_HOBUK = { any_scope_state = { owner = ROOT } }
+			}
+			s:STATE_HOBUK = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_reclaim_pae
+				}
+			}
+			if = {
+				limit = { exists = c:PAE }
+				scope:ova_murim_reclaim_pae = { set_state_owner = c:PAE }
+			}
+			else = {
+				create_country = { origin = ROOT tag = PAE state = scope:ova_murim_reclaim_pae }
+				set_variable = ova_murim_restored_pae
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:SAM ?= THIS }
+				s:STATE_HONAM = { any_scope_state = { owner = ROOT } }
+			}
+			s:STATE_HONAM = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_reclaim_sam
+				}
+			}
+			if = {
+				limit = { exists = c:SAM }
+				scope:ova_murim_reclaim_sam = { set_state_owner = c:SAM }
+			}
+			else = {
+				create_country = { origin = ROOT tag = SAM state = scope:ova_murim_reclaim_sam }
+				set_variable = ova_murim_restored_sam
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:MUD ?= THIS }
+				s:STATE_MUDANGSAN = { any_scope_state = { owner = ROOT } }
+			}
+			s:STATE_MUDANGSAN = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_reclaim_mud
+				}
+			}
+			if = {
+				limit = { exists = c:MUD }
+				scope:ova_murim_reclaim_mud = { set_state_owner = c:MUD }
+			}
+			else = {
+				create_country = { origin = ROOT tag = MUD state = scope:ova_murim_reclaim_mud }
+				set_variable = ova_murim_restored_mud
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:JEG ?= THIS }
+				s:STATE_YANGJU = { any_scope_state = { owner = ROOT } }
+			}
+			s:STATE_YANGJU = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_reclaim_jeg
+				}
+			}
+			if = {
+				limit = { exists = c:JEG }
+				scope:ova_murim_reclaim_jeg = { set_state_owner = c:JEG }
+			}
+			else = {
+				create_country = { origin = ROOT tag = JEG state = scope:ova_murim_reclaim_jeg }
+				set_variable = ova_murim_restored_jeg
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:TAN ?= THIS }
+				s:STATE_SACHEON = { any_scope_state = { owner = ROOT } }
+			}
+			s:STATE_SACHEON = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_reclaim_tan
+				}
+			}
+			if = {
+				limit = { exists = c:TAN }
+				scope:ova_murim_reclaim_tan = { set_state_owner = c:TAN }
+			}
+			else = {
+				create_country = { origin = ROOT tag = TAN state = scope:ova_murim_reclaim_tan }
+				set_variable = ova_murim_restored_tan
+			}
+		}
+		if = {
+			limit = {
+				NOT = { c:NAM ?= THIS }
+				s:STATE_NAMWON = { any_scope_state = { owner = ROOT } }
+			}
+			s:STATE_NAMWON = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_reclaim_nam
+				}
+			}
+			if = {
+				limit = { exists = c:NAM }
+				scope:ova_murim_reclaim_nam = { set_state_owner = c:NAM }
+			}
+			else = {
+				create_country = { origin = ROOT tag = NAM state = scope:ova_murim_reclaim_nam }
+				set_variable = ova_murim_restored_nam
+			}
+		}
+		if = {
+			limit = { s:STATE_MAGYEONG = { any_scope_state = { owner = ROOT } } }
+			s:STATE_MAGYEONG = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_splinter_amt
+				}
+			}
+			create_country = { origin = ROOT tag = AMT state = scope:ova_murim_splinter_amt }
+		}
+		if = {
+			limit = { s:STATE_CHEONSEONG = { any_scope_state = { owner = ROOT } } }
+			s:STATE_CHEONSEONG = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_splinter_gon
+				}
+			}
+			create_country = { origin = ROOT tag = GON state = scope:ova_murim_splinter_gon }
+		}
+		if = {
+			limit = { s:STATE_BAEKHWA = { any_scope_state = { owner = ROOT } } }
+			s:STATE_BAEKHWA = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_splinter_jon
+				}
+			}
+			create_country = { origin = ROOT tag = JON state = scope:ova_murim_splinter_jon }
+		}
+		if = {
+			limit = { s:STATE_GYEONGGI = { any_scope_state = { owner = ROOT } } }
+			s:STATE_GYEONGGI = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_splinter_moy
+				}
+			}
+			create_country = { origin = ROOT tag = MOY state = scope:ova_murim_splinter_moy }
+		}
+		if = {
+			limit = { s:STATE_SEOLDO = { any_scope_state = { owner = ROOT } } }
+			s:STATE_SEOLDO = {
+				random_scope_state = {
+					limit = { owner = ROOT }
+					save_scope_as = ova_murim_splinter_gae
+				}
+			}
+			create_country = { origin = ROOT tag = GAE state = scope:ova_murim_splinter_gae }
+		}
+	}
+	# --- the good ending binds every successor sect and every resurrected
+	# banner to the household as sworn marches
+	if = {
+		limit = { has_variable = ova_murim_good_end }
+		if = {
+			limit = {
+				exists = c:AMT
+				c:AMT ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:AMT type = puppet }
+			c:AMT ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+		if = {
+			limit = {
+				exists = c:GON
+				c:GON ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:GON type = puppet }
+			c:GON ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+		if = {
+			limit = {
+				exists = c:JON
+				c:JON ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:JON type = puppet }
+			c:JON ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+		if = {
+			limit = {
+				exists = c:MOY
+				c:MOY ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:MOY type = puppet }
+			c:MOY ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+		if = {
+			limit = {
+				exists = c:GAE
+				c:GAE ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:GAE type = puppet }
+			c:GAE ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+		if = {
+			limit = {
+				has_variable = ova_murim_restored_hwa
+				exists = c:HWA
+				c:HWA ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:HWA type = puppet }
+			c:HWA ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+		if = {
+			limit = {
+				has_variable = ova_murim_restored_sor
+				exists = c:SOR
+				c:SOR ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:SOR type = puppet }
+			c:SOR ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+		if = {
+			limit = {
+				has_variable = ova_murim_restored_pae
+				exists = c:PAE
+				c:PAE ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:PAE type = puppet }
+			c:PAE ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+		if = {
+			limit = {
+				has_variable = ova_murim_restored_sam
+				exists = c:SAM
+				c:SAM ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:SAM type = puppet }
+			c:SAM ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+		if = {
+			limit = {
+				has_variable = ova_murim_restored_mud
+				exists = c:MUD
+				c:MUD ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:MUD type = puppet }
+			c:MUD ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+		if = {
+			limit = {
+				has_variable = ova_murim_restored_jeg
+				exists = c:JEG
+				c:JEG ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:JEG type = puppet }
+			c:JEG ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+		if = {
+			limit = {
+				has_variable = ova_murim_restored_tan
+				exists = c:TAN
+				c:TAN ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:TAN type = puppet }
+			c:TAN ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+		if = {
+			limit = {
+				has_variable = ova_murim_restored_nam
+				exists = c:NAM
+				c:NAM ?= { is_subject = no }
+			}
+			create_diplomatic_pact = { country = c:NAM type = puppet }
+			c:NAM ?= { add_modifier = { name = ova_murim_oathbound_banner days = -1 } }
+		}
+	}
+	# --- defensive cleanup: the Alliance bloc's unbreakable covenant ends
+	# with the war of the murim (the alliance-banner JE normally removes it
+	# on its own completion; this covers a bloc that changed hands)
+	if = {
+		limit = {
+			exists = c:HWA
+			c:HWA ?= { is_power_bloc_leader = yes }
+		}
+		c:HWA ?= {
+			power_bloc = { remove_modifier = ova_unbreakable_covenant }
+		}
+	}
+	if = {
+		limit = { is_power_bloc_leader = yes }
+		power_bloc = { remove_modifier = ova_unbreakable_covenant }
+	}
+}
+
+# The story ends, well or badly: the halo of luck comes off - the Returner's, and every
+# sworn companion's from the Eight Banners arc. Safe to call repeatedly (everything is
+# guarded). Used by the two ending JEs' on_complete and every chapter's on_fail.
+effect_ova_murim_story_over = {
+	if = {
+		limit = { has_modifier = ova_murim_returners_insight }
+		remove_modifier = ova_murim_returners_insight
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_returner_char
+			exists = var:ova_murim_returner_char
+		}
+		var:ova_murim_returner_char ?= {
+			if = {
+				limit = { has_variable = ova_plot_armor }
+				remove_variable = ova_plot_armor
+			}
+			set_character_immortal = no
+		}
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_char_home
+			exists = var:ova_murim_ally_char_home
+		}
+		var:ova_murim_ally_char_home ?= {
+			if = {
+				limit = { has_variable = ova_plot_armor }
+				remove_variable = ova_plot_armor
+			}
+			set_character_immortal = no
+		}
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_char_sor
+			exists = var:ova_murim_ally_char_sor
+		}
+		var:ova_murim_ally_char_sor ?= {
+			if = {
+				limit = { has_variable = ova_plot_armor }
+				remove_variable = ova_plot_armor
+			}
+			set_character_immortal = no
+		}
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_char_pae
+			exists = var:ova_murim_ally_char_pae
+		}
+		var:ova_murim_ally_char_pae ?= {
+			if = {
+				limit = { has_variable = ova_plot_armor }
+				remove_variable = ova_plot_armor
+			}
+			set_character_immortal = no
+		}
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_char_tan
+			exists = var:ova_murim_ally_char_tan
+		}
+		var:ova_murim_ally_char_tan ?= {
+			if = {
+				limit = { has_variable = ova_plot_armor }
+				remove_variable = ova_plot_armor
+			}
+			set_character_immortal = no
+		}
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_char_nam
+			exists = var:ova_murim_ally_char_nam
+		}
+		var:ova_murim_ally_char_nam ?= {
+			if = {
+				limit = { has_variable = ova_plot_armor }
+				remove_variable = ova_plot_armor
+			}
+			set_character_immortal = no
+		}
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_char_jeg
+			exists = var:ova_murim_ally_char_jeg
+		}
+		var:ova_murim_ally_char_jeg ?= {
+			if = {
+				limit = { has_variable = ova_plot_armor }
+				remove_variable = ova_plot_armor
+			}
+			set_character_immortal = no
+		}
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_char_mud
+			exists = var:ova_murim_ally_char_mud
+		}
+		var:ova_murim_ally_char_mud ?= {
+			if = {
+				limit = { has_variable = ova_plot_armor }
+				remove_variable = ova_plot_armor
+			}
+			set_character_immortal = no
+		}
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_char_sam
+			exists = var:ova_murim_ally_char_sam
+		}
+		var:ova_murim_ally_char_sam ?= {
+			if = {
+				limit = { has_variable = ova_plot_armor }
+				remove_variable = ova_plot_armor
+			}
+			set_character_immortal = no
+		}
+	}
+	if = {
+		limit = {
+			has_variable = ova_murim_ally_char_hwa
+			exists = var:ova_murim_ally_char_hwa
+		}
+		var:ova_murim_ally_char_hwa ?= {
+			if = {
+				limit = { has_variable = ova_plot_armor }
+				remove_variable = ova_plot_armor
+			}
+			set_character_immortal = no
+		}
+	}
+}
+
+# Routes a failed chapter to the right ending event: the Returner has died
+# (.72, the death of Kang Jin-woo) or the Cult has mastered the murim
+# around him (.73, the calamity arrives). The Victoria chain's
+# effect_ova_victoria_fail_events pattern.
+effect_ova_murim_fail_events = {
+	if = {
+		limit = {
+			has_variable = ova_murim_returner_char
+			NOT = { exists = var:ova_murim_returner_char }
+		}
+		trigger_event = { id = ova_murim.72 days = 3 }
+	}
+	else = {
+		trigger_event = { id = ova_murim.73 days = 3 }
+	}
+}

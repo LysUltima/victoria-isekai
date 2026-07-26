@@ -1,0 +1,47 @@
+﻿# Isekai TC: migrated from vanilla common/decisions/grand_exhibition_decision.txt (2026-07-11).
+# Dropped the STATE_ILE_DE_FRANCE/building_eiffel_tower special case (mod removed all vanilla
+# monuments) - always requires a level-20+ capital urban center. Hooks je_grand_exhibition
+# (migrated alongside).
+
+grand_exhibition_decision = {
+	is_shown = {
+		NOT = { has_variable = grand_exhibition_decision_taken }
+		NOT = { has_variable = held_grand_exhibition_var }
+		is_player = yes
+	}
+
+	possible = {
+		is_at_war = no
+		has_technology_researched = international_relations
+		has_technology_researched = railways
+		any_scope_building = {
+			is_building_type = building_art_academy
+			level >= 10
+		}
+		any_scope_building = {
+			is_building_type = building_university
+			level >= 10
+		}
+		capital = {
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 20
+			}
+		}
+		custom_tooltip = {
+			text = grand_exhibition_decision_custom_tooltip_2
+			NOT = { has_variable = grand_exhibition_decision_taken }
+		}
+	}
+
+	when_taken = {
+		set_variable = grand_exhibition_decision_taken
+		add_journal_entry = {
+			type = je_grand_exhibition
+		}
+	}
+
+	ai_chance = {
+		value = 1
+	}
+}

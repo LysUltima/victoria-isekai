@@ -1,0 +1,3312 @@
+﻿### Isekai hero storyline - narrative events
+# ova_hero.1        the Summoning Rite (from the summon button, popup)
+# ova_hero.2        A Girl from Another World (Victoria's first audience, LYS)
+# ova_hero.3        A Pact Sealed (from the petition decision)
+# ova_hero.20-24    DEM-expedition specials (fired from ova_hero_dem_pulse)
+# ova_hero.30-34    MOVED: Saint Christine's Academy is now its own namespace
+#                   in events/ova_academy_events.txt (ova_academy.*). Victoria's
+#                   four private academy beats stay here as .92-.95.
+# ova_hero.35-36    Victoria chapter 2/3 intros (academy letter, the wall)
+# ova_hero.40-42    LUX church flavor
+# ova_hero.50-59    Victoria's arc, chapters 1-7 story beats
+# ova_hero.60-64    DEM home front (je_ova_demonic_dawn)
+# ova_hero.70-79    Victoria's arc, chapters 8-9 + the choice + endings
+# ova_hero.80-89    the Dawn aftermath (je_ova_dawn_1/2/3, on AUR) + LUX reaction
+# ova_hero.90-109   Victoria's arc, drip-feed beats (2026-07-15)
+# ova_hero.110-118  hidden pulse relays
+# ova_hero.120-126  Victoria's arc, added beats (2026-07-17 pacing pass)
+# All champion XP/renown/effects are called from the foundation
+# (ova_champion_*) or defined by Agent A (ova_hero_*) - never redefined here.
+
+namespace = ova_hero
+
+# ------------------------------------------------------------ .1 summoning
+ova_hero.1 = { # The Summoning Rite
+	type = country_event
+	placement = root
+
+	title = ova_hero.1.t
+	desc = ova_hero.1.d
+	flavor = ova_hero.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		NOT = { has_variable = ova_champion_char }
+	}
+
+	# No immediate needed: the summoned Hero's culture is one of the two
+	# otherworld cultures, rolled inside ova_hero_perform_summoning, not the
+	# summoner's own primary culture.
+
+	option = { # the standard rite
+		name = ova_hero.1.a
+		default_option = yes
+		add_treasury = { value = -10000 }
+		c:LUX ?= { add_treasury = 10000 }
+        custom_tooltip = {
+            text = ova_hero_perform_summoning_tt
+            ova_hero_perform_summoning = { LEVEL = 0 }
+        }
+        ai_chance = {
+			base = 10
+        }
+	}
+
+	option = { # the grand rite - a second fee, buys a stronger Hero
+		name = ova_hero.1.b
+		add_treasury = { value = -100000 }
+		c:LUX ?= { add_treasury = 100000 }
+		custom_tooltip = {
+            text = ova_hero_perform_summoning_better_tt
+            ova_hero_perform_summoning = { LEVEL = 15 }
+        }
+        ai_chance = {
+			base = 10
+            modifier = {
+				trigger = {
+					country_rank > rank_value:major_power
+				}
+				add = 20
+			}
+        }
+	}
+
+	option = { # we hesitate - the fee is already spent regardless
+		name = ova_hero.1.c
+        trigger = { is_player = yes }
+		remove_variable = ova_hero_summoning_pending
+        ai_chance = {
+			base = 0
+        }
+	}
+}
+
+# ---------------------------------------------------- .2 Victoria's arrival
+ova_hero.2 = { # A Girl from Another World
+	type = country_event
+	placement = root
+
+	title = ova_hero.2.t
+	desc = ova_hero.2.d
+	flavor = ova_hero.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+	}
+
+	# Victoria's arc begins here, at her first audience: the summoning JE
+	# (raised from history) fired this event three days on, by which point her
+	# deferred create_character has resolved. This replaces je_ova_victoria_1's
+	# old is_shown_when_inactive poll.
+	immediate = {
+		if = {
+			limit = { NOT = { has_variable = ova_victoria_arc_started } }
+			add_journal_entry = { type = je_ova_victoria_1 }
+		}
+	}
+
+	option = { # parade her before the crowds
+		name = ova_hero.2.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 15 }
+	}
+
+	option = { # a quiet induction, no fanfare
+		name = ova_hero.2.b
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+# --------------------------------------------------------- .3 pact sealed
+ova_hero.3 = { # A Pact Sealed
+	type = country_event
+	placement = root
+
+	title = ova_hero.3.t
+	desc = ova_hero.3.d
+	flavor = ova_hero.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		exists = c:LUX
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_hero.3.a
+		default_option = yes
+		change_relations = { country = c:LUX value = 10 }
+	}
+}
+
+# ---------------------------------------- .20-.24 DEM expedition specials
+ova_hero.20 = { # To Slay a Demon Lord
+	type = country_event
+	placement = root
+
+	title = ova_hero.20.t
+	desc = ova_hero.20.d
+	flavor = ova_hero.20.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		exists = c:DEM
+		ova_has_living_champion = yes
+		var:ova_champion_level >= 30
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_hero.20.a
+		default_option = yes
+		c:DEM ?= {
+			add_modifier = { name = ova_dem_demon_lord_wounded days = 730 }
+		}
+		ova_champion_add_xp = { AMOUNT = 60 }
+		ova_champion_add_popularity = { AMOUNT = 20 }
+		set_variable = ova_expedition_return
+		change_relations = { country = c:LUX value = 10 }
+	}
+}
+
+ova_hero.21 = { # A Martyr's Crown
+	type = country_event
+	placement = root
+
+	title = ova_hero.21.t
+	desc = ova_hero.21.d
+	flavor = ova_hero.21.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		# plot armor: story characters do not die in random dispatches
+		NOT = { ova_champion_plot_armored = yes }
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_hero.21.a
+		default_option = yes
+		ova_champion_kill = yes
+		add_modifier = { name = ova_hero_martyrs_glory days = 730 }
+		add_loyalists = { value = medium_radicals }
+		c:LUX ?= {
+			trigger_event = { id = ova_hero.40 days = 5 }
+		}
+	}
+}
+
+ova_hero.22 = { # The Shattering
+	type = country_event
+	placement = root
+
+	title = ova_hero.22.t
+	desc = ova_hero.22.d
+	flavor = ova_hero.22.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		exists = c:DEM
+		c:DEM ?= { is_ai = yes }
+		ova_has_living_champion = yes
+		var:ova_champion_level >= 40
+		NOT = { has_global_variable = ova_dem_shattered }
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_hero.22.a
+		default_option = yes
+		effect_ova_hero_shatter_dem = yes
+		ova_champion_add_xp = { AMOUNT = 60 }
+		ova_champion_add_popularity = { AMOUNT = 30 }
+		set_variable = ova_expedition_return
+	}
+}
+
+ova_hero.23 = { # The Freed Captives
+	type = country_event
+	placement = root
+
+	title = ova_hero.23.t
+	desc = ova_hero.23.d
+	flavor = ova_hero.23.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_hero.23.a
+		default_option = yes
+		add_loyalists = { value = small_radicals }
+		ova_champion_add_xp = { AMOUNT = 20 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+}
+
+ova_hero.24 = { # They Pray as We Do
+	type = country_event
+	placement = root
+
+	title = ova_hero.24.t
+	desc = ova_hero.24.d
+	flavor = ova_hero.24.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+        c:LYS ?= THIS
+        NOT = { has_variable = seen_ova_hero_24 }
+	}
+
+	immediate = { 
+        set_variable = seen_ova_hero_24
+    }
+
+	option = { # suppress the dispatch
+		name = ova_hero.24.a
+		default_option = yes
+		change_relations = { country = c:LUX value = 10 }
+	}
+
+	option = { # let it circulate
+		name = ova_hero.24.b
+		set_variable = ova_hero_doubt
+		change_relations = { country = c:LUX value = -10 }
+	}
+}
+
+# ------------------------- .35-.36 Victoria chapter 2/3 chapter openers
+ova_hero.35 = { # A Letter of Admission (chapter 2 intro)
+	type = country_event
+	placement = root
+
+	title = ova_hero.35.t
+	desc = ova_hero.35.d
+	flavor = ova_hero.35.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_hero_academy_graduated }
+	}
+
+	# marks the chapter as properly opened - see je_ova_victoria_2's complete
+	# trigger: the academy decision has no story gate of its own (a player can
+	# take it as soon as a champion exists), so without this flag a Victoria
+	# who was already enrolled early could graduate before chapter 2 ever
+	# unlocked, and the chapter would complete instantly, skipping this event.
+	immediate = {
+		set_variable = ova_victoria_seen_35
+	}
+
+	option = {
+		name = ova_hero.35.a
+		default_option = yes
+	}
+}
+
+ova_hero.36 = { # The Wall (chapter 3 intro)
+	type = country_event
+	placement = root
+
+	title = ova_hero.36.t
+	desc = ova_hero.36.d
+	flavor = ova_hero.36.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+	}
+
+	# marks the chapter as properly opened - see je_ova_victoria_3's complete
+	# trigger for why this flag exists: without it, a player who toggled
+	# Intensive Training early (the button has no story gate of its own) would
+	# find the chapter complete the instant it unlocked, skipping .36/.96/
+	# .122/.123 entirely.
+	immediate = {
+		set_variable = ova_victoria_seen_36
+	}
+
+	option = {
+		name = ova_hero.36.a
+		default_option = yes
+	}
+}
+
+# ------------------------------------------------ .40-.42 LUX church flavor
+ova_hero.40 = { # The Martyr's Offering
+	type = country_event
+	placement = root
+
+	title = ova_hero.40.t
+	desc = ova_hero.40.d
+	flavor = ova_hero.40.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		exists = c:LUX
+		c:LUX ?= THIS
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_hero.40.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_medium }
+		add_modifier = { name = ova_lux_beatification days = 1095 }
+	}
+}
+
+ova_hero.41 = { # The Council of Reliquaries
+	type = country_event
+	placement = root
+
+	title = ova_hero.41.t
+	desc = ova_hero.41.d
+	flavor = ova_hero.41.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:LUX ?= THIS
+		var:ova_lux_hero_count >= 1
+	}
+
+	immediate = { }
+
+	option = { # canonize the living heroes
+		name = ova_hero.41.a
+		default_option = yes
+		add_modifier = { name = ova_lux_beatification days = 1095 }
+	}
+
+	option = { # license the relic trade instead
+		name = ova_hero.41.b
+		add_treasury = { value = money_amount_multiplier_small }
+	}
+}
+
+ova_hero.42 = { # A Wavering Shield
+	type = country_event
+	placement = root
+
+	title = ova_hero.42.t
+	desc = ova_hero.42.d
+	flavor = ova_hero.42.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:LUX ?= THIS
+		is_power_bloc_leader = yes
+		any_country = {
+			NOT = { THIS = ROOT }
+			power_bloc ?= ROOT.power_bloc
+		}
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				NOT = { THIS = ROOT }
+				power_bloc ?= ROOT.power_bloc
+			}
+			save_scope_as = ova_wavering_member
+		}
+	}
+
+	option = { # subsidize their zeal
+		name = ova_hero.42.a
+		default_option = yes
+		save_temporary_scope_value_as = {
+			name = ova_subsidy_amount
+			value = money_amount_multiplier_small
+		}
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		scope:ova_wavering_member = { add_treasury = scope:ova_subsidy_amount }
+		change_relations = { country = scope:ova_wavering_member value = 20 }
+	}
+
+	option = { # threaten the anathema
+		name = ova_hero.42.b
+		change_relations = { country = scope:ova_wavering_member value = -20 }
+	}
+}
+
+# ------------------------------- .50-.59 Victoria's arc, chapters 1-5
+# Once-only guards are set in each event's immediate so a monthly pulse can
+# never double-fire a story beat while its window is open.
+
+ova_hero.50 = { # A Kettle in Another World (chapter 1)
+	type = country_event
+	placement = root
+
+	title = ova_hero.50.t
+	desc = ova_hero.50.d
+	flavor = ova_hero.50.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_victoria_seen_50 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_50
+	}
+
+	option = { # let her have the evening
+		name = ova_hero.50.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+
+	option = { # training starts at dawn
+		name = ova_hero.50.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_hero.51 = { # Hero of the Hour (chapter 1)
+	type = country_event
+	placement = root
+
+	title = ova_hero.51.t
+	desc = ova_hero.51.d
+	flavor = ova_hero.51.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		has_variable = ova_victoria_seen_50
+		NOT = { has_variable = ova_victoria_seen_51 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_51
+	}
+
+	option = { # let the serials print what they like
+		name = ova_hero.51.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+
+	option = { # she trains until the stories are true
+		name = ova_hero.51.b
+		ova_champion_add_xp = { AMOUNT = 15 }
+	}
+}
+
+ova_hero.52 = { # Across the Scarred Line (chapter 4)
+	type = country_event
+	placement = root
+
+	title = ova_hero.52.t
+	desc = ova_hero.52.d
+	flavor = ova_hero.52.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		NOT = { has_variable = ova_victoria_seen_52 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_52
+	}
+
+	option = { # leave it behind - the professional distance the Church expects
+		name = ova_hero.52.a
+		default_option = yes
+		change_relations = { country = c:LUX value = 5 }
+	}
+
+	option = { # pick up the doll - she cannot un-see what she just saw
+		name = ova_hero.52.b
+		set_variable = ova_hero_doubt
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_hero.53 = { # The Girl with the Grey Wings (chapter 4)
+	type = country_event
+	placement = root
+
+	title = ova_hero.53.t
+	desc = ova_hero.53.d
+	flavor = ova_hero.53.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		has_variable = ova_victoria_seen_98
+		NOT = { has_variable = ova_victoria_met_daughter }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_met_daughter
+	}
+
+	option = { # say nothing of it in the official dispatch
+		name = ova_hero.53.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+
+	option = { # report the encounter honestly
+		name = ova_hero.53.b
+		change_relations = { country = c:LUX value = -5 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_hero.54 = { # The Veterans Ward (chapter 5, opened by the ward button)
+	type = country_event
+	placement = root
+
+	title = ova_hero.54.t
+	desc = ova_hero.54.d
+	flavor = ova_hero.54.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_sick_in_hospital"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_victoria_saw_ward }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_saw_ward
+		trigger_event = { id = ova_hero.99 days = 10 }
+	}
+
+	option = { # fund a modern ward
+		name = ova_hero.54.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+        ova_champion_add_xp = { AMOUNT = 5 }
+	}
+
+	option = { # the crown cannot afford sentiment
+		name = ova_hero.54.b
+	}
+}
+
+ova_hero.55 = { # The Ledger of Light (chapter 5)
+	type = country_event
+	placement = root
+
+	title = ova_hero.55.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_variable = ova_hero_doubt }
+				desc = ova_hero.55.d_doubt
+			}
+			triggered_desc = {
+				trigger = { always = yes }
+				desc = ova_hero.55.d
+			}
+		}
+	}
+	flavor = ova_hero.55.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		has_variable = ova_victoria_seen_124
+		NOT = { has_variable = ova_victoria_read_ledger }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_read_ledger
+	}
+
+	option = { # she closes the book and remembers the page
+		name = ova_hero.55.a
+		default_option = yes
+	}
+}
+
+ova_hero.56 = { # The Girl on the Ridge (chapter 6, the friendship deepens)
+	type = country_event
+	placement = root
+
+	title = ova_hero.56.t
+	desc = ova_hero.56.d
+	flavor = ova_hero.56.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		NOT = { has_variable = ova_victoria_seen_56 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_56
+	}
+
+	option = { # she stays for the whole hymn
+		name = ova_hero.56.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+
+	option = { # she leaves before it ends
+		name = ova_hero.56.b
+		change_relations = { country = c:LUX value = 5 }
+	}
+}
+
+ova_hero.57 = { # A Name Given Freely (chapter 6)
+	type = country_event
+	placement = root
+
+	title = ova_hero.57.t
+	desc = ova_hero.57.d
+	flavor = ova_hero.57.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		has_variable = ova_victoria_seen_125
+		NOT = { has_variable = ova_victoria_knows_her_name }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_knows_her_name
+	}
+
+	option = { # a name is worth more than a province
+		name = ova_hero.57.a
+		default_option = yes
+		change_relations = { country = c:DEM value = 10 }
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_hero.58 = { # The Midnight Archive (chapter 7, from the archive button)
+	type = country_event
+	placement = root
+
+	title = ova_hero.58.t
+	desc = ova_hero.58.d
+	flavor = ova_hero.58.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+	}
+
+	immediate = { }
+
+	option = { # she keeps reading
+		name = ova_hero.58.a
+		default_option = yes
+		trigger_event = { id = ova_hero.103 days = 10 }
+	}
+}
+
+ova_hero.59 = { # The Amended Word (chapter 7)
+	type = country_event
+	placement = root
+
+	title = ova_hero.59.t
+	desc = ova_hero.59.d
+	flavor = ova_hero.59.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		has_variable = ova_victoria_seen_126
+		NOT = { has_variable = ova_victoria_found_word }
+	}
+
+	immediate = {
+		
+	}
+
+	option = { # she hides the page inside her coat
+		name = ova_hero.59.a
+		default_option = yes
+        set_variable = ova_victoria_found_word
+	}
+
+	option = { # she copies it and returns the original
+		name = ova_hero.59.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+        set_variable = ova_victoria_found_word
+	}
+}
+
+# --------------------------------------------------- .60-.64 DEM home front
+ova_hero.60 = { # The Warlord's Peace
+	type = country_event
+	placement = root
+
+	title = ova_hero.60.t
+	desc = ova_hero.60.d
+	flavor = ova_hero.60.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		c:DEM ?= THIS
+	}
+
+	immediate = { }
+
+	option = { # iron discipline
+		name = ova_hero.60.a
+		default_option = yes
+		add_loyalists = { value = small_radicals }
+	}
+
+	option = { # soften the levies
+		name = ova_hero.60.b
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = small_radicals }
+	}
+}
+
+ova_hero.61 = { # The Envoy Returns Empty-Handed
+	type = country_event
+	placement = root
+
+	title = ova_hero.61.t
+	desc = ova_hero.61.d
+	flavor = ova_hero.61.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:DEM ?= THIS
+		exists = c:LUX
+	}
+
+	immediate = { }
+
+	option = { # then we endure
+		name = ova_hero.61.a
+		default_option = yes
+		add_modifier = { name = ova_dem_reclamation_fervor days = 730 }
+	}
+
+	option = { # publish the rejected letter
+		name = ova_hero.61.b
+		change_relations = { country = c:LUX value = -10 }
+		add_loyalists = { value = small_radicals }
+	}
+}
+
+ova_hero.62 = { # Speeches at the Scarred Border
+	type = country_event
+	placement = root
+
+	title = ova_hero.62.t
+	desc = ova_hero.62.d
+	flavor = ova_hero.62.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		c:DEM ?= THIS
+		# any acre of the homeland in hands not our own and not sworn to us -
+		# the old marches, the Church's foothold on Ruina, or whatever the
+		# foreign champions have carved off since
+		sr:region_demonland = {
+			any_scope_state = {
+				NOT = {
+					OR = {
+						owner ?= ROOT
+						owner = { is_subject_of = ROOT }
+					}
+				}
+			}
+		}
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_hero.62.a
+		default_option = yes
+		add_modifier = { name = ova_dem_reclamation_fervor days = 730 }
+	}
+}
+
+ova_hero.63 = { # We Pray to Her Too
+	type = country_event
+	placement = root
+
+	title = ova_hero.63.t
+	desc = ova_hero.63.d
+	flavor = ova_hero.63.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:DEM ?= THIS
+		exists = c:LUX
+	}
+
+	immediate = { }
+
+	option = { # proclaim it to the world
+		name = ova_hero.63.a
+		default_option = yes
+		change_relations = { country = c:LUX value = -10 }
+		add_loyalists = { value = small_radicals }
+	}
+
+	option = { # keep the faith quiet
+		name = ova_hero.63.b
+	}
+}
+
+ova_hero.64 = { # Shadows of the Hero
+	type = country_event
+	placement = root
+
+	title = ova_hero.64.t
+	desc = ova_hero.64.d
+	flavor = ova_hero.64.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		c:DEM ?= THIS
+		any_country = {
+			has_diplomatic_pact = { who = ROOT type = ova_champion_expedition }
+		}
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_hero.64.a
+		default_option = yes
+		add_modifier = { name = ova_dem_hero_terror days = 365 }
+		add_radicals = { value = small_radicals }
+	}
+}
+
+# ---------------------- .65-.69 the compact under strain
+# Race and grudge inside the young empire: the Uniter welded four peoples
+# and a human minority into one banner, and a war against humans who call
+# them demons makes every difference between neighbors a fault line.
+
+ova_hero.65 = { # Human Faces
+	type = country_event
+	placement = root
+
+	title = ova_hero.65.t
+	desc = ova_hero.65.d
+	flavor = ova_hero.65.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+
+	trigger = {
+		c:DEM ?= THIS
+		any_scope_state = {
+			any_scope_pop = { culture = cu:altan }
+		}
+	}
+
+	immediate = { }
+
+	option = { # the compact covers every tribe
+		name = ova_hero.65.a
+		default_option = yes
+		add_modifier = { name = ova_dem_uniters_compact days = 730 }
+		add_loyalists = { value = small_radicals culture = cu:altan }
+		add_radicals = { value = very_small_radicals }
+	}
+
+	option = { # the guard has other duties
+		name = ova_hero.65.b
+		add_radicals = { value = small_radicals culture = cu:altan }
+		add_modifier = { name = ova_dem_old_grudges days = 730 }
+	}
+}
+
+ova_hero.66 = { # The Spared and the Changed
+	type = country_event
+	placement = root
+
+	title = ova_hero.66.t
+	desc = ova_hero.66.d
+	flavor = ova_hero.66.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:DEM ?= THIS
+	}
+
+	immediate = { }
+
+	option = { # the Uniter shames the agitators himself
+		name = ova_hero.66.a
+		default_option = yes
+		add_loyalists = { value = small_radicals culture = cu:winged_demon }
+		add_radicals = { value = very_small_radicals }
+	}
+
+	option = { # old scorn is not worth a decree
+		name = ova_hero.66.b
+		add_radicals = { value = small_radicals culture = cu:winged_demon }
+		add_modifier = { name = ova_dem_old_grudges days = 365 }
+	}
+}
+
+ova_hero.67 = { # Tribute of the Dusk Forests
+	type = country_event
+	placement = root
+
+	title = ova_hero.67.t
+	desc = ova_hero.67.d
+	flavor = ova_hero.67.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:DEM ?= THIS
+		OR = {
+			c:YOL ?= { is_subject_of = ROOT }
+			any_scope_state = {
+				any_scope_pop = { culture = cu:dark_elf }
+			}
+		}
+	}
+
+	immediate = { }
+
+	option = { # seat the envoys of Yolteni above the salt
+		name = ova_hero.67.a
+		default_option = yes
+		add_loyalists = { value = small_radicals culture = cu:dark_elf }
+		if = {
+			limit = { c:YOL ?= { is_subject_of = ROOT } }
+			change_relations = { country = c:YOL value = 10 }
+		}
+	}
+
+	option = { # the forests can wait their turn
+		name = ova_hero.67.b
+		add_radicals = { value = small_radicals culture = cu:dark_elf }
+		add_modifier = { name = ova_dem_old_grudges days = 365 }
+	}
+}
+
+ova_hero.68 = { # The Altan Regiments
+	type = country_event
+	placement = root
+
+	title = ova_hero.68.t
+	desc = ova_hero.68.d
+	flavor = ova_hero.68.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		c:DEM ?= THIS
+		exists = c:LUX
+		any_scope_state = {
+			any_scope_pop = { culture = cu:altan }
+		}
+	}
+
+	immediate = { }
+
+	option = { # arm them under the empire's banner
+		name = ova_hero.68.a
+		default_option = yes
+		add_loyalists = { value = small_radicals culture = cu:altan }
+		add_radicals = { value = very_small_radicals }
+	}
+
+	option = { # shovels, not spears
+		name = ova_hero.68.b
+		add_radicals = { value = small_radicals culture = cu:altan }
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_hero.69 = { # Ash on Someone Else's Doorstep
+	type = country_event
+	placement = root
+
+	title = ova_hero.69.t
+	desc = ova_hero.69.d
+	flavor = ova_hero.69.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		c:DEM ?= THIS
+		any_country = {
+			has_diplomatic_pact = { who = ROOT type = ova_champion_expedition }
+		}
+		any_scope_state = {
+			any_scope_pop = { culture = cu:altan }
+		}
+	}
+
+	immediate = { }
+
+	option = { # billet the refugees, and post the guard in the Altan quarter
+		name = ova_hero.69.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_loyalists = { value = small_radicals }
+	}
+
+	option = { # grief must go somewhere
+		name = ova_hero.69.b
+		add_radicals = { value = small_radicals culture = cu:altan }
+		add_loyalists = { value = very_small_radicals }
+		add_modifier = { name = ova_dem_old_grudges days = 365 }
+	}
+}
+
+# ---------------------- .70-.79 Victoria's arc, chapters 6-8 and endings
+
+ova_hero.70 = { # A Parley Behind the Lines (chapter 8, on campaign)
+	type = country_event
+	placement = root
+
+	title = ova_hero.70.t
+	desc = ova_hero.70.d
+	flavor = ova_hero.70.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		NOT = { has_variable = ova_victoria_audience_done }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_audience_done
+	}
+
+	option = { # she bows exactly as low as she would to her own king
+		name = ova_hero.70.a
+		default_option = yes
+		change_relations = { country = c:DEM value = 10 }
+	}
+
+	option = { # she keeps the Church's forms, and everyone notices
+		name = ova_hero.70.b
+		change_relations = { country = c:LUX value = 5 }
+	}
+}
+
+ova_hero.71 = { # Flight-Songs (chapter 8)
+	type = country_event
+	placement = root
+
+	title = ova_hero.71.t
+	desc = ova_hero.71.d
+	flavor = ova_hero.71.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		has_variable = ova_victoria_seen_105
+		NOT = { has_variable = ova_victoria_seen_71 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_71
+	}
+
+	option = { # she learns the second verse by heart
+		name = ova_hero.71.a
+		default_option = yes
+		change_relations = { country = c:DEM value = 10 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_hero.72 = { # An Invitation Written in Feathers (chapter 8)
+	type = country_event
+	placement = root
+
+	title = ova_hero.72.t
+	desc = ova_hero.72.d
+	flavor = ova_hero.72.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		has_variable = ova_victoria_seen_107
+		NOT = { has_variable = ova_victoria_invited }
+	}
+
+	immediate = {
+		
+	}
+
+	option = { # of course she will go
+		name = ova_hero.72.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+        set_variable = ova_victoria_invited
+	}
+}
+
+ova_hero.73 = { # The Vault of Feathers (chapter 9, from the vault button)
+	type = country_event
+	placement = root
+
+	title = ova_hero.73.t
+	desc = ova_hero.73.d
+	flavor = ova_hero.73.f
+
+	duration = 5
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		NOT = { has_variable = ova_victoria_seen_73 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_73
+	}
+
+	option = { # she reads every name on the wall
+		name = ova_hero.73.a
+		default_option = yes
+		trigger_event = { id = ova_hero.108 days = 10 }
+	}
+}
+
+ova_hero.74 = { # What the Feathers Held (chapter 9)
+	type = country_event
+	placement = root
+
+	title = ova_hero.74.t
+	desc = ova_hero.74.d
+	flavor = ova_hero.74.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		has_variable = ova_victoria_seen_109
+		NOT = { has_variable = ova_victoria_seen_74 }
+	}
+
+	# the capstone of the vault: this is where she has heard ALL of it, so
+	# this is where the chapter (and the sixty-day countdown to the choice)
+	# actually begins. ova_hero.73 only opens the door now.
+	immediate = {
+		set_variable = ova_victoria_seen_74
+		set_variable = ova_victoria_knows_truth
+	}
+
+	option = { # grief first; the rest can wait a night
+		name = ova_hero.74.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_hero.75 = { # The Hour of the Hero (THE choice, 60 days after chapter 9)
+	type = country_event
+	placement = root
+
+	title = ova_hero.75.t
+	desc = ova_hero.75.d
+	flavor = ova_hero.75.f
+
+	duration = 5
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		# the rebellion needs a Demonic Empire to stand behind the dawn
+		exists = c:DEM
+		NOT = { has_variable = ova_victoria_choice }
+	}
+
+	immediate = { }
+
+	option = { # RAISE THE DAWN - she leaves with the marches, and war comes
+		name = ova_hero.75.a
+		effect_ova_victoria_rebellion = yes
+		ai_chance = { base = 0 }
+	}
+
+	option = { # KEEP THE EMPIRE - bury the truth and finish the crusade
+		name = ova_hero.75.b
+		default_option = yes
+		effect_ova_victoria_empire = yes
+		ai_chance = { base = 100 }
+	}
+}
+
+ova_hero.76 = { # The Dawn Proclamation (rebellion epilogue, fires on AUR)
+	type = country_event
+	placement = root
+
+	title = ova_hero.76.t
+	desc = ova_hero.76.d
+	flavor = ova_hero.76.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_new_dawn
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_hero.76.a
+		default_option = yes
+		add_loyalists = { value = medium_radicals }
+	}
+}
+
+ova_hero.77 = { # The Longest War (empire epilogue)
+	type = country_event
+	placement = root
+
+	title = ova_hero.77.t
+	desc = ova_hero.77.d
+	flavor = ova_hero.77.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		has_variable = ova_victoria_choice
+		var:ova_victoria_choice = 2
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_hero.77.a
+		default_option = yes
+		change_relations = { country = c:LUX value = 10 }
+	}
+}
+
+ova_hero.78 = { # The Hero Is Dead (fail: Victoria has fallen)
+	type = country_event
+	placement = root
+
+	title = ova_hero.78.t
+	desc = ova_hero.78.d
+	flavor = ova_hero.78.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+	}
+
+	immediate = { }
+
+	option = { # a state funeral, fit for a saint
+		name = ova_hero.78.a
+		default_option = yes
+		add_modifier = { name = ova_lys_hero_mourning days = 365 }
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+	}
+
+	option = { # her legend must outlive her
+		name = ova_hero.78.b
+		add_modifier = { name = ova_lys_hero_mourning days = 365 }
+		add_radicals = { value = small_radicals }
+	}
+}
+
+ova_hero.79 = { # A Story Cut Short (fail: the Empire fell first)
+	type = country_event
+	placement = root
+
+	title = ova_hero.79.t
+	desc = ova_hero.79.d
+	flavor = ova_hero.79.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_hero.79.a
+		default_option = yes
+	}
+}
+
+# ------------------- .80-.89 the Dawn aftermath and the Church's reaction
+
+ova_hero.80 = { # The Veil Torn (LUX, on the truth going public)
+	type = country_event
+	placement = root
+
+	title = ova_hero.80.t
+	desc = ova_hero.80.d
+	flavor = ova_hero.80.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:LUX ?= THIS
+	}
+
+	immediate = { }
+
+	option = { # deny everything
+		name = ova_hero.80.a
+		default_option = yes
+		add_radicals = { value = medium_radicals }
+	}
+
+	option = { # burn the remaining archives
+		name = ova_hero.80.b
+		add_radicals = { value = small_radicals }
+		change_infamy = 5
+	}
+}
+
+ova_hero.81 = { # Those Who Left and Those Who Stayed (dawn 1)
+	type = country_event
+	placement = root
+
+	title = ova_hero.81.t
+	desc = ova_hero.81.d
+	flavor = ova_hero.81.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		exists = c:LYS
+		NOT = { has_variable = ova_dawn_seen_81 }
+	}
+
+	immediate = {
+		set_variable = ova_dawn_seen_81
+	}
+
+	option = { # open the gates for anyone who wishes to leave
+		name = ova_hero.81.a
+		default_option = yes
+		add_loyalists = { value = small_radicals }
+	}
+
+	option = { # deserters forfeit their commissions and their pensions
+		name = ova_hero.81.b
+		add_radicals = { value = small_radicals }
+		add_treasury = { value = money_amount_multiplier_small }
+	}
+}
+
+ova_hero.82 = { # The Old Flag in the Streets (dawn 1)
+	type = country_event
+	placement = root
+
+	title = ova_hero.82.t
+	desc = ova_hero.82.d
+	flavor = ova_hero.82.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+
+	trigger = {
+		NOT = { has_variable = ova_dawn_seen_82 }
+	}
+
+	immediate = {
+		set_variable = ova_dawn_seen_82
+	}
+
+	option = { # clear the square, gently
+		name = ova_hero.82.a
+		default_option = yes
+		add_radicals = { value = small_radicals }
+	}
+
+	option = { # let them march until their feet get tired
+		name = ova_hero.82.b
+		add_loyalists = { value = small_radicals }
+	}
+}
+
+ova_hero.83 = { # The Winged Legion (dawn 1)
+	type = country_event
+	placement = root
+
+	title = ova_hero.83.t
+	desc = ova_hero.83.d
+	flavor = ova_hero.83.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		exists = c:DEM
+		NOT = { has_variable = ova_dawn_seen_83 }
+	}
+
+	immediate = {
+		set_variable = ova_dawn_seen_83
+	}
+
+	option = { # welcome them into the line of battle
+		name = ova_hero.83.a
+		default_option = yes
+		add_modifier = { name = ova_dawn_winged_legion days = 1825 }
+		change_relations = { country = c:DEM value = 10 }
+	}
+}
+
+ova_hero.84 = { # The Schoolhouse Door (dawn 2)
+	type = country_event
+	placement = root
+
+	title = ova_hero.84.t
+	desc = ova_hero.84.d
+	flavor = ova_hero.84.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		NOT = { has_variable = ova_dawn_seen_84 }
+	}
+
+	immediate = {
+		set_variable = ova_dawn_seen_84
+	}
+
+	option = { # the door stays open, and the law says so
+		name = ova_hero.84.a
+		default_option = yes
+		add_radicals = { value = small_radicals }
+		add_loyalists = { value = small_radicals }
+	}
+
+	option = { # separate benches, for now
+		name = ova_hero.84.b
+		add_loyalists = { value = very_small_radicals }
+	}
+}
+
+ova_hero.85 = { # Feathers in the Market (dawn 2)
+	type = country_event
+	placement = root
+
+	title = ova_hero.85.t
+	desc = ova_hero.85.d
+	flavor = ova_hero.85.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+
+	trigger = {
+		NOT = { has_variable = ova_dawn_seen_85 }
+	}
+
+	immediate = {
+		set_variable = ova_dawn_seen_85
+	}
+
+	option = { # the guard protects every stall or none
+		name = ova_hero.85.a
+		default_option = yes
+		add_radicals = { value = small_radicals }
+		change_relations = { country = c:DEM value = 10 }
+	}
+
+	option = { # advise the winged traders to keep away a while
+		name = ova_hero.85.b
+		change_relations = { country = c:DEM value = -10 }
+	}
+}
+
+ova_hero.86 = { # Two Uniforms, One Line (dawn 2)
+	type = country_event
+	placement = root
+
+	title = ova_hero.86.t
+	desc = ova_hero.86.d
+	flavor = ova_hero.86.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		NOT = { has_variable = ova_dawn_seen_86 }
+	}
+
+	immediate = {
+		set_variable = ova_dawn_seen_86
+	}
+
+	option = {
+		name = ova_hero.86.a
+		default_option = yes
+		add_loyalists = { value = small_radicals }
+	}
+}
+
+ova_hero.87 = { # The World Watches (dawn 3)
+	type = country_event
+	placement = root
+
+	title = ova_hero.87.t
+	desc = ova_hero.87.d
+	flavor = ova_hero.87.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		NOT = { has_variable = ova_dawn_seen_87 }
+	}
+
+	immediate = {
+		set_variable = ova_dawn_seen_87
+	}
+
+	option = {
+		name = ova_hero.87.a
+		default_option = yes
+		change_infamy = -5
+		add_loyalists = { value = small_radicals }
+	}
+}
+
+ova_hero.88 = { # A Letter, Wing-Sealed (dawn 3)
+	type = country_event
+	placement = root
+
+	title = ova_hero.88.t
+	desc = ova_hero.88.d
+	flavor = ova_hero.88.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		exists = c:DEM
+		NOT = { has_variable = ova_dawn_seen_88 }
+	}
+
+	immediate = {
+		set_variable = ova_dawn_seen_88
+	}
+
+	option = {
+		name = ova_hero.88.a
+		default_option = yes
+		change_relations = { country = c:DEM value = 10 }
+	}
+}
+
+ova_hero.89 = { # A Nation of Two Peoples (dawn 3 epilogue)
+	type = country_event
+	placement = root
+
+	title = ova_hero.89.t
+	desc = ova_hero.89.d
+	flavor = ova_hero.89.f
+
+	duration = 5
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = { }
+
+	immediate = { }
+
+	option = {
+		name = ova_hero.89.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 20 }
+	}
+}
+# ================== .90-.109 Victoria's arc, the drip-feed beats ==================
+# The chapters of Victoria's chain are strict chains: every beat below requires
+# the previous beat's flag and refuses to fire twice, so a chapter walks its
+# story one step at a time instead of resolving in a single lucky roll. The
+# pulse-driven chapters (1, 3, 4, 6, 8) offer their next beat through
+# effect_ova_victoria_chN_tick (chapters 1/6/8 three times a year, 3/4 twice);
+# the academy (chapter 2) is scheduled by day offset from the enrollment
+# decision, and the ward (5), archive (7) and vault (9) chain off their own
+# buttons. The 2026-07-17 beats live at .120-.126 below.
+#   .90-.91   chapter 1, the hall goes up around her (with .120/.121)
+#   .92-.95   chapter 2, the middle years at Saint Christine's
+#   .96       chapter 3, the wall will not move on its own (with .122/.123)
+#   .97-.98   chapter 4, the dusk country before the grey wings
+#   .99-.100  chapter 5, the arithmetic before the ledger (then .124)
+#   .101-.102 chapter 6, an enemy becomes a friend by degrees (then .125)
+#   .103-.104 chapter 7, the shelves before the amended word (then .126)
+#   .105-.107 chapter 8, the court learns her face
+#   .108-.109 chapter 9, the vault before the whole of it
+
+ova_hero.90 = { # The Hall Rises (chapter 1)
+	type = country_event
+	placement = root
+
+	title = ova_hero.90.t
+	desc = ova_hero.90.d
+	flavor = ova_hero.90.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		has_variable = ova_victoria_seen_120
+		NOT = { has_variable = ova_victoria_seen_90 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_90
+	}
+
+	option = { # she lays the first stone herself
+		name = ova_hero.90.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+
+	option = { # she hides in the half-built library instead
+		name = ova_hero.90.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_hero.91 = { # Three Wings and a Ledger (chapter 1)
+	type = country_event
+	placement = root
+
+	title = ova_hero.91.t
+	desc = ova_hero.91.d
+	flavor = ova_hero.91.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		has_variable = ova_victoria_seen_90
+		NOT = { has_variable = ova_victoria_seen_91 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_91
+	}
+
+	option = { # all three wings, and hang the cost
+		name = ova_hero.91.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+
+	option = { # let the girl decide what her own house is for
+		name = ova_hero.91.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_hero.92 = { # The Dormitory (chapter 2, academy year one)
+	type = country_event
+	placement = root
+
+	title = ova_hero.92.t
+	desc = ova_hero.92.d
+	flavor = ova_hero.92.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_victoria_seen_92 }
+	}
+
+	immediate = { set_variable = ova_victoria_seen_92 }
+
+	option = { # sit up half the night talking
+		name = ova_hero.92.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+
+	option = { # lights out; there is drill at six
+		name = ova_hero.92.b
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_hero.93 = { # A Letter That Cannot Be Posted (chapter 2, academy year two)
+	type = country_event
+	placement = root
+
+	title = ova_hero.93.t
+	desc = ova_hero.93.d
+	flavor = ova_hero.93.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_victoria_seen_93 }
+	}
+
+	immediate = { set_variable = ova_victoria_seen_93 }
+
+	option = { # she finishes it anyway and keeps it in her trunk
+		name = ova_hero.93.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+
+	option = { # she reads it aloud to the dormitory
+		name = ova_hero.93.b
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_hero.94 = { # The Doctrine Essay (chapter 2, academy year three)
+	type = country_event
+	placement = root
+
+	title = ova_hero.94.t
+	desc = ova_hero.94.d
+	flavor = ova_hero.94.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_victoria_seen_94 }
+	}
+
+	immediate = { set_variable = ova_victoria_seen_94 }
+
+	option = { # write what the faculty wants to read
+		name = ova_hero.94.a
+		default_option = yes
+		change_relations = { country = c:LUX value = 5 }
+	}
+
+	option = { # write what she actually thinks
+		name = ova_hero.94.b
+		ova_champion_add_xp = { AMOUNT = 12 }
+		change_relations = { country = c:LUX value = -5 }
+	}
+}
+
+ova_hero.95 = { # The Final Practicum (chapter 2, academy year four)
+	type = country_event
+	placement = root
+
+	title = ova_hero.95.t
+	desc = ova_hero.95.d
+	flavor = ova_hero.95.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_victoria_seen_95 }
+	}
+
+	immediate = { set_variable = ova_victoria_seen_95 }
+
+	option = { # lead the column, as the rubric requires
+		name = ova_hero.95.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 12 }
+	}
+
+	option = { # let the nervous boy from the second form lead it
+		name = ova_hero.95.b
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+}
+
+ova_hero.96 = { # Ten Thousand Mornings (chapter 3)
+	type = country_event
+	placement = root
+
+	title = ova_hero.96.t
+	desc = ova_hero.96.d
+	flavor = ova_hero.96.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		# only worth saying if the crown still has not paid for the yard
+		NOT = { has_modifier = ova_champion_training_program }
+		NOT = { has_variable = ova_victoria_seen_96 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_96
+	}
+
+	option = {
+		name = ova_hero.96.a
+		default_option = yes
+	}
+}
+
+ova_hero.97 = { # The Quiet Villages (chapter 4)
+	type = country_event
+	placement = root
+
+	title = ova_hero.97.t
+	desc = ova_hero.97.d
+	flavor = ova_hero.97.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		has_variable = ova_victoria_seen_52
+		NOT = { has_variable = ova_victoria_seen_97 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_97
+	}
+
+	option = { # she writes down what she actually sees
+		name = ova_hero.97.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+
+	option = { # she files the dispatch the Church expects
+		name = ova_hero.97.b
+		change_relations = { country = c:LUX value = 5 }
+	}
+}
+
+ova_hero.98 = { # A Face in the Smoke (chapter 4)
+	type = country_event
+	placement = root
+
+	title = ova_hero.98.t
+	desc = ova_hero.98.d
+	flavor = ova_hero.98.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		has_variable = ova_victoria_seen_97
+		NOT = { has_variable = ova_victoria_seen_98 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_98
+	}
+
+	option = { # she lets the column go
+		name = ova_hero.98.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+
+	option = { # she does her duty, and does not sleep after it
+		name = ova_hero.98.b
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+}
+
+ova_hero.99 = { # The Cot by the Window (chapter 5)
+	type = country_event
+	placement = root
+
+	title = ova_hero.99.t
+	desc = ova_hero.99.d
+	flavor = ova_hero.99.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_sick_in_hospital"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		has_variable = ova_victoria_saw_ward
+		NOT = { has_variable = ova_victoria_seen_99 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_99
+		trigger_event = { id = ova_hero.100 days = 12 }
+	}
+
+	option = { # she sits with him until the end of visiting hours
+		name = ova_hero.99.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+
+	option = { # she asks him who signed his discharge papers
+		name = ova_hero.99.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_hero.100 = { # The Quartermaster's Arithmetic (chapter 5)
+	type = country_event
+	placement = root
+
+	title = ova_hero.100.t
+	desc = ova_hero.100.d
+	flavor = ova_hero.100.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		has_variable = ova_victoria_seen_99
+		NOT = { has_variable = ova_victoria_seen_100 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_100
+		trigger_event = { id = ova_hero.124 days = 12 }
+	}
+
+	option = { # she copies the column into her own notebook
+		name = ova_hero.100.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+
+	option = { # she asks the quartermaster, to his face, who profits
+		name = ova_hero.100.b
+		change_relations = { country = c:LUX value = -5 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_hero.101 = { # The Shared Ration (chapter 6)
+	type = country_event
+	placement = root
+
+	title = ova_hero.101.t
+	desc = ova_hero.101.d
+	flavor = ova_hero.101.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		has_variable = ova_victoria_seen_56
+		NOT = { has_variable = ova_victoria_seen_101 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_101
+	}
+
+	option = { # split the ration, argue about the better half
+		name = ova_hero.101.a
+		default_option = yes
+		change_relations = { country = c:DEM value = 5 }
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_hero.102 = { # What the Ridge Knows (chapter 6)
+	type = country_event
+	placement = root
+
+	title = ova_hero.102.t
+	desc = ova_hero.102.d
+	flavor = ova_hero.102.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		has_variable = ova_victoria_seen_101
+		NOT = { has_variable = ova_victoria_seen_102 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_102
+	}
+
+	option = { # neither of them reports the meeting
+		name = ova_hero.102.a
+		default_option = yes
+		change_relations = { country = c:DEM value = 5 }
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+
+	option = { # she tells her officers exactly where she was
+		name = ova_hero.102.b
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_hero.103 = { # The Second Shelf (chapter 7, archive night)
+	type = country_event
+	placement = root
+
+	title = ova_hero.103.t
+	desc = ova_hero.103.d
+	flavor = ova_hero.103.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		NOT = { has_variable = ova_victoria_seen_103 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_103
+	}
+
+	option = {
+		name = ova_hero.103.a
+		default_option = yes
+		trigger_event = { id = ova_hero.104 days = 12 }
+	}
+}
+
+ova_hero.104 = { # The Scraped Page (chapter 7, archive night)
+	type = country_event
+	placement = root
+
+	title = ova_hero.104.t
+	desc = ova_hero.104.d
+	flavor = ova_hero.104.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		has_variable = ova_victoria_seen_103
+		NOT = { has_variable = ova_victoria_seen_104 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_104
+	}
+
+	option = {
+		name = ova_hero.104.a
+		default_option = yes
+		trigger_event = { id = ova_hero.126 days = 12 }
+	}
+}
+
+ova_hero.105 = { # The Herald's Escort (chapter 8)
+	type = country_event
+	placement = root
+
+	title = ova_hero.105.t
+	desc = ova_hero.105.d
+	flavor = ova_hero.105.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		has_variable = ova_victoria_audience_done
+		NOT = { has_variable = ova_victoria_seen_105 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_105
+	}
+
+	option = { # ride with the escort, unarmed, and let them see it
+		name = ova_hero.105.a
+		default_option = yes
+		change_relations = { country = c:DEM value = 5 }
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_hero.106 = { # The Courtier Who Would Not Bow (chapter 8)
+	type = country_event
+	placement = root
+
+	title = ova_hero.106.t
+	desc = ova_hero.106.d
+	flavor = ova_hero.106.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		has_variable = ova_victoria_seen_71
+		NOT = { has_variable = ova_victoria_seen_106 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_106
+	}
+
+	option = { # she agrees with him, out loud, in front of the court
+		name = ova_hero.106.a
+		default_option = yes
+		change_relations = { country = c:DEM value = 10 }
+	}
+
+	option = { # she answers him as a Hero of Lysna is expected to
+		name = ova_hero.106.b
+		change_relations = { country = c:LUX value = 5 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_hero.107 = { # A Truce for One Evening (chapter 8)
+	type = country_event
+	placement = root
+
+	title = ova_hero.107.t
+	desc = ova_hero.107.d
+	flavor = ova_hero.107.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		has_variable = ova_victoria_seen_106
+		NOT = { has_variable = ova_victoria_seen_107 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_107
+	}
+
+	option = { # both armies keep the evening, and nobody writes it down
+		name = ova_hero.107.a
+		default_option = yes
+		change_relations = { country = c:DEM value = 10 }
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+}
+
+ova_hero.108 = { # The Names on the Wall (chapter 9, in the vault)
+	type = country_event
+	placement = root
+
+	title = ova_hero.108.t
+	desc = ova_hero.108.d
+	flavor = ova_hero.108.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		has_variable = ova_victoria_seen_73
+		NOT = { has_variable = ova_victoria_seen_108 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_108
+	}
+
+	option = {
+		name = ova_hero.108.a
+		default_option = yes
+		trigger_event = { id = ova_hero.109 days = 12 }
+	}
+}
+
+ova_hero.109 = { # The Oldest Feather (chapter 9, in the vault)
+	type = country_event
+	placement = root
+
+	title = ova_hero.109.t
+	desc = ova_hero.109.d
+	flavor = ova_hero.109.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		has_variable = ova_victoria_seen_108
+		NOT = { has_variable = ova_victoria_seen_109 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_109
+	}
+
+	option = {
+		name = ova_hero.109.a
+		default_option = yes
+		trigger_event = { id = ova_hero.74 days = 12 }
+	}
+}
+
+# ============ .120-.126 added beats (2026-07-17 pacing pass) ============
+# Extra rungs on the chapter ladders so the richer chapters still finish in
+# ~2 years: chapters 1/6/8 now pulse a beat every THIRD of a year (see the
+# journal entries), chapters 3/4 keep the half-year cadence, and the button
+# chapters (5/7) grew one day-offset link each. .119 is left free for a
+# future relay.
+#   .120-.121 chapter 1 (after .51 / after .91)
+#   .122-.123 chapter 3 (after .96; stop once training is funded)
+#   .124      chapter 5 (between .100 and .55)
+#   .125      chapter 6 (between .102 and .57)
+#   .126      chapter 7 (between .104 and .59; introduces the lector)
+
+ova_hero.120 = { # Etiquette for Otherworlders (chapter 1)
+	type = country_event
+	placement = root
+
+	title = ova_hero.120.t
+	desc = ova_hero.120.d
+	flavor = ova_hero.120.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		has_variable = ova_victoria_seen_51
+		NOT = { has_variable = ova_victoria_seen_120 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_120
+	}
+
+	option = { # learn the forms properly
+		name = ova_hero.120.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+
+	option = { # the maids' version of the lessons is better
+		name = ova_hero.120.b
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_hero.121 = { # Letters to the Hall (chapter 1)
+	type = country_event
+	placement = root
+
+	title = ova_hero.121.t
+	desc = ova_hero.121.d
+	flavor = ova_hero.121.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		has_variable = ova_victoria_seen_91
+		NOT = { has_variable = ova_victoria_seen_121 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_121
+	}
+
+	option = { # answer every letter, however long it takes
+		name = ova_hero.121.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+
+	option = { # the clerks may draft, she signs
+		name = ova_hero.121.b
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_hero.122 = { # The Borrowed Masters (chapter 3)
+	type = country_event
+	placement = root
+
+	title = ova_hero.122.t
+	desc = ova_hero.122.d
+	flavor = ova_hero.122.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		has_variable = ova_victoria_seen_96
+		# like .96: only worth saying while the crown has not paid for the yard
+		NOT = { has_modifier = ova_champion_training_program }
+		NOT = { has_variable = ova_victoria_seen_122 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_122
+	}
+
+	option = { # keep drilling anyway
+		name = ova_hero.122.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 5 }
+	}
+
+	option = { # apologize to the guardsman again
+		name = ova_hero.122.b
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_hero.123 = { # A Duel She Did Not Win (chapter 3)
+	type = country_event
+	placement = root
+
+	title = ova_hero.123.t
+	desc = ova_hero.123.d
+	flavor = ova_hero.123.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		has_variable = ova_victoria_seen_122
+		NOT = { has_modifier = ova_champion_training_program }
+		NOT = { has_variable = ova_victoria_seen_123 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_123
+	}
+
+	option = { # ask him for his old master's name
+		name = ova_hero.123.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+
+	option = { # smile for the court, fume later
+		name = ova_hero.123.b
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_hero.124 = { # The Chapel of Receipts (chapter 5)
+	type = country_event
+	placement = root
+
+	title = ova_hero.124.t
+	desc = ova_hero.124.d
+	flavor = ova_hero.124.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		has_variable = ova_victoria_seen_100
+		NOT = { has_variable = ova_victoria_seen_124 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_124
+		trigger_event = { id = ova_hero.55 days = 12 }
+	}
+
+	option = { # tell him the truth about the front
+		name = ova_hero.124.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+
+	option = { # let him keep his sermons
+		name = ova_hero.124.b
+		change_relations = { country = c:LUX value = 5 }
+	}
+}
+
+ova_hero.125 = { # Lessons on the Ridge (chapter 6)
+	type = country_event
+	placement = root
+
+	title = ova_hero.125.t
+	desc = ova_hero.125.d
+	flavor = ova_hero.125.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		ova_has_living_champion = yes
+		exists = c:DEM
+		has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+		has_variable = ova_victoria_seen_102
+		NOT = { has_variable = ova_victoria_seen_125 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_125
+	}
+
+	option = { # one more guard, then the letters again
+		name = ova_hero.125.a
+		default_option = yes
+		change_relations = { country = c:DEM value = 5 }
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_hero.126 = { # The Lector's Price (chapter 7)
+	type = country_event
+	placement = root
+
+	title = ova_hero.126.t
+	desc = ova_hero.126.d
+	flavor = ova_hero.126.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:LYS ?= THIS
+		has_variable = ova_victoria_seen_104
+		NOT = { has_variable = ova_victoria_seen_126 }
+	}
+
+	immediate = {
+		set_variable = ova_victoria_seen_126
+	}
+
+	option = { # pay him, and promise
+		name = ova_hero.126.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 5 }
+		trigger_event = { id = ova_hero.59 days = 12 }
+	}
+}
+
+# ================ .110-.118 pulse relay events (hidden) ================
+# Victoria's chapter chains and the Dawn aftermath JEs offer one story beat per
+# YEARLY pulse. To land beats more often, each of those JEs also schedules the
+# matching relay below off its yearly pulse: chapters 3/4 and the Dawn JEs once
+# (180 days, half-year cadence), chapters 1/6/8 twice (120 and 240 days, a beat
+# every third of a year, so their longer chains still finish in ~2 years). The
+# relay simply re-runs the same tick effect (or the same random roll). The
+# relays are hidden and carry no UI of their own - the tick/roll they run is
+# what actually shows a beat, and every beat keeps its OWN trigger, so a relay
+# that lands on a beat whose conditions are not met just fizzles, exactly as
+# the yearly pulse does. One relay per pulsed JE, because an event cannot take
+# the chapter as a parameter the way the shared tick effects can.
+
+ova_hero.110 = { # chapter 1 half-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_victoria_ch1_tick = yes
+	}
+}
+
+ova_hero.111 = { # chapter 3 half-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_victoria_ch3_tick = yes
+	}
+}
+
+ova_hero.112 = { # chapter 4 half-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_victoria_ch4_tick = yes
+	}
+}
+
+# ova_hero.113 (chapter 5 half-year relay) is retired: chapter 5 runs off the
+# ward button and chains .54 -> .99 -> .100 -> .55 on day offsets instead.
+
+ova_hero.114 = { # chapter 6 half-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_victoria_ch6_tick = yes
+	}
+}
+
+ova_hero.115 = { # chapter 8 half-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_victoria_ch8_tick = yes
+	}
+}
+
+ova_hero.116 = { # Dawn aftermath 1 half-year relay (mirrors je_ova_dawn_1's roll)
+	type = country_event
+	hidden = yes
+	immediate = {
+		random_list = {
+			40 = { }
+			25 = { trigger_event = { id = ova_hero.81 } }
+			25 = { trigger_event = { id = ova_hero.82 } }
+			25 = { trigger_event = { id = ova_hero.83 } }
+		}
+	}
+}
+
+ova_hero.117 = { # Dawn aftermath 2 half-year relay (mirrors je_ova_dawn_2's roll)
+	type = country_event
+	hidden = yes
+	immediate = {
+		random_list = {
+			40 = { }
+			25 = { trigger_event = { id = ova_hero.84 } }
+			25 = { trigger_event = { id = ova_hero.85 } }
+			25 = { trigger_event = { id = ova_hero.86 } }
+		}
+	}
+}
+
+ova_hero.118 = { # Dawn aftermath 3 half-year relay (mirrors je_ova_dawn_3's roll)
+	type = country_event
+	hidden = yes
+	immediate = {
+		random_list = {
+			50 = { }
+			25 = { trigger_event = { id = ova_hero.87 } }
+			20 = { trigger_event = { id = ova_hero.88 } }
+		}
+	}
+}

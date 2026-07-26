@@ -1,0 +1,176 @@
+﻿light_orthodoxy = {
+	icon = "gfx/interface/icons/religion_icons/zunist.dds"
+	heritage = heritage_light
+	color = { 0.95 0.85 0.3 }
+}
+
+light_ancient = {
+	icon = "gfx/interface/icons/religion_icons/donyipoloism.dds"
+	heritage = heritage_light
+	color = { 0.85 0.65 0.15 }
+}
+
+light_reformed = {
+	icon = "gfx/interface/icons/religion_icons/sedism.dds"
+	heritage = heritage_light
+	color = { 1.0 0.9 0.5 }
+}
+
+aesir = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_fp1_odins_ravens.dds"
+	heritage = heritage_aesir
+	color = { 0.4 0.5 0.65 }
+}
+
+lunar = {
+	icon = "gfx/interface/icons/religion_icons/dualism.dds"
+	heritage = heritage_lunar
+	color = { 0.7 0.75 0.9 }
+}
+
+celestial_order = {
+	icon = "gfx/interface/icons/religion_icons/taoism.dds"
+	heritage = heritage_cultivation
+	color = { 1 0.65 0.4 }
+}
+
+diabolist = {
+	icon = "gfx/interface/icons/religion_icons/taoism_custom_1.dds"
+	heritage = heritage_cultivation
+	color = { 0.35 0.05 0.4 }
+}
+
+way_of_the_blade = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_gankyil.dds"
+	heritage = heritage_cultivation
+	color = { 0.55 0.55 0.6 }
+}
+
+gelug = {
+	icon = "gfx/interface/icons/religion_icons/tiantai.dds"
+	heritage = heritage_snowlotus
+	color = { 0.1 0.4 0.9 }
+}
+
+verdant_sutra = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_lotus.dds"
+	heritage = heritage_verdant
+	color = { 0.2 0.6 0.3 }
+}
+
+yaoyorozu = {
+	icon = "gfx/interface/icons/religion_icons/shinto.dds"
+	heritage = heritage_kami
+	color = { 0.4 0.1 0.2 }
+}
+
+utaki_faith = {
+	icon = "gfx/interface/icons/religion_icons/utaki.dds"
+	heritage = heritage_kami
+	color = { 0.3 0.6 0.6 }
+}
+
+atuatanga = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_10.dds"
+	heritage = heritage_moana_spirit
+	color = { 0.1 0.4 0.3 }
+}
+
+dawnfast = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_4.dds"
+	heritage = heritage_sahar_faith
+	color = { 0.9 0.7 0.1 }
+
+	taboos = {
+		liquor wine
+	}
+}
+farvahar = {
+	icon = "gfx/interface/icons/religion_icons/muhakkima.dds"
+	heritage = heritage_farvahar
+	color = { 0.8 0.4 0.1 }
+}
+
+elder_grove = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_fp1_yggdrasil.dds"
+	heritage = heritage_grove_rite
+	color = { 0.15 0.55 0.25 }
+}
+
+rime = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_burning_bush.dds"
+	heritage = heritage_grove_rite
+	color = { 0.7 0.9 1.0 }
+}
+
+duskpact = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_6.dds"
+	heritage = heritage_grove_rite
+	color = { 0.25 0.05 0.35 }
+}
+
+forgefaith = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_fp1_thors_hammer.dds"
+	heritage = heritage_forge_rite
+	color = { 0.8 0.35 0.05 }
+}
+
+stonefaith = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_fp1_irminsul.dds"
+	heritage = heritage_forge_rite
+	color = { 0.45 0.3 0.15 }
+}
+
+kamuy = {
+	icon = "gfx/interface/icons/religion_icons/kamuyism.dds"
+	heritage = heritage_kami
+	color = { 0.35 0.25 0.2 }
+}
+
+embersea = {
+	icon = "gfx/interface/icons/religion_icons/tolotang.dds"
+	heritage = heritage_seven_skies
+	color = { 0.85 0.4 0.1 }
+}
+
+skysun = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_7.dds"
+	heritage = heritage_seven_skies
+	color = { 0.3 0.55 0.75 }
+}
+
+aneneco = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_9.dds"
+	heritage = heritage_neco
+	color = { 0.9 0.75 0.35 }
+}
+
+uan_uan = {
+	icon = "gfx/interface/icons/religion_icons/kushism.dds"
+	heritage = heritage_uan
+	color = { 0.75 0.5 0.25 }
+}
+
+uo_uo = {
+	icon = "gfx/interface/icons/religion_icons/custom_faith_fp1_fenrir.dds"
+	heritage = heritage_uan
+	color = { 0.5 0.5 0.55 }
+}
+
+moonrabbit = {
+	icon = "gfx/interface/icons/religion_icons/quranist.dds"
+	heritage = heritage_moonrabbit
+	color = { 0.8 0.85 0.95 }
+}
+
+animist = {
+	icon = "gfx/interface/icons/religion_icons/animist.dds"
+	heritage = heritage_indigenous
+	color = { 0.6 0.3 0.2 }
+}
+
+atheist = {
+	icon = "gfx/interface/icons/religion_icons/atheist.dds"
+	heritage = heritage_materialist
+	color = { 0.72 0.72 0.72 }
+}

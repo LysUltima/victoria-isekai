@@ -1,0 +1,8 @@
+﻿# White Pearl Sect (southern_isles: spiritualism tier 2, sect)
+COUNTRIES = {
+	c:LAN ?= {
+		effect_starting_technology_spiritualism_tier_2 = yes
+		create_character = { template = template_ruler_lan role = ruler }
+		effect_starting_politics_sect = yes
+	}
+}

@@ -1,0 +1,139 @@
+﻿### Isekai hero storyline - buttons
+
+# Petition the Church of the Goddess to tear the veil and summon a Hero.
+# Only visible with no champion yet and no summoning already pending
+# (ova_hero_summoning_pending; cleared by every branch of the rite event,
+# ova_hero.1, that this button triggers). A second, separate fee is possible
+# via the rite's own "grand rite" option - this button only charges the base
+# summoning fee.
+ova_hero_summon_button = {
+	name = "ova_hero_summon_button"
+	desc = "ova_hero_summon_button_desc"
+
+	visible = {
+		NOT = { has_variable = ova_champion_char }
+		NOT = { has_variable = ova_hero_summoning_pending }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_hero_crusade_required_tt
+			ova_hero_crusade_active = yes
+		}
+		NOT = { ova_champion_is_adventuring = yes }
+	}
+
+	effect = {
+		custom_tooltip = ova_hero_summon_effect_tt
+		hidden_effect = {
+			set_variable = ova_hero_summoning_pending
+			trigger_event = { id = ova_hero.1 popup = yes }
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+}
+
+# Chapter 5 of Victoria's arc (je_ova_victoria_5): walk her through the wards
+# and the counting-houses. One visit; the events (ova_hero.54 -> .99 -> .100 ->
+# .55) tell the rest. Nobody hands the Church's ledgers to a foundling - she
+# must be a Champion of Level 20 before the doors open.
+ova_victoria_ward_button = {
+	name = "ova_victoria_ward_button"
+	desc = "ova_victoria_ward_button_desc"
+
+	visible = {
+		NOT = { has_variable = ova_victoria_ward_opened }
+	}
+
+	possible = {
+		ova_has_living_champion = yes
+		custom_tooltip = {
+			text = ova_victoria_ward_level_tt
+			var:ova_champion_level >= 20
+		}
+	}
+
+	effect = {
+		custom_tooltip = ova_victoria_ward_effect_tt
+		hidden_effect = {
+			set_variable = ova_victoria_ward_opened
+			trigger_event = { id = ova_hero.54 popup = yes }
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+}
+
+# Chapter 7 of Victoria's arc (je_ova_victoria_7): buy a night alone with the
+# Church's oldest shelves. One payment, one visit; the events do the rest.
+# The archivist will not even take the money from a nobody - Renown 30 first.
+ova_victoria_archive_button = {
+	name = "ova_victoria_archive_button"
+	desc = "ova_victoria_archive_button_desc"
+
+	visible = {
+		NOT = { has_variable = ova_victoria_archive_paid }
+	}
+
+	possible = {
+		exists = c:LUX
+		custom_tooltip = {
+			text = ova_victoria_archive_renown_tt
+			var:ova_champion_popularity >= 30
+		}
+	}
+
+	effect = {
+		custom_tooltip = ova_victoria_archive_effect_tt
+		hidden_effect = {
+			set_variable = ova_victoria_archive_paid
+			save_temporary_scope_value_as = { name = ova_archive_fee value = money_amount_multiplier_small }
+			add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+			c:LUX ?= { add_treasury = scope:ova_archive_fee }
+			trigger_event = { id = ova_hero.58 popup = yes }
+		}
+	}
+
+	ai_chance = {
+		value = 0
+		if = {
+			limit = { scaled_gold_reserves > 0.1 }
+			add = 100
+		}
+	}
+}
+
+# Chapter 9 of Victoria's arc (je_ova_victoria_9): answer the wing-sealed
+# invitation and go down into the Vault of Feathers. One click, one journey;
+# the events (ova_hero.73 -> .74) tell the rest, and completing the chapter
+# starts the sixty-day countdown to the choice.
+ova_victoria_vault_button = {
+	name = "ova_victoria_vault_button"
+	desc = "ova_victoria_vault_button_desc"
+
+	visible = {
+		NOT = { has_variable = ova_victoria_vault_entered }
+	}
+
+	possible = {
+		exists = c:DEM
+		ova_has_living_champion = yes
+	}
+
+	effect = {
+		custom_tooltip = ova_victoria_vault_effect_tt
+		hidden_effect = {
+			set_variable = ova_victoria_vault_entered
+			trigger_event = { id = ova_hero.73 popup = yes }
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+}

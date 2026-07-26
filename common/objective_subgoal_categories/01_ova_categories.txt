@@ -1,0 +1,7 @@
+﻿# Category for the storyline suggested-start subgoals (see
+# common/objective_subgoals/02_ova_storyline_subgoals.txt). Additive: this
+# directory is not in replace_paths, so vanilla's sgcat_* still load.
+sgcat_ova_storyline = {
+	is_exclusive = no
+	is_repeatable = no
+}

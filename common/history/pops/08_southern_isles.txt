@@ -1,0 +1,206 @@
+﻿POPS = {
+    s:STATE_QIONGHUA = {
+        region_state:CRI = {
+            create_pop = {
+                culture = ju
+                size = 1350000
+            }
+            create_pop = {
+                culture = lian
+                size = 56100
+            }
+        }
+    }
+    s:STATE_BIYING = {
+        region_state:CRI = {
+            create_pop = {
+                culture = ju
+                size = 1180000
+            }
+        }
+    }
+    s:STATE_YUXU = {
+        region_state:CRI = {
+            create_pop = {
+                culture = ju
+                size = 1515000
+            }
+            create_pop = {
+                culture = lian
+                size = 67600
+            }
+        }
+    }
+    s:STATE_YOUMING = {
+        region_state:UND = {
+            create_pop = {
+                culture = lian
+                size = 1710000
+            }
+            create_pop = {
+                culture = ju
+                size = 165200
+            }
+        }
+    }
+    s:STATE_FUHAI_NUTAO = {
+        region_state:SUR = {
+            create_pop = {
+                culture = ju
+                size = 1885000
+            }
+        }
+    }
+    s:STATE_XILA_WULADA = {
+        region_state:XIL = {
+            create_pop = {
+                culture = melati
+                size = 1305000
+            }
+        }
+    }
+    s:STATE_PULAO_WUYA = {
+        region_state:PUL = {
+            create_pop = {
+                culture = melati
+                size = 1250000
+            }
+        }
+    }
+    s:STATE_HADA_SILU = {
+        region_state:HAD = {
+            create_pop = {
+                culture = melati
+                size = 770000
+            }
+        }
+    }
+    s:STATE_LANGGAN = {
+        region_state:LAN = {
+            create_pop = {
+                culture = ju
+                size = 1320000
+            }
+        }
+    }
+    s:STATE_WULAI = {
+        region_state:KUI = {
+            create_pop = {
+                culture = lily
+                size = 395000
+            }
+        }
+    }
+    s:STATE_DUOLUOMAN = {
+        region_state:KUI = {
+            create_pop = {
+                culture = lily
+                size = 285000
+            }
+        }
+    }
+    s:STATE_JIAYING_PO = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 470000
+            }
+        }
+    }
+    s:STATE_WUJI_DINGYI = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 500000
+            }
+        }
+    }
+    s:STATE_GUALA_WULAO = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 290000
+            }
+        }
+    }
+    s:STATE_DANA_WUSHA = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 435000
+            }
+        }
+    }
+    s:STATE_DANRONG_MASI = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 455000
+            }
+        }
+    }
+    s:STATE_SHUANGXI_LIWU = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 380000
+            }
+        }
+    }
+    s:STATE_BADI_LU = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 465000
+            }
+        }
+    }
+    s:STATE_BULAO_JILABA = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 315000
+            }
+        }
+    }
+    s:STATE_SILI_YALAN = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 260000
+            }
+        }
+    }
+    s:STATE_LAWU_BILU = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 270000
+            }
+        }
+    }
+    s:STATE_BULAO_KAJIANG = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 275000
+            }
+        }
+    }
+    s:STATE_WULU_XIANDANG = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 350000
+            }
+        }
+    }
+    s:STATE_BULAO_JIALANG = {
+        region_state:JAD = {
+            create_pop = {
+                culture = melati
+                size = 275000
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+﻿	## FOREST FOXKIN EARS (reddish; snow foxkin wears white cat ears instead) ##
+
+male_headgear_fox_ears_1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_fox_ears_1_entity" }
+}
+female_headgear_fox_ears_1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "female_headgear_fox_ears_1_entity" }
+}
+
+	## WOLFKIN / DOGKIN EARS ##
+
+male_headgear_wolf_ears_1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_wolf_ears_1_entity" }
+}
+female_headgear_wolf_ears_1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "female_headgear_wolf_ears_1_entity" }
+}
+
+	## BEARKIN EARS ##
+
+male_headgear_bear_ears_1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_bear_ears_1_entity" }
+}
+female_headgear_bear_ears_1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "female_headgear_bear_ears_1_entity" }
+}
+
+	## HORSEKIN EARS ##
+
+male_headgear_horse_ears_1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_horse_ears_1_entity" }
+}
+female_headgear_horse_ears_1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "female_headgear_horse_ears_1_entity" }
+}

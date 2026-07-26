@@ -1,0 +1,202 @@
+﻿l_english:
+  # Agralekke
+  HUB_NAME_STATE_AGRALEKKE_city: "Agralekke"
+  HUB_NAME_STATE_AGRALEKKE_farm: "Sammote"
+  HUB_NAME_STATE_AGRALEKKE_mine: "Setete"
+  HUB_NAME_STATE_AGRALEKKE_wood: "Tonagrore"
+  HUB_NAME_STATE_AGRALEKKE_port: "Mimmare"
+
+  # Selmme
+  HUB_NAME_STATE_SELMME_city: "Selmme"
+  HUB_NAME_STATE_SELMME_farm: "Hommare"
+  HUB_NAME_STATE_SELMME_mine: "Lihegrete"
+  HUB_NAME_STATE_SELMME_wood: "Brummare"
+  HUB_NAME_STATE_SELMME_port: "Limmethe"
+
+  # Brulmme
+  HUB_NAME_STATE_BRULMME_city: "Brulmme"
+  HUB_NAME_STATE_BRULMME_farm: "Bruronote"
+  HUB_NAME_STATE_BRULMME_mine: "Hagrure"
+  HUB_NAME_STATE_BRULMME_wood: "Senotare"
+  HUB_NAME_STATE_BRULMME_port: "Sommele"
+
+  # Iivakaarena
+  HUB_NAME_STATE_IIVA_KAARENA_city: "Iivakaarena"
+  HUB_NAME_STATE_IIVA_KAARENA_farm: "Talii"
+  HUB_NAME_STATE_IIVA_KAARENA_mine: "Heesye"
+  HUB_NAME_STATE_IIVA_KAARENA_wood: "Miipe"
+  HUB_NAME_STATE_IIVA_KAARENA_port: "Suvee"
+
+  # Syaasee
+  HUB_NAME_STATE_SYAA_SEE_city: "Retisyaraa"
+  HUB_NAME_STATE_SYAA_SEE_farm: "Hasitii"
+  HUB_NAME_STATE_SYAA_SEE_mine: "Naaresala"
+  HUB_NAME_STATE_SYAA_SEE_wood: "Yaami"
+  HUB_NAME_STATE_SYAA_SEE_port: "Eeha"
+
+  # Amiitenii
+  HUB_NAME_STATE_AMII_TENII_city: "Amiitenii"
+  HUB_NAME_STATE_AMII_TENII_farm: "Mamasyaraa"
+  HUB_NAME_STATE_AMII_TENII_mine: "Syuu"
+  HUB_NAME_STATE_AMII_TENII_wood: "Yolii"
+  HUB_NAME_STATE_AMII_TENII_port: "Novanoo"
+
+  # Miraamitaa
+  HUB_NAME_STATE_MIRAA_MITAA_city: "Toretii"
+  HUB_NAME_STATE_MIRAA_MITAA_farm: "Navaa"
+  HUB_NAME_STATE_MIRAA_MITAA_mine: "Malmikolo"
+  HUB_NAME_STATE_MIRAA_MITAA_wood: "Kaarnavu"
+  HUB_NAME_STATE_MIRAA_MITAA_port: "Suolalahti"
+
+  # Maamavaa
+  HUB_NAME_STATE_MAAMA_VAA_city: "Vihanumee"
+  HUB_NAME_STATE_MAAMA_VAA_farm: "Raakarena"
+  HUB_NAME_STATE_MAAMA_VAA_mine: "Tutee"
+  HUB_NAME_STATE_MAAMA_VAA_wood: "Fesyee"
+  HUB_NAME_STATE_MAAMA_VAA_port: "Tiipave"
+
+  # Vestrøyene
+  HUB_NAME_STATE_VESTROYENE_city: "Vestrøyene"
+  HUB_NAME_STATE_VESTROYENE_farm: "Grændalir"
+  HUB_NAME_STATE_VESTROYENE_mine: "Steingrof"
+  HUB_NAME_STATE_VESTROYENE_wood: "Skogarhus"
+  HUB_NAME_STATE_VESTROYENE_port: "Vestrhöfn"
+
+  # Norðreyjar
+  HUB_NAME_STATE_NORDREYJAR_city: "Norðreyjar"
+  HUB_NAME_STATE_NORDREYJAR_farm: "Kornvellir"
+  HUB_NAME_STATE_NORDREYJAR_mine: "Djupnama"
+  HUB_NAME_STATE_NORDREYJAR_wood: "Vitharskog"
+  HUB_NAME_STATE_NORDREYJAR_port: "Nordvikur"
+
+  # Fjallsókn
+  HUB_NAME_STATE_FJALLSOGN_city: "Fjallsókn"
+  HUB_NAME_STATE_FJALLSOGN_farm: "Dalabur"
+  HUB_NAME_STATE_FJALLSOGN_mine: "Tindanama"
+  HUB_NAME_STATE_FJALLSOGN_wood: "Hlidartre"
+  HUB_NAME_STATE_FJALLSOGN_port: "Fjardarosu"
+
+  # Hamrabygð
+  HUB_NAME_STATE_HAMRABYGD_city: "Hamrabygð"
+  HUB_NAME_STATE_HAMRABYGD_farm: "Slettubaer"
+  HUB_NAME_STATE_HAMRABYGD_mine: "Hamrasprung"
+  HUB_NAME_STATE_HAMRABYGD_wood: "Myrkvith"
+  HUB_NAME_STATE_HAMRABYGD_port: "Strandabaer"
+
+  # Sléttaland
+  HUB_NAME_STATE_SLETTALAND_city: "Sléttaland"
+  HUB_NAME_STATE_SLETTALAND_farm: "Graslend"
+  HUB_NAME_STATE_SLETTALAND_mine: "Grjotholl"
+  HUB_NAME_STATE_SLETTALAND_wood: "Laufskogur"
+  HUB_NAME_STATE_SLETTALAND_port: "Slettuhofn"
+
+  # Vatnafjall
+  HUB_NAME_STATE_VATNAFJALL_city: "Vatnafjall"
+  HUB_NAME_STATE_VATNAFJALL_farm: "Vatnseng"
+  HUB_NAME_STATE_VATNAFJALL_mine: "Dverghol"
+  HUB_NAME_STATE_VATNAFJALL_wood: "Fjallvith"
+  HUB_NAME_STATE_VATNAFJALL_port: "Vatnsfjord"
+
+  # Suðreld
+  HUB_NAME_STATE_SUDRELD_city: "Suðreld"
+  HUB_NAME_STATE_SUDRELD_farm: "Oskuvellir"
+  HUB_NAME_STATE_SUDRELD_mine: "Hraunnama"
+  HUB_NAME_STATE_SUDRELD_wood: "Brunaflot"
+  HUB_NAME_STATE_SUDRELD_port: "Eldsvik"
+
+  # Blíðey
+  HUB_NAME_STATE_BLIDEY_city: "Blíðey"
+  HUB_NAME_STATE_BLIDEY_farm: "Lognabaer"
+  HUB_NAME_STATE_BLIDEY_mine: "Skuggaberg"
+  HUB_NAME_STATE_BLIDEY_wood: "Kyrrdarskógur"
+  HUB_NAME_STATE_BLIDEY_port: "Blidahofn"
+
+  # Brennandigjá
+  HUB_NAME_STATE_BRENNANDIGJA_city: "Brennandigjá"
+  HUB_NAME_STATE_BRENNANDIGJA_farm: "Glodarland"
+  HUB_NAME_STATE_BRENNANDIGJA_mine: "Brenninama"
+  HUB_NAME_STATE_BRENNANDIGJA_wood: "Reykvith"
+  HUB_NAME_STATE_BRENNANDIGJA_port: "Gjaahofn"
+
+  # Orc Plains
+  HUB_NAME_STATE_ORC_PLAINS_city: "Orc Plains"
+  HUB_NAME_STATE_ORC_PLAINS_farm: "Bloodgrass"
+  HUB_NAME_STATE_ORC_PLAINS_mine: "Ironfang"
+  HUB_NAME_STATE_ORC_PLAINS_wood: "Splinterbark"
+
+  # Greenskinland
+  HUB_NAME_STATE_GREENSKINLAND_city: "Greenskinland"
+  HUB_NAME_STATE_GREENSKINLAND_farm: "Mudwallow"
+  HUB_NAME_STATE_GREENSKINLAND_mine: "Slagpit"
+  HUB_NAME_STATE_GREENSKINLAND_wood: "Rotwood"
+
+  # Orc Mountain
+  HUB_NAME_STATE_ORC_MOUNTAIN_city: "Orc Mountain"
+  HUB_NAME_STATE_ORC_MOUNTAIN_farm: "Stoneroof"
+  HUB_NAME_STATE_ORC_MOUNTAIN_mine: "Deepgash"
+  HUB_NAME_STATE_ORC_MOUNTAIN_wood: "Ashpine"
+  HUB_NAME_STATE_ORC_MOUNTAIN_port: "Blackwater Cove"
+
+  # Orc Coast
+  HUB_NAME_STATE_ORC_COAST_city: "Orc Coast"
+  HUB_NAME_STATE_ORC_COAST_farm: "Saltbarren"
+  HUB_NAME_STATE_ORC_COAST_mine: "Rustvein"
+  HUB_NAME_STATE_ORC_COAST_wood: "Driftgloom"
+  HUB_NAME_STATE_ORC_COAST_port: "Scumtide"
+
+  # Snow Bay
+  HUB_NAME_STATE_SNOW_BAY_city: "Snow Bay"
+  HUB_NAME_STATE_SNOW_BAY_farm: "Frostbite Fields"
+  HUB_NAME_STATE_SNOW_BAY_mine: "Icehollow"
+  HUB_NAME_STATE_SNOW_BAY_wood: "Shivertimber"
+  HUB_NAME_STATE_SNOW_BAY_port: "Frozen Keel"
+
+  # Stranded Plains
+  HUB_NAME_STATE_STRANDED_PLAINS_city: "Stranded Plains"
+  HUB_NAME_STATE_STRANDED_PLAINS_farm: "Bleakharvest"
+  HUB_NAME_STATE_STRANDED_PLAINS_mine: "Dustquarry"
+  HUB_NAME_STATE_STRANDED_PLAINS_wood: "Pale Grove"
+
+  # Blizzard River
+  HUB_NAME_STATE_BLIZZARD_RIVER_city: "Blizzard River"
+  HUB_NAME_STATE_BLIZZARD_RIVER_farm: "Hailstone Meadow"
+  HUB_NAME_STATE_BLIZZARD_RIVER_mine: "Rimecrag"
+  HUB_NAME_STATE_BLIZZARD_RIVER_wood: "Whitebark"
+
+  # Snow Demon's Paradise
+  HUB_NAME_STATE_SNOW_DEMONS_PARADISE_city: "Snow Demon's Paradise"
+  HUB_NAME_STATE_SNOW_DEMONS_PARADISE_farm: "Gorefrost"
+  HUB_NAME_STATE_SNOW_DEMONS_PARADISE_mine: "Howling Depths"
+  HUB_NAME_STATE_SNOW_DEMONS_PARADISE_wood: "Wraithwood"
+
+  # God's Absence
+  HUB_NAME_STATE_GODS_ABSENCE_city: "God's Absence"
+  HUB_NAME_STATE_GODS_ABSENCE_farm: "Desolation Acre"
+  HUB_NAME_STATE_GODS_ABSENCE_mine: "Voidshaft"
+  HUB_NAME_STATE_GODS_ABSENCE_wood: "Deadbough"
+
+  # Abandoned Hope
+  HUB_NAME_STATE_ABANDONED_HOPE_city: "Abandoned Hope"
+  HUB_NAME_STATE_ABANDONED_HOPE_farm: "Sorrow's Yield"
+  HUB_NAME_STATE_ABANDONED_HOPE_mine: "Despair Pit"
+  HUB_NAME_STATE_ABANDONED_HOPE_wood: "Witherbranch"
+
+  # Death's Company
+  HUB_NAME_STATE_DEATHS_COMPANY_city: "Death's Company"
+  HUB_NAME_STATE_DEATHS_COMPANY_farm: "Carrion Field"
+  HUB_NAME_STATE_DEATHS_COMPANY_mine: "Bonequarry"
+  HUB_NAME_STATE_DEATHS_COMPANY_wood: "Gallows Wood"
+  HUB_NAME_STATE_DEATHS_COMPANY_port: "Skullbay"
+
+  # Orc River
+  HUB_NAME_STATE_ORC_RIVER_city: "Orc River"
+  HUB_NAME_STATE_ORC_RIVER_farm: "Mudbank"
+  HUB_NAME_STATE_ORC_RIVER_mine: "Siltstone"
+  HUB_NAME_STATE_ORC_RIVER_wood: "Riverrot"
+
+  # Orc Bay
+  HUB_NAME_STATE_ORC_BAY_city: "Orc Bay"
+  HUB_NAME_STATE_ORC_BAY_farm: "Brineflat"
+  HUB_NAME_STATE_ORC_BAY_mine: "Barnacle Cavern"
+  HUB_NAME_STATE_ORC_BAY_wood: "Drowned Thicket"
+  HUB_NAME_STATE_ORC_BAY_port: "Muckharbor"

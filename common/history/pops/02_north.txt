@@ -1,0 +1,274 @@
+﻿POPS = {
+    s:STATE_AGRALEKKE = {
+        region_state:AGR = {
+            create_pop = {
+                culture = stone_dwarf
+                size = 378967
+            }
+            create_pop = {
+                culture = snow_elf
+                size = 91404
+            }
+        }
+    }
+    s:STATE_SELMME = {
+        region_state:SEL = {
+            create_pop = {
+                culture = stone_dwarf
+                size = 418142
+            }
+            create_pop = {
+                culture = snow_elf
+                size = 119387
+            }
+        }
+    }
+    s:STATE_BRULMME = {
+        region_state:BRU = {
+            create_pop = {
+                culture = stone_dwarf
+                size = 370264
+            }
+            create_pop = {
+                culture = snow_elf
+                size = 117415
+            }
+        }
+    }
+    s:STATE_IIVA_KAARENA = {
+        region_state:IIV = {
+            create_pop = {
+                culture = snow_elf
+                size = 824270
+            }
+            create_pop = {
+                culture = stone_dwarf
+                size = 214272
+            }
+        }
+    }
+    s:STATE_SYAA_SEE = {
+        region_state:SYA = {
+            create_pop = {
+                culture = snow_elf
+                size = 558876
+            }
+            create_pop = {
+                culture = stone_dwarf
+                size = 189905
+            }
+        }
+    }
+    s:STATE_AMII_TENII = {
+        region_state:AMI = {
+            create_pop = {
+                culture = snow_elf
+                size = 430867
+            }
+            create_pop = {
+                culture = stone_dwarf
+                size = 135673
+            }
+        }
+    }
+    s:STATE_MIRAA_MITAA = {
+        region_state:MIA = {
+            create_pop = {
+                culture = snow_elf
+                size = 454535
+            }
+            create_pop = {
+                culture = stone_dwarf
+                size = 170463
+            }
+        }
+    }
+    s:STATE_MAAMA_VAA = {
+        region_state:MAA = {
+            create_pop = {
+                culture = snow_elf
+                size = 524053
+            }
+            create_pop = {
+                culture = stone_dwarf
+                size = 134990
+            }
+        }
+    }
+    s:STATE_VESTROYENE = {
+        region_state:SVA = {
+            create_pop = {
+                culture = fjordic
+                size = 476828
+            }
+        }
+    }
+    s:STATE_NORDREYJAR = {
+        region_state:HRG = {
+            create_pop = {
+                culture = fjordic
+                size = 347363
+            }
+        }
+    }
+    s:STATE_FJALLSOGN = {
+        region_state:SKL = {
+            create_pop = {
+                culture = fjordic
+                size = 406245
+            }
+        }
+    }
+    s:STATE_HAMRABYGD = {
+        region_state:STO = {
+            create_pop = {
+                culture = fjordic
+                size = 507314
+            }
+        }
+    }
+    s:STATE_SLETTALAND = {
+        region_state:GRA = {
+            create_pop = {
+                culture = frostholm
+                size = 938265
+            }
+        }
+    }
+    s:STATE_VATNAFJALL = {
+        region_state:VAT = {
+            create_pop = {
+                culture = frostholm
+                size = 448013
+            }
+        }
+    }
+    s:STATE_SUDRELD = {
+        region_state:ELD = {
+            create_pop = {
+                culture = frostholm
+                size = 725958
+            }
+        }
+    }
+    s:STATE_BLIDEY = {
+        region_state:NYL = {
+            create_pop = {
+                culture = frostholm
+                size = 981903
+            }
+        }
+    }
+    s:STATE_BRENNANDIGJA = {
+        region_state:SOL = {
+            create_pop = {
+                culture = frostholm
+                size = 1205353
+            }
+        }
+    }
+    s:STATE_ORC_PLAINS = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 915997
+            }
+        }
+    }
+    s:STATE_GREENSKINLAND = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 897149
+            }
+        }
+    }
+    s:STATE_ORC_MOUNTAIN = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 962519
+            }
+        }
+    }
+    s:STATE_ORC_COAST = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 1207492
+            }
+        }
+    }
+    s:STATE_SNOW_BAY = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 996238
+            }
+        }
+    }
+    s:STATE_STRANDED_PLAINS = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 454062
+            }
+        }
+    }
+    s:STATE_BLIZZARD_RIVER = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 707387
+            }
+        }
+    }
+    s:STATE_SNOW_DEMONS_PARADISE = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 522554
+            }
+        }
+    }
+    s:STATE_GODS_ABSENCE = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 895183
+            }
+        }
+    }
+    s:STATE_ABANDONED_HOPE = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 771919
+            }
+        }
+    }
+    s:STATE_DEATHS_COMPANY = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 745963
+            }
+        }
+    }
+    s:STATE_ORC_RIVER = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 511046
+            }
+        }
+    }
+    s:STATE_ORC_BAY = {
+        region_state:ORC = {
+            create_pop = {
+                culture = northern_orc
+                size = 605134
+            }
+        }
+    }
+}

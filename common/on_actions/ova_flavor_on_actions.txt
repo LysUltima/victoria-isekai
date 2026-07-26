@@ -1,0 +1,91 @@
+﻿isekai_flavor_yearly_events = {
+	random_events = {
+		chance_to_happen = 20
+		20 = ova_isekai_flavor.1
+		18 = ova_isekai_flavor.2
+		16 = ova_isekai_flavor.3
+		20 = ova_isekai_flavor.4
+		18 = ova_isekai_flavor.5
+		16 = ova_isekai_flavor.6
+		22 = ova_isekai_flavor.7
+		15 = ova_isekai_flavor.8
+		18 = ova_isekai_flavor.9
+		18 = ova_isekai_flavor.10
+		20 = ova_isekai_flavor.11
+		18 = ova_isekai_flavor.12
+		16 = ova_isekai_flavor.13
+		20 = ova_isekai_flavor.14
+		# stock fantasy-isekai color (.15-.28), no war/truth references
+		18 = ova_isekai_flavor.15
+		16 = ova_isekai_flavor.16
+		16 = ova_isekai_flavor.17
+		15 = ova_isekai_flavor.18
+		20 = ova_isekai_flavor.19
+		16 = ova_isekai_flavor.20
+		16 = ova_isekai_flavor.21
+		15 = ova_isekai_flavor.22
+		15 = ova_isekai_flavor.23
+		16 = ova_isekai_flavor.24
+		18 = ova_isekai_flavor.25
+		15 = ova_isekai_flavor.26
+		15 = ova_isekai_flavor.27
+		15 = ova_isekai_flavor.28
+	}
+}
+
+murim_flavor_yearly_events = {
+	random_events = {
+		chance_to_happen = 20
+		18 = ova_murim_flavor.1
+		16 = ova_murim_flavor.2
+		17 = ova_murim_flavor.3
+		14 = ova_murim_flavor.4
+		15 = ova_murim_flavor.5
+		13 = ova_murim_flavor.6
+		14 = ova_murim_flavor.7
+		16 = ova_murim_flavor.8
+		15 = ova_murim_flavor.9
+		13 = ova_murim_flavor.10
+		14 = ova_murim_flavor.11
+		20 = ova_murim_flavor.12
+	}
+}
+
+# The far war as the rest of the world sees it: surface-level crusade color
+# for ANY centralized nation (events exclude DEM and LUX themselves, and all
+# fizzle once the crusade ends). Never touches the truth.
+crusade_flavor_yearly_events = {
+	random_events = {
+		chance_to_happen = 15
+		18 = ova_crusade_flavor.1
+		15 = ova_crusade_flavor.2
+		16 = ova_crusade_flavor.3
+		14 = ova_crusade_flavor.4
+		16 = ova_crusade_flavor.5
+		16 = ova_crusade_flavor.6
+		14 = ova_crusade_flavor.7
+		15 = ova_crusade_flavor.8
+		16 = ova_crusade_flavor.9
+		15 = ova_crusade_flavor.10
+	}
+}
+
+xianxia_flavor_yearly_events = {
+	random_events = {
+		chance_to_happen = 20
+		16 = ova_xianxia_flavor.1
+		14 = ova_xianxia_flavor.2
+		15 = ova_xianxia_flavor.3
+		13 = ova_xianxia_flavor.4
+		14 = ova_xianxia_flavor.5
+		12 = ova_xianxia_flavor.6
+		13 = ova_xianxia_flavor.7
+		15 = ova_xianxia_flavor.8
+		14 = ova_xianxia_flavor.9
+		12 = ova_xianxia_flavor.10
+		13 = ova_xianxia_flavor.11
+		18 = ova_xianxia_flavor.12
+		14 = ova_xianxia_flavor.13
+		15 = ova_xianxia_flavor.14
+	}
+}

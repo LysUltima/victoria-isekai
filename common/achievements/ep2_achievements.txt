@@ -1,0 +1,2 @@
+﻿# Emptied override: vanilla achievements here are keyed to vanilla cultures/countries
+# (cu:japanese, DLC content) with no analogue in this mod.

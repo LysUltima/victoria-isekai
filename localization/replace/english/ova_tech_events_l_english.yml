@@ -1,0 +1,49 @@
+﻿l_english:
+ # Isekai TC: task #10 - rewrite tech-event localization to use this mod's fantasy tech
+ # terminology instead of real-world devices, matching the already-established tech renames in
+ # ova_conversion_l_english.yml (camera -> "Memory Crystals", telephone/telephones ->
+ # "Communication Orbs", film -> "Phantasm Projection"). Internal keys are unchanged per golden
+ # rule #1 - only display text changes. Covers je_telephone/je_camera (00_art_jes.txt),
+ # technology_events.10/.40, camera_film_pm_events.1/.2 (full flavor-text rewrite), and the
+ # associated modifier/production-method display names.
+
+ # 00_art_jes.txt
+ je_telephone: "Expand the Applications of the Communication Orbs"
+ je_telephone_reason: "With the discovery of the Communication Orbs we must build up the arcane capacity to mass-produce this new innovation."
+ je_camera: "Establish the Crystal-Captured Arts"
+ je_camera_reason: "From its origins as an arcane novelty, the memory crystal is becoming a tool for artists to portray the world. We should be at the forefront of this new art form."
+
+ # technology_events.txt
+ technology_events.10.t: "International Orb-Link"
+ technology_events.10.d: "It has been suggested that by establishing a cross-border pairing of Communication Orbs with [SCOPE.sC('telephone_neighbour').GetName], we could improve relations more easily."
+ technology_events.10.f: "\"It certainly cuts down on misunderstandings when we can just pick up the orb and work out what's going on across the border.\""
+ technology_events.40.t: "Captured Views of [ROOT.GetCountry.GetName]"
+ technology_events.40.d: "It has been suggested that we capture and distribute some memory-crystal views of our country's most famous landmarks."
+ technology_events.40.f: "\"So many wonderful places all across our country! It just seems right that the world gets to see them too.\""
+ modifier_international_photographs: "Internationally-Distributed Crystal Views"
+ modifier_domestic_photographs: "Domestically-Distributed Crystal Views"
+
+ # camera_film_pm_events.txt
+ camera_film_pm_events.1.t: "Captured Light and Shadow"
+ camera_film_pm_events.1.d: "The interest in crystal-captured arts throughout [ROOT.GetCountry.GetName] has spawned many new artistic movements experimenting with the technology."
+ camera_film_pm_events.1.f: "\"It can perhaps seem too harsh to capture reality as the human eye perceives it, without any of the love or mercy of the human heart softening the image. However, by moving that responsibility from the artist to the observer, we hope to make people more aware of the contents of their own hearts.\""
+ camera_film_pm_events.1.a: "This should be the new tool of news reporters everywhere!"
+ camera_film_pm_events.1.b: "It should be used to capture the beauty of [ROOT.GetCountry.GetName]."
+ camera_film_pm_events.1.c: "We should put our efforts towards making these captured images come alive."
+ camera_film_pm_events.2.t: "The Moving Phantasm"
+ camera_film_pm_events.2.d: "The acquisition of memory-crystal recording apparatus and establishment of phantasm-halls throughout [ROOT.GetCountry.GetName] has led to a fledgling phantasm-projection industry taking root."
+ camera_film_pm_events.2.f: "When she was a young girl, she had once been allowed to spin a charmed picture-wheel and found herself transfixed by the spinning disc, by the dancing couple seemingly turning round and round on it. Years later, she had thought it a child's fancy, a simple illusion for a malleable mind.\n\nHowever, as she saw the projected phantasm of a caravan rolling into a market square, she felt herself transported back to that moment. The magic was real again."
+ camera_film_pm_events.2.a: "The phantasm is the perfect tool to capture the harsh reality of our age."
+ camera_film_pm_events.2.b: "Phantasm-plays shall be the frontier of storytelling!"
+ camera_film_pm_events.2.c: "What political uses could we find for such an evocative medium?"
+ actuality_films: "Actuality Phantasms"
+ dramatic_films: "Dramatic Phantasms"
+ landscape_photography: "Landscape Crystal-Captures"
+ newspaper_photography: "Newspaper Crystal-Captures"
+
+ # production_methods_l_english.yml
+ pm_photographic_art: "Crystal-Captured Art"
+ pm_switch_boards: "Orb-Link Switchboards"
+
+ # sphere_of_influence_4_l_english.yml (customizable_localization macro value)
+ impressive_cultech_camera: "captured images"

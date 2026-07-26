@@ -1,0 +1,95 @@
+﻿ASH = {
+    color = { 217 184 52 }
+
+    country_type = unrecognized
+    
+    tier = kingdom
+
+    cultures = { sakura }
+
+    capital = STATE_ASA_NO_IKAZUCHI
+}
+
+HAN = {
+    color = { 207 145 155 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { sakura }
+
+    capital = STATE_YURURU_HANABIRA
+}
+
+IRO = {
+    color = { 120 90 120 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { sakura }
+
+    capital = STATE_UTSUROFU_KAORI
+}
+
+HIB = {
+    color = { 168 54 45 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { sakura }
+
+    capital = STATE_CHIRASU_HONOO
+}
+
+KON = {
+    color = { 181 83 38 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { sakura }
+
+    capital = STATE_KURENAI_NO_HA
+}
+
+SHI = {
+    color = { 141 163 179 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { sakura }
+
+    capital = STATE_KIYURU_HAI
+}
+
+YUK = {
+    color = { 198 176 209 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { sakura }
+
+    capital = STATE_SHIRABOSHI
+}
+
+YUU = {
+    color = { 150 45 20 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { sakura }
+
+    capital = STATE_KURURU_MURASAKI
+}

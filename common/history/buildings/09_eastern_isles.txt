@@ -1,0 +1,2076 @@
+﻿BUILDINGS = {
+    s:STATE_ASA_NO_IKAZUCHI = {
+        region_state:ASH = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:ASH"
+                        levels = 1
+                        region = "STATE_ASA_NO_IKAZUCHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_fig_orchards_building_rice_farm"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_banana_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:ASH"
+                        levels = 7
+                        region = "STATE_ASA_NO_IKAZUCHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_banana_plantation"
+                    "worker_exploitation_banana"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 1
+                        region = "STATE_ASA_NO_IKAZUCHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 2
+                        region = "STATE_ASA_NO_IKAZUCHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_saw_mills"
+                    "pm_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_coal_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 3
+                        region = "STATE_ASA_NO_IKAZUCHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_coal_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_gold_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 3
+                        region = "STATE_ASA_NO_IKAZUCHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_gold_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_paper_mill"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 3
+                        region = "STATE_ASA_NO_IKAZUCHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_pulp_pressing"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_textile_mill"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 2
+                        region = "STATE_ASA_NO_IKAZUCHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_handsewn_clothes"
+                    "pm_craftsman_sewing"
+                    "pm_traditional_looms"
+                }
+            }
+            create_building = {
+                building = "building_furniture_manufactory"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 2
+                        region = "STATE_ASA_NO_IKAZUCHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_lathe"
+                    "pm_luxury_furniture"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = {
+                        country = "c:ASH"
+                        levels = 1
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 1
+                        region = "STATE_ASA_NO_IKAZUCHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 2
+                        region = "STATE_ASA_NO_IKAZUCHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_construction_sector"
+                add_ownership = {
+                    country = {
+                        country = "c:ASH"
+                        levels = 1
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_iron_frame_buildings"
+                }
+            }
+            create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:ASH"
+                        levels = 13
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_horizontal_drawer_cabinets"
+                    "pm_professional_bureaucrats"
+                    "pm_secular_bureaucrats"
+                }
+            }
+        }
+    }
+    s:STATE_KASUMU_KURE = {
+        region_state:ASH = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:ASH"
+                        levels = 1
+                        region = "STATE_KASUMU_KURE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_fig_orchards_building_rice_farm"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:ASH"
+                        levels = 2
+                        region = "STATE_KASUMU_KURE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_butchering_tools"
+                    "pm_sheep_farms"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tea_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:ASH"
+                        levels = 6
+                        region = "STATE_KASUMU_KURE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tea_plantation"
+                    "worker_exploitation_tea"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_iron_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 4
+                        region = "STATE_KASUMU_KURE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_iron_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 1
+                        region = "STATE_KASUMU_KURE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_lead_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 1
+                        region = "STATE_KASUMU_KURE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_lead_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 2
+                        region = "STATE_KASUMU_KURE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_saw_mills"
+                    "pm_no_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tooling_workshop"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 2
+                        region = "STATE_KASUMU_KURE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_iron_tools"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_arms_industry"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 5
+                        region = "STATE_KASUMU_KURE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_muskets"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_glassworks"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 3
+                        region = "STATE_KASUMU_KURE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_leaded_glass"
+                    "pm_ceramics"
+                    "pm_manual_glassblowing"
+                }
+            }
+            create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:ASH"
+                        levels = 2
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_horizontal_drawer_cabinets"
+                    "pm_professional_bureaucrats"
+                    "pm_secular_bureaucrats"
+                }
+            }
+        }
+    }
+    s:STATE_YOAKE_NO_UTA = {
+        region_state:ASH = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:ASH"
+                        levels = 7
+                        region = "STATE_YOAKE_NO_UTA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_fig_orchards_building_rice_farm"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:ASH"
+                        levels = 2
+                        region = "STATE_YOAKE_NO_UTA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_butchering_tools"
+                    "pm_sheep_farms"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tea_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:ASH"
+                        levels = 3
+                        region = "STATE_YOAKE_NO_UTA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tea_plantation"
+                    "worker_exploitation_tea"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 1
+                        region = "STATE_YOAKE_NO_UTA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ASH"
+                        levels = 3
+                        region = "STATE_YOAKE_NO_UTA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_saw_mills"
+                    "pm_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_silk_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:ASH"
+                        levels = 2
+                        region = "STATE_YOAKE_NO_UTA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_silk_plantation"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
+    }
+    s:STATE_YURURU_HANABIRA = {
+        region_state:HAN = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HAN"
+                        levels = 6
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_fig_orchards_building_rice_farm"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HAN"
+                        levels = 2
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_butchering_tools"
+                    "pm_sheep_farms"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_coal_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAN"
+                        levels = 2
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_coal_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_iron_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAN"
+                        levels = 1
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_iron_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAN"
+                        levels = 1
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAN"
+                        levels = 4
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_saw_mills"
+                    "pm_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tooling_workshop"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAN"
+                        levels = 1
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_iron_tools"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_paper_mill"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAN"
+                        levels = 1
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_pulp_pressing"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_furniture_manufactory"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAN"
+                        levels = 2
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_lathe"
+                    "pm_no_luxuries"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = {
+                        country = "c:HAN"
+                        levels = 2
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAN"
+                        levels = 1
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAN"
+                        levels = 5
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_banana_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HAN"
+                        levels = 3
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_banana_plantation"
+                    "worker_exploitation_banana"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tea_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HAN"
+                        levels = 5
+                        region = "STATE_YURURU_HANABIRA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tea_plantation"
+                    "worker_exploitation_tea"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:HAN"
+                        levels = 4
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_horizontal_drawer_cabinets"
+                    "pm_professional_bureaucrats"
+                    "pm_secular_bureaucrats"
+                }
+            }
+        }
+    }
+    s:STATE_UTSUROFU_KAORI = {
+        region_state:IRO = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:IRO"
+                        levels = 5
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_fig_orchards_building_rice_farm"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:IRO"
+                        levels = 3
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_sheep_farms"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tea_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:IRO"
+                        levels = 3
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tea_plantation"
+                    "worker_exploitation_tea"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_coal_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:IRO"
+                        levels = 2
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_coal_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:IRO"
+                        levels = 1
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:IRO"
+                        levels = 6
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_saw_mills"
+                    "pm_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_paper_mill"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:IRO"
+                        levels = 1
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_pulp_pressing"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_textile_mill"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:IRO"
+                        levels = 1
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_handsewn_clothes"
+                    "pm_craftsman_sewing"
+                    "pm_traditional_looms"
+                }
+            }
+            create_building = {
+                building = "building_furniture_manufactory"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:IRO"
+                        levels = 1
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_handcrafted_furniture"
+                    "pm_no_luxuries"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = {
+                        country = "c:IRO"
+                        levels = 2
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:IRO"
+                        levels = 1
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:IRO"
+                        levels = 4
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_banana_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:IRO"
+                        levels = 4
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_banana_plantation"
+                    "worker_exploitation_banana"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:IRO"
+                        levels = 3
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_horizontal_drawer_cabinets"
+                    "pm_professional_bureaucrats"
+                    "pm_secular_bureaucrats"
+                }
+            }
+            create_building = {
+                building = "building_tooling_workshop"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:IRO"
+                        levels = 1
+                        region = "STATE_UTSUROFU_KAORI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_crude_tools"
+                    "pm_automation_disabled"
+                }
+            }
+        }
+    }
+    s:STATE_CHIRASU_HONOO = {
+        region_state:HIB = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HIB"
+                        levels = 2
+                        region = "STATE_CHIRASU_HONOO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HIB"
+                        levels = 3
+                        region = "STATE_CHIRASU_HONOO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_sheep_farms"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HIB"
+                        levels = 11
+                        region = "STATE_CHIRASU_HONOO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_no_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_furniture_manufactory"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HIB"
+                        levels = 1
+                        region = "STATE_CHIRASU_HONOO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_handcrafted_furniture"
+                    "pm_no_luxuries"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = {
+                        country = "c:HIB"
+                        levels = 1
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HIB"
+                        levels = 2
+                        region = "STATE_CHIRASU_HONOO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+        }
+    }
+    s:STATE_KURENAI_NO_HA = {
+        region_state:KON = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KON"
+                        levels = 2
+                        region = "STATE_KURENAI_NO_HA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KON"
+                        levels = 3
+                        region = "STATE_KURENAI_NO_HA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_sheep_farms"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KON"
+                        levels = 1
+                        region = "STATE_KURENAI_NO_HA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KON"
+                        levels = 5
+                        region = "STATE_KURENAI_NO_HA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_saw_mills"
+                    "pm_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_paper_mill"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KON"
+                        levels = 1
+                        region = "STATE_KURENAI_NO_HA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_pulp_pressing"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_furniture_manufactory"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KON"
+                        levels = 2
+                        region = "STATE_KURENAI_NO_HA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_lathe"
+                    "pm_luxury_furniture"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = {
+                        country = "c:KON"
+                        levels = 2
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KON"
+                        levels = 1
+                        region = "STATE_KURENAI_NO_HA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KON"
+                        levels = 5
+                        region = "STATE_KURENAI_NO_HA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:KON"
+                        levels = 4
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_horizontal_drawer_cabinets"
+                    "pm_professional_bureaucrats"
+                    "pm_secular_bureaucrats"
+                }
+            }
+        }
+    }
+    s:STATE_KIYURU_HAI = {
+        region_state:SHI = {
+            create_building = {
+                building = "building_rice_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:SHI"
+                        levels = 3
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming_building_rice_farm"
+                    "pm_fig_orchards_building_rice_farm"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 1
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 3
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_saw_mills"
+                    "pm_no_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_iron_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 2
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_iron_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_lead_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 1
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_lead_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_tooling_workshop"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 1
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_iron_tools"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_arms_industry"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 2
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_muskets"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_paper_mill"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 1
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_pulp_pressing"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_furniture_manufactory"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 1
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_lathe"
+                    "pm_no_luxuries"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_glassworks"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 5
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_leaded_glass"
+                    "pm_ceramics"
+                    "pm_manual_glassblowing"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = {
+                        country = "c:SHI"
+                        levels = 2
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 1
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 6
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_banana_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:SHI"
+                        levels = 1
+                        region = "STATE_KIYURU_HAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_banana_plantation"
+                    "worker_exploitation_banana"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:SHI"
+                        levels = 4
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_horizontal_drawer_cabinets"
+                    "pm_professional_bureaucrats"
+                    "pm_secular_bureaucrats"
+                }
+            }
+        }
+    }
+    s:STATE_AFURURU_SHIZUKU = {
+        region_state:SHI = {
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 1
+                        region = "STATE_AFURURU_SHIZUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 1
+                        region = "STATE_AFURURU_SHIZUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_saw_mills"
+                    "pm_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_coal_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHI"
+                        levels = 2
+                        region = "STATE_AFURURU_SHIZUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_coal_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = {
+                        country = "c:SHI"
+                        levels = 1
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+        }
+    }
+    s:STATE_SHIRABOSHI = {
+        region_state:YUK = {
+            create_building = {
+                building = "building_millet_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:YUK"
+                        levels = 2
+                        region = "STATE_SHIRABOSHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_fig_orchards"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:YUK"
+                        levels = 1
+                        region = "STATE_SHIRABOSHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_sheep_farms"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_banana_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:YUK"
+                        levels = 4
+                        region = "STATE_SHIRABOSHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_banana_plantation"
+                    "worker_exploitation_banana"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUK"
+                        levels = 1
+                        region = "STATE_SHIRABOSHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUK"
+                        levels = 3
+                        region = "STATE_SHIRABOSHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_saw_mills"
+                    "pm_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_coal_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUK"
+                        levels = 2
+                        region = "STATE_SHIRABOSHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_coal_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_textile_mill"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUK"
+                        levels = 2
+                        region = "STATE_SHIRABOSHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_handsewn_clothes"
+                    "pm_craftsman_sewing"
+                    "pm_traditional_looms"
+                }
+            }
+            create_building = {
+                building = "building_furniture_manufactory"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUK"
+                        levels = 1
+                        region = "STATE_SHIRABOSHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_handcrafted_furniture"
+                    "pm_luxury_furniture"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_tooling_workshop"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUK"
+                        levels = 1
+                        region = "STATE_SHIRABOSHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_crude_tools"
+                    "pm_automation_disabled"
+                }
+            }
+        }
+    }
+    s:STATE_KURURU_MURASAKI = {
+        region_state:YUU = {
+            create_building = {
+                building = "building_millet_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:YUU"
+                        levels = 1
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_fig_orchards"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:YUU"
+                        levels = 1
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_butchering_tools"
+                    "pm_sheep_farms"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_banana_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:YUU"
+                        levels = 8
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_banana_plantation"
+                    "worker_exploitation_banana"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUU"
+                        levels = 1
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_iron_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUU"
+                        levels = 1
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_iron_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_lead_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUU"
+                        levels = 1
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_lead_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUU"
+                        levels = 5
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_saw_mills"
+                    "pm_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUU"
+                        levels = 2
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
+                }
+            }
+            create_building = {
+                building = "building_tooling_workshop"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUU"
+                        levels = 1
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_iron_tools"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_arms_industry"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUU"
+                        levels = 1
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_muskets"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_furniture_manufactory"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUU"
+                        levels = 2
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_lathe"
+                    "pm_no_luxuries"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_glassworks"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUU"
+                        levels = 1
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_leaded_glass"
+                    "pm_ceramics"
+                    "pm_manual_glassblowing"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = {
+                        country = "c:YUU"
+                        levels = 2
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUU"
+                        levels = 1
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:YUU"
+                        levels = 4
+                        region = "STATE_KURURU_MURASAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+        }
+    }
+}

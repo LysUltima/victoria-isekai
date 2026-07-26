@@ -1,0 +1,22 @@
+﻿# Isekai TC: migrated copy of vanilla 10_expedition_loc.txt.
+# common/customizable_localization is NOT in metadata.json replace_paths, so the
+# vanilla file loads unless a same-named mod file overrides it (this file).
+# Text blocks whose triggers referenced deleted Earth content were removed; keys
+# left empty fall back to their original localization_key so callers still
+# resolve. Regenerate with tools/migrate_custom_loc.py.
+
+expedition_progress_loc = {
+	type = country
+	random_valid = yes
+	text = {
+		localization_key = expedition_progress_loc_very_good
+	}
+}
+
+expedition_peril_loc = {
+	type = country
+	random_valid = yes
+	text = {
+		localization_key = expedition_peril_loc_very_high
+	}
+}

@@ -1,0 +1,350 @@
+﻿l_english:
+  # STATE_YONGAN - Eternal Peace (永安). Peaceful, auspicious theme.
+  HUB_NAME_STATE_YONGAN_city: "Yong'an" # 永安
+  HUB_NAME_STATE_YONGAN_farm: "Jiahe"  # 嘉禾
+  HUB_NAME_STATE_YONGAN_mine: "Yunyu"  # 韫玉
+  HUB_NAME_STATE_YONGAN_wood: "Fanyin" # 繁荫
+
+  # STATE_FENGSHAN - Phoenix Mountain (凤山). Mountain seat; phoenix and mountain phonemes.
+  HUB_NAME_STATE_FENGSHAN_city: "Mingqi" # 鸣岐
+  HUB_NAME_STATE_FENGSHAN_farm: "Wucang" # 梧苍
+  HUB_NAME_STATE_FENGSHAN_mine: "Danxue" # 丹穴
+  HUB_NAME_STATE_FENGSHAN_wood: "Cuiyu"  # 翠羽
+
+  # STATE_FEILIN - Flying Forest (飞林). Airy, forested; coal and sulfur mines suggest heat.
+  HUB_NAME_STATE_FEILIN_city: "Yimang"   # 翼莽
+  HUB_NAME_STATE_FEILIN_farm: "Fengrang" # 丰壤
+  HUB_NAME_STATE_FEILIN_mine: "Yanpan"   # 炎磐
+  HUB_NAME_STATE_FEILIN_wood: "Lingxiao" # 凌霄
+
+  # STATE_ANDU - Peace City (安都). Lowland orchards; calm, settled names.
+  HUB_NAME_STATE_ANDU_city: "Andu"     # 安都
+  HUB_NAME_STATE_ANDU_farm: "Jusong"    # 橘颂
+  HUB_NAME_STATE_ANDU_mine: "Jingchi"   # 靖坻
+  HUB_NAME_STATE_ANDU_wood: "Youhuang"  # 幽篁
+
+  # STATE_CANGMU - Vast Forest (苍木). Deep forest; vast/grey-green imagery.
+  HUB_NAME_STATE_CANGMU_city: "Weiyuan" # 蔚渊
+  HUB_NAME_STATE_CANGMU_farm: "Lüchou"  # 绿畴
+  HUB_NAME_STATE_CANGMU_mine: "Heyan"   # 褐岩
+  HUB_NAME_STATE_CANGMU_wood: "Senyao"  # 森杳
+
+  # STATE_QINGHAI - Blue Sea (青海). Coastal; blue-sea phonemes with distinct hub names.
+  HUB_NAME_STATE_QINGHAI_city: "Bihong"   # 碧泓
+  HUB_NAME_STATE_QINGHAI_port: "Chengwan" # 澄湾
+  HUB_NAME_STATE_QINGHAI_farm: "Runze"    # 润泽
+  HUB_NAME_STATE_QINGHAI_mine: "Shajin"   # 砂金
+  HUB_NAME_STATE_QINGHAI_wood: "Yedao"    # 椰岛
+
+  # STATE_JINGFENG - Calm Wind (静风). Coastal; wind-harbor evokes the name.
+  HUB_NAME_STATE_JINGFENG_city: "Jilai"   # 寂籁
+  HUB_NAME_STATE_JINGFENG_port: "Bozhou"  # 泊舟
+  HUB_NAME_STATE_JINGFENG_farm: "Xiye"    # 息野
+  HUB_NAME_STATE_JINGFENG_mine: "Cangya"  # 藏崖
+  HUB_NAME_STATE_JINGFENG_wood: "Mianke"  # 眠柯
+
+  # STATE_LIANXIAO - 涟霄 (Rippling Skies). Coastal; ripple and sky phonemes.
+  HUB_NAME_STATE_LIANXIAO_city: "Lianqiong" # 涟穹
+  HUB_NAME_STATE_LIANXIAO_port: "Fanxia"    # 泛霞
+  HUB_NAME_STATE_LIANXIAO_farm: "Yanghui"   # 仰晖
+  HUB_NAME_STATE_LIANXIAO_mine: "Zhuixing"  # 坠星
+  HUB_NAME_STATE_LIANXIAO_wood: "Fuyun"     # 拂云
+
+  # STATE_BEIHAI - North Sea (北海). Cold northern coast; frost and cold phonemes for hubs.
+  HUB_NAME_STATE_BEIHAI_city: "Linming"  # 凛溟
+  HUB_NAME_STATE_BEIHAI_port: "Dongpu"   # 冻浦
+  HUB_NAME_STATE_BEIHAI_farm: "Handian"  # 寒甸
+  HUB_NAME_STATE_BEIHAI_mine: "Bingli"   # 冰砺
+  HUB_NAME_STATE_BEIHAI_wood: "Xuesong"  # 雪松
+
+  # STATE_XIAMENG - Summer Dream (夏梦). Mountain; dreamy summer imagery.
+  HUB_NAME_STATE_XIAMENG_city: "Huanxia"  # 幻夏
+  HUB_NAME_STATE_XIAMENG_farm: "Mengdie"  # 梦蝶
+  HUB_NAME_STATE_XIAMENG_mine: "Shendong" # 蜃洞
+  HUB_NAME_STATE_XIAMENG_wood: "Chanzao"  # 蝉噪
+
+  # STATE_YUANXIANG - 渊香 (Deep Fragrance). Aromatic, mysterious; abyss and scent phonemes.
+  HUB_NAME_STATE_YUANXIANG_city: "Futan"    # 馥潭
+  HUB_NAME_STATE_YUANXIANG_farm: "Zhiting"  # 芷汀
+  HUB_NAME_STATE_YUANXIANG_mine: "Yunjing"  # 蕴晶
+  HUB_NAME_STATE_YUANXIANG_wood: "Guicong"  # 桂丛
+
+  # STATE_HONGYING - 浤映 (Vast Reflection). River and reflective water imagery.
+  HUB_NAME_STATE_HONGYING_city: "Hongjian" # 浤鉴
+  HUB_NAME_STATE_HONGYING_farm: "Daoying"  # 倒影
+  HUB_NAME_STATE_HONGYING_mine: "Liuli"    # 琉璃
+  HUB_NAME_STATE_HONGYING_wood: "Fucha"    # 浮槎
+
+  # STATE_CHENGYI - 澄漪 (Clear Ripples). Serene water-adjacent; limpid and ripple imagery.
+  HUB_NAME_STATE_CHENGYI_city: "Cheyi"   # 澈漪
+  HUB_NAME_STATE_CHENGYI_farm: "Qingqu"  # 清渠
+  HUB_NAME_STATE_CHENGYI_mine: "Diyan"   # 涤砚
+  HUB_NAME_STATE_CHENGYI_wood: "Jingzhi" # 净植
+
+  # STATE_SHENJIAN - Divine Sword (神剑). SWO seat; cold mountain, martial/iron names.
+  HUB_NAME_STATE_SHENJIAN_city: "Shenjian" # 神剑
+  HUB_NAME_STATE_SHENJIAN_farm: "Cuigu"   # 淬谷
+  HUB_NAME_STATE_SHENJIAN_mine: "Tieye"   # 铁冶
+  HUB_NAME_STATE_SHENJIAN_wood: "Jiange"  # 剑阁
+
+  # STATE_CHUNYA - Spring Cliff (春崖). Mountain; spring blossoms meet sheer cliffs.
+  HUB_NAME_STATE_CHUNYA_city: "Fangzhang" # 芳嶂
+  HUB_NAME_STATE_CHUNYA_farm: "Huaping"   # 华坪
+  HUB_NAME_STATE_CHUNYA_mine: "Qiaobi"    # 峭壁
+  HUB_NAME_STATE_CHUNYA_wood: "Taowu"     # 桃坞
+
+  # STATE_TIANYIN - Heavenly Note (天音). HEA seat; mountain, musical/spiritual names.
+  HUB_NAME_STATE_TIANYIN_city: "Tianyin"  # 天音
+  HUB_NAME_STATE_TIANYIN_farm: "Xiange"   # 弦歌
+  HUB_NAME_STATE_TIANYIN_mine: "Zhonglü"  # 钟吕
+  HUB_NAME_STATE_TIANYIN_wood: "Diyun"    # 笛韵
+
+  # STATE_QIUGE - Autumn Song (秋歌). Mountain harvest; autumn colour and melody imagery.
+  HUB_NAME_STATE_QIUGE_city: "Shangbiao" # 商飚
+  HUB_NAME_STATE_QIUGE_farm: "Huosui"    # 获穗
+  HUB_NAME_STATE_QIUGE_mine: "Zheshi"    # 赭石
+  HUB_NAME_STATE_QIUGE_wood: "Fengqi"    # 枫槭
+
+  # STATE_ZHUSHI - Vermillion Poem (朱诗). Coastal; literary and vermillion imagery.
+  HUB_NAME_STATE_ZHUSHI_city: "Yinci"     # 殷辞
+  HUB_NAME_STATE_ZHUSHI_port: "Fudu"      # 赋渡
+  HUB_NAME_STATE_ZHUSHI_farm: "Tongmu"    # 彤亩
+  HUB_NAME_STATE_ZHUSHI_mine: "Jianglei"  # 绛磊
+  HUB_NAME_STATE_ZHUSHI_wood: "Hanyuan"   # 翰苑
+
+  # STATE_HUAYUN - 華雲 (Flowering Cloud). FLO seat; coastal, blooming-cloud imagery.
+  HUB_NAME_STATE_HUAYUN_city: "Huayun"   # 華雲
+  HUB_NAME_STATE_HUAYUN_port: "Qihang"  # 绮航
+  HUB_NAME_STATE_HUAYUN_farm: "Ruilang" # 蕊浪
+  HUB_NAME_STATE_HUAYUN_mine: "Nigu"    # 霓崮
+  HUB_NAME_STATE_HUAYUN_wood: "Fenyin"  # 芬氤
+
+  # STATE_KAIHUA - Mahjong term (开花, Blooming Hand). Coastal; flowering/blooming imagery.
+  HUB_NAME_STATE_KAIHUA_city: "Zhanchun" # 绽春
+  HUB_NAME_STATE_KAIHUA_port: "Tujin"    # 吐津
+  HUB_NAME_STATE_KAIHUA_farm: "Yanqi"    # 艳畦
+  HUB_NAME_STATE_KAIHUA_mine: "Yibao"    # 异宝
+  HUB_NAME_STATE_KAIHUA_wood: "Xiuzhi"   # 秀枝
+
+  # STATE_GANGSHANG - Mahjong term (杠上, Kong Draw). Coastal; ridge and tidal imagery.
+  HUB_NAME_STATE_GANGSHANG_city: "Lingchao" # 岭潮
+  HUB_NAME_STATE_GANGSHANG_port: "Xigang"   # 汐港
+  HUB_NAME_STATE_GANGSHANG_farm: "Longtao"  # 垄涛
+  HUB_NAME_STATE_GANGSHANG_mine: "Gangmai"  # 杠脉
+  HUB_NAME_STATE_GANGSHANG_wood: "Jiduan"   # 脊椴
+
+  # STATE_ZIXIA - 紫霞 (Purple Mist). PUR seat; entirely mountainous, mystical imagery.
+  HUB_NAME_STATE_ZIXIA_city: "Zixia"     # 紫霞
+  HUB_NAME_STATE_ZIXIA_farm: "Ruicao"    # 瑞草
+  HUB_NAME_STATE_ZIXIA_mine: "Xiandong"  # 仙硐
+  HUB_NAME_STATE_ZIXIA_wood: "Xiang'ai"  # 祥蔼
+
+  # STATE_XUANYUE - Profound Moon (玄月). MYS seat; mountain, moon and depth imagery.
+  HUB_NAME_STATE_XUANYUE_city: "Xuanyue" # 玄月
+  HUB_NAME_STATE_XUANYUE_farm: "Wangjiao" # 望郊
+  HUB_NAME_STATE_XUANYUE_mine: "Ankeng"   # 黯坑
+  HUB_NAME_STATE_XUANYUE_wood: "Posuo"    # 婆娑
+
+  # STATE_HEJIN - 壑锦 (Ravine Brocade). Mountain gorge; rich colour and rocky terrain.
+  HUB_NAME_STATE_HEJIN_city: "Hejin"      # 壑锦
+  HUB_NAME_STATE_HEJIN_farm: "Xuanchuan"  # 绚川
+  HUB_NAME_STATE_HEJIN_mine: "Banli"      # 斑砾
+  HUB_NAME_STATE_HEJIN_wood: "Cucai"      # 簇彩
+
+  # STATE_LANXIU - 岚岫 (Mountain Mist Peaks). Mountain; mist and cavern imagery.
+  HUB_NAME_STATE_LANXIU_city: "Lanxiu" # 岚岫
+  HUB_NAME_STATE_LANXIU_farm: "Wuquan" # 雾畎
+  HUB_NAME_STATE_LANXIU_mine: "Kanku"  # 龛窟
+  HUB_NAME_STATE_LANXIU_wood: "Feilin" # 霏林
+
+  # STATE_YUDAO - Feather Island (羽岛). FEA seat; island, feather and sea imagery.
+  HUB_NAME_STATE_YUDAO_city: "Lingzhou" # 翎洲
+  HUB_NAME_STATE_YUDAO_port: "Ousi"     # 鸥涘
+  HUB_NAME_STATE_YUDAO_farm: "Heni"     # 翮泥
+  HUB_NAME_STATE_YUDAO_mine: "Beiji"    # 贝矶
+  HUB_NAME_STATE_YUDAO_wood: "Penglai"  # 蓬莱
+
+  # STATE_MINGJING - Bright Capital (明京). YAO seat; capital city grandeur.
+  HUB_NAME_STATE_MINGJING_city: "Mingjing"   # 明京
+  HUB_NAME_STATE_MINGJING_farm: "Jifu"      # 畿辅
+  HUB_NAME_STATE_MINGJING_mine: "Huangding" # 皇鼎
+  HUB_NAME_STATE_MINGJING_wood: "Yuyuan"    # 御园
+
+  # STATE_LIMING - Daybreak (黎明). Dawn imagery; morning light phonemes.
+  HUB_NAME_STATE_LIMING_city: "Poxiao"  # 破晓
+  HUB_NAME_STATE_LIMING_farm: "Chenxi"  # 晨曦
+  HUB_NAME_STATE_LIMING_mine: "Shusui"  # 曙燧
+  HUB_NAME_STATE_LIMING_wood: "Zhaolu"  # 朝露
+
+  # STATE_QIANHU - Thousand Lakes (千湖). Lakeland; water-rich, inland imagery.
+  HUB_NAME_STATE_QIANHU_city: "Miaocheng" # 淼城
+  HUB_NAME_STATE_QIANHU_farm: "Lingdang"  # 菱荡
+  HUB_NAME_STATE_QIANHU_mine: "Shuibi"    # 水璧
+  HUB_NAME_STATE_QIANHU_wood: "Pingzong"  # 萍踪
+
+  # STATE_ZHAOHAI - Brilliant Sea (照海). Coastal; brilliant light and sea imagery.
+  HUB_NAME_STATE_ZHAOHAI_city: "Huanghai" # 煌海
+  HUB_NAME_STATE_ZHAOHAI_port: "Yaobo"    # 耀舶
+  HUB_NAME_STATE_ZHAOHAI_farm: "Zhuotan"  # 灼滩
+  HUB_NAME_STATE_ZHAOHAI_mine: "Yelin"    # 烨磷
+  HUB_NAME_STATE_ZHAOHAI_wood: "Shuozhu"  # 烁株
+
+  # STATE_LONGYUN - Dragon Cloud (龙云). Mountain; dragon and cloud imagery.
+  HUB_NAME_STATE_LONGYUN_city: "Jiaohan" # 蛟汉
+  HUB_NAME_STATE_LONGYUN_farm: "Longlin" # 龙鳞
+  HUB_NAME_STATE_LONGYUN_mine: "Panqiu"  # 蟠虬
+  HUB_NAME_STATE_LONGYUN_wood: "Zhemu"   # 蛰木
+
+  # STATE_ZHONGYUAN - Central Plain (中原). Coastal; central heartland imagery.
+  HUB_NAME_STATE_ZHONGYUAN_city: "Jiuzhou"   # 九州
+  HUB_NAME_STATE_ZHONGYUAN_port: "Shuniu"    # 枢纽
+  HUB_NAME_STATE_ZHONGYUAN_farm: "Wotu"      # 沃土
+  HUB_NAME_STATE_ZHONGYUAN_mine: "Zhongyuan" # 中原
+  HUB_NAME_STATE_ZHONGYUAN_wood: "Sangzi"    # 桑梓
+
+  # STATE_YINGHAI - 熒海 (Glittering Sea). Coastal; flickering light on water.
+  HUB_NAME_STATE_YINGHAI_city: "Yingbo"  # 荧波
+  HUB_NAME_STATE_YINGHAI_port: "Shanao"  # 闪澳
+  HUB_NAME_STATE_YINGHAI_farm: "Yiliu"   # 熠流
+  HUB_NAME_STATE_YINGHAI_mine: "Cuican"  # 璀璨
+  HUB_NAME_STATE_YINGHAI_wood: "Yinghuo" # 萤火
+
+  # STATE_JINAN - Gold Peace (金安). Rendered Jin'an to distinguish from the real Jinan (济南).
+  HUB_NAME_STATE_JINAN_city: "Jin'an"  # 金安
+  HUB_NAME_STATE_JINAN_farm: "Rensui"   # 稔岁
+  HUB_NAME_STATE_JINAN_mine: "Liuding"  # 镠锭
+  HUB_NAME_STATE_JINAN_wood: "Kanggan"  # 康干
+
+  # STATE_GUILIN - Turtle Forest (龟林). Coastal; shell and forest imagery.
+  HUB_NAME_STATE_GUILIN_city: "Daimao"  # 玳瑁
+  HUB_NAME_STATE_GUILIN_port: "Linggui" # 灵龟
+  HUB_NAME_STATE_GUILIN_farm: "Jieqiu"  # 介丘
+  HUB_NAME_STATE_GUILIN_mine: "Bujia"   # 卜甲
+  HUB_NAME_STATE_GUILIN_wood: "Shicai"  # 蓍蔡
+
+  # STATE_TUYU - Rabbit Isles (兔屿). Small island group; all hubs on one island.
+  HUB_NAME_STATE_TUYU_city: "Chanyu"  # 毚屿
+  HUB_NAME_STATE_TUYU_port: "Jiaoxun" # 狡浔
+  HUB_NAME_STATE_TUYU_farm: "Daoyao"  # 捣药
+  HUB_NAME_STATE_TUYU_mine: "Yinxie"  # 银屑
+  HUB_NAME_STATE_TUYU_wood: "Tujing"  # 兔径
+
+  # STATE_BIAN - Far Shore (彼岸 Bǐ'àn). Mountain; the Chinese 彼岸 warrants the apostrophe.
+  HUB_NAME_STATE_BIAN_city: "Bi'an"  # 彼岸
+  HUB_NAME_STATE_BIAN_farm: "Yaoyin" # 遥垠
+  HUB_NAME_STATE_BIAN_mine: "Geshi"  # 隔世
+  HUB_NAME_STATE_BIAN_wood: "Shutu"  # 殊途
+
+  # STATE_LINGGU - Spirit Valley (灵谷). SPI seat; mountain valley, spiritual imagery.
+  HUB_NAME_STATE_LINGGU_city: "Linggu" # 灵谷
+  HUB_NAME_STATE_LINGGU_farm: "Shennong" # 神农
+  HUB_NAME_STATE_LINGGU_mine: "Miaofeng" # 妙峰
+  HUB_NAME_STATE_LINGGU_wood: "Puti"     # 菩提
+
+  # STATE_SHIYU - Lion Feather (狮羽). Mountain; fauna-inspired, iron-rich.
+  HUB_NAME_STATE_SHIYU_city: "Suanni"   # 狻猊
+  HUB_NAME_STATE_SHIYU_farm: "Muchang"  # 牧场
+  HUB_NAME_STATE_SHIYU_mine: "Gangzhua" # 钢爪
+  HUB_NAME_STATE_SHIYU_wood: "Zongmao"  # 鬃毛
+
+  # STATE_ZHUMING - Vermillion Fate (朱明). VER seat; major river, coastal. Cinnabar imagery.
+  HUB_NAME_STATE_ZHUMING_city: "Zhuming"  # 朱明
+  HUB_NAME_STATE_ZHUMING_port: "Feikou"   # 绯口
+  HUB_NAME_STATE_ZHUMING_farm: "Luliang"  # 禄粮
+  HUB_NAME_STATE_ZHUMING_mine: "Chengong" # 辰汞
+  HUB_NAME_STATE_ZHUMING_wood: "Yangshu"  # 阳树
+
+  # STATE_CHIJIANG - Crimson River (赤江). VER coastal; red/crimson and river imagery.
+  HUB_NAME_STATE_CHIJIANG_city: "Chijiang"  # 赤江
+  HUB_NAME_STATE_CHIJIANG_port: "Hetao"     # 赫滔
+  HUB_NAME_STATE_CHIJIANG_farm: "Chengfang" # 頳坊
+  HUB_NAME_STATE_CHIJIANG_mine: "Xiukuang"  # 锈矿
+  HUB_NAME_STATE_CHIJIANG_wood: "Shiyue"    # 柿樾
+
+  # STATE_XUEHUA - Snow Flower (雪花). SNO seat; cold coast, snow and ice imagery.
+  HUB_NAME_STATE_XUEHUA_city: "Xuehua" # 雪花
+  HUB_NAME_STATE_XUEHUA_port: "Ninghui"   # 凝汇
+  HUB_NAME_STATE_XUEHUA_farm: "Liemai"    # 冽麦
+  HUB_NAME_STATE_XUEHUA_mine: "Qiongsui"  # 琼碎
+  HUB_NAME_STATE_XUEHUA_wood: "Lihua"     # 梨花
+
+  # STATE_XIELIAN - Blood Lotus (血莲). BLO seat; mountain, lotus and iron imagery.
+  HUB_NAME_STATE_XIELIAN_city: "Xielian" # 血莲
+  HUB_NAME_STATE_XIELIAN_farm: "Ousi"  # 藕丝
+  HUB_NAME_STATE_XIELIAN_mine: "Xinge" # 腥锷
+  HUB_NAME_STATE_XIELIAN_wood: "Kuhe"  # 枯荷
+
+  # STATE_LANSHAN - Blue Mountain (蓝山). BLO state; tropical mountain, silk and tea.
+  HUB_NAME_STATE_LANSHAN_city: "Dianluan" # 靛峦
+  HUB_NAME_STATE_LANSHAN_farm: "Cancha"   # 蚕茶
+  HUB_NAME_STATE_LANSHAN_mine: "Qingdai"  # 青黛
+  HUB_NAME_STATE_LANSHAN_wood: "Congyu"   # 葱郁
+
+  # STATE_HUNJIANG - Soul River (魂江). Coastal river-mouth; soul and river imagery.
+  HUB_NAME_STATE_HUNJIANG_city: "Hundu"   # 魂渎
+  HUB_NAME_STATE_HUNJIANG_port: "Meituo"  # 魅沱
+  HUB_NAME_STATE_HUNJIANG_farm: "Jisi"    # 祭祀
+  HUB_NAME_STATE_HUNJIANG_mine: "Yincao"  # 阴曹
+  HUB_NAME_STATE_HUNJIANG_wood: "Zhaofan" # 招幡
+
+  # STATE_FUQU - Lotus Canal (芙渠). Tropical coastal; lotus and water-channel imagery.
+  HUB_NAME_STATE_FUQU_city: "Fuqu"     # 芙蕖
+  HUB_NAME_STATE_FUQU_port: "Jicao"    # 芰漕
+  HUB_NAME_STATE_FUQU_farm: "Lianfang" # 莲房
+  HUB_NAME_STATE_FUQU_mine: "Yunao"    # 淤淖
+  HUB_NAME_STATE_FUQU_wood: "Puwei"    # 蒲苇
+
+  # STATE_SHAHAI - Fiend Sea (煞海). Tropical coastal; dark/ominous maritime imagery.
+  HUB_NAME_STATE_SHAHAI_city: "Shayang"   # 煞洋
+  HUB_NAME_STATE_SHAHAI_port: "Xiongyong" # 凶涌
+  HUB_NAME_STATE_SHAHAI_farm: "Ezhi"      # 恶殖
+  HUB_NAME_STATE_SHAHAI_mine: "Licen"     # 戾岑
+  HUB_NAME_STATE_SHAHAI_wood: "Buji"      # 怖棘
+
+  # STATE_HONGLIN - Red Forest (红林). Coastal; crimson forest and coal-dark imagery.
+  HUB_NAME_STATE_HONGLIN_city: "Xinghong" # 猩红
+  HUB_NAME_STATE_HONGLIN_port: "Fanfa"    # 燔筏
+  HUB_NAME_STATE_HONGLIN_farm: "Jinyu"    # 烬余
+  HUB_NAME_STATE_HONGLIN_mine: "Meitan"   # 煤炭
+  HUB_NAME_STATE_HONGLIN_wood: "Fentiao"  # 焚条
+
+  # STATE_GUISHAN - Ghost Mountain (鬼山). GHO seat; eerie, dark mountain imagery.
+  HUB_NAME_STATE_GUISHAN_city: "Guishan"  # 鬼山
+  HUB_NAME_STATE_GUISHAN_farm: "Huangwu" # 荒芜
+  HUB_NAME_STATE_GUISHAN_mine: "Kulou"   # 骷髅
+  HUB_NAME_STATE_GUISHAN_wood: "Chiwang" # 魑魍
+
+  # STATE_YINGSHA - Shadow Fiend (影煞). SHA seat; tropical mountain coast, dark shadow imagery.
+  HUB_NAME_STATE_YINGSHA_city: "Yingsha"     # 影煞
+  HUB_NAME_STATE_YINGSHA_port: "Yinqian"  # 隐潜
+  HUB_NAME_STATE_YINGSHA_farm: "Zhebi"    # 遮蔽
+  HUB_NAME_STATE_YINGSHA_mine: "Liangxia" # 魉匣
+  HUB_NAME_STATE_YINGSHA_wood: "Dunji"    # 遁迹
+
+  # STATE_MOYUAN - Ink Field (墨原). SHA state; tropical mountain coast, ink and darkness.
+  HUB_NAME_STATE_MOYUAN_city: "Mozhao"  # 墨沼
+  HUB_NAME_STATE_MOYUAN_port: "Qixi"    # 漆溪
+  HUB_NAME_STATE_MOYUAN_farm: "Rangang" # 染缸
+  HUB_NAME_STATE_MOYUAN_mine: "Heiwu"   # 黑钨
+  HUB_NAME_STATE_MOYUAN_wood: "Haoduan" # 毫端
+
+  # STATE_JIUYOU - Nine Nether (九幽). NIN seat; mountain coast, underworld imagery.
+  HUB_NAME_STATE_JIUYOU_city: "Jiuyou"   # 九幽
+  HUB_NAME_STATE_JIUYOU_port: "Wangshe" # 忘涉
+  HUB_NAME_STATE_JIUYOU_farm: "Manzhu"  # 曼珠
+  HUB_NAME_STATE_JIUYOU_mine: "Yulian"  # 狱炼
+  HUB_NAME_STATE_JIUYOU_wood: "Naihe"   # 奈何
+
+  # STATE_FENGDU - Fengdu (酆都), the classical Chinese underworld city. Mountain, coastal.
+  HUB_NAME_STATE_FENGDU_city: "Fengdu"  # 酆都
+  HUB_NAME_STATE_FENGDU_port: "Mingfu"  # 冥府
+  HUB_NAME_STATE_FENGDU_farm: "Epiao"   # 饿殍
+  HUB_NAME_STATE_FENGDU_mine: "Xingju"  # 刑具
+  HUB_NAME_STATE_FENGDU_wood: "Wangsi"  # 枉死
+
+  # STATE_HUANGQUAN - Yellow Springs (黄泉), the Chinese underworld rivers. Mountain, coastal.
+  HUB_NAME_STATE_HUANGQUAN_city: "Huangquan" # 黄泉
+  HUB_NAME_STATE_HUANGQUAN_port: "Zhuolun"   # 浊沦
+  HUB_NAME_STATE_HUANGQUAN_farm: "Mengtang"  # 孟汤
+  HUB_NAME_STATE_HUANGQUAN_mine: "Lunpan"    # 轮盘
+  HUB_NAME_STATE_HUANGQUAN_wood: "Guzhong"   # 骨冢

@@ -1,0 +1,51 @@
+﻿### Champions JE - flavor-layer buttons
+# Attached to the universal je_ova_champion. Lets the crown pre-emptively be rid
+# of a dangerous champion - at the risk that a beloved or aggrieved one answers
+# the attempt with a coup instead. Disabled while a coup is already under way.
+
+ova_exile_champion_button = {
+	name = "ova_exile_champion_button"
+	desc = "ova_exile_champion_button_desc"
+
+	visible = {
+		has_variable = ova_champion_char
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ova_exile_no_coup_tt
+			NOT = { has_journal_entry = je_ova_champion_coup }
+		}
+		custom_tooltip = {
+			text = ova_exile_not_ruler_tt
+			var:ova_champion_char ?= { is_ruler_of_own_country = no }
+		}
+	}
+
+	# The raw effect (exile vs backfiring coup) is hidden behind a prose tooltip
+	# so the button reads cleanly.
+	effect = {
+		custom_tooltip = ova_exile_champion_effect_tt
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_variable = ova_champion_demand_pending
+						var:ova_champion_popularity >= 50
+						var:ova_champion_level >= 30
+					}
+				}
+				# too beloved or too aggrieved to go quietly
+				random_list = {
+					55 = { ova_champion_exile = yes }
+					45 = { ova_champion_start_coup = yes }
+				}
+			}
+			else = {
+				ova_champion_exile = yes
+			}
+		}
+	}
+
+	ai_chance = { value = 0 }
+}

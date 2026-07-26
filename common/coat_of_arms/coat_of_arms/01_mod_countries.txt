@@ -1,0 +1,1852 @@
+﻿#### 00_isekai ####
+
+LYS = { # Lysna -- the Imperial seat
+	pattern = "pattern_gironny_12.dds"
+	color1 = col_LYS
+	color2 = oc_bone
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = col_LYS
+		color2 = col_LYS
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_griffin_rampant.dds"
+		color1 = oc_gold
+		color2 = oc_pale_gold
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.55 } scale = { 0.75 0.75 } }
+	}
+	colored_emblem = {
+		texture = "ce_crown.dds"
+		color1 = oc_gold
+		color2 = oc_pale_gold
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.18 } scale = { 0.2 0.2 } }
+	}
+}
+
+ACA = { # Saint Christine Academy
+	pattern = "pattern_gironny_12.dds"
+	color1 = oc_gold
+	color2 = oc_bone
+}
+
+VAL = { # Valestria
+	pattern = "pattern_per_bend.dds"
+	color1 = col_VAL
+	color2 = col_EST
+	colored_emblem = {
+		texture = "ce_wyvern_rising.dds"
+		color1 = oc_silver
+		color2 = oc_gold
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+EST = { # Estria
+	pattern = "pattern_per_saltire.dds"
+	color1 = col_EST
+	color2 = sc_EST_2
+    colored_emblem = {
+		texture = "ce_unicorn.dds"
+		color1 = oc_silver
+		color2 = oc_gold
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+LUX = { # Lux Aeterna
+	pattern = "pattern_solid.tga"
+	color1 = sc_LUX_2
+	color2 = col_LUX
+	colored_emblem = {
+		texture = "ce_sun_frame.dds"
+		color1 = col_LUX
+		color2 = sc_LUX_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.8 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_sun.dds"
+		color1 = col_LUX
+		color2 = sc_LUX_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.4 0.5 } }
+	}
+}
+
+NIS = { # Nisenie
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_NIS
+	color2 = oc_silver
+	colored_emblem = {
+		texture = "ce_fleur_florence.dds"
+		color1 = sc_NIS_2
+		instance = { position = { 0.3 0.65 } scale = { 0.4 0.4 } }
+	}
+    colored_emblem = {
+		texture = "ce_fleur_florence.dds"
+		color1 = sc_NIS_2
+		instance = { position = { 0.7 0.65 } scale = { 0.4 0.4 } }
+	}
+    colored_emblem = {
+		texture = "ce_islamic_lis.dds"
+		color1 = sc_NIS_2
+		instance = { position = { 0.5 0.35 } scale = { 0.4 0.4 } }
+	}
+}
+
+ALE = { # Alestina
+	pattern = "pattern_per_bend_senester.dds"
+	color1 = sc_ALE_2
+	color2 = oc_ivory
+	colored_emblem = {
+		texture = "ce_lion_rampant_wide_stance_crown.dds"
+		color1 = col_ALE
+		color2 = oc_gold
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+REY = { # Reyorn
+	pattern = "pattern_cross.dds"
+	color1 = col_REY
+	color2 = oc_silver
+}
+
+SKA = { # Skaldergard
+	pattern = "pattern_cross.dds"
+	color1 = oc_bone
+	color2 = col_SKA
+}
+
+VIN = { # Vindheim
+	pattern = "pattern_solid.tga"
+	color1 = col_VIN
+	colored_emblem = {
+		texture = "ce_norse_bird_alstad.dds"
+		color1 = oc_bone
+		color2 = sc_VIN_1
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+SIN = { # Sinner's Refuge
+	pattern = "pattern_checkers_01.tga"
+	color1 = col_SIN
+	color2 = oc_ivory
+}
+
+ELV = { # Elvsae -- wood elf kingdom
+	pattern = "pattern_solid.tga"
+	color1 = col_ELV
+    colored_emblem = {
+		texture = "ce_polylobe_circle_frame.dds"
+		color1 = oc_pearl_white
+		color2 = sc_ELV_2
+		instance = { position = { 0.5 0.5 } scale = { .9 .9 } }
+	}
+	colored_emblem = {
+		texture = "ce_tree.dds"
+		color1 = oc_earth_brown
+		color2 = oc_lotus_pink
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.52 } scale = { 0.7 0.7 } }
+	}
+}
+
+DWA = { # Dwarvelunde -- steel dwarf kingdom
+	pattern = "pattern_border_of_3.dds"
+	color1 = oc_bone
+	color2 = col_DWA
+    colored_emblem = {
+		texture = "ce_suomenusko_sun_02.dds"
+		color1 = col_DWA
+		instance = { position = { 0.5 0.5 } scale = { 1 1 } }
+	}
+	colored_emblem = {
+		texture = "ce_ukkokirves.dds"
+		color1 = col_DWA
+		color2 = col_DWA
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.49 } scale = { 0.4 0.4 } }
+	}
+}
+
+EAS = { # Eastern Borderland
+	pattern = "pattern_solid.tga"
+	color1 = col_EAS
+	color2 = oc_earth_brown
+	colored_emblem = {
+		texture = "ce_arrow.dds"
+		color1 = oc_bone
+		color2 = oc_bone
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+HEL = { # Hellborne Mountains
+	pattern = "pattern_per_bend.dds"
+	color1 = col_HEL
+	color2 = col_HEL
+	colored_emblem = {
+		texture = "ce_wolf_head.dds"
+		color1 = oc_iron
+		color2 = oc_iron
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+
+#### 01_demonland ####
+
+DEM = { # Demonic Empire
+	pattern = "pattern_per_saltire.dds"
+	color1 = col_DEM
+	color2 = oc_blood_red
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_blood_red
+		instance = { position = { 0.5 0.5 } scale = { 0.5 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_wings.dds"
+		color1 = sc_DEM_1
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+	colored_emblem = {
+		texture = "ce_ram_horn.dds"
+		color1 = sc_DEM_1
+		color2 = sc_DEM_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.25 } scale = { 0.3 0.3 } }
+	}
+}
+
+YOL = { # Yoliselv -- dark elf kingdom
+	pattern = "pattern_solid.tga"
+	color1 = col_YOL
+	color2 = col_YOL
+	colored_emblem = {
+		texture = "ce_mena_crescent_outline.dds"
+		color1 = sc_YOL_1
+		color2 = sc_YOL_1
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 1 1 } }
+	}
+    colored_emblem = {
+		texture = "ce_mena_diamond_napkin.dds"
+		color1 = sc_YOL_1
+		color2 = sc_YOL_1
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.65 } scale = { 0.3 0.3 } }
+	}
+}
+
+PAL = { # Palnia
+	pattern = "pattern_solid.tga"
+	color1 = col_PAL
+	color2 = oc_shadow_purp
+	colored_emblem = {
+		texture = "ce_nestorian_bird.dds"
+		color1 = oc_bone
+		color2 = oc_shadow_purp
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+GIG = { # Gigantine Mountains
+	pattern = "pattern_solid.tga"
+	color1 = col_GIG
+	color2 = oc_silver
+	colored_emblem = {
+		texture = "ce_antlers_attire.dds"
+		color1 = sc_GIG_1
+		color2 = sc_GIG_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+GOB = { # Goblinland
+	pattern = "pattern_solid.tga"
+	color1 = col_GOB
+	color2 = oc_bone
+	colored_emblem = {
+		texture = "ce_boar_head.dds"
+		color1 = sc_GOB_1
+		color2 = sc_GOB_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+SAN = { # Sand Goblin Domain
+	pattern = "pattern_solid.tga"
+	color1 = col_SAN
+	color2 = oc_sand
+	colored_emblem = {
+		texture = "ce_crossbow.dds"
+		color1 = sc_SAN_1
+		color2 = sc_SAN_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+SDE = { # Southern Desert -- orc kingdom
+	pattern = "pattern_solid.tga"
+	color1 = col_SDE
+	color2 = col_SDE
+	colored_emblem = {
+		texture = "ce_bull_horn.dds"
+		color1 = sc_SDE_1
+		color2 = sc_SDE_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.55 } scale = { 0.8 0.8 } }
+	}
+}
+
+
+#### 02_north ####
+
+AGR = { # Agralekke
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_AGR
+	color2 = oc_silver
+    colored_emblem = {
+		texture = "ce_norse_mjolnir_kobelev.dds"
+		color1 = sc_AGR_1
+		color2 = sc_AGR_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { .9 .9 } }
+	}
+}
+
+SEL = { # Selmme
+	pattern = "pattern_barry_06.dds"
+	color1 = col_SEL
+	color2 = oc_bone
+    colored_emblem = {
+		texture = "ce_norse_mjolnir_romersdal.dds"
+		color1 = sc_SEL_1
+		color2 = sc_SEL_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 1 1 } }
+	}
+}
+
+BRU = { # Brulmme
+	pattern = "pattern_solid.tga"
+	color1 = col_BRU
+	color2 = oc_bronze
+	colored_emblem = {
+		texture = "ce_norse_mjolnir_odeshog.dds"
+		color1 = sc_BRU_1
+		color2 = sc_BRU_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+IIV = { # Iivakaarena
+	pattern = "pattern_solid.tga"
+	color1 = col_IIV
+	color2 = oc_silver
+	colored_emblem = {
+		texture = "ce_yggdrasil_ockelbo.dds"
+		color1 = sc_IIV_1
+		color2 = sc_IIV_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+SYA = { # Syaasee
+	pattern = "pattern_per_bend.dds"
+	color1 = col_SYA
+	color2 = col_IIV
+    colored_emblem = {
+		texture = "ce_kamon_laurel_wisteria_04.dds"
+		color1 = oc_frost_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.8 } }
+	}
+}
+
+AMI = { # Amiitenii
+	pattern = "pattern_circle.dds"
+	color1 = col_AMI
+	color2 = oc_frost_white
+    colored_emblem = {
+		texture = "ce_kamon_laurel_wisteria_01.dds"
+		color1 = col_AMI
+		instance = { position = { 0.5 0.5 } scale = { 0.65 0.8 } }
+	}
+}
+
+MIA = { # Miraamitaa
+	pattern = "pattern_circle.dds"
+	color1 = col_MIA
+	color2 = oc_frost_white
+    colored_emblem = {
+		texture = "ce_kamon_laurel_wisteria_03.dds"
+		color1 = col_MIA
+		instance = { position = { 0.5 0.5 } scale = { 0.65 0.8 } }
+	}
+}
+
+MAA = { # Maamavaa
+	pattern = "pattern_circle.dds"
+	color1 = col_MAA
+	color2 = oc_frost_white
+    colored_emblem = {
+		texture = "ce_kamon_mountain.dds"
+		color1 = col_MAA
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.8 } }
+	}
+}
+
+SVA = { # Svalbarð
+	pattern = "pattern_bend_02.dds"
+	color1 = col_SVA
+	color2 = oc_frost_white
+}
+
+HRG = { # Hrímgarðar
+	pattern = "pattern_solid.tga"
+	color1 = col_HRG
+	color2 = oc_ice_blue
+	colored_emblem = {
+		texture = "ce_norse_raven.dds"
+		color1 = sc_HRG_1
+		color2 = sc_HRG_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+}
+
+SKL = { # Skáldatindur
+	pattern = "pattern_bend_02.dds"
+	color1 = col_SKL
+	color2 = oc_frost_white
+}
+
+STO = { # Stórstígar
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_STO
+	color2 = oc_iron
+	colored_emblem = {
+		texture = "ce_norse_triquetra.dds"
+		color1 = oc_gold
+		color2 = sc_STO_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.55 } scale = { 1 1 } }
+	}
+}
+
+GRA = { # Grænvíkingar
+	pattern = "pattern_bend_01.dds"
+	color1 = col_GRA
+	color2 = col_GRA
+	colored_emblem = {
+		texture = "ce_pagan_cross_arrows_02.dds"
+		color1 = sc_GRA_1
+		color2 = sc_GRA_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 1 1 } }
+	}
+}
+
+VAT = { # Vatnsdælir
+	pattern = "pattern_bend_01.dds"
+	color1 = col_VAT
+	color2 = col_VAT
+	colored_emblem = {
+		texture = "ce_norse_sun_cross_getinge.dds"
+		color1 = sc_VAT_2
+		color2 = sc_VAT_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 1 1 } }
+	}
+}
+
+ELD = { # Eldvakingar
+	pattern = "pattern_barry_04.dds"
+	color1 = col_ELD
+	color2 = oc_amber
+}
+
+NYL = { # Nýlandar
+	pattern = "pattern_solid.tga"
+	color1 = col_NYL
+	color2 = oc_frost_white
+	colored_emblem = {
+		texture = "ce_pagan_cross_07.dds"
+		color1 = sc_NYL_1
+		color2 = sc_NYL_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+}
+
+SOL = { # Sólskinningar
+	pattern = "pattern_solid.tga"
+	color1 = col_SOL
+	color2 = oc_frost_white
+	colored_emblem = {
+		texture = "ce_pagan_cross_tursas.dds"
+		color1 = sc_SOL_1
+		color2 = sc_SOL_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+}
+
+ORC = { # Orcland
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_ORC
+	color2 = oc_iron
+	colored_emblem = {
+		texture = "ce_axe_long.dds"
+		color1 = sc_ORC_1
+		color2 = sc_ORC_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+
+#### 03_desert ####
+
+SUN = { # Empire of the Dawning Sun
+	pattern = "pattern_gironny_16.dds"
+	color1 = sc_SUN_2
+	color2 = sc_SUN_1
+	colored_emblem = {
+		texture = "ce_mena_sun.dds"
+		color1 = col_SUN
+		color2 = oc_gold
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { .9 1.2 } }
+	}
+}
+
+ASI = { # Al-Asil
+	pattern = "pattern_gironny_8.dds"
+	color1 = oc_bone
+	color2 = col_ASI
+    colored_emblem = {
+		texture = "ce_quadrilobe.dds"
+		color1 = oc_bone
+        color2 = col_ASI
+		instance = { position = { 0.5 0.5 } scale = { 1.1 1.3 } }
+	}
+	colored_emblem = {
+		texture = "ce_persian_sun_lion.dds"
+		color1 = col_ASI
+        color2 = oc_gold
+        color3 = oc_gold
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+LUJ = { # Al-Lujayn
+	pattern = "pattern_gironny_8.dds"
+	color1 = col_LUJ
+	color2 = oc_gold
+    colored_emblem = {
+		texture = "ce_quadrilobe.dds"
+		color1 = oc_gold
+        color2 = col_LUJ
+		instance = { position = { 0.5 0.5 } scale = { 1.1 1.3 } }
+	}
+	colored_emblem = {
+		texture = "ce_polish_leliwa.dds"
+		color1 = col_LUJ
+		color2 = sc_LUJ_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { .6 .7 } }
+	}
+}
+
+TAM = { # Tamim Clan
+	pattern = "pattern_gironny_8.dds"
+	color1 = col_TAM
+	color2 = oc_sand
+}
+
+ASA = { # Asat Clan
+	pattern = "pattern_per_saltire.dds"
+	color1 = col_ASA
+	color2 = oc_ivory
+}
+
+GHA = { # Al-Ghayth
+	pattern = "pattern_solid.tga"
+	color1 = col_GHA
+	color2 = col_GHA
+	colored_emblem = {
+		texture = "ce_polish_orda.dds"
+		color1 = oc_bone
+		color2 = sc_GHA_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 1 1 } }
+	}
+}
+
+JUM = { # Al-Juman
+	pattern = "pattern_gironny_8.dds"
+	color1 = col_JUM
+	color2 = oc_gold
+    colored_emblem = {
+		texture = "ce_seal_pictorial_central_cornels.dds"
+		color1 = oc_bone
+		color2 = sc_LUJ_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { .8 .8 } }
+	}
+}
+
+FAW = { # Al-Fawz
+	pattern = "pattern_per_saltire.dds"
+	color1 = sc_FAW_2
+	color2 = oc_ivory
+    colored_emblem = {
+		texture = "ce_polylobe_angles.dds"
+		color1 = oc_ivory
+        color2 = sc_FAW_2
+		instance = { position = { 0.5 0.5 } scale = { 1.1 1.1 } }
+	}
+	colored_emblem = {
+		texture = "ce_rubh_el_hizb_iranian.dds"
+		color1 = col_FAW
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+IKH = { # Al-Ikhlas
+	pattern = "pattern_solid.tga"
+	color1 = col_IKH
+	color2 = col_IKH
+	colored_emblem = {
+		texture = "ce_star_ishtar.dds"
+		color1 = oc_pearl_white
+		color2 = sc_IKH_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+}
+
+DES = { # Desert of Tears
+	pattern = "pattern_diagonal_split_02.dds"
+	color1 = col_DES
+	color2 = oc_desert_dusk
+}
+
+SCO = { # Scorching Flame Desert
+	pattern = "pattern_diagonal_split_02.dds"
+	color1 = col_SCO
+	color2 = oc_gold
+}
+
+BUR = { # Burning Wastes
+	pattern = "pattern_solid.tga"
+	color1 = col_BUR
+	color2 = oc_ember
+}
+
+DAY = { # Dayspring Plateau
+	pattern = "pattern_gironny_16.dds"
+	color1 = col_DAY
+	color2 = oc_amber
+}
+
+
+#### 04_beastland ####
+
+CAT = { # Catlandia
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_CAT
+	color2 = oc_pale_gold
+	colored_emblem = {
+		texture = "ce_seal_pictorial_central_tiger.dds"
+		color1 = sc_CAT_1
+		color2 = sc_CAT_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+TUC = { # Tuconya
+	pattern = "pattern_solid.tga"
+	color1 = col_TUC
+	color2 = oc_ivory
+	colored_emblem = {
+		texture = "ce_persian_lion.dds"
+		color1 = col_CAT
+		color2 = col_CAT
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+AIL = { # Ailenya
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_AIL
+	color2 = oc_ivory
+    colored_emblem = {
+		texture = "ce_panther.dds"
+		color1 = sc_AIL_1
+		color2 = sc_AIL_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { .8 .8 } }
+	}
+}
+
+HAR = { # Harunya
+	pattern = "pattern_solid.tga"
+	color1 = col_HAR
+	color2 = oc_amber
+	colored_emblem = {
+		texture = "ce_tiger.dds"
+		color1 = oc_amber
+		color2 = oc_amber
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 1 1 } }
+	}
+}
+
+URR = { # Urruma
+	pattern = "pattern_solid.tga"
+	color1 = col_URR
+	color2 = oc_pelt_brown
+	colored_emblem = {
+		texture = "ce_seal_pictorial_central_horse.dds"
+		color1 = oc_bone
+		color2 = oc_bone
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+WAP = { # Wapapow -- foxkin kingdom
+	pattern = "pattern_solid.tga"
+	color1 = col_WAP
+	color2 = col_WAP
+	colored_emblem = {
+		texture = "ce_fox.dds"
+		color1 = oc_amber
+		color2 = oc_bone
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+HAT = { # Hateeho
+	pattern = "pattern_per_bend.dds"
+	color1 = col_HAT
+	color2 = oc_ivory
+    colored_emblem = {
+		texture = "ce_aegishjalmr.dds"
+		color1 = sc_HAT_1
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+}
+
+AHE = { # Ahee
+	pattern = "pattern_per_bend.dds"
+	color1 = col_AHE
+	color2 = oc_amber
+    colored_emblem = {
+		texture = "ce_suomenusko_sun_07.dds"
+		color1 = sc_AHE_1
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+}
+
+UAN = { # Uang-Ko -- dogkin kingdom
+	pattern = "pattern_per_bend.dds"
+	color1 = oc_bone
+	color2 = oc_obsidian
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = col_UAN
+		instance = { position = { 0.52 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_seal_pictorial_central_dog.dds"
+		color1 = oc_bone
+		instance = { position = { 0.52 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+ANE = { # Anepyon -- rabbitkin kingdom
+	pattern = "pattern_solid.tga"
+	color1 = col_ANE
+	color2 = col_ANE
+	colored_emblem = {
+		texture = "ce_kamon_rabbit.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+MIR = { # Mirapyon -- rabbitkin kingdom
+	pattern = "pattern_solid.tga"
+	color1 = col_MIR
+	color2 = col_MIR
+	colored_emblem = {
+		texture = "ce_seal_pictorial_central_rabbit.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+SIR = { # Sirokani
+	pattern = "pattern_border_of_2.dds"
+	color1 = oc_bone
+	color2 = col_SIR
+	colored_emblem = {
+		texture = "ce_bear_passant.dds"
+		color1 = oc_earth_brown
+		color2 = oc_earth_brown
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+BEA = { # Bear Mosir
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_BEA
+	color2 = oc_iron
+}
+
+NOR = { # Northern Expanse
+	pattern = "pattern_solid.tga"
+	color1 = oc_bone
+	color2 = oc_pelt_brown
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = col_NOR
+		color2 = col_NOR
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+SOU = { # Southern Steppes
+	pattern = "pattern_solid.tga"
+	color1 = oc_bone
+	color2 = oc_pelt_brown
+	colored_emblem = {
+		texture = "ce_horse_statant.dds"
+		color1 = col_SOU
+		color2 = col_SOU
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+WOL = { # Snow-Wolf Domain
+	pattern = "pattern_per_bend.dds"
+	color1 = col_WOL
+	color2 = oc_frost_white
+}
+
+
+#### 05_western_plateau ####
+
+IMM = { # Sect of the Immutable Gold
+	pattern = "pattern_circle.dds"
+	color1 = oc_gold
+	color2 = oc_bone
+	colored_emblem = {
+		texture = "ce_rubh_el_hizb_knot.dds"
+		color1 = col_IMM
+		color2 = sc_IMM_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.8 } }
+	}
+}
+
+COS = { # Order of Cosmic Equanimity
+	pattern = "pattern_circle.dds"
+	color1 = col_COS
+	color2 = oc_ivory
+	colored_emblem = {
+		texture = "ce_star_08.dds"
+		color1 = sc_COS_1
+		color2 = sc_COS_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 1 } }
+	}
+}
+
+DRA = { # Drakkar Sect
+	pattern = "pattern_stepped_pyramid.dds"
+	color1 = col_DRA
+	color2 = oc_pale_gold
+}
+
+LAM = { # Lamzang Order
+	pattern = "pattern_solid.tga"
+	color1 = sc_LAM_2
+	color2 = oc_jade_teal
+	colored_emblem = {
+		texture = "ce_endless_knot.dds"
+		color1 = col_LAM
+		color2 = sc_LAM_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+CHA = { # Charnam
+	pattern = "pattern_stepped_pyramid.dds"
+	color1 = col_CHA
+	color2 = oc_pale_gold
+	colored_emblem = {
+		texture = "ce_elephant.dds"
+		color1 = sc_CHA_1
+		color2 = sc_CHA_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.65 } scale = { 0.8 0.8 } }
+	}
+}
+
+ANT = { # Äntekäre
+	pattern = "pattern_barry_06.dds"
+	color1 = sc_ANT_2
+	color2 = oc_pale_gold
+    colored_emblem = {
+		texture = "ce_polylobe_circle_frame.dds"
+		color1 = sc_ANT_2
+		color2 = oc_pale_gold
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 1 1} }
+	}
+	colored_emblem = {
+		texture = "ce_thunder_dragon.dds"
+		color1 = col_ANT
+		color2 = oc_pale_gold
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.8 } }
+	}
+}
+
+LYK = { # Lyksye
+	pattern = "pattern_circle.dds"
+	color1 = col_LYK
+	color2 = oc_pale_gold
+    colored_emblem = {
+		texture = "ce_seal_pictorial_central_deer.dds"
+		color1 = sc_LYK_1
+		color2 = sc_ANT_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.8 } }
+	}
+}
+
+
+#### 06_xianxia ####
+
+FEN = { # Great Feng
+	pattern = "pattern_solid.tga"
+	color1 = col_FEN
+	color2 = col_FEN
+	colored_emblem = {
+		texture = "ce_phoenix.dds"
+		color1 = oc_jade_green
+		color2 = oc_jade_teal
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.66 0.66 } }
+	}
+	colored_emblem = {
+		texture = "ce_eastern_clouds.dds"
+		color1 = sc_FEN_1
+		color2 = sc_FEN_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.14 } scale = { 0.4 0.2 } }
+	}
+}
+
+SWO = { # Divine Sword Sect
+	pattern = "pattern_vertical_split_01.tga"
+	color1 = col_SWO
+	color2 = oc_silver
+    colored_emblem = {
+		texture = "ce_sword_simple.dds"
+		color1 = sc_SWO_1
+		color2 = sc_SWO_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+HEA = { # Heavenly Note Sect
+	pattern = "pattern_solid.tga"
+	color1 = col_HEA
+	color2 = col_HEA
+	colored_emblem = {
+		texture = "ce_rosetta_04.dds"
+		color1 = sc_HEA_1
+		color2 = sc_HEA_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { .8 1 } }
+	}
+}
+
+FLO = { # Flowering Cloud Pavillion
+	pattern = "pattern_solid.tga"
+	color1 = oc_pearl_white
+	color2 = col_FLO
+	colored_emblem = {
+		texture = "ce_rosetta_08.dds"
+		color1 = col_FLO
+		color2 = sc_FLO_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { .8 1 } }
+	}
+}
+
+PUR = { # Purple Mist Palace
+	pattern = "pattern_circle.dds"
+	color1 = col_PUR
+	color2 = oc_bone
+    colored_emblem = {
+		texture = "ce_star_16.dds"
+		color1 = col_PUR
+		color2 = sc_PUR_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { .8 1 } }
+	}
+}
+
+MYS = { # Mystic Moon Sect
+	pattern = "pattern_solid.tga"
+	color1 = col_MYS
+	color2 = col_MYS
+	colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = sc_MYS_1
+		color2 = sc_MYS_1
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.5 0.6 } }
+	}
+}
+
+FEA = { # Feather Island Estate
+	pattern = "pattern_solid.tga"
+	color1 = oc_bone
+	color2 = col_FEA
+	colored_emblem = {
+		texture = "ce_hongsa.dds"
+		color1 = col_FEA
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+YAO = { # Great Yao
+	pattern = "pattern_solid.tga"
+	color1 = col_YAO
+	color2 = col_YAO
+	colored_emblem = {
+		texture = "ce_imperial_dragon.dds"
+		color1 = sc_YAO_1
+		color2 = sc_YAO_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+SPI = { # Spirit Valley Sect
+	pattern = "pattern_solid.tga"
+	color1 = col_SPI
+	color2 = col_SPI
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = sc_SPI_1
+		color2 = sc_MYS_1
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_bell.dds"
+		color1 = col_SPI
+		color2 = sc_SPI_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.8 } }
+	}
+}
+
+VER = { # Vermillion Fate Palace
+	pattern = "pattern_solid.tga"
+	color1 = col_VER
+	color2 = col_VER
+	colored_emblem = {
+		texture = "ce_khmer_dragon.dds"
+		color1 = sc_VER_2
+		color2 = sc_VER_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.53 0.5 } scale = { 0.9 0.8 } }
+	}
+}
+
+SNO = { # Snow Blossom Pavillion
+	pattern = "pattern_solid.tga"
+	color1 = sc_SNO_1
+	color2 = col_SNO
+    colored_emblem = {
+		texture = "ce_kamon_iris.dds"
+		color1 = col_SNO
+		color2 = sc_SNO_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.25 } scale = { 0.6 0.6 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_paulownia_bloom.dds"
+		color1 = col_SNO
+		color2 = sc_SNO_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.55 } scale = { 0.7 0.7 } }
+	}
+}
+
+BLO = { # Blood Lotus Sect
+	pattern = "pattern_border_of_2.dds"
+	color1 = oc_obsidian
+	color2 = oc_blood_red
+	colored_emblem = {
+		texture = "ce_lotus_big.dds"
+		color1 = oc_blood_red
+		color2 = col_BLO
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+GHO = { # Ghost Mountain Sect
+	pattern = "pattern_solid.tga"
+	color1 = oc_obsidian
+	color2 = oc_iron
+	colored_emblem = {
+		texture = "ce_fire.dds"
+		color1 = oc_amber
+		color2 = col_GHO
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+SHA = { # Shadow Fiend Sect
+	pattern = "pattern_solid.tga"
+	color1 = oc_blood_red
+	color2 = oc_iron
+    colored_emblem = {
+		texture = "ce_seal_pictorial_central_snake.dds"
+		color1 = col_SHA
+		color2 = sc_NIN_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+    
+}
+
+NIN = { # Nine Nether Sect
+	pattern = "pattern_solid.tga"
+	color1 = col_NIN
+	color2 = oc_iron
+	colored_emblem = {
+		texture = "ce_three_bezants.dds"
+		color1 = oc_bone
+		color2 = col_GHO
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.4 } scale = { 0.5 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_moon.dds"
+		color1 = oc_bone
+		color2 = col_SHA
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+
+#### 07_murim ####
+
+HWA = { # Hwasan
+	pattern = "pattern_per_saltire.dds"
+	color1 = sc_HWA_2
+	color2 = oc_bone
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_bone
+		color2 = col_SHA
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_plum.dds"
+		color1 = col_HWA
+		color2 = col_HWA
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 1 1.3 } }
+	}
+}
+
+SOR = { # Sorim
+	pattern = "pattern_solid.tga"
+	color1 = col_SOR
+	color2 = oc_iron
+	colored_emblem = {
+		texture = "ce_kamon_lotus.dds"
+		color1 = sc_SOR_1
+		color2 = sc_SOR_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+MUD = { # Mudang
+	pattern = "pattern_vertical_split_01.tga"
+	color1 = oc_gold
+	color2 = col_MUD
+    colored_emblem = {
+		texture = "ce_kamon_mirror_iris.dds"
+		color1 = col_MUD
+		color2 = sc_SOR_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.3 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+JEG = { # Jegal
+	pattern = "pattern_solid.tga"
+	color1 = col_JEG
+	color2 = oc_bone
+	colored_emblem = {
+		texture = "ce_kamon_wave.dds"
+		color1 = oc_bone
+		color2 = sc_JEG_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+TAN = { # Tang
+	pattern = "pattern_circle.dds"
+	color1 = col_TAN
+	color2 = oc_ivory
+	colored_emblem = {
+		texture = "ce_kamon_mirror_butterfly.dds"
+		color1 = sc_TAN_1
+		color2 = sc_TAN_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+NAM = { # Namgung
+	pattern = "pattern_solid.tga"
+	color1 = col_NAM
+	color2 = oc_bone
+	colored_emblem = {
+		texture = "ce_kamon_oak.dds"
+		color1 = oc_jade_green
+		color2 = sc_NAM_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 1 1 } }
+	}
+}
+
+PAE = { # Paeng
+	pattern = "pattern_solid.tga"
+	color1 = col_PAE
+	color2 = oc_bone
+	colored_emblem = {
+		texture = "ce_kamon_turtle.dds"
+		color1 = sc_PAE_1
+		color2 = sc_PAE_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+SAM = { # Sama
+	pattern = "pattern_per_saltire.dds"
+	color1 = col_SAM
+	color2 = oc_bone
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_bone
+		color2 = col_SHA
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_clover.dds"
+		color1 = col_SAM
+		color2 = sc_SAM_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+CHE = { # Heavenly Demon Sect
+	pattern = "pattern_per_saltire.dds"
+	color1 = col_CHE
+	color2 = oc_blood_red
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_blood_red
+		color2 = col_SHA
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_butterfly.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+
+#### 08_southern_isles ####
+
+CRI = { # Crimson Jade Sect
+	pattern = "pattern_circle.dds"
+	color1 = col_CRI
+	color2 = oc_coral
+    colored_emblem = {
+		texture = "ce_seal_pictorial_vertical_dragon.dds"
+		color1 = sc_CRI_2
+		color2 = sc_UND_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+UND = { # Underworld Sect
+	pattern = "pattern_solid.tga"
+	color1 = col_UND
+	color2 = oc_shadow_purp
+	colored_emblem = {
+		texture = "ce_snake.dds"
+		color1 = sc_UND_1
+		color2 = sc_UND_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+SUR = { # Surging Waves
+	pattern = "pattern_circle.dds"
+	color1 = col_SUR
+	color2 = oc_coral
+	colored_emblem = {
+		texture = "ce_waves_03.dds"
+		color1 = sc_SUR_1
+		color2 = sc_SUR_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+XIL = { # Xila Wulada
+	pattern = "pattern_circle.dds"
+	color1 = col_XIL
+	color2 = oc_coral
+	colored_emblem = {
+		texture = "ce_jumping_fish.dds"
+		color1 = sc_XIL_1
+		color2 = sc_XIL_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+PUL = { # Pulao Wuya
+	pattern = "pattern_waves_01.dds"
+	color1 = col_PUL
+	color2 = oc_lagoon
+}
+
+HAD = { # Hada Silu
+	pattern = "pattern_solid.tga"
+	color1 = col_HAD
+	color2 = oc_lagoon
+	colored_emblem = {
+		texture = "ce_dolphin.dds"
+		color1 = sc_HAD_1
+		color2 = sc_HAD_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+LAN = { # White Pearl Sect
+	pattern = "pattern_waves_01.dds"
+	color1 = col_LAN
+	color2 = oc_lagoon
+    colored_emblem = {
+		texture = "ce_peacock.dds"
+		color1 = oc_lotus_pink
+		color2 = oc_lagoon
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+KUI = { # Kuilei
+	pattern = "pattern_circle.dds"
+	color1 = col_KUI
+	color2 = oc_coral
+}
+
+JAD = { # Jade Sea Peoples
+	pattern = "pattern_circle.dds"
+	color1 = col_JAD
+	color2 = oc_coral
+}
+
+
+#### 09_eastern_isles ####
+
+ASH = { # Asahi
+	pattern = "pattern_solid.tga"
+	color1 = col_ASH
+	color2 = col_ASH
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.6 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_frame_jagged.dds"
+		color1 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_chrysanthemum.dds"
+		color1 = col_ASH
+		color2 = sc_ASH_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.6 } }
+	}
+}
+
+HAN = { # Hanamuke
+	pattern = "pattern_solid.tga"
+	color1 = col_HAN
+	color2 = oc_lotus_pink
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_butterfly_laurel.dds"
+		color1 = col_HAN
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_wild_orange.dds"
+		color1 = col_HAN
+		instance = { position = { 0.5 0.4 } scale = { 0.3 0.3 } }
+	}
+}
+
+IRO = { # Iroka
+	pattern = "pattern_solid.tga"
+	color1 = col_IRO
+	color2 = oc_lotus_pink
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_ginger.dds"
+		color1 = col_IRO
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_hollyhock.dds"
+		color1 = col_IRO
+		instance = { position = { 0.5 0.4 } scale = { 0.3 0.3 } }
+	}
+}
+
+HIB = { # Hibana
+	pattern = "pattern_solid.tga"
+	color1 = col_HIB
+	color2 = oc_lotus_pink
+	colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_amber
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_wave.dds"
+		color1 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_fifth_sakura.dds"
+		color1 = oc_pearl_white
+		instance = { position = { 0.5 0.4 } scale = { 0.3 0.3 } }
+	}
+}
+
+KON = { # Konoha
+	pattern = "pattern_circle.dds"
+	color1 = col_KON
+	color2 = col_KON
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_gold
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+	colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = col_KON
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.6 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_frame_pine.dds"
+		color1 = col_KON
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_pawlonia.dds"
+		color1 = oc_gold
+		color2 = sc_ASH_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.6 } }
+	}
+}
+
+SHI = { # Shirogane
+	pattern = "pattern_solid.tga"
+	color1 = col_SHI
+	color2 = oc_gold
+	colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+	colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = col_SHI
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.6 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_frame_scabbard.dds"
+		color1 = col_SHI
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_mirror_crane.dds"
+		color1 = oc_pearl_white
+		color2 = sc_ASH_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.4 0.5 } scale = { 0.5 0.5 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_pine.dds"
+		color1 = oc_pearl_white
+		color2 = sc_ASH_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.6 0.5 } scale = { 0.5 0.5 } }
+	}
+}
+
+YUK = { # Yukiboshi
+	pattern = "pattern_circle.dds"
+	color1 = col_YUK
+	color2 = col_YUK
+	colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+	colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = col_YUK
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.6 } }
+	}
+    colored_emblem = {
+		texture = "ce_india_doted_frame_02.dds"
+		color1 = col_YUK
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_mirror_wisteria.dds"
+		color1 = oc_pearl_white
+		color2 = sc_ASH_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.4 0.5 } scale = { 0.5 0.5 } }
+	}
+    colored_emblem = {
+		texture = "ce_star_16.dds"
+		color1 = oc_pearl_white
+		color2 = sc_ASH_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.63 0.5 } scale = { 0.3 0.5 } }
+	}
+}
+
+YUU = { # Yuuzora
+	pattern = "pattern_circle.dds"
+	color1 = col_YUU
+	color2 = col_YUU
+    colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_shadow_purp
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_laurel_wisteria_03.dds"
+		color1 = col_YUU
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_commas.dds"
+		color1 = col_YUU
+		instance = { position = { 0.5 0.38 } scale = { 0.35 0.35 } }
+	}
+}
+
+
+#### 10_western_isles ####
+
+TID = { # Tidakani
+	pattern = "pattern_waves_01.dds"
+	color1 = col_TID
+	color2 = oc_lagoon
+}
+
+URU = { # Uruma
+	pattern = "pattern_waves_01.dds"
+	color1 = col_URU
+	color2 = oc_lagoon
+}
+
+UTA = { # Utaki
+	pattern = "pattern_horizontal_stripes_01.dds"
+	color1 = col_UTA
+	color2 = oc_gold
+}
+
+UFU = { # Ufumi
+	pattern = "pattern_waves_01.dds"
+	color1 = col_UFU
+	color2 = oc_coral
+}
+
+WHA = { # Whakatāne
+	pattern = "pattern_waves_01.dds"
+	color1 = col_WHA
+	color2 = oc_lagoon
+}
+
+KAI = { # Kaitangata
+	pattern = "pattern_horizontal_stripes_01.dds"
+	color1 = col_KAI
+	color2 = oc_gold
+}
+
+RAN = { # Rangitoto
+	pattern = "pattern_solid.tga"
+	color1 = col_RAN
+	color2 = oc_sunrise
+	colored_emblem = {
+		texture = "ce_pagan_spiral_04.dds"
+		color1 = sc_RAN_1
+		color2 = sc_RAN_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+TAR = { # Taranaki
+	pattern = "pattern_horizontal_stripes_01.dds"
+	color1 = col_TAR
+	color2 = oc_gold
+}
+
+WAI = { # Waitaha
+	pattern = "pattern_triangle_01.dds"
+	color1 = col_WAI
+	color2 = oc_coral
+}
+
+HAW = { # Hawaiki
+	pattern = "pattern_horizontal_stripes_01.dds"
+	color1 = col_HAW
+	color2 = oc_gold
+}
+
+WHN = { # Whangārei
+	pattern = "pattern_solid.tga"
+	color1 = col_WHN
+	color2 = oc_sunrise
+	colored_emblem = {
+		texture = "ce_conch_shell.dds"
+		color1 = sc_WHN_1
+		color2 = sc_WHN_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+AHU = { # Ahuena
+	pattern = "pattern_triangle_01.dds"
+	color1 = col_AHU
+	color2 = oc_coral
+}
+
+KAM = { # Kamaka
+	pattern = "pattern_horizontal_stripes_01.dds"
+	color1 = col_KAM
+	color2 = oc_gold
+}
+
+MAL = { # Mālamalama
+	pattern = "pattern_triangle_01.dds"
+	color1 = col_MAL
+	color2 = oc_coral
+}
+
+HOK = { # Hōkūlele
+	pattern = "pattern_solid.tga"
+	color1 = col_HOK
+	color2 = oc_sunrise
+	colored_emblem = {
+		texture = "ce_star_07.dds"
+		color1 = sc_HOK_1
+		color2 = sc_HOK_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+KAN = { # Kanaloa
+	pattern = "pattern_waves_01.dds"
+	color1 = col_KAN
+	color2 = oc_sunrise
+}
+
+POL = { # Poliahu
+	pattern = "pattern_solid.tga"
+	color1 = col_POL
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_pagan_spiral_06.dds"
+		color1 = sc_POL_1
+		color2 = sc_POL_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+LAA = { # Lanakila
+	pattern = "pattern_solid.tga"
+	color1 = col_LAA
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_trident.dds"
+		color1 = sc_LAA_1
+		color2 = sc_LAA_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+MAK = { # Makani
+	pattern = "pattern_horizontal_stripes_01.dds"
+	color1 = col_MAK
+	color2 = oc_gold
+}
+
+KLA = { # Kalahele
+	pattern = "pattern_triangle_01.dds"
+	color1 = col_KLA
+	color2 = oc_lagoon
+}
+
+AHI = { # Ahiuka
+	pattern = "pattern_triangle_01.dds"
+	color1 = col_AHI
+	color2 = oc_coral
+}
+
+POM = { # Pōmaikaʻi
+	pattern = "pattern_waves_01.dds"
+	color1 = col_POM
+	color2 = oc_lagoon
+}
+
+TUA = { # Tuatolu
+	pattern = "pattern_waves_01.dds"
+	color1 = col_TUA
+	color2 = oc_lagoon
+}
+
+TRO = { # Tarona
+	pattern = "pattern_horizontal_stripes_01.dds"
+	color1 = col_TRO
+	color2 = oc_gold
+}
+
+NUK = { # Nukutere
+	pattern = "pattern_solid.tga"
+	color1 = col_NUK
+	color2 = oc_sunrise
+	colored_emblem = {
+		texture = "ce_waves_03.dds"
+		color1 = sc_NUK_1
+		color2 = sc_NUK_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+TAO = { # Tanoa
+	pattern = "pattern_waves_01.dds"
+	color1 = col_TAO
+	color2 = oc_lagoon
+}
+
+VAE = { # Vaerua
+	pattern = "pattern_solid.tga"
+	color1 = col_VAE
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_waves_01.dds"
+		color1 = sc_VAE_1
+		color2 = sc_VAE_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}

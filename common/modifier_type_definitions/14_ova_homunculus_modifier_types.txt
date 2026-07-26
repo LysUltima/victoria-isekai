@@ -1,0 +1,24 @@
+﻿# Script-only modifiers driving homunculus pop assembly.
+# Homunculus factory PMs add state_homunculus_created_add (workforce-scaled);
+# the build_homunculus on_action reads it each month, accumulates progress in a
+# state variable, and spawns homunculus-culture pops once thresholds are hit.
+# Mirrors realms-of-exether's state_soulwrought_assembled_add/_mult.
+state_homunculus_created_add = {
+	script_only = yes
+	decimals = 1
+	color = good
+	percent = no
+	game_data = {
+		ai_value = 10
+	}
+}
+
+state_homunculus_created_mult = {
+	script_only = yes
+	decimals = 0
+	color = good
+	percent = yes
+	game_data = {
+		ai_value = 0
+	}
+}

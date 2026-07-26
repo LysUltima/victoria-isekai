@@ -1,0 +1,16 @@
+﻿# Heavenly Demon Sect (murim: spiritualism tier 3, sect)
+COUNTRIES = {
+	c:CHE ?= {
+		effect_starting_technology_spiritualism_tier_3 = yes
+		create_character = { template = template_heavenly_demon role = ruler }
+		effect_starting_politics_sect = yes
+
+        add_technology_researched = demonic_scriptures # Diabolist: unlocks Demonic Rites in Cultivation Grounds
+
+		# Murim war-of-the-murim JE + intro proclamation, raised here at start (the
+		# war-JE pattern: the JE defines no is_shown_when_inactive and no immediate).
+		# Self-contained, so it needs no global-last ordering.
+		add_journal_entry = { type = je_ova_murim_heavenly_demon }
+		trigger_event = { id = ova_murim.4 days = 5 }
+	}
+}

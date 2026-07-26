@@ -1,0 +1,9 @@
+﻿# Empire of the Dawning Sun (desert: alchemy tier 2)
+COUNTRIES = {
+	c:SUN ?= {
+		effect_starting_technology_alchemy_tier_2 = yes
+		effect_starting_politics_traditional = yes
+
+        activate_law = law_type:law_professional_army
+	}
+}

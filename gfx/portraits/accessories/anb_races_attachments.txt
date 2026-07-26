@@ -1,0 +1,82 @@
+﻿male_kobold_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = male_kobold_attachments_entity		 }
+}
+
+male_kobold_dark_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = male_kobold_dark_attachments_entity		 }
+}
+
+male_kobold_steel_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = male_kobold_steel_attachments_entity		 }
+}
+
+male_kobold_gold_attachments= {
+	entity = { required_tags = "" shared_pose_entity = head  entity = male_kobold_gold_attachments_entity	 }
+}
+
+male_kobold_green_attachments= {
+	entity = { required_tags = "" shared_pose_entity = head  entity = male_kobold_green_attachments_entity	 }
+}
+
+female_kobold_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = female_kobold_attachments_entity		 }
+}
+
+female_kobold_dark_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = female_kobold_dark_attachments_entity		 }
+}
+
+female_kobold_steel_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = female_kobold_steel_attachments_entity		 }
+}
+
+female_kobold_gold_attachments= {
+	entity = { required_tags = "" shared_pose_entity = head  entity = female_kobold_gold_attachments_entity	 }
+}
+
+female_kobold_green_attachments= {
+	entity = { required_tags = "" shared_pose_entity = head  entity = female_kobold_green_attachments_entity	 }
+}
+
+male_mechanim_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = male_mechanim_attachments_entity		 }
+}
+
+female_mechanim_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = female_mechanim_attachments_entity	 }
+}
+
+male_harimari_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = male_harimari_attachments_entity		 }
+}
+
+female_harimari_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = female_harimari_attachments_entity	 }
+}
+
+# male_mechanim_attachments = {
+# 	entity = { required_tags = "" shared_pose_entity = head  entity = male_mechanim_attachments_entity		 }
+# }
+
+# female_mechanim_attachments = {
+# 	entity = { required_tags = "" shared_pose_entity = head  entity = female_mechanim_attachments_entity	 }
+# }
+
+male_half_orc_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = male_half_orc_attachments_entity	 }
+}
+
+female_half_orc_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = female_half_orc_attachments_entity	 }
+}
+
+male_orc_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = male_orc_attachments_entity	 }
+}
+
+female_orc_attachments = {
+	entity = { required_tags = "" shared_pose_entity = head  entity = female_orc_attachments_entity	 }
+}
+
+
+

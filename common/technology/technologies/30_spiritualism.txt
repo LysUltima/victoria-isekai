@@ -1,0 +1,1390 @@
+﻿# SPIRITUALISM TREE (internal category: society)
+# Xianxia-themed. Spirit Fertilizer and spirit agriculture, Communication Orbs,
+# Enchanted Arms / Consumables, infantry efficacy, Mages (cavalry).
+# All prerequisites are within this tree.
+
+### ERA 1
+
+rationalism = {
+	# Unlocks Freedom of Conscience - Church and State Law
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
+	category = society
+
+	modifier = {
+		country_institution_schools_max_investment_add = 1
+		state_education_access_wealth_add = 0.01
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+enclosure = {
+	# Unlocks construction of Farms and Plantations
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = society
+
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+tech_bureaucracy = {
+	# Unlocks Government Administration building
+	# Unlocks Isolationism - Economic System Law
+	# Unlocks Road Maintenance Decree
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/bureaucracy.dds"
+	category = society
+
+	modifier = {
+		country_institution_police_max_investment_add = 2
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+spirit_silkworms = {
+	# Unlocks Mulberry Groves PM on Rice Farms
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
+	category = society
+
+    unlocking_technologies = {
+		enclosure
+	}
+
+	modifier = {
+		building_silk_plantation_throughput_add = 0.25
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+arms_enchanting = {
+	# Unlocks Enchanted Arms Atelier building
+	# Global Unlock for Enchanted Blades PM in Barracks
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/gunsmithing.dds"
+	category = society
+
+    unlocking_technologies = {
+		martial_cultivation
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+martial_cultivation = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/military_drill.dds"
+	category = society
+
+	modifier = {
+		unit_experience_gain_mult = 0.05
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+academia = {
+	# Unlocks University building
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/academia.dds"
+	category = society
+
+	modifier = {
+		state_education_access_wealth_add = 0.005
+	}
+
+	unlocking_technologies = {
+		rationalism
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+empiricism = {
+	# Unlocks Total Separation - Church and State Law
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/empiricism.dds"
+	category = society
+
+	modifier = {
+		country_influence_mult = 0.25
+		country_diplomatic_play_maneuvers_mult = 0.25
+		country_institution_schools_max_investment_add = 1
+		state_education_access_wealth_add = 0.005
+	}
+
+	unlocking_technologies = {
+		academia
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+romanticism = {
+	# Unlocks Arts Academy building
+	# Unlocks Greener Grass Campaign Decree
+	# Unlocks Agrarianism - Economic System Law
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/romanticism.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		academia
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+centralization = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/centralization.dds"
+	category = society
+
+	modifier = {
+		state_tax_capacity_add = 25
+		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		tech_bureaucracy
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+geomantic_planning = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/urban_planning.dds"
+	category = society
+
+	modifier = {
+		state_infrastructure_from_population_add = 1
+		state_infrastructure_from_population_max_add = 20
+		state_building_construction_sector_max_level_add = 5
+		country_max_weekly_construction_progress_add = 5
+	}
+
+	unlocking_technologies = {
+		tech_bureaucracy
+	}
+
+	ai_weight = {
+		value = 2 # Important in general
+	}
+}
+
+mass_communication = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/mass_communication.dds"
+	category = society
+
+	modifier = {
+		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		academia
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+### ERA 2
+
+spirit_field_cultivation = {
+	# Unlocks Spirit Fertilizer Works
+	# Unlocks Intensive Agriculture PM on Rye Farms, Wheat Farms, Rice Farms, Maize Farms, Millet Farms
+	# Unlocks Intensive Grazing PM on Livestock Ranches
+	# Unlocks Managed Plantations PM on all Plantations
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/intensive_agriculture.dds"
+	category = society
+
+	unlocking_technologies = {
+		foundation_establishment
+        spirit_silkworms
+	}
+
+	ai_weight = {
+		value = 2 # Important tech for everyone
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_agricultural_expansion
+					has_strategy = ai_strategy_plantation_economy
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+dialectics = {
+	# Unlocks Philosophy Department PM in Universities
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/dialectics.dds"
+	category = society
+
+	modifier = {
+		country_institution_schools_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		empiricism
+        foundation_establishment
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+psychiatry = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/psychiatry.dds"
+	category = society
+
+	modifier = {
+		country_influence_mult = 0.25
+		country_diplomatic_play_maneuvers_mult = 0.25
+		state_bureaucracy_population_base_cost_factor_mult = -0.05
+	}
+
+	unlocking_technologies = {
+		empiricism
+        meridian_theory
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+realism = {
+	# Unlocks Realist Art PM in Art Academies
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/realism.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		romanticism
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+central_archives = {
+	# Unlocks Secret Police - Internal Security Law
+	# Unlocks Horizontal Drawer Cabinets PM for Government Administration
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/central_archives.dds"
+	category = society
+
+	modifier = {
+		state_tax_capacity_add = 25
+		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		centralization
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+talisman_post = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/postal_savings.dds"
+	category = society
+
+	modifier = {
+		state_farmers_investment_pool_efficiency_mult = 0.15
+		state_shopkeepers_investment_pool_efficiency_mult = 0.15
+		state_bureaucrats_investment_pool_efficiency_mult = 0.15
+		state_engineers_investment_pool_efficiency_mult = 0.15
+		state_machinists_investment_pool_efficiency_mult = 0.15
+		building_cash_reserves_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		mass_communication
+        talisman_printing
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+formation_arrays = {
+	# Formation Arrays - increases defense
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/field_works.dds"
+	category = society
+
+	modifier = {
+		unit_army_defense_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		foundation_establishment
+        talisman_printing
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+### ERA 3
+
+spirit_fertilizer_refinement = {
+	# Unlocks Improved Spirit Fertilizer PM in Spirit Fertilizer Works
+	# Unlocks Spirit Fertilization PM in Rye, Wheat, Rice, Maize, Millet Farms
+	# Unlocks Spirit-Fertilized Fields PM on all Plantations
+	# Unlocks Spirit Herb Infusion PM in Spirit Wine Distilleries
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/improved_fertilizer.dds"
+	category = society
+
+	unlocking_technologies = {
+		spirit_wine_fermentation
+		purification_rites
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+philosophical_pragmatism = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/philosophical_pragmatism.dds"
+	category = society
+
+	modifier = {
+		country_influence_mult = 0.25
+		country_diplomatic_play_maneuvers_mult = 0.25
+		state_bureaucracy_population_base_cost_factor_mult = -0.05
+		state_literacy_growth_add = 0.0001
+	}
+
+	unlocking_technologies = {
+		psychiatry
+        dialectics
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+anarchism = {
+	# Unlocks Anarchy - Distribution of Power Law
+	# New leaders may spawn with the Anarchist Ideology
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/anarchy.dds"
+	category = society
+
+	unlocking_technologies = {
+		philosophical_pragmatism
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+sect_endowments = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/investment_banks.dds"
+	category = society
+
+	modifier = {
+		country_max_companies_add = 1
+		country_free_charters_add = 1
+		state_urbanization_per_level_mult = -0.15
+	}
+
+	unlocking_technologies = {
+		talisman_post
+        central_archives
+	}
+
+	ai_weight = {
+		value = 2 # important tech
+	}
+}
+
+relay_orbs = {
+	# Relay Orb Network
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/electrical_telegraph.dds"
+	category = society
+
+	modifier = {
+		country_war_exhaustion_casualties_mult = -0.25
+	}
+
+	unlocking_technologies = {
+		talisman_post
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+chain_enchanted_arms = {
+	# Unlocks Chain-Enchanted Arms PM in Enchanted Arms Ateliers
+	# Global Unlock for Chain-Enchanted Arms PM in Barracks
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/repeaters.dds"
+	category = society
+
+	unlocking_technologies = {
+		rune_etched_arms
+        sect_tournaments
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+spell_array_batteries = {
+	# Spell-Array Battery
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/handcranked_machine_gun.dds"
+	category = society
+
+	modifier = {
+		unit_army_defense_add = 5
+		unit_kill_rate_add = 0.05
+	}
+
+	unlocking_technologies = {
+		chain_enchanted_arms
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+memory_crystals = {
+	# Unlocks Photographic Art, Improved Propaganda Centers PMs in Art Academy
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/camera.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		realism
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+### ERA 4
+
+transcendent_fertilizer = {
+	# Unlocks Transcendent Fertilizer PM in Spirit Fertilizer Works
+	# Unlocks Transcendent Fertilization PM in Rye, Wheat, Rice, Maize, Millet Farms
+	# Unlocks Transcendent Cultivation PM on all Plantations
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/nitrogen_fixation.dds"
+	category = society
+
+	unlocking_technologies = {
+		spirit_fertilizer_refinement
+        nascent_soul
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+purification_rites = {
+	# Unlocks Purified Fermentation PM in Spirit Wine Distilleries
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/pasteurization.dds"
+	category = society
+
+	unlocking_technologies = {
+		spirit_field_cultivation
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+communication_orbs = {
+	# Unlocks Orb Atelier building (Communication Orbs)
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/telephone.dds"
+	category = society
+
+	unlocking_technologies = {
+		relay_orbs
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+political_agitation = {
+	# Unlocks Women's Suffrage - Rights of Women Law
+	# Increases political participation from poor pop types
+	# New leaders may spawn with the Feminist, Vanguardist Ideology
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/political_agitation.dds"
+	category = society
+
+	modifier = {
+		state_expected_sol_from_literacy = 1
+		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
+		country_agitator_slots_add = 1
+	}
+
+	unlocking_technologies = {
+		anarchism
+		pan-nationalism
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_egalitarian_agenda
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_conservative_agenda
+					has_strategy = ai_strategy_reactionary_agenda
+				}
+			}
+			add = -0.5
+		}
+	}
+}
+
+phantasm_projection = {
+	# Unlocks Phantasm Propaganda Center PM in Arts Academies
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/film.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		memory_crystals
+		corporatism
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+entrenched_formations = {
+	# Unlocks Officer Training PM in Barracks
+	# Unlocks Entrenched Formation Infantry
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/trench_works.dds"
+	category = society
+
+	unlocking_technologies = {
+		spirit_vein_geomancy
+	}
+
+	ai_weight = {
+		value = 2 # important for everyone
+	}
+}
+
+perfected_enchanted_arms = {
+	# Unlocks Perfected Enchanted Arms PM in Enchanted Arms Ateliers
+	# Global Unlock for Perfected Enchanted Arms PM in Barracks
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/bolt_action_rifles.dds"
+	category = society
+
+	unlocking_technologies = {
+		chain_enchanted_arms
+	}
+
+	ai_weight = {
+		value = 2 # important for everyone
+	}
+}
+
+layered_formation_arrays = {
+	# Layered Formation Arrays - increases defense
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/defense_in_depth.dds"
+	category = society
+
+	modifier = {
+		unit_army_defense_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		entrenched_formations
+		spell_array_batteries
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+### ERA 5
+
+frost_talismans = {
+	# Frost Talismans
+	# Unlocks Refrigerated Rail Cars PM in Livestock Ranches
+	# Unlocks Flash Freezing PM in Fishing Wharfs
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/flash_freezing.dds"
+	category = society
+
+	unlocking_technologies = {
+		transcendent_fertilizer
+		mana_railways
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+spirit_roads = {
+	# Ley Roads
+	# Unlocks Ley Conduit Construction PM in Construction Sectors
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/paved_roads.dds"
+	category = society
+	should_update_map = yes # This technology adds paved roads to the map
+
+	modifier = {
+		state_infrastructure_from_population_add = 1
+		state_infrastructure_from_population_max_add = 20
+	}
+
+	unlocking_technologies = {
+		communication_orbs
+        transcendent_fertilizer
+        layered_formation_arrays
+	}
+
+	ai_weight = {
+		value = 2 # Important for those nice-looking roads!
+	}
+}
+
+behaviorism = {
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/behaviorism.dds"
+	category = society
+
+	modifier = {
+		country_influence_mult = 0.5
+		country_diplomatic_play_maneuvers_mult = 0.5
+		state_bureaucracy_population_base_cost_factor_mult = -0.05
+	}
+
+	unlocking_technologies = {
+		political_agitation
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+analytical_philosophy = {
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/analytical_philosophy.dds"
+	category = society
+
+	modifier = {
+		state_literacy_growth_add = 0.0002
+	}
+
+	unlocking_technologies = {
+		political_agitation
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+mass_propaganda = {
+	# New leaders may spawn with the Fascist Ideology
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/mass_propaganda.dds"
+	category = society
+
+	modifier = {
+		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
+		state_expected_sol_from_literacy = 1
+		country_agitator_slots_add = 1
+		country_support_separatism_strength_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		political_agitation
+		phantasm_projection
+		core_turbines
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+vanguard_cultivators = {
+	# Vanguard Cultivators - Unlocks Infiltrators PM in Barracks
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/stormtroopers.dds"
+	category = society
+
+	modifier = {
+		unit_kill_rate_add = 0.05
+		unit_combat_unit_type_trench_infantry_offense_add = 5
+		unit_combat_unit_type_squad_infantry_offense_add = 5
+		unit_combat_unit_type_mechanized_infantry_offense_add = 5
+	}
+	unlocking_technologies = {
+		entrenched_formations
+		perfected_enchanted_arms
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+flame_talismans = {
+	# Flame Talismans - Increases kill rate
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/flamethrowers.dds"
+	category = society
+
+	unlocking_technologies = {
+		entrenched_formations
+		grand_talisman_arrays
+		arc_resonance_process
+	}
+	modifier = {
+		unit_kill_rate_add = 0.05
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+### MOVED FROM ALCHEMY (rebalance)
+
+sect_tournaments = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/organized_sports.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		martial_cultivation
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+modern_sewerage = {
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/modern_sewerage.dds"
+	category = society
+
+	modifier = {
+		state_infrastructure_from_population_add = 1
+		state_infrastructure_from_population_max_add = 20
+		state_building_construction_sector_max_level_add = 5
+		country_max_weekly_construction_progress_add = 5
+		state_pollution_reduction_health_mult = -0.1
+		state_harvest_condition_flood_impact_mult = -0.1
+	}
+
+	unlocking_technologies = {
+		geomantic_planning
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+corporatism = {
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/corporatism.dds"
+	category = society
+
+	on_researched = {
+		if = {
+			limit = {
+				NOT = { has_variable = corporatism_researched }
+			}
+			set_variable = corporatism_researched
+			ig:ig_devout ?= {
+				remove_ideology = ideology_pious
+				add_ideology = ideology_corporatist
+			}
+		}
+	}
+
+	modifier = {
+		state_radicals_from_political_movements_mult = -0.1
+	}
+
+	unlocking_technologies = {
+		central_archives
+		sect_endowments
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_conservative_agenda
+					has_strategy = ai_strategy_reactionary_agenda
+				}
+			}
+			add = 1.5
+		}
+	}
+}
+
+pan-nationalism = {
+	# Permits the formation of major unified countries
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/pan_nationalism.dds"
+	category = society
+
+	modifier = {
+		country_authority_mult = 0.1
+		country_support_separatism_strength_mult = 0.25
+		country_voting_power_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		nationalism
+	}
+
+	ai_weight = {
+		value = 2 # Important in general
+	}
+}
+
+nationalism = {
+	# MOVED FROM ALCHEMY (rebalance)
+	# Unlocks the Immigration Controls Law in Migration
+	# New leaders may spawn with the Ethno-Nationalist Ideology
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/nationalism.dds"
+	category = society
+
+	modifier = {
+		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		mass_communication
+	}
+
+	ai_weight = {
+		value = 2 # Important in general
+	}
+}
+
+rune_etched_arms = {
+	# Unlocks Rune-Etched Arms PM in Enchanted Arms Ateliers
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/rifling.dds"
+	category = society
+
+	unlocking_technologies = {
+		arms_enchanting
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+### NEW SPIRITUALISM TECHS
+
+talisman_printing = {
+	# Unlocks Printed Talisman Consumables secondary PM in Consumables Workshops
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/romanticism.dds"
+	category = society
+
+	modifier = {
+		country_institution_schools_max_investment_add = 1
+		state_literacy_growth_add = 0.0001
+	}
+
+	unlocking_technologies = {
+		academia
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+spirit_beast_taming = {
+	# Unlocks Bound Spirit Beast Hunts PM in Spirit Beast Hunting Grounds
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = society
+
+	modifier = {
+		building_group_bg_spirit_beast_hunting_throughput_add = 0.2
+		building_group_bg_ranching_throughput_add = 0.1
+	}
+
+	unlocking_technologies = {
+		spirit_silkworms
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+spirit_vein_geomancy = {
+	# Countries get a +25% chance of discovering new resources
+	# Unlocks Geomantic Construction PM in Construction Sectors
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/prospecting_tech.dds"
+	category = society
+
+	modifier = {
+		country_resource_discovery_chance_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		modern_sewerage
+        formation_arrays
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+spirit_wine_fermentation = {
+	# Unlocks the Spirit Wine Distillery urban building (Spirit Fruit -> Spirit Wine)
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = society
+
+	unlocking_technologies = {
+		spirit_field_cultivation
+	}
+
+	ai_weight = {
+		value = 1.5 # Spirit Wine is a valuable luxury export
+	}
+}
+
+### CULTIVATION REALM LINE
+# Qi Gathering -> Foundation Establishment -> Golden Core -> Nascent Soul ->
+# Soul Formation -> Return to the Void.
+# Unlocks & upgrades the Cultivation Grounds government building, the Mage
+# (ex-cavalry) unit line, and enables the matching character trait ladder.
+
+qi_gathering = {
+	# Unlocks Cultivation Grounds government building
+	# Enables the Qi Gathering character trait
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/psychoanalysis.dds"
+	category = society
+
+    modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	ai_weight = {
+		value = 2 # Root of the cultivation line
+	}
+}
+
+demonic_scriptures = {
+	# ISEKAI TC: unresearchable, granted via country history to Diabolist sects.
+	# Unlocks the sinister Demonic Rites PM line in Cultivation Grounds: mirrors
+	# the orthodox cultivation tiers (same buffs + employment, scaling with the
+	# cultivation realm techs) but consumes nothing and instead HARVESTS spirit
+	# stones and meat from the populace, at the cost of raising state mortality.
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
+	category = society
+	can_research = no
+
+	ai_weight = {
+		value = 0
+	}
+}
+
+foundation_establishment = {
+	# Unlocks Mage Outriders (hussars)
+	# Enables the Foundation Establishment character trait
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/military_drill.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		qi_gathering
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+golden_core = {
+	# Unlocks Battle Mages (dragoons)
+	# Unlocks Golden Core Pavilions PM in Cultivation Grounds
+	# Enables the Golden Core character trait
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/currency_standards.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		foundation_establishment
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+nascent_soul = {
+	# Unlocks Warded Mages (cuirassiers)
+	# Unlocks Nascent Soul Sanctums PM in Cultivation Grounds
+	# Enables the Nascent Soul character trait
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/psychiatry.dds"
+	category = society
+
+    modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		golden_core
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+soul_formation = {
+	# Unlocks Storm Mages (lancers)
+	# Unlocks Soul Formation Retreats PM in Cultivation Grounds
+	# Enables the Soul Formation character trait
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/behaviorism.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		nascent_soul
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+return_to_the_void = {
+	# Unlocks Void Mages (light_tanks)
+	# Unlocks Void Return Temples PM in Cultivation Grounds
+	# Enables the Return to the Void character trait
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/philosophical_pragmatism.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		soul_formation
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+martial_ascension = {
+	# Unlocks Ascendant Legions (mechanized_infantry) - highest infantry tier
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/stormtroopers.dds"
+	category = society
+
+	modifier = {
+		unit_army_offense_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		vanguard_cultivators
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+### TALISMAN CONSUMABLES LINE (secondary Consumables Workshop PMs: paper + spirit stones)
+
+seal_script_engraving = {
+	# Unlocks Sealed Talisman Consumables secondary PM in Consumables Workshops
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/central_archives.dds"
+	category = society
+
+	unlocking_technologies = {
+		spirit_beast_taming
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+grand_talisman_arrays = {
+	# Unlocks Grand Talisman Consumables secondary PM in Consumables Workshops
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/mass_communication.dds"
+	category = society
+
+	unlocking_technologies = {
+		seal_script_engraving
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+meridian_theory = {
+	# Mapping the meridians: spiritual medicine
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/medical_degrees.dds"
+	category = society
+
+	modifier = {
+		unit_morale_recovery_mult = 0.05
+		country_institution_health_system_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		martial_cultivation
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+
+### ISEKAI TC: Mana (electricity) techs - moved from Artifice; Spiritualism owns all mana-powered industry
+
+mana_reactors = {
+	# Unlocks Mana Reactors
+	# Unlocks mana-powered PMs in Textile Mills, Livestock Ranches, Fishing Wharfs, Logging Camps, Urban Centers
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/electrical_generation.dds"
+	category = society
+
+	unlocking_technologies = {
+		relay_orbs
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+mana_capacitors = {
+	# Unlocks Mana Capacitor PMs in Textile Mills, Chemical Plants, Logging Camps
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/electrical_capacitors.dds"
+	category = society
+
+	unlocking_technologies = {
+		mana_reactors
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+mana_railways = {
+	# Unlocks Mana Rail PM in Railways
+	# Increases Railway max level by 1
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/electric_railway.dds"
+	category = society
+
+	unlocking_technologies = {
+		mana_capacitors
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+core_turbines = {
+	# Unlocks the Core Turbine PM in Mana Reactors
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/steam_turbines.dds"
+	category = society
+
+	unlocking_technologies = {
+		mana_reactors
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+arc_resonance_process = {
+	# Unlocks the Arc Resonance Process PM in Core Foundries
+	# Unlocks Arc-Core Consumables secondary PM in Consumables Workshops
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/electric_arc_process.dds"
+	category = society
+
+	unlocking_technologies = {
+		mana_reactors
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}

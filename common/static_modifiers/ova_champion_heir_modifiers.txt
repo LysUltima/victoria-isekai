@@ -1,0 +1,20 @@
+﻿### Champions JE - heir training modifiers (CHARACTER scope, on the trainee)
+# Cosmetic markers while an heir is in a training program. Static modifiers need
+# no loc; the engine builds the tooltip from the key and its fields.
+
+ova_heir_in_cultivation = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	character_health_add = 0.05
+}
+
+ova_heir_at_academy = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	character_health_add = 0.05
+	character_popularity_add = 5
+}
+
+ova_heir_at_sect = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	character_health_add = 0.05
+	character_popularity_add = 5
+}

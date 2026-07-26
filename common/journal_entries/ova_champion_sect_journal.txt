@@ -1,0 +1,60 @@
+﻿### Champions JE - Martial Sect ascension
+# Active for every Martial Sect government. It replaces heir-training decisions
+# (which are hidden under law_martial_sect): instead, the whole realm cultivates
+# together - every ten years each character in the country advances one
+# cultivation realm, up to the tech ceiling. Communicated to players here and in
+# the law_martial_sect governance-principle description.
+
+je_ova_sect_ascension = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_when_inactive = {
+		NOT = { is_country_type = decentralized }
+		has_law = law_type:law_martial_sect
+	}
+
+	possible = {
+		has_law = law_type:law_martial_sect
+	}
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_variable = ova_sect_decade } }
+			set_variable = { name = ova_sect_decade value = 0 }
+		}
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			change_variable = { name = ova_sect_decade add = 1 }
+			if = {
+				limit = { var:ova_sect_decade >= 10 }
+				set_variable = { name = ova_sect_decade value = 0 }
+				ova_martial_sect_ascension = yes
+			}
+		}
+	}
+
+	invalid = {
+		NOT = { has_law = law_type:law_martial_sect }
+	}
+
+	on_invalid = {
+		remove_variable = ova_sect_decade
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_sect_ascension_status
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	weight = 50
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}

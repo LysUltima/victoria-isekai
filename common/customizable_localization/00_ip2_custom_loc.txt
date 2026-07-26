@@ -1,0 +1,105 @@
+﻿# Isekai TC: migrated copy of vanilla 00_ip2_custom_loc.txt.
+# common/customizable_localization is NOT in metadata.json replace_paths, so the
+# vanilla file loads unless a same-named mod file overrides it (this file).
+# Text blocks whose triggers referenced deleted Earth content were removed; keys
+# left empty fall back to their original localization_key so callers still
+# resolve. Regenerate with tools/migrate_custom_loc.py.
+
+get_sepoy_mutiny_progress_bengal = {
+	type = journal_entry
+	text = {
+		localization_key = sepoy_mutiny_high_key
+	}
+}
+
+get_sepoy_mutiny_progress_bombay = {
+	type = journal_entry
+	text = {
+		localization_key = sepoy_mutiny_high_key
+	}
+}
+
+get_sepoy_mutiny_progress_madras = {
+	type = journal_entry
+	text = {
+		localization_key = sepoy_mutiny_high_key
+	}
+}
+
+get_indian_famine_name = {
+	type = country
+	text = {
+		localization_key = great_indian_famine_key
+	}
+}
+
+get_king_sweden_norway = {
+	type = country
+	text = {
+		localization_key = king_of_sweden_key
+	}
+}
+
+get_bengal_presidency_tooltip_revolt = {
+	type = country
+	text = {
+		localization_key = sepoy_mutiny_bengal_effect_low_tt
+	}
+}
+
+get_bombay_presidency_tooltip_revolt = {
+	type = country
+	text = {
+		localization_key = sepoy_mutiny_bombay_effect_low_tt
+	}
+}
+
+get_madras_presidency_tooltip_revolt = {
+	type = country
+	text = {
+		localization_key = sepoy_mutiny_madras_effect_low_tt
+	}
+}
+
+get_mughal_7_c_tooltip = {
+	type = country
+	text = {
+		trigger = {
+			ruler = {
+    			NOT = { has_trait = ambitious }
+    			is_adult = yes	# only adults can have the ambitious trait
+    		}
+		}
+		localization_key = mughal_7_c_tt
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = blank
+	}
+}
+
+get_mughal_7_d_tooltip = {
+	type = country
+	text = {
+		trigger = {
+			ruler = {
+    			is_adult = yes
+    			OR = {
+    				has_trait = meticulous
+    				has_trait = innovative
+    				has_trait = surveyor
+    				has_trait = engineer
+    			}
+    		}
+		}
+		localization_key = mughal_7_d_tt
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = blank
+	}
+}

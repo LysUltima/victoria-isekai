@@ -1,0 +1,80 @@
+﻿# Isekai TC: recreated from vanilla ip3_custom_loc.txt (2026-07-14).
+# NOTE - common/customizable_localization is NOT in metadata.json replace_paths, so vanilla's
+# ip3_custom_loc.txt does load; it is overridden by the migrated copy alongside this file, which
+# drops both of these keys so the versions below win. These two functions are
+# needed by still-live vanilla loc for peoples_springtime.10 (event title, red_summer_tt
+# tooltip) and je_red_summer. Fully generic (season names only), ported verbatim.
+
+country_red_season_name_dynamic = {
+	type = country
+	text = {
+		trigger = {
+			OR = {
+				month >= 11
+				month < 2
+			}
+		}
+		localization_key = red_winter_loc
+	}
+	text = {
+		trigger = {
+			month >= 2
+			month < 5
+		}
+		localization_key = red_spring_loc
+	}
+	text = {
+		trigger = {
+			month >= 5
+			month < 8
+		}
+		localization_key = red_summer_loc
+	}
+	text = {
+		trigger = {
+			month >= 8
+			month < 11
+		}
+		localization_key = red_autumn_loc
+	}
+	text = { # Fallback
+		trigger = {
+			always = yes
+		}
+		localization_key = red_summer_loc
+	}
+}
+
+country_red_season_name = {
+	type = country
+	text = {
+		trigger = {
+			has_variable = red_winter
+		}
+		localization_key = red_winter_loc
+	}
+	text = {
+		trigger = {
+			has_variable = red_spring
+		}
+		localization_key = red_spring_loc
+	}
+	text = {
+		trigger = {
+			has_variable = red_summer
+		}
+		localization_key = red_summer_loc
+	}
+	text = {
+		trigger = {
+			has_variable = red_autumn
+		}
+		localization_key = red_autumn_loc
+	}
+	text = { # Fallback
+		trigger = {
+			always = yes
+		}
+		localization_key = red_summer_loc
+	}
+}

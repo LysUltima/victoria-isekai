@@ -1,0 +1,212 @@
+﻿#Montenegrin Raiding
+
+max_raiding_income = { # Used below and in raiding loc trigger.
+	value = 5000 #increased from 2500.
+}
+
+mon_unemployment_estimate = {
+	# removed effect block: vanilla ref 'c:MON' not present in this mod
+}
+
+total_trade_value_loc = { 
+	value = root.total_trade_value
+}
+
+raiding_income = { # Used in raiding loc trigger.
+	if = {
+		limit = {
+			always = no # vanilla ref 'c:MON' not present in this mod
+			always = no # blanked: vanilla ref 'c:MON' not present in this mod
+		}
+		# removed effect line: vanilla ref 'c:MON' not present in this mod
+		# removed effect line: vanilla ref 'c:MON' not present in this mod
+		multiply = 0.17 #moved up from 0.15. Sweet spot is around .165, 1.7-1.75 is easier.
+		round = yes
+		min = 0
+		max = max_raiding_income
+	}
+}
+
+raiding_level = { # 1-6
+	value = raiding_income
+	min = 1
+	add = 501 #stops divide by 0 errors, round up
+	divide = 1000
+	min = 1
+	round = yes
+	max = 6
+}
+
+at_strength_battalions = {
+	value = {
+		every_military_formation = {
+ 			limit = {
+ 				is_army = yes
+ 			}
+ 			every_combat_unit = {
+  				limit = {
+   					manpower >= 1000
+  				}
+  				add = 1
+ 			}
+		}
+	}
+}
+
+test_variable = {
+	value = 1
+}
+
+barracks_levels_to_leave_unburned = {
+	# dead Montenegro-raiding flavor (caller destroy_barracks is always=no gated); base was c:MON barracks count, purged
+	value = 0
+}
+
+barracks_burned = {
+	# dead Montenegro-raiding flavor (caller destroy_barracks is always=no gated); base was c:MON barracks count, purged
+	value = 0
+}
+
+russian_aid_income = {
+}
+
+techs_researched_script = {
+	value = ROOT.techs_researched
+}
+
+metternich_tech_target = 52
+
+num_power_bloc_members_script = {
+	if = {
+		limit = {
+			exists = ROOT.power_bloc
+		}
+		value = ROOT.power_bloc.num_power_bloc_members
+	}
+	else = {
+		value = 0
+	}
+}
+
+power_bloc_cohesion_script = {
+	if = {
+		limit = {
+			exists = ROOT.power_bloc
+		}
+		value = ROOT.power_bloc.current_cohesion_number
+	}
+	else = {
+		value = 0
+	}
+}
+
+metternich_bloc_target = 12
+
+metternich_bloc_cohesion_target = 75
+
+metternich_agenda_value = {
+	value = 0
+	if = {
+		limit = {
+			NOT = {
+				always = no # vanilla ref 'c:ITA' not present in this mod
+			}
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			OR = {
+				always = no # vanilla ref 'c:GER' not present in this mod
+				NOT = {
+					always = no # vanilla ref 'c:GER' not present in this mod
+				}
+			}
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			leading_producer_of = g:fine_art
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			techs_researched >= 52
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			NOT = {
+				any_political_movement = {
+					OR = {
+						movement_is_liberal = yes
+						movement_is_socialist = yes
+					}
+					political_movement_support >= 0.05
+				}
+			}
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_law_or_variant = law_type:law_autocracy
+			has_law_or_variant = law_type:law_secret_police
+			has_law_or_variant = law_type:law_censorship
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			institution:institution_police.investment >= 2
+			institution:institution_home_affairs.investment >= 2
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			power_bloc ?= {
+				num_power_bloc_members >= metternich_bloc_target
+			}
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			power_bloc ?= {
+				current_cohesion_number >= metternich_bloc_cohesion_target
+			}
+		}
+		add = 1
+	}
+}
+
+grunderzeit_actual_gdp_script_value = {
+	value = 0
+	# removed: dead if-block (always = no) iterating german_confederation_country_list,
+	# never set elsewhere
+}
+
+danubian_federation_remaining_cultures_to_integrate = {
+	value = 5
+}
+
+balkan_war_remaining_days = { #
+	value = 3650 #
+}
+
+
+balkan_league_power_projection = {
+	every_in_global_list = {
+		variable = balkan_league_side_list
+		add = army_power_projection
+	}
+}
+
+ottoman_power_projection= {
+	value = 0
+	# removed: every_in_global_list on ottoman_side_list, never set elsewhere
+}

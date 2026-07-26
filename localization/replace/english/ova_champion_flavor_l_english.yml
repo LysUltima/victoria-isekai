@@ -1,0 +1,157 @@
+﻿l_english:
+  # ============================================================== DEMANDS
+  # A single negotiation-format audience (mirrors iberia negotiation.1): the
+  # immediate picks 3 of many concessions (one always a bribe) to offer, plus a
+  # refusal. The desc/flavor vary by a 1-3 tone variant.
+  ova_champion_flavor.1.t: "The Champion Comes to Court"
+  ova_champion_flavor.1.d: "Our [concept_ova_champion], #b [ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName]#!, has demanded an audience, and does not trouble to hide their impatience. They have served the realm, bled for it, become its beloved, and they mean to be heard now. The court falls silent as they lay out what they expect of us. We may meet them partway, buy their goodwill, or send them away empty-handed and hope the legend does not curdle into a grudge."
+  ova_champion_flavor.1.f: "There is a hardness in their eyes that was not there a year ago."
+  ova_champion_flavor.1.d2: "Our [concept_ova_champion], #b [ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName]#!, has requested an audience to talk terms. They are reasonable about it (a soldier who understands that even legends must haggle), but the request is real, and so is the goodwill riding on our answer. There are several ways we might satisfy them, and one way to refuse."
+  ova_champion_flavor.1.f2: "They came with a list. That is either very reassuring or mildly alarming."
+  ova_champion_flavor.1.d3: "Our [concept_ova_champion], #b [ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName]#!, has come to court in good humor, asking rather than demanding. They wish only to know that the crown values what they give it, and a well-chosen gesture now will bind their loyalty for years. Still, even a friendly champion notices when they are turned away."
+  ova_champion_flavor.1.f3: "They bow, they smile, and they are watching to see what we do next."
+  ova_champion_flavor.1.o1: "Buy their goodwill: a standing stipend of #v @money![GetPlayer.MakeScope.ScriptValue('money_amount_multiplier_medium')|0]#! per week."
+  ova_champion_flavor.1.o2: "Give them a seat at the council."
+  ova_champion_flavor.1.o3: "Pledge to build up the army. (£30k)"
+  ova_champion_flavor.1.o4: "Champion their cause: begin the reform they long for."
+  ova_champion_flavor.1.o5: "Fund their grand works. (£50k)"
+  ova_champion_flavor.1.o6: "Cut taxes to please the people they love."
+  ova_champion_flavor.1.o7: "Lavish largesse upon the people in their name. (£40k)"
+  ova_champion_flavor.1.cancel: "Send them away with nothing."
+
+  ova_champion_flavor.12.t: "An Overmighty Champion"
+  ova_champion_flavor.12.d: "There is a quiet problem in our realm, and its name is #b [ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName]#!. Our [concept_ova_champion]'s [concept_ova_renown] has grown so vast that the people speak their name before ours, toast them at festivals we paid for, and pray to them in shrines we did not sanction. They have done nothing disloyal. They do not need to. A legend of this magnitude is a throne waiting to happen."
+  ova_champion_flavor.12.f: "Loyalty freely given is a wonderful thing. It is also, unfortunately, freely withdrawn."
+  ova_champion_flavor.12.a: "Shower them with honors and pray it is enough. (£30k)"
+  ova_champion_flavor.12.b: "Quietly clip the hero's wings before they spread."
+
+  # ============================================================ MINOR FLAVOR
+  ova_champion_flavor.30.t: "A Duel for the Ages"
+  ova_champion_flavor.30.d: "A famous sword from a rival court came seeking to make their name at our [concept_ova_champion]'s expense. The duel drew a crowd for miles; the outcome drew no doubt at all. Our Champion sheathed their blade before the challenger had finished falling, and the broadsheets have been at a full gallop since."
+  ova_champion_flavor.30.a: "A lesson well taught."
+
+  ova_champion_flavor.31.t: "A Wandering Master"
+  ova_champion_flavor.31.d: "A hermit of formidable reputation and no fixed address has taken an interest in our [concept_ova_champion], and for a season consents to teach. The forms they impart are strange, half-forgotten, and devastatingly effective. Such teachers do not linger, but while this one stays, our Champion grows by leaps."
+  ova_champion_flavor.31.a: "Study everything they will teach."
+  ova_champion_flavor.31.b: "Pay any price to keep the master on. (£20k)"
+
+  ova_champion_flavor.32.t: "An Embarrassment at Court"
+  ova_champion_flavor.32.d: "Our [concept_ova_champion] is a peerless warrior and, it must be said, a catastrophe at a formal banquet. The incident involved a rival ambassador, a great deal of wine, an insulted duchess, and a decorative fountain, and it is being retold in every teahouse in the capital with fresh embellishments."
+  ova_champion_flavor.32.a: "Let them laugh. It will pass."
+  ova_champion_flavor.32.b: "Pay the broadsheets to forget it. (£15k)"
+
+  ova_champion_flavor.33.t: "The Legend Spreads"
+  ova_champion_flavor.33.d: "We did nothing to encourage it, and still the stories grow. Peddlers sell woodblock prints of our [concept_ova_champion]'s deeds; children duel with sticks in the market squares, each insisting they are the Champion. A legend, once lit, needs no fuel from us."
+  ova_champion_flavor.33.a: "Let the tale carry itself."
+
+  ova_champion_flavor.34.t: "Disciples Flock to the Banner"
+  ova_champion_flavor.34.d: "Young hopefuls have been arriving at the capital for weeks, bedrolls on their backs, all with the same request: to learn at our [concept_ova_champion]'s side. Our Champion has taken a handful of the most promising under their wing. Teaching, it turns out, sharpens the teacher as much as the taught."
+  ova_champion_flavor.34.a: "Let the next generation begin."
+
+  ova_champion_flavor.35.t: "Slander from a Rival Court"
+  ova_champion_flavor.35.d: "A neighboring court, unable to match our [concept_ova_champion] in the field, has taken to matching them in the gutter instead. Their pamphleteers spin lurid tales of our Champion's supposed vices, and the poison is finding its way into our own teahouses. Left unanswered, such things stick."
+  ova_champion_flavor.35.a: "Beneath our notice. Ignore it."
+  ova_champion_flavor.35.b: "Answer lies with a feat no one can deny."
+
+  ova_champion_flavor.36.t: "A Quiet Season"
+  ova_champion_flavor.36.d: "No beasts, no banquets, no banners, only a long season of drill in the practice yards. Our [concept_ova_champion] has spent it grinding away at the fundamentals: footwork, breath, the thousand small refinements that separate the great from the legendary. Unglamorous work, and the only kind that truly lasts."
+  ova_champion_flavor.36.a: "Diligence is its own reward."
+
+  # ==================================================== TEN MORE FLAVOR EVENTS
+  ova_champion_flavor.40.t: "A Rival Champion's Challenge"
+  ova_champion_flavor.40.d: "A champion of a neighboring court has ridden to our gates and, before a gathering crowd, thrown down a formal challenge to single combat with our own [concept_ova_champion]. The whole capital is holding its breath. To fight is to risk everything on one blade; to refuse is to hand the challenger a bloodless victory in the court of rumor."
+  ova_champion_flavor.40.f: "Two legends, one field. This is the sort of thing ballads are made of. And graves."
+  ova_champion_flavor.40.a: "Accept. Let the better legend win."
+  ova_champion_flavor.40.b: "Refuse the challenge."
+
+  ova_champion_flavor.41.t: "A Festival in the Champion's Honor"
+  ova_champion_flavor.41.d: "The guilds and temples have proposed a great public festival in our [concept_ova_champion]'s name: parades, feasts, mock duels, the works. It would cost the treasury a pretty sum, but a nation that celebrates its heroes loudly is a nation whose heroes are loved."
+  ova_champion_flavor.41.a: "Fund a festival to remember. (£20k)"
+  ova_champion_flavor.41.b: "A modest observance will do."
+
+  ova_champion_flavor.42.t: "The Champion Falls Ill"
+  ova_champion_flavor.42.d: "Even the mightiest soul is housed in mortal flesh, and our [concept_ova_champion] has taken a fever that will not break. The court physicians murmur of rest and time; the impatient murmur of imported cures at ruinous cost."
+  ova_champion_flavor.42.a: "Let them rest and recover."
+  ova_champion_flavor.42.b: "Spare no expense on the finest healers. (£25k)"
+
+  ova_champion_flavor.43.t: "A Monster Near the Capital"
+  ova_champion_flavor.43.d: "A great beast has crawled out of the wilds and taken to preying on the roads within sight of the capital walls. The garrison could deal with it in time and at cost, but our [concept_ova_champion] is already reaching for their blade, and the people are already gathering to watch."
+  ova_champion_flavor.43.a: "Loose the Champion upon it."
+
+  ova_champion_flavor.44.t: "An Assassination Attempt"
+  ova_champion_flavor.44.d: "Someone wants our [concept_ova_champion] dead. A poisoned cup, a knife in a corridor, a loosened girth-strap: the attempts have the mark of a rival's coin behind them. Our Champion shrugs it off, but a legend cut short in an alley serves no one."
+  ova_champion_flavor.44.f: "Whoever is behind this has been careful. That, in itself, is worrying."
+  ova_champion_flavor.44.a: "Double the guard around them. (£15k)"
+  ova_champion_flavor.44.b: "Let the Champion hunt the plotters themselves."
+
+  ova_champion_flavor.45.t: "The Champion's Wanderlust"
+  ova_champion_flavor.45.d: "Our [concept_ova_champion] has grown restless within the capital's walls. There are masters to spar, mountains to climb, secret techniques rumored in far valleys, and they wish to go and find them. Granting the leave means months without them; refusing means keeping a caged tiger."
+  ova_champion_flavor.45.a: "Let them roam and return the stronger."
+  ova_champion_flavor.45.b: "We need them here. Keep them close."
+
+  ova_champion_flavor.46.t: "A Prodigy Appears"
+  ova_champion_flavor.46.d: "A youth of extraordinary promise has surfaced in the provinces, a natural talent of the sort that comes once in a generation. Our [concept_ova_champion] has offered to take the prodigy in hand. Teaching a true talent is its own kind of cultivation, sharpening master as much as pupil."
+  ova_champion_flavor.46.a: "Let the Champion take a pupil."
+
+  ova_champion_flavor.47.t: "The Champion Requests an Endowment"
+  ova_champion_flavor.47.d: "Our [concept_ova_champion], #b [ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName]#!, comes with a proposal and an outstretched hand. They wish to found a great training endowment: masters retained, halls raised, promising youths drilled under the Champion's own eye. It would cost the treasury a considerable sum, and make them, and us, a great deal harder to kill."
+  ova_champion_flavor.47.f: "The plans are surprisingly detailed. Someone has been thinking about this for a while."
+  ova_champion_flavor.47.a: "Fund the endowment. (£50k)"
+  ova_champion_flavor.47.b: "A worthy idea, but the coffers say otherwise."
+
+  ova_champion_flavor.48.t: "Relics of a Fallen Hero"
+  ova_champion_flavor.48.d: "A crumbling tomb has given up its treasure: the arms and manuals of a hero of ages past, still humming with old power. Our [concept_ova_champion] could learn much from studying them, or a wealthy collector would pay handsomely to hang them on a wall."
+  ova_champion_flavor.48.a: "Let the Champion unlock their secrets."
+  ova_champion_flavor.48.b: "Sell them to the highest bidder. (£30k)"
+
+  ova_champion_flavor.49.t: "Pilgrims at the Gate"
+  ova_champion_flavor.49.d: "Word of our [concept_ova_champion]'s deeds has spread far enough that pilgrims now come from distant lands simply to glimpse them, to touch the walls they train behind, to buy trinkets blessed in their name. The capital's innkeepers and peddlers are delighted."
+  ova_champion_flavor.49.a: "Welcome them, and their coin."
+
+  # ========================================================= COUP: THE JOURNAL
+  # NOTE: coup bar name/desc render ON the bar and feed the statement parser -
+  # keep them short and apostrophe-free.
+  je_ova_champion_coup: "The Champion's Coup"
+  je_ova_champion_coup_reason: "Our [concept_ova_champion], #b [ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName]#!, has turned against the crown. Beloved by the people and backed by the sword, they are moving to seize the throne itself. The bar below is their momentum: it climbs with their [concept_ova_renown] and their power and falls with the crown's legitimacy, and the crisis events let us fight back: bribe the loyal regiments, strike at the conspiracy, or crack down in the streets. If it reaches its height the Champion takes the throne; if we drive it to nothing, or outlast it, the Champion is exiled. While this crisis runs, the Champion cannot be sent adventuring."
+  je_ova_champion_coup_status_low: "The conspiracy gathers in shadow. There is still time to break it."
+  je_ova_champion_coup_status_high: "The Champion's banners are all but at the palace gates. The throne itself is in the balance."
+
+  ova_champion_coup_bar: "The Coup"
+  ova_champion_coup_bar_desc: "March on the Throne"
+  ova_coup_bar_full_tt: "The coup has reached the palace gates: the #b Champion#! seizes the throne"
+  ova_coup_bar_empty_tt: "The coup has collapsed: the #b Champion#! is undone"
+
+  # ---- Coup pulse events
+  ova_champion_flavor.60.t: "The Loyal Regiments Muster"
+  ova_champion_flavor.60.d: "Not every soldier has thrown in with the Champion. A core of regiments remains loyal to the crown, their colonels awaiting our word, and our coin. Paid and provisioned, they could blunt the coup's momentum considerably."
+  ova_champion_flavor.60.a: "Pay the loyalists to hold the line. (£30k)"
+  ova_champion_flavor.60.b: "The treasury is not a bottomless well. Wait."
+
+  ova_champion_flavor.61.t: "Behead the Conspiracy"
+  ova_champion_flavor.61.d: "Our agents have marked the ringleaders of the plot. A single decisive night of arrests could shatter the coup at a stroke, or, if the Champion's admirers among the guard get wind of it, turn a conspiracy into an open revolt."
+  ova_champion_flavor.61.f: "Strike at a legend and you had best not miss."
+  ova_champion_flavor.61.a: "Give the order. Strike tonight."
+  ova_champion_flavor.61.b: "Too dangerous. Do not risk it."
+
+  ova_champion_flavor.62.t: "The Coup Gathers Strength"
+  ova_champion_flavor.62.d: "The Champion's cause swells by the day. Crowds throng the squares chanting their name, deserters trickle from our barracks to theirs, and the mood in the capital tilts a little further from the crown. We can meet it with force, or let the fever run its course."
+  ova_champion_flavor.62.a: "Crack down hard in the streets."
+  ova_champion_flavor.62.b: "Force will only fan the flames. Let it be."
+
+  # ---- Coup resolution
+  ova_champion_flavor.63.t: "The Champion Takes the Throne"
+  ova_champion_flavor.63.d: "It is over. The palace guard has laid down its arms, the ministers have fled or knelt, and our [concept_ova_champion] stands where we once stood, a crown that was never theirs now upon their brow. The people cheer in the streets. History will call it what the victors call it."
+  ova_champion_flavor.63.f: "A throne is only worth what the men with the swords say it is worth. They have spoken."
+  ova_champion_flavor.63.a: "Long live the new sovereign."
+
+  ova_champion_flavor.64.t: "The Coup Is Broken"
+  ova_champion_flavor.64.d: "The Champion's bid has failed. Their regiments melted away, their ringleaders are in chains, and the once-beloved legend has been driven from the realm into bitter exile. The crown holds, shaken, diminished, but holding. We will not soon forget how close it came."
+  ova_champion_flavor.64.f: "A defied champion is dangerous. A defeated one is merely gone."
+  ova_champion_flavor.64.a: "Let them wander far from here."
+
+  # ============================================================ EXILE BUTTON
+  ova_exile_champion_button: "Exile the Champion"
+  ova_exile_champion_button_desc: "Banish our [concept_ova_champion] from the realm before they become a threat we cannot control. #b Beware#!: a champion who is beloved, mighty, or in the middle of a demand may refuse to go quietly, and answer the attempt with a coup. Cannot be used while a coup is already under way, nor against a champion who already rules."
+  ova_exile_champion_effect_tt: "Attempt to #b exile#! the Champion. If they are aggrieved (an open demand), highly renowned, or powerful, there is a chance they respond with a #b coup#! instead."
+  ova_exile_no_coup_tt: "There must be no #b coup#! already under way"
+  ova_exile_not_ruler_tt: "The Champion must not already be the #b ruler#!"

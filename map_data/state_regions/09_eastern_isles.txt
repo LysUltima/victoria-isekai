@@ -1,0 +1,233 @@
+﻿# ASH Asahi
+STATE_ASA_NO_IKAZUCHI = {
+    id = 354
+    subsistence_building = "building_subsistence_rice_farm"
+    provinces = { "x969D00" "x998802" "x9A8922" "x9A9317" "x9D7C24" "xA67E0B" "xAC991C" "xAE9B00" "xB1820F" "xB37907" "xBA9610" }
+    traits = { "state_trait_natural_harbors" "state_trait_good_soils" }
+    city = "x969D00"
+    port = "x9A9317"
+    farm = "x998802"
+    mine = "xAC991C"
+    wood = "xAE9B00"
+    arable_land = 243
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 16
+        building_logging_camp = 20
+        building_coal_mine = 91
+        building_gold_mine = 3
+    }
+    naval_exit_id = 3020
+}
+
+STATE_KASUMU_KURE = {
+    id = 355
+    subsistence_building = "building_subsistence_rice_farm"
+    provinces = { "xC2203B" "xC52631" "xC60332" "xC71027" "xC72129" "xC9292A" "xCA1222" "xCC1D2D" "xD60B34" "xD9212F" "xDB0544" }
+    traits = { "state_trait_good_soils" }
+    city = "xCC1D2D"
+    port = "xC72129"
+    farm = "xC52631"
+    mine = "xC9292A"
+    wood = "xC9292A"
+    arable_land = 228
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_iron_mine = 51
+        building_fishing_wharf = 10
+        building_lead_mine = 50
+        building_logging_camp = 21
+    }
+    naval_exit_id = 3020
+}
+
+STATE_YOAKE_NO_UTA = {
+    id = 356
+    subsistence_building = "building_subsistence_rice_farm"
+    provinces = { "x701721" "x711B1C" "x721328" "x7A1426" "x7A173F" "x7C0A39" "x812721" "x85052D" "x89151A" "x891B33" "x8C0542" "x8C1C34" "x932834" "x95242B" "x96281F" }
+    traits = { "state_trait_good_soils" }
+    city = "x96281F"
+    port = "x812721"
+    farm = "x701721"
+    mine = "x721328"
+    wood = "x7A1426"
+    arable_land = 209
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 12
+        building_logging_camp = 23
+    }
+    naval_exit_id = 3020
+}
+# HAN Hanamuke
+STATE_YURURU_HANABIRA = {
+    id = 357
+    subsistence_building = "building_subsistence_rice_farm"
+    provinces = { "xB54345" "xB8583A" "xB95531" "xBA464E" "xBB414C" "xBD4E38" "xC54940" "xC94D4C" "xCC462C" "xD16136" "xD74531" "xD75A2B" "xD8544C" "x882439" }
+    city = "xC94D4C"
+    port = "xB54345"
+    farm = "xD16136"
+    mine = "xCC462C"
+    wood = "xBA464E"
+    arable_land = 203
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_coal_mine = 78
+        building_iron_mine = 59
+        building_fishing_wharf = 16
+        building_logging_camp = 19
+    }
+    naval_exit_id = 3020
+}
+# IRO Iroka
+STATE_UTSUROFU_KAORI = {
+    id = 358
+    subsistence_building = "building_subsistence_rice_farm"
+    provinces = { "x141B01" "x161F09" "x162410" "x1D2A09" "x1F2208" "x272714" "x272A16" "x2E1A0C" "x2F2513" "x311D04" }
+    city = "x161F09"
+    port = "x162410"
+    farm = "x272714"
+    mine = "x1F2208"
+    wood = "x141B01"
+    arable_land = 152
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_coal_mine = 57
+        building_fishing_wharf = 14
+        building_logging_camp = 22
+    }
+    naval_exit_id = 3020
+}
+# HIB Hibana
+STATE_CHIRASU_HONOO = {
+    id = 359
+    subsistence_building = "building_subsistence_rice_farm"
+    provinces = { "x35FF00" "x3CF500" "x4CFF12" "x4DFF18" "x51F902" }
+    city = "x51F902"
+    port = "x35FF00"
+    farm = "x4CFF12"
+    mine = "x3CF500"
+    wood = "x3CF500"
+    arable_land = 106
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 17
+        building_logging_camp = 11
+    }
+    naval_exit_id = 3020
+}
+# KON Konoha
+STATE_KURENAI_NO_HA = {
+    id = 360
+    subsistence_building = "building_subsistence_rice_farm"
+    provinces = { "x837B4D" "x868D30" "x86933F" "x897634" "x899939" "x8A7444" "x8B7D47" "x8C8C46" "x90973C" "x918843" "x938240" "x978F2F" "x9B924A" "xA18635" "xA2924B" "xA47936" "xA7723C" "xA89833" "xAB903D" }
+    city = "x899939"
+    port = "xA2924B"
+    farm = "x938240"
+    mine = "x978F2F"
+    wood = "x8B7D47"
+    arable_land = 174
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 17
+        building_logging_camp = 19
+    }
+    naval_exit_id = 3020
+
+    resource = {
+        type = "building_oil_rig"
+        undiscovered_amount = 29
+    }
+}
+# SHI Shirogane
+STATE_KIYURU_HAI = {
+    id = 361
+    subsistence_building = "building_subsistence_rice_farm"
+    provinces = { "x964021" "x965B25" "x993D49" "x9F3328" "x9F4D40" "xA2402F" "xAC5745" "xAE4346" "xB03347" "xB04D3A" "xB34C22" "xB53B3A" "xB6352C" "xB6582A" "xB83443" "xB8383B" "xBA5245" "xBB532B" }
+    city = "xBA5245"
+    port = "xAC5745"
+    farm = "x964021"
+    mine = "xB6582A"
+    wood = "xB04D3A"
+    arable_land = 163
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 19
+        building_logging_camp = 17
+        building_iron_mine = 63
+        building_lead_mine = 77
+    }
+    naval_exit_id = 3020
+}
+
+STATE_AFURURU_SHIZUKU = {
+    id = 362
+    subsistence_building = "building_subsistence_rice_farm"
+    provinces = { "xECD53F" "xF1D921" "xF5D23A" "xFFE02A" "xFFE523" }
+    city = "xF1D921"
+    port = "xFFE02A"
+    farm = "xECD53F"
+    mine = "xFFE523"
+    wood = "xF5D23A"
+    arable_land = 123
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_silk_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 14
+        building_logging_camp = 22
+        building_coal_mine = 58
+    }
+    naval_exit_id = 3020
+}
+# YUK Yukiboshi
+STATE_SHIRABOSHI = {
+    id = 363
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "xCF011D" "xD1011D" "xD20014" "xD30000" "xD40011" "xD5000F" "xD70000" "xD71216" "xD80007" "xD80018" "xD9001E" "xDA0001" "xE10C0E" "xE30013" "xE30300" "xE40008" "xE41314" "xE60D19" "xE70000" "xE71100" "xE71400" "xE8000E" "xE8041B" "xE90000" "xE90204" "xEA0B00" "xEB001E" "xED0000" "xED0400" "xEE1219" "xEF0000" "xEF0411" "xF11004" "xF20B08" "xF60004" }
+    city = "xE30300"
+    port = "xCF011D"
+    farm = "xF20B08"
+    mine = "xD20014"
+    wood = "xE41314"
+    arable_land = 146
+    arable_resources = { "building_livestock_ranch" "building_millet_farm" "building_banana_plantation" "building_silk_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 17
+        building_logging_camp = 16
+        building_coal_mine = 61
+        building_whaling_station = 12
+    }
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 12
+    }
+    naval_exit_id = 3020
+}
+# YUU Yuuzora
+STATE_KURURU_MURASAKI = {
+    id = 364
+    subsistence_building = "building_subsistence_farm"
+    provinces = { "x24B41E" "x26C416" "x26D427" "x27B310" "x27CD27" "x28BC0F" "x29C82F" "x2AC51D" "x2BCF22" "x2CB520" "x2CD90C" "x2EB20B" "x30C22A" "x30C70C" "x32CA0A" "x32D61D" "x35CE23" "x39B524" "x3AD819" "x3BBC26" "x3CD128" "x3CD622" "x3EC530" "x3FB80E" "x3FDA10" "x40BD23" "x40BF2F" "x43B418" "x43CE19" "x44D71D" "x44D80F" "x45BF2D" "x46C220" "x46D11D" "x48C230" "x49B314" "x4AC927" "x4BC20A" "x4BDA0C" }
+    city = "x44D80F"
+    port = "x26C416"
+    farm = "x40BD23"
+    mine = "x3EC530"
+    wood = "x32D61D"
+    arable_land = 182
+    arable_resources = { "building_livestock_ranch" "building_millet_farm" "building_banana_plantation" "building_silk_plantation" "building_tobacco_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 19
+        building_iron_mine = 59
+        building_lead_mine = 108
+        building_logging_camp = 21
+        building_sulfur_mine = 47
+        building_coal_mine = 98
+        building_whaling_station = 15
+    }
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 7
+    }
+    naval_exit_id = 3020
+}

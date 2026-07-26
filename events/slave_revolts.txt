@@ -1,0 +1,565 @@
+﻿# Isekai TC: migrated from vanilla events/slave_revolts.txt (2026-07-11).
+# Generic flavor/mechanic events, no real-world references. Verbatim copy.
+
+namespace = slave_revolt
+
+# Slave Schooner Mutiny
+slave_revolt.1 = {
+	type = country_event
+	placement = scope:neighbor_state
+	title = slave_revolt.1.t
+	desc = slave_revolt.1.d
+	flavor = slave_revolt.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "southamerica_slave_chains"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOR = {
+			has_law_or_variant = law_type:law_slavery_banned
+			has_law_or_variant = law_type:law_colonial_slavery
+		}
+		any_neighbouring_state = {
+			owner = {
+				has_law_or_variant = law_type:law_slavery_banned
+				any_scope_state = {
+					is_coastal = yes
+				}
+			}
+		}
+		any_interest_group = {
+			OR = {
+				has_ideology = ideology:ideology_pro_slavery
+				has_ideology = ideology:ideology_pro_slavery_colonial
+				leader = { has_ideology = ideology:ideology_slaver }
+			}
+		}
+		any_interest_group = {
+			OR = {
+				leader = { has_ideology = ideology:ideology_abolitionist }
+				has_ideology = ideology:ideology_anti_slavery
+			}
+		}
+	}
+
+	immediate = {
+		random_neighbouring_state = {
+			limit = {
+				owner = {
+					has_law_or_variant = law_type:law_slavery_banned
+					any_scope_state = {
+						is_coastal = yes
+					}
+				}
+			}
+			save_scope_as = neighbor_state
+			owner = {
+				save_scope_as = neighbor_country
+			}
+		}
+		save_scope_as = originator
+	}
+
+	option = {
+		name = slave_revolt.1.a
+		default_option = yes
+
+		change_relations = {
+			country = scope:neighbor_country
+			value = -30
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_pro_slavery
+					has_ideology = ideology:ideology_pro_slavery_colonial
+					leader = { has_ideology = ideology:ideology_slaver }
+				}
+			}
+			add_modifier = {
+				name = protested_slave_ship_release
+				days = normal_modifier_time
+			}
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					leader = { has_ideology = ideology:ideology_abolitionist }
+					has_ideology = ideology:ideology_anti_slavery
+				}
+			}
+			add_modifier = {
+				name = protested_slave_ship_release
+				days = normal_modifier_time
+				multiplier = -0.5
+			}
+		}
+		hidden_effect = { scope:neighbor_country = { post_notification = slave_revolt_1 } }
+	}
+
+	option = {
+		name = slave_revolt.1.b
+
+		every_interest_group = {
+			limit = {
+				OR = {
+					leader = { has_ideology = ideology:ideology_abolitionist }
+					has_ideology = ideology:ideology_anti_slavery
+				}
+			}
+			add_modifier = {
+				name = did_not_protest_ship_seizure
+				days = normal_modifier_time
+			}
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_pro_slavery
+					has_ideology = ideology:ideology_pro_slavery_colonial
+					leader = { has_ideology = ideology:ideology_slaver }
+				}
+			}
+			add_modifier = {
+				name = did_not_protest_ship_seizure
+				days = normal_modifier_time
+				multiplier = -0.5
+			}
+		}
+	}
+}
+
+# Escaping Fugitives
+slave_revolt.2 = {
+	type = country_event
+	placement = ROOT
+	title = slave_revolt.2.t
+	desc = slave_revolt.2.d
+	flavor = slave_revolt.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "southamerica_slave_chains"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		NOR = {
+			has_law_or_variant = law_type:law_slavery_banned
+			has_law_or_variant = law_type:law_colonial_slavery
+		}
+		any_neighbouring_state = {
+			owner = {
+				has_law_or_variant = law_type:law_slavery_banned
+			}
+		}
+	}
+
+	immediate = {
+		random_neighbouring_state = {
+			limit = {
+				owner = {
+					has_law_or_variant = law_type:law_slavery_banned
+				}
+			}
+			save_scope_as = neighbor_state
+			owner = {
+				save_scope_as = neighbor_country
+			}
+		}
+		save_scope_as = originator
+	}
+
+	option = {
+		name = slave_revolt.2.a
+		default_option = yes
+
+		# Pay for slave-catchers and track them all down!
+
+		add_modifier = {
+			name = government_slave_catchers
+			days = normal_modifier_time
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_pro_slavery
+					has_ideology = ideology:ideology_pro_slavery_colonial
+					leader = { has_ideology = ideology:ideology_slaver }
+				}
+			}
+			add_modifier = {
+				name = government_pays_for_slave_catchers
+				days = normal_modifier_time
+			}
+		}
+		every_interest_group = {
+			limit = {
+				leader = { has_ideology = ideology:ideology_abolitionist }
+			}
+			add_modifier = {
+				name = government_pays_for_slave_catchers
+				days = normal_modifier_time
+				multiplier = -0.5
+			}
+		}
+	}
+
+	option = {
+		name = slave_revolt.2.b
+
+		every_interest_group = {
+			limit = {
+				leader = { has_ideology = ideology:ideology_abolitionist }
+			}
+			add_modifier = {
+				name = government_lets_fugitives_go
+				days = normal_modifier_time
+			}
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_pro_slavery
+					has_ideology = ideology:ideology_pro_slavery_colonial
+					leader = { has_ideology = ideology:ideology_slaver }
+				}
+			}
+			add_modifier = {
+				name = government_lets_fugitives_go
+				days = normal_modifier_time
+				multiplier = -0.5
+			}
+		}
+		hidden_effect = { scope:neighbor_country = { post_notification = slave_revolt_2 } }
+	}
+}
+
+# The [statename] Insurrection
+slave_revolt.3 = {
+	type = country_event
+	placement = scope:slave_insurrection_state
+	title = slave_revolt.3.t
+	desc = slave_revolt.3.d
+	flavor = slave_revolt.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "southamerica_slave_chains"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		any_political_movement = {
+			is_political_movement_type = movement_slave_revolt
+			political_movement_radicalism >= define:NPolitics|RADICALISM_PROTESTING_THRESHOLD
+		}
+		NOT = { has_law_or_variant = law_type:law_slavery_banned }
+		any_scope_state = {
+			any_scope_pop = {
+				is_pop_type = slaves
+			}
+		}
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				any_scope_pop = {
+					is_pop_type = slaves
+				}
+			}
+			save_scope_as = slave_insurrection_state
+		}
+		random_political_movement ={
+			limit = {
+				is_political_movement_type = movement_slave_revolt
+			}
+			save_scope_as = slave_revolt_movement_scope
+		}
+	}
+
+	option = {
+		name = slave_revolt.3.a # Negotiate a deal with the slaves' leaders
+		ai_chance = {
+			base = 10
+		}
+		scope:slave_insurrection_state = {
+			add_radicals_in_state = {
+				value = 0.1
+				pop_type = aristocrats
+			}
+			add_radicals_in_state = {
+				value = 0.2
+				pop_type = slaves
+			}
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_pro_slavery
+					has_ideology = ideology:ideology_pro_slavery_colonial
+					leader = { has_ideology = ideology:ideology_slaver }
+				}
+			}
+
+			add_modifier = {
+				name = soft_approach_to_slaves
+				days = normal_modifier_time
+			}
+		}
+		scope:slave_revolt_movement_scope ?= {
+			add_modifier = {
+				name = modifier_negotiated_with_slave_insurrection
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	option = {
+		name = slave_revolt.3.b # We do not negotiate with insurrectionists
+		default_option = yes
+		ai_chance = {
+			base = 10
+			modifier = {
+				trigger = {
+					scope:slave_revolt_movement_scope ?= {
+						political_movement_radicalism >= 0.55
+					}
+					NOT = {
+						any_political_movement = {
+							is_political_movement_type = movement_pro_slavery
+							political_movement_radicalism >= 0.55
+						}
+					}
+				}
+				add = -5
+			}
+			modifier = {
+				trigger = {
+					scope:slave_revolt_movement_scope ?= {
+						political_movement_radicalism >= 0.375
+					}
+					NOT = {
+						any_political_movement = {
+							is_political_movement_type = movement_pro_slavery
+							political_movement_radicalism >= 0.375
+						}
+					}
+				}
+				add = -3
+			}
+		}
+		scope:slave_insurrection_state = {
+			add_radicals_in_state = {
+				value = 0.6
+				pop_type = slaves
+			}
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_pro_slavery
+					has_ideology = ideology:ideology_pro_slavery_colonial
+					leader = { has_ideology = ideology:ideology_slaver }
+				}
+			}
+
+			add_modifier = {
+				name = tough_approach_to_slaves
+				days = normal_modifier_time
+			}
+		}
+		scope:slave_revolt_movement_scope ?= {
+			add_modifier = {
+				name = modifier_crushed_slave_insurrection
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+# Fleeing to the mainland
+slave_revolt.4 = {
+	type = country_event
+	placement = scope:port_state
+	title = slave_revolt.4.t
+	desc = slave_revolt.4.d
+	flavor = slave_revolt.4.f
+
+	duration = 3
+
+	event_image = {
+		video = "southamerica_slave_chains"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		has_law_or_variant = law_type:law_colonial_slavery
+		any_scope_state = {
+			is_incorporated = yes
+			is_coastal = yes
+			has_building = building_port
+		}
+		any_scope_state = {
+			is_incorporated = no
+			any_scope_pop = {
+				is_pop_type = slaves
+			}
+		}
+	}
+
+	immediate = {
+		ordered_scope_state = {
+			limit = {
+				is_incorporated = no
+				any_scope_pop = {
+					is_pop_type = slaves
+				}
+			}
+			order_by = "pop_type_percent_state(pop_type:slaves)"
+			position = 0
+			check_range_bounds = no
+			save_scope_as = fleeing_slaves_state
+		}
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+				is_coastal = yes
+				has_building = building_port
+			}
+			save_scope_as = port_state
+		}
+		random_primary_culture = {
+			save_scope_as = primary_culture_scope
+		}
+		generate_2_common_name = {
+			CULTURE_1 = primary_culture
+			CULTURE_2 = primary_culture
+		}
+	}
+
+	option = {
+		name = slave_revolt.4.a # Oh, well.
+		ai_chance = {
+			base = 10
+		}
+		scope:fleeing_slaves_state = {
+			add_radicals_in_state = {
+				value = 0.25
+				culture = scope:primary_culture_scope
+			}
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_pro_slavery
+					has_ideology = ideology:ideology_pro_slavery_colonial
+					leader = { has_ideology = ideology:ideology_slaver }
+				}
+			}
+			add_modifier = {
+				name = modifier_refused_deporting_slaves
+				days = normal_modifier_time
+			}
+		}
+		clear_generated_names = yes
+	}
+
+	option = {
+		name = slave_revolt.4.b # Deport them.
+		default_option = yes
+		ai_chance = {
+			base = 10
+			modifier = {
+				trigger = {
+					any_political_movement = {
+						is_political_movement_type = movement_slave_revolt
+						political_movement_radicalism >= 0.40
+					}
+				}
+				add = -5
+			}
+			modifier = {
+				trigger = {
+					any_political_movement = {
+						is_political_movement_type = movement_slave_revolt
+						political_movement_radicalism >= 0.15
+					}
+				}
+				add = -3
+			}
+		}
+		scope:fleeing_slaves_state = {
+			add_radicals_in_state = {
+				value = 0.25
+				pop_type = slaves
+			}
+			add_modifier = {
+				name = modifier_one_way_out_slave_revolt_state
+				days = normal_modifier_time
+			}
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_anti_slavery
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_abolitionist
+							has_ideology = ideology:ideology_utopian
+							has_ideology = ideology:ideology_utilitarian_leader
+						}
+					}
+				}
+			}
+			add_modifier = {
+				name = modifier_doomed_former_slaves
+				days = normal_modifier_time
+			}
+		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_pro_slavery
+					has_ideology = ideology:ideology_pro_slavery_colonial
+					leader = { has_ideology = ideology:ideology_slaver }
+				}
+			}
+			add_modifier = {
+				name = modifier_deported_slaves
+				days = normal_modifier_time
+			}
+		}
+		if = {
+			limit = {
+				any_political_movement = {
+					is_political_movement_type = movement_slave_revolt
+				}
+			}
+			add_modifier = {
+				name = modifier_one_way_out_slave_revolt
+				days = normal_modifier_time
+			}
+		}
+		clear_generated_names = yes
+	}
+}

@@ -1,0 +1,8 @@
+﻿# Vindheim (isekai: artifice tier 2)
+COUNTRIES = {
+	c:VIN ?= {
+		effect_starting_technology_artifice_tier_2 = yes
+		create_character = { template = template_ruler_vin role = ruler }
+		effect_starting_politics_traditional = yes
+	}
+}

@@ -1,0 +1,39 @@
+﻿### Champions JE - flavor-layer triggers (country scope)
+
+# True when the champion's own cause (their interest group / ideology, mirroring
+# the vanilla IG petitions) has a live reform to push for - i.e. option 4 of the
+# demand event ("champion a reform") can be offered and ova_champion_grant_cause_law
+# has a branch that will fire. Kept in lockstep with that effect's branches.
+ova_champion_demand_law_available = {
+	OR = {
+		AND = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_devout has_ideology = ideology:ideology_theocrat } }
+			NOT = { has_law = law_type:law_state_religion }
+		}
+		AND = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_intelligentsia has_ideology = ideology:ideology_liberal_leader has_ideology = ideology:ideology_positivist } }
+			OR = { has_law = law_type:law_censorship has_law = law_type:law_outlawed_dissent }
+		}
+		AND = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_rural_folk has_ideology = ideology:ideology_pacifist has_ideology = ideology:ideology_land_reformer } }
+			has_law = law_type:law_mass_conscription
+		}
+		AND = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_trade_unions has_ideology = ideology:ideology_social_democrat has_ideology = ideology:ideology_reformer } }
+			OR = { has_law = law_type:law_religious_schools has_law = law_type:law_private_schools has_law = law_type:law_terakoya }
+		}
+		AND = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_industrialists has_ideology = ideology:ideology_market_liberal has_ideology = ideology:ideology_protectionist } }
+			has_law = law_type:law_graduated_taxation
+		}
+		AND = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_armed_forces has_ideology = ideology:ideology_jingoist_leader } }
+			NOT = { has_law = law_type:law_mass_conscription }
+		}
+		AND = {
+			var:ova_champion_char ?= { OR = { interest_group = ig:ig_petty_bourgeoisie has_ideology = ideology:ideology_ethno_nationalist has_ideology = ideology:ideology_authoritarian } }
+			NOT = { has_law = law_type:law_national_supremacy }
+			has_technology_researched = mass_communication
+		}
+	}
+}

@@ -1,0 +1,3 @@
+﻿is_historical_spanish_american_colony = {
+	always = no # was geographic_region_americas + language_hispanophone, no mod analogue (real-world colonial history trigger)
+}

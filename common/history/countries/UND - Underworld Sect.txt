@@ -1,0 +1,9 @@
+﻿# Underworld Sect (southern_isles: spiritualism tier 2, sect)
+COUNTRIES = {
+	c:UND ?= {
+		effect_starting_technology_spiritualism_tier_2 = yes
+		create_character = { template = template_ruler_und role = ruler }
+		effect_starting_politics_sect = yes
+		add_technology_researched = demonic_scriptures # Diabolist: unlocks Demonic Rites in Cultivation Grounds
+	}
+}

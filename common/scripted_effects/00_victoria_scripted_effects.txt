@@ -1,0 +1,4631 @@
+﻿assign_taiping_states = {
+	# removed effect block: vanilla ref 'c:TPG' not present in this mod
+	if = {
+		limit = {
+			any_scope_state = {
+				always = no
+			}
+		}
+		every_scope_state = {
+			limit = {
+				always = no
+			}
+			save_scope_as = tpg_defector_state
+			custom_tooltip = {
+				text = taiping_state_defection
+				# removed effect line: vanilla ref 'c:TPG' not present in this mod
+				set_state_type = incorporated
+				add_culture_standard_of_living_modifier = {
+					culture = cu:lan
+					days = long_modifier_time
+					multiplier = -5
+				}
+			}
+		}
+		every_scope_state = {
+			limit = {
+				is_capital = no
+				NOT = {
+					always = no
+					state_region = {
+						is_homeland = cu:lan
+					}
+				}
+				any_neighbouring_state = {
+					always = no
+				}
+				turmoil >= 0.1
+			}
+			if = {
+				limit = {
+					this = {
+						state_region = {
+							OR = {
+								is_homeland = cu:lan
+								is_homeland = cu:lan
+							}
+						}
+					}
+				}
+				save_scope_as = tpg_defector_state
+				custom_tooltip = {
+					text = taiping_state_defection
+					# removed effect line: vanilla ref 'c:TPG' not present in this mod
+					set_state_type = incorporated
+					add_culture_standard_of_living_modifier = {
+						culture = cu:lan
+						days = long_modifier_time
+						multiplier = -5
+					}
+					# removed effect block: vanilla ref 'c:TPG' not present in this mod
+				}
+
+			}
+			else_if = {
+				random_list = {
+					50 = {
+						save_scope_as = tpg_defector_state
+						custom_tooltip = {
+							text = taiping_state_defection
+							# removed effect line: vanilla ref 'c:TPG' not present in this mod
+							set_state_type = incorporated
+							add_culture_standard_of_living_modifier = {
+								culture = cu:lan
+								days = long_modifier_time
+								multiplier = -5
+							}
+							# removed effect block: vanilla ref 'c:TPG' not present in this mod
+						}
+					}
+					50 = {
+						add_radicals_in_state = {
+							value = very_large_radicals
+							religion = rel:light_reformed
+						}
+						this.state_region = {
+							# removed effect line: vanilla ref 'c:TPG' not present in this mod
+						}
+					}
+				}
+			}
+		}
+	}
+	hidden_effect = {
+		# removed effect block: vanilla ref 'c:TPG' not present in this mod
+	}
+}
+
+create_taiping_characters = {
+	if = {
+		limit = {
+			game_date < 1880.1.1
+			NOT = { #If you exiled Hong and he got recruited somewhere else, he doesn't get to be here.
+				any_country = {
+					NOT = {
+						always = no # vanilla ref 'c:CHI' not present in this mod
+					}
+					any_scope_character = {
+						has_variable = hong_var
+					}
+				}
+			}
+		}
+		create_character = {
+			template = TPG_hong_xiuquan
+			on_created = {
+				set_character_as_ruler = yes
+				set_variable = hong_var
+				add_modifier = {
+					name = modifier_brother_of_christ
+					days = long_modifier_time
+				}
+			}
+		}
+		if = {
+			limit = {
+				game_date > 1847.1.1
+			}
+			create_character = {
+				template = TPG_hong_tianguifu
+			}
+		}
+	}
+	else = { #Fallback chars if Hong is unavailable.
+		create_character = {
+			religion = rel:light_reformed
+			interest_group = ig_devout
+			ideology = ideology_theocrat
+			ruler = yes
+			traits = {
+				inspirational_orator
+				persistent
+				psychological_affliction
+			}
+			on_created = {
+				add_modifier = {
+					name = modifier_brother_of_christ
+					days = long_modifier_time
+				}
+			}
+		}
+
+		create_character = {
+			religion = rel:light_reformed
+			interest_group = ig_devout
+			heir = yes
+			ideology = ideology_moderate
+		}
+	}
+
+	if = {
+		limit = {
+			game_date > 1841.1.1
+			game_date < 1880.1.1
+		}
+		create_character = {
+			template = TPG_xiuqing_yang
+		}
+	}
+	if = {
+		limit = {
+			game_date > 1840.1.1
+			game_date < 1880.1.1
+		}
+		create_character = {
+			template = TPG_chaogui_xiao
+		}
+	}
+	if = {
+		limit = {
+			game_date > 1842.1.1
+			game_date < 1880.1.1
+		}
+		create_character = {
+			template = TPG_hong_rengan
+		}
+	}
+}
+
+# Vicky and the Expedition Machine
+ai_expedition_simulator_start = {
+	random_scope_character = {
+		limit = {
+			is_ruler_of_own_country = no
+			OR = {
+				has_role_of_type = general
+				has_role_of_type = admiral
+			}
+		}
+		set_variable = expedition_leader_var
+		set_character_busy_and_immortal = yes
+	}
+	set_variable = on_expedition
+	add_modifier = {
+		name = modifier_large_expedition_cost
+		multiplier = money_amount_multiplier_medium
+		days = 365
+	}
+	# removed: trigger_event = { id = ai_expedition_simulator.1 days = 365 }
+}
+
+ai_expedition_simulator_end = {
+	remove_variable = on_expedition
+	remove_modifier = modifier_large_expedition_cost
+	remove_modifier = expedition_extra_expenses_modifier
+	# remove_variable = AI_EXPEDITION_ANTARCTICA  # removed: dead variable, never set elsewhere
+	# remove_variable = AI_EXPEDITION_NILE  # removed: dead variable, never set elsewhere
+	# remove_variable = AI_EXPEDITION_CONGO  # removed: dead variable, never set elsewhere
+	# remove_variable = AI_EXPEDITION_NIGER  # removed: dead variable, never set elsewhere
+	# remove_variable = AI_EXPEDITION_WAMERICA  # removed: dead variable, never set elsewhere
+	# removed: remove_expedition_events_effect (undefined scripted effect, Earth-flavor expedition system not present in this mod)
+	random_scope_character = {
+		limit = {
+			has_variable = expedition_leader_var
+		}
+		remove_variable = expedition_leader_var
+	}
+}
+
+
+voyage_of_potemkin = {
+	while = {
+		limit = {
+			any_state = {
+				has_variable = potemkin_destination_state
+				OR = {
+					owner = ROOT
+					owner = {
+						is_subject_of = ROOT
+					}
+				}
+			}
+		}
+		random_state = {
+			limit = {
+				has_variable = potemkin_destination_state
+			}
+			remove_variable = potemkin_destination_state
+			random_neighbouring_state = {
+				limit = {
+					is_coastal = yes
+				}
+				set_variable = potemkin_destination_state
+			}
+			debug_log_scopes = yes
+		}
+	}
+	random_state = {
+		limit = {
+			has_variable = potemkin_destination_state
+		}
+		remove_variable = potemkin_destination_state
+		owner = {
+			save_scope_as = potemkin_final_destination
+		}
+	}
+}
+
+adopt_random_antigovernment_ideology = { # I'm so sorry for this.
+	custom_tooltip = {
+		text = adopt_random_antigovernment_ideology_tt
+		random_list = {
+			50 = {
+				trigger = {
+					ideology_social_democrat_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = socialism
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_social_democrat
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_council_republic
+							}
+						}
+						add = 50
+					}
+				}
+				set_ideology = ideology:ideology_social_democrat
+			}
+			100 = {
+				trigger = {
+					ideology_communist_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = socialism
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_communist
+							}
+						}
+						NOT = {
+							has_law_or_variant = law_type:law_council_republic
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law = law_type:law_monarchy
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_autocracy
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							this.interest_group ?= {
+								is_interest_group_type = ig_trade_unions
+							}
+						}
+						add = 100
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_fascist
+									has_ideology = ideology:ideology_integralist
+									has_ideology = ideology:ideology_ethno_nationalist
+									has_ideology = ideology:ideology_traditionalist
+								}
+							}
+						}
+						add = 100
+					}
+				}
+				set_ideology = ideology:ideology_communist
+			}
+			100 = {
+				trigger = {
+					ideology_vanguardist_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = political_agitation
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_vanguardist
+							}
+						}
+						NOT = {
+							has_law_or_variant = law_type:law_council_republic
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law = law_type:law_monarchy
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_autocracy
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							this.interest_group ?= {
+								is_interest_group_type = ig_trade_unions
+							}
+						}
+						add = 100
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_fascist
+									has_ideology = ideology:ideology_integralist
+									has_ideology = ideology:ideology_ethno_nationalist
+									has_ideology = ideology:ideology_traditionalist
+								}
+							}
+						}
+						add = 100
+					}
+				}
+				set_ideology = ideology:ideology_vanguardist
+			}
+			100 = {
+				trigger = {
+					ideology_anarchist_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = anarchism
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_anarchist
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law = law_type:law_monarchy
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_autocracy
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							this.interest_group ?= {
+								OR = {
+									is_interest_group_type = ig_trade_unions
+									is_interest_group_type = ig_rural_folk
+								}
+							}
+						}
+						add = 100
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_fascist
+									has_ideology = ideology:ideology_integralist
+									has_ideology = ideology:ideology_ethno_nationalist
+									has_ideology = ideology:ideology_traditionalist
+								}
+							}
+						}
+						add = 100
+					}
+				}
+				set_ideology = ideology:ideology_anarchist
+			}
+			100 = {
+				trigger = {
+					ideology_ethno_nationalist_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = political_agitation
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_ethno_nationalist
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_radical
+									has_ideology = ideology:ideology_feminist
+									has_ideology = ideology:ideology_humanitarian
+									has_ideology = ideology:ideology_humanitarian_royalist
+									has_ideology = ideology:ideology_social_democrat
+								}
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_communist
+									has_ideology = ideology:ideology_anarchist
+									has_ideology = ideology:ideology_vanguardist
+								}
+							}
+						}
+						add = 100
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_fascist
+									has_ideology = ideology:ideology_integralist
+									has_ideology = ideology:ideology_ethno_nationalist
+									has_ideology = ideology:ideology_traditionalist
+								}
+							}
+						}
+						multiply = {
+							value = 0.25
+						}
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_no_migration_controls
+							}
+						}
+						add = 100
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_multicultural
+							}
+						}
+						multiply = {
+							value = 3
+						}
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_cultural_exclusion
+							}
+						}
+						multiply = {
+							value = 2
+						}
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_council_republic
+							}
+						}
+						multiply = {
+							value = 1.5
+						}
+					}
+				}
+				set_ideology = ideology:ideology_ethno_nationalist
+			}
+			50 = {
+				trigger = {
+					ideology_nihilist_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = realism
+						has_law_or_variant = law_type:law_state_religion
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_nihilist
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law = law_type:law_monarchy
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_state_religion
+							}
+						}
+						add = 100
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_theocracy
+							}
+						}
+						add = 200
+					}
+				}
+				set_ideology = ideology:ideology_nihilist
+			}
+			50 = {
+				trigger = {
+					ideology_radical_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = egalitarianism
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_radical
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law = law_type:law_monarchy
+							}
+						}
+						add = 100
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_autocracy
+							}
+						}
+						add = 100
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_oligarchy
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_landed_voting
+							}
+						}
+						add = 25
+					}
+				}
+				set_ideology = ideology:ideology_radical
+			}
+			100 = {
+				trigger = {
+					ideology_fascist_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = mass_propaganda
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_fascist
+								has_ideology = ideology:ideology_integralist
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_radical
+									has_ideology = ideology:ideology_feminist
+									has_ideology = ideology:ideology_humanitarian
+									has_ideology = ideology:ideology_humanitarian_royalist
+									has_ideology = ideology:ideology_social_democrat
+								}
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_communist
+									has_ideology = ideology:ideology_anarchist
+									has_ideology = ideology:ideology_vanguardist
+								}
+							}
+						}
+						add = 100
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_fascist
+									has_ideology = ideology:ideology_integralist
+									has_ideology = ideology:ideology_ethno_nationalist
+									has_ideology = ideology:ideology_traditionalist
+								}
+							}
+						}
+						multiply = {
+							value = 0.25
+						}
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_council_republic
+							}
+						}
+						multiply = {
+							value = 2
+						}
+					}
+				}
+				set_ideology = ideology:ideology_fascist
+			}
+			50 = {
+				trigger = {
+					ideology_market_liberal_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = stock_exchange
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_market_liberal
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_command_economy
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_traditionalism
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_isolationism
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_communist
+									has_ideology = ideology:ideology_anarchist
+									has_ideology = ideology:ideology_vanguardist
+								}
+							}
+						}
+						add = 100
+					}
+				}
+				set_ideology = ideology:ideology_market_liberal
+			}
+			50 = {
+				trigger = {
+					ideology_luddite_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = romanticism
+						OR = {
+							has_law_or_variant = law_type:law_command_economy
+							has_law_or_variant = law_type:law_laissez_faire
+							has_law_or_variant = law_type:law_interventionism
+						}
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_luddite
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								any_scope_state = {
+									any_scope_building = {
+										OR = {
+											is_building_group = bg_heavy_industry
+											is_building_group = bg_military_industry
+										}
+										level >= 5
+									}
+									state_unemployment_rate > 0.1
+								}
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								any_scope_building = {
+									OR = {
+										is_building_group = bg_heavy_industry
+										is_building_group = bg_military_industry
+									}
+									level >= 5
+								}
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							OR = {
+								is_interest_group_type = ig_rural_folk
+								is_interest_group_type = ig_devout
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							NOR = {
+								is_interest_group_type = ig_rural_folk
+								is_interest_group_type = ig_devout
+							}
+						}
+						add = -50
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_ruling_interest_group = ig_industrialists
+							}
+						}
+						multiply = {
+							value = 2
+						}
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_ruling_interest_group = ig_rural_folk
+							}
+						}
+						multiply = {
+							value = 0.25
+						}
+					}
+				}
+				set_ideology = ideology:ideology_luddite
+			}
+			50 = {
+				trigger = {
+					ideology_feminist_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = feminism
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_feminist
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law = law_type:law_monarchy
+							}
+						}
+						add = 25
+					}
+				}
+				set_ideology = ideology:ideology_feminist
+			}
+			50 = {
+				trigger = {
+					ideology_humanitarian_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = feminism
+						NOT = {
+							ruler = {
+								OR = {
+									has_ideology = ideology:ideology_humanitarian
+									has_ideology = ideology:ideology_humanitarian_royalist
+								}
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law = law_type:law_monarchy
+							}
+						}
+						add = 25
+					}
+				}
+				set_ideology = ideology:ideology_humanitarian
+			}
+
+			50 = {
+				trigger = {
+					ideology_traditionalist_valid_trigger = yes
+					NOT = {
+						scope:exiling_country_scope.ruler ?= {
+							has_ideology = ideology:ideology_traditionalist
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							this.interest_group ?= {
+								OR = {
+									is_interest_group_type = ig_landowners
+									is_interest_group_type = ig_devout
+								}
+							}
+						}
+						multiply = {
+							value = 2
+						}
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_radical
+									has_ideology = ideology:ideology_feminist
+									has_ideology = ideology:ideology_humanitarian
+									has_ideology = ideology:ideology_humanitarian_royalist
+									has_ideology = ideology:ideology_social_democrat
+								}
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_communist
+									has_ideology = ideology:ideology_anarchist
+									has_ideology = ideology:ideology_vanguardist
+								}
+							}
+						}
+						add = 100
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope.ruler ?= {
+								OR = {
+									has_ideology = ideology:ideology_fascist
+									has_ideology = ideology:ideology_integralist
+									has_ideology = ideology:ideology_ethno_nationalist
+									has_ideology = ideology:ideology_traditionalist
+								}
+							}
+						}
+						multiply = {
+							value = 0.25
+						}
+					}
+					if = {
+						limit = {
+							this.interest_group ?= {
+								OR = {
+									is_interest_group_type = ig_intelligentsia
+									is_interest_group_type = ig_industrialists
+									is_interest_group_type = ig_trade_unions
+								}
+							}
+						}
+						multiply = {
+							value = 0.2
+						}
+					}
+				}
+				set_ideology = ideology:ideology_traditionalist
+			}
+
+			50 = {
+				trigger = {
+					ideology_republican_leader_valid_trigger = yes
+					NOT = {
+						scope:exiling_country_scope.ruler ?= {
+							has_ideology = ideology:ideology_republican_leader
+						}
+					}
+					scope:exiling_country_scope ?= {
+						has_law = law_type:law_monarchy
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law = law_type:law_monarchy
+							}
+						}
+						multiply = {
+							value = 2
+						}
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_autocracy
+							}
+						}
+						multiply = {
+							value = 2
+						}
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_oligarchy
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_landed_voting
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							this.interest_group ?= {
+								is_interest_group_type = ig_landowners
+							}
+						}
+						multiply = {
+							value = 0.10
+						}
+					}
+				}
+				set_ideology = ideology:ideology_republican_leader
+			}
+
+			50 = {
+				trigger = {
+					ideology_abolitionist_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_abolitionist
+							}
+						}
+						OR = {
+							has_law_or_variant = law_type:law_serfdom
+							NOT = {
+								has_law_or_variant = law_type:law_slavery_banned
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_serfdom
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								NOT = {
+									has_law_or_variant = law_type:law_slavery_banned
+								}
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_slave_trade
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							this.interest_group ?= {
+								is_interest_group_type = ig_landowners
+							}
+						}
+						multiply = {
+							value = 0.05
+						}
+					}
+				}
+				set_ideology = ideology:ideology_abolitionist
+			}
+
+			50 = {
+				trigger = {
+					ideology_positivist_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						NOR = {
+							ruler = {
+								has_ideology = ideology:ideology_positivist
+							}
+							has_law_or_variant = law_type:law_technocracy
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								country_has_voting_franchise = yes
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law = law_type:law_monarchy
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_state_religion
+							}
+						}
+						add = 25
+					}
+				}
+				set_ideology = ideology:ideology_positivist
+			}
+			50 = {
+				trigger = {
+					ideology_humanitarian_royalist_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = feminism
+						NOT = {
+							ruler = {
+								OR = {
+									has_ideology = ideology:ideology_humanitarian
+									has_ideology = ideology:ideology_humanitarian_royalist
+								}
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law = law_type:law_monarchy
+							}
+						}
+						add = 25
+					}
+				}
+				set_ideology = ideology:ideology_humanitarian_royalist
+			}
+			50 = {
+				trigger = {
+					ideology_corporatist_leader_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = corporatism
+						NOR = {
+							ruler = {
+								has_ideology = ideology:ideology_corporatist_leader
+							}
+							has_law_or_variant = law_type:law_corporate_state
+							has_law_or_variant = law_type:law_social_monarchy
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_council_republic
+							}
+						}
+						add = 50
+					}
+				}
+				set_ideology = ideology:ideology_corporatist_leader
+			}
+			50 = {
+				trigger = {
+					ideology_liberal_leader_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = democracy
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_liberal_leader
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								country_has_voting_franchise = no
+							}
+						}
+						add = 50
+					}
+				}
+				set_ideology = ideology:ideology_liberal_leader
+			}
+			50 = {
+				trigger = {
+					ideology_land_reformer_valid_trigger = yes
+					scope:exiling_country_scope ?= {
+						has_technology_researched = enclosure
+						NOT = {
+							ruler = {
+								has_ideology = ideology:ideology_land_reformer
+							}
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_serfdom
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_tenant_farmers
+							}
+						}
+						add = 25
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								has_law_or_variant = law_type:law_land_based_taxation
+							}
+						}
+						add = 50
+					}
+				}
+				set_ideology = ideology:ideology_land_reformer
+			}
+			50 = {
+				trigger = {
+					ideology_utilitarian_leader_valid_trigger = yes # Give me your organs.
+					culture = {
+						has_discrimination_trait = language_anglophone
+					}
+					scope:exiling_country_scope ?= {
+						has_technology_researched = empiricism
+						any_primary_culture = {
+							has_discrimination_trait = language_anglophone
+						}
+					}
+				}
+				modifier = {
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								NOT = {
+									has_law_or_variant = law_type:law_compulsory_primary_school
+								}
+							}
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								NOT = {
+									has_law_or_variant = law_type:law_public_schools
+								}
+							}
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								NOT = {
+									has_law_or_variant = law_type:law_womens_suffrage
+								}
+							}
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							scope:exiling_country_scope ?= {
+								NOR = {
+									has_law_or_variant = law_type:law_graduated_taxation
+									has_law_or_variant = law_type:law_proportional_taxation
+								}
+							}
+						}
+						add = 10
+					}
+				}
+				set_ideology = ideology:ideology_utilitarian_leader
+			}
+			1 = { # Fallback
+				set_ideology = ideology:ideology_jingoist_leader
+			}
+		}
+	}
+}
+
+save_agitator_election_scopes = {
+	if = {
+		limit = {
+			has_variable = preset_ideology
+		}
+		scope:agitator_scope = {
+			this.interest_group ?= {
+				save_scope_as = agitator_ig_scope
+			}
+		}
+	}
+	else = {
+		random_scope_character = {
+			limit = {
+				has_role_of_type = agitator
+				NOT = {
+					always = no
+				}
+			}
+			save_scope_as = agitator_scope
+			this.interest_group ?= {
+				save_scope_as = agitator_ig_scope
+			}
+		}
+	}
+
+	#Attach to party
+
+	if = {
+		limit = {
+			any_political_movement = {
+				any_supporting_character = {
+					this = scope:agitator_scope
+				}
+			}
+		}
+		random_political_movement = {
+			limit = {
+				any_supporting_character = {
+					this = scope:agitator_scope
+				}
+			}
+			save_scope_as = agitator_movement_scope
+		}
+	}
+	if = {
+		limit = {
+			scope:agitator_scope.interest_group = {
+				has_party = yes
+			}
+		}
+		scope:agitator_scope.interest_group.party = {
+			save_scope_as = agitator_party_scope
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				scope:agitator_scope = {
+					has_socialist_ideology = yes
+				}
+				any_active_party = {
+					any_member = {
+						leader = {
+							has_socialist_ideology = yes
+						}
+					}
+				}
+			}
+			random_active_party = {
+				limit = {
+					any_member = {
+						leader = {
+							has_socialist_ideology = yes
+						}
+					}
+				}
+				save_scope_as = agitator_party_scope
+			}
+		}
+		else_if = {
+			limit = {
+				scope:agitator_scope = {
+					has_progressive_ideology = yes
+				}
+				any_active_party = {
+					any_member = {
+						leader = {
+							has_progressive_ideology = yes
+						}
+					}
+				}
+			}
+			random_active_party = {
+				limit = {
+					any_member = {
+						leader = {
+							has_progressive_ideology = yes
+						}
+					}
+				}
+				save_scope_as = agitator_party_scope
+			}
+		}
+		else_if = {
+			limit = {
+				scope:agitator_scope = {
+					has_liberal_ideology = yes
+				}
+				any_active_party = {
+					any_member = {
+						leader = {
+							has_liberal_ideology = yes
+						}
+					}
+				}
+			}
+			random_active_party = {
+				limit = {
+					any_member = {
+						leader = {
+							has_liberal_ideology = yes
+						}
+					}
+				}
+				save_scope_as = agitator_party_scope
+			}
+		}
+		else_if = {
+			limit = {
+				scope:agitator_scope = {
+					has_reactionary_ideology = yes
+				}
+				any_active_party = {
+					any_member = {
+						leader = {
+							has_reactionary_ideology = yes
+						}
+					}
+				}
+			}
+			random_active_party = {
+				limit = {
+					any_member = {
+						leader = {
+							has_reactionary_ideology = yes
+						}
+					}
+				}
+				save_scope_as = agitator_party_scope
+			}
+		}
+		else_if = {
+			limit = {
+				scope:agitator_scope = {
+					has_conservative_ideology = yes
+				}
+				any_active_party = {
+					any_member = {
+						leader = {
+							has_conservative_ideology = yes
+						}
+					}
+				}
+			}
+			random_active_party = {
+				limit = {
+					any_member = {
+						leader = {
+							has_conservative_ideology = yes
+						}
+					}
+				}
+				save_scope_as = agitator_party_scope
+			}
+		}
+		else = {
+			random_active_party = { #Chaos reigns
+				limit = {
+					party_has_members = yes
+				}
+				save_scope_as = agitator_party_scope
+			}
+		}
+	}
+	remove_variable = preset_ideology
+}
+
+communist_agitator_election_scope_effect = {
+	random_active_party = {
+		limit = {
+			party_has_members = yes
+			is_party_type = communist_party
+		}
+		save_scope_as = agitator_party_scope
+	}
+	random_scope_character = {
+		limit = {
+			OR = {
+				has_ideology = ideology:ideology_communist
+				has_ideology = ideology:ideology_vanguardist
+				has_ideology = ideology:ideology_anarchist
+				AND = {
+					this.interest_group ?= {
+						is_member_of_party = owner.py:communist_party
+					}
+					NOT = {
+						law_stance = {
+							law = law_type:law_council_republic
+							value < neutral
+						}
+					}
+				}
+			}
+			has_role_of_type = agitator
+			NOT = {
+				always = no
+			}
+		}
+		save_scope_as = agitator_scope
+		this.interest_group ?= {
+			save_scope_as = agitator_ig_scope
+		}
+		this.political_movement ?= {
+			save_scope_as = agitator_movement_scope
+		}
+	}
+}
+
+
+fascist_agitator_election_scope_effect = {
+	random_active_party = {
+		limit = {
+			party_has_members = yes
+			is_party_type = fascist_party
+		}
+		save_scope_as = agitator_party_scope
+	}
+	random_scope_character = {
+		limit = {
+			OR = {
+				has_ideology = ideology:ideology_fascist
+				has_ideology = ideology:ideology_integralist
+				has_ideology = ideology:ideology_ethno_nationalist
+				AND = {
+					this.interest_group ?= {
+						is_member_of_party = owner.py:fascist_party
+					}
+					NOT = {
+						law_stance = {
+							law = law_type:law_ethnostate
+							value < neutral
+						}
+					}
+				}
+			}
+			has_role_of_type = agitator
+		}
+		save_scope_as = agitator_scope
+		this.interest_group ?= {
+			save_scope_as = agitator_ig_scope
+		}
+		this.political_movement ?= {
+			save_scope_as = agitator_movement_scope
+		}
+	}
+}
+
+agrarian_agitator_election_scope_effect = {
+	random_active_party = {
+		limit = {
+			party_has_members = yes
+			is_party_type = agrarian_party
+		}
+		save_scope_as = agitator_party_scope
+	}
+	random_scope_character = {
+		limit = {
+			OR = {
+				has_ideology = ideology:ideology_agrarian
+				this.interest_group ?= {
+					is_member_of_party = owner.py:agrarian_party
+				}
+			}
+			has_role_of_type = agitator
+			NOT = {
+				always = no
+			}
+		}
+		save_scope_as = agitator_scope
+		this.interest_group ?= {
+			save_scope_as = agitator_ig_scope
+		}
+		this.political_movement ?= {
+			save_scope_as = agitator_movement_scope
+		}
+	}
+}
+
+socdem_agitator_election_scope_effect = {
+	random_active_party = {
+		limit = {
+			party_has_members = yes
+			is_party_type = social_democrat_party
+		}
+		save_scope_as = agitator_party_scope
+	}
+	random_scope_character = {
+		limit = {
+			OR = {
+				has_ideology = ideology:ideology_social_democrat
+				this.interest_group ?= {
+					is_member_of_party = owner.py:social_democrat_party
+				}
+			}
+			has_role_of_type = agitator
+			NOT = {
+				always = no
+			}
+		}
+		save_scope_as = agitator_scope
+		this.interest_group ?= {
+			save_scope_as = agitator_ig_scope
+		}
+		this.political_movement ?= {
+			save_scope_as = agitator_movement_scope
+		}
+	}
+}
+
+liberal_agitator_election_scope_effect = {
+	random_active_party = {
+		limit = {
+			party_has_members = yes
+			is_party_type = liberal_party
+		}
+		save_scope_as = agitator_party_scope
+	}
+	random_scope_character = {
+		limit = {
+			OR = {
+				has_ideology = ideology:ideology_reformer
+				has_ideology = ideology:ideology_humanitarian
+				has_ideology = ideology:ideology_humanitarian_royalist
+				has_ideology = ideology:ideology_market_liberal
+				this.interest_group ?= {
+					is_member_of_party = owner.py:liberal_party
+				}
+			}
+			has_role_of_type = agitator
+			NOT = {
+				always = no
+			}
+		}
+		save_scope_as = agitator_scope
+		this.interest_group ?= {
+			save_scope_as = agitator_ig_scope
+		}
+		this.political_movement ?= {
+			save_scope_as = agitator_movement_scope
+		}
+	}
+}
+
+conservative_agitator_election_scope_effect = {
+	random_active_party = {
+		limit = {
+			party_has_members = yes
+			is_party_type = conservative_party
+		}
+		save_scope_as = agitator_party_scope
+	}
+	random_scope_character = {
+		limit = {
+			NOT = {
+				has_ideology = ideology:ideology_abolitionist
+			}
+			OR = {
+				has_ideology = ideology:ideology_traditionalist
+				has_ideology = ideology:ideology_slaver
+				this.interest_group ?= {
+					is_member_of_party = owner.py:conservative_party
+				}
+			}
+			has_role_of_type = agitator
+			NOT = {
+				always = no
+			}
+		}
+		save_scope_as = agitator_scope
+		this.interest_group ?= {
+			save_scope_as = agitator_ig_scope
+		}
+		this.political_movement ?= {
+			save_scope_as = agitator_movement_scope
+		}
+	}
+}
+
+radical_agitator_election_scope_effect = {
+	random_active_party = {
+		limit = {
+			party_has_members = yes
+			is_party_type = radical_party
+		}
+		save_scope_as = agitator_party_scope
+	}
+	random_scope_character = {
+		limit = {
+			OR = {
+				has_ideology = ideology:ideology_radical
+				this.interest_group ?= {
+					is_member_of_party = owner.py:radical_party
+				}
+			}
+			has_role_of_type = agitator
+			NOT = {
+				always = no
+			}
+		}
+		save_scope_as = agitator_scope
+		this.interest_group ?= {
+			save_scope_as = agitator_ig_scope
+		}
+		this.political_movement ?= {
+			save_scope_as = agitator_movement_scope
+		}
+	}
+}
+
+free_trade_agitator_election_scope_effect = {
+	random_active_party = {
+		limit = {
+			party_has_members = yes
+			is_party_type = free_trade_party
+		}
+		save_scope_as = agitator_party_scope
+	}
+	random_scope_character = {
+		limit = {
+			OR = {
+				has_ideology = ideology:ideology_market_liberal
+				this.interest_group ?= {
+					is_member_of_party = owner.py:free_trade_party
+				}
+			}
+			has_role_of_type = agitator
+			NOT = {
+				always = no
+			}
+		}
+		save_scope_as = agitator_scope
+		save_scope_as = exile_scope
+		this.interest_group ?= {
+			save_scope_as = agitator_ig_scope
+		}
+		this.political_movement ?= {
+			save_scope_as = agitator_movement_scope
+		}
+	}
+}
+
+create_paris_commune_characters = {
+	if = {
+		limit = {
+			game_date > 1866.1.1
+			game_date < 1900.1.1
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = dabrowski_spawn
+				}
+			}
+			create_character = {
+				template = rus_jaroslaw_dabrowski_character_template
+				on_created = {
+					add_character_role = general
+					add_commander_rank = 1
+					set_global_variable = dabrowski_spawn
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_global_variable = dabrowski_spawn
+				always = no # blanked: vanilla ref 'c:FRA' not present in this mod
+			}
+			# removed effect block: vanilla ref 'c:FRA' not present in this mod
+		}
+		else_if = {
+			limit = {
+				has_global_variable = dabrowski_spawn
+				any_character_in_exile_pool = {
+					always = no
+				}
+			}
+			random_character_in_exile_pool = {
+				limit = {
+					always = no
+				}
+				# removed effect line: vanilla ref 'c:PRC' not present in this mod
+				add_character_role = general
+				add_commander_rank = 1
+			}
+		}
+	}
+	if = {
+		limit = {
+			game_date < 1890.1.1
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = delescluze_spawn
+				}
+			}
+			create_character = {
+				template = fra_delescluze_character_template
+				on_created = {
+					set_as_interest_group_leader = yes
+					set_global_variable = delescluze_spawn
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_global_variable = delescluze_spawn
+				always = no # blanked: vanilla ref 'c:FRA' not present in this mod
+			}
+			# removed effect block: vanilla ref 'c:FRA' not present in this mod
+		}
+		else_if = {
+			limit = {
+				has_global_variable = delescluze_spawn
+				any_character_in_exile_pool = {
+					always = no
+				}
+			}
+			random_character_in_exile_pool = {
+				limit = {
+					always = no
+				}
+				# removed effect line: vanilla ref 'c:PRC' not present in this mod
+				set_as_interest_group_leader = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			game_date > 1860.1.1
+			game_date < 1900.1.1
+		}
+		if = {
+			limit = {
+				NOT = {
+					always = no
+				}
+			}
+			create_character = {
+				template = agitator_louise_michel
+			}
+		}
+		else_if = {
+			limit = {
+				always = no
+				always = no # blanked: vanilla ref 'c:FRA' not present in this mod
+			}
+			# removed effect block: vanilla ref 'c:FRA' not present in this mod
+		}
+		else_if = {
+			limit = {
+				always = no
+				any_character_in_exile_pool = {
+					always = no
+				}
+			}
+			random_character_in_exile_pool = {
+				limit = {
+					always = no
+				}
+				# removed effect line: vanilla ref 'c:PRC' not present in this mod
+			}
+		}
+	}
+	if = {
+		limit = {
+			game_date > 1860.1.1
+			game_date < 1900.1.1
+		}
+		create_character = {
+			template = PRC_gustave_cluseret
+		}
+	}
+	if = {
+		limit = {
+			game_date > 1865.1.1
+			game_date < 1910.1.1
+		}
+		create_character = {
+			template = PRC_eugene_varlin
+		}
+	}
+}
+
+exile_character_with_martyrdom = {
+	save_scope_as = martyred_exile_scope
+	if = {
+		limit = {
+			NOT = {
+				has_modifier = modifier_political_martyr
+			}
+		}
+		add_modifier = modifier_political_martyr
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_variable = exile_pool_culling_immunity
+			}
+		}
+		set_variable = {
+			name = exile_pool_culling_immunity
+			days = very_short_modifier_time
+		}
+	}
+	hidden_effect = { # If Metternich is the victim, un-immortal him.
+		if = {
+			limit = {
+				has_dlc_feature = ip3_content
+				scope:martyred_exile_scope ?= {
+					always = no
+					is_immortal = yes
+				}
+			}
+			set_character_immortal = no
+		}
+	}
+	if = {
+		limit = {
+			owner ?= {
+				NOT = {
+					any_primary_culture = {
+						this = scope:martyred_exile_scope.culture
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_country = {
+					NOT = {
+						this = scope:martyred_exile_scope.owner
+					}
+					any_primary_culture = {
+						this = scope:martyred_exile_scope.culture
+					}
+				}
+			}
+			ordered_country = {
+				limit = {
+					NOT = {
+						this = scope:martyred_exile_scope.owner
+					}
+					any_primary_culture = {
+						this = scope:martyred_exile_scope.culture
+					}
+				}
+				order_by = country_rank
+				position = 0
+				check_range_bounds = no
+				create_diplomatic_catalyst = {
+					type = catalyst_exiled_culture_member
+					target = scope:martyred_exile_scope.owner
+				}
+			}
+		}
+	}
+	if = {
+		limit = { is_in_exile_pool = no }
+		exile_character = yes
+	}
+	hidden_effect = {
+		clean_up_exile_character_roles = yes
+	}
+}
+
+# Divided Monarchists
+# Made by Victoria/Pacifica/AcresOfAsteraceae
+# Refer to comments here and in 02_french_monarchism to get an idea as to how this works.
+fra_set_divided_monarchist_variables = {
+	#Bonapartist Variables
+	set_variable = { name = bonapartist_progress_from_characters value = 0 } #Progress-from-character component. This updates with the combined popularities of every Bonapartist character later on, and is used to calculate monthly progress in the progress bar.
+	set_variable = { name = bonapartist_progress_from_igs value = 0 } #Progress-from-IG component. This updates with the combined clout of every Bonapartist IG later on, and is used to calculate monthly progress in the progress bar.
+	set_variable = { name = bonapartist_progress_from_military value = 0 } #Progress-from-military-building component. This updates with the sum of military building levels in France later on, and is used to calculate monthly progress in the progress bar.
+	set_variable = { name = bonapartist_progress_from_legitimacy value = 0 } #Progress-from-legitimacy component. This updates with the current government legitimacy, and is also used to calculate monthly progress in the progress bar.
+	set_variable = { name = bonapartist_progress_from_movements value = 0 } #Progress-from-movements component. This depends upon the support of various movements, and is also used to calculate monthly progress in the progress bar.
+	set_variable = { name = bonapartist_progress_from_effects value = 0 } #Final element in the progress bar. This is defined by various effects, and is based solely on scripted effects. This is how designers can manually grant ticking bonuses or maluses to this mechanic.
+
+	#Orleanist Variables
+	set_variable = { name = orleanist_progress_from_characters value = 0 }
+	set_variable = { name = orleanist_progress_from_igs value = 0 }
+	set_variable = { name = orleanist_progress_from_factories value = 0 } #These variables use the same scheme as the Bonapartist ones, with the exception that Orleanists derive from the sum of light/heavy industry building levels in France.
+	set_variable = { name = orleanist_progress_from_legitimacy value = 0 }
+	set_variable = { name = orleanist_progress_from_movements value = 0 }
+	set_variable = { name = orleanist_progress_from_effects value = 0 }
+
+	#Legitimist Variables
+	set_variable = { name = legitimist_progress_from_characters value = 0 }
+	set_variable = { name = legitimist_progress_from_igs value = 0 }
+	set_variable = { name = legitimist_progress_from_farms value = 0 } #These variables use the same scheme as the Bonapartist ones, with the exception that Legitimists derive from the sum of agricultural building levels in France.
+	set_variable = { name = legitimist_progress_from_legitimacy value = 0 }
+	set_variable = { name = legitimist_progress_from_movements value = 0 }
+	set_variable = { name = legitimist_progress_from_effects value = 0 }
+
+	set_variable = { name = ig_weight value = 0 } #This variable is used solely for mathematical purposes, and is set as equivalent to the clout of a given interest group. It exists so that IGs can be weighted higher or lower depending on whether they're in-government or not.
+}
+
+fra_weekly_pulse_bonapartist_progress = { #Effects like these are run three times, one for each house. All of them function essentially the same way.
+	set_variable = { name = bonapartist_progress_from_characters value = 0 } #All of these variables are ephemeral and should never be manually set to anything.
+	set_variable = { name = bonapartist_progress_from_igs value = 0 }
+	set_variable = { name = bonapartist_progress_from_military value = 0 }
+	set_variable = { name = bonapartist_progress_from_movements value = 0 }
+	set_variable = { name = bonapartist_progress_from_legitimacy value = root.government_legitimacy } #Government legitimacy is a single constant, and so this variable is set immediately rather than needing a calculation.
+	#From Characters
+	every_scope_character = {
+		limit = {
+			has_ideology = ideology:ideology_bonapartist
+		}
+		ROOT = {
+			change_variable = { name = bonapartist_progress_from_characters add = prev.popularity } #for_each loop. For each character of ideology_bonapartist, add that character's popularity to bonapartist_progress_from_characters.
+		}
+	}
+	change_variable = { name = bonapartist_progress_from_characters divide = 100 } #Character popularities are -100/100, rather than our desired -1/1, so divide by 100.
+	# From Interest Groups
+	every_interest_group = {
+		limit = {
+			leader = {
+				has_ideology = ideology:ideology_bonapartist
+			}
+		}
+		ROOT = {														#for_each loop. For each interest group of ideology_bonapartist, perform the following steps in sequence.
+			set_variable = { name = ig_weight value = prev.ig_clout } #1. Set ig_weight as equal to the interest group's clout.
+		}
+		if = {
+			limit = {
+				is_in_government = yes
+			}
+			ROOT = {
+				change_variable = { name = ig_weight multiply = 2 } #2. If that IG is in government, multiply ig_weight by a given value.
+			}
+		}
+		ROOT = {
+			change_variable = { name = bonapartist_progress_from_igs add = var:ig_weight } #3. Add ig_weight to the central bonapartist_progress_from_igs variable. This will run until there are no more Bonapartist IGs.
+		}
+	}
+	# From Buildings
+	every_scope_building = {
+		limit = {
+			is_building_group = bg_military # Derives from barracks and naval bases.
+			occupancy >= 0.5
+		}
+		ROOT = {
+			change_variable = { name = bonapartist_progress_from_military add = prev.level } #for_each loop, uses similar context to the character component. Iterates through every building in the country matching the filter, gets that building's level, and adds it to the central bonapartist_progress_from_military variable.
+		}
+	}
+	change_variable = { name = bonapartist_progress_from_military divide = 150 } #Building levels are converted to decimal. This usually equals something between 1 and 3, with 0.01 = one building level.
+	# From Movements
+	if = {
+		limit = {
+			any_political_movement = {
+				always = no # vanilla ref movement_bonapartist not present in this mod
+			}
+		}
+		random_political_movement = {
+			limit = {
+				always = no # vanilla ref movement_bonapartist not present in this mod
+			}
+			ROOT = {
+				set_variable = { name = bonapartist_progress_from_movements value = prev.political_movement_support }
+				change_variable = { name = bonapartist_progress_from_movements multiply = 10 }
+			}
+		}
+	}
+	# From Legitimacy
+	change_variable = { name = bonapartist_progress_from_legitimacy divide = 100 } #Legitimacy divided by 100, to make it minimum 0 and maximum 1.
+	change_variable = { name = bonapartist_progress_from_legitimacy subtract = 0.5 } #Legitimacy subtracted by 0.5, to make it minimum -0.5 and maximum 0.5. Balanced scale of negative to absolute value.
+	if = {
+		limit = {
+			NOT = {
+				ruler_is_bonapartist = yes #If the ruler is Bonapartist, then the Bonapartists benefit from high legitimacy and suffer from low legitimacy.
+			}
+		}
+		change_variable = { name = bonapartist_progress_from_legitimacy multiply = -0.5 } #If the ruler is not Bonapartist, they benefit from low legitimacy and suffer from high legitimacy.
+	}
+}
+
+fra_weekly_pulse_orleanist_progress = { #See Bonapartist progress to see how this works.
+	set_variable = { name = orleanist_progress_from_characters value = 0 }
+	set_variable = { name = orleanist_progress_from_igs value = 0 }
+	set_variable = { name = orleanist_progress_from_factories value = 0 }
+	set_variable = { name = orleanist_progress_from_movements value = 0 }
+	set_variable = { name = orleanist_progress_from_legitimacy value = root.government_legitimacy }
+	#From Characters
+	every_scope_character = {
+		limit = {
+			has_ideology = ideology:ideology_orleanist
+		}
+		ROOT = {
+			change_variable = { name = orleanist_progress_from_characters add = prev.popularity }
+		}
+	}
+	change_variable = { name = orleanist_progress_from_characters divide = 100 }
+	# From Interest Groups
+	every_interest_group = {
+		limit = {
+			leader = {
+				has_ideology = ideology:ideology_orleanist
+			}
+		}
+		ROOT = {
+			set_variable = { name = ig_weight value = prev.ig_clout }
+		}
+		if = {
+			limit = {
+				is_in_government = yes
+			}
+			ROOT = {
+				change_variable = { name = ig_weight multiply = 2 }
+			}
+		}
+		ROOT = {
+			change_variable = { name = orleanist_progress_from_igs add = var:ig_weight }
+		}
+	}
+	# From Buildings
+	every_scope_building = {
+		limit = {
+			is_building_group = bg_manufacturing
+			weekly_profit > 0
+		}
+		ROOT = {
+			change_variable = { name = orleanist_progress_from_factories add = prev.level }
+		}
+	}
+	change_variable = { name = orleanist_progress_from_factories divide = 100 }
+	# From Movements
+	if = {
+		limit = {
+			any_political_movement = {
+				always = no # vanilla ref movement_orleanist not present in this mod
+			}
+		}
+		random_political_movement = {
+			limit = {
+				always = no # vanilla ref movement_orleanist not present in this mod
+			}
+			ROOT = {
+				set_variable = { name = orleanist_progress_from_movements value = prev.political_movement_support }
+				change_variable = { name = orleanist_progress_from_movements multiply = 10 }
+			}
+		}
+	}
+	# From Legitimacy
+	change_variable = { name = orleanist_progress_from_legitimacy divide = 100 }
+	change_variable = { name = orleanist_progress_from_legitimacy subtract = 0.5 }
+	if = {
+		limit = {
+			NOT = {
+				ruler_is_orleanist = yes
+			}
+		}
+		change_variable = { name = orleanist_progress_from_legitimacy multiply = -0.5 }
+	}
+}
+
+fra_weekly_pulse_legitimist_progress = { #See Legitimist progress to see how this works.
+	set_variable = { name = legitimist_progress_from_characters value = 0 }
+	set_variable = { name = legitimist_progress_from_igs value = 0 }
+	set_variable = { name = legitimist_progress_from_farms value = 0 }
+	set_variable = { name = legitimist_progress_from_movements value = 0 }
+	set_variable = { name = legitimist_progress_from_legitimacy value = root.government_legitimacy }
+	#From Characters
+	every_scope_character = {
+		limit = {
+			has_ideology = ideology:ideology_legitimist
+		}
+		ROOT = {
+			change_variable = { name = legitimist_progress_from_characters add = prev.popularity }
+		}
+	}
+	change_variable = { name = legitimist_progress_from_characters divide = 100 }
+	# From Interest Groups
+	every_interest_group = {
+		limit = {
+			leader = {
+				has_ideology = ideology:ideology_legitimist
+			}
+		}
+		ROOT = {
+			set_variable = { name = ig_weight value = prev.ig_clout }
+		}
+		if = {
+			limit = {
+				is_in_government = yes
+			}
+			ROOT = {
+				change_variable = { name = ig_weight multiply = 2 }
+			}
+		}
+		ROOT = {
+			change_variable = { name = legitimist_progress_from_igs add = var:ig_weight }
+		}
+	}
+	# From Buildings
+	every_scope_building = {
+		limit = {
+			is_building_group = bg_agriculture
+			NOT = {
+				is_building_group = bg_subsistence_agriculture
+			}
+			weekly_profit > 0
+		}
+		ROOT = {
+			change_variable = { name = legitimist_progress_from_farms add = prev.level }
+		}
+	}
+	change_variable = { name = legitimist_progress_from_farms divide = 100 }
+	# From Movements
+	if = {
+		limit = {
+			any_political_movement = {
+				always = no # vanilla ref movement_legitimist not present in this mod
+			}
+		}
+		random_political_movement = {
+			limit = {
+				always = no # vanilla ref movement_legitimist not present in this mod
+			}
+			ROOT = {
+				set_variable = { name = legitimist_progress_from_movements value = prev.political_movement_support }
+				change_variable = { name = legitimist_progress_from_movements multiply = 10 }
+			}
+		}
+	}
+	# From Legitimacy
+	change_variable = { name = legitimist_progress_from_legitimacy divide = 100 }
+	change_variable = { name = legitimist_progress_from_legitimacy subtract = 0.5 }
+	if = {
+		limit = {
+			NOT = {
+				ruler_is_legitimist = yes
+			}
+		}
+		change_variable = { name = legitimist_progress_from_legitimacy multiply = -0.5 }
+	}
+}
+
+fra_clear_divided_monarchist_variables = { #Clears all variables, to save memory/performance. Should be executed by anything that makes Divided Monarchists irrelevant.
+	remove_variable = bonapartist_progress_from_characters
+	remove_variable = bonapartist_progress_from_igs
+	remove_variable = bonapartist_progress_from_military
+	remove_variable = bonapartist_progress_from_legitimacy
+	remove_variable = bonapartist_progress_from_movements
+	remove_variable = bonapartist_progress_from_effects
+	remove_variable = orleanist_progress_from_characters
+	remove_variable = orleanist_progress_from_igs
+	remove_variable = orleanist_progress_from_factories
+	remove_variable = orleanist_progress_from_legitimacy
+	remove_variable = orleanist_progress_from_movements
+	remove_variable = orleanist_progress_from_effects
+	remove_variable = legitimist_progress_from_characters
+	remove_variable = legitimist_progress_from_igs
+	remove_variable = legitimist_progress_from_farms
+	remove_variable = legitimist_progress_from_legitimacy
+	remove_variable = legitimist_progress_from_movements
+	remove_variable = legitimist_progress_from_effects
+	remove_variable = ig_weight
+}
+
+fra_freeze_divided_monarchist_progress = { #Used upon initiation of cement_the_rightful_dynasty, to prevent the bars from excessively accumulating.
+	set_variable = fra_divided_monarchists_freeze
+}
+
+# Used in IG scope
+fra_disfavor_leader_ig_dynasty = {
+	if = {
+		limit = {
+			leader = {
+				has_ideology = ideology:ideology_bonapartist
+			}
+		}
+		owner = {
+			custom_tooltip = {
+				text = bonapartist_progress_decrease_10_tt
+				# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			leader = {
+				has_ideology = ideology:ideology_orleanist
+			}
+		}
+		owner = {
+			custom_tooltip = {
+				text = orleanist_progress_decrease_10_tt
+				# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			leader = {
+				has_ideology = ideology:ideology_legitimist
+			}
+		}
+		owner = {
+			custom_tooltip = {
+				text = legitimist_progress_decrease_10_tt
+				# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
+			}
+		}
+	}
+}
+
+# Used in IG scope
+fra_favor_leader_ig_dynasty = {
+	if = {
+		limit = {
+			leader = {
+				has_ideology = ideology:ideology_bonapartist
+			}
+		}
+		owner = {
+			custom_tooltip = {
+				text = bonapartist_progress_increase_10_tt
+				# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			leader = {
+				has_ideology = ideology:ideology_orleanist
+			}
+		}
+		owner = {
+			custom_tooltip = {
+				text = orleanist_progress_increase_10_tt
+				# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			leader = {
+				has_ideology = ideology:ideology_legitimist
+			}
+		}
+		owner = {
+			custom_tooltip = {
+				text = legitimist_progress_increase_10_tt
+				# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
+			}
+		}
+	}
+}
+
+# Country scope
+fra_favor_ruler_dynasty = {
+	if = {
+		limit = {
+			ruler_is_bonapartist = yes
+		}
+		custom_tooltip = {
+			text = bonapartist_progress_increase_10_tt
+			# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
+		}
+	}
+	else_if = {
+		limit = {
+			ruler_is_orleanist = yes
+		}
+		custom_tooltip = {
+			text = orleanist_progress_increase_10_tt
+			# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
+		}
+	}
+	else_if = {
+		limit = {
+			ruler_is_legitimist = yes
+		}
+		custom_tooltip = {
+			text = legitimist_progress_increase_10_tt
+			# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
+		}
+	}
+}
+
+# Country scope
+fra_disfavor_ruler_dynasty = {
+	if = {
+		limit = {
+			ruler_is_bonapartist = yes
+		}
+		custom_tooltip = {
+			text = bonapartist_progress_decrease_10_tt
+			# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
+		}
+	}
+	else_if = {
+		limit = {
+			ruler_is_orleanist = yes
+		}
+		custom_tooltip = {
+			text = orleanist_progress_decrease_10_tt
+			# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
+		}
+	}
+	else_if = {
+		limit = {
+			ruler_is_legitimist = yes
+		}
+		custom_tooltip = {
+			text = legitimist_progress_decrease_10_tt
+			# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
+		}
+	}
+}
+
+fra_handle_republic_monarch_assignment = { #Used specifically in the case of a Republican France that enacts monarchy, and is now determining its monarch.
+	if = {
+		limit = { #If the ruler is a Bonapartist, but is not a Bonapartist ruler - eg. a general with the Bonapartist ideology, the monarch is automatically set to the first available Bonaparte.
+			ruler = {
+				has_ideology = ideology:ideology_bonapartist
+			}
+		}
+		if = {
+			limit = {
+				has_variable = orleanist_restoration_var #Misc. variable cleanup, just in case there's anything left in the way.
+			}
+			remove_variable = orleanist_restoration_var
+		}
+		if = {
+			limit = {
+				has_variable = legitimist_restoration_var
+			}
+			remove_variable = legitimist_restoration_var
+		}
+		if = {
+			limit = {
+				has_variable = supporting_orleanist_var
+			}
+			remove_variable = supporting_orleanist_var
+		}
+		if = {
+			limit = {
+				has_variable = supporting_legitimist_var
+			}
+			remove_variable = supporting_legitimist_var
+		}
+		set_variable = bonapartist_restoration_var #Bonapartist restoration activated, for the purpose of je_divided_monarchists and other things it tracks.
+		set_variable = supporting_bonapartist_var #For the character interaction. The player can change this with the buttons whenever they wish.
+		hidden_effect = { generate_french_monarch = yes } #Standard generate_french_monarch effect.
+	}
+	else_if = {
+		limit = {
+			ruler = {
+				has_ideology = ideology:ideology_orleanist
+			}
+		}
+		if = {
+			limit = {
+				has_variable = legitimist_restoration_var
+			}
+			remove_variable = legitimist_restoration_var
+		}
+		if = {
+			limit = {
+				has_variable = bonapartist_restoration_var
+			}
+			remove_variable = bonapartist_restoration_var
+		}
+		if = {
+			limit = {
+				has_variable = supporting_bonapartist_var
+			}
+			remove_variable = supporting_bonapartist_var
+		}
+		if = {
+			limit = {
+				has_variable = supporting_legitimist_var
+			}
+			remove_variable = supporting_legitimist_var
+		}
+		set_variable = orleanist_restoration_var
+		set_variable = supporting_orleanist_var
+		hidden_effect = { generate_french_monarch = yes }
+	}
+	else_if = {
+		limit = {
+			ruler = {
+				has_ideology = ideology:ideology_legitimist
+			}
+		}
+		if = {
+			limit = {
+				has_variable = orleanist_restoration_var
+			}
+			remove_variable = orleanist_restoration_var
+		}
+		if = {
+			limit = {
+				has_variable = bonapartist_restoration_var
+			}
+			remove_variable = bonapartist_restoration_var
+		}
+		if = {
+			limit = {
+				has_variable = supporting_bonapartist_var
+			}
+			remove_variable = supporting_bonapartist_var
+		}
+		if = {
+			limit = {
+				has_variable = supporting_orleanist_var
+			}
+			remove_variable = supporting_orleanist_var
+		}
+		set_variable = legitimist_restoration_var
+		set_variable = supporting_legitimist_var
+		hidden_effect = { generate_french_monarch = yes }
+	}
+	else = {
+		# removed: trigger_event = { id = french_pretenders.7 popup = yes } #If the ruler is neither a Bonapartist, Legitimist, or Orleanist claimant, then it fires this event, which allows either restoring a dynasty of your choice, or making the previous President King. The latter option will cancel out of Divided Monarchists, and add a bunch of radicals.
+	}
+}
+
+### Vargas
+
+calculate_populism_progress = {
+	# From Laws
+	set_variable = { name = populism_progress_from_laws value = 0 }
+	# Cops
+	set_variable = { name = temp_policing_var_contribution value = institution:institution_police.investment }
+	if = {
+		limit = {
+			has_law_or_variant = law_type:law_no_police
+		}
+		change_variable = { name = temp_policing_var_contribution add = 0.3 }
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_local_police
+		}
+		change_variable = { name = temp_policing_var_contribution multiply = -0.1 }
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_dedicated_police
+		}
+		change_variable = { name = temp_policing_var_contribution multiply = -0.3 }
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_militarized_police
+		}
+		change_variable = { name = temp_policing_var_contribution multiply = -0.5 }
+	}
+
+	# Internal Affairs
+	set_variable = { name = temp_ha_var_contribution value = institution:institution_home_affairs.investment }
+	if = {
+		limit = {
+			has_law_or_variant = law_type:law_no_home_affairs
+		}
+		change_variable = { name = temp_ha_var_contribution add = 0.3 }
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_guaranteed_liberties
+		}
+		change_variable = { name = temp_ha_var_contribution multiply = -0.1 }
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_national_guard
+		}
+		change_variable = { name = temp_ha_var_contribution multiply = -0.3 }
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_secret_police
+		}
+		change_variable = { name = temp_ha_var_contribution multiply = -0.5 }
+	}
+	change_variable = { name = populism_progress_from_laws add = var:temp_policing_var_contribution }
+	change_variable = { name = populism_progress_from_laws add = var:temp_ha_var_contribution }
+	remove_variable = temp_policing_var_contribution
+	remove_variable = temp_ha_var_contribution
+}
+
+set_populism_vars = {
+	set_variable = { name = populism_progress_from_laws value = 0 }
+	set_variable = { name = populism_progress_var_add value = 0 }
+}
+
+clear_populism_vars = {
+	remove_variable = populism_progress_from_laws
+	remove_variable = populism_progress_var_add
+}
+
+### Communism
+
+calculate_communism_progress = {
+	# From Laws
+	set_variable = { name = communism_progress_from_laws value = 0 }
+	# Cops
+	set_variable = { name = temp_policing_var_contribution value = institution:institution_police.investment }
+	if = {
+		limit = {
+			has_law_or_variant = law_type:law_local_police
+		}
+		change_variable = { name = temp_policing_var_contribution multiply = -0.1 }
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_dedicated_police
+		}
+		change_variable = { name = temp_policing_var_contribution multiply = -0.3 }
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_militarized_police
+		}
+		change_variable = { name = temp_policing_var_contribution multiply = -0.5 }
+	}
+
+	# Internal Affairs
+	set_variable = { name = temp_ha_var_contribution value = institution:institution_home_affairs.investment }
+	if = {
+		limit = {
+			has_law_or_variant = law_type:law_guaranteed_liberties
+		}
+		change_variable = { name = temp_ha_var_contribution multiply = -0.1 }
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_national_guard
+		}
+		change_variable = { name = temp_ha_var_contribution multiply = -0.3 }
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_secret_police
+		}
+		change_variable = { name = temp_ha_var_contribution multiply = -0.5 }
+	}
+	if = {
+		limit = {
+			has_variable = temp_policing_var_contribution
+		}
+		change_variable = { name = communism_progress_from_laws add = var:temp_policing_var_contribution }
+		remove_variable = temp_policing_var_contribution
+	}
+	if = {
+		limit = {
+			has_variable = temp_ha_var_contribution
+		}
+		change_variable = { name = communism_progress_from_laws add = var:temp_ha_var_contribution }
+		remove_variable = temp_ha_var_contribution
+	}
+}
+
+set_communism_vars = {
+	set_variable = { name = communism_progress_from_laws value = 0 }
+	set_variable = { name = communism_progress_var_add value = 0 }
+}
+
+clear_communism_vars = {
+	remove_variable = communism_progress_from_laws
+	remove_variable = communism_progress_var_add
+}
+
+restore_peruvian_constitution = {
+	# Made by Hansi
+	# the Constitution of 1834 was largely a hotfix of the Constitution of 1828 and was also swept aside with the Peru-Bolivian Confederation
+	if = {
+		limit = {
+			NOT = {
+				has_law = law_type:law_presidential_republic
+			}
+		}
+		activate_law = law_type:law_presidential_republic
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_law = law_type:law_state_religion
+			}
+		}
+		activate_law = law_type:law_state_religion # Article 2 of the 1834 consitution: "[Peru's] Religion is Catholic, Apostolic, Roman, The Nation protects it by all means [...] and does not allow the exercise of any other."
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_law = law_type:law_census_voting
+			}
+		}
+		activate_law = law_type:law_census_voting # Political rights for citizens had no land ownership requirement
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_law = law_type:law_racial_segregation
+			}
+		}
+		activate_law = law_type:law_racial_segregation
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_law = law_type:law_mercantilism
+			}
+		}
+		activate_law = law_type:law_mercantilism
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_law = law_type:law_interventionism
+			}
+		}
+		activate_law = law_type:law_interventionism
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_law = law_type:law_right_of_assembly
+			}
+		}
+		activate_law = law_type:law_right_of_assembly # Article 147 of the 1834 constitution: "Everyone can communicate their thoughts [...] or publish them through the printing press without prior censorship; but under the responsibility determined by law."
+	}
+	if = {
+		limit = {
+			NOR = {
+				has_law_or_variant = law_type:law_colonial_slavery
+				has_law_or_variant = law_type:law_legacy_slavery
+				has_law_or_variant = law_type:law_slavery_banned
+			}
+		}
+		activate_law = law_type:law_legacy_slavery # Slavery was legal, but the slave trade was restricted
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_law = law_type:law_per_capita_based_taxation
+			}
+		}
+		activate_law = law_type:law_per_capita_based_taxation
+	}
+}
+
+# National Identity
+calculate_national_identity_progress = {
+	set_variable = { name = national_identity_progress_var_next value = 0 }
+	set_variable = { name = national_identity_progress_from_igs value = 0 }
+
+	# From Interest Groups
+	every_interest_group = {
+		limit = {
+			OR = {
+				has_ideology = ideology:ideology_patriotic
+				has_ideology = ideology:ideology_military_absolutist
+				has_ideology = ideology:ideology_liberal
+				has_ideology = ideology:ideology_liberal_modern
+			}
+		}
+		ROOT = {
+			set_variable = { name = ig_weight value = prev.ig_clout }
+		}
+		if = {
+			limit = {
+				is_in_government = yes
+			}
+			ROOT = {
+				change_variable = { name = ig_weight multiply = 3 }
+			}
+		}
+		ROOT = {
+			change_variable = { name = national_identity_progress_from_igs add = var:ig_weight }
+		}
+	}
+
+	#Wars
+	set_variable = { name = national_identity_progress_from_wars value = 0 }
+	every_scope_war = {
+		limit = {
+			has_war_support = { target = root value > 50 }
+		}
+		ROOT = {
+			change_variable = { name = national_identity_progress_from_wars add = 0.50 }
+		}
+	}
+	every_scope_war = {
+		limit = {
+			has_war_support = { target = root value <= 50 }
+			has_war_support = { target = root value > 25 }
+		}
+		ROOT = {
+			change_variable = { name = national_identity_progress_from_wars add = 0.25 }
+		}
+	}
+	every_scope_war = {
+		limit = {
+			has_war_support = { target = root value <= 25 }
+			has_war_support = { target = root value > 0 }
+		}
+		ROOT = {
+			change_variable = { name = national_identity_progress_from_wars add = 0.10 }
+		}
+	}
+
+	#Buildings
+	set_variable = { name = national_identity_progress_from_universities value = 0 }
+	every_scope_building = {
+		limit = {
+			OR = {
+				is_building_type = building_art_academy
+				is_building_type = building_university
+				is_building_type = building_government_administration
+			}
+			occupancy >= 0.75
+		}
+		ROOT = {
+			change_variable = { name = national_identity_progress_from_universities add = prev.level }
+		}
+	}
+	change_variable = { name = national_identity_progress_from_universities divide = 25 }
+
+	set_variable = { name = national_identity_progress_from_prestige value = 0 }
+
+	#Prestige
+	ROOT = {
+		change_variable = { name = national_identity_progress_from_prestige add = root.prestige }
+	}
+	change_variable = { name = national_identity_progress_from_prestige divide = 100 }
+
+	set_variable = { name = national_identity_progress_from_homelands value = 0 }
+
+	#Homelands
+	every_scope_state = {
+		limit = {
+			NOT = {
+				is_homeland_of_country_cultures = ROOT
+			}
+		}
+		ROOT = {
+			change_variable = { name = national_identity_progress_from_homelands subtract = 0.25 }
+		}
+	}
+
+	change_variable = { name = national_identity_progress_var_next add = var:national_identity_progress_from_igs }
+	change_variable = { name = national_identity_progress_var_next add = var:national_identity_progress_from_wars }
+	change_variable = { name = national_identity_progress_var_next add = var:national_identity_progress_from_universities }
+	change_variable = { name = national_identity_progress_var_next add = var:national_identity_progress_from_prestige }
+	change_variable = { name = national_identity_progress_var_next add = var:national_identity_progress_from_homelands }
+	change_variable = { name = national_identity_progress_var_next add = var:national_identity_progress_var_add }
+}
+
+add_national_identity_progress = {
+	# change_variable = { name = national_identity_progress_var add = var:national_identity_progress_var_next }
+	# clamp_variable = { name = national_identity_progress_var max = 100 min = 0 }  # removed: dead variable, never used elsewhere
+}
+
+set_national_identity_vars = {
+	set_variable = { name = national_identity_progress_from_igs value = 0 }
+	set_variable = { name = national_identity_progress_from_wars value = 0 }
+	set_variable = { name = national_identity_progress_from_universities value = 0 }
+	set_variable = { name = national_identity_progress_from_prestige value = 0 }
+	set_variable = { name = national_identity_progress_from_homelands value = 0 }
+	set_variable = { name = national_identity_progress_var_add value = 0 }
+	set_variable = { name = ig_weight value = 0 }
+}
+
+clear_national_identity_vars = {
+	remove_variable = national_identity_progress_from_igs
+	remove_variable = national_identity_progress_from_wars
+	remove_variable = national_identity_progress_from_universities
+	remove_variable = national_identity_progress_from_prestige
+	remove_variable = national_identity_progress_from_homelands
+	remove_variable = national_identity_progress_var_add
+}
+
+remove_pedropoint_effect = {
+	custom_tooltip = {
+		text = remove_pedropoint
+		# change_variable = {
+			# name = pedropoints
+			# add = -1
+		# }
+	}
+}
+
+add_pedropoint_effect = {
+	custom_tooltip = {
+		text = add_pedropoint
+		# change_variable = {
+			# name = pedropoints
+			# add = 1
+		# }
+	}
+}
+
+add_pedropoint_effect_2 = {
+	custom_tooltip = {
+		text = add_2_pedropoint
+		# change_variable = {
+			# name = pedropoints
+			# add = 2
+		# }
+	}
+}
+
+add_pedropoint_effect_3 = {
+	custom_tooltip = {
+		text = add_3_pedropoint
+		# change_variable = {
+			# name = pedropoints
+			# add = 3
+		# }
+	}
+}
+
+replicate_laws_from_root = {
+	every_law = {
+		limit = {
+			ROOT = {
+				has_law = PREV.type
+			}
+			PREV = {
+				NOT = {
+					has_law = PREV.type
+				}
+			}
+		}
+		PREV = {
+			activate_law = PREV.type
+		}
+	}
+}
+
+replicate_laws_from_prev = {
+	every_law = {
+		limit = {
+			PREV = {
+				has_law = PREV.type
+			}
+			ROOT = {
+				NOT = {
+					has_law = PREV.type
+				}
+			}
+		}
+		ROOT = {
+			activate_law = PREV.type
+		}
+	}
+}
+
+paris_commune_update_tick = {
+	# removed: set_global_variable on paris_commune_drift_final_var (nothing reads it once
+	# the change_global_variable below was removed) and that change_global_variable, whose
+	# only operand was dead variable 'paris_commune_progress_drift', never set elsewhere
+	# removed: add = var:PRC_recognition_level (variable never set, was read-only from a deleted event)
+}
+
+capitulate_to_revolution = {
+	scope:ongoing_revolution_movement = { #Can't trigger if they want governance reforms anyway.
+		this.most_desired_law ?= {
+			save_scope_as = revolutionaries_law
+		}
+	}
+	every_interest_group = {
+		limit = {
+			is_insurrectionary = yes
+		}
+		set_variable = { name = revolutionary_ig days = 7 }
+	}
+	ordered_interest_group = {
+		limit = {
+			is_insurrectionary = yes
+		}
+		order_by = ig_clout
+		position = 0
+		check_range_bounds = no
+		save_scope_as = revolution_leader_ig
+	}
+	activate_law = scope:revolutionaries_law
+
+	every_interest_group = {
+		limit = {
+			has_variable = revolutionary_ig
+		}
+		owner = {
+			add_loyalists = {
+				value = 0.8
+				interest_group = PREV
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			country_has_voting_franchise = yes
+			in_election_campaign = no
+		}
+		call_election = {
+			months = 6
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_law = law_type:law_monarchy
+			}
+		}
+		hidden_effect = {
+			scope:revolution_leader_ig = {
+				leader = {
+					set_character_as_ruler = yes
+				}
+			}
+		}
+	}
+
+	every_interest_group = {
+		limit = {
+			is_in_government = yes
+		}
+		remove_ruling_interest_group = yes
+		add_modifier = {
+			name = modifier_revolution_defeated_light
+			days = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+
+	every_interest_group = {
+		limit = {
+			has_variable = revolutionary_ig
+		}
+		hidden_effect = {
+			abandon_revolution = yes
+		}
+		add_modifier = {
+			name = modifier_revolution_victorious_light
+			days = normal_modifier_time
+			is_decaying = yes
+		}
+		if = {
+			limit = {
+				is_insurrectionary = no
+			}
+			add_ruling_interest_group = yes
+		}
+	}
+}
+
+calculate_caudillo_progress = {
+	set_variable = { name = caudillo_next value = 0 }
+	if = {
+		limit = {
+			ig:ig_armed_forces ?= {
+				is_powerful = yes
+			}
+		}
+		change_variable = {
+			name = caudillo_next
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			ig:ig_armed_forces ?= {
+				is_in_government = yes
+			}
+		}
+		change_variable = {
+			name = caudillo_next
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law_or_variant = law_type:law_autocracy
+				has_law_or_variant = law_type:law_technocracy
+				has_law_or_variant = law_type:law_oligarchy
+				has_law_or_variant = law_type:law_single_party_state
+			}
+		}
+		change_variable = {
+			name = caudillo_next
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			ig:ig_armed_forces ?= {
+				ig_counts_as_marginal = yes
+			}
+		}
+		change_variable = {
+			name = caudillo_next
+			add = -1
+		}
+	}
+	if = {
+		limit = {
+			ig:ig_armed_forces ?= {
+				is_in_government = no
+			}
+		}
+		change_variable = {
+			name = caudillo_next
+			add = -1
+		}
+	}
+	if = {
+		limit = {
+			any_scope_character = {
+				OR = {
+					has_role_of_type = general
+					has_role_of_type = admiral
+				}
+				popularity >= 50 # Loved
+			}
+		}
+		change_variable = {
+			name = caudillo_next
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			any_scope_character = {
+				has_role_of_type = politician
+				NOT = { has_role_of_type = general }
+				popularity >= 50 # Loved
+				interest_group ?= {
+					is_powerful = yes
+					AND = {
+						law_stance = {
+							law = law_type:law_autocracy
+							value <= neutral
+						}
+						law_stance = {
+							law = law_type:law_technocracy
+							value >= neutral
+						}
+						law_stance = {
+							law = law_type:law_oligarchy
+							value >= neutral
+						}
+						law_stance = {
+							law = law_type:law_single_party_state
+							value >= neutral
+						}
+					}
+				}
+			}
+			NOT = {
+				any_scope_character = {
+					has_role_of_type = general
+					popularity >= 50 # Loved
+				}
+			}
+		}
+		change_variable = {
+			name = caudillo_next
+			add = -1
+		}
+	}
+	if = {
+		limit = {
+			any_scope_character = {
+				is_ruler_of_own_country = yes
+				has_ideology = ideology:ideology_authoritarian
+			}
+		}
+		change_variable = {
+			name = caudillo_next
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law_or_variant = law_type:law_census_voting
+				has_law_or_variant = law_type:law_universal_suffrage
+			}
+		}
+		change_variable = {
+			name = caudillo_next
+			add = -1
+		}
+	}
+}
+
+chi_add_1_fragile_unity = {
+	custom_tooltip = chi_add_1_fragile_unity_tt
+	post_notification = warlord_china_explosion_point_add
+	# change_variable = {
+		# name = china_warlord_explosion
+		# add = 1
+	# }
+}
+
+chi_remove_1_fragile_unity = {
+	custom_tooltip = chi_remove_1_fragile_unity_tt
+	post_notification = warlord_china_explosion_point_remove
+	# change_variable = {
+		# name = china_warlord_explosion
+		# subtract = 1
+	# }
+}
+
+reset_afghan_treaty = {
+	custom_tooltip = {
+		text = reset_afghan_treaty_tt
+	}
+}
+
+clear_afghanistan_variables = { # Different from the treaty one. This can't clear the delimitation treaty approved variable, as it's required for JE cleanup.
+}
+
+handle_revolutionary_sps = {
+	set_only_legal_party_from_ig = ruler.interest_group
+
+	custom_tooltip = {
+		text = sps_government_reshuffle_tt
+		every_interest_group = {
+			limit = {
+				is_in_government = yes
+				NOT = { #Removes all IGs from government that aren't in your party
+					has_party = yes
+				}
+			}
+			remove_ruling_interest_group = yes
+		}
+		every_interest_group = {
+			limit = { #Adds all IGs that are in your party to the government
+				is_in_government = no
+				has_party = yes
+			}
+			add_ruling_interest_group = yes
+		}
+	}
+}
+
+generate_pro_lobby_diplomatic_pact_opportunity = {
+	random_list = {
+		20 = {
+			trigger = {
+				can_create_treaty = {
+					first_country = root
+					second_country = scope:relevant_country
+					is_draft = no
+					binding_period = { years = 2 }
+					articles_to_create = {
+						{
+							article = trade_privilege
+							source_country = root
+							target_country = scope:relevant_country
+						}
+					}
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:relevant_country
+						any_scope_article = {
+							has_type = trade_privilege
+						}
+					}
+				}
+			}
+			set_variable = pro_lobby_proposal_trade_privilege
+		}
+		20 = {
+			trigger = {
+				can_create_treaty = {
+					first_country = root
+					second_country = scope:relevant_country
+					is_draft = no
+					binding_period = { years = 2 }
+					articles_to_create = {
+						{
+							article = defensive_pact
+						}
+					}
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:relevant_country
+						any_scope_article = {
+							has_type = defensive_pact
+						}
+					}
+				}
+			}
+			set_variable = pro_lobby_proposal_defensive_pact
+		}
+		20 = {
+			trigger = {
+				can_create_treaty = {
+					first_country = root
+					second_country = scope:relevant_country
+					is_draft = no
+					binding_period = { years = 2 }
+					articles_to_create = {
+						{
+							article = alliance
+						}
+					}
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:relevant_country
+						any_scope_article = {
+							has_type = alliance
+						}
+					}
+				}
+			}
+			set_variable = pro_lobby_proposal_alliance
+		}
+		20 = {
+			trigger = {
+				can_create_treaty = {
+					first_country = root
+					second_country = scope:relevant_country
+					is_draft = no
+					binding_period = { years = 2 }
+					articles_to_create = {
+						{
+							article = foreign_investment_rights
+							source_country = root
+							target_country = scope:relevant_country
+						}
+					}
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:relevant_country
+						any_scope_article = {
+							has_type = foreign_investment_rights
+						}
+					}
+				}
+			}
+			set_variable = pro_lobby_proposal_investment_agreement
+		}
+		20 = {
+			trigger = {
+				scope:relevant_country = {
+					is_power_bloc_leader = yes
+				}
+				can_create_diplomatic_pact = { target = scope:relevant_country type = join_power_bloc }
+				NOT = {
+					is_in_same_power_bloc = scope:relevant_country
+				}
+			}
+			set_variable = pro_lobby_proposal_power_bloc
+		}
+		20 = {
+			trigger = {
+				is_power_bloc_leader = yes
+				can_create_diplomatic_pact = { target = scope:relevant_country type = invite_to_power_bloc }
+				NOT = {
+					is_in_same_power_bloc = scope:relevant_country
+				}
+			}
+			set_variable = pro_lobby_proposal_power_bloc_invite
+		}
+		20 = {
+			trigger = {
+				can_create_treaty = {
+					first_country = root
+					second_country = scope:relevant_country
+					is_draft = no
+					binding_period = { years = 2 }
+					articles_to_create = {
+						{
+							article = military_assistance
+							source_country = root
+							target_country = scope:relevant_country
+						}
+					}
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:relevant_country
+						any_scope_article = {
+							has_type = military_assistance
+							source_country = root
+						}
+					}
+				}
+			}
+			set_variable = pro_lobby_proposal_military_assistance
+		}
+	}
+}
+
+generate_pro_lobby_diplomatic_pact_proposal = {
+	random_list = {
+		20 = { # Break an alliance
+			trigger = {
+				any_scope_treaty = {
+					remaining_binding_period <= 0
+					binds = scope:third_party_country
+					any_scope_article = {
+						has_type = alliance
+					}
+				}
+			}
+			set_variable = pro_lobby_proposal_break_alliance
+		}
+		20 = { # Break a trade agreement
+			trigger = {
+				any_scope_treaty = {
+					remaining_binding_period <= 0
+					binds = scope:third_party_country
+					any_scope_article = {
+						has_type = trade_privilege
+					}
+				}
+			}
+			set_variable = pro_lobby_proposal_revoke_trade_privilege
+		}
+		20 = { # Break a defensive pact
+			trigger = {
+				any_scope_treaty = {
+					remaining_binding_period <= 0
+					binds = scope:third_party_country
+					any_scope_article = {
+						has_type = defensive_pact
+					}
+				}
+			}
+			set_variable = pro_lobby_proposal_break_defensive_pact
+		}
+		20 = { # Do a rivalry
+			trigger = {
+				can_create_diplomatic_pact = { target = scope:third_party_country type = rivalry }
+			}
+			set_variable = pro_lobby_proposal_rivalry
+		}
+		20 = { # Do an embargo
+			trigger = {
+				can_create_diplomatic_pact = { target = scope:third_party_country type = embargo }
+			}
+			set_variable = pro_lobby_proposal_embargo
+		}
+		20 = { # Do a war
+			trigger = {
+				pro_lobby_war_valid_check = yes
+			}
+			set_variable = pro_lobby_proposal_war
+		}
+		20 = { # Leave Power Bloc
+			trigger = {
+				pro_lobby_leave_power_bloc_valid_check = yes
+			}
+			set_variable = pro_lobby_proposal_leave_power_bloc
+		}
+	}
+}
+
+generate_anti_lobby_diplomatic_pact_opportunity = {
+	random_list = {
+		20 = {
+			trigger = {
+				can_create_treaty = {
+					first_country = root
+					second_country = scope:third_party_country
+					is_draft = no
+					binding_period = { years = 2 }
+					articles_to_create = {
+						{
+							article = trade_privilege
+							source_country = root
+							target_country = scope:third_party_country
+						}
+					}
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:third_party_country
+						any_scope_article = {
+							has_type = trade_privilege
+						}
+					}
+				}
+			}
+			set_variable = anti_lobby_proposal_trade_privilege
+		}
+		20 = {
+			trigger = {
+				can_create_treaty = {
+					first_country = root
+					second_country = scope:third_party_country
+					is_draft = no
+					binding_period = { years = 2 }
+					articles_to_create = {
+						{
+							article = defensive_pact
+						}
+					}
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:third_party_country
+						any_scope_article = {
+							has_type = defensive_pact
+						}
+					}
+				}
+			}
+			set_variable = anti_lobby_proposal_defensive_pact
+		}
+		20 = {
+			trigger = {
+				can_create_treaty = {
+					first_country = root
+					second_country = scope:third_party_country
+					is_draft = no
+					binding_period = { years = 2 }
+					articles_to_create = {
+						{
+							article = alliance
+						}
+					}
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:third_party_country
+						any_scope_article = {
+							has_type = alliance
+						}
+					}
+				}
+			}
+			set_variable = anti_lobby_proposal_alliance
+		}
+		20 = {
+			trigger = {
+				can_create_treaty = {
+					first_country = root
+					second_country = scope:third_party_country
+					is_draft = no
+					binding_period = { years = 2 }
+					articles_to_create = {
+						{
+							article = foreign_investment_rights
+							source_country = root
+							target_country = scope:third_party_country
+						}
+					}
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:third_party_country
+						any_scope_article = {
+							has_type = foreign_investment_rights
+						}
+					}
+
+				}
+			}
+			set_variable = anti_lobby_proposal_investment_agreement
+		}
+		20 = {
+			trigger = {
+				scope:third_party_country = {
+					is_power_bloc_leader = yes
+				}
+				can_create_diplomatic_pact = { target = scope:third_party_country type = join_power_bloc }
+				NOT = {
+					is_in_same_power_bloc = scope:third_party_country
+				}
+			}
+			set_variable = anti_lobby_proposal_power_bloc
+		}
+		20 = {
+			trigger = {
+				is_power_bloc_leader = yes
+				can_create_diplomatic_pact = { target = scope:third_party_country type = invite_to_power_bloc }
+				NOT = {
+					is_in_same_power_bloc = scope:third_party_country
+				}
+			}
+			set_variable = anti_lobby_proposal_power_bloc_invite
+		}
+		20 = {
+			trigger = {
+				can_create_treaty = {
+					first_country = root
+					second_country = scope:third_party_country
+					is_draft = no
+					binding_period = { years = 2 }
+					articles_to_create = {
+						{
+							article = military_assistance
+							source_country = root
+							target_country = scope:third_party_country
+						}
+					}
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:third_party_country
+						any_scope_article = {
+							has_type = military_assistance
+							source_country = root
+						}
+					}
+				}
+			}
+			set_variable = anti_lobby_proposal_military_assistance
+		}
+	}
+}
+
+generate_anti_lobby_diplomatic_pact_proposal = {
+	random_list = {
+		20 = { # Break an alliance
+			trigger = {
+				any_scope_treaty = {
+					remaining_binding_period <= 0
+					binds = scope:relevant_country
+					any_scope_article = {
+						has_type = alliance
+					}
+				}
+			}
+			set_variable = anti_lobby_proposal_break_alliance
+		}
+		20 = { # Break a trade agreement
+			trigger = {
+				any_scope_treaty = {
+					remaining_binding_period <= 0
+					binds = scope:relevant_country
+					any_scope_article = {
+						has_type = trade_privilege
+					}
+				}
+			}
+			set_variable = anti_lobby_proposal_revoke_trade_privilege
+		}
+		20 = { # Break a defensive pact
+			trigger = {
+				any_scope_treaty = {
+					remaining_binding_period <= 0
+					binds = scope:relevant_country
+					any_scope_article = {
+						has_type = defensive_pact
+					}
+				}
+			}
+			set_variable = anti_lobby_proposal_break_defensive_pact
+		}
+		20 = { # Do a rivalry
+			trigger = {
+				can_create_diplomatic_pact = { target = scope:relevant_country type = rivalry }
+			}
+			set_variable = anti_lobby_proposal_rivalry
+		}
+		20 = { # Do an embargo
+			trigger = {
+				can_create_diplomatic_pact = { target = scope:relevant_country type = embargo }
+			}
+			set_variable = anti_lobby_proposal_embargo
+		}
+		20 = { # Do a war
+			trigger = {
+				anti_lobby_war_valid_check = yes
+			}
+			set_variable = anti_lobby_proposal_war
+		}
+		20 = { # Leave Power Bloc
+			trigger = {
+				anti_lobby_leave_power_bloc_valid_check = yes
+			}
+			set_variable = anti_lobby_proposal_leave_power_bloc
+		}
+	}
+}
+
+clear_anti_lobby_vars = {
+	remove_variable = anti_lobby_proposal_break_alliance
+	remove_variable = anti_lobby_proposal_revoke_trade_privilege
+	remove_variable = anti_lobby_proposal_break_defensive_pact
+	remove_variable = anti_lobby_proposal_rivalry
+	remove_variable = anti_lobby_proposal_embargo
+	remove_variable = anti_lobby_proposal_war
+	remove_variable = anti_lobby_proposal_leave_power_bloc
+	remove_variable = anti_lobby_proposal_defensive_pact
+	remove_variable = anti_lobby_proposal_military_assistance
+	remove_variable = anti_lobby_proposal_alliance
+	remove_variable = anti_lobby_proposal_trade_privilege
+	remove_variable = anti_lobby_proposal_power_bloc
+	remove_variable = anti_lobby_proposal_power_bloc_invite
+	remove_variable = anti_lobby_proposal_investment_agreement
+	remove_variable = anti_lobby_opportunity_target
+	remove_variable = anti_lobby_demand_target
+}
+
+clear_pro_lobby_vars = {
+	remove_variable = pro_lobby_proposal_defensive_pact
+	remove_variable = pro_lobby_proposal_alliance
+	remove_variable = pro_lobby_proposal_trade_privilege
+	remove_variable = pro_lobby_proposal_power_bloc
+	remove_variable = pro_lobby_proposal_power_bloc_invite
+	remove_variable = pro_lobby_proposal_military_assistance
+	remove_variable = pro_lobby_proposal_investment_agreement
+	remove_variable = pro_lobby_proposal_break_alliance
+	remove_variable = pro_lobby_proposal_revoke_trade_privilege
+	remove_variable = pro_lobby_proposal_break_defensive_pact
+	remove_variable = pro_lobby_proposal_rivalry
+	remove_variable = pro_lobby_proposal_embargo
+	remove_variable = pro_lobby_proposal_war
+	remove_variable = pro_lobby_proposal_leave_power_bloc
+	remove_variable = pro_lobby_demand_target
+	remove_variable = pro_lobby_opportunity_target
+}
+
+generate_fascist_agitator = {
+	if = {
+		limit = {
+			has_dlc_feature = voice_of_the_people_content
+			game_date >= 1917.1.1
+			OR = {
+				always = no # vanilla ref 'c:BAV' not present in this mod
+				always = no # vanilla ref 'c:SGF' not present in this mod
+				always = no # vanilla ref 'c:GER' not present in this mod
+				always = no # Yes, Bolivia.
+			}
+		}
+		create_character = {
+			template = agitator_ernst_rohm
+		}
+	}
+	else_if = {
+		limit = {
+			has_dlc_feature = voice_of_the_people_content
+			game_date >= 1916.1.1
+			OR = {
+				always = no # vanilla ref 'c:HAN' not present in this mod
+				always = no # vanilla ref 'c:NGF' not present in this mod
+				always = no # vanilla ref 'c:GER' not present in this mod
+			}
+		}
+		create_character = {
+			template = agitator_alfred_hugenberg
+		}
+	}
+	else_if = {
+		limit = {
+			has_dlc_feature = voice_of_the_people_content
+			game_date >= 1922.1.1
+			OR = {
+				always = no # vanilla ref 'c:ITA' not present in this mod
+				AND = {
+					always = no # vanilla ref 'c:SIC' not present in this mod
+					NOT = { always = no } # vanilla ref 'c:ITA' not present in this mod 
+				}
+			}
+		}
+		create_character = {
+			template = agitator_giovanni_gentile
+		}
+	}
+	else_if = {
+		limit = {
+			has_dlc_feature = voice_of_the_people_content
+			game_date >= 1899.1.1
+			OR = {
+				always = no # vanilla ref 'c:ITA' not present in this mod
+				AND = {
+					always = no # vanilla ref 'c:SIC' not present in this mod
+					NOT = { always = no } # vanilla ref 'c:ITA' not present in this mod 
+				}
+			}
+		}
+		create_character = {
+			template = agitator_gabriele_d_annunzio
+		}
+	}
+	else_if = {
+		limit = {
+			has_dlc_feature = voice_of_the_people_content
+			game_date >= 1910.1.1
+			always = no # vanilla ref 'c:POR' not present in this mod
+		}
+		create_character = {
+			template = agitator_antonio_sardinha
+		}
+	}
+	else_if = {
+		limit = {
+			has_dlc_feature = voice_of_the_people_content
+			game_date >= 1907.1.1
+			always = no # vanilla ref 'c:GRE' not present in this mod
+		}
+		create_character = {
+			template = agitator_ion_dragoumis
+		}
+	}
+	else_if = {
+		limit = {
+			has_dlc_feature = ep1_content
+			game_date >= 1923.1.1
+			always = no # vanilla ref 'c:GBR' not present in this mod
+		}
+		create_character = {
+			template = GBR_rotha_lintorn-orman
+		}
+	}
+	else_if = {
+		limit = {
+			has_dlc_feature = rp1_content
+			game_date >= 1918.1.1
+			OR = {
+				always = no # vanilla ref 'c:CHL' not present in this mod
+				AND = {
+					always = no # vanilla ref 'c:FND' not present in this mod
+					any_scope_state = {
+						always = no # vanilla ref 's:STATE_SANTIAGO' not present in this mod
+					}
+				}
+				AND = {
+					always = no # vanilla ref 'c:PLT' not present in this mod
+					country_has_primary_culture = cu:alena
+					any_scope_state = {
+						always = no # vanilla ref 's:STATE_SANTIAGO' not present in this mod
+					}
+				}
+			}
+		}
+		create_character = {
+			template = CHL_joaquin_edwards_bello
+		}
+	}
+	else = {
+		custom_tooltip = {
+			text = fascist_agitator_appears_tt
+			create_character = {
+				culture = primary_culture
+				is_agitator = yes
+				interest_group = ig:ig_petty_bourgeoisie
+				ideology = ideology_fascist
+				traits = {
+					demagogue
+					basic_political_operator
+				}
+			}
+		}
+	}
+}
+
+add_small_indian_radicals = {
+		custom_tooltip = add_small_indian_radicals_third_tt
+	hidden_effect = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_south_asian
+			}
+			PREV = { # Should always be a country scope
+				add_radicals = {
+					value = small_radicals
+					culture = prev
+				}
+			}
+		}
+	}
+}
+
+add_medium_indian_radicals = {
+		custom_tooltip = add_medium_indian_radicals_third_tt
+	hidden_effect = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_south_asian
+			}
+			ROOT = {
+				add_radicals = {
+					value = medium_radicals
+					culture = prev
+				}
+			}
+		}
+	}
+}
+
+add_large_indian_radicals = {
+		custom_tooltip = add_large_indian_radicals_third_tt
+	hidden_effect = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_south_asian
+			}
+			ROOT = {
+				add_radicals = {
+					value = large_radicals
+					culture = prev
+				}
+			}
+		}
+	}
+}
+
+add_small_indian_loyalists = {
+		custom_tooltip = add_small_indian_loyalists_third_tt
+	hidden_effect = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_south_asian
+			}
+			ROOT = {
+				add_loyalists = {
+					value = small_radicals
+					culture = prev
+				}
+			}
+		}
+	}
+}
+
+add_medium_indian_loyalists = {
+		custom_tooltip = add_medium_indian_loyalists_third_tt
+	hidden_effect = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_south_asian
+			}
+			ROOT = {
+				add_loyalists = {
+					value = medium_radicals
+					culture = prev
+				}
+			}
+		}
+	}
+}
+
+add_large_indian_loyalists = {
+		custom_tooltip = add_large_indian_loyalists_third_tt
+	hidden_effect = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_south_asian
+			}
+			ROOT = {
+				add_loyalists = {
+					value = large_radicals
+					culture = prev
+				}
+			}
+		}
+	}
+}
+
+add_small_european_radicals = {
+	custom_tooltip = add_small_european_radicals_tt
+	hidden_effect = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_european
+			}
+			ROOT = {
+				add_radicals = {
+					value = small_radicals
+					culture = prev
+				}
+			}
+		}
+	}
+}
+
+add_medium_european_radicals = {
+	custom_tooltip = add_medium_european_radicals_tt
+	hidden_effect = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_european
+			}
+			ROOT = {
+				add_radicals = {
+					value = medium_radicals
+					culture = prev
+				}
+			}
+		}
+	}
+}
+
+add_large_european_radicals = {
+	custom_tooltip = add_large_european_radicals_tt
+	hidden_effect = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_european
+			}
+			ROOT = {
+				add_radicals = {
+					value = large_radicals
+					culture = prev
+				}
+			}
+		}
+	}
+}
+
+add_small_european_loyalists = {
+	custom_tooltip = add_small_european_loyalists_tt
+	hidden_effect = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_european
+			}
+			ROOT = {
+				add_loyalists = {
+					value = small_radicals
+					culture = prev
+				}
+			}
+		}
+	}
+}
+
+add_medium_european_loyalists = {
+	custom_tooltip = add_medium_european_loyalists_tt
+	hidden_effect = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_european
+			}
+			ROOT = {
+				add_loyalists = {
+					value = medium_radicals
+					culture = prev
+				}
+			}
+		}
+	}
+}
+
+add_large_european_loyalists = {
+	custom_tooltip = add_large_european_loyalists_tt
+	hidden_effect = {
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_european
+			}
+			ROOT = {
+				add_loyalists = {
+					value = large_radicals
+					culture = prev
+				}
+			}
+		}
+	}
+}
+
+collapse_india_effect = {
+	hidden_effect = { # Sensible prioritzed snatches
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_MADRAS' not present in this mod
+				}
+				NOT = {
+					always = no # vanilla ref 'c:CAR' not present in this mod
+				}
+			}
+			# removed (create_country: Invalid tag)
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_MANDALAY' not present in this mod
+				}
+				NOT = {
+					always = no # vanilla ref 'c:BUR' not present in this mod
+				}
+			}
+			# removed (create_country: Cannot create country without states or provinces)
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_GUJARAT' not present in this mod
+				}
+				always = no # blanked: vanilla ref 'c:BER' not present in this mod
+			}
+			# removed effect block: vanilla ref 's:STATE_GUJARAT' not present in this mod
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_TENASSERIM' not present in this mod
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						always = no # vanilla ref 'c:KRN' not present in this mod
+					}
+				}
+				# removed (create_country block, invalid vanilla reference)
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_TRAVANCORE' not present in this mod
+				}
+				OR = {
+					always = no # blanked: vanilla ref 'c:COC' not present in this mod
+					always = no # blanked: vanilla ref 'c:TRA' not present in this mod
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_CIRCARS' not present in this mod
+				}
+				always = no # blanked: vanilla ref 'c:HYD' not present in this mod
+			}
+			# removed effect block: vanilla ref 's:STATE_CIRCARS' not present in this mod
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_KURNOOL' not present in this mod
+				}
+				always = no # blanked: vanilla ref 'c:HYD' not present in this mod
+			}
+			# removed effect block: vanilla ref 's:STATE_KURNOOL' not present in this mod
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_DELHI' not present in this mod
+				}
+				always = no # blanked: vanilla ref 'c:MUG' not present in this mod
+			}
+			# removed effect block: vanilla ref 's:STATE_DELHI' not present in this mod
+		}
+		else_if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_DELHI' not present in this mod
+				}
+				NOT = {
+					always = no # vanilla ref 'c:MUG' not present in this mod
+				}
+			}
+			# removed (create_country block, invalid vanilla reference)
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_AGRA' not present in this mod
+				}
+				always = no # vanilla ref 'c:MUG' not present in this mod
+			}
+			# removed effect block: vanilla ref 's:STATE_AGRA' not present in this mod
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_AWADH' not present in this mod
+				}
+				NOT = {
+					always = no # vanilla ref 'c:AWA' not present in this mod
+				}
+			}
+			# removed (create_country block)
+		}
+		else_if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_AWADH' not present in this mod
+				}
+				always = no # vanilla ref 'c:MUG' not present in this mod
+			}
+			# removed effect block: vanilla ref 's:STATE_AWADH' not present in this mod
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_CENTRAL_PROVINCES' not present in this mod
+				}
+				always = no # blanked: vanilla ref 'c:NAG' not present in this mod
+			}
+			# removed effect block: vanilla ref 's:STATE_CENTRAL_PROVINCES' not present in this mod
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_BOMBAY' not present in this mod
+				}
+				always = no # blanked: vanilla ref 'c:SAT' not present in this mod
+			}
+			# removed effect block: vanilla ref 's:STATE_BOMBAY' not present in this mod
+		}
+		else_if = {
+			limit = {
+				any_scope_state = {
+					always = no # vanilla ref 's:STATE_BOMBAY' not present in this mod
+				}
+				always = no # blanked: vanilla ref 'c:KHP' not present in this mod
+			}
+			# removed effect block: vanilla ref 's:STATE_BOMBAY' not present in this mod
+		}
+	}
+	while = {
+		limit = {
+			any_scope_state = {
+				is_capital = no
+				NOR = {
+					state_region = {
+						always = no # was culture = cu:bengali (no mod analogue)
+					}
+					state_region = {
+						always = no # was culture = cu:bihari (no mod analogue)
+					}
+					always = no # vanilla ref 's:STATE_ARAKAN' not present in this mod
+				}
+				any_neighbouring_state = {
+					owner = {
+						OR = {
+							is_subject_of = ROOT
+							AND = {
+								is_subject_of = ROOT.top_overlord
+								NOT = {
+									this = root
+								}
+								any_scope_state = {
+									is_coastal = no
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_subject_of = ROOT
+					AND = {
+						is_subject_of = ROOT.top_overlord
+						NOT = {
+							this = root
+						}
+						any_scope_state = {
+							is_coastal = no
+						}
+					}
+				}
+				any_scope_state = {
+					any_neighbouring_state = {
+						is_capital = no
+						NOR = {
+							state_region = {
+								always = no # was culture = cu:bengali (no mod analogue)
+							}
+							state_region = {
+								always = no # was culture = cu:bihari (no mod analogue)
+							}
+							always = no # vanilla ref 's:STATE_ARAKAN' not present in this mod
+						}
+						owner = ROOT
+					}
+				}
+			}
+			save_scope_as = prince_scope
+			ROOT = {
+				random_scope_state = {
+					limit = {
+						is_capital = no
+						NOR = {
+							state_region = {
+								always = no # was culture = cu:bengali (no mod analogue)
+							}
+							state_region = {
+								always = no # was culture = cu:bihari (no mod analogue)
+							}
+							always = no # vanilla ref 's:STATE_ARAKAN' not present in this mod
+						}
+						any_neighbouring_state = {
+							scope:prince_scope ?= owner
+						}
+					}
+					set_state_owner = scope:prince_scope
+				}
+			}
+		}
+		clear_saved_scope = prince_scope
+	}
+	custom_tooltip = {
+		text = india_princes_independent_tt
+		every_country = {
+			limit = {
+				OR = {
+					is_subject_of = ROOT
+					AND = {
+						is_subject_of = ROOT.top_overlord
+						OR = {
+							any_scope_state = {
+								is_coastal = no
+							}
+							THIS = ROOT
+						}
+						OR = {
+							always = no # vanilla ref 'sr:region_south_india' not present in this mod
+							always = no # vanilla ref 'sr:region_north_india' not present in this mod
+						}
+					}
+				}
+			}
+			make_independent = yes
+			# removed effect block: vanilla ref 'c:GBR' not present in this mod
+		}
+	}
+}
+india_independence_ig_effects = {
+	show_as_tooltip = {
+		ig:ig_industrialists ?= {
+			set_interest_group_name = ig_industrialists
+		}
+		ig:ig_armed_forces ?= {
+			set_interest_group_name = ig_armed_forces
+		}
+	}
+	custom_tooltip = {
+		text = indian_igs_change_ideologies_tt
+		ig:ig_industrialists ?= {
+			set_interest_group_name = ig_industrialists
+			if = {
+				limit = {
+					has_ideology = ideology:ideology_colonialist
+				}
+				remove_ideology = ideology_colonialist
+				add_ideology = ideology_laissez_faire
+			}
+			if = {
+				limit = {
+					has_ideology = ideology:ideology_malthusian
+				}
+				remove_ideology = ideology_malthusian
+				add_ideology = ideology_individualist
+			}
+			if = {
+				limit = {
+					has_ideology = ideology:ideology_enclavist
+				}
+				remove_ideology = ideology_enclavist
+				add_ideology = ideology_plutocratic
+			}
+		}
+		ig:ig_armed_forces ?= {
+			set_interest_group_name = ig_armed_forces
+		}
+		ig:ig_petty_bourgeoisie ?= {
+			if = {
+				limit = {
+					has_ideology = ideology:ideology_sovereignist
+				}
+				remove_ideology = ideology_sovereignist
+				add_ideology = ideology_patriotic
+			}
+		}
+		ig:ig_devout ?= {
+			if = {
+				limit = {
+					owner = {
+						country_has_state_religion = rel:dawnfast
+					}
+				}
+				set_interest_group_name = ig_sunni_madrasahs
+				if = {
+					limit = {
+						has_ideology = ideology:ideology_hindu_moralist
+					}
+					remove_ideology = ideology_hindu_moralist
+				}
+				if = {
+					limit = {
+						has_ideology = ideology:ideology_hindu_moralist_british_india
+					}
+					remove_ideology = ideology_hindu_moralist_british_india
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_ideology = ideology:ideology_moralist
+						}
+					}
+					add_ideology = ideology_moralist
+				}
+			}
+			else_if = {
+				limit = {
+					owner = {
+						always = no # was religion = rel:hindu (no mod analogue)
+					}
+				}
+				if = {
+					limit = {
+						has_ideology = ideology:ideology_moralist
+					}
+					remove_ideology = ideology_moralist
+				}
+				if = {
+					limit = {
+						has_ideology = ideology:ideology_hindu_moralist_british_india
+					}
+					remove_ideology = ideology_hindu_moralist_british_india
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_ideology = ideology:ideology_hindu_moralist
+						}
+					}
+					add_ideology = ideology_hindu_moralist
+				}
+			}
+		}
+		state_religion_switch_effect = yes
+	}
+}
+
+state_religion_switch_effect = {
+	if = {
+		limit = {
+			NOT = {
+				has_law_or_variant = law_type:law_state_atheism
+			}
+		}
+		every_scope_character = {
+			limit = {
+				NOT = {
+					religion = owner.religion
+				}
+				has_ideology = ideology:ideology_traditionalist
+			}
+			set_ideology = ideology:ideology_traditionalist_minoritarian
+		}
+		every_scope_character = {
+			limit = {
+				religion = owner.religion
+				has_ideology = ideology:ideology_traditionalist_minoritarian
+			}
+			set_ideology = ideology:ideology_traditionalist
+		}
+	}
+}
+
+character_traditionalist_switch_effect = {
+	if = {
+		limit = {
+			NOT = {
+				religion = owner.religion
+			}
+			has_ideology = ideology:ideology_traditionalist
+		}
+		set_ideology = ideology:ideology_traditionalist_minoritarian
+	}
+	if = {
+		limit = {
+			religion = owner.religion
+			has_ideology = ideology:ideology_traditionalist_minoritarian
+		}
+		set_ideology = ideology:ideology_traditionalist
+	}
+}
+
+character_carlist_or_legitimist_switch_effect = { # Run in character scope
+}
+
+free_from_exile_effect = {
+	remove_modifier = in_exile_modifier
+	character_traditionalist_switch_effect = yes
+	character_carlist_or_legitimist_switch_effect = yes
+}
+
+grant_indian_cultures = {
+	# removed effect line: was culture = cu:bengali (no mod analogue)
+	# removed effect line: was culture = cu:assamese (no mod analogue)
+	# removed effect line: was culture = cu:avadhi (no mod analogue)
+	# removed effect line: was culture = cu:bihari (no mod analogue)
+	# removed effect line: was culture = cu:gujarati (no mod analogue)
+	# removed effect line: was culture = cu:kannada (no mod analogue)
+	# removed effect line: was culture = cu:malayalam (no mod analogue)
+	# removed effect line: was culture = cu:marathi (no mod analogue)
+	# removed effect line: was culture = cu:oriya (no mod analogue)
+	# removed effect line: was culture = cu:panjabi (no mod analogue)
+	# removed effect line: was culture = cu:rajput (no mod analogue)
+	# removed effect line: was culture = cu:sindi (no mod analogue)
+	# removed effect line: was culture = cu:tamil (no mod analogue)
+	# removed effect line: was culture = cu:telegu (no mod analogue)
+}
+
+grant_indian_regional_cultures = {
+	every_scope_state = {
+		limit = {
+			state_is_homeland_of_indian_cultures = yes
+		}
+		every_scope_culture = {
+			limit = {
+				has_discrimination_trait_group = heritage_group_south_asian
+				has_homeland = prev
+				NOT = {
+					is_primary_culture_of = prev.owner
+				}
+			}
+			prev.owner = {
+				add_primary_culture = prev
+			}
+		}
+	}
+}
+
+india_bengal_stability_decrease_10 = {
+	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
+}
+
+india_bombay_stability_decrease_10 = {
+	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
+}
+
+india_madras_stability_decrease_10 = {
+	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
+}
+
+india_bengal_stability_increase_10 = {
+	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
+}
+
+india_bombay_stability_increase_10 = {
+	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
+}
+
+india_madras_stability_increase_10 = {
+	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
+}
+
+india_stability_increase_10 = {
+	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
+}
+
+india_stability_decrease_10 = {
+	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
+}
+
+india_increase_princely_state_liberty_desire_10 = {
+	every_princely_state = {
+		add_liberty_desire = 10
+	}
+}
+
+india_decrease_princely_state_liberty_desire_10 = {
+	every_princely_state = {
+		add_liberty_desire = -10
+	}
+}
+
+india_increase_random_princely_state_liberty_desire_10 = {
+	random_princely_state = {
+		add_liberty_desire = 10
+	}
+}
+
+india_decrease_random_princely_state_liberty_desire_10 = {
+	random_princely_state = {
+		add_liberty_desire = -10
+	}
+}

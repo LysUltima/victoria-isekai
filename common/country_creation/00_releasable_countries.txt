@@ -1,0 +1,47 @@
+﻿DSC = { # Qattara
+	use_culture_states = yes
+
+	ai_will_do = { always = no }
+}
+
+ALT = { # Alta
+	use_culture_states = yes
+
+	ai_will_do = { always = no }
+}
+
+AHD = { # Ashencorn -- releasable via explicit states (horned_demon)
+	states = { STATE_SICUT_LACRIMAE STATE_FUGIT_TEMPUS STATE_IN_SILENTIO }
+
+	ai_will_do = { always = no }
+}
+
+DUS = { # Duskmarch -- releasable via explicit states (horned_demon)
+	states = { STATE_LATENT_VIAE STATE_TREMIT_LUMEN }
+
+	ai_will_do = { always = no }
+}
+
+VEI = { # Veilwing -- releasable via explicit states (winged_demon)
+	states = { STATE_LATENT_VIAE STATE_LUCENT_UMBRAE STATE_SOMNIA_NOCTIS STATE_CEU_ARDENT STATE_EX_TENEBRIS }
+
+	ai_will_do = { always = no }
+}
+
+RUI = { # Ruinreach -- releasable via explicit states (winged_demon)
+	states = { STATE_NE_PEREANT STATE_ADHUC_CANTAVI STATE_RESTAT_VOX STATE_QUAE_AMAVI STATE_ASTRORUM }
+
+	ai_will_do = { always = no }
+}
+
+NOX = { # Noxhold -- releasable via explicit states (shadow_demon)
+	states = { STATE_TREMIT_LUMEN STATE_IN_SPECULA STATE_LUMINA_FRACTA STATE_RUINA STATE_EX_CAELO STATE_CADUNT_STELLAE }
+
+	ai_will_do = { always = no }
+}
+
+VOI = { # Voidmarch -- releasable via explicit states (shadow_demon)
+	states = { STATE_ASTRORUM STATE_RUIT_SPES STATE_QUAE_AMAVI STATE_CONNELAND STATE_GARLEHOLD STATE_BLADEWASTE }
+
+	ai_will_do = { always = no }
+}

@@ -1,0 +1,114 @@
+﻿POPS = {
+    s:STATE_HWASAN = {
+        region_state:HWA = {
+            create_pop = {
+                culture = mae
+                size = 1850000
+            }
+        }
+    }
+    s:STATE_SUNGSAN = {
+        region_state:SOR = {
+            create_pop = {
+                culture = mae
+                size = 2570000
+            }
+        }
+    }
+    s:STATE_HOBUK = {
+        region_state:PAE = {
+            create_pop = {
+                culture = mae
+                size = 3130000
+            }
+            create_pop = {
+                culture = bearkin
+                size = 145900
+            }
+        }
+    }
+    s:STATE_HONAM = {
+        region_state:SAM = {
+            create_pop = {
+                culture = mae
+                size = 2675000
+            }
+        }
+    }
+    s:STATE_MUDANGSAN = {
+        region_state:MUD = {
+            create_pop = {
+                culture = mae
+                size = 1905000
+            }
+        }
+    }
+    s:STATE_YANGJU = {
+        region_state:JEG = {
+            create_pop = {
+                culture = mae
+                size = 4704000
+            }
+        }
+    }
+    s:STATE_SACHEON = {
+        region_state:TAN = {
+            create_pop = {
+                culture = mae
+                size = 4012000
+            }
+        }
+    }
+    s:STATE_NAMWON = {
+        region_state:NAM = {
+            create_pop = {
+                culture = mae
+                size = 4224000
+            }
+        }
+    }
+    s:STATE_MAGYEONG = {
+        region_state:CHE = {
+            create_pop = {
+                culture = mae
+                size = 4568000
+            }
+        }
+    }
+    s:STATE_CHEONSEONG = {
+        region_state:CHE = {
+            create_pop = {
+                culture = mae
+                size = 3000000
+            }
+        }
+    }
+    s:STATE_BAEKHWA = {
+        region_state:CHE = {
+            create_pop = {
+                culture = mae
+                size = 1450000
+            }
+            create_pop = {
+                culture = tong
+                size = 86900
+            }
+        }
+    }
+    s:STATE_GYEONGGI = {
+        region_state:CHE = {
+            create_pop = {
+                culture = mae
+                size = 3264000
+            }
+        }
+    }
+    s:STATE_SEOLDO = {
+        region_state:CHE = {
+            create_pop = {
+                culture = mae
+                size = 2350000
+            }
+        }
+    }
+}

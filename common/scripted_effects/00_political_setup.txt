@@ -1,0 +1,281 @@
+﻿effect_starting_politics_liberal = {
+	effect_starting_rights_of_women = yes
+	if = {
+		limit = { has_technology_researched = democracy }
+		activate_law = law_type:law_presidential_republic
+	}
+	else = {
+		activate_law = law_type:law_monarchy
+	}
+	if = {
+		limit = { has_technology_researched = empiricism }
+		activate_law = law_type:law_total_separation
+	}
+	else = {
+		activate_law = law_type:law_freedom_of_conscience
+	}
+	activate_law = law_type:law_right_of_assembly
+	activate_law = law_type:law_census_voting
+	activate_law = law_type:law_per_capita_based_taxation
+	activate_law = law_type:law_appointed_bureaucrats
+	activate_law = law_type:law_private_schools
+	activate_law = law_type:law_no_workers_rights
+	activate_law = law_type:law_interventionism
+	activate_law = law_type:law_mercantilism
+	activate_law = law_type:law_racial_segregation
+	activate_law = law_type:law_professional_army
+	activate_law = law_type:law_no_migration_controls
+	activate_law = law_type:law_peasant_proprietorship
+	activate_law = law_type:law_anti_strike_laws
+}
+
+effect_starting_politics_conservative = {
+	effect_starting_rights_of_women = yes
+	activate_law = law_type:law_monarchy
+	activate_law = law_type:law_state_religion
+	activate_law = law_type:law_oligarchy
+	activate_law = law_type:law_appointed_bureaucrats
+	activate_law = law_type:law_religious_schools
+	activate_law = law_type:law_local_police
+	activate_law = law_type:law_per_capita_based_taxation
+	activate_law = law_type:law_national_supremacy
+	activate_law = law_type:law_interventionism
+	activate_law = law_type:law_mercantilism
+	activate_law = law_type:law_no_workers_rights
+	if = {
+		limit = { has_technology_researched = law_enforcement }
+		activate_law = law_type:law_censorship
+	}
+	else = {
+		activate_law = law_type:law_right_of_assembly
+	}
+	activate_law = law_type:law_migration_controls
+	activate_law = law_type:law_professional_army
+	activate_law = law_type:law_tenant_farmers
+	activate_law = law_type:law_combination_acts
+}
+
+effect_starting_politics_reactionary = {
+	effect_starting_rights_of_women = yes
+	activate_law = law_type:law_monarchy
+	activate_law = law_type:law_state_religion
+	activate_law = law_type:law_autocracy
+	activate_law = law_type:law_per_capita_based_taxation
+	activate_law = law_type:law_local_police
+	activate_law = law_type:law_hereditary_bureaucrats
+	activate_law = law_type:law_subjecthood
+	activate_law = law_type:law_interventionism
+	activate_law = law_type:law_mercantilism
+	activate_law = law_type:law_no_workers_rights
+	if = {
+		limit = { has_technology_researched = law_enforcement }
+		activate_law = law_type:law_censorship
+	}
+	else = {
+		activate_law = law_type:law_right_of_assembly
+	}
+	activate_law = law_type:law_professional_army
+	activate_law = law_type:law_migration_controls
+	activate_law = law_type:law_professional_army
+	activate_law = law_type:law_tenant_farmers
+	activate_law = law_type:law_guild_system
+}
+
+# Cultivation sects: the state is the sect.
+effect_starting_politics_sect = {
+	effect_starting_rights_of_women = yes
+	activate_law = law_type:law_martial_sect
+	activate_law = law_type:law_state_religion
+	activate_law = law_type:law_oligarchy
+	activate_law = law_type:law_hereditary_bureaucrats
+	activate_law = law_type:law_national_supremacy
+	activate_law = law_type:law_traditionalism
+	activate_law = law_type:law_land_based_taxation
+	activate_law = law_type:law_mercantilism
+	activate_law = law_type:law_serfdom
+	activate_law = law_type:law_right_of_assembly
+	activate_law = law_type:law_closed_borders
+	activate_law = law_type:law_no_workers_rights
+	if = {
+		limit = { country_has_primary_culture = cu:sakura }
+		activate_law = law_type:law_warrior_caste
+	}
+	else = {
+		activate_law = law_type:law_professional_army
+	}
+	activate_law = law_type:law_guild_system
+}
+
+# The Academy charter: the state is a school, the faculty govern, the Dean presides.
+# ACA only (law_academy is an ACA-gated variant law). Saint Christine's is secular.
+effect_starting_politics_academy = {
+	effect_starting_rights_of_women = yes
+	activate_law = law_type:law_academy
+	if = {
+		limit = { has_technology_researched = central_archives }
+		activate_law = law_type:law_technocracy
+	}
+	else = {
+		activate_law = law_type:law_oligarchy
+	}
+	# No altar holds a chair at Saint Christine's.
+	if = {
+		limit = { has_technology_researched = empiricism }
+		activate_law = law_type:law_total_separation
+	}
+	else = {
+		activate_law = law_type:law_freedom_of_conscience
+	}
+	if = {
+		limit = { has_technology_researched = empiricism }
+		activate_law = law_type:law_public_schools
+	}
+	else = {
+		activate_law = law_type:law_private_schools
+	}
+	activate_law = law_type:law_appointed_bureaucrats
+	activate_law = law_type:law_right_of_assembly
+	activate_law = law_type:law_per_capita_based_taxation
+	activate_law = law_type:law_interventionism
+	activate_law = law_type:law_mercantilism
+	activate_law = law_type:law_racial_segregation
+	activate_law = law_type:law_no_workers_rights
+	activate_law = law_type:law_professional_army
+	activate_law = law_type:law_no_migration_controls
+	activate_law = law_type:law_peasant_proprietorship
+	activate_law = law_type:law_anti_strike_laws
+}
+
+# Traditional republic
+effect_starting_politics_republic = {
+	effect_starting_rights_of_women = yes
+	if = {
+		limit = { has_technology_researched = democracy }
+		activate_law = law_type:law_presidential_republic
+	}
+	else = {
+		activate_law = law_type:law_monarchy
+	}
+	activate_law = law_type:law_state_religion
+	activate_law = law_type:law_oligarchy
+	activate_law = law_type:law_hereditary_bureaucrats
+	activate_law = law_type:law_national_supremacy
+	activate_law = law_type:law_traditionalism
+	activate_law = law_type:law_land_based_taxation
+	activate_law = law_type:law_mercantilism
+	activate_law = law_type:law_tenant_farmers
+	activate_law = law_type:law_right_of_assembly
+	activate_law = law_type:law_no_migration_controls
+	activate_law = law_type:law_no_workers_rights
+	if = {
+		limit = { has_technology_researched = mandatory_service }
+		activate_law = law_type:law_national_militia
+	}
+	else_if = {
+		limit = { country_has_primary_culture = cu:sakura }
+		activate_law = law_type:law_warrior_caste
+	}
+	else = {
+		activate_law = law_type:law_peasant_levies
+	}
+	activate_law = law_type:law_guild_system
+}
+
+# Pirate republic
+effect_starting_politics_pirate = {
+	effect_starting_rights_of_women = yes
+	if = {
+		limit = { has_technology_researched = democracy }
+		activate_law = law_type:law_presidential_republic
+	}
+	else = {
+		activate_law = law_type:law_monarchy
+	}
+	if = {
+		limit = { has_technology_researched = empiricism }
+		activate_law = law_type:law_total_separation
+	}
+	else = {
+		activate_law = law_type:law_state_religion
+	}
+	activate_law = law_type:law_oligarchy
+	activate_law = law_type:law_hereditary_bureaucrats
+	activate_law = law_type:law_national_supremacy
+	activate_law = law_type:law_traditionalism
+	activate_law = law_type:law_land_based_taxation
+	activate_law = law_type:law_mercantilism
+	activate_law = law_type:law_tenant_farmers
+	activate_law = law_type:law_right_of_assembly
+	activate_law = law_type:law_no_migration_controls
+	activate_law = law_type:law_no_workers_rights
+	if = {
+		limit = { has_technology_researched = mandatory_service }
+		activate_law = law_type:law_national_militia
+	}
+	else_if = {
+		limit = { country_has_primary_culture = cu:sakura }
+		activate_law = law_type:law_warrior_caste
+	}
+	else = {
+		activate_law = law_type:law_peasant_levies
+	}
+	activate_law = law_type:law_guild_system
+}
+
+
+effect_starting_politics_traditional = {
+	effect_starting_rights_of_women = yes
+	activate_law = law_type:law_state_religion
+	activate_law = law_type:law_autocracy
+	activate_law = law_type:law_hereditary_bureaucrats
+	activate_law = law_type:law_subjecthood
+	activate_law = law_type:law_traditionalism
+	activate_law = law_type:law_right_of_assembly
+	if = {
+		limit = { country_has_primary_culture = cu:sakura }
+		activate_law = law_type:law_warrior_caste
+	}
+	else = {
+		activate_law = law_type:law_peasant_levies
+	}
+	activate_law = law_type:law_closed_borders
+	activate_law = law_type:law_guild_system
+	if = {
+		limit = {
+			is_country_type = decentralized
+		}
+		activate_law = law_type:law_chiefdom
+		activate_law = law_type:law_consumption_based_taxation
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_consumption_based_taxation
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_no_workers_rights
+	}
+	else = {
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_no_workers_rights
+	}
+}
+# Rights of Women: matriarchal peoples (dark elves and all beastfolk) start on the
+# matriarchal branch of the law group; everyone else starts on the regular line.
+effect_starting_rights_of_women = {
+	if = {
+		limit = {
+			any_primary_culture = {
+				ova_culture_is_matriarchal = yes
+			}
+		}
+		activate_law = law_type:law_matriarchy
+	}
+	else = {
+		activate_law = law_type:law_no_womens_rights
+	}
+}

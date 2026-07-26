@@ -1,0 +1,224 @@
+﻿l_english:
+  # --- AI strategy: diplomatic play support tooltips
+  ova_murim_support_fellow_sect_vs_cult: "Sworn Alliance against the Heavenly Demon Cult"
+  ova_murim_support_vs_cult: "Any banner raised against the Heavenly Demon Cult"
+  # --- Journal entries: war banners
+  je_ova_murim_heavenly_demon: "The Heavenly Demon Rises"
+  je_ova_murim_heavenly_demon_reason: "Beyond the northern passes the Heavenly Demon Sect (천마신교) drills its faithful in demonic arts the Orthodox sects have named heresy for three hundred years. The Heavenly Demon himself is ageless, unhurried, and has watched the eight banners of the south for longer than any of their patriarchs have lived. This is [concept_ova_murim_war]: the Cult wins by breaking six of the eight sects, or by holding five of their eight mountain seats, whichever comes first."
+  je_ova_murim_heavenly_demon_status: "The eight Orthodox banners still stand. The Heavenly Demon counts them again, and waits."
+  ova_murim_cult_victory_tt: "Five of the eight sect capitals are ours, or six of the eight sects have been destroyed or brought under our yoke"
+  ova_murim_cult_subjugated_tt: "We ourselves have bowed to another power"
+
+  je_ova_murim_alliance_banner: "The Banner of the Alliance"
+  je_ova_murim_alliance_banner_reason: "Hwasan leads the Orthodox Martial Alliance, the compact binding all eight sects against the Heavenly Demon Sect. The [concept_ova_murim_war] is not won by one sect alone: while it is undecided, an unbreakable oath locks the Alliance together no matter how cohesion would otherwise drift. The oath ends only when the Cult falls, or when the murim itself falls to it."
+  je_ova_murim_alliance_banner_status: "Hwasan holds the banner. The Alliance stands while the war of the murim remains undecided."
+  ova_murim_alliance_victory_tt: "The Heavenly Demon Sect no longer exists, or has bowed to another power"
+  ova_murim_cult_victory_other_tt: "The Cult has mastered the murim, or we ourselves have bowed to a power outside the Alliance"
+
+  je_ova_murim_sect_banner: "A Sect Among the Eight"
+  je_ova_murim_sect_banner_reason: "Our sect is one of the eight banners of the Orthodox Martial Alliance, bound by Hwasan's oath against the Heavenly Demon Sect. We need not lead the [concept_ova_murim_war] to help win it. Every duel, every purged spy, every manual recovered from the jianghu brings the day of the Cult's fall a little closer."
+  je_ova_murim_sect_banner_status: "The eight banners hold together. Our sect plays its part in the war of the murim."
+
+  # --- Journal entries: the strange disciple (Kang Jin-woo)
+  je_ova_murim_returner_1: "The Strange Disciple"
+  je_ova_murim_returner_1_reason: "A boy knelt at our gate for three days and would not leave. He is [concept_ova_returner]: uncannily perceptive, impossibly well-informed, forever a step ahead of everyone around him. He names people he has never met, warns of disasters no cloud yet promises, and speaks of the Heavenly Demon Sect as though he has walked its halls. No one can explain how he knows what he knows, and he will not say. The whole jianghu has begun to repeat his name."
+  je_ova_murim_returner_1_complete_tt: "The tale of his first years is told, and he has risen to the First-Rate rank"
+
+  # --- The Eight Banners arc: his own house, courted first
+  je_ova_murim_ally_home: "His Own House"
+  je_ova_murim_ally_home_reason: "Before any other banner will follow a strange boy with no lineage, the house that took him in must believe in him first. Build and fully staff a Champion Hall so his art has a home, and win the trust of the one his own house holds dearest: the young mistress of a clan, or the senior disciple of a sect. Every choice made here is watched by the elders who fed him. Choose selflessly, and his house is his forever; choose himself over it even once, and no ending will ever be clean."
+  je_ova_murim_ally_home_sworn_tt: "The heart of his own house has sworn to him"
+  je_ova_murim_ally_home_hall_tt: "A Champion Hall stands with all three of its wings staffed"
+  je_ova_murim_ally_home_fail_tt: "The strange disciple has died, the Cult has mastered the murim, or his own house has turned from him"
+
+  # --- The Eight Banners arc (je_ova_murim_ally_*, one JE per courted banner)
+  je_ova_murim_ally_sor: "The Iron Monk of Sorim"
+  je_ova_murim_ally_sor_reason: "Sorim's warrior monks answer to no banner but their own bell. But the strange disciple speaks of a monk who will die holding a burning gate alone unless someone reaches him first, and he means to be that someone. Win Seok Hye-gang's sworn brotherhood, keep Sorim's warm regard, and raise an army worth standing beside (at least 15 battalions), for the monks bow to no banner that cannot hold its own gate. A single selfish choice will lose them for good."
+  je_ova_murim_ally_sor_sworn_tt: "Seok Hye-gang has sworn brotherhood"
+  je_ova_murim_ally_sor_relations_tt: "Sorim regards us warmly (Relations at least 50)"
+  je_ova_murim_ally_sor_objective_tt: "We field an army of at least 15 battalions"
+
+  je_ova_murim_ally_pae: "The Saber of Paeng"
+  je_ova_murim_ally_pae_reason: "The Paeng of Hobuk respect exactly two things: a good saber and a better rearguard, and their heiress, the She-Bear of Hobuk, has both. The strange disciple means to reach her before the bridge that would have taken her. Win Paeng Ha-ran's heart, keep the Paeng's warm regard, and stage the Hobuk Saber Trials in their honor (decision). A single selfish choice will lose them for good."
+  je_ova_murim_ally_pae_sworn_tt: "Paeng Ha-ran has pledged herself"
+  je_ova_murim_ally_pae_relations_tt: "The Paeng regard us warmly (Relations at least 50)"
+  je_ova_murim_ally_pae_objective_tt: "We have staged the Hobuk Saber Trials (decision)"
+
+  je_ova_murim_ally_tan: "The Poison Maiden of Tang"
+  je_ova_murim_ally_tan_reason: "The Tang clan measures trust in shared antidotes, and it trusts no one. But the strange disciple knows formulas their great fire took from them, and the clan's sharpest daughter is already suspicious of how politely he drinks poison. Win Tang So-yeol's regard, keep the Tang's warm regard, and recover the lost Tang fire formulas for the clan (decision). A single selfish choice will lose them for good."
+  je_ova_murim_ally_tan_sworn_tt: "Tang So-yeol has moved her jars into the household"
+  je_ova_murim_ally_tan_relations_tt: "The Tang regard us warmly (Relations at least 50)"
+  je_ova_murim_ally_tan_objective_tt: "We have recovered the lost Tang fire formulas (decision)"
+
+  je_ova_murim_ally_nam: "The Pride of Namgung"
+  je_ova_murim_ally_nam_reason: "The Namgung wield the imperial sword and the pride to match it, and their young mistress has issued a formal writ of challenge. Win Namgung Wol-hee, keep the Namgung's warm regard, and rise to the Peak Realm yourself (Level 30), for the clan of the imperial sword bows to no blade below it. A single selfish choice will lose them for good."
+  je_ova_murim_ally_nam_sworn_tt: "Namgung Wol-hee has bowed once, and pledged herself"
+  je_ova_murim_ally_nam_relations_tt: "The Namgung regard us warmly (Relations at least 50)"
+  je_ova_murim_ally_nam_objective_tt: "The strange disciple stands in the Peak Realm (Level 30)"
+
+  je_ova_murim_ally_jeg: "The Strategist of Jegal"
+  je_ova_murim_ally_jeg_reason: "The Jegal fight their wars on paper, years before anyone else knows there is a war. Their prodigy has nineteen questions about the strange disciple and one more she is saving. Win Jegal Seo-yeon to the household board, keep the Jegal's warm regard, and raise an archive worth her time (two levels of Universities in our lands). A single selfish choice will lose them for good."
+  je_ova_murim_ally_jeg_sworn_tt: "Jegal Seo-yeon has chosen the household board"
+  je_ova_murim_ally_jeg_relations_tt: "The Jegal regard us warmly (Relations at least 50)"
+  je_ova_murim_ally_jeg_objective_tt: "We have raised at least two levels of Universities"
+
+  je_ova_murim_ally_mud: "The Priestess of Mudang"
+  je_ova_murim_ally_mud_reason: "Mudang reads the threads of fate from its mountain shrine, and its finest reader has spent a year following one that should not exist. Win Wi Cheong-ha's trust, keep Mudang's warm regard, and endow the mountain shrine in the household's name (decision). A single selfish choice will lose them for good."
+  je_ova_murim_ally_mud_sworn_tt: "Wi Cheong-ha has come down the mountain to the household"
+  je_ova_murim_ally_mud_relations_tt: "Mudang regards us warmly (Relations at least 50)"
+  je_ova_murim_ally_mud_objective_tt: "We have endowed the mountain shrine of Mudang (decision)"
+
+  je_ova_murim_ally_sam: "The Broker of Sama"
+  je_ova_murim_ally_sam_reason: "The Sama sell everything, and their sharpest broker knows the strange disciple's whole secret is worth more unsold. Win Sama Ryeon and her three hundred listening posts, keep the Sama's warm regard, and settle every debt in her ledger in gold (decision). A single selfish choice will lose them for good."
+  je_ova_murim_ally_sam_sworn_tt: "Sama Ryeon has closed her ledger and joined the household"
+  je_ova_murim_ally_sam_relations_tt: "The Sama regard us warmly (Relations at least 50)"
+  je_ova_murim_ally_sam_objective_tt: "We have settled every debt in the Sama ledger (decision)"
+
+  je_ova_murim_ally_hwa: "The Sword Saintess of Hwasan"
+  je_ova_murim_ally_hwa_reason: "Hwasan teaches that the plum blossom sword blooms when the heart is true, and its saintess has crossed blades with a man whose sword made the old shrine tree flower out of season. Win Yeon Seol-mae's heart, keep Hwasan's warm regard, and raise an army of at least 15 battalions, for the oldest banner will not lean on a house that cannot hold its own wall. A single selfish choice will lose them for good."
+  je_ova_murim_ally_hwa_sworn_tt: "Yeon Seol-mae has left the mountain for the household"
+  je_ova_murim_ally_hwa_relations_tt: "Hwasan regards us warmly (Relations at least 50)"
+  je_ova_murim_ally_hwa_objective_tt: "We field an army of at least 15 battalions"
+
+  je_ova_murim_ally_fail_tt: "The strange disciple has died, the Cult has mastered the murim, this banner is beyond courting, or a selfish choice has lost it"
+
+  # --- The endgame journal entries
+  je_ova_murim_final_battle: "The Last Road North"
+  je_ova_murim_final_battle_reason: "The old master is dead, the mountain is his, and the banners he befriended fly beside his own. Only one debt remains, and it runs north. Send the strange disciple at the head of a champion expedition into the Heavenly Demon Sect's own lands: the moment his blade reaches the Demon Mountain, the war of the murim will end at its summit, the way every telling always said it would. A hall that believed in him has earned this ending, and he means to keep faith with it."
+  je_ova_murim_final_battle_complete_tt: "The Heavenly Demon has fallen to his blade, or the Cult has been broken"
+  je_ova_murim_war_conference: "The War Conference"
+  je_ova_murim_war_conference_reason: "The old master is dead and the seat is his, taken because no one left in the hall could stop him. The mountain will not open its gate to a man it did not choose, so the mountain must be taken the long way. Raise an army worthy of the Reckoning (at least 30 battalions) while the council draws its maps, unmasks its traitor, and reads the letter that comes in a hand no one at the table has ever seen. When the army stands ready, the Reckoning begins."
+  je_ova_murim_war_conference_army_tt: "We field an army of at least 30 battalions"
+  je_ova_murim_war_conference_council_tt: "The war council has run its course"
+  je_ova_murim_reckoning: "The Reckoning"
+  je_ova_murim_reckoning_reason: "The Reckoning is declared: the strange disciple's host and its banners against the Heavenly Demon Sect, mirrored goals and no quarter, the way the first war of the murim was always going to end. Break the Cult and its five mountains give up their dead, the great orthodox sects it destroyed generations ago rising again from the ruins it built over them; lose, and the mountain takes the murim after all. There is no negotiated peace on this table. One house will own the other."
+  je_ova_murim_reckoning_complete_tt: "The Heavenly Demon Sect has been broken"
+  je_ova_murim_reckoning_fail_tt: "The strange disciple has died, the Cult has mastered the murim, or we ourselves have bowed to another power"
+
+  je_ova_murim_returner_fail_tt: "The strange disciple has died, or the Cult has mastered the murim"
+  je_ova_murim_returner_dead_tt: "The strange disciple has died. His tale ends here."
+
+  # --- Realm status (feeds status_desc on the Returner chain - no apostrophes)
+  je_ova_murim_realm_none: "No champion of ours yet walks the jianghu."
+  je_ova_murim_realm_third_rate: "[ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName] holds only the Third-Rate rank of the murim, one blade among ten thousand nobodies."
+  je_ova_murim_realm_second_rate: "[ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName] has reached the Second-Rate rank, a blade the outer halls now notice."
+  je_ova_murim_realm_first_rate: "[ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName] has reached the First-Rate rank, a name the jianghu now repeats."
+  je_ova_murim_realm_peak: "[ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName] has reached the Peak Realm, feared across all eight sects."
+  je_ova_murim_realm_profound: "[ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName] has entered the Profound Realm (Hwagyeong), a master among masters."
+  je_ova_murim_realm_life_death: "[ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName] stands in the Life-and-Death Realm (Saengsagyeong), a legend the murim will not soon forget."
+
+  # --- Decisions
+  ova_murim_seek_lost_manual_decision: "Seek a Lost Manual"
+  ova_murim_seek_lost_manual_decision_desc: "Send our champion into the jianghu to hunt down a technique manual lost to some forgotten master's tomb, waterfall cache, or bandit hoard. A find of true worth teaches secrets no dojo can; a false lead can cost a season's worth of qi in a single deviation."
+  ova_murim_grand_tournament_decision: "Host the Grand Martial Tournament"
+  ova_murim_grand_tournament_decision_desc: "Throw open our gates and summon every sect, wandering blade, and hungry upstart in the murim to compete for glory and coin. It costs a season's treasury to stage properly, but a well-run tournament is remembered for a generation."
+  ova_murim_purge_cult_spies_decision: "Purge Cult Spies"
+  ova_murim_purge_cult_spies_decision_desc: "The Heavenly Demon Sect plants ears in every outer hall it can reach. A thorough purge of the servants' quarters and outer disciples roots out what listeners we can find, at the cost of some unrest among those who resent being suspected."
+  ova_murim_saber_trials_decision: "Stage the Hobuk Saber Trials"
+  ova_murim_saber_trials_decision_desc: "Throw open the training yards and summon every saber in Hobuk to compete before the Paeng clan, the strange disciple standing among the judges. It is exactly the honor the She-Bear's house respects, and it costs a season's treasury to stage as the Paeng would expect."
+  ova_murim_saber_trials_cost_tt: "Costs #v £100,000#!"
+  ova_murim_fire_formulas_decision: "Recover the Tang Fire Formulas"
+  ova_murim_fire_formulas_decision_desc: "The Tang lost the formula for their great alchemical fire a generation ago, to a blaze the clan does not discuss. The strange disciple knows where the last copy went. Retrieving it from behind the clan's own poison arrays is no work for a novice, and repays the Tang a debt no coin could."
+  ova_murim_fire_formulas_level_tt: "The strange disciple must have reached the Second-Rate rank (Level 10)"
+  ova_murim_shrine_endowment_decision: "Endow the Shrine of Mudang"
+  ova_murim_shrine_endowment_decision_desc: "Pay for the mountain shrine's rebuilding, its rites, and its winter stores, all in the household's name. Mudang reads such generosity as an alignment of fates rather than a mere gift; it costs a season's treasury regardless of what the priestesses choose to call it."
+  ova_murim_shrine_endowment_cost_tt: "Costs #v £100,000#!"
+  ova_murim_sama_ledger_decision: "Settle the Sama Ledger"
+  ova_murim_sama_ledger_decision_desc: "Buy out every debt Sama Ryeon's web has ever recorded against the household and its friends, and pay them off in gold. The Sama respect exactly one currency more than information, and it is a debt honored in full. A full year's treasury buys her network's undivided loyalty."
+  ova_murim_sama_ledger_cost_tt: "Costs #v £200,000#!"
+
+  # --- Game concepts
+  concept_ova_returner: "The Uncanny Prodigy"
+  concept_ova_returner_desc: "A [concept_ova_champion] who seems to already know how every story ends. He reads people and events as though he has seen them before, names strangers and disasters with quiet certainty, and is forever a step ahead of the whole jianghu. No one can explain his gift, and he will not try. His death ends the tale."
+  concept_ova_gangho: "Gangho"
+  concept_ova_gangho_desc: "강호, \"the rivers and lakes\": the wandering martial underworld beneath the war of sects and banners, duels fought for pride, manuals traded and forged, escorts hired and ambushed, teahouse rumor that outruns any courier. Gangho outings share the champion's adventuring cooldown with the foundation's own hinterland hunts."
+  concept_ova_murim_war: "The War of the Murim"
+  concept_ova_murim_war_desc: "The struggle between the Heavenly Demon Sect and the Orthodox Martial Alliance for mastery of the murim. The Cult wins by destroying or subjugating six of the eight Alliance sects, or by holding five of their eight mountain capitals. Banners that bow within the family, the sworn marches of the Eight Banners arc, still count as standing. The Alliance (or any one of its sects, fighting alone if it must) wins when the Cult ceases to exist or is subjugated."
+
+  # --- The Reckoning war (murim endgame). Sworn banners become vanilla PUPPETS
+  # (subject_type_puppet); the "sworn march / oathbound banner" wording survives only
+  # as narrative flavor in the modifier and event text, not as a subject type.
+  ova_murim_reckoning_war: "The Reckoning"
+  dp_ova_murim_reckoning: "$war_goal_ova_murim_sundering_type_name$"
+  dp_ova_murim_reckoning_tooltip: "#header Start a $dp_ova_murim_reckoning$ [concept_diplomatic_play]#!\n$TOOLTIP_DELIMITER$\n$dp_ova_murim_reckoning_desc$"
+  dp_ova_murim_reckoning_desc: "The mountain admits no treaty: the strange disciple's house and the Heavenly Demon Sect, and room for only one of them. The war ends when one owns the whole of the other, as a civil war ends."
+  war_goal_ova_murim_sundering_type_name: "Sunder the Mountain"
+  war_goal_ova_murim_sundering_type_desc: "The winner annexes the loser outright. If the strange disciple's house prevails, the five great orthodox factions the Cult once destroyed rise again from its shattered mountains and every stolen banner-state goes home."
+  war_goal_ova_murim_sundering: "Sunder the Mountain"
+  war_goal_ova_murim_sundering_desc: "[WAR_GOAL_DRAFT.GetHolder.GetName] annexes [WAR_GOAL_DRAFT.GetTarget.GetName] outright, and the mountain is sundered."
+
+  # --- AI strategies (loc beyond the spec's explicit list, matching vanilla
+  # --- ai_strategy_*/_desc convention, same courtesy the isekai storyline paid)
+  ai_strategy_ova_orthodox_alliance: "Orthodox Martial Alliance"
+  ai_strategy_ova_orthodox_alliance_desc: "[COUNTRY.GetName] presses the Alliance's war against the Heavenly Demon Sect."
+  ai_strategy_ova_heavenly_demon: "Heavenly Demon Sect"
+  ai_strategy_ova_heavenly_demon_desc: "[COUNTRY.GetName] means to grind the eight Orthodox banners to dust, one by one."
+
+  # --- Static modifier display names (every modifier needs one; no apostrophes)
+  ova_murim_master_of_the_murim: "Master of the Murim"
+  ova_murim_orthodox_victory: "Orthodox Victory"
+  ova_murim_returners_insight: "Uncanny Insight"
+  ova_murim_sword_succession: "Seat Taken by Force"
+  ova_murim_peace_succession: "Peaceful Succession"
+  ova_murim_shadow_council: "Shadow Council"
+  ova_murim_wedding_alliance: "Wedding Alliance"
+  ova_murim_oathbound_banner: "Sworn March"
+  ova_murim_returner_household: "The Household"
+  ova_murim_second_life_fulfilled: "The Tale Fulfilled"
+  ova_murim_gangho_renown: "Gangho Renown"
+  ova_murim_tournament_glory: "Tournament Glory"
+  ova_murim_martial_fervor: "Martial Fervor"
+  ova_murim_cult_terror: "Cult Terror"
+  ova_murim_spy_purge: "Spy Purge"
+  ova_murim_divergence_anxiety: "A Debt Left Unpaid"
+  ova_murim_coin_scripture: "Coin Scripture"
+  ova_murim_demon_slain: "The Heavenly Demon Slain"
+
+  # --- Restored orthodox factions (created by effect_ova_murim_shatter_cult): the great
+  # --- sects and clans the Heavenly Demon Sect destroyed generations ago, rising again
+  # --- from the very mountains it built over them.
+  AMT: "Amita Sect"
+  AMT_ADJ: "Amita"
+  GON: "Gonryun Sect"
+  GON_ADJ: "Gonryun"
+  JON: "Jongnam Sect"
+  JON_ADJ: "Jongnam"
+  MOY: "Moyong Clan"
+  MOY_ADJ: "Moyong"
+  GAE: "Gaebang"
+  GAE_ADJ: "Gaebang"
+
+  # --- Hardcoded character name keys (Kang Jin-woo; mae culture uses
+  # --- name_format = last_first so he renders "Kang Jin-woo"). Identical bare
+  # --- keys already exist in ova_hero_names_l_english.yml - safe to repeat
+  # --- per the isekai precedent.
+  Jin-woo: "Jin-woo"
+  Kang: "Kang"
+
+  # --- Eight Banners companions (common/character_templates/ova_story_templates.txt,
+  # --- template_ova_murim_ally_*; mae renders last_first). Clan companions reuse
+  # --- the clan surname keys below (Paeng/Tang/Namgung/Jegal/Sama).
+  Hye-gang: "Hye-gang"
+  Seok: "Seok"
+  Ha-ran: "Ha-ran"
+  So-yeol: "So-yeol"
+  Wol-hee: "Wol-hee"
+  Seo-yeon: "Seo-yeon"
+  Cheong-ha: "Cheong-ha"
+  Wi: "Wi"
+  Ryeon: "Ryeon"
+  Seol-mae: "Seol-mae"
+  Yeon: "Yeon"
+
+  # --- Murim clan ruler last names (common/character_templates/ova_ruler_templates.txt) -
+  # --- each ruler's last_name is the clan's own name rather than a random
+  # --- culture-generated surname. Heavenly Demon uses a quoted literal instead
+  # --- (has a space), so it needs no loc key.
+  Hwasan: "Hwasan"
+  Sorim: "Sorim"
+  Mudang: "Mudang"
+  Jegal: "Jegal"
+  Tang: "Tang"
+  Namgung: "Namgung"
+  Paeng: "Paeng"
+  Sama: "Sama"

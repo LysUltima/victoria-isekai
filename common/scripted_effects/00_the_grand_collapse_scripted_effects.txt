@@ -1,0 +1,664 @@
+﻿the_grand_collapse_happens_balkans = {
+    # release countries if they dont exist
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:ALB' not present in this mod
+            }
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:albanian (no mod analogue)
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:albanian (no mod analogue)
+                }
+            }
+            save_scope_as = albania_scope
+        }
+        # removed (create_country: Invalid tag)
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:BUL' not present in this mod
+            }
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # vanilla ref 'cu:bulgarian' not present in this mod
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # vanilla ref 'cu:bulgarian' not present in this mod
+                }
+            }
+            save_scope_as = bulgaria_scope
+        }
+        # removed (create_country: Invalid tag)
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:BOS' not present in this mod
+            }
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:bosniak (no mod analogue)
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:bosniak (no mod analogue)
+                }
+            }
+            save_scope_as = bosnia_scope
+        }
+        # removed (create_country block, invalid vanilla reference)
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:CRO' not present in this mod
+            }
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:croat (no mod analogue)
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:croat (no mod analogue)
+                }
+            }
+            save_scope_as = croatia_scope
+        }
+        # removed (create_country block, invalid vanilla reference)
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:MON' not present in this mod
+            }
+            always = no # vanilla ref 's:STATE_MONTENEGRO' not present in this mod
+        }
+        # removed effect block: vanilla ref 's:STATE_MONTENEGRO' not present in this mod
+        # removed (create_country block)
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:SER' not present in this mod
+            }
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:serb (no mod analogue)
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:serb (no mod analogue)
+                }
+            }
+            save_scope_as = serbia_scope
+        }
+        # removed (create_country block, invalid vanilla reference)
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:GRE' not present in this mod
+            }
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:greek (no mod analogue)
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:greek (no mod analogue)
+                }
+            }
+            save_scope_as = greece_scope
+        }
+        # removed (create_country block, invalid vanilla reference)
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:WAL' not present in this mod
+            }
+            always = no # vanilla ref 's:STATE_WALLACHIA' not present in this mod
+        }
+        # removed effect block: vanilla ref 's:STATE_WALLACHIA' not present in this mod
+        # removed (create_country block)
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:MOL' not present in this mod
+            }
+            always = no # vanilla ref 's:STATE_MOLDAVIA' not present in this mod
+        }
+        # removed effect block: vanilla ref 's:STATE_MOLDAVIA' not present in this mod
+        # removed (create_country block)
+    }
+
+    # divide up states
+    while = {
+        limit = {
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+            }
+        }
+        random_country = {
+            limit = {
+                capital = {
+                    always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                }
+                any_neighbouring_state = {
+                    is_homeland_of_country_cultures = prev
+                    owner = root
+                }
+            }
+            save_scope_as = new_owner_scope
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                is_homeland_of_country_cultures = scope:new_owner_scope
+                any_neighbouring_state = {
+                    owner = scope:new_owner_scope
+                }
+            }
+            set_state_owner = scope:new_owner_scope
+        }
+        clear_saved_scope = new_owner_scope
+    }
+}
+
+the_grand_collapse_happens_asia_africa = {
+
+    # Make all subjects independent
+    every_subject_or_below = {
+        limit = {
+            is_direct_subject_of = ROOT
+        }
+        make_independent = yes
+    }
+
+    # BOSNIA #
+    if = {
+        limit = {
+            always = no # vanilla ref 's:STATE_BOSNIA' not present in this mod
+            NOT = {
+                always = no # vanilla ref 'c:BOS' not present in this mod
+            }
+        }
+
+        # removed (create_country block, invalid vanilla reference)
+        # removed effect block: vanilla ref 'c:BOS' not present in this mod
+    }
+
+    # CYPRUS #
+    if = {
+        limit = {
+            always = no # vanilla ref 's:STATE_CYPRUS' not present in this mod
+            NOT = {
+                always = no # vanilla ref 'c:CYP' not present in this mod
+            }
+        }
+
+        # removed (create_country block)
+        # removed effect block: vanilla ref 'c:CYP' not present in this mod
+    }
+
+    # ARMENIA #
+    if = {
+        limit = {
+            any_scope_state = {
+                state_region = {
+                    always = no # was culture = cu:armenian (no mod analogue)
+                }
+            }
+            NOT = {
+                always = no # vanilla ref 'c:ARM' not present in this mod
+            }
+        }
+        random_scope_state = {
+            limit = {
+                state_region = {
+                    always = no # was culture = cu:armenian (no mod analogue)
+                }
+            }
+            save_scope_as = armenia_scope
+        }
+        # removed (create_country block)
+        # removed effect block: vanilla ref 'c:ARM' not present in this mod
+    }
+
+    # IRAQ #
+    if = {
+        limit = {
+            any_scope_state = {
+                state_region = {
+                    is_homeland = cu:qadirin
+                }
+            }
+            NOT = {
+                always = no # vanilla ref 'c:IRQ' not present in this mod
+            }
+        }
+        random_scope_state = {
+            limit = {
+                state_region = {
+                    is_homeland = cu:qadirin
+                }
+            }
+            save_scope_as = iraq_scope
+        }
+        # removed (create_country block)
+        # removed effect block: vanilla ref 'c:IRQ' not present in this mod
+    }
+
+    # SYRIA #
+    if = {
+        limit = {
+            any_scope_state = {
+                state_region = {
+                    is_homeland = cu:qadirin
+                }
+            }
+            NOT = {
+                always = no # vanilla ref 'c:SYR' not present in this mod
+            }
+        }
+        random_scope_state = {
+            limit = {
+                state_region = {
+                    is_homeland = cu:qadirin
+                }
+            }
+            save_scope_as = syria_scope
+        }
+        # removed (create_country block)
+        # removed effect block: vanilla ref 'c:SYR' not present in this mod
+    }
+
+    # KURDISTAN #
+    if = {
+        limit = {
+            any_scope_state = {
+                state_region = {
+                    is_homeland = cu:faryan
+                }
+            }
+            NOT = {
+                always = no # vanilla ref 'c:KUR' not present in this mod
+            }
+        }
+        random_scope_state = {
+            limit = {
+                state_region = {
+                    is_homeland = cu:faryan
+                }
+            }
+            save_scope_as = kurdistan_scope
+        }
+        # removed (create_country block)
+        # removed effect block: vanilla ref 'c:KUR' not present in this mod
+    }
+
+    # ASSYRIA #
+    if = {
+        limit = {
+            any_scope_state = {
+                state_region = {
+                    always = no # was culture = cu:assyrian (no mod analogue)
+                }
+            }
+            NOT = {
+                always = no # vanilla ref 'c:ASS' not present in this mod
+            }
+        }
+        random_scope_state = {
+            limit = {
+                state_region = {
+                    always = no # was culture = cu:assyrian (no mod analogue)
+                }
+            }
+            save_scope_as = assyria_scope
+        }
+        # removed (create_country: Invalid tag)
+        # removed effect block: vanilla ref 'c:ASS' not present in this mod
+    }
+
+    # GEORGIA #
+    if = {
+        limit = {
+            any_scope_state = {
+                state_region = {
+                    always = no # was culture = cu:georgian (no mod analogue)
+                }
+            }
+            NOT = {
+                always = no # vanilla ref 'c:GEO' not present in this mod
+            }
+        }
+        random_scope_state = {
+            limit = {
+                state_region = {
+                    always = no # was culture = cu:georgian (no mod analogue)
+                }
+            }
+            save_scope_as = georgia_scope
+        }
+        # removed (create_country: Invalid tag)
+        # removed effect block: vanilla ref 'c:GEO' not present in this mod
+    }
+
+    # EGYPT #
+    if = {
+        limit = {
+            any_scope_state = {
+                state_region = {
+                    is_homeland = cu:nadirene
+                }
+            }
+            NOT = {
+                always = no # vanilla ref 'c:EGY' not present in this mod
+            }
+        }
+        random_scope_state = {
+            limit = {
+                state_region = {
+                    is_homeland = cu:nadirene
+                }
+            }
+            save_scope_as = egypt_scope
+        }
+        # removed (create_country block, invalid vanilla reference)
+        # removed effect block: vanilla ref 'c:EGY' not present in this mod
+    }
+
+    # TRIPOLITANIA #
+    if = {
+        limit = {
+            any_scope_state = {
+                state_region = {
+                    is_homeland = cu:ghazalin
+                }
+            }
+            NOT = {
+                always = no # vanilla ref 'c:TRI' not present in this mod
+            }
+        }
+        random_scope_state = {
+            limit = {
+                state_region = {
+                    is_homeland = cu:ghazalin
+                }
+            }
+            save_scope_as = tripolitania_scope
+        }
+        # removed (create_country: Invalid tag)
+        # removed effect block: vanilla ref 'c:TRI' not present in this mod
+    }
+
+    # TUNISIA #
+    if = {
+        limit = {
+            any_scope_state = {
+                state_region = {
+                    OR = {
+                        is_homeland = cu:ghazalin
+                        is_homeland = cu:ghazalin
+                        is_homeland = cu:zaharin
+                    }
+                }
+            }
+            NOT = {
+                always = no # vanilla ref 'c:TUN' not present in this mod
+            }
+        }
+        random_scope_state = {
+            limit = {
+                state_region = {
+                    OR = {
+                        is_homeland = cu:ghazalin
+                        is_homeland = cu:ghazalin
+                        is_homeland = cu:zaharin
+                    }
+                }
+            }
+            save_scope_as = tunisia_scope
+        }
+        # removed (create_country block, invalid vanilla reference)
+        # removed effect block: vanilla ref 'c:TUN' not present in this mod
+    }
+
+    # Divide cultural homeland states to created countries
+    while = {
+        random_country = {
+            limit = {
+                OR = {
+                    always = no # vanilla ref 'c:ARM' not present in this mod
+                    always = no # vanilla ref 'c:IRQ' not present in this mod
+                    always = no # vanilla ref 'c:SYR' not present in this mod
+                    always = no # vanilla ref 'c:KUR' not present in this mod
+                    always = no # vanilla ref 'c:ASS' not present in this mod
+                    always = no # vanilla ref 'c:GEO' not present in this mod
+                    always = no # vanilla ref 'c:EGY' not present in this mod
+                    always = no # vanilla ref 'c:TRI' not present in this mod
+                    always = no # vanilla ref 'c:TUN' not present in this mod
+                }
+                exists = this
+                is_subject = no
+                any_neighbouring_state = {
+                    is_homeland_of_country_cultures = prev
+                    owner = root
+                }
+            }
+            save_scope_as = new_owner_scope
+        }
+        if = {
+            limit = {
+                exists = scope:new_owner_scope
+            }
+            random_scope_state = {
+                limit = {
+                    is_homeland_of_country_cultures = scope:new_owner_scope
+                    any_neighbouring_state = {
+                        owner = scope:new_owner_scope
+                    }
+                }
+                set_state_owner = scope:new_owner_scope
+            }
+        }
+        clear_saved_scope = new_owner_scope
+    }
+
+    # Give all remote states to a random neighbouring country
+    while = {
+        limit = {
+            any_scope_state = {
+                NOT = {
+                    always = no # vanilla ref 'geographic_region_anatolia_old' not present in this mod
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                NOT = {
+                    always = no # vanilla ref 'geographic_region_anatolia_old' not present in this mod
+                }
+                any_neighbouring_state = {
+                    owner = {
+                        NOT = {
+                            always = no # vanilla ref 'c:TUR' not present in this mod
+                        }
+                    }
+                }
+            }
+            save_scope_as = remote_collapse_state_scope
+        }
+
+        if = {
+            limit = {
+                exists = scope:remote_collapse_state_scope
+            }
+            scope:remote_collapse_state_scope = {
+                random_neighbouring_state = {
+                    limit = {
+                        NOT = {
+                            always = no # vanilla ref 'c:TUR' not present in this mod
+                        }
+                    }
+                    save_scope_as = neighbour_country_state_scope
+                }
+                set_state_owner = scope:neighbour_country_state_scope.owner
+            }
+        }
+        clear_saved_scope = remote_collapse_state_scope
+        clear_saved_scope = neighbour_country_state_scope
+    }
+}
+
+desperate_measures_ig_approval_mod_effect = {
+    if = {
+        limit = {
+            is_interest_group_type = ig_devout
+        }
+        ROOT = {
+            add_modifier = {
+                name = the_grand_collapse_desperate_measures_devout
+                days = short_modifier_time
+            }
+        }
+    }
+
+    else_if = {
+        limit = {
+            is_interest_group_type = ig_industrialists
+        }
+        ROOT = {
+            add_modifier = {
+                name = the_grand_collapse_desperate_measures_industrialists
+                days = short_modifier_time
+            }
+        }
+        add_modifier = {
+            name = the_grand_collapse_desperate_measures_industrialists
+            days = short_modifier_time
+        }
+    }
+
+    else_if = {
+        limit = {
+            is_interest_group_type = ig_intelligentsia
+        }
+        ROOT = {
+            add_modifier = {
+                name = the_grand_collapse_desperate_measures_intelligentsia
+                days = short_modifier_time
+            }
+        }
+
+    }
+
+    else_if = {
+        limit = {
+            is_interest_group_type = ig_landowners
+        }
+        ROOT = {
+            add_modifier = {
+                name = the_grand_collapse_desperate_measures_landowners
+                days = short_modifier_time
+            }
+        }
+
+    }
+
+    else_if = {
+        limit = {
+            is_interest_group_type = ig_armed_forces
+        }
+        ROOT = {
+            add_modifier = {
+                name = the_grand_collapse_desperate_measures_armed_forces
+                days = short_modifier_time
+            }
+        }
+
+    }
+
+    else_if = {
+        limit = {
+            is_interest_group_type = ig_petty_bourgeoisie
+        }
+        ROOT = {
+            add_modifier = {
+                name = the_grand_collapse_desperate_measures_petty_bourgeoisie
+                days = short_modifier_time
+            }
+        }
+
+    }
+
+    else_if = {
+        limit = {
+            is_interest_group_type = ig_rural_folk
+        }
+        ROOT = {
+            add_modifier = {
+                name = the_grand_collapse_desperate_measures_rural_folk
+                days = short_modifier_time
+            }
+        }
+
+    }
+
+    else_if = {
+        limit = {
+            is_interest_group_type = ig_trade_unions
+        }
+        ROOT = {
+            add_modifier = {
+                name = the_grand_collapse_desperate_measures_trade_unions
+                days = short_modifier_time
+            }
+        }
+
+    }
+}
+
+the_grand_collapse_mod_cleanser = {
+    remove_modifier = the_grand_collapse_law_speed_mod
+    remove_modifier = the_grand_collapse_relation_speed_mod
+    remove_modifier = the_grand_collapse_main_mod
+}

@@ -1,0 +1,20 @@
+﻿# Isekai TC: migrated copy of vanilla 04_treaty_of_london_custom_loc.txt.
+# common/customizable_localization is NOT in metadata.json replace_paths, so the
+# vanilla file loads unless a same-named mod file overrides it (this file).
+# Text blocks whose triggers referenced deleted Earth content were removed; keys
+# left empty fall back to their original localization_key so callers still
+# resolve. Regenerate with tools/migrate_custom_loc.py.
+
+treaty_of_london_coutcome = {
+	type = country
+	text = {
+		localization_key = not_yet_settled_loc
+	}
+}
+
+treaty_of_london_acceptance_timer = {
+	type = country
+	text = {
+		localization_key = je_conference_of_london_acceptance_timer_tt
+	}
+}

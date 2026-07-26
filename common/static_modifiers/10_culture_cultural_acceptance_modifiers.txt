@@ -1,0 +1,576 @@
+﻿lysian_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_lysian_cultural_acceptance_add = 1
+}
+
+lysian_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_lysian_cultural_acceptance_add = 1
+}
+
+aldrican_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_aldrican_cultural_acceptance_add = 1
+}
+
+aldrican_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_aldrican_cultural_acceptance_add = 1
+}
+
+solenne_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_solenne_cultural_acceptance_add = 1
+}
+
+solenne_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_solenne_cultural_acceptance_add = 1
+}
+
+alena_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_alena_cultural_acceptance_add = 1
+}
+
+alena_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_alena_cultural_acceptance_add = 1
+}
+
+vardish_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_vardish_cultural_acceptance_add = 1
+}
+
+vardish_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_vardish_cultural_acceptance_add = 1
+}
+
+aurora_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_aurora_cultural_acceptance_add = 1
+}
+
+aurora_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_aurora_cultural_acceptance_add = 1
+}
+
+skarholt_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_skarholt_cultural_acceptance_add = 1
+}
+
+skarholt_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_skarholt_cultural_acceptance_add = 1
+}
+
+fjordic_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_fjordic_cultural_acceptance_add = 1
+}
+
+fjordic_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_fjordic_cultural_acceptance_add = 1
+}
+
+frostholm_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_frostholm_cultural_acceptance_add = 1
+}
+
+frostholm_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_frostholm_cultural_acceptance_add = 1
+}
+
+farshore_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_farshore_cultural_acceptance_add = 1
+}
+
+farshore_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_farshore_cultural_acceptance_add = 1
+}
+
+altan_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_altan_cultural_acceptance_add = 1
+}
+
+altan_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_altan_cultural_acceptance_add = 1
+}
+
+wood_elf_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_wood_elf_cultural_acceptance_add = 1
+}
+
+wood_elf_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_wood_elf_cultural_acceptance_add = 1
+}
+
+snow_elf_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_snow_elf_cultural_acceptance_add = 1
+}
+
+snow_elf_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_snow_elf_cultural_acceptance_add = 1
+}
+
+dark_elf_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_dark_elf_cultural_acceptance_add = 1
+}
+
+dark_elf_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_dark_elf_cultural_acceptance_add = 1
+}
+
+steel_dwarf_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_steel_dwarf_cultural_acceptance_add = 1
+}
+
+steel_dwarf_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_steel_dwarf_cultural_acceptance_add = 1
+}
+
+stone_dwarf_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_stone_dwarf_cultural_acceptance_add = 1
+}
+
+stone_dwarf_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_stone_dwarf_cultural_acceptance_add = 1
+}
+
+northern_orc_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_northern_orc_cultural_acceptance_add = 1
+}
+
+northern_orc_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_northern_orc_cultural_acceptance_add = 1
+}
+
+southern_orc_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_southern_orc_cultural_acceptance_add = 1
+}
+
+southern_orc_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_southern_orc_cultural_acceptance_add = 1
+}
+
+goblin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_goblin_cultural_acceptance_add = 1
+}
+
+goblin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_goblin_cultural_acceptance_add = 1
+}
+
+sand_goblin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_sand_goblin_cultural_acceptance_add = 1
+}
+
+sand_goblin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_sand_goblin_cultural_acceptance_add = 1
+}
+
+horned_demon_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_horned_demon_cultural_acceptance_add = 1
+}
+
+horned_demon_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_horned_demon_cultural_acceptance_add = 1
+}
+
+winged_demon_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_winged_demon_cultural_acceptance_add = 1
+}
+
+winged_demon_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_winged_demon_cultural_acceptance_add = 1
+}
+
+shadow_demon_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_shadow_demon_cultural_acceptance_add = 1
+}
+
+shadow_demon_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_shadow_demon_cultural_acceptance_add = 1
+}
+
+
+
+wolfkin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_wolfkin_cultural_acceptance_add = 1
+}
+
+wolfkin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_wolfkin_cultural_acceptance_add = 1
+}
+
+
+
+bearkin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_bearkin_cultural_acceptance_add = 1
+}
+
+bearkin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_bearkin_cultural_acceptance_add = 1
+}
+
+horsekin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_horsekin_cultural_acceptance_add = 1
+}
+
+horsekin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_horsekin_cultural_acceptance_add = 1
+}
+
+
+
+lan_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_lan_cultural_acceptance_add = 1
+}
+
+lan_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_lan_cultural_acceptance_add = 1
+}
+
+tong_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_tong_cultural_acceptance_add = 1
+}
+
+tong_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_tong_cultural_acceptance_add = 1
+}
+
+lian_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_lian_cultural_acceptance_add = 1
+}
+
+lian_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_lian_cultural_acceptance_add = 1
+}
+
+mae_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_mae_cultural_acceptance_add = 1
+}
+
+mae_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_mae_cultural_acceptance_add = 1
+}
+
+khambu_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_khambu_cultural_acceptance_add = 1
+}
+
+khambu_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_khambu_cultural_acceptance_add = 1
+}
+
+arasni_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_arasni_cultural_acceptance_add = 1
+}
+
+arasni_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_arasni_cultural_acceptance_add = 1
+}
+
+melati_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_melati_cultural_acceptance_add = 1
+}
+
+melati_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_melati_cultural_acceptance_add = 1
+}
+
+lily_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_lily_cultural_acceptance_add = 1
+}
+
+lily_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_lily_cultural_acceptance_add = 1
+}
+
+sakura_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_sakura_cultural_acceptance_add = 1
+}
+
+sakura_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_sakura_cultural_acceptance_add = 1
+}
+
+deigo_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_deigo_cultural_acceptance_add = 1
+}
+
+deigo_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_deigo_cultural_acceptance_add = 1
+}
+
+tagata_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_tagata_cultural_acceptance_add = 1
+}
+
+tagata_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_tagata_cultural_acceptance_add = 1
+}
+
+kanaka_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_kanaka_cultural_acceptance_add = 1
+}
+
+kanaka_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_kanaka_cultural_acceptance_add = 1
+}
+
+whenua_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_whenua_cultural_acceptance_add = 1
+}
+
+whenua_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_whenua_cultural_acceptance_add = 1
+}
+
+zaharin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_zaharin_cultural_acceptance_add = 1
+}
+
+zaharin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_zaharin_cultural_acceptance_add = 1
+}
+
+nadirene_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_nadirene_cultural_acceptance_add = 1
+}
+
+nadirene_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_nadirene_cultural_acceptance_add = 1
+}
+
+ghazalin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_ghazalin_cultural_acceptance_add = 1
+}
+
+ghazalin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_ghazalin_cultural_acceptance_add = 1
+}
+
+qadirin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_qadirin_cultural_acceptance_add = 1
+}
+
+qadirin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_qadirin_cultural_acceptance_add = 1
+}
+
+faryan_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_faryan_cultural_acceptance_add = 1
+}
+
+faryan_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_faryan_cultural_acceptance_add = 1
+}
+
+ixioran_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_ixioran_cultural_acceptance_add = 1
+}
+
+ixioran_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_ixioran_cultural_acceptance_add = 1
+}
+
+ju_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_ju_cultural_acceptance_add = 1
+}
+
+ju_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_ju_cultural_acceptance_add = 1
+}
+
+
+homunculus_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_homunculus_cultural_acceptance_add = 1
+}
+
+homunculus_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_homunculus_cultural_acceptance_add = 1
+}
+
+otherworld_english_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_otherworld_english_cultural_acceptance_add = 1
+}
+
+otherworld_english_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_otherworld_english_cultural_acceptance_add = 1
+}
+
+otherworld_japanese_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_otherworld_japanese_cultural_acceptance_add = 1
+}
+
+otherworld_japanese_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_otherworld_japanese_cultural_acceptance_add = 1
+}
+
+eastern_rabbitkin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_eastern_rabbitkin_cultural_acceptance_add = 1
+}
+
+eastern_rabbitkin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_eastern_rabbitkin_cultural_acceptance_add = 1
+}
+
+western_rabbitkin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_western_rabbitkin_cultural_acceptance_add = 1
+}
+
+western_rabbitkin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_western_rabbitkin_cultural_acceptance_add = 1
+}
+
+dogkin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_dogkin_cultural_acceptance_add = 1
+}
+
+dogkin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_dogkin_cultural_acceptance_add = 1
+}
+
+snow_foxkin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_snow_foxkin_cultural_acceptance_add = 1
+}
+
+snow_foxkin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_snow_foxkin_cultural_acceptance_add = 1
+}
+
+forest_foxkin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_forest_foxkin_cultural_acceptance_add = 1
+}
+
+forest_foxkin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_forest_foxkin_cultural_acceptance_add = 1
+}
+
+island_catkin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_island_catkin_cultural_acceptance_add = 1
+}
+
+island_catkin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_island_catkin_cultural_acceptance_add = 1
+}
+
+plains_catkin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_plains_catkin_cultural_acceptance_add = 1
+}
+
+plains_catkin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_plains_catkin_cultural_acceptance_add = 1
+}
+
+desert_catkin_cultural_acceptance_modifier_positive = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_desert_catkin_cultural_acceptance_add = 1
+}
+
+desert_catkin_cultural_acceptance_modifier_negative = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_desert_catkin_cultural_acceptance_add = 1
+}

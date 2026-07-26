@@ -1,0 +1,427 @@
+﻿# Isekai TC: migrated from vanilla events/grand_exhibition_events.txt (2026-07-11).
+# Fully generic world's-fair mechanic, no real-world references. Verbatim copy. Hooked from
+# common/journal_entries/00_grand_exhibition.txt / common/decisions/grand_exhibition_decision.txt
+# (both migrated alongside, with the Eiffel Tower/Ile-de-France special case dropped since this
+# mod removed all vanilla monuments).
+
+namespace = exhibition_events
+
+exhibition_events.1 = { #Not so grand exhibition
+	type = country_event
+	placement = root
+
+	title = exhibition_events.1.t
+	desc = exhibition_events.1.d
+	flavor = exhibition_events.1.f
+	duration = 3
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		#triggered by JE
+	}
+
+	immediate = {
+		set_variable = held_grand_exhibition_var
+	}
+
+	option = {
+		name = exhibition_events.1.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_good_exhibition
+			days = normal_modifier_time
+		}
+	}
+}
+
+exhibition_events.2 = { #Grand Exhibition
+	type = country_event
+	placement = root
+
+	title = exhibition_events.2.t
+	desc = exhibition_events.2.d
+	flavor = exhibition_events.2.f
+	duration = 3
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		#triggered by JE
+	}
+
+	immediate = {
+		set_variable = held_grand_exhibition_var
+	}
+
+	option = {
+		name = exhibition_events.2.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_great_exhibition
+			days = normal_modifier_time
+		}
+	}
+}
+
+
+exhibition_events.3 = { #The Grandest Exhibition
+	type = country_event
+	placement = root
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	title = exhibition_events.3.t
+	desc = exhibition_events.3.d
+	flavor = exhibition_events.3.f
+	duration = 3
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	trigger = {
+		#triggered by JE
+	}
+
+	immediate = {
+		set_variable = held_grand_exhibition_var
+	}
+
+	option = {
+		name = exhibition_events.3.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_greatest_exhibition
+			days = normal_modifier_time
+		}
+	}
+}
+
+exhibition_events.4 = { #The Exhibition caused controversy as its opening approached. Some conservatives feared that the mass of visitors might become a revolutionary mob
+
+	type = country_event
+	placement = root
+
+	title = exhibition_events.4.t
+	desc = exhibition_events.4.d
+	flavor = exhibition_events.4.f
+
+	duration = 3
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	event_image = {
+		video = "europenorthamerica_political_extremism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		OR = {
+			ig:ig_devout ?= {
+				ig_counts_as_marginal = no
+			}
+			ig:ig_landowners ?= {
+				ig_counts_as_marginal = no
+			}
+		}
+		NOT = { has_variable = exhibition_controversy_var }
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				ig:ig_landowners ?= {
+					ig_counts_as_marginal = no
+				}
+			}
+			ig:ig_landowners ?= {
+				save_scope_as = conservative_ig
+			}
+		}
+		else = {
+			ig:ig_devout ?= {
+				save_scope_as = conservative_ig
+			}
+		}
+		capital = {
+			save_scope_as = grand_exhibition_state
+		}
+		set_variable = {
+			name = exhibition_controversy_var
+			days = short_modifier_time
+		}
+	}
+
+	option = { #ignore them
+		name = exhibition_events.4.a
+		default_option = yes
+		scope:conservative_ig = {
+			add_modifier = {
+				name = ignored_conservatives_modifier
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	option = { #we should look into this
+		name = exhibition_events.4.b
+		custom_tooltip = exhibition_controversy_tt
+		change_variable = {
+			name = grand_exhibition_points_change
+			add = -1
+		}
+	}
+}
+
+exhibition_events.5 = { #toilets event!
+	type = country_event
+	placement = root
+
+	title = exhibition_events.5.t
+	desc = exhibition_events.5.d
+	flavor = exhibition_events.5.f
+	duration = 3
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		has_technology_researched = modern_sewerage
+		ig:ig_landowners ?= {
+			ig_counts_as_marginal = no
+		}
+		any_country = {
+			is_country_alive = yes
+			owner = {
+				relations:root >= relations_threshold:amicable
+				is_player = no
+				NOT = { THIS = ROOT }
+			}
+		}
+		NOT = { has_variable = exhibition_toilets_var }
+	}
+
+	immediate = {
+		ig:ig_landowners ?= {
+			save_scope_as = anti_toilet_ig
+		}
+		random_country = {
+			limit = {
+				is_country_alive = yes
+				owner = {
+					relations:root >= relations_threshold:amicable
+					is_player = no
+					NOT = { THIS = ROOT }
+				}
+			}
+			save_scope_as = visiting_country
+		}
+		set_variable = {
+			name = exhibition_toilets_var
+			value = normal_modifier_time
+		}
+	}
+
+	option = { #install them!
+		name = exhibition_events.5.a
+		default_option = yes
+		add_modifier = {
+			name = grand_exhibition_toilets_modifier #cost money
+			multiplier = money_amount_multiplier_very_small
+			days = short_modifier_time
+		}
+		scope:anti_toilet_ig = {
+			add_modifier = {
+				name = grand_exhibition_toilets_ig_modifier #disapprove
+				days = normal_modifier_time
+			}
+		}
+		capital = {
+			add_loyalists_in_state = {
+				value = 0.2
+			}
+		}
+	}
+
+	option = { #it's going to stink!
+		name = exhibition_events.5.b
+		capital = {
+			add_radicals_in_state = {
+				value = small_radicals
+			}
+		}
+		scope:visiting_country = {
+			change_relations = {
+				country = ROOT
+				value = -10
+			}
+		}
+		scope:anti_toilet_ig = {
+			add_modifier = {
+				name = grand_exhibition_toilets_no_ig_modifier #approve
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+exhibition_events.6 = { #souvenirs!
+	type = country_event
+	placement = root
+
+	title = exhibition_events.6.t
+	desc = exhibition_events.6.d
+	flavor = exhibition_events.6.f
+	duration = 3
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		NOT = { has_variable = exhibition_souvenirs_var }
+	}
+
+	immediate = {
+		set_variable = {
+			name = exhibition_souvenirs_var
+			value = normal_modifier_time
+		}
+	}
+
+	option = { #produce stereoscope cards
+		name = exhibition_events.6.a
+		default_option = yes
+		add_modifier = {
+			name = stereoscope_cards_modifier
+			days = normal_modifier_time
+		}
+	}
+
+	option = { #produce printed lithographic cards
+		name = exhibition_events.6.b
+		add_modifier = {
+			name = lithographic_cards_modifier
+			days = normal_modifier_time
+		}
+	}
+}
+
+exhibition_events.7 = { #charlatans take advantage of the situation
+	type = country_event
+	placement = root
+
+	title = exhibition_events.7.t
+	desc = exhibition_events.7.d
+	flavor = exhibition_events.7.f
+	duration = 3
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = {
+		OR = {
+			radical_fraction = {
+				value >= 0.1
+				pop_type = shopkeepers
+			}
+			any_scope_pop = {
+				is_pop_type = shopkeepers
+				pop_employment_building = building_urban_center #the exhibition is held at an urban center
+			}
+		}
+	}
+
+	immediate = {
+		random_scope_pop = {
+			limit = {
+				is_pop_type = shopkeepers
+			}
+			save_scope_as = shopkeepers_scope
+		}
+	}
+
+	option = { #kick them out
+		name = exhibition_events.7.a
+		default_option = yes
+		change_variable = {
+			name = grand_exhibition_points_change
+			add = 3
+		}
+		custom_tooltip = ge_points_up_3
+		capital = {
+			add_radicals_in_state = {
+				value = small_radicals
+				pop_type = shopkeepers
+			}
+			add_loyalists_in_state = {
+				value = small_radicals
+				strata = lower
+			}
+		}
+	}
+
+	option = { #turn a blind eye
+		name = exhibition_events.7.b
+		capital = {
+			add_loyalists_in_state = {
+				value = small_radicals
+				pop_type = shopkeepers
+			}
+		}
+	}
+}
+
+# Isekai TC: exhibition_events.8 ("exhibit the things you got in your expeditions") removed
+# 2026-07-14. Every option branch was gated on a success/loot variable set only by the
+# Earth-specific Antarctica/Central-Africa/Congo-River/Niger-River/West-America expedition
+# journal entries and events, none of which exist in this fantasy-map mod (their vanilla
+# sources are wiped under replace_paths). The trigger's OR of ANDs could therefore never be
+# true; this was permanently dead content. See tools/audit/decisions_V2.md and
+# tools/audit/handoff_V2.md (the `30 = exhibition_events.8` pool entry in
+# common/journal_entries/00_grand_exhibition.txt's on_monthly_pulse needs a matching edit,
+# that file is owned by another agent).

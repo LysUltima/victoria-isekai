@@ -1,0 +1,113 @@
+﻿l_english:
+  # STATE_NYUGMA_DRANGBDEN (IMM) - Tibetan: "straight truth / reed highland"
+  HUB_NAME_STATE_NYUGMA_DRANGBDEN_city: "Drangden"
+  HUB_NAME_STATE_NYUGMA_DRANGBDEN_farm: "Nyugphu"
+  HUB_NAME_STATE_NYUGMA_DRANGBDEN_mine: "Bartsé"
+  HUB_NAME_STATE_NYUGMA_DRANGBDEN_wood: "Shinglung"
+
+  # STATE_SERGYI_GYAMA (IMM) - Tibetan: "of gold / wide plain"
+  HUB_NAME_STATE_SERGYI_GYAMA_city: "Gyama"
+  HUB_NAME_STATE_SERGYI_GYAMA_farm: "Sertang"
+  HUB_NAME_STATE_SERGYI_GYAMA_mine: "Serdrak"
+  HUB_NAME_STATE_SERGYI_GYAMA_wood: "Nakshö"
+
+  # STATE_MINYAMS_DAMBCA (IMM) - Tibetan: "undiminished / sacred salt"
+  HUB_NAME_STATE_MINYAMS_DAMBCA_city: "Damtsha"
+  HUB_NAME_STATE_MINYAMS_DAMBCA_farm: "Tsangdo"
+  HUB_NAME_STATE_MINYAMS_DAMBCA_mine: "Seltrak"
+  HUB_NAME_STATE_MINYAMS_DAMBCA_wood: "Rigtsé"
+
+  # STATE_THAYAS_KHRIMS (IMM) - Tocharian/Tibetan: "Thaya / law-rule"; has port
+  HUB_NAME_STATE_THAYAS_KHRIMS_city: "Khrimsar"
+  HUB_NAME_STATE_THAYAS_KHRIMS_port: "Khrimsar"
+  HUB_NAME_STATE_THAYAS_KHRIMS_farm: "Yüldo"
+  HUB_NAME_STATE_THAYAS_KHRIMS_mine: "Gangdrak"
+  HUB_NAME_STATE_THAYAS_KHRIMS_wood: "Sengri"
+
+  # STATE_NGONTAG_DGEBA (IMM) - Tibetan: "far blue / virtue"; has port
+  HUB_NAME_STATE_NGONTAG_DGEBA_city: "Gewachen"
+  HUB_NAME_STATE_NGONTAG_DGEBA_port: "Gewachen"
+  HUB_NAME_STATE_NGONTAG_DGEBA_farm: "Trangkha"
+  HUB_NAME_STATE_NGONTAG_DGEBA_mine: "Örtrak"
+  HUB_NAME_STATE_NGONTAG_DGEBA_wood: "Nakteng"
+
+  # STATE_NYUGMA_ZHIGNAS (COS) - Tibetan: "reed clan / abode of dissolution"
+  HUB_NAME_STATE_NYUGMA_ZHIGNAS_city: "Zhigné"
+  HUB_NAME_STATE_NYUGMA_ZHIGNAS_farm: "Nangkha"
+  HUB_NAME_STATE_NYUGMA_ZHIGNAS_mine: "Dramtö"
+  HUB_NAME_STATE_NYUGMA_ZHIGNAS_wood: "Paktsang"
+
+  # STATE_ZIJID_THUNSIG (COS) - Tibetan: "splendor / harmonious"; has port
+  HUB_NAME_STATE_ZIJID_THUNSIG_city: "Thünsik"
+  HUB_NAME_STATE_ZIJID_THUNSIG_port: "Thünsik"
+  HUB_NAME_STATE_ZIJID_THUNSIG_farm: "Yartsang"
+  HUB_NAME_STATE_ZIJID_THUNSIG_mine: "Drakchen"
+  HUB_NAME_STATE_ZIJID_THUNSIG_wood: "Rimlung"
+
+  # STATE_RABTU_ZHIBA (COS) - Tibetan: "utterly / peace"; has port
+  HUB_NAME_STATE_RABTU_ZHIBA_city: "Zhiwachen"
+  HUB_NAME_STATE_RABTU_ZHIBA_port: "Zhiwachen"
+  HUB_NAME_STATE_RABTU_ZHIBA_farm: "Délung"
+  HUB_NAME_STATE_RABTU_ZHIBA_mine: "Trakrab"
+  HUB_NAME_STATE_RABTU_ZHIBA_wood: "Ngaktsang"
+
+  # STATE_TOGPA_BRAGDKAR (DRA) - Tibetan: "realization / white cliff"
+  HUB_NAME_STATE_TOGPA_BRAGDKAR_city: "Drakkar"
+  HUB_NAME_STATE_TOGPA_BRAGDKAR_farm: "Kharlung"
+  HUB_NAME_STATE_TOGPA_BRAGDKAR_mine: "Selri"
+  HUB_NAME_STATE_TOGPA_BRAGDKAR_wood: "Nakbrag"
+
+  # STATE_TAGTU_THARPA (LAM) - Tibetan: "always / liberation"
+  HUB_NAME_STATE_TAGTU_THARPA_city: "Tharpa"
+  HUB_NAME_STATE_TAGTU_THARPA_farm: "Désar"
+  HUB_NAME_STATE_TAGTU_THARPA_mine: "Rigdrak"
+  HUB_NAME_STATE_TAGTU_THARPA_wood: "Shingdrak"
+
+  # STATE_CHUBUR_GYATSO (CHA) - Tibetan: "spring mound / ocean"; has port
+  HUB_NAME_STATE_CHUBUR_GYATSO_city: "Gyatso"
+  HUB_NAME_STATE_CHUBUR_GYATSO_port: "Gyatso"
+  HUB_NAME_STATE_CHUBUR_GYATSO_farm: "Chusar"
+  HUB_NAME_STATE_CHUBUR_GYATSO_mine: "Takdrak"
+  HUB_NAME_STATE_CHUBUR_GYATSO_wood: "Lungnak"
+
+  # STATE_TRINPUNG_GANGRI (CHA) - Tibetan: "cloud mass / snow mountain"
+  HUB_NAME_STATE_TRINPUNG_GANGRI_city: "Trinri"
+  HUB_NAME_STATE_TRINPUNG_GANGRI_farm: "Khartsé"
+  HUB_NAME_STATE_TRINPUNG_GANGRI_mine: "Chakdrak"
+  HUB_NAME_STATE_TRINPUNG_GANGRI_wood: "Rimshö"
+
+  # STATE_ZILPA_RIWO (CHA) - Tibetan: "resplendent / mountain"
+  HUB_NAME_STATE_ZILPA_RIWO_city: "Zilriwo"
+  HUB_NAME_STATE_ZILPA_RIWO_farm: "Thangchen"
+  HUB_NAME_STATE_ZILPA_RIWO_mine: "Chakri"
+  HUB_NAME_STATE_ZILPA_RIWO_wood: "Senglung"
+
+  # STATE_LYAM_ALYE (ANT) - Tocharian: lyam (dwell), om (grain), tsär (fierce), klyom (noble)
+  HUB_NAME_STATE_LYAM_ALYE_city: "Älye"
+  HUB_NAME_STATE_LYAM_ALYE_farm: "Omtär"
+  HUB_NAME_STATE_LYAM_ALYE_mine: "Tsärpäl"
+  HUB_NAME_STATE_LYAM_ALYE_wood: "Klyomśke"
+
+  # STATE_LUNO_SPARKI (ANT) - Tocharian: spärk (rise), om (grain), śpāl (best), pärk (rise)
+  HUB_NAME_STATE_LUNO_SPARKI_city: "Sparki"
+  HUB_NAME_STATE_LUNO_SPARKI_farm: "Omluñe"
+  HUB_NAME_STATE_LUNO_SPARKI_mine: "Tsärśpāl"
+  HUB_NAME_STATE_LUNO_SPARKI_wood: "Kämpärk"
+
+  # STATE_KRONSE_PLARE (ANT) - Tocharian: wär (water), tsär (sharp), śke (suffix), päl (glory)
+  HUB_NAME_STATE_KRONSE_PLARE_city: "Plāre"
+  HUB_NAME_STATE_KRONSE_PLARE_farm: "Wäromś"
+  HUB_NAME_STATE_KRONSE_PLARE_mine: "Krontsär"
+  HUB_NAME_STATE_KRONSE_PLARE_wood: "Śkefäl"
+
+  # STATE_TSERE_PYAPYO (ANT) - Tocharian: wär+tsere, pärk (rise), klyom (noble)
+  HUB_NAME_STATE_TSERE_PYAPYO_city: "Pyāpyo"
+  HUB_NAME_STATE_TSERE_PYAPYO_farm: "Wertsere"
+  HUB_NAME_STATE_TSERE_PYAPYO_mine: "Pärktse"
+  HUB_NAME_STATE_TSERE_PYAPYO_wood: "Klyomñe"
+
+  # STATE_SALK_WAR (LYK) - Tocharian: wär (water), ñem (name/place), om (grain), tsär (sharp), käl (carry)
+  HUB_NAME_STATE_SALK_WAR_city: "Wärñem"
+  HUB_NAME_STATE_SALK_WAR_farm: "Omśalk"
+  HUB_NAME_STATE_SALK_WAR_mine: "Tsärlek"
+  HUB_NAME_STATE_SALK_WAR_wood: "Kälśke"

@@ -1,0 +1,14 @@
+﻿# Estria (isekai: artifice tier 1)
+COUNTRIES = {
+	c:EST ?= {
+		effect_starting_technology_artifice_tier_1 = yes
+		effect_starting_politics_liberal = yes
+        create_character = { 
+            template = template_ruler_est 
+            role = ruler 
+            on_created = {
+                set_as_interest_group_leader = yes
+            }
+        }
+	}
+}

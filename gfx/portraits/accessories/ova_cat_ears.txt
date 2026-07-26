@@ -1,0 +1,18 @@
+﻿	## CATKIN EARS (1 = black for catkin, 2 = white for snow_foxkin) ##
+
+male_headgear_cat_ears_1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_cat_ears_1_entity" }
+}
+male_headgear_cat_ears_2 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_cat_ears_2_entity" }
+}
+female_headgear_cat_ears_1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "female_headgear_cat_ears_1_entity" }
+}
+female_headgear_cat_ears_2 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "female_headgear_cat_ears_2_entity" }
+}

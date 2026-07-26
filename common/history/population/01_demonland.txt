@@ -1,0 +1,30 @@
+﻿POPULATION = {
+    c:DEM = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:GIG = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:GOB = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:PAL = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:SAN = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:SDE = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:YOL = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+}

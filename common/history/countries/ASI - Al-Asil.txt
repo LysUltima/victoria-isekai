@@ -1,0 +1,7 @@
+﻿# Al-Asil (desert: alchemy tier 2)
+COUNTRIES = {
+	c:ASI ?= {
+		effect_starting_technology_alchemy_tier_2 = yes
+		effect_starting_politics_reactionary = yes
+	}
+}

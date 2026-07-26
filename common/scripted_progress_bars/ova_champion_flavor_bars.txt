@@ -1,0 +1,19 @@
+﻿### Champions JE - coup progress bar
+# Filled toward 100 (coup succeeds) or drained to 0 (coup collapses). Like the
+# foundation bars it has NO weekly_progress of its own - the coup JE
+# (je_ova_champion_coup) pushes deltas each week from country scope via
+# je:je_ova_champion_coup = { add_progress = { name = ova_champion_coup_bar
+# value = <delta> } }, computed in ova_champion_coup_tick. The weekly swing is
+# the champion's renown + legend + otherworlder edge, minus the crown's
+# legitimacy, plus whatever the player's coup pulse events add.
+# GOTCHA: keep desc/second_desc apostrophe-free (they feed PROGRESS_BAR_BREAKDOWN).
+
+ova_champion_coup_bar = {
+	name = "ova_champion_coup_bar"
+	desc = "ova_champion_coup_bar_desc"
+
+	start_value = 15
+	min_value = 0
+	max_value = 100
+	default = yes
+}

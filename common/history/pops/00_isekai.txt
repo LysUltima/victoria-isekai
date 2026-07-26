@@ -1,0 +1,790 @@
+﻿POPS = {
+    s:STATE_IMPERIAL_CAPITAL = {
+        region_state:LYS = {
+            create_pop = {
+                culture = lysian
+                size = 4635000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 275000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 139500
+            }
+        }
+    }
+    s:STATE_VERCESTIA = {
+        region_state:LYS = {
+            create_pop = {
+                culture = lysian
+                size = 1745000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 110000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 92600
+            }
+        }
+    }
+    s:STATE_SWORDS_MOUTH = {
+        region_state:LYS = {
+            create_pop = {
+                culture = lysian
+                size = 360000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 65000
+            }
+        }
+    }
+    s:STATE_DWARVEN_HINTERLANDS = {
+        region_state:LYS = {
+            create_pop = {
+                culture = lysian
+                size = 245000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 630000
+            }
+        }
+    }
+    s:STATE_ACLEY = {
+        region_state:LYS = {
+            create_pop = {
+                culture = lysian
+                size = 585000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 605000
+            }
+        }
+    }
+    s:STATE_FENISTON = {
+        region_state:LYS = {
+            create_pop = {
+                culture = lysian
+                size = 1600000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 235600
+            }
+        }
+    }
+    s:STATE_BLITT = {
+        region_state:LYS = {
+            create_pop = {
+                culture = lysian
+                size = 1175000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 210000
+            }
+        }
+    }
+    s:STATE_SEYLAND = {
+        region_state:LYS = {
+            create_pop = {
+                culture = lysian
+                size = 2025000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 92600
+            }
+        }
+    }
+    s:STATE_CEPHISPORT = {
+        region_state:LYS = {
+            create_pop = {
+                culture = lysian
+                size = 1810000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 135000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 185800
+            }
+            create_pop = {
+                culture = aldrican
+                size = 497100
+            }
+        }
+    }
+    s:STATE_BLADEWASTE = {
+        region_state:LYS = {
+            create_pop = {
+                culture = lysian
+                size = 113600
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 107500
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 133900
+            }
+        }
+    }
+    s:STATE_GARLEHOLD = {
+        region_state:LYS = {
+            create_pop = {
+                culture = lysian
+                size = 510000
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 570000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 50700
+            }
+        }
+    }
+    s:STATE_CONNELAND = {
+        region_state:LYS = {
+            create_pop = {
+                culture = lysian
+                size = 798600
+            }
+            create_pop = {
+                culture = shadow_demon
+                size = 731400
+            }
+        }
+    }
+    s:STATE_ACADEMY_DISTRICT = {
+        region_state:ACA = {
+            create_pop = {
+                culture = lysian
+                size = 1230000
+            }
+            create_pop = {
+                culture = vardish
+                size = 330000
+            }
+            create_pop = {
+                culture = skarholt
+                size = 275000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 73500
+            }
+        }
+    }
+    s:STATE_VALESTINE = {
+        region_state:VAL = {
+            create_pop = {
+                culture = aldrican
+                size = 2775000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 1190000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 148900
+            }
+        }
+    }
+    s:STATE_TREST = {
+        region_state:VAL = {
+            create_pop = {
+                culture = aldrican
+                size = 545000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 260000
+            }
+            create_pop = {
+                culture = lysian
+                size = 85100
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 88100
+            }
+        }
+    }
+    s:STATE_DRAKE_MOUNTAIN = {
+        region_state:VAL = {
+            create_pop = {
+                culture = aldrican
+                size = 1150000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 200000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 111800
+            }
+        }
+    }
+    s:STATE_HAVENSTRY = {
+        region_state:VAL = {
+            create_pop = {
+                culture = aldrican
+                size = 1240000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 530000
+            }
+            create_pop = {
+                culture = lysian
+                size = 90700
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 175900
+            }
+        }
+    }
+    s:STATE_LORRLAND = {
+        region_state:VAL = {
+            create_pop = {
+                culture = aldrican
+                size = 2525000
+            }
+            create_pop = {
+                culture = lysian
+                size = 218000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 211500
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 123300
+            }
+        }
+    }
+    s:STATE_ESTLAND = {
+        region_state:EST = {
+            create_pop = {
+                culture = aldrican
+                size = 2520000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 129600
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 208100
+            }
+        }
+    }
+    s:STATE_MAYPORT = {
+        region_state:EST = {
+            create_pop = {
+                culture = aldrican
+                size = 1215000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 44800
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 44300
+            }
+            create_pop = {
+                culture = aurora
+                size = 66000
+            }
+        }
+    }
+    s:STATE_DREAMING_ISLANDS = {
+        region_state:EST = {
+            create_pop = {
+                culture = aldrican
+                size = 685000
+            }
+        }
+    }
+    s:STATE_INSULA_LUCE = {
+        region_state:LUX = {
+            create_pop = {
+                culture = aurora
+                size = 14250000
+            }
+        }
+    }
+    s:STATE_GRACE = {
+        region_state:LUX = {
+            create_pop = {
+                culture = aurora
+                size = 265000
+            }
+            create_pop = {
+                culture = aldrican
+                size = 28000
+            }
+            create_pop = {
+                culture = solenne
+                size = 648600
+            }
+        }
+    }
+    s:STATE_VYELLE = {
+        region_state:NIS = {
+            create_pop = {
+                culture = solenne
+                size = 1455000
+            }
+            create_pop = {
+                culture = aurora
+                size = 72400
+            }
+        }
+    }
+    s:STATE_REANNE = {
+        region_state:NIS = {
+            create_pop = {
+                culture = solenne
+                size = 800000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 35800
+            }
+            create_pop = {
+                culture = alena
+                size = 26300
+            }
+        }
+    }
+    s:STATE_CHOUX = {
+        region_state:NIS = {
+            create_pop = {
+                culture = solenne
+                size = 305000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 55000
+            }
+            create_pop = {
+                culture = western_rabbitkin
+                size = 13700
+            }
+            create_pop = {
+                culture = alena
+                size = 19000
+            }
+        }
+    }
+    s:STATE_LAVOGNE = {
+        region_state:NIS = {
+            create_pop = {
+                culture = solenne
+                size = 780800
+            }
+            create_pop = {
+                culture = alena
+                size = 614200
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 62200
+            }
+        }
+    }
+    s:STATE_SEVONA = {
+        region_state:ALE = {
+            create_pop = {
+                culture = alena
+                size = 1690000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 110000
+            }
+            create_pop = {
+                culture = vardish
+                size = 174300
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 92300
+            }
+        }
+    }
+    s:STATE_CASABELLA = {
+        region_state:ALE = {
+            create_pop = {
+                culture = alena
+                size = 795000
+            }
+            create_pop = {
+                culture = vardish
+                size = 24000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 42700
+            }
+        }
+    }
+    s:STATE_QUENA = {
+        region_state:ALE = {
+            create_pop = {
+                culture = alena
+                size = 870000
+            }
+            create_pop = {
+                culture = solenne
+                size = 44100
+            }
+        }
+    }
+    s:STATE_KATZENBURG = {
+        region_state:REY = {
+            create_pop = {
+                culture = vardish
+                size = 3530000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 200000
+            }
+            create_pop = {
+                culture = lysian
+                size = 185900
+            }
+            create_pop = {
+                culture = skarholt
+                size = 149500
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 1405100
+            }
+        }
+    }
+    s:STATE_WELPENSTADT = {
+        region_state:REY = {
+            create_pop = {
+                culture = vardish
+                size = 1215000
+            }
+            create_pop = {
+                culture = lysian
+                size = 43100
+            }
+            create_pop = {
+                culture = skarholt
+                size = 76700
+            }
+            create_pop = {
+                culture = dogkin
+                size = 705100
+            }
+        }
+    }
+    s:STATE_BARENBERG = {
+        region_state:REY = {
+            create_pop = {
+                culture = vardish
+                size = 400000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 70000
+            }
+            create_pop = {
+                culture = lysian
+                size = 25600
+            }
+            create_pop = {
+                culture = skarholt
+                size = 43800
+            }
+            create_pop = {
+                culture = bearkin
+                size = 390000
+            }
+        }
+    }
+    s:STATE_HASENHAFEN = {
+        region_state:REY = {
+            create_pop = {
+                culture = vardish
+                size = 1530000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 100000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 97300
+            }
+            create_pop = {
+                culture = alena
+                size = 88900
+            }
+            create_pop = {
+                culture = western_rabbitkin
+                size = 595000
+            }
+        }
+    }
+    s:STATE_FUSCHTAL = {
+        region_state:REY = {
+            create_pop = {
+                culture = vardish
+                size = 450000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 85000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 45000
+            }
+            create_pop = {
+                culture = alena
+                size = 60800
+            }
+            create_pop = {
+                culture = forest_foxkin
+                size = 405100
+            }
+        }
+    }
+    s:STATE_DALBY = {
+        region_state:SKA = {
+            create_pop = {
+                culture = skarholt
+                size = 415000
+            }
+            create_pop = {
+                culture = lysian
+                size = 24000
+            }
+            create_pop = {
+                culture = vardish
+                size = 34400
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 13500
+            }
+        }
+    }
+    s:STATE_STJERNVIK = {
+        region_state:VIN = {
+            create_pop = {
+                culture = skarholt
+                size = 1355000
+            }
+            create_pop = {
+                culture = lysian
+                size = 77400
+            }
+            create_pop = {
+                culture = vardish
+                size = 62700
+            }
+        }
+    }
+    s:STATE_SIN_CITY = {
+        region_state:SIN = {
+            create_pop = {
+                culture = farshore
+                size = 170000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 30000
+            }
+            create_pop = {
+                culture = ghazalin
+                size = 10400
+            }
+            create_pop = {
+                culture = lysian
+                size = 6100
+            }
+        }
+    }
+    s:STATE_NEWHOLD = {
+        region_state:SIN = {
+            create_pop = {
+                culture = farshore
+                size = 78900
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 96100
+            }
+            create_pop = {
+                culture = lysian
+                size = 10200
+            }
+        }
+    }
+    s:STATE_RAETENI = {
+        region_state:ELV = {
+            create_pop = {
+                culture = wood_elf
+                size = 1885000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 155800
+            }
+            create_pop = {
+                culture = aldrican
+                size = 205100
+            }
+        }
+    }
+    s:STATE_CARENADUS = {
+        region_state:ELV = {
+            create_pop = {
+                culture = wood_elf
+                size = 1010000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 157300
+            }
+            create_pop = {
+                culture = aldrican
+                size = 83000
+            }
+        }
+    }
+    s:STATE_ELISAE = {
+        region_state:ELV = {
+            create_pop = {
+                culture = wood_elf
+                size = 895000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 160000
+            }
+            create_pop = {
+                culture = aldrican
+                size = 46000
+            }
+        }
+    }
+    s:STATE_DULLEDAL = {
+        region_state:DWA = {
+            create_pop = {
+                culture = steel_dwarf
+                size = 1655000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 80000
+            }
+            create_pop = {
+                culture = lysian
+                size = 55400
+            }
+        }
+    }
+    s:STATE_MELKKALUNDE = {
+        region_state:DWA = {
+            create_pop = {
+                culture = steel_dwarf
+                size = 855000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 180300
+            }
+        }
+    }
+    s:STATE_ZIDDEVE = {
+        region_state:DWA = {
+            create_pop = {
+                culture = steel_dwarf
+                size = 215000
+            }
+            create_pop = {
+                culture = wood_elf
+                size = 20400
+            }
+            create_pop = {
+                culture = lysian
+                size = 33500
+            }
+            create_pop = {
+                culture = aldrican
+                size = 10100
+            }
+        }
+    }
+    s:STATE_POISONWASTE = {
+        region_state:EAS = {
+            create_pop = {
+                culture = southern_orc
+                size = 255000
+            }
+        }
+    }
+    s:STATE_BLEAKPLAIN = {
+        region_state:EAS = {
+            create_pop = {
+                culture = southern_orc
+                size = 170000
+            }
+        }
+    }
+    s:STATE_BARRENFIELD = {
+        region_state:EAS = {
+            create_pop = {
+                culture = southern_orc
+                size = 180000
+            }
+        }
+    }
+    s:STATE_DARKLURK = {
+        region_state:EAS = {
+            create_pop = {
+                culture = southern_orc
+                size = 135000
+            }
+        }
+    }
+    s:STATE_HELLBORNE_MOUNTAINS = {
+        region_state:HEL = {
+            create_pop = {
+                culture = southern_orc
+                size = 110000
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 15000
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+﻿### Murim gangho flavor - modifiers (Agent C, sole owner of this file)
+# Namespace ova_murim_flavor. Applied by events/ova_murim_flavor_events.txt only.
+# All modifier types verified by grep against vanilla common/modifier_type_definitions/
+# (building_group_bg_service_throughput_add - 01_building_modifier_types.txt, confirmed bg_service
+# building group exists in common/building_groups/00_building_groups.txt; country_tech_spread_mult,
+# country_weekly_innovation_mult, country_legitimacy_base_add, state_turmoil_effects_mult - all
+# confirmed real vanilla keys in 00_modifier_types.txt). Static modifiers need no loc entry for the
+# tooltip (engine auto-generates it), but per spec every modifier here still gets a bare display-name
+# loc entry in ova_murim_flavor_l_english.yml.
+
+# Licensed caravan-escort houses along the trade roads (the escort agency boom)
+ova_murim_flavor_escort_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_group_bg_service_throughput_add = 0.10
+}
+
+# The licensing fees the bonded escort houses keep paying the sect
+ova_murim_flavor_escort_fees = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_expenses_add = -1
+}
+
+# The itinerant physician charging like everyone else, month after month
+ova_murim_flavor_physician_fees = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_expenses_add = -1
+}
+
+# Blessed tokens sold at the shrine gate to every pilgrim who climbs the mountain
+ova_murim_flavor_shrine_tokens = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_expenses_add = -1
+}
+
+# Forged and half-true martial manuals bought up wholesale still teach somebody something
+ova_murim_flavor_manual_forgery = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
+	country_tech_spread_mult = 0.05
+}
+
+# The beggars union's eyes and ears, purchased with silver
+ova_murim_flavor_beggars_network = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_weekly_innovation_mult = 0.05
+}
+
+# A masked vigilante beating corrupt toll-collectors bloody is, whatever the elders say, good for the sect's name
+ova_murim_flavor_vigilante_order = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_legitimacy_base_add = 5
+}
+
+# Sending blades to clear the salt road of its bandit king leaves its own mess behind
+ova_murim_flavor_bandit_toll = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	state_turmoil_effects_mult = 0.10
+}

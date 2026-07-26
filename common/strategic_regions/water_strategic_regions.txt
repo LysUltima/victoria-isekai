@@ -1,0 +1,200 @@
+﻿region_sea_3000 = {
+	states = { STATE_SEA_3000 }
+}
+
+region_sea_3001 = {
+	states = { STATE_SEA_3001 }
+}
+
+region_sea_3002 = {
+	states = { STATE_SEA_3002 }
+}
+
+region_sea_3003 = {
+	states = { STATE_SEA_3003 }
+}
+
+region_sea_3004 = {
+	states = { STATE_SEA_3004 }
+}
+
+region_sea_3005 = {
+	states = { STATE_SEA_3005 }
+}
+
+region_sea_3006 = {
+	states = { STATE_SEA_3006 }
+}
+
+region_sea_3007 = {
+	states = { STATE_SEA_3007 }
+}
+
+region_sea_3008 = {
+	states = { STATE_SEA_3008 }
+}
+
+region_sea_3009 = {
+	states = { STATE_SEA_3009 }
+}
+
+region_sea_3010 = {
+	states = { STATE_SEA_3010 }
+}
+
+region_sea_3011 = {
+	states = { STATE_SEA_3011 }
+}
+
+region_sea_3012 = {
+	states = { STATE_SEA_3012 }
+}
+
+region_sea_3013 = {
+	states = { STATE_SEA_3013 }
+}
+
+region_sea_3014 = {
+	states = { STATE_SEA_3014 }
+}
+
+region_sea_3015 = {
+	states = { STATE_SEA_3015 }
+}
+
+region_sea_3016 = {
+	states = { STATE_SEA_3016 }
+}
+
+region_sea_3017 = {
+	states = { STATE_SEA_3017 }
+}
+
+region_sea_3018 = {
+	states = { STATE_SEA_3018 }
+}
+
+region_sea_3019 = {
+	states = { STATE_SEA_3019 }
+}
+
+region_sea_3020 = {
+	states = { STATE_SEA_3020 }
+}
+
+region_sea_3021 = {
+	states = { STATE_SEA_3021 }
+}
+
+region_sea_3022 = {
+	states = { STATE_SEA_3022 }
+}
+
+region_sea_3023 = {
+	states = { STATE_SEA_3023 }
+}
+
+region_sea_3024 = {
+	states = { STATE_SEA_3024 }
+}
+
+region_sea_3025 = {
+	states = { STATE_SEA_3025 }
+}
+
+region_sea_3026 = {
+	states = { STATE_SEA_3026 }
+}
+
+region_sea_3027 = {
+	states = { STATE_SEA_3027 }
+}
+
+region_sea_3028 = {
+	states = { STATE_SEA_3028 }
+}
+
+region_sea_3029 = {
+	states = { STATE_SEA_3029 }
+}
+
+region_sea_3030 = {
+	states = { STATE_SEA_3030 }
+}
+
+region_sea_3031 = {
+	states = { STATE_SEA_3031 }
+}
+
+region_sea_3032 = {
+	states = { STATE_SEA_3032 }
+}
+
+region_sea_3033 = {
+	states = { STATE_SEA_3033 }
+}
+
+region_sea_3034 = {
+	states = { STATE_SEA_3034 }
+}
+
+region_sea_3035 = {
+	states = { STATE_SEA_3035 }
+}
+
+region_sea_3036 = {
+	states = { STATE_SEA_3036 }
+}
+
+region_sea_3037 = {
+	states = { STATE_SEA_3037 }
+}
+
+region_sea_3038 = {
+	states = { STATE_SEA_3038 }
+}
+
+region_sea_3039 = {
+	states = { STATE_SEA_3039 }
+}
+
+region_sea_3040 = {
+	states = { STATE_SEA_3040 }
+}
+
+region_sea_3041 = {
+	states = { STATE_SEA_3041 }
+}
+
+region_sea_3042 = {
+	states = { STATE_SEA_3042 }
+}
+
+region_sea_3043 = {
+	states = { STATE_SEA_3043 }
+}
+
+region_sea_3044 = {
+	states = { STATE_SEA_3044 }
+}
+
+region_sea_3045 = {
+	states = { STATE_SEA_3045 }
+}
+
+region_sea_3046 = {
+	states = { STATE_SEA_3046 }
+}
+
+region_sea_3047 = {
+	states = { STATE_SEA_3047 }
+}
+
+region_sea_3048 = {
+	states = { STATE_SEA_3048 }
+}
+
+region_sea_3049 = {
+	states = { STATE_SEA_3049 }
+}
+

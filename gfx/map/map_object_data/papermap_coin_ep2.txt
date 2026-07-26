@@ -1,0 +1,8 @@
+﻿object={
+	name="coin_iep2"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="papermap_layer"
+	pdxmesh="ep2_coin_mesh"
+}

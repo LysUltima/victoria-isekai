@@ -1,0 +1,192 @@
+﻿object={
+	name="env_geyser_large_obj"
+	clamp_to_water_level=no
+	render_under_water=yes
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_geyser_large"
+}
+object={
+	name="env_geyser_medium_obj"
+	clamp_to_water_level=no
+	render_under_water=yes
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_geyser_medium"
+}
+object={
+	name="env_geyser_small_obj"
+	clamp_to_water_level=no
+	render_under_water=yes
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_geyser_small"
+}
+object={
+	name="env_godrays"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_god_rays"
+}
+object={
+	name="env_jungle_mist_l"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_jungle_mist_l"
+}
+object={
+	name="env_jungle_mist_s"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_jungle_mist_s"
+}
+object={
+	name="env_rolling_clouds"
+	clamp_to_water_level=yes
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_mist"
+}
+object={
+	name="env_rolling_fog_mountain"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_rolling_fog_mountain"
+}
+object={
+	name="env_sandstorm_obj"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_sandstorm"
+}
+object={
+	name="env_sandstorm_small"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_sandstorm_small"
+}
+object={
+	name="env_snow_01_obj"
+	clamp_to_water_level=no
+	render_under_water=yes
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_snow_01"
+}
+object={
+	name="env_snow_02_obj"
+	clamp_to_water_level=no
+	render_under_water=yes
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_snow_02"
+}
+object={
+	name="env_snow_fall"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_snow_fall"
+}
+object={
+	name="env_snow_fall_small"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_snow_fall_small"
+}
+object={
+	name="env_swamp_fog"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_swamp_fog"
+}
+object={
+	name="env_tropical_rain"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_tropical_rain_entity"
+}
+object={
+	name="env_tropical_rain_dense"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_tropical_rain_dense_entity"
+}
+object={
+	name="env_volcano_idle_obj"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_volcano_idle"
+}
+object={
+	name="env_waterfall_bottom"
+	clamp_to_water_level=no
+	render_under_water=yes
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_waterfall_02"
+}
+object={
+	name="env_waterfall_top"
+	clamp_to_water_level=no
+	render_under_water=yes
+	generated_content=no
+	layer="environmental_effects"
+	entity="env_waterfall_01"
+}
+object={
+	name="rock_granite_river_01_entity"
+	clamp_to_water_level=no
+	render_under_water=yes
+	generated_content=no
+	layer="environmental_effects"
+	entity="rock_granite_river_01_entity"
+}
+object={
+	name="sfx_rain_emitter"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="vfx_rain_emitter"
+}
+object={
+	name="sfx_sandstorm_emitter"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="vfx_sandstorm_emitter"
+}
+object={
+	name="sfx_snowstorm_emitter"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="environmental_effects"
+	entity="vfx_snowstorm_emitter"
+}

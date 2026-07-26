@@ -1,0 +1,7 @@
+﻿give_claims_on_italy = {
+	# removed effect body: every_state_in_italy_old geographic-region iterator not present in this mod
+}
+
+give_claims_on_germany = {
+	# removed effect body: every_state_in_lesser_germany geographic-region iterator not present in this mod
+}

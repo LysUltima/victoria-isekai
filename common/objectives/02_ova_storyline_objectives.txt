@@ -1,0 +1,54 @@
+﻿# ------------------------------------------------------------------------
+# Suggested starts: the mod's three storylines surfaced as lobby objectives
+# (the "Play Objective" panel, like vanilla's tutorial/player objectives).
+# The storylines fire on their own from history/on_actions when you play the
+# relevant nation. These objectives' job is to appear in the new-game
+# country-select screen, flag the recommended tags, and pitch each starting
+# situation to the player. An empty objective_subgoals list errors at runtime,
+# so each carries one placeholder subgoal that auto-completes at game start
+# (see common/objective_subgoals/02_ova_storyline_subgoals.txt).
+# Per-tag names/blurbs live in localization/replace/english/
+# ova_storyline_objectives_l_english.yml.
+# ------------------------------------------------------------------------
+
+objective_ova_isekai = {
+	enabled_background = "gfx/interface/icons/objectives/hegemon_illu.dds"
+	icon = "gfx/interface/icons/objectives/hegemon.dds"
+
+	recommended_tags = { LYS DEM LUX REY }
+
+	objective_subgoals = {
+		sg_ova_isekai_begin
+	}
+	final_subgoal = sg_ova_isekai_begin
+
+	on_start = {}
+}
+
+objective_ova_murim = {
+	enabled_background = "gfx/interface/icons/objectives/great_game_illu.dds"
+	icon = "gfx/interface/icons/objectives/great_game.dds"
+
+	recommended_tags = { HWA CHE NAM PAE }
+
+	objective_subgoals = {
+		sg_ova_murim_begin
+	}
+	final_subgoal = sg_ova_murim_begin
+
+	on_start = {}
+}
+
+objective_ova_xianxia = {
+	enabled_background = "gfx/interface/icons/objectives/egalitarian_society_illu.dds"
+	icon = "gfx/interface/icons/objectives/egalitarian_society.dds"
+
+	recommended_tags = { HEA FLO BLO NIN }
+
+	objective_subgoals = {
+		sg_ova_xianxia_begin
+	}
+	final_subgoal = sg_ova_xianxia_begin
+
+	on_start = {}
+}

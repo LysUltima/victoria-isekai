@@ -1,0 +1,402 @@
+colors = {
+	# --- Per-country base colors (mirror common/country_definitions RGB) ---
+	col_LYS = { 114 121 181 }	col_ACA = { 173 169 141 }	col_VAL = { 101 37 133 }
+	col_EST = { 156 53 58 }	col_LUX = { 212 208 180 }	col_NIS = { 55 77 177 }
+	col_ALE = { 161 90 43 }	col_REY = { 74 59 122 }	col_SKA = { 79 115 63 }
+	col_VIN = { 59 97 67 }	col_SIN = { 84 4 4 }	col_ELV = { 52 87 30 }
+	col_DWA = { 64 73 74 }	col_EAS = { 97 80 46 }	col_HEL = { 120 80 70 }
+
+	col_DEM = { 28 21 38 }	col_YOL = { 50 40 90 }	col_PAL = { 120 70 70 }
+	col_GIG = { 30 23 23 }	col_GOB = { 58 69 58 }	col_SAN = { 105 101 60 }
+	col_SDE = { 181 174 98 }
+
+	col_AGR = { 55 54 66 }	col_SEL = { 152 151 186 }	col_BRU = { 106 97 117 }
+	col_IIV = { 126 158 127 }	col_SYA = { 154 176 184 }	col_AMI = { 150 102 102 }
+	col_MIA = { 101 110 94 }	col_MAA = { 104 80 110 }	col_SVA = { 104 80 110 }
+	col_HRG = { 140 165 180 }	col_SKL = { 70 95 120 }	col_STO = { 110 115 115 }
+	col_GRA = { 85 115 90 }	col_VAT = { 55 90 100 }	col_ELD = { 145 95 75 }
+	col_NYL = { 100 130 95 }	col_SOL = { 160 110 65 }	col_ORC = { 94 120 76 }
+
+	col_SUN = { 199 186 133 }	col_ASI = { 148 69 47 }	col_LUJ = { 122 98 61 }
+	col_TAM = { 89 53 25 }	col_ASA = { 156 103 65 }	col_GHA = { 69 125 75 }
+	col_JUM = { 144 164 171 }	col_FAW = { 200 22 22 }	col_IKH = { 154 189 94 }
+	col_DES = { 18 46 107 }	col_SCO = { 156 117 78 }	col_BUR = { 161 42 21 }
+	col_DAY = { 158 126 79 }
+
+	col_CAT = { 11 7 36 }	col_TUC = { 112 23 17 }	col_AIL = { 171 144 77 }
+	col_HAR = { 97 27 82 }	col_URR = { 110 88 63 }	col_WAP = { 117 0 6 }
+	col_HAT = { 163 100 38 }	col_AHE = { 209 184 159 }	col_UAN = { 161 61 39 }
+	col_ANE = { 193 185 201 }	col_MIR = { 163 122 122 }	col_SIR = { 128 56 36 }
+	col_BEA = { 61 15 7 }	col_NOR = { 173 79 62 }	col_SOU = { 112 30 38 }
+	col_WOL = { 105 91 79 }
+
+	col_IMM = { 156 116 58 }	col_COS = { 41 44 117 }	col_DRA = { 209 224 219 }
+	col_LAM = { 80 84 173 }	col_CHA = { 47 138 74 }	col_ANT = { 128 22 45 }
+	col_LYK = { 106 115 117 }
+
+	col_FEN = { 181 30 7 }	col_SWO = { 48 83 140 }	col_HEA = { 104 150 173 }
+	col_FLO = { 204 167 195 }	col_PUR = { 109 69 143 }	col_MYS = { 47 32 92 }
+	col_FEA = { 171 79 86 }	col_YAO = { 227 176 45 }	col_SPI = { 104 59 163 }
+	col_VER = { 219 51 18 }	col_SNO = { 184 215 224 }	col_BLO = { 71 7 14 }
+	col_GHO = { 64 31 22 }	col_SHA = { 17 21 64 }	col_NIN = { 54 49 42 }
+
+	col_HWA = { 207 136 177 }	col_SOR = { 196 163 100 }	col_MUD = { 140 141 168 }
+	col_JEG = { 168 40 51 }	col_TAN = { 191 124 73 }	col_NAM = { 105 28 33 }
+	col_PAE = { 50 50 50 }	col_SAM = { 120 70 70 }	col_CHE = { 15 19 51 }
+
+	col_CRI = { 173 23 17 }	col_UND = { 20 19 19 }	col_SUR = { 45 107 138 }
+	col_XIL = { 128 15 3 }	col_PUL = { 26 110 37 }	col_HAD = { 76 37 92 }
+	col_LAN = { 209 197 214 }	col_KUI = { 82 72 66 }	col_JAD = { 81 173 95 }
+
+	col_ASH = { 217 184 52 }	col_HAN = { 207 145 155 }	col_IRO = { 120 90 120 }
+	col_HIB = { 168 54 45 }	col_KON = { 181 83 38 }	col_SHI = { 141 163 179 }
+	col_YUK = { 198 176 209 }	col_YUU = { 150 45 20 }
+
+	col_TID = { 36 156 140 }	col_URU = { 15 163 52 }	col_UTA = { 90 36 97 }
+	col_UFU = { 62 69 112 }	col_WHA = { 218 165 32 }	col_KAI = { 139 0 0 }
+	col_RAN = { 211 84 0 }	col_TAR = { 34 139 34 }	col_WAI = { 184 134 11 }
+	col_HAW = { 36 156 140 }	col_WHN = { 70 130 180 }	col_AHU = { 204 85 0 }
+	col_KAM = { 210 180 140 }	col_MAL = { 46 139 87 }	col_HOK = { 102 102 153 }
+	col_KAN = { 0 76 153 }	col_POL = { 112 128 144 }	col_LAA = { 238 214 175 }
+	col_MAK = { 70 130 180 }	col_KLA = { 34 139 34 }	col_AHI = { 165 42 42 }
+	col_POM = { 173 216 230 }	col_TUA = { 0 128 128 }	col_TRO = { 184 61 41 }
+	col_NUK = { 70 163 70 }	col_TAO = { 168 50 82 }	col_VAE = { 219 180 88 }
+
+	# --- Curated accent palette (metallics, elementals, thematic) ---
+	oc_gold        = { 212 175 55 }
+	oc_pale_gold   = { 230 205 120 }
+	oc_bronze      = { 176 122 60 }
+	oc_silver      = { 200 205 210 }
+	oc_ivory       = { 240 234 210 }
+	oc_iron        = { 90 92 98 }
+	oc_obsidian    = { 15 12 18 }
+	oc_ash_grey    = { 120 118 112 }
+
+	oc_blood_red   = { 138 12 20 }
+	oc_ember       = { 214 90 30 }
+	oc_flame_orange= { 235 130 40 }
+	oc_ice_blue    = { 150 205 220 }
+	oc_frost_white = { 225 240 245 }
+	oc_deep_blue   = { 20 35 90 }
+	oc_void_black  = { 8 6 14 }
+	oc_shadow_purp = { 60 30 80 }
+	oc_soul_violet = { 110 60 160 }
+
+	oc_jade_green  = { 45 140 100 }
+	oc_moss_green  = { 70 100 55 }
+	oc_forest_green= { 30 80 45 }
+	oc_verdigris   = { 70 150 130 }
+	oc_lotus_pink  = { 220 150 180 }
+	oc_plum        = { 130 60 110 }
+	oc_saffron     = { 230 160 50 }
+	oc_vermillion  = { 210 60 30 }
+	oc_jade_teal   = { 40 130 140 }
+
+	oc_sand        = { 210 180 120 }
+	oc_desert_dusk = { 190 100 60 }
+	oc_oasis_teal  = { 40 130 130 }
+	oc_night_indigo= { 30 30 80 }
+
+	oc_bone        = { 220 210 190 }
+	oc_earth_brown = { 100 70 45 }
+	oc_amber       = { 200 140 40 }
+	oc_wolf_grey   = { 130 130 135 }
+	oc_pelt_brown  = { 120 85 55 }
+
+	oc_coral       = { 220 110 90 }
+	oc_lagoon      = { 30 140 150 }
+	oc_deep_sea    = { 10 50 90 }
+	oc_sunrise     = { 240 150 60 }
+	oc_pearl_white = { 245 245 235 }
+
+
+	# --- Split-complementary emblem accent colors (snapped to historical heraldic/dye tinctures) ---
+	sc_ACA_1       = { 34 63 122 }
+	sc_ACA_2       = { 42 47 88 }
+	sc_AGR_1       = { 185 128 55 }
+	sc_AGR_2       = { 95 100 52 }
+	sc_AHE_1       = { 48 74 116 }
+	sc_AHE_2       = { 42 47 88 }
+	sc_AHI_1       = { 58 98 56 }
+	sc_AHI_2       = { 73 99 132 }
+	sc_AHU_1       = { 36 79 46 }
+	sc_AHU_2       = { 42 47 88 }
+	sc_AIL_1       = { 34 63 122 }
+	sc_AIL_2       = { 42 47 88 }
+	sc_ALE_1       = { 36 79 46 }
+	sc_ALE_2       = { 42 47 88 }
+	sc_AMI_1       = { 36 79 46 }
+	sc_AMI_2       = { 34 63 122 }
+	sc_ANE_1       = { 95 100 52 }
+	sc_ANE_2       = { 36 79 46 }
+	sc_ANT_1       = { 58 98 56 }
+	sc_ANT_2       = { 73 99 132 }
+	sc_ASA_1       = { 36 79 46 }
+	sc_ASA_2       = { 42 47 88 }
+	sc_ASH_1       = { 34 63 122 }
+	sc_ASH_2       = { 42 47 88 }
+	sc_ASI_1       = { 68 132 113 }
+	sc_ASI_2       = { 34 63 122 }
+	sc_BEA_1       = { 36 79 46 }
+	sc_BEA_2       = { 34 63 122 }
+	sc_BLO_1       = { 68 132 113 }
+	sc_BLO_2       = { 73 99 132 }
+	sc_BRU_1       = { 196 172 118 }
+	sc_BRU_2       = { 36 79 46 }
+	sc_BUR_1       = { 58 98 56 }
+	sc_BUR_2       = { 73 99 132 }
+	sc_CAT_1       = { 185 128 55 }
+	sc_CAT_2       = { 36 79 46 }
+	sc_CHA_1       = { 42 47 88 }
+	sc_CHA_2       = { 92 26 27 }
+	sc_CHE_1       = { 176 108 55 }
+	sc_CHE_2       = { 208 173 71 }
+	sc_COS_1       = { 176 108 55 }
+	sc_COS_2       = { 95 100 52 }
+	sc_CRI_1       = { 58 98 56 }
+	sc_CRI_2       = { 63 79 105 }
+	sc_DAY_1       = { 48 74 116 }
+	sc_DAY_2       = { 42 47 88 }
+	sc_DEM_1       = { 196 172 118 }
+	sc_DEM_2       = { 78 95 51 }
+	sc_DES_1       = { 163 48 43 }
+	sc_DES_2       = { 208 173 71 }
+	sc_DRA_1       = { 96 38 79 }
+	sc_DRA_2       = { 109 33 33 }
+	sc_DWA_1       = { 96 38 79 }
+	sc_DWA_2       = { 196 172 118 }
+	sc_EAS_1       = { 68 132 113 }
+	sc_EAS_2       = { 42 47 88 }
+	sc_ELD_1       = { 36 79 46 }
+	sc_ELD_2       = { 42 47 88 }
+	sc_ELV_1       = { 42 47 88 }
+	sc_ELV_2       = { 96 38 79 }
+	sc_EST_1       = { 68 132 113 }
+	sc_EST_2       = { 73 99 132 }
+	sc_FAW_1       = { 68 132 113 }
+	sc_FAW_2       = { 73 99 132 }
+	sc_FEA_1       = { 36 79 46 }
+	sc_FEA_2       = { 34 63 122 }
+	sc_FEN_1       = { 68 132 113 }
+	sc_FEN_2       = { 73 99 132 }
+	sc_FLO_1       = { 36 79 46 }
+	sc_FLO_2       = { 37 90 51 }
+	sc_GHA_1       = { 42 47 88 }
+	sc_GHA_2       = { 96 38 79 }
+	sc_GHO_1       = { 36 79 46 }
+	sc_GHO_2       = { 34 63 122 }
+	sc_GIG_1       = { 37 90 51 }
+	sc_GIG_2       = { 63 79 105 }
+	sc_GOB_1       = { 42 47 88 }
+	sc_GOB_2       = { 96 38 79 }
+	sc_GRA_1       = { 42 47 88 }
+	sc_GRA_2       = { 92 26 27 }
+	sc_HAD_1       = { 208 173 71 }
+	sc_HAD_2       = { 37 90 51 }
+	sc_HAN_1       = { 36 79 46 }
+	sc_HAN_2       = { 34 63 122 }
+	sc_HAR_1       = { 58 98 56 }
+	sc_HAR_2       = { 37 90 51 }
+	sc_HAT_1       = { 48 74 116 }
+	sc_HAT_2       = { 42 47 88 }
+	sc_HAW_1       = { 96 38 79 }
+	sc_HAW_2       = { 95 65 41 }
+	sc_HEA_1       = { 92 26 27 }
+	sc_HEA_2       = { 196 172 118 }
+	sc_HEL_1       = { 36 79 46 }
+	sc_HEL_2       = { 34 63 122 }
+	sc_HIB_1       = { 68 132 113 }
+	sc_HIB_2       = { 34 63 122 }
+	sc_HOK_1       = { 95 65 41 }
+	sc_HOK_2       = { 36 79 46 }
+	sc_HRG_1       = { 92 26 27 }
+	sc_HRG_2       = { 95 100 52 }
+	sc_HWA_1       = { 36 79 46 }
+	sc_HWA_2       = { 48 74 116 }
+	sc_IIV_1       = { 42 47 88 }
+	sc_IIV_2       = { 96 38 79 }
+	sc_IKH_1       = { 42 47 88 }
+	sc_IKH_2       = { 96 38 79 }
+	sc_IMM_1       = { 48 74 116 }
+	sc_IMM_2       = { 42 47 88 }
+	sc_IRO_1       = { 36 79 46 }
+	sc_IRO_2       = { 37 90 51 }
+	sc_JAD_1       = { 42 47 88 }
+	sc_JAD_2       = { 92 26 27 }
+	sc_JEG_1       = { 68 132 113 }
+	sc_JEG_2       = { 73 99 132 }
+	sc_JUM_1       = { 92 26 27 }
+	sc_JUM_2       = { 214 150 42 }
+	sc_KAI_1       = { 37 90 51 }
+	sc_KAI_2       = { 63 79 105 }
+	sc_KAM_1       = { 48 74 116 }
+	sc_KAM_2       = { 42 47 88 }
+	sc_KAN_1       = { 92 26 27 }
+	sc_KAN_2       = { 95 100 52 }
+	sc_KLA_1       = { 42 47 88 }
+	sc_KLA_2       = { 96 38 79 }
+	sc_KON_1       = { 36 79 46 }
+	sc_KON_2       = { 42 47 88 }
+	sc_KUI_1       = { 73 99 132 }
+	sc_KUI_2       = { 42 47 88 }
+	sc_LAA_1       = { 48 74 116 }
+	sc_LAA_2       = { 42 47 88 }
+	sc_LAM_1       = { 95 65 41 }
+	sc_LAM_2       = { 208 173 71 }
+	sc_LAN_1       = { 78 95 51 }
+	sc_LAN_2       = { 36 79 46 }
+	sc_LUJ_1       = { 48 74 116 }
+	sc_LUJ_2       = { 42 47 88 }
+	sc_LUX_1       = { 34 63 122 }
+	sc_LUX_2       = { 42 47 88 }
+	sc_LYK_1       = { 92 26 27 }
+	sc_LYK_2       = { 214 150 42 }
+	sc_LYS_1       = { 95 65 41 }
+	sc_LYS_2       = { 58 98 56 }
+	sc_MAA_1       = { 198 158 47 }
+	sc_MAA_2       = { 68 132 113 }
+	sc_MAK_1       = { 92 26 27 }
+	sc_MAK_2       = { 95 100 52 }
+	sc_MAL_1       = { 96 38 79 }
+	sc_MAL_2       = { 92 26 27 }
+	sc_MIA_1       = { 42 47 88 }
+	sc_MIA_2       = { 96 38 79 }
+	sc_MIR_1       = { 36 79 46 }
+	sc_MIR_2       = { 34 63 122 }
+	sc_MUD_1       = { 100 70 46 }
+	sc_MUD_2       = { 58 98 56 }
+	sc_MYS_1       = { 196 172 118 }
+	sc_MYS_2       = { 78 95 51 }
+	sc_NAM_1       = { 58 98 56 }
+	sc_NAM_2       = { 73 99 132 }
+	sc_NIN_1       = { 48 74 116 }
+	sc_NIN_2       = { 34 63 122 }
+	sc_NIS_1       = { 176 108 55 }
+	sc_NIS_2       = { 198 158 47 }
+	sc_NOR_1       = { 36 79 46 }
+	sc_NOR_2       = { 34 63 122 }
+	sc_NUK_1       = { 42 47 88 }
+	sc_NUK_2       = { 96 38 79 }
+	sc_NYL_1       = { 42 47 88 }
+	sc_NYL_2       = { 96 38 79 }
+	sc_ORC_1       = { 42 47 88 }
+	sc_ORC_2       = { 96 38 79 }
+	sc_PAE_1       = { 68 132 113 }
+	sc_PAE_2       = { 73 99 132 }
+	sc_PAL_1       = { 68 132 113 }
+	sc_PAL_2       = { 34 63 122 }
+	sc_POL_1       = { 92 26 27 }
+	sc_POL_2       = { 196 172 118 }
+	sc_POM_1       = { 92 26 27 }
+	sc_POM_2       = { 214 150 42 }
+	sc_PUL_1       = { 42 47 88 }
+	sc_PUL_2       = { 96 38 79 }
+	sc_PUR_1       = { 208 173 71 }
+	sc_PUR_2       = { 36 79 46 }
+	sc_RAN_1       = { 36 79 46 }
+	sc_RAN_2       = { 42 47 88 }
+	sc_REY_1       = { 214 150 42 }
+	sc_REY_2       = { 78 95 51 }
+	sc_SAM_1       = { 68 132 113 }
+	sc_SAM_2       = { 34 63 122 }
+	sc_SAN_1       = { 34 63 122 }
+	sc_SAN_2       = { 42 47 88 }
+	sc_SCO_1       = { 48 74 116 }
+	sc_SCO_2       = { 42 47 88 }
+	sc_SDE_1       = { 34 63 122 }
+	sc_SDE_2       = { 42 47 88 }
+	sc_SEL_1       = { 95 65 41 }
+	sc_SEL_2       = { 36 79 46 }
+	sc_SHA_1       = { 95 65 41 }
+	sc_SHA_2       = { 208 173 71 }
+	sc_SHI_1       = { 92 26 27 }
+	sc_SHI_2       = { 95 100 52 }
+	sc_SIN_1       = { 37 90 51 }
+	sc_SIN_2       = { 63 79 105 }
+	sc_SIR_1       = { 68 132 113 }
+	sc_SIR_2       = { 73 99 132 }
+	sc_SKA_1       = { 42 47 88 }
+	sc_SKA_2       = { 96 38 79 }
+	sc_SKL_1       = { 92 26 27 }
+	sc_SKL_2       = { 198 158 47 }
+	sc_SNO_1       = { 92 26 27 }
+	sc_SNO_2       = { 214 150 42 }
+	sc_SOL_1       = { 48 74 116 }
+	sc_SOL_2       = { 42 47 88 }
+	sc_SOR_1       = { 48 74 116 }
+	sc_SOR_2       = { 42 47 88 }
+	sc_SOU_1       = { 36 79 46 }
+	sc_SOU_2       = { 48 74 116 }
+	sc_SPI_1       = { 196 172 118 }
+	sc_SPI_2       = { 78 95 51 }
+	sc_STO_1       = { 96 38 79 }
+	sc_STO_2       = { 95 65 41 }
+	sc_SUN_1       = { 34 63 122 }
+	sc_SUN_2       = { 42 47 88 }
+	sc_SUR_1       = { 92 26 27 }
+	sc_SUR_2       = { 196 172 118 }
+	sc_SVA_1       = { 198 158 47 }
+	sc_SVA_2       = { 68 132 113 }
+	sc_SWO_1       = { 92 26 27 }
+	sc_SWO_2       = { 198 158 47 }
+	sc_SYA_1       = { 92 26 27 }
+	sc_SYA_2       = { 214 150 42 }
+	sc_TAM_1       = { 73 99 132 }
+	sc_TAM_2       = { 63 79 105 }
+	sc_TAN_1       = { 48 74 116 }
+	sc_TAN_2       = { 42 47 88 }
+	sc_TAO_1       = { 36 79 46 }
+	sc_TAO_2       = { 34 63 122 }
+	sc_TAR_1       = { 42 47 88 }
+	sc_TAR_2       = { 96 38 79 }
+	sc_TID_1       = { 96 38 79 }
+	sc_TID_2       = { 95 65 41 }
+	sc_TRO_1       = { 68 132 113 }
+	sc_TRO_2       = { 34 63 122 }
+	sc_TUA_1       = { 96 38 79 }
+	sc_TUA_2       = { 95 65 41 }
+	sc_TUC_1       = { 68 132 113 }
+	sc_TUC_2       = { 73 99 132 }
+	sc_UAN_1       = { 36 79 46 }
+	sc_UAN_2       = { 34 63 122 }
+	sc_UFU_1       = { 161 87 38 }
+	sc_UFU_2       = { 208 173 71 }
+	sc_UND_1       = { 68 132 113 }
+	sc_UND_2       = { 73 99 132 }
+	sc_URR_1       = { 68 132 113 }
+	sc_URR_2       = { 42 47 88 }
+	sc_URU_1       = { 42 47 88 }
+	sc_URU_2       = { 92 26 27 }
+	sc_UTA_1       = { 95 100 52 }
+	sc_UTA_2       = { 58 98 56 }
+	sc_VAE_1       = { 34 63 122 }
+	sc_VAE_2       = { 42 47 88 }
+	sc_VAL_1       = { 95 100 52 }
+	sc_VAL_2       = { 68 132 113 }
+	sc_VAT_1       = { 92 26 27 }
+	sc_VAT_2       = { 214 150 42 }
+	sc_VER_1       = { 68 132 113 }
+	sc_VER_2       = { 34 63 122 }
+	sc_VIN_1       = { 42 47 88 }
+	sc_VIN_2       = { 92 26 27 }
+	sc_WAI_1       = { 34 63 122 }
+	sc_WAI_2       = { 42 47 88 }
+	sc_WAP_1       = { 68 132 113 }
+	sc_WAP_2       = { 73 99 132 }
+	sc_WHA_1       = { 34 63 122 }
+	sc_WHA_2       = { 42 47 88 }
+	sc_WHN_1       = { 92 26 27 }
+	sc_WHN_2       = { 95 100 52 }
+	sc_WOL_1       = { 48 74 116 }
+	sc_WOL_2       = { 42 47 88 }
+	sc_XIL_1       = { 37 90 51 }
+	sc_XIL_2       = { 48 74 116 }
+	sc_YAO_1       = { 34 63 122 }
+	sc_YAO_2       = { 42 47 88 }
+	sc_YOL_1       = { 196 172 118 }
+	sc_YOL_2       = { 78 95 51 }
+	sc_YUK_1       = { 198 158 47 }
+	sc_YUK_2       = { 36 79 46 }
+	sc_YUU_1       = { 68 132 113 }
+	sc_YUU_2       = { 63 79 105 }
+}

@@ -1,0 +1,964 @@
+﻿# Receives data from /genes
+# Ethnicity templates are used in other ethnicities and templates in this folder
+
+hobgoblin = {
+
+	@neg1_min = 0.4
+	@neg1_max = 0.5
+
+	@neg2_min = 0.3
+	@neg2_max = 0.4
+
+	@neg3_min = 0.1
+	@neg3_max = 0.3
+
+	@pos1_min = 0.5
+	@pos1_max = 0.6
+
+	@pos2_min = 0.6
+	@pos2_max = 0.7
+
+	@pos3_min = 0.7
+	@pos3_max = 0.9
+
+	@beauty1min = 0.35
+	@beauty1max = 0.65
+
+	@beauty2min = 0.4
+	@beauty2max = 0.6
+
+	@beauty3min = 0.45
+	@beauty3max = 0.55
+
+	@blend1min = 0.0
+	@blend1max = 0.2
+
+	@blend2min = 0.2
+	@blend2max = 0.5
+
+	@blend3min = 0.5
+	@blend3max = 0.8
+
+	skin_color = {
+		10 = { 0.0 0.57 0.2 0.8 }
+	}
+	eye_color = {
+		# Brown
+		10 = { 0.1 0.2 0.4 0.8 }
+        # Red
+        10 = { 0.0 0.2 0.025 0.8 }
+        # Yellowy Browns
+        10 = { 0.3 0.2 0.4 0.8 }
+
+        #Goblin nezkaru/half goblin genes
+        # Green
+        1 = { 0.33 0.5 0.67 0.8 }
+        # Blue
+        1 = { 0.67 0.5 1.0 0.8 }
+	}
+	hair_color = {
+		# Black
+		20 = { 0.0 0.9 0.2 0.99 }
+	}
+
+
+	### Additive anim genes ###
+    gene_chin_forward = {
+
+
+        84 = { name = chin_forward   range = { 0.45 0.55 }      }   #has chin or forward
+        7 = { name = chin_forward   range = { 0.55 0.7 }      }
+
+
+    }
+
+    gene_chin_height = {
+
+        84 = { name = chin_height   range = { 0.5 0.6 }      }    #lower in general
+        27 = { name = chin_height   range = { 0.6 0.7 }      }
+
+    }
+
+    gene_chin_width = {
+
+
+        17 = { name = chin_width   range = { 0.3 0.45 }      }
+        64 = { name = chin_width   range = { 0.45 0.55 }      }
+        47 = { name = chin_width   range = { 0.55 0.7 }      }  #higher chance to be wider
+
+
+    }
+
+    gene_eye_angle = {
+
+        44 = { name = eye_angle   range = { 0.45 0.55 }      }
+        47 = { name = eye_angle   range = { 0.55 0.7 }      }   #higher chance of asiatic
+
+    }
+
+    gene_eye_depth = {
+
+        64 = { name = eye_depth   range = { 0.45 0.55 }      }
+        17 = { name = eye_depth   range = { 0.55 0.7 }      }   #slight deep
+
+    }
+
+
+    gene_eye_distance = {
+
+
+        74 = { name = eye_distance   range = { 0.45 0.55 }      }
+        12 = { name = eye_distance   range = { 0.55 0.6 }      }    #normal to slightly far
+
+    }
+
+
+    gene_eye_height = {
+
+
+        17 = { name = eye_height   range = { 0.35 0.45 }      }
+        64 = { name = eye_height   range = { 0.45 0.55 }      }
+        27 = { name = eye_height   range = { 0.55 0.6 }      }  #chance to be higher
+
+    }
+
+    gene_eye_shut = {
+
+        84 = { name = eye_shut   range = { 0.45 0.55 }      }   #normal or slightly
+        27 = { name = eye_shut   range = { 0.55 0.7 }      }
+
+
+    }
+
+    gene_forehead_angle = {
+
+        37 = { name = forehead_angle   range = { 0.3 0.45 }      }
+        74 = { name = forehead_angle   range = { 0.45 0.55 }      }     #more low angle. goblinoid feature
+
+    }
+
+    gene_forehead_brow_height = {
+
+
+        17 = { name = forehead_brow_height   range = { 0.25 0.35 }      }
+        64 = { name = forehead_brow_height   range = { 0.35 0.45 }      }   #lower brows. goblinoid. slightly higher than goblin
+        17 = { name = forehead_brow_height   range = { 0.45 0.55 }      }
+
+
+    }
+
+    gene_forehead_height = {
+
+        1 = { name = forehead_height   range = { 0.1 0.2 }      }
+        17 = { name = forehead_height   range = { 0.2 0.45 }      }
+        64 = { name = forehead_height   range = { 0.45 0.55 }      }
+        17 = { name = forehead_height   range = { 0.55 0.8 }      }
+        1 = { name = forehead_height   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_forehead_roundness = {
+
+        1 = { name = forehead_roundness   range = { 0.1 0.2 }      }
+        17 = { name = forehead_roundness   range = { 0.2 0.45 }      }
+        64 = { name = forehead_roundness   range = { 0.45 0.55 }      } #more not round
+
+    }
+
+    gene_forehead_width = {
+
+        84 = { name = forehead_width   range = { 0.45 0.55 }      }
+        17 = { name = forehead_width   range = { 0.55 0.8 }      }   #general can be wider
+        1 = { name = forehead_width   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_head_height = {
+
+        84 = { name = head_height   range = { 0.5 0.6 }      }    #longer face, slightly
+        7 = { name = head_height   range = { 0.6 0.8 }      }
+
+    }
+
+    gene_head_profile = {
+
+        64 = { name = head_profile   range = { 0.45 0.55 }      }
+        17 = { name = head_profile   range = { 0.55 0.8 }      }    #more chance for forward
+        1 = { name = head_profile   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_head_top_height = {
+
+        1 = { name = head_top_height   range = { 0.1 0.2 }      }
+        27 = { name = head_top_height   range = { 0.2 0.45 }      }
+        84 = { name = head_top_height   range = { 0.45 0.55 }      }    #lower heights. goblinoid ogre type feature
+
+    }
+
+    gene_head_top_width = {
+
+        1 = { name = head_top_width   range = { 0.1 0.2 }      }
+        7 = { name = head_top_width   range = { 0.2 0.45 }      }
+        84 = { name = head_top_width   range = { 0.45 0.55 }      }
+        7 = { name = head_top_width   range = { 0.55 0.8 }      }
+        1 = { name = head_top_width   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_head_width = {
+
+        1 = { name = head_width   range = { 0.1 0.2 }      }
+        17 = { name = head_width   range = { 0.2 0.45 }      }
+        64 = { name = head_width   range = { 0.45 0.55 }      }
+        17 = { name = head_width   range = { 0.55 0.8 }      }
+        1 = { name = head_width   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_jaw_angle = {
+
+        34 = { name = jaw_angle   range = { 0.45 0.55 }      }  #normal or angled
+        37 = { name = jaw_angle   range = { 0.55 0.8 }      }
+        1 = { name = jaw_angle   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_jaw_forward = {
+
+
+        7 = { name = jaw_forward   range = { 0.3 0.45 }      }
+        84 = { name = jaw_forward   range = { 0.45 0.55 }      }
+        7 = { name = jaw_forward   range = { 0.55 0.7 }      }
+
+
+    }
+
+    gene_jaw_height = {
+
+
+        84 = { name = jaw_height   range = { 0.55 0.65 }      }   #lower in general. slightly more than goblin
+        7 = { name = jaw_height   range = { 0.65 0.75 }      }
+
+
+    }
+    gene_jaw_width = {
+
+        1 = { name = jaw_width   range = { 0.1 0.2 }      }
+        17 = { name = jaw_width   range = { 0.2 0.45 }      }  
+        64 = { name = jaw_width   range = { 0.45 0.55 }      }
+        27 = { name = jaw_width   range = { 0.55 0.8 }      }    #more chance for wide jaw
+        1 = { name = jaw_width   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_mouth_corner_height = {
+
+
+        42 = { name = mouth_corner_height   range = { 0.3 0.45 }      }
+        64 = { name = mouth_corner_height   range = { 0.45 0.55 }      }     #not smiley like their gobbo cousin. scowly
+
+
+    }
+
+    gene_mouth_forward = {
+
+
+        37 = { name = mouth_forward   range = { 0.3 0.45 }      }
+        84 = { name = mouth_forward   range = { 0.45 0.55 }      }  #normal or inner
+  
+
+    }
+
+    gene_mouth_height = {
+
+
+        64 = { name = mouth_height   range = { 0.6 0.7 }      }   #higher than orc
+        17 = { name = mouth_height   range = { 0.7 0.8 }      }
+
+
+    }
+    gene_mouth_lower_lip_size = {
+
+        37 = { name = mouth_lower_lip_size   range = { 0.3 0.45 }      }
+        84 = { name = mouth_lower_lip_size   range = { 0.45 0.55 }      }   #thinner lipped 
+    }
+
+    gene_mouth_open = {
+
+        7 = { name = mouth_open   range = { 0.2 0.45 }      }
+        84 = { name = mouth_open   range = { 0.45 0.55 }      } #never
+
+
+    }
+
+    gene_mouth_upper_lip_size = {
+
+ 
+        7 = { name = mouth_upper_lip_size   range = { 0.2 0.45 }      }
+        84 = { name = mouth_upper_lip_size   range = { 0.45 0.55 }      }
+        7 = { name = mouth_upper_lip_size   range = { 0.55 0.8 }      }
+        1 = { name = mouth_upper_lip_size   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_mouth_width = {
+
+        17 = { name = mouth_width   range = { 0.6 0.7 }      }
+        64 = { name = mouth_width   range = { 0.7 0.8 }      }    #not as wide as goblins
+        17 = { name = mouth_width   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_neck_length = {
+
+
+        17 = { name = neck_length   range = { 0.3 0.45 }      }
+        64 = { name = neck_length   range = { 0.45 0.55 }      }
+        17 = { name = neck_length   range = { 0.55 0.6 }      }
+
+
+    }
+
+    gene_neck_width = {
+
+
+        17 = { name = neck_width   range = { 0.4 0.45 }      }
+        64 = { name = neck_width   range = { 0.45 0.55 }      } #trends to shorter, stouter
+
+
+    }
+
+    ### Blend shape genes ###
+    gene_cheek_fat = {
+
+
+        57 = { name = cheek_fat   range = { 0.2 0.3 }      }
+        14 = { name = cheek_fat   range = { 0.45 0.55 }      }  #extremes. higher chance to lower end than goblins
+        37 = { name = cheek_fat   range = { 0.7 0.8 }      }
+
+
+    }
+
+    gene_cheek_forward = {
+
+        37 = { name = cheek_forward   range = { 0.1 0.3 }      }
+        27 = { name = cheek_forward   range = { 0.3 0.45 }      }
+        14 = { name = cheek_forward   range = { 0.45 0.55 }      }  #normal or recessed a lot. opposite of goblin
+
+
+    }
+
+    gene_cheek_height = {
+
+        84 = { name = cheek_height   range = { 0.45 0.55 }      }   #higher slightly
+        7 = { name = cheek_height   range = { 0.55 0.7 }      }
+
+
+    }
+
+
+
+    gene_cheek_prom = {
+
+
+        67 = { name = cheek_prom   range = { 0.1 0.4 }      }
+        24 = { name = cheek_prom   range = { 0.4 0.7 }      }   #extremes. goblinoid feature. more chance of lower extreme
+        47 = { name = cheek_prom   range = { 0.7 0.9 }      }   
+
+
+    }
+
+    gene_cheek_width = {
+
+        7 = { name = cheek_width   range = { 0.6 0.7 }      }
+        64 = { name = cheek_width   range = { 0.7 0.8 }      }    #key goblinoid feature is wide cheeks
+        7 = { name = cheek_width   range = { 0.8 0.9 }      }
+
+
+    }
+
+    gene_ear_angle = {
+
+        64 = { name = ear_angle   range = { 0.45 0.55 }      }  #can be lower. goblinoid
+        17 = { name = ear_angle   range = { 0.55 0.8 }      }
+        1 = { name = ear_angle   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_ear_inner_shape = {
+
+        1 = { name = ear_inner_shape   range = { 0.1 0.2 }      }
+        17 = { name = ear_inner_shape   range = { 0.2 0.45 }      }
+        64 = { name = ear_inner_shape   range = { 0.45 0.55 }      }
+        17 = { name = ear_inner_shape   range = { 0.55 0.8 }      }
+        1 = { name = ear_inner_shape   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_ear_lower_bend = {
+
+        1 = { name = ear_lower_bend   range = { 0.1 0.2 }      }
+        17 = { name = ear_lower_bend   range = { 0.2 0.45 }      }
+        64 = { name = ear_lower_bend   range = { 0.45 0.55 }      } #never out
+
+    }
+
+    gene_ear_out = {
+
+        31 = { name = ear_out   range = { 0.7 0.8 }      }    #super out. Goblinoid feature. slightly less than goblin
+        54 = { name = ear_out   range = { 0.8 0.9 }      }
+        23 = { name = ear_out   range = { 0.9 1.0 }      }
+
+    }
+
+    gene_ear_size = {
+
+        11 = { name = ear_size   range = { 0.6 0.7 }      }   #bigears. goblinoid.
+        66 = { name = ear_size   range = { 0.7 0.8 }      }
+        33 = { name = ear_size   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_ear_upper_bend = {
+
+        84 = { name = ear_upper_bend   range = { 0.45 0.55 }      }
+        37 = { name = ear_upper_bend   range = { 0.55 0.8 }      }  #can bend but mostly upright. more bendy than gobbo
+        1 = { name = ear_upper_bend   range = { 0.8 0.9 }      }
+
+    }
+
+
+    gene_eye_corner_def = {
+
+        1 = { name = eye_corner_def   range = { 0.1 0.2 }      }
+        17 = { name = eye_corner_def   range = { 0.2 0.45 }      }   #wider
+        84 = { name = eye_corner_def   range = { 0.45 0.55 }      }
+
+    }
+
+    gene_eye_corner_depth_min = {
+
+        64 = { name = eye_corner_depth_min   range = { 0.5 0.7 }      }
+        17 = { name = eye_corner_depth_min   range = { 0.7 0.8 }      }
+        1 = { name = eye_corner_depth_min   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_eye_fold_droop = {
+
+        1 = { name = eye_fold_droop   range = { 0.1 0.2 }      }
+        17 = { name = eye_fold_droop   range = { 0.2 0.45 }      }
+        64 = { name = eye_fold_droop   range = { 0.45 0.55 }      }
+        17 = { name = eye_fold_droop   range = { 0.55 0.8 }      }
+        1 = { name = eye_fold_droop   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_eye_fold_shape = {
+
+        1 = { name = eye_fold_shape   range = { 0.1 0.2 }      }
+        17 = { name = eye_fold_shape   range = { 0.2 0.45 }      }
+        64 = { name = eye_fold_shape   range = { 0.45 0.55 }      }
+        17 = { name = eye_fold_shape   range = { 0.55 0.8 }      }
+        1 = { name = eye_fold_shape   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_eye_size = {
+
+
+        17 = { name = eye_size   range = { 0.2 0.3 }      }
+        64 = { name = eye_size   range = { 0.3 0.4 }      }   #beadier eyes. goblinoid?
+        17 = { name = eye_size   range = { 0.4 0.5 }      }
+
+
+    }
+
+    gene_eye_upper_lid_size = {
+
+        1 = { name = eye_upper_lid_size   range = { 0.1 0.2 }      }
+        17 = { name = eye_upper_lid_size   range = { 0.2 0.45 }      }
+        64 = { name = eye_upper_lid_size   range = { 0.45 0.55 }      }
+        17 = { name = eye_upper_lid_size   range = { 0.55 0.8 }      }
+        1 = { name = eye_upper_lid_size   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_forehead_brow_curve = {
+
+        1 = { name = forehead_brow_curve   range = { 0.1 0.2 }      }
+        37 = { name = forehead_brow_curve   range = { 0.2 0.3 }      }  #angry. goblinoid/ogre
+        64 = { name = forehead_brow_curve   range = { 0.3 0.4 }      }
+
+    }
+
+    gene_forehead_brow_forward = {
+
+        24 = { name = forehead_brow_forward   range = { 0.7 0.8 }      }
+        47 = { name = forehead_brow_forward   range = { 0.8 0.9 }      } #strong forwards. stronger than normal gobbo
+        51 = { name = forehead_brow_forward   range = { 0.9 1.0 }      }
+
+    }
+
+    gene_forehead_brow_inner_height = {
+
+        1 = { name = forehead_brow_inner_height   range = { 0.1 0.2 }      }
+        37 = { name = forehead_brow_inner_height   range = { 0.2 0.3 }      }
+        84 = { name = forehead_brow_inner_height   range = { 0.3 0.4 }      }   #angry boys
+
+    }
+
+    gene_forehead_brow_outer_height = {
+
+        22 = { name = forehead_brow_outer_height   range = { 0.7 0.8 }      } #super raised for gobbos
+        33 = { name = forehead_brow_outer_height   range = { 0.8 0.9 }      }
+        55 = { name = forehead_brow_outer_height   range = { 0.9 1.0 }      }
+
+    }
+
+    gene_forehead_brow_width = {
+
+        84 = { name = forehead_brow_width   range = { 0.45 0.55 }      }    #more chance for higher. never less
+        37 = { name = forehead_brow_width   range = { 0.55 0.8 }      }
+        1 = { name = forehead_brow_width   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_forehead_roundness = {
+
+        1 = { name = forehead_roundness   range = { 0.1 0.2 }      }
+        17 = { name = forehead_roundness   range = { 0.2 0.45 }      }
+        64 = { name = forehead_roundness   range = { 0.45 0.55 }      }
+        17 = { name = forehead_roundness   range = { 0.55 0.8 }      }
+        1 = { name = forehead_roundness   range = { 0.8 0.9 }      }
+
+    }
+
+
+    gene_jaw_def = {
+
+        6 = { name = jaw_def   range = { 0.6 0.7 }      }    #always strong jaw
+        64 = { name = jaw_def   range = { 0.7 0.8 }      }
+        21 = { name = jaw_def   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_mouth_lower_lip_def = {
+
+        1 = { name = mouth_lower_lip_def   range = { 0.1 0.2 }      }
+        17 = { name = mouth_lower_lip_def   range = { 0.2 0.45 }      }
+        64 = { name = mouth_lower_lip_def   range = { 0.45 0.55 }      }
+        17 = { name = mouth_lower_lip_def   range = { 0.55 0.8 }      }
+        1 = { name = mouth_lower_lip_def   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_mouth_lower_lip_full = {
+
+        1 = { name = mouth_lower_lip_full   range = { 0.1 0.2 }      }
+        27 = { name = mouth_lower_lip_full   range = { 0.2 0.4 }      }
+        64 = { name = mouth_lower_lip_full   range = { 0.4 0.5 }      }   #thinner lips
+
+    }
+
+    gene_mouth_lower_lip_pads = {
+
+        1 = { name = mouth_lower_lip_pads   range = { 0.1 0.2 }      }
+        17 = { name = mouth_lower_lip_pads   range = { 0.2 0.45 }      }
+        64 = { name = mouth_lower_lip_pads   range = { 0.45 0.55 }      }   #normal or less
+
+    }
+
+
+    gene_mouth_lower_lip_width = {
+
+        1 = { name = mouth_lower_lip_width   range = { 0.1 0.2 }      }
+        7 = { name = mouth_lower_lip_width   range = { 0.2 0.45 }      }
+        84 = { name = mouth_lower_lip_width   range = { 0.45 0.55 }      }
+        7 = { name = mouth_lower_lip_width   range = { 0.55 0.8 }      }
+        1 = { name = mouth_lower_lip_width   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_mouth_philtrum_curve = {
+
+        1 = { name = mouth_philtrum_curve   range = { 0.1 0.2 }      }
+        55 = { name = mouth_philtrum_curve   range = { 0.2 0.45 }      }    #little
+        22 = { name = mouth_philtrum_curve   range = { 0.45 0.55 }      }
+
+    }
+
+    gene_mouth_philtrum_def = {
+
+        1 = { name = mouth_philtrum_def   range = { 0.1 0.2 }      }
+        17 = { name = mouth_philtrum_def   range = { 0.2 0.45 }      }  #weak def. goblinoid
+        64 = { name = mouth_philtrum_def   range = { 0.45 0.55 }      }
+
+    }
+
+    gene_mouth_philtrum_width = {
+
+        54 = { name = mouth_philtrum_width   range = { 0.7 0.8 }      }
+        37 = { name = mouth_philtrum_width   range = { 0.8 0.9 }      }  #wide
+        11 = { name = mouth_philtrum_width   range = { 0.9 1.0 }      }
+
+    }
+
+    gene_mouth_upper_lip_curve = {
+
+        64 = { name = mouth_upper_lip_curve   range = { 0.45 0.55 }      }  #normal or more
+        22 = { name = mouth_upper_lip_curve   range = { 0.55 0.8 }      }
+        1 = { name = mouth_upper_lip_curve   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_mouth_upper_lip_def = {
+
+        1 = { name = mouth_upper_lip_def   range = { 0.1 0.2 }      }
+        17 = { name = mouth_upper_lip_def   range = { 0.2 0.45 }      }
+        64 = { name = mouth_upper_lip_def   range = { 0.45 0.55 }      }    #norm or less
+
+    }
+
+    gene_mouth_upper_lip_full = {
+
+        1 = { name = mouth_upper_lip_full   range = { 0.1 0.2 }      }
+        27 = { name = mouth_upper_lip_full   range = { 0.2 0.45 }      }
+        64 = { name = mouth_upper_lip_full   range = { 0.45 0.55 }      }   #normal or thin
+
+    }
+
+    gene_mouth_upper_lip_width = {
+
+        1 = { name = mouth_upper_lip_width   range = { 0.1 0.2 }      }
+        7 = { name = mouth_upper_lip_width   range = { 0.2 0.45 }      }
+        84 = { name = mouth_upper_lip_width   range = { 0.45 0.55 }      }
+
+    }
+
+    gene_nose_curve = {
+
+        12 = { name = nose_curve   range = { 0.5 0.6 }      }
+        55 = { name = nose_curve   range = { 0.6 0.8 }      }      #curved. goblinoid. slightly less than goblin
+        12 = { name = nose_curve   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_nose_forward = {
+
+        22 = { name = nose_forward   range = { 0.7 0.8 }      }   #absolute forwardness. key goblinoid.
+        55 = { name = nose_forward   range = { 0.8 0.9 }      }
+        22 = { name = nose_forward   range = { 0.9 1.0 }      }
+
+    }
+
+    gene_nose_hawk = {
+
+
+        84 = { name = nose_hawk   range = { 0.45 0.55 }      }  #slight hawkishenss
+        7 = { name = nose_hawk   range = { 0.55 0.8 }      }
+
+    }
+
+    gene_nose_height = {
+
+
+        17 = { name = nose_height   range = { 0.5 0.6 }      }
+        64 = { name = nose_height   range = { 0.6 0.7 }      }  #high, but not as high as orcs. goblinoid
+        17 = { name = nose_height   range = { 0.7 0.8 }      }
+
+
+    }
+
+    gene_nose_length = {
+
+        27 = { name = nose_length   range = { 0.3 0.4 }      }
+        84 = { name = nose_length   range = { 0.4 0.5 }      }    #hobgobs have flatter nose than their goblin brethren
+        27 = { name = nose_length   range = { 0.5 0.6 }      }
+
+
+    }
+
+    gene_nose_nostril_angle = {
+
+        22 = { name = nose_nostril_angle   range = { 0.7 0.8 }      } #super high. goblinoid.
+        66 = { name = nose_nostril_angle   range = { 0.8 0.9 }      }
+        22 = { name = nose_nostril_angle   range = { 0.9 1.0 }      }
+
+    }
+
+
+    gene_nose_nostril_height = {
+
+        84 = { name = nose_nostril_height   range = { 0.8 0.9 }      }  #maxxed. key goblinoid.
+        7 = { name = nose_nostril_height   range = { 0.9 1.0 }      }
+
+    }
+
+    gene_nose_nostril_width = {
+
+
+        33 = { name = nose_nostril_width   range = { 0.7 0.8 }      }
+        66 = { name = nose_nostril_width   range = { 0.8 0.9 }      } #big. goblinoid. smaller than goblin
+        23 = { name = nose_nostril_width   range = { 0.9 1.0 }      }
+
+
+    }
+
+
+    gene_nose_ridge_angle = {
+
+        17 = { name = nose_ridge_angle   range = { 0.0 0.1 }      }
+        64 = { name = nose_ridge_angle   range = { 0.1 0.2 }      }
+        17 = { name = nose_ridge_angle   range = { 0.2 0.3 }      }   #barely any angle. goblinoid
+
+    }
+
+
+    gene_nose_ridge_def = {
+
+        7 = { name = nose_ridge_def   range = { 0.2 0.3 }      }
+        84 = { name = nose_ridge_def   range = { 0.3 0.4 }      }
+        7 = { name = nose_ridge_def   range = { 0.4 0.5 }      } #poor definition. key goblinoid nose
+
+    }
+
+    gene_nose_ridge_def_min = {
+
+        17 = { name = nose_ridge_def_min   range = { 0.2 0.45 }      }  #higher min?
+        44 = { name = nose_ridge_def_min   range = { 0.45 0.6 }      }
+        22 = { name = nose_ridge_def_min   range = { 0.6 0.7 }      }
+
+
+    }
+
+    gene_nose_ridge_width = {
+
+
+        7 = { name = nose_ridge_width   range = { 0.7 0.8 }      }
+        84 = { name = nose_ridge_width   range = { 0.8 0.9 }      }   #super wide. goblinoid
+        37 = { name = nose_ridge_width   range = { 0.9 1.0 }      }     #hogbogs have even higher chance
+
+
+    }
+
+    gene_nose_size = {
+
+        22 = { name = nose_size   range = { 0.4 0.5 }      }
+        55 = { name = nose_size   range = { 0.5 0.6 }      }   #can range from big to small actually
+        22 = { name = nose_size   range = { 0.6 0.8 }      }
+
+    }
+
+    gene_nose_tip_angle = {
+
+        7 = { name = nose_tip_angle   range = { 0.1 0.12 }      }
+        84 = { name = nose_tip_angle   range = { 0.2 0.3 }      } #low angles for goblinoid. not as long as gobbos
+        7 = { name = nose_tip_angle   range = { 0.3 0.4 }      }
+
+    }
+
+    gene_nose_tip_forward = {
+
+        17 = { name = nose_tip_forward   range = { 0.6 0.7 }      }
+        84 = { name = nose_tip_forward   range = { 0.7 0.8 }      }   #goblin thing. goblins have most forward. lower chance for big
+        7 = { name = nose_tip_forward   range = { 0.8 0.9 }      }
+
+    }
+
+    gene_nose_tip_width = {
+
+        27 = { name = nose_tip_width   range = { 0.1 0.2 }      }
+        84 = { name = nose_tip_width   range = { 0.2 0.3 }      } #SHARP TIP. goblinoid trait
+        7 = { name = nose_tip_width   range = { 0.3 0.4 }      }
+
+
+    }
+
+	gene_bs_body_type = {
+
+        7 = { name = body_fat_head_fat_low   range = { 0.3 0.45 }      }
+        20 = { name = body_fat_head_fat_low   range = { 0.45 0.55 }     }
+        7 = { name = body_fat_head_fat_low   range = { 0.55 0.8 }      }
+
+        7 = { name = body_fat_head_fat_medium   range = { 0.3 0.45 }      } #emaciated not as much
+        20 = { name = body_fat_head_fat_medium   range = { 0.45 0.55 }      }
+        7 = { name = body_fat_head_fat_medium   range = { 0.55 0.8 }      }
+
+        7 = { name = body_fat_head_fat_full   range = { 0.3 0.45 }      }
+        20 = { name = body_fat_head_fat_full   range = {0.45 0.55 }      }
+        7 = { name = body_fat_head_fat_full   range = { 0.55 0.8 }      }
+
+	}
+
+	gene_height = {
+
+		1 = { name = normal_height   range = { 0.1 0.2 }      }
+        7 = { name = normal_height   range = { 0.2 0.45 }      }
+        84 = { name = normal_height   range = { 0.45 0.55 }      }
+        7 = { name = normal_height   range = { 0.55 0.8 }      }
+        1 = { name = normal_height   range = { 0.8 0.9 }      }
+
+	}
+
+	gene_old_eyes = {
+
+		10 = { name = old_eyes_01   range = { 1.0 1.0 }      }
+		10 = { name = old_eyes_02   range = { 1.0 1.0 }      }
+		10 = { name = old_eyes_03   range = { 1.0 1.0 }      }
+	}
+
+	gene_old_forehead = {
+
+		10 = { name = old_forehead_01   range = { 1.0 1.0 }      }
+		10 = { name = old_forehead_02   range = { 1.0 1.0 }      }
+		10 = { name = old_forehead_03   range = { 1.0 1.0 }      }
+	}
+
+	gene_old_mouth = {
+
+		10 = { name = old_mouth_01   range = { 1.0 1.0 }      }
+		10 = { name = old_mouth_02   range = { 1.0 1.0 }      }
+		10 = { name = old_mouth_03   range = { 1.0 1.0 }      }
+	}
+
+	gene_complexion = {
+
+		10 = { name = complexion_01   range = { 0.0 0.0 }      }
+		10 = { name = complexion_02   range = { 0.0 0.0 }      }
+		10 = { name = complexion_03   range = { 0.0 0.0 }      }
+	}
+
+	gene_crowfeet = {
+
+		9 = { name = crowfeet_01   range = { 0.0 0.1 }      }
+		1 = { name = crowfeet_01   range = { 0.1 0.8 }      }
+		9 = { name = crowfeet_02   range = { 0.0 0.1 }      }
+		1 = { name = crowfeet_02   range = { 0.1 0.8 }      }
+		9 = { name = crowfeet_03   range = { 0.0 0.1 }      }
+		1 = { name = crowfeet_03   range = { 0.1 0.8 }      }
+	}
+
+	gene_frown = {
+
+		8 = { name = frown_01   range = { 0.0 0.1 }      }
+		2 = { name = frown_01   range = { 0.1 0.8 }      }
+		8 = { name = frown_02   range = { 0.0 0.1 }      }
+		2 = { name = frown_02   range = { 0.1 0.8 }      }
+		8 = { name = frown_03   range = { 0.0 0.1 }      }
+		2 = { name = frown_03   range = { 0.1 0.8 }      }
+	}
+
+	gene_surprise = {
+
+		9 = { name = surprise_01   range = { 0.0 0.1 }      }
+		1 = { name = surprise_01   range = { 0.1 0.8 }      }
+		9 = { name = surprise_02   range = { 0.0 0.1 }      }
+		1 = { name = surprise_02   range = { 0.1 0.8 }      }
+		9 = { name = surprise_03   range = { 0.0 0.1 }      }
+		1 = { name = surprise_03   range = { 0.1 0.8 }      }
+	}
+
+    gene_eyebrows_shape = {
+        10 = {  name = avg_spacing_avg_thickness             range = { 0.5 1.0 }     }
+        2 = {  name = avg_spacing_high_thickness             range = { 0.5 1.0 }     }
+        10 = {  name = avg_spacing_low_thickness             range = { 0.5 1.0 }    }
+        10 = {  name = avg_spacing_lower_thickness             range = { 0.5 1.0 }    }
+
+        10 = {  name = far_spacing_avg_thickness             range = { 0.5 1.0 }     }
+        2 = {  name = far_spacing_high_thickness             range = { 0.5 1.0 }     }
+        10 = {  name = far_spacing_low_thickness             range = { 0.5 1.0 }    }
+        10 = {  name = far_spacing_lower_thickness             range = { 0.5 1.0 }    }
+
+        10 = {  name = close_spacing_avg_thickness             range = { 0.5 1.0 }     }
+        2 = {  name = close_spacing_high_thickness             range = { 0.5 1.0 }     }
+        10 = {  name = close_spacing_low_thickness             range = { 0.5 1.0 }    }
+        10 = {  name = close_spacing_lower_thickness             range = { 0.5 1.0 }    }
+    }
+
+    gene_eyebrows_fullness = {
+        10 = {  name = layer_2_avg_thickness             range = { 0.25 0.5 }     }
+        15 = {  name = layer_2_avg_thickness             range = { 0.5 0.75 }     }
+        5 = {  name = layer_2_high_thickness             range = { 0.25 0.5 }     }
+        5 = {  name = layer_2_high_thickness             range = { 0.5 0.75 }     }
+        10 = {  name = layer_2_low_thickness             range = { 0.25 0.5 }     }
+        15 = {  name = layer_2_low_thickness             range = { 0.5 0.75 }     }
+        10 = {  name = layer_2_lower_thickness             range = { 0.25 0.5 }     }
+        15 = {  name = layer_2_lower_thickness             range = { 0.5 0.75 }     }
+    }
+
+    gene_face_dacals = {
+
+        10 = { name = face_dacal_01   range = { 1.0 1.0 }      }
+        10 = { name = face_dacal_02   range = { 1.0 1.0 }      }
+        10 = { name = face_dacal_03   range = { 1.0 1.0 }      }
+        10 = { name = face_dacal_04   range = { 1.0 1.0 }      }
+        10 = { name = face_dacal_05   range = { 1.0 1.0 }      }
+ 
+    }
+
+	hairstyles = {
+		10 = { name = japanese_hairstyles 		range = { 0.0 1.0 } }
+        10 = { name = east_asian_hairstyles 		range = { 0.0 1.0 } }
+        10 = { name = no_hairstyles 		range = { 0.0 1.0 } }
+	}
+
+	beards = {
+		10 = { name = hobgoblin_beards 		    range = { 0.0 1.0 } }
+        10 = { name = no_beard                      range = { 0.0 1.0 } }
+	}
+
+	mustaches = {
+		10 = { name = asian_mustaches 		range = { 0.0 1.0 } }
+        20 = { name = no_mustache       range = { 0.0 1.0 } }
+	}
+
+	# coats = {
+	# 	10 = { name = prussian_uniform_coats		range = { 0.0 1.0 } }
+	# }
+
+	# epaulettes = {
+	# 	10 = { name = prussian_epaulettes		range = { 0.0 1.0 } }
+	# }
+
+	# sashes = {
+	# 	10 = { name = prussian_sashes		range = { 0.0 1.0 } }
+	# }
+
+	# medals = {
+	# 	10 = { name = all_medals		range = { 0.0 1.0 } }
+	# }
+
+	# headgear = {
+	# 	10 = { name = generic_headgear		range = { 0.0 1.0 } }
+	# }
+
+
+    #Anbennar Additions my friends
+
+	race_gene_mer_ears_01 = {
+        75 = {  name = mer_ears_01             range = { 0.1 0.5 }     }
+        25 = {  name = mer_ears_02             range = { 0.1 0.5 }     }
+    }
+    race_gene_mer_ears_02 = {
+        75 = {  name = mer_ears_01             range = { 0.1 0.5 }     }
+        25 = {  name = mer_ears_02             range = { 0.1 0.5 }     }
+    }
+
+	POD_NOSschnoz = {
+		10 = { name = nosies 		range = { 0.0 0.0 } }
+        10 = { name = schnozies       range = { 0.0 0.0 } }
+	}
+
+        ##exether 2d portraits
+
+        gene_no_portrait={ 
+            1 = { name = no_portrait range = { 0.0 0.0 } }
+        }
+    
+        base_skins ={ #I don't know if this actually needs to be here. I'm just trying to put the square peg in the square hole.
+            1 = { name = gene_no_flat_skin range = { 1.0 1.0 } }
+        }
+
+}

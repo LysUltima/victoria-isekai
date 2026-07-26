@@ -1,0 +1,157 @@
+﻿### Isekai hero storyline - modifiers (LUX church prestige + JE payoffs)
+# The isekai agent may extend this file (single owner: isekai storyline).
+# All modifier TYPES below were grepped against common/modifier_type_definitions/
+# in both vanilla and this mod before use.
+
+# LUX base church prestige
+ova_lux_voice_of_the_goddess = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_mult = 0.10
+}
+
+# Re-applied monthly with multiplier = number of living heroes in the world
+ova_lux_summoned_legion = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_prestige_add = 15
+}
+
+# LUX reward when the Demonic Empire falls
+ova_lux_crusade_triumphant = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_mult = 0.25
+	country_legitimacy_base_add = 10
+}
+
+# Per-country reward when the Demonic Empire falls
+ova_hero_crusade_fulfilled = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_prestige_mult = 0.10
+}
+
+# --- DEM (demon empire) modifiers ---
+
+# The Uniter wounded in single combat by a Hero (ova_hero.20)
+ova_dem_demon_lord_wounded = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	unit_morale_recovery_mult = -0.15
+	unit_offense_mult = -0.10
+	country_legitimacy_base_add = -10
+}
+
+# The tribes welded firmer still under the new warlord's compact
+# (je_ova_demonic_dawn's own immediate)
+ova_dem_iron_unity = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_legitimacy_base_add = 10
+}
+
+# The scarred border marches fuel the reclamation cause
+ova_dem_reclamation_fervor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	unit_morale_recovery_mult = 0.10
+	country_military_wages_mult = -0.05
+}
+
+# A foreign Hero walks the demon hills; villages empty at dusk
+ova_dem_hero_terror = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_legitimacy_base_add = -5
+	country_prestige_mult = -0.05
+}
+
+# The throne stood between the mob and its scapegoats; the compact holds
+ova_dem_uniters_compact = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_legitimacy_base_add = 5
+}
+
+# The throne looked away, and every people under it took note
+ova_dem_old_grudges = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_legitimacy_base_add = -5
+}
+
+# The young empire endures the loss of its Uniter and does not shatter
+ova_dem_empire_endures = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_mult = 0.15
+	country_legitimacy_base_add = 10
+}
+
+# --- LUX (church) modifiers ---
+
+# The crusade's cause died with the Church's political relevance
+ova_lux_crusade_broken = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	country_prestige_mult = -0.25
+	country_legitimacy_base_add = -10
+}
+
+# A martyred or exemplary Hero is canonized
+ova_lux_beatification = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_mult = 0.10
+}
+
+# --- Hero / LYS modifiers ---
+
+# A martyred Hero's crown of thorns
+ova_hero_martyrs_glory = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_prestige_mult = 0.10
+	country_legitimacy_base_add = 5
+}
+
+# Empire path (the truth stays buried, the Hero keeps fighting) - permanent
+ova_lys_heroes_resolve = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	unit_morale_recovery_mult = 0.05
+	unit_offense_mult = 0.05
+}
+
+# Empire path companion piece: the lie holds, and it pays - permanent
+ova_lys_truth_buried = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_prestige_mult = 0.05
+	country_legitimacy_base_add = 5
+}
+
+# Rebellion path: the new dawn is proclaimed - permanent
+ova_dawn_new_nation = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_legitimacy_base_add = 10
+	country_prestige_mult = 0.05
+}
+
+# Rebellion path: winged volunteers hold the line beside human regulars
+ova_dawn_winged_legion = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	unit_morale_recovery_mult = 0.10
+	unit_offense_mult = 0.05
+}
+
+# Rebellion path: the wounds begin to close (je_ova_dawn_2 complete) - permanent
+ova_dawn_reconciliation = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_infamy_generation_mult = -0.10
+	country_legitimacy_base_add = 5
+}
+
+# National mourning for a dead Hero
+ova_lys_hero_mourning = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	country_legitimacy_base_add = -10
+	country_prestige_mult = -0.10
+}
+
+# Selling blades to both faiths; the war that must not end pays best
+ova_hero_war_brokerage = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_group_bg_military_industry_throughput_add = 0.15
+}
+
+# Saint Christine's Academy term cooldown marker + small perk
+ova_hero_academy_term = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_prestige_add = 5
+}

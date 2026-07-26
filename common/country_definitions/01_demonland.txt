@@ -1,0 +1,178 @@
+﻿# Demons
+DEM = {
+    color = { 28 21 38 }
+
+    country_type = unrecognized
+    
+    tier = empire
+
+    cultures = { horned_demon winged_demon shadow_demon }
+
+    capital = STATE_EX_TENEBRIS
+}
+
+AHD = {
+    color = { 90 40 30 }
+
+    country_type = unrecognized
+
+    tier = kingdom
+
+    cultures = { horned_demon }
+
+    # Releasable; assigned homeland states (geographic order): Sicut Lacrimae, Fugit Tempus, In Silentio
+    capital = STATE_SICUT_LACRIMAE
+}
+
+DUS = {
+    color = { 60 25 20 }
+
+    country_type = unrecognized
+
+    tier = principality
+
+    cultures = { horned_demon }
+
+    # Releasable; assigned homeland states (geographic order): Latent Viae, Tremit Lumen
+    capital = STATE_TREMIT_LUMEN
+}
+
+# --- winged_demon clans ---
+VEI = {
+    color = { 70 50 90 }
+
+    country_type = unrecognized
+
+    tier = kingdom
+
+    cultures = { winged_demon }
+
+    # Releasable; assigned homeland states (geographic order): Latent Viae, Lucent Umbrae, Somnia Noctis, Ceu Ardent, Ex Tenebris
+    capital = STATE_EX_TENEBRIS
+}
+
+RUI = {
+    color = { 100 60 40 }
+
+    country_type = unrecognized
+
+    tier = principality
+
+    cultures = { winged_demon }
+
+    # Releasable; assigned homeland states (geographic order): Ne Pereant, Adhuc Cantavi, Restat Vox, Quae Amavi, Astrorum
+    capital = STATE_NE_PEREANT
+}
+
+# --- shadow_demon clans ---
+NOX = {
+    color = { 25 25 45 }
+
+    country_type = unrecognized
+
+    tier = kingdom
+
+    cultures = { shadow_demon }
+
+    # Releasable; assigned homeland states (geographic order): Tremit Lumen, In Specula, Lumina Fracta, Ruina, Ex Caelo, Cadunt Stellae
+    capital = STATE_IN_SPECULA
+}
+
+VOI = {
+    color = { 15 15 25 }
+
+    country_type = unrecognized
+
+    tier = principality
+
+    cultures = { shadow_demon }
+
+    # Releasable; assigned homeland states (geographic order): Astrorum, Ruit Spes, Quae Amavi, Conneland, Garlehold, Bladewaste
+    capital = STATE_RUIT_SPES
+}
+
+ALT = { # Alta -- altan kingdom (releasable)
+    color = { 200 170 70 }
+
+    country_type = unrecognized
+
+    tier = kingdom
+
+    cultures = { altan }
+
+    capital = STATE_RESTAT_VOX
+}
+
+YOL = {
+    color = { 50 40 90 }
+
+    country_type = unrecognized
+    
+    tier = kingdom
+
+    cultures = { dark_elf }
+
+    capital = STATE_YOLTENI
+}
+
+# Humans
+PAL = {
+    color = { 120 70 70 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { ixioran }
+
+    capital = STATE_PALNIA
+}
+
+# Decentralized
+GIG = {
+    color = { 30 23 23 }
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { steel_dwarf }
+
+    capital = STATE_NO_RETURN
+}
+
+GOB = {
+    color = { 58 69 58 }
+
+    country_type = decentralized
+    
+    tier = kingdom
+
+    cultures = { goblin }
+
+    capital = STATE_DERRAGOB
+}
+
+SAN = {
+    color = { 105 101 60 }
+
+    country_type = decentralized
+    
+    tier = kingdom
+
+    cultures = { sand_goblin }
+
+    capital = STATE_SSUME_NAKO
+}
+
+SDE = {
+    color = { 181 174 98 }
+
+    country_type = decentralized
+    
+    tier = kingdom
+
+    cultures = { southern_orc }
+
+    capital = STATE_BURNING_DREAM
+}

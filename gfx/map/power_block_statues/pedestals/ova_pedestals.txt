@@ -1,0 +1,35 @@
+﻿# Isekai TC: default power-bloc statue pedestal pieces for the 3 mod-added identities.
+# See gfx/map/power_block_statues/heroes/ova_heroes.txt for context. Reuses existing vanilla
+# pedestal entities (no new 3D assets) - pedestal_07 (dedicated religious pedestal) for Radiant
+# Crusade, pedestal_04 (dedicated military_treaty_organization pedestal) for Martial Alliance,
+# pedestal_06 (already covers identity_cultural) for the cultural-flavored Demonic Covenant.
+
+ova_pedestal_radiant_crusade = {
+	entity = "powerbloc_pedestal_07_entity"
+
+	default_choice_for_identities = {
+		identity_radiant_crusade
+	}
+
+	hero_locator = "loc_hero"
+}
+
+ova_pedestal_martial_alliance = {
+	entity = "powerbloc_pedestal_04_entity"
+
+	default_choice_for_identities = {
+		identity_martial_alliance
+	}
+
+	hero_locator = "loc_hero"
+}
+
+ova_pedestal_demonic_covenant = {
+	entity = "powerbloc_pedestal_06_entity"
+
+	default_choice_for_identities = {
+		identity_demonic_covenant
+	}
+
+	hero_locator = "loc_hero"
+}

@@ -1,0 +1,19 @@
+pdxmesh = {
+	name = "female_headgear_wolf_ears_1_mesh"
+	file = "female_headgear_wolf_ears.mesh"
+
+	meshsettings = {
+		name = "female_headgear_wolf_earsShape"
+		index = 0
+		texture_diffuse = "wolf_ears_grey_diffuse.dds"
+		texture_normal = "wolf_ears_normal.dds"
+		texture_specular = "wolf_ears_properties.dds"
+		shader = "portrait_attachment"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "female_headgear_wolf_ears_1_entity"
+	pdxmesh = "female_headgear_wolf_ears_1_mesh"
+}

@@ -1,0 +1,63 @@
+﻿otherworld_english = {
+	color= hsv{ 0.58 0.35 0.85 }
+	religion = atheist
+	heritage = heritage_otherworlder
+	language = language_lysic
+
+	traditions = { }
+
+	male_common_first_names = {
+		Oliver George William Henry Arthur Theodore Frederick Sebastian
+		Jack Harry Noah Charlie Jacob Thomas Oscar James Leo Alfie Joshua
+		Freddie Archie Ethan Isaac Alexander Joseph Edward Samuel Max Daniel
+		Lucas Benjamin Mason Harrison Theo Jake Dylan Callum Finley Louie Rory
+	}
+	female_common_first_names = {
+		Charlotte Amelia Eleanor Beatrice Clara Margaret Josephine Cecilia
+		Rosalind Genevieve Adelaide Theodora Evangeline Isadora
+		Olivia Isla Ava Emily Sophia Grace Mia Poppy Ella Lily Evie Freya
+		Isabella Sophie Ruby Daisy Willow Florence Ivy Phoebe Chloe Millie
+		Rosie Erin Holly Maisie Elsie Imogen Georgia Molly Abigail
+	}
+	common_last_names = {
+		Whitfield Bexley Ashworth Sinclair Pemberton Winslow Blackwood Sterling
+		Fenwick Kingsley Beaumont Chadwick Hartwell Kirkland
+		Smith Jones Taylor Brown Williams Wilson Johnson Davies Robinson Wright
+		Thompson Evans Walker White Roberts Green Hall Wood Jackson Clarke Patel
+		Turner Hughes Edwards Hill Moore Clark Scott Young Morris King Watson
+		Baker Harris Cooper Ward Cox Bell
+	}
+	graphics = european
+	ethnicities = {
+		1 = caucasian
+	}
+}
+
+otherworld_japanese = {
+	color= hsv{ 0.02 0.45 0.85 }
+	religion = atheist
+	heritage = heritage_otherworlder
+	language = language_sakuric
+    name_format = last_first
+
+	traditions = { }
+
+	male_common_first_names = {
+		Haruto Sora Kaito Ren Riku Sota Yuma Sosuke Daiki Takumi Kenta Yuto
+		Shota Ryota Haru Kazuki Tsubasa Ryo
+	}
+	female_common_first_names = {
+		Yui Akari Hina Mei Hana Rin Asuka Nozomi Miyu Sakura Airi Kokoro Aoi
+		Natsuki Emi Nanami
+	}
+	common_last_names = {
+		Sakamoto Kanzaki Tachibana Amamiya Kurosawa Fujimori Takahashi Watanabe
+		Nakamura Kobayashi Saito Yamamoto Matsumoto Inoue Kimura Hayashi Shimizu
+		Yamaguchi Ishikawa Mori Abe Ikeda Hashimoto Yamashita Ono Fujita Goto
+		Okada Hasegawa Murakami Kondo Ishii Sakurai Ueda
+	}
+	graphics = east_asian
+	ethnicities = {
+		1 = east_asian
+	}
+}

@@ -1,0 +1,324 @@
+﻿# Isekai TC: migrated copy of vanilla 00_ep1_custom_loc.txt.
+# common/customizable_localization is NOT in metadata.json replace_paths, so the
+# vanilla file loads unless a same-named mod file overrides it (this file).
+# Text blocks whose triggers referenced deleted Earth content were removed; keys
+# left empty fall back to their original localization_key so callers still
+# resolve. Regenerate with tools/migrate_custom_loc.py.
+
+great_game_victory_caucasus = {
+	type = country
+	text = {
+		localization_key = gg_caucasian_war_inconclusive
+	}
+}
+
+great_game_victory_kazakhstan = {
+	type = country
+	text = {
+		localization_key = gg_kazakhstan_inconclusive
+	}
+}
+
+great_game_victory_khanates = {
+	type = country
+	text = {
+		localization_key = gg_khanates_inconclusive
+	}
+}
+
+great_game_victory_korea = {
+	type = country
+	text = {
+		localization_key = gg_korea_inconclusive
+	}
+}
+
+great_game_victory_afghanistan = {
+	type = country
+	text = {
+		localization_key = gg_afghanistan_inconclusive
+	}
+}
+
+great_game_victory_persia = {
+	type = country
+	text = {
+		localization_key = gg_persia_inconclusive
+	}
+}
+
+great_game_advance_chinese_border = {
+	type = country
+	text = {
+		localization_key = gg_chinese_border_russian
+	}
+}
+
+great_game_advance_manchurian_railway = {
+	type = country
+	text = {
+		localization_key = gg_manchurian_railway_russian
+	}
+}
+
+great_game_advance_trans_siberian_railway = {
+	type = country
+	text = {
+		localization_key = gg_trans_siberian_railway_russian
+	}
+}
+
+great_game_advance_consolidated_british_india = {
+	type = country
+	text = {
+		localization_key = gg_india_consolidated_british
+	}
+}
+
+great_game_advance_contained_russian_pacific = {
+	type = country
+	text = {
+		localization_key = gg_pacific_containment_british
+	}
+}
+
+afghanistan_delineation_southeastern_proposal = {
+	type = country
+	text = {
+		localization_key = afghanistan_delimitatation_status_quo_southeast
+	}
+}
+
+afghanistan_delineation_northern_proposal = {
+	type = country
+	text = {
+		localization_key = afghanistan_delimitatation_status_quo_north
+	}
+}
+
+afghanistan_delineation_offer_compensation = {
+	type = country
+	text = {
+		localization_key = afghanistan_delimitatation_compensation
+	}
+}
+
+afghanistan_delineation_threaten_reprisals = {
+	type = country
+	text = {
+		localization_key = afghanistan_delimitatation_reprisals
+	}
+}
+
+marching_songs_custom_loc = {
+	type = country
+	text = {
+		localization_key = british_grenadiers_march_loc
+	}
+}
+
+treaty_names_custom_loc = {
+	type = country
+	text = {
+		trigger = {
+			any_scope_state = {
+				is_coastal = yes
+			}
+		}
+		localization_key = treaty_commerce_and_navigation_loc
+	}
+	text = {
+		localization_key = treaty_amity_and_commerce_loc
+	}
+}
+
+# army_or_navy_custom_loc: defined by this mod in ova_lobby_custom_loc.txt; vanilla's copy
+# loaded first and shadowed it ("Duplicated key"), so it is dropped here.
+
+flavored_name_lobby_pro_country = {
+	type = political_lobby
+	random_valid = yes
+
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_1
+		}
+		localization_key = custom_lobby_union
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_2
+		}
+		localization_key = custom_lobby_association
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_3
+		}
+		localization_key = custom_lobby_society
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_4
+		}
+		localization_key = custom_lobby_friendship_committee
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_5
+		}
+		localization_key = custom_lobby_fellowship
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_6
+		}
+		localization_key = custom_lobby_league
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = lobby_custom_name_var_1
+				has_variable = lobby_custom_name_var_2
+				has_variable = lobby_custom_name_var_3
+				has_variable = lobby_custom_name_var_4
+				has_variable = lobby_custom_name_var_5
+				has_variable = lobby_custom_name_var_6
+			}
+		}
+		localization_key = custom_lobby_lobby
+	}
+}
+
+flavored_name_lobby_anti_country = {
+	type = political_lobby
+	random_valid = yes
+
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_2
+		}
+		localization_key = custom_lobby_association
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_3
+		}
+		localization_key = custom_lobby_society
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_6
+		}
+		localization_key = custom_lobby_league
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = lobby_custom_name_var_1
+				has_variable = lobby_custom_name_var_2
+				has_variable = lobby_custom_name_var_3
+				has_variable = lobby_custom_name_var_4
+				has_variable = lobby_custom_name_var_5
+				has_variable = lobby_custom_name_var_6
+			}
+		}
+		localization_key = custom_lobby_lobby
+	}
+}
+
+flavored_name_lobby_anti_overlord = {
+	type = political_lobby
+	random_valid = yes
+
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_7
+		}
+		localization_key = custom_lobby_league
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_8
+		}
+		localization_key = custom_lobby_national_congress
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_9
+		}
+		localization_key = custom_lobby_national_union
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_10
+		}
+		localization_key = custom_lobby_national_council
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_11
+		}
+		localization_key = custom_lobby_national_league
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_12
+		}
+		localization_key = custom_lobby_brotherhood
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_13
+		}
+		localization_key = custom_lobby_national_committee
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_14
+		}
+		localization_key = custom_lobby_united_league
+	}
+}
+
+flavored_name_lobby_pro_overlord = {
+	type = political_lobby
+	random_valid = yes
+
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_15
+		}
+		localization_key = custom_lobby_empire_union
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_16
+		}
+		localization_key = custom_lobby_loyalist_association
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_17
+		}
+		localization_key = custom_lobby_union_party
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_18
+		}
+		localization_key = custom_lobby_covenant
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_19
+		}
+		localization_key = custom_lobby_loyal_order
+	}
+	text = {
+		trigger = {
+			has_variable = lobby_custom_name_var_20
+		}
+		localization_key = custom_lobby_league_of_loyalists
+	}
+}

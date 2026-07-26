@@ -1,0 +1,282 @@
+﻿STATES = {
+    s:STATE_NIRAI_KANAI = {
+        create_state = {
+            country = c:TID
+            owned_provinces = { "x67103E" "x682333" "x712D2A" "x741B38" "x763332" "x782F3A" "x791A38" "x7C1045" "x7C1A27" "x7D1A2D" "x7E1827" "x7E1926" "x812648" "x822D37" "x841342" "x86102A" "x871F25" }
+        }
+
+        add_homeland = cu:deigo
+    }
+    s:STATE_URUMA = {
+        create_state = {
+            country = c:URU
+            owned_provinces = { "x361D34" "x492C31" }
+        }
+
+        add_homeland = cu:deigo
+    }
+    s:STATE_UTAKI = {
+        create_state = {
+            country = c:UTA
+            owned_provinces = { "x4FAA31" "x50AB37" "x56AB2C" "x5BB422" "x62B229" }
+        }
+
+        add_homeland = cu:deigo
+    }
+    s:STATE_UFUMI = {
+        create_state = {
+            country = c:UFU
+            owned_provinces = { "x14D32F" "x1ED847" "x22D733" "x2AC041" }
+        }
+
+        add_homeland = cu:deigo
+    }
+    s:STATE_MANIA_KOWHAI = {
+        create_state = {
+            country = c:WHA
+            owned_provinces = { "x002116" "x002118" "x00220D" "x002310" "x002515" "x002B27" "x002B29" "x002C1F" "x002D21" "x003018" "x003106" "x003203" "x003204" "x003727" "x003C24" "x004027" "x004225" "x023003" "x032327" "x05211E" "x05300D" "x054220" "x063324" "x094308" "x0C3703" "x0E4328" "x0F2B0F" "x10201A" "x10240C" "x123621" "x12380E" "x123B1C" "x132403" "x133211" "x142324" "x14301B" "x143A15" }
+        }
+
+        add_homeland = cu:whenua
+    }
+    s:STATE_TAHATIKA_TAPARA = {
+        create_state = {
+            country = c:KAI
+            owned_provinces = { "xECE126" "xF0E10F" "xF2D017" "xF2D308" "xF2E614" "xF3D505" "xF6CF17" "xF6D40D" "xF7D424" "xF7E614" "xF8D422" "xFACC14" "xFBD914" "xFEDD00" "xFFC800" "xFFC803" "xFFC90C" "xFFCA1C" "xFFCB00" "xFFCD1F" "xFFCF06" "xFFD11C" "xFFD321" "xFFD60A" "xFFDB0C" "xFFDF05" "xFFDF0D" "xFFE014" "xFFE502" "xFFE50D" "xFFE620" "xFFE70A" "xFFE903" "xFFE912" "xFFE916" }
+        }
+
+        add_homeland = cu:whenua
+    }
+    s:STATE_PAPAKU_O_TE_RA = {
+        create_state = {
+            country = c:RAN
+            owned_provinces = { "x51DA18" "x51EE0E" "x52F300" "x53F110" "x54EC16" "x55E110" "x58D904" "x5AE900" "x5AEF01" "x5BCD1B" "x5BD70F" "x5DD81B" "x60D40A" "x62D707" "x63F100" "x64E40D" "x66E717" "x67D10F" "x6AD517" "x6BE010" "x6DE518" "x72D800" "x73D309" "x73E100" "x73EB01" "x75E208" "x76E91B" "x77E406" "x78D301" }
+        }
+
+        add_homeland = cu:whenua
+    }
+    s:STATE_RAUPO_MOANA = {
+        create_state = {
+            country = c:TAR
+            owned_provinces = { "x858B24" "x8B7511" "x8B840A" "x918D1E" "x919C19" "x947616" "x957E21" "x978E1C" "x98960F" "x9B931F" "x9B9805" "x9C9C0F" "x9D7614" "x9D8F01" "xA1860C" "xA37B07" "xA59C28" "xA69C1B" "xA87D16" "xAA8008" "xAA8D1B" "xAB7B24" "xAB9216" "xAB9926" }
+        }
+
+        add_homeland = cu:whenua
+    }
+    s:STATE_KAINGA_MAROKE = {
+        create_state = {
+            country = c:WAI
+            owned_provinces = { "x89952A" "x899D18" "x8A981A" "x8B962A" "x8BB23C" "x92A130" "x92B328" "x93A431" "x95A028" "x9AB23C" "x9BA52F" "x9DA31C" "x9FB71E" "xA1B129" "xA49831" "xA79C23" "xA99E35" "xAA9C21" "xAC9730" "xACB421" "xAE983B" "xAE9916" "xAF933D" "xAFAA15" }
+        }
+
+        add_homeland = cu:whenua
+    }
+    s:STATE_MOTU_HUMARIE = {
+        create_state = {
+            country = c:HAW
+            owned_provinces = { "x1C8346" "x21943B" "x2F8242" "x348449" }
+        }
+
+        add_homeland = cu:whenua
+    }
+    s:STATE_MOUTERE_TARAPIROPIRO = {
+        create_state = {
+            country = c:WHN
+            owned_provinces = { "xE32812" "xEA0E20" "xFF0D32" }
+        }
+
+        add_homeland = cu:whenua
+    }
+    s:STATE_PALIANUENUE = {
+        create_state = {
+            country = c:AHU
+            owned_provinces = { "xBE9700" "xBF8F04" "xBF9000" "xC07814" "xC08200" "xC09E03" "xC39403" "xC47E09" "xC69200" "xC88200" "xCA7600" "xCB7C06" "xCB8F0D" "xCB9407" "xCC7A07" "xCC8E04" "xCE9B00" "xCF9C00" "xD08207" "xD17700" "xD18800" "xD19213" "xD19E00" "xD28100" "xD28E00" "xD58811" "xD78F15" "xD87A00" "xD88400" "xDA8B00" "xDB9110" "xDC9600" "xDE8A00" "xDF8F00" "xDF9E00" "xE07F00" "xE27C12" "xE58B0A" "xE68700" }
+        }
+
+        add_homeland = cu:kanaka
+    }
+    s:STATE_ONELOA = {
+        create_state = {
+            country = c:KAM
+            owned_provinces = { "x61903E" "x648B36" "x64931F" "x70A823" "x738833" "x779F2B" "x7DAD22" "x848C3B" "x84921B" "x88AD26" }
+        }
+
+        add_homeland = cu:kanaka
+    }
+    s:STATE_KAULUWELA = {
+        create_state = {
+            country = c:MAL
+            owned_provinces = { "xC04920" "xD02812" "xD84933" "xE32F24" "xE73B1F" }
+        }
+
+        add_homeland = cu:kanaka
+    }
+    s:STATE_PAEMUKU = {
+        create_state = {
+            country = c:HOK
+            owned_provinces = { "xE9D612" "xEFC618" "xF1BF10" "xF6C014" "xFDC22D" "xFFCE0C" }
+        }
+
+        add_homeland = cu:kanaka
+    }
+    s:STATE_KAIULI = {
+        create_state = {
+            country = c:KAN
+            owned_provinces = { "x9EF931" "xABE91E" "xB2F826" "xB6FF24" "xBAE92A" "xBDFC24" "xC2F22A" "xC4FF0F" }
+        }
+
+        add_homeland = cu:kanaka
+    }
+    s:STATE_UAHIWERA = {
+        create_state = {
+            country = c:POL
+            owned_provinces = { "x8EB773" "x90C691" "x92B591" "x93B377" "xA9AB75" }
+        }
+
+        add_homeland = cu:kanaka
+    }
+    s:STATE_AINAONE = {
+        create_state = {
+            country = c:LAA
+            owned_provinces = { "x837716" "x83780E" "x845F31" "x86800C" "x897A1A" "x927E11" "x936817" "x945F2D" "x967B0F" "x98801A" "x99770C" "x9F6B1F" "xA25B2A" "xA5832D" "xA68031" "xA8721F" "xA96527" "xAA6F2C" }
+        }
+
+        add_homeland = cu:kanaka
+    }
+    s:STATE_WAILUKU = {
+        create_state = {
+            country = c:MAK
+            owned_provinces = { "x295A2F" "x2A5A37" "x2B562B" "x2E5835" "x3B5829" "x447820" "x4A5827" "x4D5721" "x4F5A3F" }
+        }
+
+        add_homeland = cu:kanaka
+    }
+    s:STATE_ULUWEHI = {
+        create_state = {
+            country = c:KLA
+            owned_provinces = { "x173100" "x1C2B00" "x1C3415" "x222D08" "x243A00" "x2C2618" "x2D3404" "x2F1D08" "x313B16" "x323D00" "x372000" "x3D3016" }
+        }
+
+        add_homeland = cu:kanaka
+    }
+    s:STATE_MOKUMANO = {
+        create_state = {
+            country = c:AHI
+            owned_provinces = { "xA6A69A" "xACAEAB" }
+        }
+
+        add_homeland = cu:kanaka
+    }
+    s:STATE_AOLANI = {
+        create_state = {
+            country = c:POM
+            owned_provinces = { "x679A18" "x68A235" "x6D9520" "x6F8D35" "x73AA0E" "x749C32" "x75A014" "x789328" "x78B121" "x79B02B" "x7CA21F" "x7D9832" "x7DAF10" "x7F9A1D" "x82A12E" "x83B10D" "x849E31" "x899C22" "x8AAB1F" }
+        }
+
+        add_homeland = cu:kanaka
+    }
+    s:STATE_NIUMATA = {
+        create_state = {
+            country = c:TUA
+            owned_provinces = { "x5B032D" "x600A09" "x601326" "x620210" "x621A08" "x66080D" "x6C2522" "x761D28" "x7B222E" "x7D060C" "x7E061B" "x7E2011" }
+        }
+
+        add_homeland = cu:tagata
+    }
+    s:STATE_GATAVAI = {
+        create_state = {
+            country = c:TUA
+            owned_provinces = { "x1A8C2D" "x1B7434" "x2D7122" "x397638" "x3B6E1B" "x3B7137" }
+        }
+
+        add_homeland = cu:tagata
+    }
+    s:STATE_MATAFAGA = {
+        create_state = {
+            country = c:TUA
+            owned_provinces = { "x2CFE2D" "x2EEB24" "x30F914" "x31FF30" "x32F90A" "x33DD0B" "x36E91F" "x41FF13" "x4AFF1F" "x4CE42D" "x51EE08" }
+        }
+
+        add_homeland = cu:tagata
+    }
+    s:STATE_ALOFI = {
+        create_state = {
+            country = c:TUA
+            owned_provinces = { "xAC7410" "xAE5B18" "xB56A27" "xB67013" "xB7650A" "xB8712C" "xBA6F09" "xBE6D2D" "xBF661B" "xC46007" "xC6642C" "xCA7211" "xCC7121" "xCE7809" "xCF6E15" "xCF6F14" "xD05A2B" }
+        }
+
+        add_homeland = cu:tagata
+    }
+    s:STATE_MURIVAI = {
+        create_state = {
+            country = c:TRO
+            owned_provinces = { "xAF0604" "xB41600" "xB61000" "xB90000" "xB91000" "xBD0400" "xBF1101" "xC3090E" "xC31400" "xC50000" "xC61800" "xC90E0F" "xCC0005" "xCE0906" "xD40000" "xD41000" }
+        }
+
+        add_homeland = cu:tagata
+    }
+    s:STATE_ARORANGI = {
+        create_state = {
+            country = c:TRO
+            owned_provinces = { "x80FF0F" "x82F819" "x85EF00" "x85EF0F" "x9CFB0A" "xA2F30F" }
+        }
+
+        add_homeland = cu:tagata
+    }
+    s:STATE_ONEURA = {
+        create_state = {
+            country = c:TRO
+            owned_provinces = { "x222639" "x232F24" "x282C44" "x2F3B28" "x32381E" "x363126" "x384326" "x3A3E20" "x3A4D3C" "x3B4224" "x404035" "x413027" "x41483F" "x43462F" "x45492B" "x474C32" }
+        }
+
+        add_homeland = cu:tagata
+    }
+    s:STATE_MATAEIA = {
+        create_state = {
+            country = c:NUK
+            owned_provinces = { "x7F790A" "x7F7E24" "x7F8C0A" "x817323" "x829225" "x84731A" "x86872E" "x879A25" "x888817" "x8C8A13" "x8D8D2E" "x8D9129" "x947E1F" "x957B30" "x9A8120" "x9C7811" "x9C8E31" "x9E780D" "xA47415" }
+        }
+
+        add_homeland = cu:tagata
+    }
+    s:STATE_VAIARI = {
+        create_state = {
+            country = c:NUK
+            owned_provinces = { "x4A9307" "x4DAC20" "x528806" "x5F840C" "x68891B" "x6BA705" "x6E8A11" "x70872C" }
+        }
+
+        add_homeland = cu:tagata
+    }
+    s:STATE_HIHIFO = {
+        create_state = {
+            country = c:TAO
+            owned_provinces = { "x5A1D1B" "x5C2307" "x602605" "x622617" "x641419" "x650626" "x661029" "x661F1C" "x6A020C" "x6B1D16" "x6C0628" "x6D0315" "x6D041D" "x6D151F" "x6F1B27" "x700413" "x73100D" "x740226" "x751A0B" "x760514" "x791A0E" "x7B1D1F" "x7D0E0D" "x7D130A" "x7F1E2A" }
+        }
+
+        add_homeland = cu:tagata
+    }
+    s:STATE_MATAMOANA = {
+        create_state = {
+            country = c:TAO
+            owned_provinces = { "x20822F" "x248D2B" "x29782B" "x299A28" "x2B7B0A" "x2C8922" "x34881E" "x38852A" "x3A8719" "x3A9B09" "x3F7C13" "x407B2B" }
+        }
+
+        add_homeland = cu:tagata
+    }
+    s:STATE_ASAU = {
+        create_state = {
+            country = c:VAE
+            owned_provinces = { "x5E4C0F" "x5F5E35" "x605436" "x625E15" "x635C19" "x654924" "x665A28" "x6A3730" "x6B4E27" "x6D3814" "x6D3E17" "x6D5C30" "x6E3E1B" "x6F411B" "x734A20" "x734E19" "x754E35" "x763735" "x765D10" "x78471A" "x785C16" "x795118" "x795121" "x7A4817" "x7E3930" "x7F4232" "x813E14" "x845124" "x853C30" "x855418" }
+        }
+
+        add_homeland = cu:tagata
+    }
+    s:STATE_FEKEI = {
+        create_state = {
+            country = c:VAE
+            owned_provinces = { "x74AA25" "x75B903" "x79A521" "x81B30D" "x849802" "x899519" "x8CA70C" "x8DA620" "x8DB922" "x8EA50D" "x90A120" "x91B324" "x959C1F" "x95B406" "x969404" "x969C1F" "x96AC1E" "x97B810" }
+        }
+
+        add_homeland = cu:tagata
+    }
+}

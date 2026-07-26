@@ -1,0 +1,107 @@
+﻿CRI = {
+    color = { 173 23 17 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { ju }
+
+    capital = STATE_QIONGHUA
+}
+
+UND = {
+    color = { 20 19 19 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { lian }
+
+    capital = STATE_YOUMING
+}
+
+SUR = {
+    color = { 45 107 138 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { ju }
+
+    capital = STATE_FUHAI_NUTAO
+}
+
+XIL = {
+    color = { 128 15 3 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { melati }
+
+    capital = STATE_XILA_WULADA
+}
+
+PUL = {
+    color = { 26 110 37 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { melati }
+
+    capital = STATE_PULAO_WUYA
+}
+
+HAD = {
+    color = { 76 37 92 }
+
+    country_type = unrecognized
+    
+    tier = principality
+
+    cultures = { melati }
+
+    capital = STATE_HADA_SILU
+}
+
+LAN = {
+    color = { 209 197 214 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { ju }
+
+    capital = STATE_LANGGAN
+}
+
+KUI = {
+    color = { 82 72 66 }
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { lily }
+
+    capital = STATE_WULAI
+}
+
+JAD = {
+    color = { 81 173 95 }
+
+    country_type = decentralized
+    
+    tier = principality
+
+    cultures = { melati }
+
+    capital = STATE_JIAYING_PO
+}

@@ -1,0 +1,211 @@
+﻿amendment_taikunate = {
+
+	parent = law_autocracy # Bakufu
+
+	allowed_laws = {
+		law_landed_voting
+	}
+
+	modifier = {
+		interest_group_ig_landowners_pol_str_mult = 0.10
+		country_legitimacy_govt_total_clout_add = 25
+	}
+
+	possible = {
+		country_has_primary_culture = cu:sakura
+		always = no
+	}
+
+	would_sponsor = {
+		ROOT = {
+			is_interest_group_type = ig_landowners
+		}
+	}
+
+	on_activate = {
+		hidden_effect = {
+			country_assess_daimyo_alignments = yes
+		}
+		random_scope_character = { 
+			limit = {
+				has_variable = former_shogun_var
+			}
+			add_modifier = modifier_taikun
+		}
+	}
+
+	on_deactivate = {
+		hidden_effect = {
+			country_assess_daimyo_alignments = yes
+		}
+		# remove_variable = japan_taikunate_var  # removed: dead variable, never set elsewhere
+	}
+
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			law_stance = {
+				law = law_type:law_landed_voting
+				value < neutral
+			}
+		}
+	}
+
+	can_repeal = {
+		legitimacy >= legitimacy_to_repeal_amendment
+	}
+
+	amendment_activism_multiplier = 1
+}
+
+amendment_zaibatsu_oligopoly_1 = {
+
+	parent = law_oligarchy
+
+	allowed_laws = { # All economic laws
+		law_traditionalism
+		law_agrarianism
+		law_interventionism
+		law_industry_banned
+		law_laissez_faire
+		law_cooperative_ownership
+		law_command_economy
+		law_extraction_economy
+	}
+
+	modifier = {
+		country_loan_interest_rate_mult = -0.2
+		country_company_construction_efficiency_bonus_add = 0.15
+		state_capitalists_investment_pool_efficiency_mult = 0.25
+		country_voting_power_mult = -0.15
+	}
+
+	possible = {
+		OR = {
+			always = no # vanilla ref 'c:JAP' not present in this mod
+			always = no
+		}
+		always = no
+		NOT = {
+			any_active_law = {
+				has_amendment = amendment_type:amendment_zaibatsu_oligopoly_2
+			}
+		}
+	}
+
+	would_sponsor = {
+		AND = {
+			exists = scope:approval
+			scope:approval > 0
+		}
+	}
+
+	ai_will_revoke = {
+		always = no
+	}
+
+	can_repeal = {
+		legitimacy >= legitimacy_to_repeal_amendment
+	}
+
+	amendment_activism_multiplier = 1
+}
+
+amendment_zaibatsu_oligopoly_2 = {
+
+	parent = law_oligarchy
+
+	allowed_laws = { # All economic laws
+		law_traditionalism
+		law_agrarianism
+		law_interventionism
+		law_industry_banned
+		law_laissez_faire
+		law_cooperative_ownership
+		law_command_economy
+		law_extraction_economy
+	}
+
+	modifier = {
+		country_loan_interest_rate_mult = -0.2
+		country_free_charters_add = 1
+		state_capitalists_investment_pool_efficiency_mult = 0.25
+		country_voting_power_mult = -0.15
+	}
+
+	possible = {
+		OR = {
+			always = no # vanilla ref 'c:JAP' not present in this mod
+			always = no
+		}
+		always = no
+		NOT = {
+			any_active_law = {
+				has_amendment = amendment_type:amendment_zaibatsu_oligopoly_1
+			}
+		}
+	}
+
+	would_sponsor = {
+		AND = {
+			exists = scope:approval
+			scope:approval > 0
+		}
+	}
+
+	ai_will_revoke = {
+		always = no
+	}
+
+	can_repeal = {
+		legitimacy >= legitimacy_to_repeal_amendment
+	}
+
+	amendment_activism_multiplier = 1
+}
+
+amendment_reformed_shinsengumi = {
+
+	parent = law_shinsengumi
+
+	allowed_laws = {
+		law_secret_police
+	}
+
+	modifier = {
+		country_shopkeepers_pol_str_mult = 0.10
+		country_institution_cost_institution_home_affairs_mult = -0.05
+	}
+
+	possible = {
+		country_has_primary_culture = cu:sakura
+		always = no
+	}
+
+	would_sponsor = {
+		AND = {
+			exists = scope:approval
+			scope:approval > 0
+		}
+	}
+
+	on_deactivate = {
+		# remove_variable = japan_reformed_shinsengumi_var  # removed: dead variable, never set elsewhere
+	}
+
+	ai_will_revoke = {
+		any_interest_group = {
+			is_in_government = yes
+			law_stance = {
+				law = law_type:law_secret_police
+				value < neutral
+			}
+		}
+	}
+
+	can_repeal = {
+		legitimacy >= legitimacy_to_repeal_amendment
+	}
+
+	amendment_activism_multiplier = 0.25
+}

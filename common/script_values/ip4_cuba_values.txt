@@ -1,0 +1,26 @@
+﻿
+total_country_exports = {
+	every_scope_state = {
+		add = "state_exports"
+	}
+}
+
+# removed effect line: vanilla ref 'je_cuba_la_vida_dulce_export_target' not present in this mod
+# removed effect line: vanilla ref 'je_cuba_es_espana_export_target' not present in this mod
+
+# removed effect block: vanilla ref 'je_cuba_join_usa_price' not present in this mod
+
+#Variables for quick balancing of je_cuba_independencia. 
+# removed effect line: vanilla ref 'je_cuba_drift_factor' not present in this mod
+# removed effect line: vanilla ref 'je_cuba_join_usa_target_power_bloc_leverage_multiplier' not present in this mod
+# removed effect line: vanilla ref 'je_cuba_join_usa_eco_dependence_multiplier' not present in this mod
+# removed effect line: vanilla ref 'je_cuba_target_prestige_multiplier' not present in this mod
+# removed effect line: vanilla ref 'je_cuba_target_prestige_factor_multiplier' not present in this mod
+# removed effect line: vanilla ref 'je_cuba_sol_expected_difference' not present in this mod
+# removed effect line: vanilla ref 'je_cuba_sol_difference_multiplier' not present in this mod
+# removed effect line: vanilla ref 'je_cuba_relations_multiplier' not present in this mod
+
+# removed effect line: vanilla ref 'je_cuba_low_bracket' not present in this mod
+# removed effect line: vanilla ref 'je_cuba_high_bracket' not present in this mod
+
+# removed effect block: vanilla ref 'je_cuba_independencia_bar_target' not present in this mod

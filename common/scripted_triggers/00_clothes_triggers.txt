@@ -1,0 +1,1524 @@
+﻿british_empire_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		home_country = {
+			country_has_primary_culture = cu:aldrican
+		}
+	}
+}
+
+
+british_empire_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = home_country
+		home_country = {
+			country_has_primary_culture = cu:aldrican
+		}
+	}
+}
+
+
+british_empire_clothes_p_trigger = {
+	always = no # blanked: Great Britain not present in this mod
+}
+
+
+french_empire_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		home_country = {
+			country_has_primary_culture = cu:solenne
+		}
+	}
+}
+
+
+french_empire_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = home_country
+		home_country = {
+			country_has_primary_culture = cu:solenne
+		}
+	}
+}
+
+
+russian_empire_clothes_trigger = {
+	always = no
+}
+
+
+russian_empire_clothes_pop_trigger = {
+	always = no
+}
+
+
+german_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		home_country = {
+			country_has_primary_culture = cu:vardish
+		}
+	}
+}
+
+
+german_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = home_country
+		home_country = {
+			country_has_primary_culture = cu:vardish
+		}
+	}
+}
+
+
+austrian_empire_clothes_trigger = {
+	always = no # blanked: Austria / Austria-Hungary not present in this mod
+}
+
+
+hungarian_clothes_trigger = {
+	always = no # blanked: Hungary not present in this mod
+}
+
+
+austrian_empire_clothes_pop_trigger = {
+	always = no # blanked: Austria / Austria-Hungary not present in this mod
+}
+
+
+independent_hungarian_clothes_trigger = {
+	always = no # blanked: Austria / Austria-Hungary not present in this mod
+}
+
+
+independent_hungarian_clothes_pop_trigger = {
+	always = no # blanked: Austria / Austria-Hungary not present in this mod
+}
+
+
+bulgarian_clothes_trigger = {
+	always = no
+}
+
+bulgarian_clothes_pop_trigger = {
+	always = no
+}
+
+serbian_clothes_trigger = {
+	always = no # blanked: Serbia not present in this mod
+}
+
+
+serbian_clothes_pop_trigger = {
+	always = no # blanked: Serbia not present in this mod
+}
+
+
+greek_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		home_country = {
+			country_has_primary_culture = cu:aurora
+		}
+	}
+}
+
+greek_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = home_country
+		home_country = {
+			country_has_primary_culture = cu:aurora
+		}
+	}
+}
+
+montenegrin_clothes_trigger = {
+	always = no # blanked: Montenegro not present in this mod
+}
+
+
+montenegrin_clothes_pop_trigger = {
+	always = no # blanked: Montenegro not present in this mod
+}
+
+
+romanian_clothes_trigger = {
+	always = no # blanked: Austria-Hungary not present in this mod
+}
+
+
+romanian_clothes_pop_trigger = {
+	always = no # blanked: Austria-Hungary not present in this mod
+}
+
+
+spanish_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		home_country = {
+			is_subject = no
+			country_has_primary_culture = cu:alena
+		}
+	}
+}
+
+spanish_colony_clothes_trigger = {
+	always = no # blanked: Spain not present in this mod
+}
+
+
+spanish_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = home_country
+		home_country = {
+			is_subject = no
+			country_has_primary_culture = cu:alena
+		}
+	}
+}
+
+spanish_colony_clothes_pop_trigger = {
+	always = no # blanked: Spain not present in this mod
+}
+
+
+spanish_empire_clothes_trigger = {
+	always = no # blanked: Spain not present in this mod
+}
+
+
+spanish_empire_clothes_pop_trigger = {
+	always = no # blanked: Spain not present in this mod
+}
+
+
+carlist_clothes_trigger = {
+	always = no # blanked: Gran Colombia not present in this mod
+}
+
+
+carlist_clothes_pop_trigger = {
+	always = no # blanked: Gran Colombia not present in this mod
+}
+
+
+portuguese_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		home_country = {
+			is_subject = no
+			country_has_primary_culture = cu:aurora
+		}
+	}
+}
+
+portuguese_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = home_country
+		home_country = {
+			is_subject = no
+			country_has_primary_culture = cu:aurora
+		}
+	}
+}
+
+portuguese_empire_clothes_trigger = {
+	always = no # blanked: Portugal not present in this mod
+}
+
+
+portuguese_empire_clothes_pop_trigger = {
+	always = no # blanked: Portugal not present in this mod
+}
+
+
+argentine_clothes_trigger = {
+	always = no # blanked: Argentina / Rio de la Plata not present in this mod
+}
+
+
+argentine_clothes_pop_trigger = {
+	always = no # blanked: Argentina / Rio de la Plata not present in this mod
+}
+
+
+peruvian_clothes_trigger = {
+	always = no # blanked: North German Union / Peru / Sucre Union not present in this mod
+}
+
+
+peruvian_clothes_pop_trigger = {
+	always = no # blanked: North German Union / Peru / Sucre Union not present in this mod
+}
+
+
+brazilian_clothes_trigger = {
+	always = no # blanked: Brazil not present in this mod
+}
+
+
+brazilian_clothes_pop_trigger = {
+	always = no # blanked: Brazil not present in this mod
+}
+
+
+central_american_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		home_country = {
+			is_subject = no
+			country_has_primary_culture = cu:farshore
+		}
+	}
+}
+
+central_american_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = home_country
+		home_country = {
+			is_subject = no
+			country_has_primary_culture = cu:farshore
+		}
+	}
+}
+
+uruguayan_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		home_country = {
+			is_subject = no
+			OR = {
+				country_has_primary_culture = cu:farshore
+				c:URU ?= this
+			}
+		}
+	}
+}
+
+uruguayan_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = home_country
+		home_country = {
+			is_subject = no
+			OR = {
+				country_has_primary_culture = cu:farshore
+				c:URU ?= this
+			}
+		}
+	}
+}
+
+gran_colombian_clothes_trigger = {
+	always = no # blanked: Colombia / Ecuador / Gran Colombia / Venezuela not present in this mod
+}
+
+
+gran_colombian_clothes_pop_trigger = {
+	always = no # blanked: Colombia / Ecuador / Gran Colombia / Venezuela not present in this mod
+}
+
+
+bolivian_clothes_trigger = {
+	always = no # blanked: Bolivia not present in this mod
+}
+
+
+bolivian_clothes_pop_trigger = {
+	always = no # blanked: Bolivia not present in this mod
+}
+
+
+peru_bolivian_clothes_trigger = {
+	always = no # blanked: Plate not present in this mod
+}
+
+
+peru_bolivian_clothes_pop_trigger = {
+	always = no # blanked: Plate not present in this mod
+}
+
+
+chilean_clothes_trigger = {
+	always = no # blanked: Chile not present in this mod
+}
+
+
+chilean_clothes_pop_trigger = {
+	always = no # blanked: Chile not present in this mod
+}
+
+
+paraguayan_clothes_trigger = {
+	always = no # blanked: Paraguay not present in this mod
+}
+
+
+paraguayan_clothes_pop_trigger = {
+	always = no # blanked: Paraguay not present in this mod
+}
+
+
+mexican_clothes_trigger = {
+	always = no # blanked: Mexico not present in this mod
+}
+
+
+mexican_clothes_pop_trigger = {
+	always = no # blanked: Mexico not present in this mod
+}
+
+
+riograndese_clothes_trigger = {
+	always = no # blanked: Panama not present in this mod
+}
+
+
+riograndese_clothes_pop_trigger = {
+	always = no # blanked: Panama not present in this mod
+}
+
+
+federation_clothes_trigger = {
+	always = no # blanked: Federation not present in this mod
+}
+
+
+federation_clothes_pop_trigger = {
+	always = no # blanked: Federation not present in this mod
+}
+
+
+native_american_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		culture = {
+			has_discrimination_trait_group = heritage_group_beastfolk
+		}
+	}
+}
+
+native_north_american_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		culture = {
+			has_discrimination_trait_group = heritage_group_beastfolk
+		}
+	}
+}
+
+muslim_clothes_pop_trigger = {
+     exists = scope:pop
+  	scope:pop = {
+		religion = {
+			has_discrimination_trait = heritage_sahar_faith
+		}
+	}
+}
+
+jewish_clothes_pop_trigger = {
+     exists = scope:pop
+  	scope:pop = {
+		religion = {
+			has_discrimination_trait = heritage_farvahar
+		}
+	}
+}
+
+hindu_clothes_pop_trigger = {
+	always = no
+}
+
+african_diaspora_clothes_trigger = {
+	always = no # blanked: African diaspora cultures not present in this mod
+}
+
+african_diaspora_pop_clothes_trigger = {
+	always = no # blanked: African diaspora cultures not present in this mod
+}
+
+japanese_shogun_clothes_trigger = {
+	always = no # blanked: Japan not present in this mod
+}
+
+
+japanese_imperial_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		is_ruler_of_own_country = yes
+		exists = home_country
+     	home_country = {
+     		has_law = law_type:law_monarchy
+     	}
+		culture = {
+            has_discrimination_trait = heritage_sakura
+		}
+	}
+}
+
+
+chinese_imperial_clothes_trigger = {
+    exists = scope:character
+	scope:character = {
+		is_ruler_of_own_country = yes
+		exists = home_country
+     	home_country = {
+     		has_law = law_type:law_monarchy
+     	}
+		culture = {
+            has_discrimination_trait = heritage_lan
+		}
+	}
+}
+
+
+chinese_manchu_queue_hairstyle_character_trigger = { # hairsyle for Manchu characters not living living under discriminatory Han rule, and Han characters living under discriminatory Manchu rule
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		OR = {
+			AND = {
+				home_country = {
+					ruler = {
+						has_culture = cu:tong
+					}
+					NOT = {
+						has_law_or_variant = law_type:law_multicultural
+					}
+				}
+				culture = {
+					has_discrimination_trait = heritage_lan
+				}
+			}
+			AND = {
+				NOT = {
+					home_country = {
+						ruler = {
+							culture = {
+								has_discrimination_trait = heritage_lan
+							}
+						}
+						cultural_acceptance_base = { target = cu:tong value >= acceptance_status_4 }
+					}
+				}
+				culture = cu:tong
+			}
+		}
+	}
+}
+
+chinese_manchu_queue_hairstyle_pops_trigger = { # hairsyle for Manchu pops not living living under discriminatory Han rule, and Han pops living under discriminatory Manchu rule
+	exists = scope:pop
+	scope:pop = {
+		OR = {
+			AND = {
+				home_country = {
+					ruler = {
+						has_culture = cu:tong
+					}
+					NOT = {
+						has_law_or_variant = law_type:law_multicultural
+					}
+				}
+				culture = {
+					has_discrimination_trait = heritage_lan
+				}
+			}
+			AND = {
+				NOT = {
+					home_country = {
+						ruler = {
+							culture = {
+								has_discrimination_trait = heritage_lan
+							}
+						}
+						cultural_acceptance_base = { target = cu:tong value >= acceptance_status_4 }
+					}
+				}
+				culture = cu:tong
+			}
+		}
+	}
+}
+
+chinese_court_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		NOT = {
+			AND = {
+				exists = home_country
+				is_ruler_of_own_country = yes
+				culture = {
+					has_discrimination_trait_group = heritage_group_xianxia_human
+				}
+		     	home_country = {
+		     		OR = {
+						has_law = law_type:law_monarchy
+						has_law = law_type:law_social_monarchy
+			     		has_law_or_variant = law_type:law_theocracy
+			     	}
+		     	}
+			}
+		}
+		culture = {
+			has_discrimination_trait_group = heritage_group_xianxia_human
+		}
+	}
+}
+
+chinese_court_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		culture = {
+			has_discrimination_trait_group = heritage_group_xianxia_human
+		}
+	}
+}
+
+
+african_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		culture = {
+            has_discrimination_trait_group = heritage_group_greenskin
+		}
+	}
+}
+
+arabic_fez_trigger = {
+	always = no # blanked: Egypt not present in this mod
+}
+
+
+arabic_military_fez_pop_trigger = {
+	always = no # blanked: Egypt / Morocco / Tunisia / Turkey not present in this mod
+}
+
+
+arabic_clothes_trigger = {
+    exists = scope:character
+	scope:character = {
+		culture = {
+            OR = {
+                has_discrimination_trait = heritage_nadirene
+                has_discrimination_trait = heritage_zaharin
+            }
+		}
+	}
+}
+
+
+ethiopian_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		culture = {
+			has_discrimination_trait = heritage_faryan
+		}
+	}
+}
+
+european_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		culture = {
+            OR = {
+                has_discrimination_trait_group = heritage_group_isekai_human
+                has_discrimination_trait = heritage_wood_elf
+                has_discrimination_trait = heritage_steel_dwarf
+                has_discrimination_trait = heritage_winged_demon
+                has_discrimination_trait = heritage_shadow_demon
+                has_discrimination_trait = heritage_homunculus
+            }
+		}
+	}
+}
+
+
+indian_clothes_trigger = {
+	always = no # was heritage_group_south_asian + religion rel:hindu, no mod analogue (western_plateau is Tarim Basin/Tibet, not India)
+}
+
+siamese_clothes_trigger = { #Pretty sure this is actual burmese
+	exists = scope:character
+	scope:character = {
+		culture = cu:melati
+	}
+}
+
+american_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		home_country = {
+			country_has_primary_culture = cu:lysian
+		}
+	}
+}
+
+
+american_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		exists = home_country
+		home_country = {
+			country_has_primary_culture = cu:lysian
+		}
+	}
+}
+
+
+politician_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		AND = {
+			has_role_of_type = politician
+			is_ruler_of_own_country = no
+		}
+	}
+}
+
+junta_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		AND = {
+			is_ruler_of_own_country = yes
+			is_interest_group_type = ig_armed_forces
+			owner ?= {
+				OR = {
+					has_government_type = gov_junta
+					has_government_type = gov_military_dictatorship
+				}
+			}
+		}
+	}
+}
+
+# Currently used for sashes
+generic_military_uniform_clothes_trigger = {
+	OR = {
+		military_clothes_trigger = yes
+		junta_clothes_trigger = yes
+		military_governor_clothes_trigger = yes
+		monarchy_clothes_trigger = yes
+		AND = {
+			armed_forces_clothes_trigger = yes
+			politician_clothes_trigger = yes
+		}
+	}
+}
+
+generic_civilian_clothes_trigger = {
+	NOR = {
+		military_clothes_trigger = yes
+		junta_clothes_trigger = yes
+		military_governor_clothes_trigger = yes
+		monarchy_clothes_trigger = yes
+		AND = {
+			armed_forces_clothes_trigger = yes
+			politician_clothes_trigger = yes
+		}
+	}
+}
+
+communist_clothes_trigger = {
+	scope:character ?= {
+		OR = {
+			owner ?= {
+				has_law_or_variant = law_type:law_council_republic
+			}
+			AND = {
+				is_in_exile_pool = yes
+				has_socialist_ideology = yes
+			}
+		}
+	}
+}
+
+recognized_country_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		OR = {
+			home_country = {
+				OR = {
+					is_country_type = recognized
+					country_is_colonial_or_company = yes
+				}
+			}
+			home_country = {
+				top_overlord = {
+					OR = {
+						is_country_type = recognized
+						country_is_colonial_or_company = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+recognized_country_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		OR = {
+			home_country = {
+				OR = {
+					is_country_type = recognized
+					country_is_colonial_or_company = yes
+				}
+			}
+			home_country = {
+				top_overlord = {
+					OR = {
+						is_country_type = recognized
+						country_is_colonial_or_company = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+christian_clothes_trigger = {
+  	exists = scope:character
+	scope:character = {
+		religion = {
+			has_discrimination_trait = heritage_christian
+		}
+	}
+}
+
+devout_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		is_interest_group_type = ig_devout
+	}
+}
+
+armed_forces_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		is_interest_group_type = ig_armed_forces
+	}
+}
+
+military_governor_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		is_ruler_of_own_country = yes
+		has_trait = special_character_colonial_military
+		owner ?= {
+			has_law = law_type:law_colonial_administration
+		}
+	}
+}
+
+ruler_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		is_ruler_of_own_country = yes
+	}
+}
+
+military_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		OR = {
+			has_role_of_type = general
+			has_role_of_type = admiral
+		}
+	}
+}
+
+military_marshal_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		AND = {
+			OR = {
+				has_role_of_type = general
+				has_role_of_type = admiral
+			}
+			OR = {
+				commander_rank >= 5
+				is_interest_group_leader = yes # If is IG leader
+			}
+		}
+	}
+}
+
+monarchy_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = owner
+		NOT = { always = no } # Griqua captains wear plainer clothing (blanked: not present in this mod)
+		OR = {
+			AND = {
+				OR = {
+					is_female = yes # Female Regents wear more stylish clothes than male ones, as female regents trend towards being royals themselves
+					owner ?= { has_gov_regency = no }
+				}
+				is_ruler_of_own_country = yes
+			}
+	     	is_heir_of_own_country = yes
+		}
+     	owner = {
+			OR = {
+     			has_law = law_type:law_monarchy
+     			has_law = law_type:law_social_monarchy
+			}
+     	}
+	}
+}
+
+republic_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = home_country
+		is_ruler_of_own_country = yes
+		OR = {
+			always = no # blanked: not present in this mod
+			home_country = {
+				NOR = {
+					has_law_or_variant = law_type:law_monarchy
+					has_law_or_variant = law_type:law_social_monarchy
+				}
+			}
+		}
+	}
+}
+
+regency_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		exists = owner
+		is_ruler_of_own_country = yes
+		owner ?= {
+			has_gov_regency = yes
+		}
+	}
+}
+
+overweight_trigger = {
+	exists = scope:character
+	scope:character = {
+     	has_trait = expensive_tastes
+     	is_historical = no # do not alter the shape of characters that are sculpted to appear a certain way
+     }
+}
+
+army_traits_trigger = {
+	exists = scope:character
+	scope:character = {
+		OR = {
+			has_trait = resupply_commander
+			has_trait = surveyor
+			has_trait = forest_commander
+			has_trait = plains_commander
+			has_trait = mountain_commander
+			has_trait = basic_artillery_commander
+			has_trait = experienced_artillery_commander
+			has_trait = expert_artillery_commander
+			has_trait = stalwart_defender
+			has_trait = trench_rat
+			has_trait = defense_in_depth_specialist
+			has_trait = basic_offensive_planner
+			has_trait = experienced_offensive_planner
+			has_trait = expert_offensive_planner
+			has_trait = basic_defensive_strategist
+			has_trait = experienced_defensive_strategist
+			has_trait = expert_defensive_strategist
+			has_trait = traditionalist_commander
+			has_trait = popular_commander
+			has_trait = celebrity_commander
+		}
+	}
+}
+
+navy_traits_trigger = {
+	exists = scope:character
+	scope:character = {
+		OR = {
+			has_trait = basic_naval_commander
+			has_trait = experienced_naval_commander
+			has_trait = expert_naval_commander
+			has_trait = convoy_raider_commander
+			has_trait = experienced_convoy_raider
+			has_trait = expert_convoy_raider
+			has_trait = dockyard_master
+		}
+	}
+}
+
+#Pop
+
+east_asian_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		culture = {
+			has_discrimination_trait_group = heritage_group_xianxia_human
+		}
+	}
+}
+
+central_asian_clothes_character_trigger = {
+	exists = scope:character
+	scope:character = {
+		culture = {
+			has_discrimination_trait = heritage_arasni
+            has_discrimination_trait = heritage_horsekin
+		}
+	}
+}
+
+central_asian_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		culture = {
+			has_discrimination_trait = heritage_arasni
+            has_discrimination_trait = heritage_horsekin
+		}
+	}
+}
+
+european_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		culture = {
+            OR = {
+                has_discrimination_trait_group = heritage_group_isekai_human
+                has_discrimination_trait = heritage_wood_elf
+                has_discrimination_trait = heritage_steel_dwarf
+                has_discrimination_trait = heritage_winged_demon
+            }
+			
+		}
+	}
+}
+
+arabic_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		culture = {
+			has_discrimination_trait_group = heritage_group_desert_human
+		}
+	}
+}
+
+indigenous_oceanic_clothes_trigger = {
+	OR = {
+		AND = {
+			exists = scope:pop
+			scope:pop = {
+				culture = {
+					has_discrimination_trait_group = heritage_group_moana
+				}
+			}
+		}
+		AND = {
+			exists = scope:character
+			scope:character = {
+				culture = {
+					has_discrimination_trait_group = heritage_group_moana
+				}
+			}
+		}
+	}
+}
+
+circumpolar_clothes_pop_trigger = {
+	always = no
+}
+
+sami_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		culture = cu:frostholm
+        culture = cu:fjordic
+	}
+}
+
+african_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		culture = {
+            has_discrimination_trait_group = heritage_group_greenskin
+		}
+	}
+}
+
+native_american_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		culture = {
+			has_discrimination_trait_group = heritage_group_beastfolk
+		}
+	}
+}
+
+south_east_asia_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		culture = {
+			has_discrimination_trait = heritage_melati
+		}
+	}
+}
+
+south_american_clothes_character_trigger = {
+	always = no
+}
+
+south_american_clothes_pop_trigger = {
+	always = no
+}
+
+integrated_south_american_natives_pop_trigger = { # Represents those South American native groups that had long been integrated into wider South and Central American society.
+	always = no
+}
+
+cold_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		culture = {
+            OR = {
+                has_discrimination_trait = heritage_snow_elf
+                has_discrimination_trait = heritage_stone_dwarf
+                has_discrimination_trait = heritage_bearkin
+            }
+        }
+	}
+}
+
+japanese_restoration_trigger = {
+	always = no # blanked: Japan not present in this mod
+}
+
+
+japanese_modernizer_character_trigger = {
+	always = no # blanked: Japan not present in this mod
+}
+
+
+japanese_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		culture = {
+            OR = {
+                has_discrimination_trait = heritage_snow_elf
+                has_discrimination_trait = heritage_stone_dwarf
+                has_discrimination_trait = heritage_bearkin
+                has_discrimination_trait = heritage_foxkin
+                has_discrimination_trait = heritage_sakura
+            }
+        }
+	}
+}
+
+
+japanese_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		culture = {
+            OR = {
+                has_discrimination_trait = heritage_snow_elf
+                has_discrimination_trait = heritage_stone_dwarf
+                has_discrimination_trait = heritage_bearkin
+                has_discrimination_trait = heritage_foxkin
+                has_discrimination_trait = heritage_sakura
+            }
+        }
+	}
+}
+
+indian_clothes_pop_trigger = {
+	always = no
+}
+
+slavic_clothes_pop_trigger = {
+	always = no
+}
+
+slavic_clothes_trigger = {
+	always = no
+}
+
+nordic_clothes_pop_trigger = {
+	scope:pop ?= {
+		culture = {
+			has_discrimination_trait = heritage_vardish
+		}
+	}
+}
+
+korean_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		culture = cu:mae
+	}
+}
+
+
+korean_clothes_trigger = {
+	exists = scope:character
+	scope:character = {
+		culture = cu:mae
+	}
+}
+
+poor_clothes_pop_trigger = {
+	exists = scope:pop
+     scope:pop = {
+       	OR = {
+			is_pop_type = farmers
+			is_pop_type = peasants
+			is_pop_type = laborers
+			is_pop_type = machinists
+       	}
+     }
+}
+
+middle_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+       	OR = {
+			is_pop_type = clerks
+			is_pop_type = engineers
+			is_pop_type = bureaucrats
+			is_pop_type = shopkeepers
+       	}
+     }
+}
+
+upper_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+     	OR = {
+			is_pop_type = aristocrats
+			is_pop_type = capitalists
+			is_pop_type = academics
+     	}
+     }
+}
+
+capitalists_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = capitalists
+     }
+}
+
+soldier_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = soldiers
+     }
+}
+
+officers_clothes_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		is_pop_type = officers
+	}
+}
+
+clergy_clothes_pop_trigger = {
+	exists = scope:pop
+     scope:pop = {
+		is_pop_type = clergymen
+     }
+}
+
+shopkeepers_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = shopkeepers
+     }
+}
+
+clerks_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = clerks
+     }
+}
+
+academics_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = academics
+     }
+}
+
+farmers_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = farmers
+     }
+}
+
+laborers_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = laborers
+     }
+}
+
+peasants_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = peasants
+     }
+}
+
+slaves_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = slaves
+     }
+}
+
+aristocrats_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = aristocrats
+     }
+}
+
+machinists_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = machinists
+     }
+}
+
+engineers_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = engineers
+     }
+}
+
+bureaucrats_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		is_pop_type = bureaucrats
+     }
+}
+
+christian_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		religion = {
+			has_discrimination_trait = heritage_christian
+		}
+	}
+}
+
+buddhist_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+  		religion = {
+			has_discrimination_trait = heritage_snowlotus
+		}
+     }
+}
+
+animist_clothes_pop_trigger = {
+     exists = scope:pop
+     scope:pop = {
+		religion = {
+			has_discrimination_trait = heritage_indigenous
+		}
+     }
+}
+
+slightly_underweight_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		OR = {
+			AND = {
+				pop_weight_modifier_scale < 25
+				standard_of_living >= 10
+			}
+			AND = {
+				standard_of_living >= 5
+				standard_of_living < 10
+				pop_weight_modifier_scale >= 25
+				pop_weight_modifier_scale < 50
+			}
+			AND = {
+				standard_of_living < 5
+				pop_weight_modifier_scale >= 50
+			}
+		}
+    }
+}
+
+underweight_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		OR = {
+			AND = {
+				pop_weight_modifier_scale < 25
+				standard_of_living >= 5
+				standard_of_living < 10
+			}
+			AND = {
+				standard_of_living < 5
+				pop_weight_modifier_scale >= 25
+				pop_weight_modifier_scale < 50
+			}
+		}
+    }
+}
+
+very_underweight_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		pop_weight_modifier_scale < 25
+		standard_of_living < 5
+    }
+}
+
+slightly_overweight_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		OR = {
+			AND = {
+				standard_of_living >= 15
+				standard_of_living < 20
+				pop_weight_modifier_scale >= 90
+			}
+			AND = {
+				standard_of_living >= 20
+				standard_of_living < 40
+				pop_weight_modifier_scale >= 85
+				pop_weight_modifier_scale < 90
+			}
+			AND = {
+				standard_of_living >= 40
+				pop_weight_modifier_scale >= 70
+				pop_weight_modifier_scale < 80
+			}
+		}
+    }
+}
+
+overweight_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		OR = {
+			AND = {
+				standard_of_living >= 15
+				standard_of_living < 20
+				pop_weight_modifier_scale >= 95
+			}
+			AND = {
+				standard_of_living >= 20
+				standard_of_living < 40
+				pop_weight_modifier_scale >= 90
+				pop_weight_modifier_scale < 95
+			}
+			AND = {
+				standard_of_living >= 40
+				pop_weight_modifier_scale >= 80
+				pop_weight_modifier_scale < 90
+			}
+		}
+    }
+}
+
+very_overweight_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		OR = {
+			AND = {
+				standard_of_living >= 20
+				standard_of_living < 40
+				pop_weight_modifier_scale >= 95
+			}
+			AND = {
+				standard_of_living >= 40
+				pop_weight_modifier_scale >= 90
+			}
+		}
+    }
+}
+
+struggling_pop_trigger = {
+	exists = scope:pop
+	scope:pop = {
+		is_in_severe_starvation = yes
+	}
+}
+
+agitator_character_trigger = {
+	scope:character ?= {
+		has_role_of_type = agitator
+	}
+}
+
+executive_clothes_trigger = {
+	scope:character ?= {
+		has_role_of_type = executive
+	}
+}
+
+magnate_clothes_trigger = {
+	monarchy_clothes_trigger = no
+	military_clothes_trigger = no
+	scope:character ?= {
+		has_role_of_type = magnate
+	}
+}
+
+should_be_naked_trigger = {
+	exists = scope:pop
+	scope:pop = {
+       	OR = {
+			is_pop_type = farmers
+			is_pop_type = peasants
+			is_pop_type = laborers
+			is_pop_type = slaves
+		}
+		always = no # blanked: not present in this mod
+	}
+}
+
+## Can only be checked in the interface since the setting isn't synced
+should_be_fully_naked_portrait_trigger = {
+	should_be_naked_trigger = yes
+	should_show_nudity = yes
+}
+#
+#should_be_topless_portrait_trigger = {
+#	exists = scope:pop
+#	has_character_flag = single_combat_stripped_to_waist
+#	should_show_nudity = yes
+#}
+
+
+is_in_cold_land_hq_trigger = {
+    always = no
+}
+
+is_in_hot_land_hq_trigger = {
+    always = no
+}

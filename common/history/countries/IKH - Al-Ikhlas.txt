@@ -1,0 +1,7 @@
+﻿# Al-Ikhlas (desert: alchemy tier 1)
+COUNTRIES = {
+	c:IKH ?= {
+		effect_starting_technology_alchemy_tier_1 = yes
+		effect_starting_politics_reactionary = yes
+	}
+}

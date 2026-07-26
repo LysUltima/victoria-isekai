@@ -1,0 +1,74 @@
+﻿### Isekai regional home-front flavor - modifiers (Agent C, sole owner of this file)
+# Namespace ova_isekai_flavor. Applied by events/ova_isekai_flavor_events.txt only.
+# All modifier types verified by grep against vanilla common/modifier_type_definitions/
+# (building_group_bg_military_industry_throughput_add, country_legitimacy_base_add,
+# interest_group_approval_add, country_prestige_add - all confirmed real vanilla keys,
+# the IG-scoped one confirmed via vanilla common/static_modifiers/03_event_ig_opinion_modifiers.txt
+# ig_manifest_destiny, applied the same way here: ig:ig_armed_forces ?= { add_modifier = ... }).
+# Static modifiers need no loc entry (engine auto-generates the tooltip).
+
+# The eternal war is very good business for the arms trade (mercenary boom / profiteers' banquet).
+# Also carries the licensing fees / kickbacks from that trade as reduced expenses, applied via
+# add_modifier's multiplier = money_amount_multiplier_small (an ongoing cut, not a one-off gift).
+ova_isekai_flavor_war_profiteers = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+	building_group_bg_military_industry_throughput_add = 0.10
+	country_expenses_add = -1
+}
+
+# The Church's tithe collectors take their cut and the crown's name for it
+ova_isekai_flavor_tithe_resentment = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_legitimacy_base_add = -5
+}
+
+# A well-run charity drive for the war's orphans buys real goodwill
+ova_isekai_flavor_charity_relief = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_legitimacy_base_add = 5
+}
+
+# Veterans sent home with nothing sour the armed forces' mood toward the crown
+ova_isekai_flavor_veteran_unrest = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_approval_add = -5
+}
+
+# A rumored miracle, or a well-hosted pilgrimage, is free prestige for the faithful. Hosting
+# pilgrims also means sustained trade with them for as long as they keep passing through, applied
+# via add_modifier's multiplier = money_amount_multiplier_small (an ongoing trickle, not a
+# one-off gift).
+ova_isekai_flavor_pilgrim_fervor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_expenses_add = -1
+}
+
+# A demon peddler allowed to keep trading at the market edge pays his stall fee steadily, applied
+# via add_modifier's multiplier = money_amount_multiplier_small (an ongoing trickle, not a
+# one-off gift).
+ova_isekai_flavor_demon_trade = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_expenses_add = -1
+}
+
+# --- stock fantasy-isekai color modifiers (.15-.28) ---
+
+# A chartered adventurers' guild keeps the monster contracts flowing and takes a
+# licensing cut. Applied via add_modifier's multiplier = money_amount_multiplier_small.
+ova_isekai_flavor_adventurer_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	country_expenses_add = -1
+}
+
+# A grand festival lifts the mood of the whole capital for a season
+ova_isekai_flavor_festival_cheer = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_legitimacy_base_add = 5
+}
+
+# Licensed dungeon expeditions pay a tax on everything they haul back up.
+# Applied via add_modifier's multiplier = money_amount_multiplier_small.
+ova_isekai_flavor_dungeon_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_expenses_add = -1
+}

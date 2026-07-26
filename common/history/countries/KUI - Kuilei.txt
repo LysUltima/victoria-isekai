@@ -1,0 +1,7 @@
+﻿# Kuilei (southern_isles: spiritualism tier 4)
+COUNTRIES = {
+	c:KUI ?= {
+		effect_starting_technology_spiritualism_tier_4 = yes
+		effect_starting_politics_traditional = yes
+	}
+}

@@ -1,0 +1,18 @@
+﻿object={
+	name="cypress_mediterranean_sparse_generator_2_0"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=yes
+	layer="semidynamic_medium"
+	pdxmesh="tree_cypress_mediterranean_02_mesh"
+	transform_bin_file="gfx/map/map_object_data/cypress_mediterranean_sparse_generator_2_0.bin"
+}
+object={
+	name="cypress_mediterranean_sparse_generator_2_1"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=yes
+	layer="semidynamic_medium"
+	pdxmesh="tree_cypress_mediterranean_01_mesh"
+	transform_bin_file="gfx/map/map_object_data/cypress_mediterranean_sparse_generator_2_1.bin"
+}

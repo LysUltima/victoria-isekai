@@ -1,0 +1,8 @@
+﻿# Skaldergard (isekai: artifice tier 2)
+COUNTRIES = {
+	c:SKA ?= {
+		effect_starting_technology_artifice_tier_2 = yes
+		create_character = { template = template_ruler_ska role = ruler }
+		effect_starting_politics_traditional = yes
+	}
+}

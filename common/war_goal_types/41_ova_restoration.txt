@@ -1,0 +1,58 @@
+﻿### Isekai storyline - "War of the Dawn" war goal
+# kind = annex_country (the code-side full-annex behavior, cf. vanilla
+# annex_country); the play that carries it (dp_ova_restoration) is created by
+# script with annex_as_civil_war = yes, so the winner absorbs the loser under
+# civil-war rules - the war between the old Lysnan crown (LYS) and Victoria's
+# Concord Aurorae (AUR) after the rebellion path of ova_hero.75. Never
+# player-selectable (possible = always no); only effect_ova_victoria_rebellion
+# creates it, mirrored to both sides by the play. The play allows a negotiated
+# peace, so the two crowns may white-peace (status quo) out of the war instead
+# of one annexing the other; there is no partial demand to negotiate because
+# full annexation is the only war goal.
+
+ova_restoration = {
+	icon = "gfx/interface/icons/war_goals/annex_country.dds"
+
+	kind = annex_country
+
+	settings = {
+		require_target_be_part_of_war
+		can_add_for_other_country
+		annexes_entire_country
+		skip_build_list
+
+		# Validation
+		validate_conflicts_war_goals_all
+		validate_conflicts_annex_country
+	}
+
+	execution_priority = 80
+
+	contestion_type = control_half_target_country_states
+
+	target_type = country
+
+	possible = {
+		always = no
+	}
+
+	valid = {
+	}
+
+	maneuvers = {
+		value = 0
+
+		add = {
+			desc = "MANEUVERS_BASE_VALUE"
+			value = 10
+		}
+	}
+
+	infamy = {
+		value = 0
+	}
+
+	ai = {
+		is_significant_demand = yes
+	}
+}

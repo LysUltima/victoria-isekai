@@ -1,0 +1,313 @@
+﻿pdxmesh = {
+	name = "male_eye_R_mesh"
+	file = "male_eye_R.mesh"
+	
+	meshsettings = {
+		name = "male_eye_RShape"
+		index = 0
+		texture_diffuse = "pupil_human_R.dds"
+		texture_normal = "male_eyes_normal.dds"
+		texture_specular = "male_eyes_properties.dds"
+		shader = "portrait_eye"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "male_eye_L_mesh"
+	file = "male_eye_L.mesh"
+	
+	meshsettings = {
+		name = "male_eye_LShape"
+		index = 0
+		texture_diffuse = "pupil_human_L.dds"
+		texture_normal = "male_eyes_normal.dds"
+		texture_specular = "male_eyes_properties.dds"
+		shader = "portrait_eye"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+#REGULAR EYES - Human pupil
+entity = {
+	name = "male_eye_L_human_entity"
+	pdxmesh = "male_eye_L_mesh"
+
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+			portrait_decal = {
+				body_part = head
+			}
+		}
+	}
+	
+}
+
+entity = {
+	name = "male_eye_R_human_entity"
+	pdxmesh = "male_eye_R_mesh"
+
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+			portrait_decal = {
+				body_part = head
+			}
+		}
+	}
+
+}
+
+# Gnoll Pupil
+
+entity = {
+	name = "male_eye_L_gnoll_entity"
+	pdxmesh = "male_eye_L_mesh"
+
+	meshsettings = {
+		name = "male_eye_LShape"
+		index = 0
+		texture_diffuse = "pupil_gnoll_L.dds"
+	}
+
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+			portrait_decal = {
+				body_part = head
+			}
+		}
+	}
+}
+
+entity = {
+	name = "male_eye_R_gnoll_entity"
+	pdxmesh = "male_eye_R_mesh"
+
+	meshsettings = {
+		name = "male_eye_RShape"
+		index = 0
+		texture_diffuse = "pupil_gnoll_R.dds"
+	}
+
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+			portrait_decal = {
+				body_part = head
+			}
+		}
+	}
+}
+
+#Harimari Pupils
+
+entity = {
+	name = "male_eye_L_harimari_entity"
+	pdxmesh = "male_eye_L_mesh"
+
+	meshsettings = {
+		name = "male_eye_LShape"
+		index = 0
+		texture_diffuse = "pupil_harimari_L.dds"
+	}
+
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+			portrait_decal = {
+				body_part = head
+			}
+		}
+	}
+}
+
+entity = {
+	name = "male_eye_R_harimari_entity"
+	pdxmesh = "male_eye_R_mesh"
+
+	meshsettings = {
+		name = "male_eye_RShape"
+		index = 0
+		texture_diffuse = "pupil_harimari_R.dds"
+	}
+
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+			portrait_decal = {
+				body_part = head
+			}
+		}
+	}
+}
+
+pdxmesh = {
+	name = "male_eye_L_kobold_mesh"
+	file = "male_eye_L_kobold.mesh"
+	
+	meshsettings = {
+		name = "male_eye_L_koboldShape"
+		index = 0
+		texture_diffuse = "pupil_human_L.dds"
+		texture_normal = "male_eyes_normal.dds"
+		texture_specular = "male_eyes_properties.dds"
+		shader = "portrait_eye"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "male_eye_R_kobold_mesh"
+	file = "male_eye_R_kobold.mesh"
+	
+	meshsettings = {
+		name = "male_eye_R_koboldShape"
+		index = 0
+		texture_diffuse = "pupil_human_R.dds"
+		texture_normal = "male_eyes_normal.dds"
+		texture_specular = "male_eyes_properties.dds"
+		shader = "portrait_eye"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+#Kobold Pupils
+
+entity = {
+	name = "male_eye_L_kobold_entity"
+	pdxmesh = "male_eye_L_kobold_mesh"
+
+	meshsettings = {
+		name = "male_eye_L_koboldShape"
+		index = 0
+		texture_diffuse = "pupil_kobold_L.dds"
+	}
+
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+			portrait_decal = {
+				body_part = head
+			}
+		}
+	}
+}
+
+entity = {
+	name = "male_eye_R_kobold_entity"
+	pdxmesh = "male_eye_R_kobold_mesh"
+
+	meshsettings = {
+		name = "male_eye_R_koboldShape"
+		index = 0
+		texture_diffuse = "pupil_kobold_R.dds"
+	}
+
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+			portrait_decal = {
+				body_part = head
+			}
+		}
+	}
+}
+
+pdxmesh = {
+	name = "male_eye_L_lizardfolk_mesh"
+	file = "male_eye_L_lizardfolk.mesh"
+	
+	meshsettings = {
+		name = "male_eye_L_lizardfolkShape"
+		index = 0
+		texture_diffuse = "pupil_human_L.dds"
+		texture_normal = "male_eyes_normal.dds"
+		texture_specular = "male_eyes_properties.dds"
+		shader = "portrait_eye"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+pdxmesh = {
+	name = "male_eye_R_lizardfolk_mesh"
+	file = "male_eye_R_lizardfolk.mesh"
+	
+	meshsettings = {
+		name = "male_eye_R_lizardfolkShape"
+		index = 0
+		texture_diffuse = "pupil_human_R.dds"
+		texture_normal = "male_eyes_normal.dds"
+		texture_specular = "male_eyes_properties.dds"
+		shader = "portrait_eye"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+
+#Lizardfolk Pupils
+
+entity = {
+	name = "male_eye_L_lizardfolk_entity"
+	pdxmesh = "male_eye_L_lizardfolk_mesh"
+
+	meshsettings = {
+		name = "male_eye_L_lizardfolkShape"
+		index = 0
+		texture_diffuse = "pupil_lizardfolk_L.dds"
+	}
+
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+			portrait_decal = {
+				body_part = head
+			}
+		}
+	}
+}
+
+entity = {
+	name = "male_eye_R_lizardfolk_entity"
+	pdxmesh = "male_eye_R_lizardfolk_mesh"
+
+	meshsettings = {
+		name = "male_eye_R_lizardfolkShape"
+		index = 0
+		texture_diffuse = "pupil_lizardfolk_R.dds"
+	}
+
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+			portrait_decal = {
+				body_part = head
+			}
+		}
+	}
+}
+
+
+
+

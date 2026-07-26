@@ -1,0 +1,17 @@
+﻿# All vanilla monument buildings (Kaiserforum, Pena Convent/Palace, Sagrada Familia) are removed in this mod
+
+destroy_building_kaiserforum_1 = {
+}
+
+destroy_building_kaiserforum_2 = {
+}
+
+destroy_pena_convent = {
+}
+
+destroy_building_sagrada_familia_cathedral_1 = {
+}
+
+destroy_building_sagrada_familia_cathedral_2 = {
+}
+

@@ -1,0 +1,21 @@
+﻿# AI tuning overrides (see vanilla common/defines/00_ai.txt for the full commented list).
+# Only the keys below are changed; everything else falls back to vanilla.
+NAI = {
+	# --- Make the AI actually adopt newly-unlocked, profitable production methods ---
+	# Vanilla only gave a 10% chance to even CONSIDER changing a building's PM each
+	# time it was evaluated, so AIs were extremely slow to move onto better PMs even
+	# when the upgrade was already unlocked and profitable. Raise it so they respond.
+	PRODUCTION_METHOD_CHANCE_TO_CHANGE = 0.30
+
+	# This conversion re-themes its industrial inputs (Magic Cores = steel, Automata =
+	# engines, Anima = oil, Potions = dye, Sentient Automata = automobiles, ...) and by
+	# design those goods sit at a higher price point than the vanilla goods they reuse.
+	# Vanilla's PM scorer docks a method whenever it consumes a good priced above
+	# 1.5x base, which was blanket-penalising the mod's upgrade/automation PMs and
+	# stopping the AI from taking them despite the labour savings / profit. Push the
+	# "too expensive" threshold up and soften the penalty so price alone no longer
+	# vetoes an otherwise-profitable modded PM.
+	PRODUCTION_METHOD_UNDESIRABLE_GOODS_PRICE_THRESHOLD = 2.5
+	PRODUCTION_METHOD_UNDESIRABLE_GOODS_PRICE_FACTOR_TRADEABLE = -0.02
+	PRODUCTION_METHOD_UNDESIRABLE_GOODS_PRICE_FACTOR_UNTRADEABLE = -0.10
+}

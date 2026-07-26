@@ -1,0 +1,98 @@
+﻿POPS = {
+    s:STATE_ASA_NO_IKAZUCHI = {
+        region_state:ASH = {
+            create_pop = {
+                culture = sakura
+                size = 7404000
+            }
+        }
+    }
+    s:STATE_KASUMU_KURE = {
+        region_state:ASH = {
+            create_pop = {
+                culture = sakura
+                size = 5036000
+            }
+        }
+    }
+    s:STATE_YOAKE_NO_UTA = {
+        region_state:ASH = {
+            create_pop = {
+                culture = sakura
+                size = 4616000
+            }
+        }
+    }
+    s:STATE_YURURU_HANABIRA = {
+        region_state:HAN = {
+            create_pop = {
+                culture = sakura
+                size = 4484000
+            }
+        }
+    }
+    s:STATE_UTSUROFU_KAORI = {
+        region_state:IRO = {
+            create_pop = {
+                culture = sakura
+                size = 3356000
+            }
+        }
+    }
+    s:STATE_CHIRASU_HONOO = {
+        region_state:HIB = {
+            create_pop = {
+                culture = sakura
+                size = 2036000
+            }
+        }
+    }
+    s:STATE_KURENAI_NO_HA = {
+        region_state:KON = {
+            create_pop = {
+                culture = sakura
+                size = 3840000
+            }
+        }
+    }
+    s:STATE_KIYURU_HAI = {
+        region_state:SHI = {
+            create_pop = {
+                culture = sakura
+                size = 3600000
+            }
+        }
+    }
+    s:STATE_AFURURU_SHIZUKU = {
+        region_state:SHI = {
+            create_pop = {
+                culture = sakura
+                size = 2264000
+            }
+        }
+    }
+    s:STATE_SHIRABOSHI = {
+        region_state:YUK = {
+            create_pop = {
+                culture = sakura
+                size = 851400
+            }
+            create_pop = {
+                culture = bearkin
+                size = 898600
+            }
+        }
+    }
+    s:STATE_KURURU_MURASAKI = {
+        region_state:YUU = {
+            create_pop = {
+                culture = sakura
+                size = 982800
+            }
+            create_pop = {
+                culture = bearkin
+                size = 1202200
+            }
+        }
+    }
+}

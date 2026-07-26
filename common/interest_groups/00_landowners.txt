@@ -1,0 +1,732 @@
+﻿ig_landowners = {
+	color = hsv{ 0.63 0.40 0.69 }
+	texture = "gfx/interface/icons/ig_icons/landowners.dds"
+	layer = "revolution_dynamic_landowners"
+	index = 4
+
+	ideologies = {
+		ideology_paternalistic
+		ideology_hierarchic
+		ideology_patriarchal
+	}
+
+	character_ideologies = {
+		ideology_moderate
+		ideology_traditionalist
+	}
+
+	enable = {
+		always = yes
+	}
+
+	# Deprecated; use on_enable effect to assign traits instead
+	traits = {
+		ig_trait_noblesse_oblige
+		ig_trait_family_ties
+		ig_trait_noble_privileges
+	}
+
+	on_enable = {
+		ig:ig_landowners ?= {
+			if = {
+				limit = {
+					owner = { always = no} # vanilla ref 'c:RUS' not present in this mod
+				}
+				set_ig_trait = ig_trait:ig_trait_profitable_estates
+				set_ig_trait = ig_trait:ig_trait_the_velvet_book
+				set_ig_trait = ig_trait:ig_trait_bad_boyars
+			}
+			else_if = {
+				limit = {
+					has_dlc_feature = rp1_content
+					owner = { always = no} # vanilla ref 'c:BRZ' not present in this mod
+				}
+				set_ig_trait = ig_trait:ig_trait_noble_privileges
+				set_ig_trait = ig_trait:ig_trait_fazenda_ibicaba
+				set_ig_trait = ig_trait:ig_trait_latifundios
+			}
+			else_if = {
+				limit = {
+					OR = {
+						owner = { always = no} # vanilla ref 'c:PRU' not present in this mod
+						AND = {
+							owner = { always = no} # vanilla ref 'c:NGF' not present in this mod
+							always = no # vanilla ref 'c:NGF' not present in this mod
+						}
+						AND = {
+							owner = { always = no} # vanilla ref 'c:GER' not present in this mod
+							always = no # vanilla ref 'c:GER' not present in this mod
+						}
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_noble_privileges
+				set_ig_trait = ig_trait:ig_trait_family_ties
+				set_ig_trait = ig_trait:ig_trait_junkerdom
+			}
+			else_if = {
+				limit = {
+					OR = {
+						owner = { always = no} # vanilla ref 'c:AUS' not present in this mod
+						AND = {
+							owner = { always = no} # vanilla ref 'c:GER' not present in this mod
+							always = no # vanilla ref 'c:GER' not present in this mod
+						}
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_noble_privileges
+				set_ig_trait = ig_trait:ig_trait_family_ties
+				set_ig_trait = ig_trait:ig_trait_wiener_walzer
+			}
+			else_if = {
+				limit = {
+					owner = {
+						OR = {
+							country_has_primary_culture = cu:lysian # was cu:yankee
+							country_has_primary_culture = cu:lysian # was cu:dixie
+						}
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_noble_privileges
+				set_ig_trait = ig_trait:ig_trait_family_ties
+				set_ig_trait = ig_trait:ig_trait_patrician_philanthropy
+			}
+			else_if = {
+				limit = {
+					owner = {
+						always = no # was culture = cu:romanian (no mod analogue)
+					}
+				}
+				set_ig_trait = ig_trait:ig_trait_bad_boyars
+				set_ig_trait = ig_trait:ig_trait_family_ties
+				set_ig_trait = ig_trait:ig_trait_noblesse_oblige
+			}
+			else = {
+				set_ig_trait = ig_trait:ig_trait_noble_privileges
+				set_ig_trait = ig_trait:ig_trait_family_ties
+				set_ig_trait = ig_trait:ig_trait_noblesse_oblige
+			}
+		}
+
+		# Squattocracy
+		# Local Governors
+		# Junkers
+		# Gentry Assembly
+		# Roman Landowners
+		# Ali'i
+		if = {
+			limit = {
+				country_has_primary_culture = cu:tagata # was cu:hawaiian
+			}
+			ig:ig_landowners ?= {
+				set_interest_group_name = ig_alii
+				add_ideology = ideology_loyalist
+			}
+		}
+		# Landed Gentry
+		# Polish Landowners
+		# Yangban Officials
+		# Scholar Officials
+		# Pious Spanish Landowners (and Magnatial Liberal Landowners)
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:alena # was cu:spanish
+			}
+			if = {
+				limit = {
+					OR = {
+						always = no # vanilla ref 'c:SPC' not present in this mod
+						always = no
+					}
+				}
+				ig:ig_landowners ?= {
+					remove_ideology = ideology_paternalistic
+					add_ideology = ideology_carlist_ig
+				}
+			}
+			if = {
+				limit = {
+					always = no # Only liberal Spain
+					always = no
+				}
+				ig:ig_landowners ?= {
+					remove_ideology = ideology_paternalistic
+					add_ideology = ideology_moderantist
+				}
+			}
+		}
+		# Aristocracy of Officials
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:fjordic # was cu:norwegian
+			}
+			ig:ig_landowners ?= {
+				set_interest_group_name = ig_aristocracy_of_officials
+			}
+		}
+		# South American Caudillos/republicans
+		else_if = {
+			limit = {
+				any_primary_culture = {
+					has_discrimination_trait = language_hispanophone
+					has_discrimination_trait_group = heritage_group_european
+					NOT = { has_discrimination_trait = heritage_iberian }
+					NOT = { cu:alena = this} # was cu:caribeno
+				}
+			}
+			ig:ig_landowners ?= {
+				remove_ideology = ideology_paternalistic
+				add_ideology = ideology_republican_paternalistic
+			}
+		}
+		# Boer republicanism, but only for states that are only Boer
+		else_if = {
+			limit = {
+				always = no # was culture = cu:boer (no mod analogue)
+				NOT = {
+					NOT = { any_primary_culture = { always = no } }
+				}
+			}
+			ig:ig_landowners ?= {
+				remove_ideology = ideology_paternalistic
+				add_ideology = ideology_republican_paternalistic
+			}
+		}
+		# India
+		else_if = {
+			limit = {
+				OR = {
+					always = no # vanilla ref 'c:BIC' not present in this mod
+					any_primary_culture = {
+						has_discrimination_trait_group = heritage_group_south_asian
+					}
+				}
+			}
+			ig:ig_landowners ?= {
+				set_interest_group_name = ig_zamindars
+				if = {
+					limit = {
+						owner = {
+							always = no # vanilla ref 'c:BIC' not present in this mod
+						}
+					}
+					set_ig_trait = ig_trait:ig_trait_summon_no_zamindars
+				}
+				set_ig_trait = ig_trait:ig_trait_famine_reserves
+				set_ig_trait = ig_trait:ig_trait_profitable_estates
+			}
+		}
+		else_if = {
+			limit = {
+				always = no # vanilla ref 'c:ZAN' not present in this mod
+				any_primary_culture = { cu:zaharin = this} # was cu:bedouin
+				NOT = { any_primary_culture = { cu:zaharin = this } }
+			}
+			ig:ig_landowners ?= {
+				set_interest_group_name = ig_wamanga
+			}
+		}
+		# Magnates
+		else_if = {
+			limit = {
+				has_dlc_feature = ip3_content
+				any_primary_culture = {
+					OR = {
+						always = no # was culture = cu:polish (no mod analogue)
+						always = no # was culture = cu:lithuanian (no mod analogue)
+						always = no # was culture = cu:hungarian (no mod analogue)
+					}
+				}
+			}
+			ig:ig_landowners ?= {
+				set_interest_group_name = ig_magnates
+			}
+		}
+		# Daimyo
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:sakura # was cu:japanese
+			}
+			ig:ig_landowners ?= {
+				set_interest_group_name = ig_daimyo
+				set_ig_trait = ig_trait:ig_trait_fudai_support
+				set_ig_trait = ig_trait:ig_trait_outspoken_tozama
+				remove_ideology = ideology_hierarchic
+				add_ideology = ideology_japan_hierarchic
+				remove_ideology = ideology_paternalistic
+				add_ideology = ideology_japan_paternalistic
+			}
+		}
+		# Boyars
+		else_if = {
+			limit = {
+				has_dlc_feature = ip3_content
+				always = no # was culture = cu:romanian (no mod analogue)
+			}
+			ig:ig_landowners ?= {
+				set_interest_group_name = ig_boyars
+			}
+		}
+	}
+	on_disable = {}
+
+	priority_cultures = { #Country scope
+		rule = {
+			trigger = {
+				always = no # vanilla ref 'c:BIC' not present in this mod
+				any_primary_culture = {
+					cu:aldrican = this # was cu:british
+				}
+			}
+			cultures = {}
+		}
+		rule = {
+			trigger = {
+				always = no # vanilla ref 'c:ZAN' not present in this mod
+				any_primary_culture = { cu:zaharin = this} # was cu:bedouin
+				NOT = { any_primary_culture = { cu:zaharin = this } }
+			}
+			cultures = {}
+		}
+		rule = {
+			trigger = {
+				always = no # vanilla ref 'c:PHI' not present in this mod
+				NOT = { always = no} # vanilla ref 'je_philippines_main_reliance_happened' not present in this mod
+				NOT = { any_primary_culture = { cu:melati = this } }
+				NOT = { any_primary_culture = { cu:melati = this } }
+				any_primary_culture = { cu:alena = this} # was cu:spanish
+			}
+			cultures = {}
+		}
+		rule = {
+			trigger = {
+				always = no # vanilla ref 'c:PHI' not present in this mod
+				any_primary_culture = {
+					AND = {
+						cu:alena = this # was cu:spanish
+						cu:melati = this # was cu:filipino_hispanophone
+					}
+				}
+			}
+			cultures = {}
+		}
+	}
+
+	on_character_ig_membership = {}
+
+	pop_potential = {
+		OR = {
+			is_pop_type = aristocrats
+			is_pop_type = clergymen
+			is_pop_type = officers
+			is_pop_type = farmers
+		}
+	}
+
+	pop_weight = {
+		value = 0
+
+		add = {
+			desc = "POP_ARISTOCRATS"
+			if = {
+				limit = {
+					is_pop_type = aristocrats
+				}
+				value = 250
+			}
+		}
+
+		add = {
+			desc = "POP_CLERGYMEN"
+			if = {
+				limit = {
+					is_pop_type = clergymen
+				}
+				value = 50
+			}
+		}
+
+		add = {
+			desc = "POP_OFFICERS"
+			if = {
+				limit = {
+					is_pop_type = officers
+				}
+				value = 25
+			}
+		}
+
+		add = {
+			desc = "POP_FARMERS"
+			if = {
+				limit = {
+					is_pop_type = farmers
+				}
+				value = 25
+				add = this.standard_of_living
+
+				if = {
+					limit = { owner = { has_law_or_variant = law_type:law_peasant_proprietorship } }
+					multiply = 1.25
+				}
+
+				if = {
+					limit = {
+						state = {
+							is_slave_state = yes
+						}
+					}
+					multiply = 4
+				}
+			}
+		}
+
+
+		if = {
+			limit = {
+				always = no # vanilla ref 'c:BIC' not present in this mod
+				culture = {
+					has_discrimination_trait_group = heritage_group_european
+				}
+			}
+			multiply = {
+				desc = "POP_INDIA_COLONIAL_RULE"
+				value = 0.1
+			}
+		}
+
+		multiply = {
+			desc = "LEADER_POPULARITY"
+			scope:interest_group ?= {
+				leader ?= {
+					value = popularity
+					multiply = 0.0025
+					add = 1
+					max = 1.25
+					min = 0.75
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:interest_group ?= {
+					is_in_government = yes
+				}
+			}
+			multiply = {
+				desc = "IN_GOVERNMENT_ATTRACTION"
+				value = 1
+				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
+				min = 0
+			}
+		}
+
+		if = {
+			limit = {
+				scope:interest_group ?= {
+					is_in_government = yes
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_LOYALISTS"
+				value = pop_loyalist_fraction
+				divide = 4
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				scope:interest_group ?= {
+					is_in_government = no
+				}
+			}
+			multiply = { # Multiplied by 1.25x max
+				desc = "POP_RADICALS"
+				value = pop_radical_fraction
+				divide = 4
+				add = 1
+			}
+		}
+	}
+
+	monarch_weight = {
+		value = 1.5 # inherently likely
+		# Monarch is not likely to adopt a marginal IG
+		if = {
+			limit = {
+				ig_counts_as_marginal = yes
+			}
+			multiply = {
+				value = 0.1
+			}
+		}
+		# Monarch is more likely to adopt a Powerful IG
+		if = {
+			limit = {
+				is_powerful = yes
+			}
+			multiply = {
+				value = 2
+			}
+		}
+		# More likely with Serfdom or Slavery
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_law_or_variant = law_type:law_serfdom
+						has_law_or_variant = law_type:law_slave_trade
+						has_law_or_variant = law_type:law_legacy_slavery
+					}
+				}
+			}
+			multiply = {
+				value = 2
+			}
+		}
+		# More likely with Autocracy, Oligarchy, or Landed Voting
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_law_or_variant = law_type:law_oligarchy
+						has_law_or_variant = law_type:law_autocracy
+						has_law_or_variant = law_type:law_landed_voting
+					}
+				}
+			}
+			multiply = {
+				value = 2
+			}
+		}
+	}
+
+	agitator_weight = {
+		# Agitators more likely to come from populist IG's rather than elitist
+		value = 0.25
+		# Agitators will never be part of a marginalized IG
+		if = {
+			limit = {
+				owner.ig:ig_landowners ?= {
+					ig_counts_as_marginal = yes
+				}
+			}
+			multiply = {
+				value = 0
+			}
+		}
+	}
+
+	commander_weight = {
+		value = 2.0
+	}
+	
+	magnate_weight = {
+		value = 2.0
+		
+		if = {
+			limit = {
+				owner = { has_law_or_variant = law_type:law_traditionalism }
+			}
+		
+			add = 10.0
+		}
+		else_if = {
+			limit = {
+				owner = { has_law_or_variant = law_type:law_agrarianism }
+			}
+
+			add = 3.0
+		}
+	}	
+
+	executive_weight = {
+		value = 0.25
+
+		# The company owning BIC should not get non-industrialist executives
+		if = {
+			limit = {
+				exists = scope:company
+				always = no # vanilla ref 'c:BIC' not present in this mod
+				always = no # blanked: vanilla ref 'c:BIC' not present in this mod
+			}
+			multiply = {
+				value = 0
+			}
+		}
+	}
+
+	noble_chance = {
+		value = 1.0
+	}
+
+	female_commander_chance = {
+		value = 0.2
+
+		# Matriarchal branch: only women lead
+		if = {
+			limit = {
+				owner = {
+					ova_country_is_matriarchal_society = yes
+				}
+			}
+			value = 1.0
+		}
+	}
+
+	female_executive_chance = {
+		value = 0.0
+		# Matriarchal branch: only women lead
+		if = {
+			limit = {
+				owner = {
+					ova_country_is_matriarchal_society = yes
+				}
+			}
+			value = 1.0
+		}
+	}
+
+	female_monarch_chance = {
+		value = 0.05
+		# Matriarchal branch: only women lead
+		if = {
+			limit = {
+				owner = {
+					ova_country_is_matriarchal_society = yes
+				}
+			}
+			value = 1.0
+		}
+	}
+
+	female_politician_chance = {
+		value = 0.0
+
+
+		if = {
+			limit = {
+				owner = {
+					has_law_or_variant = law_type:law_womens_suffrage
+				}
+				law_stance = {
+					law = law_type:law_womens_suffrage
+					value >= approve
+				}
+			}
+			add = {
+				value = 0.02
+			}
+		}
+		# Matriarchal branch: only women lead
+		if = {
+			limit = {
+				owner = {
+					ova_country_is_matriarchal_society = yes
+				}
+			}
+			value = 1.0
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_mens_suffrage
+				}
+				law_stance = {
+					law = law_type:law_mens_suffrage
+					value >= approve
+				}
+			}
+			value = 0.98
+		}
+	}
+
+	female_agitator_chance = {
+		value = 0.01
+
+		if = {
+			limit = {
+				owner = {
+					has_law_or_variant = law_type:law_women_own_property
+				}
+
+			}
+			add = {
+				value = 0.01
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law_or_variant = law_type:law_women_in_the_workplace
+				}
+
+			}
+			add = {
+				value = 0.01
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law_or_variant = law_type:law_womens_suffrage
+				}
+
+			}
+			add = {
+				value = 0.01
+			}
+		}
+		# Matriarchal branch: only women lead
+		if = {
+			limit = {
+				owner = {
+					ova_country_is_matriarchal_society = yes
+				}
+			}
+			value = 0.99
+		}
+
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						has_law = law_type:law_men_own_property
+						has_law = law_type:law_men_in_the_workplace
+						has_law = law_type:law_mens_suffrage
+					}
+				}
+			}
+			subtract = 0.01
+		}
+	}
+
+	# Multiplier applied to the weight for an appropriate commander will be selected from the character pool to lead the IG
+	# root = interest group
+	commander_leader_weight = {
+		value = 1.5
+	}
+	
+	# Multiplier applied to the weight for an appropriate magnate will be selected from the character pool to lead the IG
+	# root = interest group
+	magnate_leader_weight = {
+		value = 5.0
+		if = {
+			limit = {
+				always = no # vanilla ref 'c:JAP' not present in this mod
+				NOT = {
+					always = no
+				}
+			}
+			add = 5
+		}
+	}	
+
+	# Multiplier applied to the weight for an appropriate executive will be selected from the character pool to lead the IG
+	# root = interest group
+	executive_leader_weight = {
+		value = 0.5
+	}
+}

@@ -1,0 +1,6 @@
+﻿# Isekai TC: override only the defines whose values point at renamed techs.
+# (Do NOT copy the whole vanilla 00_defines.txt - just re-point the one key.)
+
+NTravelNetwork = {
+	PAVED_ROAD_TECH = "spirit_roads"		# vanilla tech paved_roads was renamed to spirit_roads
+}

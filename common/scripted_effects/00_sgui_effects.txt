@@ -1,0 +1,4 @@
+﻿# These are used in je_meiji_restoration as well as in gui, fire these effects whenever you manipulate, kill or replace the emperor or one of the daimyos for good measure
+# removed effect block: vanilla ref 'je_meiji_restoration_update_japanese_emperor' not present in this mod
+
+# removed effect block: vanilla ref 'je_meiji_restoration_update_daimyos' not present in this mod

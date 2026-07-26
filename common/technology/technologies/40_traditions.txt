@@ -1,0 +1,110 @@
+﻿# ISEKAI TC: regional tradition techs (unresearchable, granted via history)
+# Bonuses/maluses to research speed and tech spread per tree.
+
+tradition_artifice = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/mechanical_tools.dds"
+	category = production
+	can_research = no
+
+	modifier = {
+		country_production_tech_research_speed_mult = 0.50
+		country_production_tech_spread_mult = 0.50
+		country_military_tech_research_speed_mult = -0.50
+		country_military_tech_spread_mult = -2.0
+		country_society_tech_research_speed_mult = -0.50
+		country_society_tech_spread_mult = -2.0
+	}
+
+	ai_weight = {
+		value = 0
+	}
+}
+
+tradition_alchemy = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/distillation.dds"
+	category = military
+	can_research = no
+
+	modifier = {
+		country_military_tech_research_speed_mult = 0.50
+		country_military_tech_spread_mult = 0.50
+		country_production_tech_research_speed_mult = -0.50
+		country_production_tech_spread_mult = -2.0
+		country_society_tech_research_speed_mult = -0.50
+		country_society_tech_spread_mult = -2.0
+	}
+
+	ai_weight = {
+		value = 0
+	}
+}
+
+tradition_spiritualism = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
+	category = society
+	can_research = no
+
+	modifier = {
+		country_society_tech_research_speed_mult = 0.50
+		country_society_tech_spread_mult = 0.50
+		country_production_tech_research_speed_mult = -0.50
+		country_production_tech_spread_mult = -2.0
+		country_military_tech_research_speed_mult = -0.50
+		country_military_tech_spread_mult = -2.0
+	}
+
+	ai_weight = {
+		value = 0
+	}
+}
+
+tradition_artifice_alchemy = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+	can_research = no
+
+	modifier = {
+		country_society_tech_research_speed_mult = -0.50
+		country_society_tech_spread_mult = -2.0
+	}
+
+	ai_weight = {
+		value = 0
+	}
+}
+
+tradition_spiritualism_artifice = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/academia.dds"
+	category = society
+	can_research = no
+
+	modifier = {
+		country_military_tech_research_speed_mult = -0.50
+		country_military_tech_spread_mult = -2.0
+	}
+
+	ai_weight = {
+		value = 0
+	}
+}
+
+tradition_spiritualism_alchemy = {
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/empiricism.dds"
+	category = society
+	can_research = no
+
+	modifier = {
+		country_production_tech_research_speed_mult = -0.50
+		country_production_tech_spread_mult = -2.0
+	}
+
+	ai_weight = {
+		value = 0
+	}
+}

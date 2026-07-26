@@ -1,0 +1,7 @@
+﻿# Hada Silu (southern_isles: spiritualism tier 3)
+COUNTRIES = {
+	c:HAD ?= {
+		effect_starting_technology_spiritualism_tier_3 = yes
+		effect_starting_politics_pirate = yes
+	}
+}

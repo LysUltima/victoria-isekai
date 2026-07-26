@@ -1,0 +1,1119 @@
+﻿### Isekai hero storyline - journal entries
+# Victoria's arc is a chain of NINE sequential journal entries
+# (je_ova_victoria_1 .. je_ova_victoria_9), each with its own objective and
+# each added by the previous one's on_complete. JEs 2-9 define no
+# is_shown_when_inactive (default no) so they only ever enter via the chain -
+# same precedent as the murim returner chain. Chapter 9 is the LAST entry:
+# completing it fires the choice event (ova_hero.75) sixty days later, with
+# no further journal entry in between. All chain events roll on the YEARLY
+# pulse (user direction, 2026-07-15).
+# The rebellion path (chosen in ova_hero.75) sets the global variable
+# ova_truth_exposed (a fail condition for the crusade and every
+# summoning-pact JE in the world), splits the demonland marches off as AUR,
+# the Concord Aurorae, under Victoria, and starts the winner-takes-all war
+# of the dawn between AUR and the old crown (which keeps the tag LYS). The
+# three je_ova_dawn_* aftermath entries run on AUR.
+
+je_ova_eternal_crusade = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_foreign_affairs
+
+	on_monthly_pulse = {
+		effect = {
+			# recount living OTHERWORLDER heroes only (trait_otherworlder, not
+			# every mundane champion) - prestige scales with that count
+			set_variable = { name = ova_lux_hero_count value = 0 }
+			every_country = {
+				limit = {
+					has_variable = ova_champion_char
+					exists = var:ova_champion_char
+					var:ova_champion_char ?= { has_trait = trait_otherworlder }
+				}
+				c:LUX ?= {
+					change_variable = { name = ova_lux_hero_count add = 1 }
+				}
+			}
+			if = {
+				limit = { has_modifier = ova_lux_summoned_legion }
+				remove_modifier = ova_lux_summoned_legion
+			}
+			if = {
+				limit = { var:ova_lux_hero_count >= 1 }
+				add_modifier = {
+					name = ova_lux_summoned_legion
+					days = -1
+					multiplier = var:ova_lux_hero_count
+				}
+			}
+		}
+		random_events = {
+			5000 = 0
+			30 = ova_hero.41
+			25 = ova_hero.42
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_eternal_crusade_status_active
+				trigger = {
+					var:ova_lux_hero_count >= 1
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_eternal_crusade_status_none
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_eternal_crusade_complete_tt
+			NOT = { exists = c:DEM }
+		}
+	}
+
+	on_complete = {
+		if = {
+			limit = { is_power_bloc_leader = yes }
+			power_bloc = { remove_modifier = ova_unbreakable_covenant }
+		}
+		if = {
+			limit = { has_modifier = ova_lux_summoned_legion }
+			remove_modifier = ova_lux_summoned_legion
+		}
+		add_modifier = { name = ova_lux_crusade_triumphant days = -1 }
+	}
+
+	# The crusade dies as a cause if the world recognizes the Demonic Empire,
+	# or if the Church stands discredited before the world (the rebellion path
+	# of Victoria's arc exposes what the archives held).
+	fail = {
+		custom_tooltip = {
+			text = je_ova_eternal_crusade_fail_tt
+			OR = {
+				AND = {
+					exists = c:DEM
+					c:DEM ?= { is_country_type = recognized }
+				}
+				has_global_variable = ova_truth_exposed
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = { is_power_bloc_leader = yes }
+			power_bloc = { remove_modifier = ova_unbreakable_covenant }
+		}
+		if = {
+			limit = { has_modifier = ova_lux_summoned_legion }
+			remove_modifier = ova_lux_summoned_legion
+		}
+		add_modifier = { name = ova_lux_crusade_broken days = 3650 }
+	}
+
+	weight = 1000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+je_ova_hero_summoning = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_foreign_affairs
+
+	scripted_button = ova_hero_summon_button
+
+	immediate = {
+		if = {
+			limit = {
+				c:LYS ?= THIS
+				NOT = { has_variable = ova_champion_char }
+			}
+			ova_champion_grant_otherworlder = yes
+			ova_champion_create_from_template = { TEMPLATE = template_victoria LEVEL = 2 }
+			trigger_event = { id = ova_hero.2 days = 3 }
+		}
+        if = {
+            limit = {
+                c:REY ?= THIS
+            }
+            effect_ova_rey_john_arrives = yes
+        }
+        add_involvement = {
+            strategic_region = sr:region_demonland  
+            value = 1500
+        }
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			ova_hero_dem_pulse = yes
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_hero_summoning_status_none
+				trigger = {
+					NOT = { has_variable = ova_champion_char }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_hero_summoning_status_injured
+				trigger = {
+					has_variable = ova_champion_injured_months
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_hero_summoning_status_secluded
+				trigger = {
+					has_variable = ova_champion_secluded_months
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_hero_summoning_status_active
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_hero_summoning_complete_tt
+			NOT = { exists = c:DEM }
+		}
+	}
+
+	on_complete = {
+		add_modifier = { name = ova_hero_crusade_fulfilled days = -1 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 20 }
+		}
+	}
+
+	# Without the Church, without a crusade the world still believes in, or
+	# with the Church discredited outright, there will be no more Heroes;
+	# existing ones live on, but the pact as a cause is dead.
+	fail = {
+		custom_tooltip = {
+			text = je_ova_hero_summoning_fail_tt
+			OR = {
+				NOT = { exists = c:LUX }
+				AND = {
+					exists = c:DEM
+					c:DEM ?= { is_country_type = recognized }
+				}
+				has_global_variable = ova_truth_exposed
+			}
+		}
+	}
+
+	on_fail = {
+	}
+
+	weight = 900
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+je_ova_demonic_dawn = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_foreign_affairs
+
+	# Raised from history (common/history/global/00_global.txt) on c:DEM at game
+	# start, the war-JE pattern: no is_shown_when_inactive, so it never
+	# self-activates for anyone else. The immediate below still runs on add.
+	immediate = {
+		add_modifier = { name = ova_dem_iron_unity days = 1825 }
+		trigger_event = { id = ova_hero.60 days = 5 }
+		# storyline bookkeeping, invisible to the player: find the Uniter's
+		# daughter (created in DEM's history file) and shield her for the
+		# duration of the story she carries.
+		effect_ova_daughter_capture = yes
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			# retry the capture in case the history character was not yet
+			# resolvable on day one
+			effect_ova_daughter_capture = yes
+		}
+		# ~6% a month one of these lands: the war events (.61-.64) plus the
+		# compact-under-strain events (.65-.69, race and grudge inside the
+		# empire)
+		random_events = {
+			2600 = 0
+			25 = ova_hero.61
+			20 = ova_hero.62
+			20 = ova_hero.63
+			25 = ova_hero.64
+			20 = ova_hero.65
+			15 = ova_hero.66
+			15 = ova_hero.67
+			15 = ova_hero.68
+			15 = ova_hero.69
+		}
+	}
+
+	# The homeland is whatever the map says it is: every state of
+	# sr:region_demonland, however much of it the expeditions and the marches
+	# have carved away by now, must answer to the Ash Throne or a crown sworn
+	# to it.
+	complete = {
+		custom_tooltip = {
+			text = je_ova_demonic_dawn_complete_tt
+			is_country_type = recognized
+		}
+		custom_tooltip = {
+			text = je_ova_demonic_dawn_reclaim_tt
+			sr:region_demonland = {
+				NOT = {
+					any_scope_state = {
+						NOT = {
+							OR = {
+								owner ?= ROOT
+								owner = { is_subject_of = ROOT }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		add_modifier = { name = ova_dem_empire_endures days = -1 }
+	}
+
+	weight = 900
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Victoria's arc, chapter 1 of 9: settle in, and build her a home.
+# Objective: a Champion Hall stands with all three support wings staffed
+# (every side PMG off its base "no program" PM).
+# ------------------------------------------------------------------------
+je_ova_victoria_1 = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	# Raised from the summoning flow, not self-activated. je_ova_hero_summoning
+	# (itself raised from history) creates Victoria through a DEFERRED
+	# create_character and fires ova_hero.2 three days on; that event adds this
+	# chapter once she is confirmed alive (ova_champion_char / trait_otherworlder).
+	# A one-time day-one history add would run this immediate before the deferred
+	# character resolves, so the arc is deliberately hooked to ova_hero.2 instead.
+	immediate = {
+		set_variable = ova_victoria_arc_started
+		set_variable = { name = ova_victoria_char value = var:ova_champion_char }
+		# plot armor: the story needs her alive until it is told
+		effect_ova_victoria_armor_on = yes
+		trigger_event = { id = ova_hero.50 days = 10 }
+	}
+
+	# Three beats a year: six beats must land inside ~2 years, so the pulse
+	# offers one now and schedules the relay event (ova_hero.110) twice, at
+	# 120 and 240 days. See the relay's note in ova_hero_events.txt for why
+	# the off-pulse beats ride an event.
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_victoria_ch1_tick = yes
+			trigger_event = { id = ova_hero.110 days = 120 }
+			trigger_event = { id = ova_hero.110 days = 240 }
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_victoria_1_status
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	# has_variable = ova_victoria_seen_50 (set by the chapter's own intro
+	# event) keeps this from completing on day one: building_champion_hall is
+	# a generic building, so a nation that already had a fully-staffed hall
+	# (built for an earlier champion, say) would otherwise satisfy
+	# ova_victoria_hall_ready the instant this chapter unlocked.
+	complete = {
+		custom_tooltip = {
+			text = je_ova_victoria_1_complete_tt
+			AND = {
+				has_variable = ova_victoria_seen_50
+				ova_victoria_hall_ready = yes
+			}
+		}
+	}
+
+	on_complete = {
+		add_journal_entry = { type = je_ova_victoria_2 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_victoria_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_victoria_char
+					NOT = { exists = var:ova_victoria_char }
+				}
+				NOT = { ova_hero_crusade_active = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_victoria_story_over = yes
+		trigger_event = { id = ova_hero.78 days = 3 }
+	}
+
+	weight = 800
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Chapter 2 of 9: Saint Christine's Academy.
+# Objective: enroll her (the academy decision) and see her through all four
+# years to graduation (a graduation scene, ova_academy.181-.184, stamps
+# ova_hero_academy_graduated).
+# ------------------------------------------------------------------------
+je_ova_victoria_2 = {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_hero.35 days = 10 }
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_victoria_2_status_waiting
+				trigger = {
+					NOT = { has_variable = ova_champion_secluded_months }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_victoria_2_status_studying
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	# has_variable = ova_victoria_seen_35 (set by the chapter's own intro
+	# event) keeps this from completing on day one: the academy decision has
+	# no story gate of its own, so a champion enrolled early could graduate
+	# before this chapter ever unlocked.
+	complete = {
+		custom_tooltip = {
+			text = je_ova_victoria_2_complete_tt
+			AND = {
+				has_variable = ova_victoria_seen_35
+				has_variable = ova_hero_academy_graduated
+			}
+		}
+	}
+
+	on_complete = {
+		add_journal_entry = { type = je_ova_victoria_3 }
+	}
+
+	# same as the rest of the chain, plus: there is no graduating from an
+	# academy that no longer exists
+	fail = {
+		custom_tooltip = {
+			text = je_ova_victoria_2_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_victoria_char
+					NOT = { exists = var:ova_victoria_char }
+				}
+				NOT = { exists = c:DEM }
+				NOT = { ova_hero_crusade_active = yes }
+				NOT = { exists = c:ACA }
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_victoria_story_over = yes
+		effect_ova_victoria_fail_events = yes
+	}
+
+	weight = 800
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Chapter 3 of 9: the wall every graduate hits.
+# Objective: put her through Intensive Training (the toggle on the
+# universal champion page).
+# ------------------------------------------------------------------------
+je_ova_victoria_3 = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		trigger_event = { id = ova_hero.36 days = 10 }
+	}
+
+	# Half-year cadence: beat now, relay (ova_hero.111) offers the next in 180 days
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_victoria_ch3_tick = yes
+			trigger_event = { id = ova_hero.111 days = 180 }
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_victoria_3_status_idle
+				trigger = {
+					NOT = { has_modifier = ova_champion_training_program }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_victoria_3_status_training
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	# has_variable = ova_victoria_seen_36 (set by the chapter's own intro
+	# event) keeps this from completing on day one: the Intensive Training
+	# toggle is a general champion-page button with no story gate of its own,
+	# so a player who turned it on during an earlier chapter would otherwise
+	# satisfy has_modifier before the chapter had a chance to open at all.
+	complete = {
+		custom_tooltip = {
+			text = je_ova_victoria_3_complete_tt
+			AND = {
+				has_variable = ova_victoria_seen_36
+				has_modifier = ova_champion_training_program
+			}
+		}
+	}
+
+	on_complete = {
+		add_journal_entry = { type = je_ova_victoria_4 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_victoria_chain_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_victoria_char
+					NOT = { exists = var:ova_victoria_char }
+				}
+				NOT = { exists = c:DEM }
+				NOT = { ova_hero_crusade_active = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_victoria_story_over = yes
+		effect_ova_victoria_fail_events = yes
+	}
+
+	weight = 800
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Chapter 4 of 9: her first tour of the border marches.
+# Objective: send her on a Champion Expedition into the Demonic Empire;
+# fate arranges the rest (first encounter with the girl with the grey
+# wings).
+# ------------------------------------------------------------------------
+je_ova_victoria_4 = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_internal_affairs
+
+	immediate = {
+		# in case DEM never activated its own JE (should not happen, but the
+		# story cannot afford to lose her)
+		effect_ova_daughter_capture = yes
+		trigger_event = { id = ova_hero.52 days = 15 }
+	}
+
+	# Half-year cadence: beat now, relay (ova_hero.112) offers the next in 180 days
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_victoria_ch4_tick = yes
+			trigger_event = { id = ova_hero.112 days = 180 }
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_victoria_4_status_home
+				trigger = {
+					NOT = {
+						has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_victoria_4_status_marching
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_victoria_4_complete_tt
+			has_variable = ova_victoria_met_daughter
+		}
+	}
+
+	on_complete = {
+		add_journal_entry = { type = je_ova_victoria_5 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_victoria_chain_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_victoria_char
+					NOT = { exists = var:ova_victoria_char }
+				}
+				NOT = { exists = c:DEM }
+				NOT = { ova_hero_crusade_active = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_victoria_story_over = yes
+		effect_ova_victoria_fail_events = yes
+	}
+
+	weight = 800
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Chapter 5 of 9: the home front, and who pays for the war.
+# Objective: send her into the wards and the counting-houses (scripted
+# button, Level 20 first); the ward and the ledger do the rest.
+# ------------------------------------------------------------------------
+je_ova_victoria_5 = {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	group = je_group_internal_affairs
+
+	scripted_button = ova_victoria_ward_button
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_victoria_5_status_unknown
+				trigger = {
+					NOT = { has_variable = ova_victoria_ward_opened }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_victoria_5_status_searching
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_victoria_5_complete_tt
+			has_variable = ova_victoria_read_ledger
+		}
+	}
+
+	on_complete = {
+		add_journal_entry = { type = je_ova_victoria_6 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_victoria_chain_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_victoria_char
+					NOT = { exists = var:ova_victoria_char }
+				}
+				NOT = { exists = c:DEM }
+				NOT = { ova_hero_crusade_active = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_victoria_story_over = yes
+		effect_ova_victoria_fail_events = yes
+	}
+
+	weight = 800
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Chapter 6 of 9: deeper into the dusk country.
+# Objective: another Champion Expedition into the Demonic Empire; each time
+# the two girls meet, the friendship deepens, until a name is given freely.
+# ------------------------------------------------------------------------
+je_ova_victoria_6 = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_internal_affairs
+
+	# Three beats a year: five beats must land inside ~2 years, so the relay
+	# (ova_hero.114) is scheduled twice, at 120 and 240 days
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_victoria_ch6_tick = yes
+			trigger_event = { id = ova_hero.114 days = 120 }
+			trigger_event = { id = ova_hero.114 days = 240 }
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_victoria_6_status_home
+				trigger = {
+					NOT = {
+						has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_victoria_6_status_marching
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_victoria_6_complete_tt
+			has_variable = ova_victoria_knows_her_name
+		}
+	}
+
+	on_complete = {
+		add_journal_entry = { type = je_ova_victoria_7 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_victoria_chain_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_victoria_char
+					NOT = { exists = var:ova_victoria_char }
+				}
+				NOT = { exists = c:DEM }
+				NOT = { ova_hero_crusade_active = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_victoria_story_over = yes
+		effect_ova_victoria_fail_events = yes
+	}
+
+	weight = 800
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Chapter 7 of 9: the Church's own archive.
+# Objective: her Renown must reach 30 before the archivist will even take
+# the money; then buy the archivist (scripted button) and read what the
+# first editions actually said.
+# ------------------------------------------------------------------------
+je_ova_victoria_7 = {
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	group = je_group_internal_affairs
+
+	scripted_button = ova_victoria_archive_button
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_victoria_7_status_waiting
+				trigger = {
+					NOT = { has_variable = ova_victoria_archive_paid }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_victoria_7_status_reading
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_victoria_7_complete_tt
+			has_variable = ova_victoria_found_word
+		}
+	}
+
+	on_complete = {
+		add_journal_entry = { type = je_ova_victoria_8 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_victoria_chain_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_victoria_char
+					NOT = { exists = var:ova_victoria_char }
+				}
+				NOT = { exists = c:DEM }
+				NOT = { ova_hero_crusade_active = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_victoria_story_over = yes
+		effect_ova_victoria_fail_events = yes
+	}
+
+	weight = 800
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Chapter 8 of 9: back across the line, again and again.
+# Objective: keep sending her on Champion Expeditions into the Demonic
+# Empire; somewhere between campaigns, an invitation no human has ever
+# received finds its way to her.
+# ------------------------------------------------------------------------
+je_ova_victoria_8 = {
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	group = je_group_internal_affairs
+
+	# Three beats a year: six beats must land inside ~2 years, so the relay
+	# (ova_hero.115) is scheduled twice, at 120 and 240 days
+	on_yearly_pulse = {
+		effect = {
+			effect_ova_victoria_ch8_tick = yes
+			trigger_event = { id = ova_hero.115 days = 120 }
+			trigger_event = { id = ova_hero.115 days = 240 }
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_victoria_8_status_home
+				trigger = {
+					NOT = {
+						has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_victoria_8_status_marching
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_victoria_8_complete_tt
+			has_variable = ova_victoria_invited
+		}
+	}
+
+	on_complete = {
+		add_journal_entry = { type = je_ova_victoria_9 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_victoria_chain_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_victoria_char
+					NOT = { exists = var:ova_victoria_char }
+				}
+				NOT = { exists = c:DEM }
+				NOT = { ova_hero_crusade_active = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_victoria_story_over = yes
+		effect_ova_victoria_fail_events = yes
+	}
+
+	weight = 800
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Chapter 9 of 9, the LAST of the chain: the Vault of Feathers.
+# Objective: answer the invitation (scripted button) and hear the whole
+# truth from the Demon King's daughter. Completing this chapter starts the
+# sixty-day countdown to the choice itself (ova_hero.75) - there is no
+# further journal entry between her and it.
+# ------------------------------------------------------------------------
+je_ova_victoria_9 = {
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	group = je_group_internal_affairs
+
+	scripted_button = ova_victoria_vault_button
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_victoria_9_status_waiting
+				trigger = {
+					NOT = { has_variable = ova_victoria_vault_entered }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_victoria_9_status_inside
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_victoria_9_complete_tt
+			has_variable = ova_victoria_knows_truth
+		}
+	}
+
+	on_complete = {
+		# sixty days between hearing the truth and deciding what a Hero is
+		# for - the plot armor stays on through the wait
+		trigger_event = { id = ova_hero.75 days = 60 }
+	}
+
+	fail = {
+		custom_tooltip = {
+			text = je_ova_victoria_chain_fail_tt
+			OR = {
+				AND = {
+					has_variable = ova_victoria_char
+					NOT = { exists = var:ova_victoria_char }
+				}
+				NOT = { exists = c:DEM }
+				NOT = { ova_hero_crusade_active = yes }
+			}
+		}
+	}
+
+	on_fail = {
+		effect_ova_victoria_story_over = yes
+		effect_ova_victoria_fail_events = yes
+	}
+
+	weight = 800
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Dawn aftermath 1 of 3: the war of the dawn. Added by the rebellion effect
+# to AUR, the Concord Aurorae - the old crown keeps the tag LYS and fights
+# to take everything back.
+# ------------------------------------------------------------------------
+je_ova_dawn_1 = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+
+	# Half-year cadence: roll now on the pulse, and relay (ova_hero.116) rolls
+	# the same table again 180 days later
+	on_yearly_pulse = {
+		effect = {
+			trigger_event = { id = ova_hero.116 days = 180 }
+		}
+		random_events = {
+			40 = 0
+			25 = ova_hero.81
+			25 = ova_hero.82
+			25 = ova_hero.83
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_dawn_1_status_war
+				trigger = {
+					exists = c:LYS
+					has_war_with = c:LYS
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_dawn_1_status_quiet
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_dawn_1_complete_tt
+			OR = {
+				NOT = { exists = c:LYS }
+				has_truce_with = c:LYS
+				c:LYS ?= { relations:root >= 0 }
+			}
+		}
+	}
+
+	on_complete = {
+		add_journal_entry = { type = je_ova_dawn_3 }
+	}
+
+	weight = 800
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Dawn aftermath 2 of 3: open wounds. What the truth did not fix.
+# Objective: climb out of Racial Segregation, at least to Cultural Exclusion.
+# ------------------------------------------------------------------------
+je_ova_dawn_2 = {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	group = je_group_internal_affairs
+
+	# Half-year cadence: roll now on the pulse, and relay (ova_hero.117) rolls
+	# the same table again 180 days later
+	on_yearly_pulse = {
+		effect = {
+			trigger_event = { id = ova_hero.117 days = 180 }
+		}
+		random_events = {
+			40 = 0
+			25 = ova_hero.84
+			25 = ova_hero.85
+			25 = ova_hero.86
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_dawn_2_status
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_dawn_2_complete_tt
+			OR = {
+				has_law = law_type:law_cultural_exclusion
+				has_law = law_type:law_multicultural
+			}
+		}
+	}
+
+	on_complete = {
+		add_modifier = { name = ova_dawn_reconciliation days = -1 }
+	}
+
+	weight = 800
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}
+
+# ------------------------------------------------------------------------
+# Dawn aftermath 3 of 3: a nation of two peoples, taken seriously by the
+# world. Added when the war of the dawn resolves.
+# Objective: Great Power rank. Completing it ends Victoria's plot armor.
+# ------------------------------------------------------------------------
+je_ova_dawn_3 = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_internal_affairs
+
+	# Half-year cadence: roll now on the pulse, and relay (ova_hero.118) rolls
+	# the same table again 180 days later
+	on_yearly_pulse = {
+		effect = {
+			trigger_event = { id = ova_hero.118 days = 180 }
+		}
+		random_events = {
+			50 = 0
+			25 = ova_hero.87
+			20 = ova_hero.88
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_dawn_3_status
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_ova_dawn_3_complete_tt
+			country_rank >= rank_value:great_power
+		}
+	}
+
+	on_complete = {
+		effect_ova_victoria_story_over = yes
+		trigger_event = { id = ova_hero.89 days = 5 }
+	}
+
+	weight = 800
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}

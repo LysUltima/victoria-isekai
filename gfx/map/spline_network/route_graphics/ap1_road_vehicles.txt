@@ -1,0 +1,42 @@
+﻿horse_carts_ap1 = {
+	valid_spline_styles = { "dirtroad" "pavedroad" }
+
+	speed = 0.5
+	min_caravan_distance = 3.0
+	max_count = 600
+	max_path_length = 2
+
+	possible = {
+		always = yes
+	}
+
+	route_entities = {
+		horses_ap1 = {
+			entity = "horses_ap1_entity"
+			position = 0
+			entity_length = 0.7
+			
+			count = {
+				value = 3
+			}
+		}
+
+		cart_ap1_01 = {
+			entity = "horse_cart_ap1_01_entity"
+			position = 1
+			entity_length = 0.9
+		}
+	
+		cart_ap1_02 = {
+			entity = "horse_cart_ap1_02_entity"
+			position = 1
+			entity_length = 0.9
+		}
+	
+		cart_ap1_03 = {
+			entity = "horse_cart_ap1_03_entity"
+			position = 1
+			entity_length = 0.9
+		}
+	}
+}

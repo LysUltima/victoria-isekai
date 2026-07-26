@@ -1,0 +1,170 @@
+﻿# Standard culture formables (empire + kingdom tier alike). Each claims the former's
+# primary-culture states via use_culture_states and requires holding 70% of them.
+# None are major/unification formations -- that mechanic (unification_play, is_major_
+# formation) is reserved for real historical unifications and is not used here.
+# FRM (norse) and VMO (western-isles) are multi-culture realms: either culture may
+# form them. Target defs: country_definitions/20_formables.txt.
+
+#### Empire-tier formables ####
+
+SAK = { # Sakuragoku (sakura)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		country_has_primary_culture = cu:sakura
+	}
+
+	ai_will_do = { always = yes }
+}
+
+MAE = { # Prunhwa (mae)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		country_has_primary_culture = cu:mae
+        NOT = { country_has_state_religion = rel:diabolist }
+	}
+
+	ai_will_do = { always = yes }
+}
+
+KHA = { # Miradzong (khambu)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		country_has_primary_culture = cu:khambu
+	}
+
+	ai_will_do = { always = yes }
+}
+
+VMO = { # Vaimotu (whenua + kanaka)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:whenua
+			country_has_primary_culture = cu:kanaka
+		}
+	}
+
+	ai_will_do = { always = yes }
+}
+
+NEK = { # Neconya (all cat cultures)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:island_catkin
+			country_has_primary_culture = cu:plains_catkin
+			country_has_primary_culture = cu:desert_catkin
+		}
+	}
+
+	ai_will_do = { always = yes }
+}
+
+KIT = { # Wahee (all fox cultures)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:snow_foxkin
+			country_has_primary_culture = cu:forest_foxkin
+		}
+	}
+
+	ai_will_do = { always = yes }
+}
+
+#### Kingdom-tier formables ####
+
+RAB = { # Warrenmark (rabbitkin)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:eastern_rabbitkin
+			country_has_primary_culture = cu:western_rabbitkin
+		}
+	}
+
+	ai_will_do = { always = yes }
+}
+
+SDW = { # Stonehold (stone dwarf)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		country_has_primary_culture = cu:stone_dwarf
+	}
+
+	ai_will_do = { always = yes }
+}
+
+SNE = { # Frostreach (snow elf)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		country_has_primary_culture = cu:snow_elf
+	}
+
+	ai_will_do = { always = yes }
+}
+
+DEI = { # Deigokai (deigo)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		country_has_primary_culture = cu:deigo
+	}
+
+	ai_will_do = { always = yes }
+}
+
+FRM = { # Frostmark (fjordic + frostholm)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		OR = {
+			country_has_primary_culture = cu:fjordic
+			country_has_primary_culture = cu:frostholm
+		}
+	}
+
+	ai_will_do = { always = yes }
+}
+
+WHE = { # Whenuroa (whenua)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		country_has_primary_culture = cu:whenua
+	}
+
+	ai_will_do = { always = yes }
+}
+
+KNK = { # Kanakea (kanaka)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		country_has_primary_culture = cu:kanaka
+	}
+
+	ai_will_do = { always = yes }
+}

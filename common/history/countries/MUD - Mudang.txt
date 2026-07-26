@@ -1,0 +1,8 @@
+﻿# Mudang (murim: spiritualism tier 3, sect)
+COUNTRIES = {
+	c:MUD ?= {
+		effect_starting_technology_spiritualism_tier_3 = yes
+		create_character = { template = template_ruler_mud role = ruler }
+		effect_starting_politics_sect = yes
+	}
+}

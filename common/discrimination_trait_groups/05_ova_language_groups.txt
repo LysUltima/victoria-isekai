@@ -1,0 +1,12 @@
+﻿# Language groups for OVA's mod-unique cultures.
+language_group_isekai_human = { type = language }
+language_group_sylvan = { type = language }
+language_group_stonekin = { type = language }
+language_group_orcish = { type = language }
+language_group_goblinoid = { type = language }
+language_group_demonic = { type = language }
+language_group_beastfolk = { type = language }
+language_group_xianxia_human = { type = language }
+language_group_moana = { type = language }
+language_group_desert_human = { type = language }
+language_group_constructed = { type = language }

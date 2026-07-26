@@ -1,0 +1,168 @@
+﻿# Formable-country target definitions. These tags are never placed on the map at
+# game start -- they exist only as the result of a country formation (see
+# common/country_formation/00_formable_countries.txt, all standard formables).
+# Empire-tier formables are recognized; kingdom-tier keep their region's
+# unrecognized status. Two are deliberately multi-culture realms: FRM unifies the
+# two northern norse peoples, VMO the two western-isles sea peoples.
+# Names are invented / mod-canon (heritage roots), never real-world.
+# CoAs live in coat_of_arms/00_ova_formables.txt; names in ova_countries_l_english.yml.
+
+#### Empire-tier formables ####
+
+SAK = { # Sakuragoku -- sakura empire (eastern isles)
+    color = { 200 40 45 }
+
+    country_type = recognized
+
+    tier = empire
+
+    cultures = { sakura }
+
+    capital = STATE_ASA_NO_IKAZUCHI
+}
+
+MAE = { # Prunhwa -- mae empire (murim)
+    color = { 207 136 177 }
+
+    country_type = recognized
+
+    tier = empire
+
+    cultures = { mae }
+
+    capital = STATE_CHEONSEONG
+}
+
+KHA = { # Miradzong -- khambu empire (western plateau)
+    color = { 130 40 45 }
+
+    country_type = recognized
+
+    tier = empire
+
+    cultures = { khambu }
+
+    capital = STATE_NYUGMA_DRANGBDEN
+}
+
+VMO = { # Vaimotu -- combined whenua + kanaka empire (western isles)
+    color = { 0 90 150 }
+
+    country_type = recognized
+
+    tier = empire
+
+    cultures = { whenua kanaka }
+
+    capital = STATE_MANIA_KOWHAI
+}
+
+NEK = { # Neconya -- cat empire (all cat cultures)
+    color = { 90 170 150 }
+
+    country_type = recognized
+
+    tier = empire
+
+    cultures = { island_catkin plains_catkin desert_catkin }
+
+    capital = STATE_CATPITAL
+}
+
+KIT = { # Wahee -- fox empire (all fox cultures)
+    color = { 220 120 40 }
+
+    country_type = recognized
+
+    tier = empire
+
+    cultures = { snow_foxkin forest_foxkin }
+
+    capital = STATE_WAPAPOW
+}
+
+#### Kingdom-tier formables ####
+
+RAB = { # Warrenmark -- rabbitkin kingdom (beastland)
+    color = { 150 200 160 }
+
+    country_type = unrecognized
+
+    tier = kingdom
+
+    cultures = { eastern_rabbitkin western_rabbitkin }
+
+    capital = STATE_ANEPYON
+}
+
+SDW = { # Stonehold -- stone dwarf kingdom (north)
+    color = { 110 110 118 }
+
+    country_type = unrecognized
+
+    tier = kingdom
+
+    cultures = { stone_dwarf }
+
+    capital = STATE_AGRALEKKE
+}
+
+SNE = { # Frostreach -- snow elf kingdom (north)
+    color = { 150 200 220 }
+
+    country_type = unrecognized
+
+    tier = kingdom
+
+    cultures = { snow_elf }
+
+    capital = STATE_IIVA_KAARENA
+}
+
+DEI = { # Deigokai -- deigo kingdom (western isles)
+    color = { 210 60 55 }
+
+    country_type = unrecognized
+
+    tier = kingdom
+
+    cultures = { deigo }
+
+    capital = STATE_NIRAI_KANAI
+}
+
+FRM = { # Frostmark -- combined fjordic + frostholm kingdom (north)
+    color = { 60 110 130 }
+
+    country_type = unrecognized
+
+    tier = kingdom
+
+    cultures = { fjordic frostholm }
+
+    capital = STATE_VESTROYENE
+}
+
+WHE = { # Whenuroa -- whenua kingdom (western isles)
+    color = { 30 30 35 }
+
+    country_type = unrecognized
+
+    tier = kingdom
+
+    cultures = { whenua }
+
+    capital = STATE_MANIA_KOWHAI
+}
+
+KNK = { # Kanakea -- kanaka kingdom (western isles)
+    color = { 30 150 140 }
+
+    country_type = unrecognized
+
+    tier = kingdom
+
+    cultures = { kanaka }
+
+    capital = STATE_PALIANUENUE
+}

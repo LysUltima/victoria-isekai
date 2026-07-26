@@ -1,0 +1,294 @@
+﻿l_english:
+  # LYS Lysna
+  HUB_NAME_STATE_IMPERIAL_CAPITAL_city: "Imperial Capital"
+  HUB_NAME_STATE_IMPERIAL_CAPITAL_farm: "Oakhaven"
+  HUB_NAME_STATE_IMPERIAL_CAPITAL_mine: "Deepdelve"
+  HUB_NAME_STATE_IMPERIAL_CAPITAL_wood: "Kingswood"
+  HUB_NAME_STATE_IMPERIAL_CAPITAL_port: "Crownsguard"
+
+  HUB_NAME_STATE_VERCESTIA_city: "Vercestia"
+  HUB_NAME_STATE_VERCESTIA_farm: "Aldersbrook"
+  HUB_NAME_STATE_VERCESTIA_mine: "Ironridge"
+  HUB_NAME_STATE_VERCESTIA_wood: "Timberfall"
+  HUB_NAME_STATE_VERCESTIA_port: "Marrowbay"
+
+  HUB_NAME_STATE_SWORDS_MOUTH_city: "Garrisonford"
+  HUB_NAME_STATE_SWORDS_MOUTH_farm: "Keensedge"
+  HUB_NAME_STATE_SWORDS_MOUTH_mine: "Sharprock"
+  HUB_NAME_STATE_SWORDS_MOUTH_wood: "Hiltford"
+  HUB_NAME_STATE_SWORDS_MOUTH_port: "Pommelport"
+
+  HUB_NAME_STATE_DWARVEN_HINTERLANDS_city: "Khaz Modor"
+  HUB_NAME_STATE_DWARVEN_HINTERLANDS_farm: "Barrak"
+  HUB_NAME_STATE_DWARVEN_HINTERLANDS_mine: "Thul-Gazan"
+  HUB_NAME_STATE_DWARVEN_HINTERLANDS_wood: "Grom-Bor"
+
+  HUB_NAME_STATE_ACLEY_city: "Acley"
+  HUB_NAME_STATE_ACLEY_farm: "Highmeadow"
+  HUB_NAME_STATE_ACLEY_mine: "Silvercreek"
+  HUB_NAME_STATE_ACLEY_wood: "Brackenshade"
+
+  HUB_NAME_STATE_FENISTON_city: "Feniston"
+  HUB_NAME_STATE_FENISTON_farm: "Marshfield"
+  HUB_NAME_STATE_FENISTON_mine: "Bogiron"
+  HUB_NAME_STATE_FENISTON_wood: "Murkwood"
+  HUB_NAME_STATE_FENISTON_port: "Sedgeport"
+
+  HUB_NAME_STATE_BLITT_city: "Blitt"
+  HUB_NAME_STATE_BLITT_farm: "Lowlands"
+  HUB_NAME_STATE_BLITT_mine: "Coalstone"
+  HUB_NAME_STATE_BLITT_wood: "Ashgrove"
+
+  HUB_NAME_STATE_SEYLAND_city: "Seyland"
+  HUB_NAME_STATE_SEYLAND_farm: "Glenwood"
+  HUB_NAME_STATE_SEYLAND_mine: "Deepwell"
+  HUB_NAME_STATE_SEYLAND_wood: "Brinethorne"
+  HUB_NAME_STATE_SEYLAND_port: "Fairhaven"
+
+  HUB_NAME_STATE_CEPHISPORT_city: "Cephis"
+  HUB_NAME_STATE_CEPHISPORT_farm: "Gullcrest"
+  HUB_NAME_STATE_CEPHISPORT_mine: "Saltstone"
+  HUB_NAME_STATE_CEPHISPORT_wood: "Driftwood"
+  HUB_NAME_STATE_CEPHISPORT_port: "Tidebreak"
+
+  HUB_NAME_STATE_BLADEWASTE_city: "Rustgard"
+  HUB_NAME_STATE_BLADEWASTE_farm: "Scraptown"
+  HUB_NAME_STATE_BLADEWASTE_mine: "Ironvein"
+  HUB_NAME_STATE_BLADEWASTE_wood: "Ashenfield"
+  HUB_NAME_STATE_BLADEWASTE_port: "Blackwharf"
+
+  HUB_NAME_STATE_GARLEHOLD_city: "Garlehold"
+  HUB_NAME_STATE_GARLEHOLD_farm: "Stonebridge"
+  HUB_NAME_STATE_GARLEHOLD_mine: "Quarryton"
+  HUB_NAME_STATE_GARLEHOLD_wood: "Strongtimber"
+  HUB_NAME_STATE_GARLEHOLD_port: "Shieldport"
+
+  HUB_NAME_STATE_CONNELAND_city: "Conneland"
+  HUB_NAME_STATE_CONNELAND_farm: "Riverbend"
+  HUB_NAME_STATE_CONNELAND_mine: "Copperhill"
+  HUB_NAME_STATE_CONNELAND_wood: "Westwood"
+  HUB_NAME_STATE_CONNELAND_port: "Anchorage"
+
+  # ACA Saint Christine Academy
+  HUB_NAME_STATE_ACADEMY_DISTRICT_city: "Saint Christine"
+  HUB_NAME_STATE_ACADEMY_DISTRICT_farm: "Scholar's Yield"
+  HUB_NAME_STATE_ACADEMY_DISTRICT_mine: "Inkstone"
+  HUB_NAME_STATE_ACADEMY_DISTRICT_wood: "Parchment Grove"
+  HUB_NAME_STATE_ACADEMY_DISTRICT_port: "University Piers"
+
+  # VAL Valestria
+  HUB_NAME_STATE_VALESTINE_city: "Valestine"
+  HUB_NAME_STATE_VALESTINE_farm: "Meadowspring"
+  HUB_NAME_STATE_VALESTINE_mine: "Ironpick"
+  HUB_NAME_STATE_VALESTINE_wood: "Greenwood"
+
+  HUB_NAME_STATE_TREST_city: "Trest"
+  HUB_NAME_STATE_TREST_farm: "Highfield"
+  HUB_NAME_STATE_TREST_mine: "Undercliff"
+  HUB_NAME_STATE_TREST_wood: "Deepwood"
+
+  # VAL Valestria
+  HUB_NAME_STATE_DRAKE_MOUNTAIN_city: "Drake's Peak"
+  HUB_NAME_STATE_DRAKE_MOUNTAIN_farm: "Scalehill"
+  HUB_NAME_STATE_DRAKE_MOUNTAIN_mine: "Dragon's Tooth"
+  HUB_NAME_STATE_DRAKE_MOUNTAIN_wood: "Charwood"
+  HUB_NAME_STATE_DRAKE_MOUNTAIN_port: "Wyvern Bay"
+
+  HUB_NAME_STATE_HAVENSTRY_city: "Havenstry"
+  HUB_NAME_STATE_HAVENSTRY_farm: "Safeglen"
+  HUB_NAME_STATE_HAVENSTRY_mine: "Hollowrock"
+  HUB_NAME_STATE_HAVENSTRY_wood: "Shieldcrest"
+
+  HUB_NAME_STATE_LORRLAND_city: "Lorrland"
+  HUB_NAME_STATE_LORRLAND_farm: "Bramblefield"
+  HUB_NAME_STATE_LORRLAND_mine: "Deepstone"
+  HUB_NAME_STATE_LORRLAND_wood: "Shadowgrove"
+  HUB_NAME_STATE_LORRLAND_port: "Lorr Harbor"
+
+  # EST Estria
+  HUB_NAME_STATE_ESTLAND_city: "Estland"
+  HUB_NAME_STATE_ESTLAND_farm: "Eastgate"
+  HUB_NAME_STATE_ESTLAND_mine: "Shorerock"
+  HUB_NAME_STATE_ESTLAND_wood: "Pinecrest"
+  HUB_NAME_STATE_ESTLAND_port: "Moorland"
+
+  HUB_NAME_STATE_MAYPORT_city: "Mayport"
+  HUB_NAME_STATE_MAYPORT_farm: "Springvale"
+  HUB_NAME_STATE_MAYPORT_mine: "Brightore"
+  HUB_NAME_STATE_MAYPORT_wood: "Mayfield"
+  HUB_NAME_STATE_MAYPORT_port: "Oldwharf"
+
+  HUB_NAME_STATE_DREAMING_ISLANDS_city: "Somnus"
+  HUB_NAME_STATE_DREAMING_ISLANDS_farm: "Reverie"
+  HUB_NAME_STATE_DREAMING_ISLANDS_mine: "Vesper"
+  HUB_NAME_STATE_DREAMING_ISLANDS_wood: "Nirvana"
+  HUB_NAME_STATE_DREAMING_ISLANDS_port: "Awakening"
+
+  # LUX Lux Aeterna
+  HUB_NAME_STATE_INSULA_LUCE_city: "Prima Luce"
+  HUB_NAME_STATE_INSULA_LUCE_farm: "Campus Solis"
+  HUB_NAME_STATE_INSULA_LUCE_mine: "Fodina Aurea"
+  HUB_NAME_STATE_INSULA_LUCE_wood: "Silva Alba"
+  HUB_NAME_STATE_INSULA_LUCE_port: "Portus Aurorae"
+
+  HUB_NAME_STATE_GRACE_city: "Gratia"
+  HUB_NAME_STATE_GRACE_farm: "Providentia"
+  HUB_NAME_STATE_GRACE_mine: "Misericordia"
+  HUB_NAME_STATE_GRACE_wood: "Caritas"
+  HUB_NAME_STATE_GRACE_port: "Portus Salutis"
+
+  # NIS Nisenie
+  HUB_NAME_STATE_VYELLE_city: "Vyelle"
+  HUB_NAME_STATE_VYELLE_farm: "Champs-Elysées"
+  HUB_NAME_STATE_VYELLE_mine: "Roche-Noire"
+  HUB_NAME_STATE_VYELLE_wood: "Bois-Clair"
+  HUB_NAME_STATE_VYELLE_port: "Bellevue"
+
+  HUB_NAME_STATE_REANNE_city: "Reanne"
+  HUB_NAME_STATE_REANNE_farm: "Val-de-Loire"
+  HUB_NAME_STATE_REANNE_mine: "Mont-de-Fer"
+  HUB_NAME_STATE_REANNE_wood: "Fontainebleau"
+  HUB_NAME_STATE_REANNE_port: "La Rochelle"
+
+  HUB_NAME_STATE_CHOUX_city: "Choux"
+  HUB_NAME_STATE_CHOUX_farm: "Verdun"
+  HUB_NAME_STATE_CHOUX_mine: "Avignon"
+  HUB_NAME_STATE_CHOUX_wood: "Ardennes"
+
+  HUB_NAME_STATE_LAVOGNE_city: "Lavogne"
+  HUB_NAME_STATE_LAVOGNE_farm: "Beauval"
+  HUB_NAME_STATE_LAVOGNE_mine: "Chamonix"
+  HUB_NAME_STATE_LAVOGNE_wood: "Vincennes"
+  HUB_NAME_STATE_LAVOGNE_port: "Marseille"
+
+  # ALE Alestina
+  HUB_NAME_STATE_SEVONA_city: "Sevona"
+  HUB_NAME_STATE_SEVONA_farm: "Valverde"
+  HUB_NAME_STATE_SEVONA_mine: "Piedra Oscura"
+  HUB_NAME_STATE_SEVONA_wood: "Bosque Verde"
+  HUB_NAME_STATE_SEVONA_port: "Puerto Real"
+
+  HUB_NAME_STATE_CASABELLA_city: "Casabella"
+  HUB_NAME_STATE_CASABELLA_farm: "Granja Bella"
+  HUB_NAME_STATE_CASABELLA_mine: "Mina de Oro"
+  HUB_NAME_STATE_CASABELLA_wood: "Madera Fina"
+
+  HUB_NAME_STATE_QUENA_city: "Quena"
+  HUB_NAME_STATE_QUENA_farm: "Tierras Altas"
+  HUB_NAME_STATE_QUENA_mine: "Cueva Profunda"
+  HUB_NAME_STATE_QUENA_wood: "Selva Verde"
+  HUB_NAME_STATE_QUENA_port: "Bahía Azul"
+
+  # REY Reyorn
+  HUB_NAME_STATE_KATZENBURG_city: "Katzenburg"
+  HUB_NAME_STATE_KATZENBURG_farm: "Löwenhof"
+  HUB_NAME_STATE_KATZENBURG_mine: "Schwarze Grube"
+  HUB_NAME_STATE_KATZENBURG_wood: "Katerwald"
+  HUB_NAME_STATE_KATZENBURG_port: "Tigerhafen"
+
+  HUB_NAME_STATE_WELPENSTADT_city: "Welpenstadt"
+  HUB_NAME_STATE_WELPENSTADT_farm: "Hundehof"
+  HUB_NAME_STATE_WELPENSTADT_mine: "Eisenberg"
+  HUB_NAME_STATE_WELPENSTADT_wood: "Fuchstal"
+  HUB_NAME_STATE_WELPENSTADT_port: "Wolfshafen"
+
+  HUB_NAME_STATE_BARENBERG_city: "Bärenberg"
+  HUB_NAME_STATE_BARENBERG_farm: "Bärenfeld"
+  HUB_NAME_STATE_BARENBERG_mine: "Silberstein"
+  HUB_NAME_STATE_BARENBERG_wood: "Bärenwald"
+
+  HUB_NAME_STATE_HASENHAFEN_city: "Hasenhafen"
+  HUB_NAME_STATE_HASENHAFEN_farm: "Möhrenfeld"
+  HUB_NAME_STATE_HASENHAFEN_mine: "Kaninchenbau"
+  HUB_NAME_STATE_HASENHAFEN_wood: "Löffelwald"
+  HUB_NAME_STATE_HASENHAFEN_port: "Hasenkai"
+
+  HUB_NAME_STATE_FUSCHTAL_city: "Fuschtal"
+  HUB_NAME_STATE_FUSCHTAL_farm: "Talbauern"
+  HUB_NAME_STATE_FUSCHTAL_mine: "Kupferberg"
+  HUB_NAME_STATE_FUSCHTAL_wood: "Tannenwald"
+
+  # SKA Skaldergard
+  HUB_NAME_STATE_DALBY_city: "Dalby"
+  HUB_NAME_STATE_DALBY_farm: "Dalengård"
+  HUB_NAME_STATE_DALBY_mine: "Jernfjell"
+  HUB_NAME_STATE_DALBY_wood: "Trollskog"
+
+  # VIN Vindheim
+  HUB_NAME_STATE_STJERNVIK_city: "Stjernvik"
+  HUB_NAME_STATE_STJERNVIK_farm: "Karlstad"
+  HUB_NAME_STATE_STJERNVIK_mine: "Malmgruve"
+  HUB_NAME_STATE_STJERNVIK_wood: "Mørkskog"
+  HUB_NAME_STATE_STJERNVIK_port: "Nordfjord"
+
+  # SIN Sinner's Refuge
+  HUB_NAME_STATE_SIN_CITY_city: "Sin City"
+  HUB_NAME_STATE_SIN_CITY_farm: "Penance"
+  HUB_NAME_STATE_SIN_CITY_mine: "Gallows"
+  HUB_NAME_STATE_SIN_CITY_wood: "Vice"
+  HUB_NAME_STATE_SIN_CITY_port: "Smuggler's Cove"
+
+  HUB_NAME_STATE_NEWHOLD_city: "Newhold"
+  HUB_NAME_STATE_NEWHOLD_farm: "Prospect"
+  HUB_NAME_STATE_NEWHOLD_mine: "Outpost"
+  HUB_NAME_STATE_NEWHOLD_wood: "Frontier"
+  HUB_NAME_STATE_NEWHOLD_port: "New Harbor"
+
+  # ELV Elvsae
+  HUB_NAME_STATE_RAETENI_city: "Raeteni"
+  HUB_NAME_STATE_RAETENI_farm: "Talin"
+  HUB_NAME_STATE_RAETENI_mine: "Raevansirea"
+  HUB_NAME_STATE_RAETENI_wood: "Lunasere"
+
+  HUB_NAME_STATE_CARENADUS_city: "Carenadus"
+  HUB_NAME_STATE_CARENADUS_farm: "Aenresae"
+  HUB_NAME_STATE_CARENADUS_mine: "Viha"
+  HUB_NAME_STATE_CARENADUS_wood: "Dumitha"
+
+  HUB_NAME_STATE_ELISAE_city: "Elisteni"
+  HUB_NAME_STATE_ELISAE_farm: "Saena"
+  HUB_NAME_STATE_ELISAE_mine: "Navath"
+  HUB_NAME_STATE_ELISAE_wood: "Torensune"
+
+  # DWA Dwarvelunde
+  HUB_NAME_STATE_DULLEDAL_city: "Zwondith"
+  HUB_NAME_STATE_DULLEDAL_farm: "Middal"
+  HUB_NAME_STATE_DULLEDAL_mine: "Runenor"
+  HUB_NAME_STATE_DULLEDAL_wood: "Lunurrir"
+
+  HUB_NAME_STATE_MELKKALUNDE_city: "Zullad"
+  HUB_NAME_STATE_MELKKALUNDE_farm: "Thuddal"
+  HUB_NAME_STATE_MELKKALUNDE_mine: "Maddath"
+  HUB_NAME_STATE_MELKKALUNDE_wood: "Mirronol"
+
+  HUB_NAME_STATE_ZIDDEVE_city: "Ziddeve"
+  HUB_NAME_STATE_ZIDDEVE_farm: "Mudde"
+  HUB_NAME_STATE_ZIDDEVE_mine: "Loddonuth"
+  HUB_NAME_STATE_ZIDDEVE_wood: "Zorrenur"
+
+  # EAS Eastern Borderland
+  HUB_NAME_STATE_POISONWASTE_city: "Blight Town"
+  HUB_NAME_STATE_POISONWASTE_farm: "Ashfields"
+  HUB_NAME_STATE_POISONWASTE_mine: "Toxin Pits"
+  HUB_NAME_STATE_POISONWASTE_wood: "Rotwood"
+
+  HUB_NAME_STATE_BLEAKPLAIN_city: "Bleakplain"
+  HUB_NAME_STATE_BLEAKPLAIN_farm: "Grey Pastures"
+  HUB_NAME_STATE_BLEAKPLAIN_mine: "Sorrowstone"
+  HUB_NAME_STATE_BLEAKPLAIN_wood: "Withergrove"
+
+  HUB_NAME_STATE_BARRENFIELD_city: "Dust Haven"
+  HUB_NAME_STATE_BARRENFIELD_farm: "Drycrop"
+  HUB_NAME_STATE_BARRENFIELD_mine: "Gravel Depths"
+  HUB_NAME_STATE_BARRENFIELD_wood: "Scrubland"
+
+  HUB_NAME_STATE_DARKLURK_city: "Darklurk"
+  HUB_NAME_STATE_DARKLURK_farm: "Shadowmeadow"
+  HUB_NAME_STATE_DARKLURK_mine: "Gloom Quarry"
+  HUB_NAME_STATE_DARKLURK_wood: "Night Thicket"
+
+  # HEL Hellborne Mountains
+  HUB_NAME_STATE_HELLBORNE_MOUNTAINS_city: "Hellborne Peaks"
+  HUB_NAME_STATE_HELLBORNE_MOUNTAINS_farm: "Brimstone"
+  HUB_NAME_STATE_HELLBORNE_MOUNTAINS_mine: "Inferno"
+  HUB_NAME_STATE_HELLBORNE_MOUNTAINS_wood: "Doomspire"

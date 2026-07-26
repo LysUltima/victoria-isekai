@@ -1,0 +1,1006 @@
+﻿#################################################################
+#####				ROUTE GRAPHICS TRIGGERS					#####
+#################################################################
+
+gfx_car_condition_trigger = {
+	scope:state = {
+		market = {
+            always = no
+		}
+	}
+
+}
+
+gfx_truck_condition_trigger = {
+	scope:state = {
+		any_scope_building = {
+			always = no # vanilla ref 'pm_public_motor_carriages' not present in this mod (automobiles removed)
+		}
+	}
+
+}
+
+gfx_tracktor_condition_trigger = {
+	has_technology_researched = field_automata
+
+	scope:state = {
+		any_scope_building = {
+			has_active_production_method = pm_tractors
+		}
+	}
+
+}
+
+#################################################################
+#####				TRADE TRAIN TRIGGERS					#####
+#################################################################
+
+
+gfx_experimental_locomotive_trigger = {
+
+	scope:state = {
+		NOR = {
+			any_scope_building = {
+				has_active_production_method = pm_steam_trains
+			}
+			any_scope_building = {
+				has_active_production_method = pm_steam_trains_principle_transport_3
+			}
+			any_scope_building = {
+				has_active_production_method = pm_electric_trains
+			}
+			any_scope_building = {
+				has_active_production_method = pm_electric_trains_principle_transport_3
+			}
+		}
+	}
+
+}
+
+gfx_steam_locomotive_trigger = {
+
+	scope:state = {
+		any_scope_building = {
+			OR = {
+				has_active_production_method = pm_steam_trains
+				has_active_production_method = pm_steam_trains_principle_transport_3
+			}
+		}
+	}
+
+}
+
+gfx_electrical_locomotive_trigger = {
+
+	scope:state = {
+		any_scope_building = {
+			OR = {
+				has_active_production_method = pm_electric_trains
+				has_active_production_method = pm_electric_trains_principle_transport_3
+			}
+		}
+	}
+
+}
+
+gfx_diesel_locomotive_trigger = {
+
+	scope:state = {
+		any_scope_building = {
+			OR = {
+				always = no # vanilla ref 'pm_diesel_trains' not present in this mod (oil removed)
+				always = no # vanilla ref 'pm_diesel_trains_principle_transport_3' not present in this mod (oil removed)
+			}
+		}
+	}
+
+}
+
+gfx_passanger_train_trigger = {
+
+	scope:state = {
+		market = {
+			mg:transportation = {
+				market_goods_sell_orders > 20
+			}
+		}
+	}
+
+}
+
+gfx_mining_train_trigger = {
+
+	scope:state = {
+		OR = {
+			has_building = building_coal_mine
+			has_building = building_iron_mine
+			has_building = building_steel_mill
+			has_building = building_sulfur_mine
+		}
+	}
+
+}
+
+gfx_forestry_train_trigger = {
+
+	scope:state = {
+		has_building = building_logging_camp
+	}
+
+}
+
+
+#################################################################
+#####				TRAIN CULTURE TRIGGERS					#####
+#################################################################
+
+
+#####			BRITTISH TRAIN CULTURE TRIGGERS				#####
+
+gfx_has_british_trains_trigger = {
+
+	OR = {
+		AND = {
+			OR = {
+				country_has_primary_culture = cu:aldrican
+				country_has_primary_culture = cu:alena
+				country_has_primary_culture = cu:alena
+				AND = {
+					is_subject = yes
+					any_overlord_or_above = {
+						OR = {
+							country_has_primary_culture = cu:aldrican
+							country_has_primary_culture = cu:alena
+							country_has_primary_culture = cu:alena
+						}
+					}
+				}
+				market ?= {
+					mg:engines ?= {
+						largest_exporting_market ?= {
+							owner = {
+								OR = {
+									country_has_primary_culture = cu:aldrican
+									country_has_primary_culture = cu:alena
+									country_has_primary_culture = cu:alena
+								}
+							}
+						}
+					}
+				}
+				power_bloc ?= {
+					power_bloc_leader = {
+						OR = {
+							country_has_primary_culture = cu:aldrican
+							country_has_primary_culture = cu:alena
+							country_has_primary_culture = cu:alena
+						}
+					}
+				}
+
+			}
+
+			NOR = {
+				country_has_primary_culture = cu:vardish
+				country_has_primary_culture = cu:vardish
+				country_has_primary_culture = cu:solenne
+				country_has_primary_culture = cu:solenne
+				country_has_primary_culture = cu:alena
+				country_has_primary_culture = cu:altan
+				country_has_primary_culture = cu:skarholt
+				country_has_primary_culture = cu:lysian
+				country_has_primary_culture = cu:farshore
+				country_has_primary_culture = cu:farshore
+				country_has_primary_culture = cu:farshore
+				country_has_primary_culture = cu:farshore
+				AND = {
+					is_subject = yes
+					any_overlord_or_above = {
+						OR = {
+							country_has_primary_culture = cu:vardish
+							country_has_primary_culture = cu:vardish
+							country_has_primary_culture = cu:solenne
+							country_has_primary_culture = cu:solenne
+							country_has_primary_culture = cu:alena
+							country_has_primary_culture = cu:altan
+							country_has_primary_culture = cu:skarholt
+							country_has_primary_culture = cu:lysian
+							country_has_primary_culture = cu:farshore
+							country_has_primary_culture = cu:farshore
+							country_has_primary_culture = cu:farshore
+							country_has_primary_culture = cu:farshore
+						}
+					}
+				}
+			}
+		}
+
+		NOR = {
+			country_has_primary_culture = cu:aldrican
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:vardish
+			country_has_primary_culture = cu:vardish
+			country_has_primary_culture = cu:solenne
+			country_has_primary_culture = cu:solenne
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:altan
+			country_has_primary_culture = cu:skarholt
+			country_has_primary_culture = cu:lysian
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+			AND = {
+				is_subject = yes
+				any_overlord_or_above = {
+					OR = {
+						country_has_primary_culture = cu:aldrican
+						country_has_primary_culture = cu:alena
+						country_has_primary_culture = cu:alena
+						country_has_primary_culture = cu:vardish
+						country_has_primary_culture = cu:vardish
+						country_has_primary_culture = cu:solenne
+						country_has_primary_culture = cu:solenne
+						country_has_primary_culture = cu:alena
+						country_has_primary_culture = cu:altan
+						country_has_primary_culture = cu:skarholt
+						country_has_primary_culture = cu:lysian
+						country_has_primary_culture = cu:farshore
+						country_has_primary_culture = cu:farshore
+						country_has_primary_culture = cu:farshore
+						country_has_primary_culture = cu:farshore
+					}
+				}
+			}
+			market ?= {
+				mg:engines ?= {
+					largest_exporting_market ?= {
+						owner = {
+							OR = {
+								country_has_primary_culture = cu:aldrican
+								country_has_primary_culture = cu:alena
+								country_has_primary_culture = cu:alena
+								country_has_primary_culture = cu:vardish
+								country_has_primary_culture = cu:vardish
+								country_has_primary_culture = cu:solenne
+								country_has_primary_culture = cu:solenne
+								country_has_primary_culture = cu:alena
+								country_has_primary_culture = cu:altan
+								country_has_primary_culture = cu:skarholt
+								country_has_primary_culture = cu:lysian
+								country_has_primary_culture = cu:farshore
+								country_has_primary_culture = cu:farshore
+								country_has_primary_culture = cu:farshore
+								country_has_primary_culture = cu:farshore
+							}
+						}
+					}
+				}
+			}
+			power_bloc ?= {
+				power_bloc_leader = {
+					OR = {
+						country_has_primary_culture = cu:aldrican
+						country_has_primary_culture = cu:alena
+						country_has_primary_culture = cu:alena
+						country_has_primary_culture = cu:vardish
+						country_has_primary_culture = cu:vardish
+						country_has_primary_culture = cu:solenne
+						country_has_primary_culture = cu:solenne
+						country_has_primary_culture = cu:alena
+						country_has_primary_culture = cu:altan
+						country_has_primary_culture = cu:skarholt
+						country_has_primary_culture = cu:lysian
+						country_has_primary_culture = cu:farshore
+						country_has_primary_culture = cu:farshore
+						country_has_primary_culture = cu:farshore
+						country_has_primary_culture = cu:farshore
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+#####			GERMAN TRAIN CULTURE TRIGGERS				#####
+
+gfx_has_german_trains_trigger = {
+
+	AND = {
+		OR = {
+			country_has_primary_culture = cu:vardish
+			country_has_primary_culture = cu:vardish
+			AND = {
+				is_subject = yes
+				any_overlord_or_above = {
+					OR = {
+						country_has_primary_culture = cu:vardish
+						country_has_primary_culture = cu:vardish
+					}
+				}
+			}
+			market ?= {
+				mg:engines ?= {
+					largest_exporting_market ?= {
+						owner = {
+							OR = {
+								country_has_primary_culture = cu:vardish
+								country_has_primary_culture = cu:vardish
+							}
+						}
+					}
+				}
+			}
+			power_bloc ?= {
+				power_bloc_leader = {
+					OR = {
+						country_has_primary_culture = cu:vardish
+						country_has_primary_culture = cu:vardish
+					}
+				}
+			}
+		}
+
+		NOR = {
+			country_has_primary_culture = cu:aldrican
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:solenne
+			country_has_primary_culture = cu:solenne
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:altan
+			country_has_primary_culture = cu:skarholt
+			country_has_primary_culture = cu:lysian
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+		}
+	}
+}
+
+
+
+#####			FRENCH TRAIN CULTURE TRIGGERS				#####
+
+gfx_has_french_trains_trigger = {
+
+	AND = {
+		OR = {
+			country_has_primary_culture = cu:solenne
+			country_has_primary_culture = cu:solenne
+			country_has_primary_culture = cu:alena
+			AND = {
+				is_subject = yes
+				any_overlord_or_above = {
+					OR = {
+						country_has_primary_culture = cu:solenne
+						country_has_primary_culture = cu:solenne
+						country_has_primary_culture = cu:alena
+					}
+				}
+			}
+			market ?= {
+				mg:engines ?= {
+					largest_exporting_market ?= {
+						owner = {
+							OR = {
+								country_has_primary_culture = cu:solenne
+								country_has_primary_culture = cu:solenne
+								country_has_primary_culture = cu:alena
+							}
+						}
+					}
+				}
+			}
+			power_bloc ?= {
+				power_bloc_leader = {
+					OR = {
+						country_has_primary_culture = cu:solenne
+						country_has_primary_culture = cu:solenne
+						country_has_primary_culture = cu:alena
+					}
+				}
+			}
+		}
+
+		NOR = {
+			country_has_primary_culture = cu:aldrican
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:vardish
+			country_has_primary_culture = cu:vardish
+			country_has_primary_culture = cu:altan
+			country_has_primary_culture = cu:skarholt
+			country_has_primary_culture = cu:lysian
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+		}
+	}
+}
+
+
+#####			RUSSIAN TRAIN CULTURE TRIGGERS				#####
+
+gfx_has_russian_trains_trigger = {
+
+	AND = {
+		OR = {
+			country_has_primary_culture = cu:altan
+			country_has_primary_culture = cu:skarholt
+			AND = {
+				is_subject = yes
+				any_overlord_or_above = {
+					OR = {
+						country_has_primary_culture = cu:altan
+						country_has_primary_culture = cu:skarholt
+					}
+				}
+			}
+			market ?= {
+				mg:engines ?= {
+					largest_exporting_market ?= {
+						owner = {
+							OR = {
+								country_has_primary_culture = cu:altan
+								country_has_primary_culture = cu:skarholt
+							}
+						}
+					}
+				}
+			}
+			power_bloc ?= {
+				power_bloc_leader = {
+					OR = {
+						country_has_primary_culture = cu:altan
+						country_has_primary_culture = cu:skarholt
+					}
+				}
+			}
+		}
+
+		NOR = {
+			country_has_primary_culture = cu:aldrican
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:vardish
+			country_has_primary_culture = cu:vardish
+			country_has_primary_culture = cu:solenne
+			country_has_primary_culture = cu:solenne
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:lysian
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+		}
+	}
+}
+
+
+#####			MURICA, FUCK OFF TRAIN CULTURE TRIGGERS				#####
+
+gfx_has_american_trains_trigger = {
+
+	AND = {
+		OR = {
+			country_has_primary_culture = cu:lysian
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+			country_has_primary_culture = cu:farshore
+			AND = {
+				is_subject = yes
+				any_overlord_or_above = {
+					OR = {
+						country_has_primary_culture = cu:lysian
+						country_has_primary_culture = cu:farshore
+						country_has_primary_culture = cu:farshore
+						country_has_primary_culture = cu:farshore
+						country_has_primary_culture = cu:farshore
+					}
+				}
+			}
+			market ?= {
+				mg:engines ?= {
+					largest_exporting_market ?= {
+						owner = {
+							OR = {
+								country_has_primary_culture = cu:lysian
+								country_has_primary_culture = cu:farshore
+								country_has_primary_culture = cu:farshore
+								country_has_primary_culture = cu:farshore
+								country_has_primary_culture = cu:farshore
+							}
+						}
+					}
+				}
+			}
+			power_bloc ?= {
+				power_bloc_leader = {
+					OR = {
+						country_has_primary_culture = cu:lysian
+						country_has_primary_culture = cu:farshore
+						country_has_primary_culture = cu:farshore
+						country_has_primary_culture = cu:farshore
+						country_has_primary_culture = cu:farshore
+					}
+				}
+			}
+		}
+
+		NOR = {
+			country_has_primary_culture = cu:aldrican
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:vardish
+			country_has_primary_culture = cu:vardish
+			country_has_primary_culture = cu:solenne
+			country_has_primary_culture = cu:solenne
+			country_has_primary_culture = cu:alena
+			country_has_primary_culture = cu:altan
+			country_has_primary_culture = cu:skarholt
+		}
+	}
+}
+
+
+#####			NO TRAIN CULTURE TRIGGERS				#####
+
+gfx_has_no_culture_trains_trigger = {
+
+	NOR = {
+		country_has_primary_culture = cu:aldrican
+		country_has_primary_culture = cu:alena
+		country_has_primary_culture = cu:alena
+		country_has_primary_culture = cu:vardish
+		country_has_primary_culture = cu:vardish
+		country_has_primary_culture = cu:solenne
+		country_has_primary_culture = cu:solenne
+		country_has_primary_culture = cu:alena
+		country_has_primary_culture = cu:altan
+		country_has_primary_culture = cu:skarholt
+		country_has_primary_culture = cu:lysian
+		country_has_primary_culture = cu:farshore
+		country_has_primary_culture = cu:farshore
+		country_has_primary_culture = cu:farshore
+		country_has_primary_culture = cu:farshore
+		AND = {
+			is_subject = yes
+			any_overlord_or_above = {
+				OR = {
+					country_has_primary_culture = cu:aldrican
+					country_has_primary_culture = cu:alena
+					country_has_primary_culture = cu:alena
+					country_has_primary_culture = cu:vardish
+					country_has_primary_culture = cu:vardish
+					country_has_primary_culture = cu:solenne
+					country_has_primary_culture = cu:solenne
+					country_has_primary_culture = cu:alena
+					country_has_primary_culture = cu:altan
+					country_has_primary_culture = cu:skarholt
+					country_has_primary_culture = cu:lysian
+					country_has_primary_culture = cu:farshore
+					country_has_primary_culture = cu:farshore
+					country_has_primary_culture = cu:farshore
+					country_has_primary_culture = cu:farshore
+				}
+			}
+		}
+		market ?= {
+			mg:engines ?= {
+				largest_exporting_market ?= {
+					owner = {
+						OR = {
+							country_has_primary_culture = cu:aldrican
+							country_has_primary_culture = cu:alena
+							country_has_primary_culture = cu:alena
+							country_has_primary_culture = cu:vardish
+							country_has_primary_culture = cu:vardish
+							country_has_primary_culture = cu:solenne
+							country_has_primary_culture = cu:solenne
+							country_has_primary_culture = cu:alena
+							country_has_primary_culture = cu:altan
+							country_has_primary_culture = cu:skarholt
+							country_has_primary_culture = cu:lysian
+							country_has_primary_culture = cu:farshore
+							country_has_primary_culture = cu:farshore
+							country_has_primary_culture = cu:farshore
+							country_has_primary_culture = cu:farshore
+						}
+					}
+				}
+			}
+		}
+		power_bloc ?= {
+			power_bloc_leader = {
+				OR = {
+					country_has_primary_culture = cu:aldrican
+					country_has_primary_culture = cu:alena
+					country_has_primary_culture = cu:alena
+					country_has_primary_culture = cu:vardish
+					country_has_primary_culture = cu:vardish
+					country_has_primary_culture = cu:solenne
+					country_has_primary_culture = cu:solenne
+					country_has_primary_culture = cu:alena
+					country_has_primary_culture = cu:altan
+					country_has_primary_culture = cu:skarholt
+					country_has_primary_culture = cu:lysian
+					country_has_primary_culture = cu:farshore
+					country_has_primary_culture = cu:farshore
+					country_has_primary_culture = cu:farshore
+					country_has_primary_culture = cu:farshore
+				}
+			}
+		}
+	}
+}
+
+
+#################################################################
+#####				SHIP CULTURE TRIGGERS					#####
+#################################################################
+
+gfx_junk_ship_trigger = {
+	OR = {
+		any_primary_culture = {
+			OR = {
+				has_discrimination_trait_group = heritage_group_xianxia_human
+				has_discrimination_trait_group = heritage_group_xianxia_human
+				has_discrimination_trait_group = heritage_group_isekai_human
+			}
+		}
+		AND = {
+			is_subject = yes
+			any_overlord_or_above = {
+				any_primary_culture = {
+					OR = {
+						has_discrimination_trait_group = heritage_group_xianxia_human
+						has_discrimination_trait_group = heritage_group_xianxia_human
+						has_discrimination_trait_group = heritage_group_isekai_human
+					}
+				}
+			}
+		}
+		market ?= {
+			mg:clippers ?= {
+				largest_exporting_market ?= {
+					owner = {
+						any_primary_culture = {
+							OR = {
+								has_discrimination_trait_group = heritage_group_xianxia_human
+								has_discrimination_trait_group = heritage_group_xianxia_human
+								has_discrimination_trait_group = heritage_group_isekai_human
+							}
+						}
+					}
+				}
+			}
+		}
+		power_bloc ?= {
+			power_bloc_leader = {
+				any_primary_culture = {
+					OR = {
+						has_discrimination_trait_group = heritage_group_xianxia_human
+						has_discrimination_trait_group = heritage_group_xianxia_human
+						has_discrimination_trait_group = heritage_group_isekai_human
+					}
+				}
+			}
+		}
+	}
+}
+
+gfx_marmara_ship_trigger = {
+	OR = {
+		OR = {
+			country_has_primary_culture = cu:nadirene
+			country_has_primary_culture = cu:nadirene
+			country_has_primary_culture = cu:altan
+		}
+		AND = {
+			is_subject = yes
+			any_overlord_or_above = {
+				OR = {
+					country_has_primary_culture = cu:nadirene
+					country_has_primary_culture = cu:nadirene
+					country_has_primary_culture = cu:altan
+				}
+			}
+		}
+		market ?= {
+			mg:clippers ?= {
+				largest_exporting_market ?= {
+					owner = {
+						OR = {
+							country_has_primary_culture = cu:nadirene
+							country_has_primary_culture = cu:nadirene
+							country_has_primary_culture = cu:altan
+						}
+					}
+				}
+			}
+		}
+		power_bloc ?= {
+			power_bloc_leader = {
+				OR = {
+					country_has_primary_culture = cu:nadirene
+					country_has_primary_culture = cu:nadirene
+					country_has_primary_culture = cu:altan
+				}
+			}
+		}
+	}
+}
+
+gfx_dhow_ship_trigger = {
+	NOT = {
+		country_has_primary_culture = cu:nadirene
+		country_has_primary_culture = cu:nadirene
+	}
+	OR = {
+		any_primary_culture = {
+			OR = {
+				has_discrimination_trait_group = heritage_group_desert_human
+				has_discrimination_trait_group = heritage_group_xianxia_human
+				has_discrimination_trait_group = heritage_group_xianxia_human
+			}
+		}
+		AND = {
+			is_subject = yes
+			any_overlord_or_above = {
+				any_primary_culture = {
+					OR = {
+						has_discrimination_trait_group = heritage_group_desert_human
+						has_discrimination_trait_group = heritage_group_xianxia_human
+						has_discrimination_trait_group = heritage_group_xianxia_human
+					}
+				}
+			}
+		}
+		market ?= {
+			mg:clippers ?= {
+				largest_exporting_market ?= {
+					owner = {
+						any_primary_culture = {
+							OR = {
+								has_discrimination_trait_group = heritage_group_desert_human
+								has_discrimination_trait_group = heritage_group_xianxia_human
+								has_discrimination_trait_group = heritage_group_xianxia_human
+							}
+						}
+					}
+				}
+			}
+		}
+		power_bloc ?= {
+			power_bloc_leader = {
+						any_primary_culture = {
+					OR = {
+						has_discrimination_trait_group = heritage_group_desert_human
+						has_discrimination_trait_group = heritage_group_xianxia_human
+						has_discrimination_trait_group = heritage_group_xianxia_human
+					}
+				}
+			}
+		}
+	}
+}
+
+#################################################################
+#################################################################
+#################################################################
+#####			MILITARY MOBILIZATION  TRIGGERS				#####
+#################################################################
+#################################################################
+#################################################################
+
+gfx_military_mobilization_culture_is_european = {
+
+	any_primary_culture = { has_culture_graphics = european }
+
+}
+
+gfx_military_mobilization_culture_is_african = {
+
+	any_primary_culture = { has_culture_graphics = african }
+
+}
+
+gfx_military_mobilization_culture_is_arabic = {
+
+	any_primary_culture = { has_culture_graphics = arabic }
+
+}
+
+gfx_military_mobilization_culture_is_east_asian = {
+
+	any_primary_culture = { has_culture_graphics = east_asian }
+
+}
+
+gfx_military_mobilization_culture_is_south_asian = {
+
+	any_primary_culture = { has_culture_graphics = south_asian }
+
+}
+
+#################################################################
+
+gfx_military_mobilization_is_irregular = {
+
+	country_army_unit_type_fraction = {
+		target = unit_type:combat_unit_type_irregular_infantry
+		value >= 0.2
+	}
+
+}
+
+gfx_military_mobilization_is_line = {
+
+	country_army_unit_type_fraction = {
+		target = unit_type:combat_unit_type_line_infantry
+		value >= 0.2
+	}
+
+}
+
+gfx_military_mobilization_is_skirmish = {
+
+	country_army_unit_type_fraction = {
+		target = unit_type:combat_unit_type_skirmish_infantry
+		value >= 0.2
+	}
+
+}
+
+gfx_military_mobilization_is_trench = {
+
+	country_army_unit_type_fraction = {
+		target = unit_type:combat_unit_type_trench_infantry
+		value >= 0.2
+	}
+
+}
+
+gfx_military_mobilization_is_squad = {
+
+	country_army_unit_type_fraction = {
+		target = unit_type:combat_unit_type_squad_infantry
+		value >= 0.2
+	}
+
+}
+
+gfx_military_mobilization_is_mechanized = {
+
+	country_army_unit_type_fraction = {
+		target = unit_type:combat_unit_type_mechanized_infantry
+		value >= 0.2
+	}
+
+}
+
+
+#################################################################
+#####				MILITARY CULTURE TRIGGERS				#####
+#################################################################
+
+gfx_military_deploy_culture_is_european = {
+
+	scope:military_formation = {
+		any_combat_unit = {
+			culture = { has_culture_graphics = european }
+		}
+	}
+
+}
+
+gfx_military_deploy_culture_is_african = {
+
+	scope:military_formation = {
+		any_combat_unit = {
+			culture = { has_culture_graphics = african }
+		}
+	}
+
+}
+
+gfx_military_deploy_culture_is_arabic = {
+
+	scope:military_formation = {
+		any_combat_unit = {
+			culture = { has_culture_graphics = arabic }
+		}
+	}
+
+}
+
+gfx_military_deploy_culture_is_east_asian = {
+
+	scope:military_formation = {
+		any_combat_unit = {
+			culture = { has_culture_graphics = east_asian }
+		}
+	}
+
+}
+
+gfx_military_deploy_culture_is_south_asian = {
+
+	scope:military_formation = {
+		any_combat_unit = {
+			culture = { has_culture_graphics = south_asian }
+		}
+	}
+
+}
+
+#################################################################
+#####				MILITARY UNIT TYPE TIGGER				#####
+#################################################################
+
+gfx_military_unit_is_irregular = {
+
+	scope:military_formation = {
+		any_combat_unit = {
+			has_unit_type = unit_type:combat_unit_type_irregular_infantry
+		}
+	}
+
+}
+
+gfx_military_unit_is_line = {
+
+	scope:military_formation = {
+		any_combat_unit = {
+			has_unit_type = unit_type:combat_unit_type_line_infantry
+		}
+	}
+
+}
+
+gfx_military_unit_is_skirmish = {
+
+	scope:military_formation = {
+		any_combat_unit = {
+			has_unit_type = unit_type:combat_unit_type_skirmish_infantry
+		}
+	}
+
+}
+
+gfx_military_unit_is_trench = {
+
+	scope:military_formation = {
+		any_combat_unit = {
+			has_unit_type = unit_type:combat_unit_type_trench_infantry
+		}
+	}
+
+}
+
+gfx_military_unit_is_squad = {
+
+	scope:military_formation = {
+		any_combat_unit = {
+			has_unit_type = unit_type:combat_unit_type_squad_infantry
+		}
+	}
+
+}
+
+gfx_military_unit_is_mechanized = {
+
+	scope:military_formation = {
+		any_combat_unit = {
+			has_unit_type = unit_type:combat_unit_type_mechanized_infantry
+		}
+	}
+
+}

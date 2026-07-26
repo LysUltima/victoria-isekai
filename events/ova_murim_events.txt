@@ -1,0 +1,3673 @@
+﻿### Murim storyline - narrative events (Kang Jin-woo, the strange disciple)
+# NB (2026-07-18 second rework): the Returner NEVER says he lived before or came back in
+# time. Every player-facing line frames him only as eerily perceptive and impossibly
+# well-informed - he reads people and events as though he has already seen them, and no
+# one can explain how. All time-travel/second-life/first-life text was scrubbed from the
+# localization; the internal key "returner" is kept only because it is wired through the
+# whole storyline.
+#
+# ova_murim.1        A Beggar at the Gate (player-sect offer, from the dispatcher)
+# ova_murim.2        The Boy at the Gates of Hwasan (HWA fallback/default)
+# ova_murim.3        The Boy Who Knows Too Much (host intro, chapter 1 beat 1)
+# ova_murim.4        The Heavenly Demon Rises (CHE intro)
+# ova_murim.5        The Banner of the Alliance (HWA intro)
+# ova_murim.10-.16   chapter 1 - the strange disciple's rise (tick-ladder driven)
+# ova_murim.30-.35   the war council (bad-ending je_ova_murim_war_conference beats)
+# ova_murim.39       the Reckoning epilogue (je_ova_murim_reckoning on_complete)
+# ova_murim.50-.54   the Cult side (je_ova_murim_heavenly_demon pulse)
+# ova_murim.55-.56   alliance-shared banner flavor
+# ova_murim.60-.61,.64-.65 outing/decision outcomes (.62/.63 removed with the
+#                    disabled Duel-a-Rival-Master decision)
+# ova_murim.70-.73   war-layer + fail endings
+# ova_murim.80-.84   good ending: the road north, the ascent, the final battle
+# ova_murim.90/.93/.94 hidden chapter-tick relays
+# ova_murim.100-.131 the Eight Banners arc - per banner (SOR PAE TAN NAM JEG MUD SAM HWA):
+#                    intro (creates the companion) -> trial -> trial -> pledge
+# ova_murim.140-.143 the home banner (his own house, courted first)
+# ova_murim.144-.147 objective-decision outcomes (saber trials / fire formulas /
+#                    shrine endowment / Sama ledger)
+# ova_murim.150-.156 the succession endgame (assassination, the two coronations, the
+#                    seizure by force, the Reckoning declared)
+#
+# Story beats set an ova_murim_seen_NN flag in their immediate and refuse to fire twice.
+# Every trial beat offers a SELFLESS option (effect_ova_murim_good_choice, +1 to the
+# hero ledger; lifts the banner's companion, costs the Returner growth or a wound) and a
+# SELFISH option (effect_ova_murim_bad_choice, -3; makes him hugely stronger but
+# alienates that banner forever via ova_murim_ally_failed_X). Special "he simply knew"
+# beats (.12 the manual, .15 the cache) are intentionally overpowered. All champion
+# XP/level/injury effects are called from the foundation (ova_champion_*).
+
+namespace = ova_murim
+
+# ------------------------------------------------------- .1-.2 the offer
+ova_murim.1 = { # A Beggar at the Gate
+	type = country_event
+	placement = root
+
+	title = ova_murim.1.t
+	desc = ova_murim.1.d
+	flavor = ova_murim.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		NOT = { has_global_variable = ova_murim_returner_fate }
+		exists = c:CHE
+	}
+
+	immediate = { }
+
+	option = { # open the gate
+		name = ova_murim.1.a
+		default_option = yes
+		effect_ova_murim_returner_arrives = yes
+	}
+
+	option = { # turn him away
+		name = ova_murim.1.b
+		ai_chance = {
+			base = 0
+		}
+		remove_variable = ova_murim_offer_pending
+		if = {
+			limit = { c:HWA ?= THIS }
+			effect_ova_murim_returner_refused_forever = yes
+		}
+		else = {
+			set_variable = ova_murim_declined
+            if = {
+                limit = {
+                    exists = c:HWA
+                }
+                c:HWA ?= {
+                    set_variable = { name = ova_murim_fallback_months value = 10 }
+                }
+            }
+		}
+	}
+}
+
+ova_murim.2 = { # The Boy at the Gates of Hwasan
+	type = country_event
+	placement = root
+
+	title = ova_murim.2.t
+	desc = ova_murim.2.d
+	flavor = ova_murim.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		NOT = { has_global_variable = ova_murim_returner_fate }
+		exists = c:CHE
+	}
+
+	immediate = { }
+
+	option = { # open the gate
+		name = ova_murim.2.a
+		default_option = yes
+		effect_ova_murim_returner_arrives = yes
+	}
+
+	option = { # turn him away - there is no further fallback
+		name = ova_murim.2.b
+		ai_chance = {
+			base = 0
+		}
+		remove_variable = ova_murim_offer_pending
+		effect_ova_murim_returner_refused_forever = yes
+	}
+}
+
+# ---------------------------------------------- .3,.10-.16 chapter 1: the rise
+ova_murim.3 = { # The Boy Who Knows Too Much (chapter 1 beat 1)
+	type = country_event
+	placement = root
+
+	title = ova_murim.3.t
+	desc = ova_murim.3.d
+	flavor = ova_murim.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_murim_returner_host
+		NOT = { has_variable = ova_murim_seen_3 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_3
+	}
+
+	option = {
+		name = ova_murim.3.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_murim.4 = { # The Heavenly Demon Rises
+	type = country_event
+	placement = root
+
+	title = ova_murim.4.t
+	desc = ova_murim.4.d
+	flavor = ova_murim.4.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		c:CHE ?= THIS
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.4.a
+		default_option = yes
+		add_modifier = { name = ova_murim_martial_fervor days = 730 }
+	}
+}
+
+ova_murim.5 = { # The Banner of the Alliance
+	type = country_event
+	placement = root
+
+	title = ova_murim.5.t
+	desc = ova_murim.5.d
+	flavor = ova_murim.5.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:HWA ?= THIS
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.5.a
+		default_option = yes
+	}
+}
+
+ova_murim.10 = { # The Spy in the Inner Hall
+	type = country_event
+	placement = root
+
+	title = ova_murim.10.t
+	desc = ova_murim.10.d
+	flavor = ova_murim.10.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		NOT = { has_variable = ova_murim_seen_10 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_10
+	}
+
+	option = { # a quiet blade
+		name = ova_murim.10.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 30 }
+		add_modifier = { name = ova_murim_spy_purge days = 1095 }
+	}
+
+	option = { # a public trial
+		name = ova_murim.10.b
+		ova_champion_add_popularity = { AMOUNT = 20 }
+		add_radicals = { value = small_radicals }
+	}
+}
+
+ova_murim.11 = { # The Flood He Read in the Sky
+	type = country_event
+	placement = root
+
+	title = ova_murim.11.t
+	desc = ova_murim.11.d
+	flavor = ova_murim.11.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		NOT = { has_variable = ova_murim_seen_11 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_11
+	}
+
+	option = { # heed him
+		name = ova_murim.11.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		ova_champion_add_popularity = { AMOUNT = 20 }
+	}
+
+	option = { # superstition
+		name = ova_murim.11.b
+		random_scope_state = {
+			limit = { is_incorporated = yes }
+			add_devastation = 10
+		}
+		add_modifier = { name = ova_murim_divergence_anxiety days = 365 }
+	}
+}
+
+ova_murim.16 = { # Whispers About the Strange Disciple
+	type = country_event
+	placement = root
+
+	title = ova_murim.16.t
+	desc = ova_murim.16.d
+	flavor = ova_murim.16.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		NOT = { has_variable = ova_murim_seen_16 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_16
+	}
+
+	option = { # shield him
+		name = ova_murim.16.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+
+	option = { # let them talk
+		name = ova_murim.16.b
+		ova_champion_add_popularity = { AMOUNT = -10 }
+	}
+}
+
+ova_murim.12 = { # The Manual Under the Waterfall (he simply knew - OP)
+	type = country_event
+	placement = root
+
+	title = ova_murim.12.t
+	desc = ova_murim.12.d
+	flavor = ova_murim.12.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		NOT = { has_variable = ova_murim_seen_12 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_12
+	}
+
+	option = {
+		name = ova_murim.12.a
+		default_option = yes
+		# a lost First-Rate manual is a breakthrough, not homework
+		ova_champion_gain_levels = { LEVELS = 2 }
+		ova_champion_add_xp = { AMOUNT = 40 }
+	}
+}
+
+ova_murim.13 = { # Poison in the Patriarch Cup
+	type = country_event
+	placement = root
+
+	title = ova_murim.13.t
+	desc = ova_murim.13.d
+	flavor = ova_murim.13.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_sick_in_hospital"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		NOT = { has_variable = ova_murim_seen_13 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_13
+	}
+
+	option = { # the strange disciple is elevated
+		name = ova_murim.13.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 20 }
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+
+	option = { # some elders mutter he knew too easily
+		name = ova_murim.13.b
+		ova_champion_add_xp = { AMOUNT = 20 }
+		add_modifier = { name = ova_murim_divergence_anxiety days = 365 }
+	}
+}
+
+ova_murim.15 = { # The Cache Only He Could Find (he simply knew - OP)
+	type = country_event
+	placement = root
+
+	title = ova_murim.15.t
+	desc = ova_murim.15.d
+	flavor = ova_murim.15.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		NOT = { has_variable = ova_murim_seen_15 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_15
+	}
+
+	option = {
+		name = ova_murim.15.a
+		default_option = yes
+		# a whole sect treasury unearthed from a forgotten vault
+		add_treasury = { value = money_amount_multiplier_medium multiply = 10 }
+		ova_champion_add_xp = { AMOUNT = 40 }
+	}
+}
+
+ova_murim.14 = { # The Prodigy of the East Yard (chapter 1 final beat)
+	type = country_event
+	placement = root
+
+	title = ova_murim.14.t
+	desc = ova_murim.14.d
+	flavor = ova_murim.14.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		NOT = { has_variable = ova_murim_seen_14 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_14
+	}
+
+	option = { # take her in
+		name = ova_murim.14.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 25 }
+	}
+
+	option = { # the rolls are full
+		name = ova_murim.14.b
+		add_modifier = { name = ova_murim_divergence_anxiety days = 365 }
+	}
+}
+
+# ------------------------------- .30-.35,.39 the war council (bad ending)
+ova_murim.30 = { # The War Council
+	type = country_event
+	placement = root
+
+	title = ova_murim.30.t
+	desc = ova_murim.30.d
+	flavor = ova_murim.30.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		has_variable = ova_murim_returner_host
+		NOT = { has_variable = ova_murim_seen_30 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_30
+	}
+
+	option = {
+		name = ova_murim.30.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+}
+
+ova_murim.31 = { # The Ten Great Demons
+	type = country_event
+	placement = root
+
+	title = ova_murim.31.t
+	desc = ova_murim.31.d
+	flavor = ova_murim.31.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		ova_champion_is_available = yes
+		NOT = { has_variable = ova_murim_seen_31 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_31
+	}
+
+	option = { # he goes ahead of the war
+		name = ova_murim.31.a
+		default_option = yes
+		# the seat was taken by force; there is no mercy left to spend
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_popularity = { AMOUNT = 40 }
+	}
+
+	option = { # the war needs him at home
+		name = ova_murim.31.b
+	}
+}
+
+ova_murim.32 = { # Assassins in the Night
+	type = country_event
+	placement = root
+
+	title = ova_murim.32.t
+	desc = ova_murim.32.d
+	flavor = ova_murim.32.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:CHE
+		NOT = { has_variable = ova_murim_seen_32 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_32
+	}
+
+	option = { # he stands them off alone
+		name = ova_murim.32.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 100 }
+		ova_champion_add_popularity = { AMOUNT = 30 }
+	}
+
+	option = { # double the guard
+		name = ova_murim.32.b
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+	}
+}
+
+ova_murim.33 = { # The Traitor Elder
+	type = country_event
+	placement = root
+
+	title = ova_murim.33.t
+	desc = ova_murim.33.d
+	flavor = ova_murim.33.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		NOT = { has_variable = ova_murim_seen_33 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_33
+	}
+
+	option = { # expose him now
+		name = ova_murim.33.a
+		default_option = yes
+		add_modifier = { name = ova_murim_spy_purge days = 1095 }
+		ova_champion_add_popularity = { AMOUNT = 30 }
+	}
+
+	option = { # feed him false maps
+		name = ova_murim.33.b
+		ova_champion_add_xp = { AMOUNT = 60 }
+	}
+}
+
+ova_murim.34 = { # The Artifact Caravan
+	type = country_event
+	placement = root
+
+	title = ova_murim.34.t
+	desc = ova_murim.34.d
+	flavor = ova_murim.34.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:CHE
+		NOT = { has_variable = ova_murim_seen_34 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_34
+	}
+
+	option = { # burn it
+		name = ova_murim.34.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 60 }
+		change_relations = { country = c:CHE value = -20 }
+	}
+
+	option = { # sell the schedule to the Sama brokers
+		name = ova_murim.34.b
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+	}
+}
+
+ova_murim.35 = { # A Letter From the Heavenly Demon
+	type = country_event
+	placement = root
+
+	title = ova_murim.35.t
+	desc = ova_murim.35.d
+	flavor = ova_murim.35.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:CHE
+		NOT = { has_variable = ova_murim_seen_35 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_35
+	}
+
+	option = { # burn the letter
+		name = ova_murim.35.a
+		default_option = yes
+		add_modifier = { name = ova_murim_martial_fervor days = 365 }
+		ova_champion_add_xp = { AMOUNT = 60 }
+	}
+
+	option = { # answer it
+		name = ova_murim.35.b
+		ova_champion_add_popularity = { AMOUNT = 30 }
+		change_relations = { country = c:CHE value = -10 }
+	}
+}
+
+ova_murim.39 = { # The Mountain Broken (Reckoning epilogue)
+	type = country_event
+	placement = root
+
+	title = ova_murim.39.t
+	desc = ova_murim.39.d
+	flavor = ova_murim.39.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		has_variable = ova_murim_returner_host
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.39.a
+		default_option = yes
+	}
+}
+
+# ------------------------------------------------------------- .50-.54 the Cult
+ova_murim.50 = { # The Empty Cot
+	type = country_event
+	placement = root
+
+	title = ova_murim.50.t
+	desc = ova_murim.50.d
+	flavor = ova_murim.50.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		has_global_variable = ova_murim_returner_fate
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.50.a
+		default_option = yes
+	}
+}
+
+ova_murim.51 = { # The Tribute Demand
+	type = country_event
+	placement = root
+
+	title = ova_murim.51.t
+	desc = ova_murim.51.d
+	flavor = ova_murim.51.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:CHE ?= THIS
+	}
+
+	immediate = { }
+
+	option = { # squeeze harder
+		name = ova_murim.51.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+		add_radicals = { value = small_radicals }
+	}
+
+	option = { # mercy as strategy
+		name = ova_murim.51.b
+		add_loyalists = { value = small_radicals }
+	}
+}
+
+ova_murim.52 = { # The Blood Cavalry Rides
+	type = country_event
+	placement = root
+
+	title = ova_murim.52.t
+	desc = ova_murim.52.d
+	flavor = ova_murim.52.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		c:CHE ?= THIS
+		any_country = {
+			ova_murim_is_alliance_sect_trigger = yes
+			is_subject = no
+		}
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				ova_murim_is_alliance_sect_trigger = yes
+				is_subject = no
+			}
+			save_scope_as = ova_murim_raid_target
+		}
+	}
+
+	option = {
+		name = ova_murim.52.a
+		default_option = yes
+		scope:ova_murim_raid_target = {
+			add_modifier = { name = ova_murim_cult_terror days = 730 }
+		}
+		change_relations = { country = scope:ova_murim_raid_target value = -20 }
+		add_modifier = { name = ova_murim_martial_fervor days = 365 }
+	}
+}
+
+ova_murim.53 = { # The Demon Academy
+	type = country_event
+	placement = root
+
+	title = ova_murim.53.t
+	desc = ova_murim.53.d
+	flavor = ova_murim.53.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		c:CHE ?= THIS
+	}
+
+	immediate = { }
+
+	option = { # the sword scripture
+		name = ova_murim.53.a
+		default_option = yes
+		add_modifier = { name = ova_murim_martial_fervor days = 730 }
+	}
+
+	option = { # the coin scripture
+		name = ova_murim.53.b
+		add_modifier = { name = ova_murim_coin_scripture days = 365 multiplier = money_amount_multiplier_small }
+	}
+}
+
+ova_murim.54 = { # Doubt in the Lower Halls
+	type = country_event
+	placement = root
+
+	title = ova_murim.54.t
+	desc = ova_murim.54.d
+	flavor = ova_murim.54.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:CHE ?= THIS
+		is_at_war = yes
+	}
+
+	immediate = { }
+
+	option = { # purge
+		name = ova_murim.54.a
+		default_option = yes
+		add_radicals = { value = small_radicals }
+	}
+
+	option = { # endure
+		name = ova_murim.54.b
+	}
+}
+
+# ------------------------------------------------------ .55-.56 alliance-shared
+ova_murim.55 = { # Skirmish at the Passes
+	type = country_event
+	placement = root
+
+	title = ova_murim.55.t
+	desc = ova_murim.55.d
+	flavor = ova_murim.55.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		exists = c:CHE
+	}
+
+	immediate = { }
+
+	option = { # reinforce
+		name = ova_murim.55.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_modifier = { name = ova_murim_martial_fervor days = 365 }
+	}
+
+	option = { # trade space for time
+		name = ova_murim.55.b
+	}
+}
+
+ova_murim.56 = { # An Infiltrator Caught
+	type = country_event
+	placement = root
+
+	title = ova_murim.56.t
+	desc = ova_murim.56.d
+	flavor = ova_murim.56.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		exists = c:CHE
+	}
+
+	immediate = { }
+
+	option = { # execute
+		name = ova_murim.56.a
+		default_option = yes
+		add_modifier = { name = ova_murim_spy_purge days = 1095 }
+	}
+
+	option = { # turn him
+		name = ova_murim.56.b
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_xp = { AMOUNT = 40 }
+		}
+	}
+}
+
+# --------------------------------------- .60-.61,.64-.65 outing decision outcomes
+ova_murim.60 = { # The Manual Found (Seek a Lost Manual - good)
+	type = country_event
+	placement = root
+
+	title = ova_murim.60.t
+	desc = ova_murim.60.d
+	flavor = ova_murim.60.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.60.a
+		default_option = yes
+		# an outing find is a genuine cheat: a lost lineage's whole art
+		ova_champion_gain_levels = { LEVELS = 1 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		add_modifier = { name = ova_murim_gangho_renown days = 730 }
+	}
+}
+
+ova_murim.61 = { # Qi Deviation (Seek a Lost Manual - bad)
+	type = country_event
+	placement = root
+
+	title = ova_murim.61.t
+	desc = ova_murim.61.d
+	flavor = ova_murim.61.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_sick_in_hospital"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.61.a
+		default_option = yes
+		ova_champion_injure = { MONTHS = 6 }
+	}
+}
+
+ova_murim.64 = { # The Grand Tournament
+	type = country_event
+	placement = root
+
+	title = ova_murim.64.t
+	desc = ova_murim.64.d
+	flavor = ova_murim.64.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = { }
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.64.a
+		default_option = yes
+		add_modifier = { name = ova_murim_tournament_glory days = 1825 }
+		add_modifier = { name = ova_murim_martial_fervor days = 730 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 40 }
+		}
+	}
+}
+
+ova_murim.65 = { # The Spy Purge
+	type = country_event
+	placement = root
+
+	title = ova_murim.65.t
+	desc = ova_murim.65.d
+	flavor = ova_murim.65.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = { }
+
+	immediate = { }
+
+	option = { # thorough
+		name = ova_murim.65.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_modifier = { name = ova_murim_spy_purge days = 1095 }
+	}
+
+	option = { # perfunctory
+		name = ova_murim.65.b
+		add_radicals = { value = small_radicals }
+	}
+}
+
+# ------------------------------------------------------------------- .70-.73 endings
+ova_murim.70 = { # The Murim Kneels
+	type = country_event
+	placement = root
+
+	title = ova_murim.70.t
+	desc = ova_murim.70.d
+	flavor = ova_murim.70.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		c:CHE ?= THIS
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.70.a
+		default_option = yes
+	}
+}
+
+ova_murim.71 = { # The Banner Holds
+	type = country_event
+	placement = root
+
+	title = ova_murim.71.t
+	desc = ova_murim.71.d
+	flavor = ova_murim.71.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		ova_murim_is_alliance_sect_trigger = yes
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.71.a
+		default_option = yes
+	}
+}
+
+ova_murim.72 = { # The Death of Kang Jin-woo
+	type = country_event
+	placement = root
+
+	title = ova_murim.72.t
+	desc = ova_murim.72.d
+	flavor = ova_murim.72.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		has_variable = ova_murim_returner_host
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.72.a
+		default_option = yes
+		add_modifier = { name = ova_murim_divergence_anxiety days = 730 }
+		add_radicals = { value = small_radicals }
+	}
+}
+
+ova_murim.73 = { # The Calamity Arrives (chapter fail: the Cult has mastered the murim)
+	type = country_event
+	placement = root
+
+	title = ova_murim.73.t
+	desc = ova_murim.73.d
+	flavor = ova_murim.73.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		has_variable = ova_murim_returner_host
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.73.a
+		default_option = yes
+		add_modifier = { name = ova_murim_divergence_anxiety days = 730 }
+		add_radicals = { value = small_radicals }
+	}
+}
+
+# ------------------------------------------- .80-.84 good ending: the road north
+ova_murim.80 = { # The Road North (final-battle opener)
+	type = country_event
+	placement = root
+
+	title = ova_murim.80.t
+	desc = ova_murim.80.d
+	flavor = ova_murim.80.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		NOT = { has_variable = ova_murim_seen_80 }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_80
+	}
+
+	option = {
+		name = ova_murim.80.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+}
+
+ova_murim.81 = { # The Ten Thousand Steps (the ascent, from the final-battle pulse)
+	type = country_event
+	placement = root
+
+	title = ova_murim.81.t
+	desc = ova_murim.81.d
+	flavor = ova_murim.81.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:CHE
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.81.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 60 }
+		trigger_event = { id = ova_murim.82 days = 8 }
+	}
+}
+
+ova_murim.82 = { # The Duel of Life and Death (the final battle)
+	type = country_event
+	placement = root
+
+	title = ova_murim.82.t
+	desc = ova_murim.82.d
+	flavor = ova_murim.82.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:CHE
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.82.a
+		default_option = yes
+		set_variable = ova_murim_duel_won
+		# the duel of a lifetime: whole realms cross in one evening
+		ova_champion_gain_levels = { LEVELS = 5 }
+		ova_champion_add_popularity = { AMOUNT = 100 }
+		# he comes down the mountain alive, but not unmarked
+		ova_champion_injure = { MONTHS = 3 }
+		if = {
+			limit = { exists = c:CHE }
+			c:CHE ?= {
+				add_modifier = { name = ova_murim_demon_slain days = -1 }
+			}
+			change_relations = { country = c:CHE value = -50 }
+		}
+	}
+}
+
+ova_murim.84 = { # The Sword That Came Down the Mountain (good-ending epilogue)
+	type = country_event
+	placement = root
+
+	title = ova_murim.84.t
+	desc = ova_murim.84.d
+	flavor = ova_murim.84.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_murim_returner_host
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.84.a
+		default_option = yes
+	}
+}
+
+# ------------------------------------------------- .90-.94 hidden chapter relays
+ova_murim.90 = { # chapter 1 quarter-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_murim_ch1_tick = yes
+	}
+}
+
+ova_murim.93 = { # war-conference third-of-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_murim_war_council_tick = yes
+	}
+}
+
+ova_murim.94 = { # Eight Banners arc half-year relay (shared by all 9 ally JEs)
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_murim_ally_tick = yes
+	}
+}
+
+# ============================================================================
+# The Eight Banners arc (.100-.143). Each banner: intro (creates the
+# companion, plot-armored) -> two TRIAL beats (selfless vs selfish) -> pledge.
+# A selfish choice on a trial sets ova_murim_ally_failed_X (that banner's JE
+# fails); declining the pledge sets ova_murim_ally_passed_X. Both move the arc
+# to the next gate. Union into a march happens only at the endgame coronation
+# (effect_ova_murim_crown_marches), never here.
+# ============================================================================
+
+# --- SOR: Seok Hye-gang, the iron monk of Sorim (sworn brother)
+ova_murim.100 = { # The Monk at the Flooded Ford (intro - creates the companion)
+	type = country_event
+	placement = root
+
+	title = ova_murim.100.t
+	desc = ova_murim.100.d
+	flavor = ova_murim.100.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:SOR
+		c:SOR ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_100 }
+		NOT = { has_variable = ova_murim_ally_char_sor }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_100
+		create_character = {
+			template = template_ova_murim_ally_sor
+			on_created = {
+				save_scope_as = ova_murim_new_ally
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = {
+					set_variable = { name = ova_murim_ally_char_sor value = scope:ova_murim_new_ally }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = ova_murim.100.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_murim.101 = { # A Beast in the Ravine (trial 1)
+	type = country_event
+	placement = root
+
+	title = ova_murim.101.t
+	desc = ova_murim.101.d
+	flavor = ova_murim.101.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:SOR
+		c:SOR ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_101 }
+		NOT = { has_variable = ova_murim_ally_failed_sor }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_101
+	}
+
+	option = { # SELFLESS: take the wound meant for the monk
+		name = ova_murim.101.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		ova_champion_injure = { MONTHS = 4 }
+		var:ova_murim_ally_char_sor ?= { add_trait = celebrity_commander }
+		change_relations = { country = c:SOR value = 10 }
+	}
+
+	option = { # SELFISH: let him take it, and seize the opening
+		name = ova_murim.101.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_sor
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:SOR value = -30 }
+	}
+}
+
+ova_murim.102 = { # The Pill of Nine Revolutions (trial 2)
+	type = country_event
+	placement = root
+
+	title = ova_murim.102.t
+	desc = ova_murim.102.d
+	flavor = ova_murim.102.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:SOR
+		c:SOR ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_102 }
+		NOT = { has_variable = ova_murim_ally_failed_sor }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_102
+	}
+
+	option = { # SELFLESS: give the monk the pill, and his breakthrough
+		name = ova_murim.102.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		var:ova_murim_ally_char_sor ?= { add_trait = expert_defensive_strategist }
+		change_relations = { country = c:SOR value = 10 }
+	}
+
+	option = { # SELFISH: swallow it himself
+		name = ova_murim.102.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_sor
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:SOR value = -30 }
+	}
+}
+
+ova_murim.103 = { # Sworn Beneath the Bell (pledge)
+	type = country_event
+	placement = root
+
+	title = ova_murim.103.t
+	desc = ova_murim.103.d
+	flavor = ova_murim.103.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:SOR
+		c:SOR ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_103 }
+		NOT = { has_variable = ova_murim_ally_sworn_sor }
+		NOT = { has_variable = ova_murim_ally_passed_sor }
+		NOT = { has_variable = ova_murim_ally_failed_sor }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_103
+	}
+
+	option = { # accept the oath
+		name = ova_murim.103.a
+		default_option = yes
+		set_variable = ova_murim_ally_sworn_sor
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+
+	option = { # turn the oath aside
+		name = ova_murim.103.b
+		ai_chance = { base = 0 }
+		set_variable = ova_murim_ally_passed_sor
+		add_modifier = { name = ova_murim_divergence_anxiety days = 365 }
+	}
+}
+
+# --- PAE: Paeng Ha-ran, the saber heiress, She-Bear of Hobuk (companion)
+ova_murim.104 = { # The Saber That Roars (intro)
+	type = country_event
+	placement = root
+
+	title = ova_murim.104.t
+	desc = ova_murim.104.d
+	flavor = ova_murim.104.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:PAE
+		c:PAE ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_104 }
+		NOT = { has_variable = ova_murim_ally_char_pae }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_104
+		create_character = {
+			template = template_ova_murim_ally_pae
+			on_created = {
+				save_scope_as = ova_murim_new_ally
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = {
+					set_variable = { name = ova_murim_ally_char_pae value = scope:ova_murim_new_ally }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = ova_murim.104.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_murim.105 = { # The Rearguard at the Bridge (trial 1)
+	type = country_event
+	placement = root
+
+	title = ova_murim.105.t
+	desc = ova_murim.105.d
+	flavor = ova_murim.105.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:PAE
+		c:PAE ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_105 }
+		NOT = { has_variable = ova_murim_ally_failed_pae }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_105
+	}
+
+	option = { # SELFLESS: hold the bridge at her side, and bleed for it
+		name = ova_murim.105.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		ova_champion_injure = { MONTHS = 4 }
+		var:ova_murim_ally_char_pae ?= { add_trait = expert_offensive_planner }
+		change_relations = { country = c:PAE value = 10 }
+	}
+
+	option = { # SELFISH: let the Paeng cover the retreat while he saves his strength
+		name = ova_murim.105.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_pae
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:PAE value = -30 }
+	}
+}
+
+ova_murim.106 = { # The Saber Spirit Wakes (trial 2)
+	type = country_event
+	placement = root
+
+	title = ova_murim.106.t
+	desc = ova_murim.106.d
+	flavor = ova_murim.106.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:PAE
+		c:PAE ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_106 }
+		NOT = { has_variable = ova_murim_ally_failed_pae }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_106
+	}
+
+	option = { # SELFLESS: talk her through the deviation all night
+		name = ova_murim.106.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		var:ova_murim_ally_char_pae ?= { add_trait = celebrity_commander }
+		change_relations = { country = c:PAE value = 10 }
+	}
+
+	option = { # SELFISH: copy the maddened saber art for himself while she suffers
+		name = ova_murim.106.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_pae
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:PAE value = -30 }
+	}
+}
+
+ova_murim.107 = { # Blood Mixed Beneath the Sabers (pledge)
+	type = country_event
+	placement = root
+
+	title = ova_murim.107.t
+	desc = ova_murim.107.d
+	flavor = ova_murim.107.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:PAE
+		c:PAE ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_107 }
+		NOT = { has_variable = ova_murim_ally_sworn_pae }
+		NOT = { has_variable = ova_murim_ally_passed_pae }
+		NOT = { has_variable = ova_murim_ally_failed_pae }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_107
+	}
+
+	option = { # accept her pledge
+		name = ova_murim.107.a
+		default_option = yes
+		set_variable = ova_murim_ally_sworn_pae
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+
+	option = { # turn her pledge aside
+		name = ova_murim.107.b
+		ai_chance = { base = 0 }
+		set_variable = ova_murim_ally_passed_pae
+		add_modifier = { name = ova_murim_divergence_anxiety days = 365 }
+	}
+}
+
+# --- TAN: Tang So-yeol, the poison maiden (companion)
+ova_murim.108 = { # A Gift of Three Poisons (intro)
+	type = country_event
+	placement = root
+
+	title = ova_murim.108.t
+	desc = ova_murim.108.d
+	flavor = ova_murim.108.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_sick_in_hospital"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:TAN
+		c:TAN ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_108 }
+		NOT = { has_variable = ova_murim_ally_char_tan }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_108
+		create_character = {
+			template = template_ova_murim_ally_tan
+			on_created = {
+				save_scope_as = ova_murim_new_ally
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = {
+					set_variable = { name = ova_murim_ally_char_tan value = scope:ova_murim_new_ally }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = ova_murim.108.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_murim.109 = { # The Antidote She Could Not Finish (trial 1)
+	type = country_event
+	placement = root
+
+	title = ova_murim.109.t
+	desc = ova_murim.109.d
+	flavor = ova_murim.109.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_sick_in_hospital"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:TAN
+		c:TAN ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_109 }
+		NOT = { has_variable = ova_murim_ally_failed_tan }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_109
+	}
+
+	option = { # SELFLESS: test the antidote on himself so she need not risk a servant
+		name = ova_murim.109.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		ova_champion_injure = { MONTHS = 4 }
+		var:ova_murim_ally_char_tan ?= { add_trait = expert_defensive_strategist }
+		change_relations = { country = c:TAN value = 10 }
+	}
+
+	option = { # SELFISH: keep the recovered formula and let her keep guessing
+		name = ova_murim.109.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_tan
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:TAN value = -30 }
+	}
+}
+
+ova_murim.110 = { # The Venom in Her Own Veins (trial 2)
+	type = country_event
+	placement = root
+
+	title = ova_murim.110.t
+	desc = ova_murim.110.d
+	flavor = ova_murim.110.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_sick_in_hospital"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:TAN
+		c:TAN ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_110 }
+		NOT = { has_variable = ova_murim_ally_failed_tan }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_110
+	}
+
+	option = { # SELFLESS: give her the last dose of the cure
+		name = ova_murim.110.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		var:ova_murim_ally_char_tan ?= { add_trait = celebrity_commander }
+		change_relations = { country = c:TAN value = 10 }
+	}
+
+	option = { # SELFISH: drink the cure himself to seal his own poison body
+		name = ova_murim.110.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_tan
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:TAN value = -30 }
+	}
+}
+
+ova_murim.111 = { # Tang Comes to the Table (pledge)
+	type = country_event
+	placement = root
+
+	title = ova_murim.111.t
+	desc = ova_murim.111.d
+	flavor = ova_murim.111.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:TAN
+		c:TAN ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_111 }
+		NOT = { has_variable = ova_murim_ally_sworn_tan }
+		NOT = { has_variable = ova_murim_ally_passed_tan }
+		NOT = { has_variable = ova_murim_ally_failed_tan }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_111
+	}
+
+	option = { # accept her pledge
+		name = ova_murim.111.a
+		default_option = yes
+		set_variable = ova_murim_ally_sworn_tan
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+
+	option = { # turn her pledge aside
+		name = ova_murim.111.b
+		ai_chance = { base = 0 }
+		set_variable = ova_murim_ally_passed_tan
+		add_modifier = { name = ova_murim_divergence_anxiety days = 365 }
+	}
+}
+
+# --- NAM: Namgung Wol-hee, the proud young mistress (companion)
+ova_murim.112 = { # The Young Mistress Demands a Duel (intro)
+	type = country_event
+	placement = root
+
+	title = ova_murim.112.t
+	desc = ova_murim.112.d
+	flavor = ova_murim.112.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:NAM
+		c:NAM ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_112 }
+		NOT = { has_variable = ova_murim_ally_char_nam }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_112
+		create_character = {
+			template = template_ova_murim_ally_nam
+			on_created = {
+				save_scope_as = ova_murim_new_ally
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = {
+					set_variable = { name = ova_murim_ally_char_nam value = scope:ova_murim_new_ally }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = ova_murim.112.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_murim.113 = { # The Duel She Must Not Lose (trial 1)
+	type = country_event
+	placement = root
+
+	title = ova_murim.113.t
+	desc = ova_murim.113.d
+	flavor = ova_murim.113.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:NAM
+		c:NAM ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_113 }
+		NOT = { has_variable = ova_murim_ally_failed_nam }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_113
+	}
+
+	option = { # SELFLESS: throw the duel so her pride survives the crowd
+		name = ova_murim.113.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		ova_champion_add_popularity = { AMOUNT = -10 }
+		var:ova_murim_ally_char_nam ?= { add_trait = inspirational_orator }
+		change_relations = { country = c:NAM value = 10 }
+	}
+
+	option = { # SELFISH: humiliate her utterly and take the acclaim
+		name = ova_murim.113.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_nam
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_popularity = { AMOUNT = 60 }
+		change_relations = { country = c:NAM value = -30 }
+	}
+}
+
+ova_murim.114 = { # Shoulder to Shoulder at the Pass (trial 2)
+	type = country_event
+	placement = root
+
+	title = ova_murim.114.t
+	desc = ova_murim.114.d
+	flavor = ova_murim.114.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:NAM
+		c:NAM ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_114 }
+		NOT = { has_variable = ova_murim_ally_failed_nam }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_114
+	}
+
+	option = { # SELFLESS: hold the stair and let her carry the wounded out
+		name = ova_murim.114.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		ova_champion_injure = { MONTHS = 4 }
+		var:ova_murim_ally_char_nam ?= { add_trait = expert_defensive_strategist }
+		change_relations = { country = c:NAM value = 10 }
+	}
+
+	option = { # SELFISH: chase the glory kill and leave the wounded to her
+		name = ova_murim.114.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_nam
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:NAM value = -30 }
+	}
+}
+
+ova_murim.115 = { # A Proud Woman Bows Once (pledge)
+	type = country_event
+	placement = root
+
+	title = ova_murim.115.t
+	desc = ova_murim.115.d
+	flavor = ova_murim.115.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:NAM
+		c:NAM ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_115 }
+		NOT = { has_variable = ova_murim_ally_sworn_nam }
+		NOT = { has_variable = ova_murim_ally_passed_nam }
+		NOT = { has_variable = ova_murim_ally_failed_nam }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_115
+	}
+
+	option = { # accept her pledge
+		name = ova_murim.115.a
+		default_option = yes
+		set_variable = ova_murim_ally_sworn_nam
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+
+	option = { # turn her pledge aside
+		name = ova_murim.115.b
+		ai_chance = { base = 0 }
+		set_variable = ova_murim_ally_passed_nam
+		add_modifier = { name = ova_murim_divergence_anxiety days = 365 }
+	}
+}
+
+# --- JEG: Jegal Seo-yeon, the strategist (companion)
+ova_murim.116 = { # Nineteen Questions (intro)
+	type = country_event
+	placement = root
+
+	title = ova_murim.116.t
+	desc = ova_murim.116.d
+	flavor = ova_murim.116.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:JEG
+		c:JEG ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_116 }
+		NOT = { has_variable = ova_murim_ally_char_jeg }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_116
+		create_character = {
+			template = template_ova_murim_ally_jeg
+			on_created = {
+				save_scope_as = ova_murim_new_ally
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = {
+					set_variable = { name = ova_murim_ally_char_jeg value = scope:ova_murim_new_ally }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = ova_murim.116.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_murim.117 = { # The Plan That Costs a Column (trial 1)
+	type = country_event
+	placement = root
+
+	title = ova_murim.117.t
+	desc = ova_murim.117.d
+	flavor = ova_murim.117.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:JEG
+		c:JEG ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_117 }
+		NOT = { has_variable = ova_murim_ally_failed_jeg }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_117
+	}
+
+	option = { # SELFLESS: put himself where her plan expects the losses
+		name = ova_murim.117.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		ova_champion_injure = { MONTHS = 4 }
+		var:ova_murim_ally_char_jeg ?= { add_trait = expert_offensive_planner }
+		change_relations = { country = c:JEG value = 10 }
+	}
+
+	option = { # SELFISH: rewrite her plan to spend her clan's men instead
+		name = ova_murim.117.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_jeg
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:JEG value = -30 }
+	}
+}
+
+ova_murim.118 = { # The Credit for the Victory (trial 2)
+	type = country_event
+	placement = root
+
+	title = ova_murim.118.t
+	desc = ova_murim.118.d
+	flavor = ova_murim.118.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:JEG
+		c:JEG ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_118 }
+		NOT = { has_variable = ova_murim_ally_failed_jeg }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_118
+	}
+
+	option = { # SELFLESS: give her the credit before the whole council
+		name = ova_murim.118.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		ova_champion_add_popularity = { AMOUNT = -10 }
+		var:ova_murim_ally_char_jeg ?= { add_trait = inspirational_orator }
+		change_relations = { country = c:JEG value = 10 }
+	}
+
+	option = { # SELFISH: take the credit and the renown for himself
+		name = ova_murim.118.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_jeg
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_popularity = { AMOUNT = 60 }
+		change_relations = { country = c:JEG value = -30 }
+	}
+}
+
+ova_murim.119 = { # The Strategist Chooses Her Board (pledge)
+	type = country_event
+	placement = root
+
+	title = ova_murim.119.t
+	desc = ova_murim.119.d
+	flavor = ova_murim.119.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:JEG
+		c:JEG ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_119 }
+		NOT = { has_variable = ova_murim_ally_sworn_jeg }
+		NOT = { has_variable = ova_murim_ally_passed_jeg }
+		NOT = { has_variable = ova_murim_ally_failed_jeg }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_119
+	}
+
+	option = { # accept her pledge
+		name = ova_murim.119.a
+		default_option = yes
+		set_variable = ova_murim_ally_sworn_jeg
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+
+	option = { # turn her pledge aside
+		name = ova_murim.119.b
+		ai_chance = { base = 0 }
+		set_variable = ova_murim_ally_passed_jeg
+		add_modifier = { name = ova_murim_divergence_anxiety days = 365 }
+	}
+}
+
+# --- MUD: Wi Cheong-ha, the taoist priestess (companion)
+ova_murim.120 = { # The Thread That Doubles Back (intro)
+	type = country_event
+	placement = root
+
+	title = ova_murim.120.t
+	desc = ova_murim.120.d
+	flavor = ova_murim.120.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:MUD
+		c:MUD ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_120 }
+		NOT = { has_variable = ova_murim_ally_char_mud }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_120
+		create_character = {
+			template = template_ova_murim_ally_mud
+			on_created = {
+				save_scope_as = ova_murim_new_ally
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = {
+					set_variable = { name = ova_murim_ally_char_mud value = scope:ova_murim_new_ally }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = ova_murim.120.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_murim.121 = { # The Reading That Frightens Her (trial 1)
+	type = country_event
+	placement = root
+
+	title = ova_murim.121.t
+	desc = ova_murim.121.d
+	flavor = ova_murim.121.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_sick_in_hospital"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:MUD
+		c:MUD ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_121 }
+		NOT = { has_variable = ova_murim_ally_failed_mud }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_121
+	}
+
+	option = { # SELFLESS: take the omen's price onto himself
+		name = ova_murim.121.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		ova_champion_injure = { MONTHS = 4 }
+		var:ova_murim_ally_char_mud ?= { add_trait = expert_defensive_strategist }
+		change_relations = { country = c:MUD value = 10 }
+	}
+
+	option = { # SELFISH: let the backlash fall on the priestess
+		name = ova_murim.121.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_mud
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:MUD value = -30 }
+	}
+}
+
+ova_murim.122 = { # The Talisman and the Toll (trial 2)
+	type = country_event
+	placement = root
+
+	title = ova_murim.122.t
+	desc = ova_murim.122.d
+	flavor = ova_murim.122.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:MUD
+		c:MUD ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_122 }
+		NOT = { has_variable = ova_murim_ally_failed_mud }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_122
+	}
+
+	option = { # SELFLESS: let her keep the rite that raises her art
+		name = ova_murim.122.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		var:ova_murim_ally_char_mud ?= { add_trait = inspirational_orator }
+		change_relations = { country = c:MUD value = 10 }
+	}
+
+	option = { # SELFISH: take the rite's power for his own cultivation
+		name = ova_murim.122.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_mud
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:MUD value = -30 }
+	}
+}
+
+ova_murim.123 = { # Mudang Comes Down the Mountain (pledge)
+	type = country_event
+	placement = root
+
+	title = ova_murim.123.t
+	desc = ova_murim.123.d
+	flavor = ova_murim.123.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:MUD
+		c:MUD ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_123 }
+		NOT = { has_variable = ova_murim_ally_sworn_mud }
+		NOT = { has_variable = ova_murim_ally_passed_mud }
+		NOT = { has_variable = ova_murim_ally_failed_mud }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_123
+	}
+
+	option = { # accept her pledge
+		name = ova_murim.123.a
+		default_option = yes
+		set_variable = ova_murim_ally_sworn_mud
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+
+	option = { # turn her pledge aside
+		name = ova_murim.123.b
+		ai_chance = { base = 0 }
+		set_variable = ova_murim_ally_passed_mud
+		add_modifier = { name = ova_murim_divergence_anxiety days = 365 }
+	}
+}
+
+# --- SAM: Sama Ryeon, the information broker (companion)
+ova_murim.124 = { # The Woman Who Sells Tomorrow (intro)
+	type = country_event
+	placement = root
+
+	title = ova_murim.124.t
+	desc = ova_murim.124.d
+	flavor = ova_murim.124.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:SAM
+		c:SAM ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_124 }
+		NOT = { has_variable = ova_murim_ally_char_sam }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_124
+		create_character = {
+			template = template_ova_murim_ally_sam
+			on_created = {
+				save_scope_as = ova_murim_new_ally
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = {
+					set_variable = { name = ova_murim_ally_char_sam value = scope:ova_murim_new_ally }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = ova_murim.124.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_murim.125 = { # The Debt She Cannot Call In (trial 1)
+	type = country_event
+	placement = root
+
+	title = ova_murim.125.t
+	desc = ova_murim.125.d
+	flavor = ova_murim.125.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:SAM
+		c:SAM ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_125 }
+		NOT = { has_variable = ova_murim_ally_failed_sam }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_125
+	}
+
+	option = { # SELFLESS: cover her ruinous debt out of the sect treasury
+		name = ova_murim.125.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		var:ova_murim_ally_char_sam ?= { add_trait = expert_defensive_strategist }
+		change_relations = { country = c:SAM value = 10 }
+	}
+
+	option = { # SELFISH: buy her debt cheap and own her web outright
+		name = ova_murim.125.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_sam
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:SAM value = -30 }
+	}
+}
+
+ova_murim.126 = { # A Price Beyond Coin (trial 2)
+	type = country_event
+	placement = root
+
+	title = ova_murim.126.t
+	desc = ova_murim.126.d
+	flavor = ova_murim.126.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:SAM
+		c:SAM ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_126 }
+		NOT = { has_variable = ova_murim_ally_failed_sam }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_126
+	}
+
+	option = { # SELFLESS: warn her of the ambush and lose the advantage
+		name = ova_murim.126.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		var:ova_murim_ally_char_sam ?= { add_trait = celebrity_commander }
+		change_relations = { country = c:SAM value = 10 }
+	}
+
+	option = { # SELFISH: let the ambush cull her rivals and thin her network
+		name = ova_murim.126.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_sam
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:SAM value = -30 }
+	}
+}
+
+ova_murim.127 = { # The Ledger Closes (pledge)
+	type = country_event
+	placement = root
+
+	title = ova_murim.127.t
+	desc = ova_murim.127.d
+	flavor = ova_murim.127.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:SAM
+		c:SAM ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_127 }
+		NOT = { has_variable = ova_murim_ally_sworn_sam }
+		NOT = { has_variable = ova_murim_ally_passed_sam }
+		NOT = { has_variable = ova_murim_ally_failed_sam }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_127
+	}
+
+	option = { # accept her pledge
+		name = ova_murim.127.a
+		default_option = yes
+		set_variable = ova_murim_ally_sworn_sam
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+
+	option = { # turn her pledge aside
+		name = ova_murim.127.b
+		ai_chance = { base = 0 }
+		set_variable = ova_murim_ally_passed_sam
+		add_modifier = { name = ova_murim_divergence_anxiety days = 365 }
+	}
+}
+
+# --- HWA: Yeon Seol-mae, the sword saintess (companion)
+ova_murim.128 = { # Plum Blossoms Out of Season (intro)
+	type = country_event
+	placement = root
+
+	title = ova_murim.128.t
+	desc = ova_murim.128.d
+	flavor = ova_murim.128.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:HWA
+		c:HWA ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_128 }
+		NOT = { has_variable = ova_murim_ally_char_hwa }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_128
+		create_character = {
+			template = template_ova_murim_ally_hwa
+			on_created = {
+				save_scope_as = ova_murim_new_ally
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = {
+					set_variable = { name = ova_murim_ally_char_hwa value = scope:ova_murim_new_ally }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = ova_murim.128.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_murim.129 = { # The Blossom That Will Not Bloom (trial 1)
+	type = country_event
+	placement = root
+
+	title = ova_murim.129.t
+	desc = ova_murim.129.d
+	flavor = ova_murim.129.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:HWA
+		c:HWA ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_129 }
+		NOT = { has_variable = ova_murim_ally_failed_hwa }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_129
+	}
+
+	option = { # SELFLESS: guide her to the insight and claim none of it
+		name = ova_murim.129.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		ova_champion_add_popularity = { AMOUNT = -10 }
+		var:ova_murim_ally_char_hwa ?= { add_trait = expert_offensive_planner }
+		change_relations = { country = c:HWA value = 10 }
+	}
+
+	option = { # SELFISH: keep the plum blossom insight for his own sword
+		name = ova_murim.129.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_hwa
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:HWA value = -30 }
+	}
+}
+
+ova_murim.130 = { # Two Swords on the Peak (trial 2)
+	type = country_event
+	placement = root
+
+	title = ova_murim.130.t
+	desc = ova_murim.130.d
+	flavor = ova_murim.130.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:HWA
+		c:HWA ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_130 }
+		NOT = { has_variable = ova_murim_ally_failed_hwa }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_130
+	}
+
+	option = { # SELFLESS: take the killing blow meant for her at the shrine
+		name = ova_murim.130.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		ova_champion_injure = { MONTHS = 4 }
+		var:ova_murim_ally_char_hwa ?= { add_trait = celebrity_commander }
+		change_relations = { country = c:HWA value = 10 }
+	}
+
+	option = { # SELFISH: use her as a shield and cut the ambusher down
+		name = ova_murim.130.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_hwa
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+		change_relations = { country = c:HWA value = -30 }
+	}
+}
+
+ova_murim.131 = { # The Saintess Leaves the Mountain (pledge)
+	type = country_event
+	placement = root
+
+	title = ova_murim.131.t
+	desc = ova_murim.131.d
+	flavor = ova_murim.131.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		exists = c:HWA
+		c:HWA ?= { is_subject = no }
+		NOT = { has_variable = ova_murim_seen_131 }
+		NOT = { has_variable = ova_murim_ally_sworn_hwa }
+		NOT = { has_variable = ova_murim_ally_passed_hwa }
+		NOT = { has_variable = ova_murim_ally_failed_hwa }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_131
+	}
+
+	option = { # accept her pledge
+		name = ova_murim.131.a
+		default_option = yes
+		set_variable = ova_murim_ally_sworn_hwa
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+
+	option = { # turn her pledge aside
+		name = ova_murim.131.b
+		ai_chance = { base = 0 }
+		set_variable = ova_murim_ally_passed_hwa
+		add_modifier = { name = ova_murim_divergence_anxiety days = 365 }
+	}
+}
+
+# ============================================================================
+# The home banner (his own house). Courted FIRST. The intro creates the
+# companion of whichever banner the host is (a daughter for a clan host, a
+# senior for a sect host); the trials mirror the others; the pledge sets
+# ova_murim_ally_sworn_home. Objective: staff a Champion Hall AND win the
+# pledge. A selfish choice here (ova_murim_ally_failed_home) locks away the
+# good ending entirely.
+# ============================================================================
+ova_murim.140 = { # The House That Took Him In (intro - creates the home companion)
+	type = country_event
+	placement = root
+
+	title = ova_murim.140.t
+	desc = ova_murim.140.d
+	flavor = ova_murim.140.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		has_variable = ova_murim_returner_host
+		NOT = { has_variable = ova_murim_seen_140 }
+		NOT = { has_variable = ova_murim_ally_char_home }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_140
+		# create the companion of the host's OWN banner
+		if = {
+			limit = { c:SOR ?= THIS }
+			create_character = {
+				template = template_ova_murim_ally_sor
+				on_created = {
+					save_scope_as = ova_murim_new_ally
+					set_variable = ova_plot_armor
+					set_character_immortal = yes
+					owner = { set_variable = { name = ova_murim_ally_char_home value = scope:ova_murim_new_ally } }
+				}
+			}
+		}
+		else_if = {
+			limit = { c:PAE ?= THIS }
+			create_character = {
+				template = template_ova_murim_ally_pae
+				on_created = {
+					save_scope_as = ova_murim_new_ally
+					set_variable = ova_plot_armor
+					set_character_immortal = yes
+					owner = { set_variable = { name = ova_murim_ally_char_home value = scope:ova_murim_new_ally } }
+				}
+			}
+		}
+		else_if = {
+			limit = { c:TAN ?= THIS }
+			create_character = {
+				template = template_ova_murim_ally_tan
+				on_created = {
+					save_scope_as = ova_murim_new_ally
+					set_variable = ova_plot_armor
+					set_character_immortal = yes
+					owner = { set_variable = { name = ova_murim_ally_char_home value = scope:ova_murim_new_ally } }
+				}
+			}
+		}
+		else_if = {
+			limit = { c:NAM ?= THIS }
+			create_character = {
+				template = template_ova_murim_ally_nam
+				on_created = {
+					save_scope_as = ova_murim_new_ally
+					set_variable = ova_plot_armor
+					set_character_immortal = yes
+					owner = { set_variable = { name = ova_murim_ally_char_home value = scope:ova_murim_new_ally } }
+				}
+			}
+		}
+		else_if = {
+			limit = { c:JEG ?= THIS }
+			create_character = {
+				template = template_ova_murim_ally_jeg
+				on_created = {
+					save_scope_as = ova_murim_new_ally
+					set_variable = ova_plot_armor
+					set_character_immortal = yes
+					owner = { set_variable = { name = ova_murim_ally_char_home value = scope:ova_murim_new_ally } }
+				}
+			}
+		}
+		else_if = {
+			limit = { c:MUD ?= THIS }
+			create_character = {
+				template = template_ova_murim_ally_mud
+				on_created = {
+					save_scope_as = ova_murim_new_ally
+					set_variable = ova_plot_armor
+					set_character_immortal = yes
+					owner = { set_variable = { name = ova_murim_ally_char_home value = scope:ova_murim_new_ally } }
+				}
+			}
+		}
+		else_if = {
+			limit = { c:SAM ?= THIS }
+			create_character = {
+				template = template_ova_murim_ally_sam
+				on_created = {
+					save_scope_as = ova_murim_new_ally
+					set_variable = ova_plot_armor
+					set_character_immortal = yes
+					owner = { set_variable = { name = ova_murim_ally_char_home value = scope:ova_murim_new_ally } }
+				}
+			}
+		}
+		else = {
+			# HWA host (or any remaining sect)
+			create_character = {
+				template = template_ova_murim_ally_hwa
+				on_created = {
+					save_scope_as = ova_murim_new_ally
+					set_variable = ova_plot_armor
+					set_character_immortal = yes
+					owner = { set_variable = { name = ova_murim_ally_char_home value = scope:ova_murim_new_ally } }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = ova_murim.140.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_murim.141 = { # The Elder Who Would Not Believe (trial 1)
+	type = country_event
+	placement = root
+
+	title = ova_murim.141.t
+	desc = ova_murim.141.d
+	flavor = ova_murim.141.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		has_variable = ova_murim_returner_host
+		NOT = { has_variable = ova_murim_seen_141 }
+		NOT = { has_variable = ova_murim_ally_failed_home }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_141
+	}
+
+	option = { # SELFLESS: shield the doubting elder from his own mistake
+		name = ova_murim.141.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		ova_champion_add_popularity = { AMOUNT = -10 }
+		var:ova_murim_ally_char_home ?= { add_trait = inspirational_orator }
+	}
+
+	option = { # SELFISH: break the elder publicly and take his authority
+		name = ova_murim.141.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_home
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_popularity = { AMOUNT = 60 }
+		add_radicals = { value = small_radicals strata = upper }
+	}
+}
+
+ova_murim.142 = { # The Rite of the Inner Hall (trial 2)
+	type = country_event
+	placement = root
+
+	title = ova_murim.142.t
+	desc = ova_murim.142.d
+	flavor = ova_murim.142.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		has_variable = ova_murim_returner_host
+		NOT = { has_variable = ova_murim_seen_142 }
+		NOT = { has_variable = ova_murim_ally_failed_home }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_142
+	}
+
+	option = { # SELFLESS: give the breakthrough to the one who took him in
+		name = ova_murim.142.a
+		default_option = yes
+		effect_ova_murim_good_choice = yes
+		var:ova_murim_ally_char_home ?= { add_trait = celebrity_commander }
+	}
+
+	option = { # SELFISH: take the inner-hall secret for himself alone
+		name = ova_murim.142.b
+		ai_chance = { base = 0 }
+		effect_ova_murim_bad_choice = yes
+		set_variable = ova_murim_ally_failed_home
+		ova_champion_gain_levels = { LEVELS = 3 }
+		ova_champion_add_xp = { AMOUNT = 100 }
+	}
+}
+
+ova_murim.143 = { # The Vow of His Own House (pledge)
+	type = country_event
+	placement = root
+
+	title = ova_murim.143.t
+	desc = ova_murim.143.d
+	flavor = ova_murim.143.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_murim_returner_is_alive_trigger = yes
+		has_variable = ova_murim_returner_host
+		NOT = { has_variable = ova_murim_seen_143 }
+		NOT = { has_variable = ova_murim_ally_sworn_home }
+		NOT = { has_variable = ova_murim_ally_passed_home }
+		NOT = { has_variable = ova_murim_ally_failed_home }
+	}
+
+	immediate = {
+		set_variable = ova_murim_seen_143
+	}
+
+	option = { # accept the vow of his own house
+		name = ova_murim.143.a
+		default_option = yes
+		set_variable = ova_murim_ally_sworn_home
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+
+	option = { # hold his own house at arm's length
+		name = ova_murim.143.b
+		ai_chance = { base = 0 }
+		set_variable = ova_murim_ally_passed_home
+		add_modifier = { name = ova_murim_divergence_anxiety days = 365 }
+	}
+}
+
+# ------------------------------------------ .144-.147 objective-decision outcomes
+ova_murim.144 = { # The Hobuk Saber Trials (PAE objective)
+	type = country_event
+	placement = root
+
+	title = ova_murim.144.t
+	desc = ova_murim.144.d
+	flavor = ova_murim.144.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = { }
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.144.a
+		default_option = yes
+		if = {
+			limit = { exists = c:PAE }
+			change_relations = { country = c:PAE value = 10 }
+		}
+	}
+}
+
+ova_murim.145 = { # The Fire Formulas Restored (TAN objective)
+	type = country_event
+	placement = root
+
+	title = ova_murim.145.t
+	desc = ova_murim.145.d
+	flavor = ova_murim.145.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_sick_in_hospital"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = { }
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.145.a
+		default_option = yes
+		if = {
+			limit = { exists = c:TAN }
+			change_relations = { country = c:TAN value = 10 }
+		}
+	}
+}
+
+ova_murim.146 = { # The Shrine Endowed (MUD objective)
+	type = country_event
+	placement = root
+
+	title = ova_murim.146.t
+	desc = ova_murim.146.d
+	flavor = ova_murim.146.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = { }
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.146.a
+		default_option = yes
+		if = {
+			limit = { exists = c:MUD }
+			change_relations = { country = c:MUD value = 10 }
+		}
+	}
+}
+
+ova_murim.147 = { # The Ledger Settled (SAM objective)
+	type = country_event
+	placement = root
+
+	title = ova_murim.147.t
+	desc = ova_murim.147.d
+	flavor = ova_murim.147.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = { }
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.147.a
+		default_option = yes
+		if = {
+			limit = { exists = c:SAM }
+			change_relations = { country = c:SAM value = 10 }
+		}
+	}
+}
+
+# ============================================================================
+# The succession endgame (.150-.156). The old master is assassinated by
+# demonic-cult knives; only now, at the very last moment, does the Returner
+# take the seat - willingly raised (good) or by force (bad).
+# ============================================================================
+ova_murim.150 = { # The Knives in the Night (the old master falls)
+	type = country_event
+	placement = root
+
+	title = ova_murim.150.t
+	desc = ova_murim.150.d
+	flavor = ova_murim.150.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		has_variable = ova_murim_returner_host
+		ova_murim_returner_is_alive_trigger = yes
+	}
+
+	immediate = {
+		# the demonic cult's assassins take the old master; the seat stands empty
+		if = {
+			limit = {
+				exists = ruler
+				NOT = { ruler = { has_variable = ova_plot_armor } }
+			}
+			ruler = { kill_character = yes }
+		}
+	}
+
+	option = { # the good ending: raised up willingly (clan wedding)
+		name = ova_murim.150.a
+		trigger = {
+			ova_murim_good_path_trigger = yes
+			ova_murim_host_is_clan_trigger = yes
+		}
+		default_option = yes
+		trigger_event = { id = ova_murim.151 days = 5 }
+	}
+
+	option = { # the good ending: acclaimed patriarch of the sect
+		name = ova_murim.150.b
+		trigger = {
+			ova_murim_good_path_trigger = yes
+			NOT = { ova_murim_host_is_clan_trigger = yes }
+		}
+		default_option = yes
+		trigger_event = { id = ova_murim.152 days = 5 }
+	}
+
+	option = { # the bad ending: no one left to stop him
+		name = ova_murim.150.c
+		trigger = {
+			NOT = { ova_murim_good_path_trigger = yes }
+		}
+		default_option = yes
+		trigger_event = { id = ova_murim.153 days = 5 }
+	}
+}
+
+ova_murim.151 = { # A Wedding and a New Name (good ending, clan host)
+	type = country_event
+	placement = root
+
+	title = ova_murim.151.t
+	desc = ova_murim.151.d
+	flavor = ova_murim.151.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_murim_returner_host
+		ova_murim_returner_is_alive_trigger = yes
+	}
+
+	immediate = {
+		# he takes the clan's name in marriage to its daughter
+		if = {
+			limit = { c:PAE ?= THIS }
+			var:ova_murim_returner_char ?= { set_last_name = Paeng }
+		}
+		else_if = {
+			limit = { c:TAN ?= THIS }
+			var:ova_murim_returner_char ?= { set_last_name = Tang }
+		}
+		else_if = {
+			limit = { c:NAM ?= THIS }
+			var:ova_murim_returner_char ?= { set_last_name = Namgung }
+		}
+		else_if = {
+			limit = { c:JEG ?= THIS }
+			var:ova_murim_returner_char ?= { set_last_name = Jegal }
+		}
+		else_if = {
+			limit = { c:SAM ?= THIS }
+			var:ova_murim_returner_char ?= { set_last_name = Sama }
+		}
+	}
+
+	option = {
+		name = ova_murim.151.a
+		default_option = yes
+		effect_ova_murim_take_the_seat = yes
+		effect_ova_murim_crown_marches = yes
+		add_journal_entry = { type = je_ova_murim_final_battle }
+	}
+}
+
+ova_murim.152 = { # The Hall Names Its Patriarch (good ending, sect host)
+	type = country_event
+	placement = root
+
+	title = ova_murim.152.t
+	desc = ova_murim.152.d
+	flavor = ova_murim.152.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_murim_returner_host
+		ova_murim_returner_is_alive_trigger = yes
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.152.a
+		default_option = yes
+		effect_ova_murim_take_the_seat = yes
+		effect_ova_murim_crown_marches = yes
+		add_journal_entry = { type = je_ova_murim_final_battle }
+	}
+}
+
+ova_murim.153 = { # The Seat Taken by Force (bad ending)
+	type = country_event
+	placement = root
+
+	title = ova_murim.153.t
+	desc = ova_murim.153.d
+	flavor = ova_murim.153.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		has_variable = ova_murim_returner_host
+		ova_murim_returner_is_alive_trigger = yes
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.153.a
+		default_option = yes
+		effect_ova_murim_take_the_seat_by_force = yes
+		add_journal_entry = { type = je_ova_murim_war_conference }
+	}
+}
+
+ova_murim.156 = { # The Reckoning Declared (bad ending, war conference on_complete)
+	type = country_event
+	placement = root
+
+	title = ova_murim.156.t
+	desc = ova_murim.156.d
+	flavor = ova_murim.156.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		has_variable = ova_murim_returner_host
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_murim.156.a
+		default_option = yes
+	}
+}

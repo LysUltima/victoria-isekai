@@ -1,0 +1,41 @@
+﻿### Champions JE - Champion Hall production method groups
+
+pmg_ova_hall_base = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_ova_champion_hall
+	}
+}
+
+pmg_ova_martial_training = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_ova_training_none
+		pm_ova_sparring_yards
+		pm_ova_masters_arena
+		pm_ova_grand_dojo
+		pm_ova_ascendant_arena
+	}
+}
+
+pmg_ova_scholarly_tutelage = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_ova_tutelage_none
+		pm_ova_hall_library
+		pm_ova_arcane_library
+		pm_ova_grand_athenaeum
+		pm_ova_celestial_archive
+	}
+}
+
+pmg_ova_champions_patronage = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_ova_patronage_none
+		pm_ova_hall_patronage
+		pm_ova_grand_patronage
+		pm_ova_royal_pageants
+		pm_ova_imperial_apotheosis
+	}
+}

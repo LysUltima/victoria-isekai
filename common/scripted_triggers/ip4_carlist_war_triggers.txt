@@ -1,0 +1,4 @@
+﻿# This = Country
+is_in_guerilla_war = {
+	always = no # was je_the_first_carlist_war (Spanish Carlist Wars journal entry, not present in this mod)
+}

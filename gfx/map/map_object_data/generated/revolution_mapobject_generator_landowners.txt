@@ -1,0 +1,24 @@
+﻿object={
+	name="revolution_mapobject_generator_landowners_0"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=yes
+	layer="revolution_dynamic_landowners"
+	pdxmesh="revolution_barricade_small_landowners_mesh"
+}
+object={
+	name="revolution_mapobject_generator_landowners_1"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=yes
+	layer="revolution_dynamic_landowners"
+	pdxmesh="revolution_barricade_mid_landowners_mesh"
+}
+object={
+	name="revolution_mapobject_generator_landowners_2"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=yes
+	layer="revolution_dynamic_landowners"
+	pdxmesh="revolution_barricade_large_landowners_mesh"
+}

@@ -1,0 +1,139 @@
+﻿# Heavenly Demon Cult (c:CHE) vs Orthodox Martial Alliance storyline - static modifiers.
+# Champion army buffs / patronage / mourning live in the SHARED layer
+# (common/static_modifiers/ova_champion_modifiers.txt) - these are murim-storyline-only.
+# All modifier-type keys verified against
+# C:\Program Files (x86)\Steam\steamapps\common\Victoria 3\game\common\modifier_type_definitions\
+# 00_modifier_types.txt (country_prestige_add/mult, country_legitimacy_base_add, unit_offense_mult,
+# unit_defense_mult, unit_morale_recovery_mult, country_authority_mult) before use. Icons reused
+# from vanilla gfx/interface/icons/timed_modifier_icons/ (no new art). Every key below has a
+# display-name loc entry in localization/replace/english/ova_murim_l_english.yml. Two icon
+# substitutions were needed (no book/sword icons exist in that folder): modifier_lightbulb_positive
+# for the insight modifier, modifier_rifle_negative for the sword-succession modifier.
+
+# The Cult's mastery of the murim (je_ova_murim_heavenly_demon on_complete) - permanent.
+ova_murim_master_of_the_murim = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_prestige_mult = 0.25
+	country_prestige_add = 50
+	unit_offense_mult = 0.1
+	unit_defense_mult = 0.1
+	country_legitimacy_base_add = 15
+}
+
+# The Alliance's (or a lone sect's) triumph over the Cult - permanent.
+ova_murim_orthodox_victory = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_prestige_mult = 0.15
+	country_prestige_add = 30
+	unit_defense_mult = 0.1
+	country_legitimacy_base_add = 10
+}
+
+# Foreknowledge is worth its weight in gold: applied to the host while any Returner chain JE runs.
+ova_murim_returners_insight = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds
+	country_weekly_innovation_mult = 0.05
+	country_tech_spread_mult = 0.1
+}
+
+# Sword Path: a throne seized by the blade has no mandate yet, but the arm behind it is undeniable.
+ova_murim_sword_succession = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
+	country_legitimacy_base_add = -20
+	unit_offense_mult = 0.05
+}
+
+# Wedding Path: a marriage settles the succession without a drop of blood spilled.
+ova_murim_peace_succession = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_legitimacy_base_add = 10
+}
+
+# Shadow Path: he refuses the seal and rules from behind it instead.
+ova_murim_shadow_council = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_authority_mult = 0.1
+}
+
+# Applied to the bride's sect (the new junior partner in the personal union).
+ova_murim_wedding_alliance = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_legitimacy_base_add = 10
+}
+
+# Applied to a sect or clan that joins the Returner's household (the Eight Banners arc):
+# a banner that bowed within the family keeps its mountain and gains a place at his table.
+ova_murim_oathbound_banner = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_legitimacy_base_add = 10
+	country_prestige_mult = 0.05
+}
+
+# The Returner's household is complete (three companions gathered) - permanent host bonus.
+ova_murim_returner_household = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_mult = 0.1
+	country_legitimacy_base_add = 5
+}
+
+# Chain finale: the second life is fulfilled - permanent.
+ova_murim_second_life_fulfilled = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_mult = 0.15
+	country_prestige_add = 25
+	country_legitimacy_base_add = 10
+}
+
+# Small, stacking-by-duration renown for won duels / repelled raids / successful gangho outings.
+ova_murim_gangho_renown = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	country_prestige_add = 5
+}
+
+# Host of the Grand Martial Tournament.
+ova_murim_tournament_glory = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 20
+}
+
+# Post-victory / post-tournament army morale.
+ova_murim_martial_fervor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	unit_morale_recovery_mult = 0.1
+}
+
+# Applied to an alliance sect the Blood Cavalry has raided.
+ova_murim_cult_terror = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	country_prestige_mult = -0.05
+	country_legitimacy_base_add = -5
+}
+
+# A spy ring rooted out.
+ova_murim_spy_purge = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	country_legitimacy_base_add = 5
+}
+
+# The host's history diverges hard from what the Returner remembers - a note of unease.
+ova_murim_divergence_anxiety = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	country_legitimacy_base_add = -5
+}
+
+# The Cult Academy's coin scripture: the Demon Sect's counting-house discipline, paid out over time.
+ova_murim_coin_scripture = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_expenses_add = -1
+}
+
+# Applied to CHE, permanently, when Kang Jin-woo kills the Heavenly Demon in the
+# duel at the summit (ova_murim.82). A faith built on its master's immortality
+# has lost the only certainty it ever had.
+ova_murim_demon_slain = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	country_legitimacy_base_add = -25
+	country_prestige_mult = -0.25
+	unit_offense_mult = -0.1
+	unit_morale_recovery_mult = -0.1
+}

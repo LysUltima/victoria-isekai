@@ -1,0 +1,204 @@
+﻿l_english:
+  # --- Journal entries: the Eternal Crusade and the Summoning Pact
+  je_ova_eternal_crusade: "The Eternal Crusade"
+  je_ova_eternal_crusade_reason: "The Demonic Empire still stands, and so the [concept_ova_summoning_pact] must go on. Lux Aeternae will not hear that the demons pray to the Goddess of Light the same as anyone; the Ash Throne, the Rent Sky, and the Hollow Void are only Her other names, but a name is a dangerous thing to admit when your whole treasury runs on the war. The [concept_ova_eternal_crusade] is the Church's engine, plain and simple. Every frightened crown pays for a Hero from another world, every living Hero is proof of the Goddess' favor, and peace, the Church has learned the hard way, is very bad for the collection plate."
+  je_ova_eternal_crusade_status_active: "[ROOT.GetCountry.MakeScope.Var('ova_lux_hero_count').GetValue|v0] Heroes from other worlds walk beneath our banner. The Radiant Crusade holds fast while they do."
+  je_ova_eternal_crusade_status_none: "No Hero from another world answers our call just now. The Radiant Crusade waits on its next miracle."
+  je_ova_eternal_crusade_complete_tt: "The #b Demonic Empire#! ceases to exist"
+  je_ova_eternal_crusade_fail_tt: "The #b Demonic Empire#! is recognized among the nations of the world, or the Church stands exposed before it"
+
+  je_ova_hero_summoning: "A Hero from Another World"
+  je_ova_hero_summoning_reason: "The Church of the Goddess has torn the veil between worlds and pulled a [concept_ova_hero] through it. Guide them well against the Demonic Empire and they may win you provinces, plunder, or the Demon Lord's own head. Guide them poorly and you will bury them, and the Church will simply find another frightened crown to pay for the next one."
+  je_ova_hero_summoning_status_none: "No Hero serves us yet. The Church awaits our petition, and our coin."
+  je_ova_hero_summoning_status_injured: "Our Hero, #b [ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName]#!, lies wounded, and can undertake no adventures until recovered."
+  je_ova_hero_summoning_status_secluded: "Our Hero, #b [ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName]#!, is away in training and cannot be called upon."
+  je_ova_hero_summoning_status_active: "Our Hero, #b [ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName]#!, stands ready to serve."
+  je_ova_hero_summoning_complete_tt: "The #b Demonic Empire#! ceases to exist"
+  je_ova_hero_summoning_fail_tt: "#b Lux Aeternae#! ceases to exist, the #b Demonic Empire#! is recognized, or the Church stands exposed before the world"
+  ova_hero_perform_summoning_tt: "Summon a Hero from another world (level 0)."
+  ova_hero_perform_summoning_better_tt: "Summon a Hero from another world (level 15)."
+
+  je_ova_demonic_dawn: "The Demonic Dawn"
+  je_ova_demonic_dawn_reason: "Eighteen centuries ago a single sword-stroke ended the Goddess War, raised a sea where land had been, and left the Outer Gods' parting curse on this country: scarlet trees, glass-red rivers, and peoples remade into what the far shore now calls demons. We did not stop being Hers because our shapes changed. The horned and the shadow tribes were human once; the winged folk carried Her word before the Church that hunts them had a name. Within living memory Lucifer Noctis, the warlord the humans call the Demon Lord and his own people call the Uniter, welded those tribes into one empire. His war is not against the Goddess of Light. The Ash Throne, the Rent Sky, and the Hollow Void all venerate Her, whatever the [concept_ova_eternal_crusade] preaches from its pulpits. His war is against the crowns squatting on demon soil: the Lysnan marches of Bladewaste, Garlehold, and Conneland, the Church's own foothold on Ruina, Newhold planted on the desert edge, and every further province the crusade's summoned champions carve away expedition by expedition."
+  je_ova_demonic_dawn_status: "The tribes hold as one while the compact endures, and while any acre of the homeland answers to a foreign crown."
+  je_ova_demonic_dawn_complete_tt: "The #b Demonic Empire#! is recognized among the nations of the world"
+  je_ova_demonic_dawn_reclaim_tt: "Every state of the demon homeland (the Demonland strategic region) is held by the #b Demonic Empire#! or by a crown sworn to it as a subject"
+
+  # --- Victoria's arc: nine chapters, then the choice
+  je_ova_victoria_1: "The Girl Who Fell Into a War (I)"
+  je_ova_victoria_1_reason: "A schoolgirl fell out of her own quiet world and into ours, and we crowned her our [concept_ova_hero] before she had finished asking where the station was. She is real, and her power is real, but she is fourteen and frightened and very far from home. Before anyone asks her to fight, give her somewhere to stand: raise a [concept_ova_champion_hall] and staff all three of its wings, the training yard, the library, and the patronage office, so that a legend has somewhere to grow."
+  je_ova_victoria_1_status: "Victoria finds her feet in a world with the wrong number of moons. The masons and the clerks can do the rest."
+  je_ova_victoria_1_complete_tt: "A #b Champion Hall#! stands with all three support wings active (Martial Training, Scholarly Tutelage, and Patronage each switched off their base program)"
+
+  je_ova_victoria_2: "Saint Christine's Academy (II)"
+  je_ova_victoria_2_reason: "The Church keeps a finishing school for its summoned champions, and it does not consider a Hero finished until the school says so. Four years: doctrine, decorum, demon anatomy, and a great deal of homework nobody warned her about. Enroll Victoria at Saint Christine's Academy and see her through to graduation. She will complain about it in two languages. She will also, quietly, enjoy having classmates again."
+  je_ova_victoria_2_status_waiting: "The admission letter sits on the desk. Saint Christine's Academy awaits its most famous first-year."
+  je_ova_victoria_2_status_studying: "Victoria is away at the Academy, buried to the elbows in doctrine and duelling practice."
+  je_ova_victoria_2_complete_tt: "#b Victoria#! graduates from Saint Christine's Academy (a four-year course, begun with the Academy decision)"
+
+  je_ova_victoria_3: "The Wall (III)"
+  je_ova_victoria_3_reason: "Every graduate hits it: the place where talent stops carrying you and the real work begins. The Academy taught her the forms; now she needs the hours. Put the crown's coin behind an #b Intensive Training#! program (the toggle on the Champion page) and let her drill under masters who do not care whose Hero she is. Renown can wait. The wall cannot."
+  je_ova_victoria_3_status_idle: "Victoria trains alone at dawn and pretends it is enough. It is not enough, and she knows it."
+  je_ova_victoria_3_status_training: "The training yard rings from first light to last bell. She is through the wall, or will be."
+  je_ova_victoria_3_complete_tt: "#b Intensive Training#! is active for our Champion"
+
+  je_ova_victoria_4: "Across the Scarred Line (IV)"
+  je_ova_victoria_4_reason: "The border marches are calling for a Hero, and the Church expects us to send ours. Dispatch Victoria on a [concept_ova_expedition] into the #b Demonic Empire#! (the diplomatic action, taken against the Demonic Empire itself) and let her see the war with her own eyes. The road she walks will show her more than any dispatch ever could, and somewhere along it, fate has arranged an introduction."
+  je_ova_victoria_4_status_home: "Victoria waits at the palace. The front is a long way off, and no [concept_ova_expedition] carries her there yet."
+  je_ova_victoria_4_status_marching: "Victoria marches with our banner into the demon marches. Whatever she meets there, she will not soon forget."
+  je_ova_victoria_4_complete_tt: "On a [concept_ova_expedition] into the #b Demonic Empire#!, #b Victoria#! meets the girl with the grey wings"
+
+  je_ova_victoria_5: "The Ledger of Light (V)"
+  je_ova_victoria_5_reason: "Back from the front, Victoria cannot stop thinking about the wounded, and about a smiling clerk with an invoice book. But nobody opens the Church's doors for a nameless foundling, and the doors will not open themselves: send her into the wards and the counting-houses when she is ready to be received there. The war will show her its arithmetic, and the arithmetic will show her who profits."
+  je_ova_victoria_5_status_unknown: "The wards and the counting-houses have not received her yet. Doors stay politely shut, and the ledgers stay politely elsewhere."
+  je_ova_victoria_5_status_searching: "Famous enough now to go where she likes, Victoria is learning to read the war the way a bookkeeper reads it."
+  je_ova_victoria_5_complete_tt: "#b Victoria#! reads the Church's ledger"
+
+  je_ova_victoria_6: "The Dusk Country (VI)"
+  je_ova_victoria_6_reason: "The doubts have a shape now, and Victoria means to go looking for the rest of it. Send her on another [concept_ova_expedition] into the #b Demonic Empire#!: each time she crosses the scarred line, the girl with the grey wings finds her, and each meeting is a little less like a truce and a little more like a friendship. Somewhere on that road, a name will be given freely."
+  je_ova_victoria_6_status_home: "No [concept_ova_expedition] runs against the Demonic Empire. The dusk country keeps its secrets, and its friendships, until she returns."
+  je_ova_victoria_6_status_marching: "Victoria walks the dusk country again, and this time someone watches the horizon for her coming."
+  je_ova_victoria_6_complete_tt: "On a further [concept_ova_expedition] into the #b Demonic Empire#!, the winged girl tells #b Victoria#! her name, freely given"
+
+  je_ova_victoria_7: "The Midnight Archive (VII)"
+  je_ova_victoria_7_reason: "Her friend's people sing the Church's own hymns and give their names the way anyone does, and none of it matches the sermons. Victoria wants to read what the Church wrote down before it began correcting itself. There is a room beneath the great cathedral where the oldest books are kept, the first editions, from before the copyists tidied them. An old archivist can be persuaded, for a price, to look the other way for one night, but he does not risk his neck for nobodies: only a Hero of true standing gets the key."
+  je_ova_victoria_7_status_waiting: "The archive door is locked, and the archivist has not yet been paid to lose the key."
+  je_ova_victoria_7_status_reading: "Victoria reads by candlelight in a room that was never meant to be read in."
+  je_ova_victoria_7_complete_tt: "#b Victoria#! finds the word the copyists changed"
+
+  je_ova_victoria_8: "The Long Road Back (VIII)"
+  je_ova_victoria_8_reason: "The page in her coat says one thing; only the dusk country can say the rest. Keep sending Victoria on [concept_ova_expedition]s into the #b Demonic Empire#!. Her orders have not changed and the crusade has not ended, so she goes as a Hero of Lysna always goes, sword drawn, trading fire and steel with the empire's soldiers across the scarred marches. She is still their enemy, and still very good at it. And yet, between the running skirmishes, something else is happening: the court of black glass has learned the face of the human its sermons call their doom, and her friend of the grey wings, it turns out, has a title, a father on an obsidian throne, and an invitation she has been waiting for the right moment to give."
+  je_ova_victoria_8_status_home: "Victoria is home between campaigns, and restless. The war in the dusk country is not finished with her, nor she with it."
+  je_ova_victoria_8_status_marching: "Victoria campaigns in the dusk country once more, sword against the empire by day, even as its court, off the field, grows a little less sure she is the monster the sermons promised."
+  je_ova_victoria_8_complete_tt: "Campaigning on [concept_ova_expedition]s into the #b Demonic Empire#!, #b Victoria#! receives an invitation no human has ever received"
+
+  je_ova_victoria_9: "The Vault of Feathers (IX)"
+  je_ova_victoria_9_reason: "It came on grey paper sealed with a single feather: an invitation to the one place beneath the Obsidian Court no human has ever been allowed, from Aurelia, in her own careful hand. All that remains is to answer it. Deep under the court there is a vault whose walls are covered in names, and in the grey feathers of those who bore them, and a friend who means to tell Victoria, at last, the whole of it. Once it is all told, the girl from another world will have to decide what a Hero is for, and the deciding will not wait long."
+  je_ova_victoria_9_status_waiting: "The invitation sits against her mirror, feather-sealed and patient. She has only to go."
+  je_ova_victoria_9_status_inside: "Victoria stands in the Vault of Feathers, and her friend begins at the beginning."
+  je_ova_victoria_9_complete_tt: "#b Victoria#! learns the whole truth (the hour of the Hero follows soon after)"
+
+  je_ova_victoria_fail_tt: "#b Victoria#! has fallen, or the #b Radiant Crusade#! is no longer a living cause"
+  je_ova_victoria_chain_fail_tt: "#b Victoria#! has fallen, the #b Demonic Empire#! has ceased to exist, or the #b Radiant Crusade#! is no longer a living cause, before her story could end"
+  je_ova_victoria_2_fail_tt: "#b Victoria#! has fallen, the #b Demonic Empire#! or #b Saint Christine Academy#! has ceased to exist, or the #b Radiant Crusade#! is no longer a living cause, before her story could end"
+
+  # --- The Dawn aftermath (rebellion path; these run on AUR, the Concord Aurorae)
+  je_ova_dawn_1: "The War of the Dawn"
+  je_ova_dawn_1_reason: "Victoria told the world, and the world did not thank her for it. The marches followed her out of the empire; the old crown kept the capital, the Church's blessing, and the imperial name, and named her a traitor and a heretic's puppet. Now the two crowns fight a war that can only end one way: whichever banner falls, the other takes the whole house. The Demonic Empire stands behind the dawn, the Church behind the old lie. See it through."
+  je_ova_dawn_1_status_war: "The old crown fights on beneath the imperial banner. Until it stops, the dawn is not yet safe."
+  je_ova_dawn_1_status_quiet: "The old crown is spent, or willing at last to talk. The guns are cooling."
+  je_ova_dawn_1_complete_tt: "The #b old crown#! of Lysna is annexed, at truce with us, or reconciled"
+
+  je_ova_dawn_2: "Old Wounds, Open Air"
+  je_ova_dawn_2_reason: "Telling the truth did not undo the years of believing the lie. There are still separate benches, still shopkeepers who will not serve a customer with grey wings, still laws written when the winged people were the enemy. A new dawn is not made by proclamation alone. Lift our nation out of the harshest of those old laws, and begin, at least, to live as though the truth mattered. Move beyond #b Racial Segregation#!."
+  je_ova_dawn_2_status: "The law still carries the shape of the old fear. Changing the words is the easy part."
+  je_ova_dawn_2_complete_tt: "We adopt #b Cultural Exclusion#! or a more tolerant citizenship law"
+
+  je_ova_dawn_3: "A Nation of Two Peoples"
+  je_ova_dawn_3_reason: "The war is won or waited out, the worst of the old laws repealed, and something new stands on the marches where the frightened little colonies used to be: a nation of humans and winged folk both, keeping faith with a peace that was supposed to be impossible. Let the world take us seriously. Raise our dawn to the front rank of the powers, and let no one call it a fluke."
+  je_ova_dawn_3_status: "The dawn holds. Now to make it matter on a map the whole world reads."
+  je_ova_dawn_3_complete_tt: "We become a #b Great Power#!"
+
+  # --- Buttons
+  ova_hero_summon_button: "Summon a Hero"
+  ova_hero_summon_button_desc: "Petition the Church of the Goddess to tear the veil between worlds and draw forth a [concept_ova_hero] to champion our cause against the Demonic Empire."
+  ova_hero_summon_effect_tt: "Pay Lux Aeternae for the summoning rite"
+  ova_hero_crusade_required_tt: "The Radiant Crusade must still be a living cause"
+
+  ova_victoria_ward_button: "Walk the Wards"
+  ova_victoria_ward_button_desc: "Send Victoria down to the veterans' wards and the counting-houses behind them, and let her see what the crusade costs when nobody is composing a hymn about it. The Church receives Heroes, not foundlings: she must stand at #b Level 20#! before those doors open for her."
+  ova_victoria_ward_effect_tt: "Victoria goes looking for the war's arithmetic"
+  ova_victoria_ward_level_tt: "Victoria must be a Champion of at least #b Level 20#!: the wards do not open their books for a nobody"
+
+  ova_victoria_archive_button: "Bribe the Archivist"
+  ova_victoria_archive_button_desc: "Pay a tired old cleric to lose his keys for one night, so Victoria may read the Church's first editions before the copyists tidied them. He does not risk his post for nobodies: her [concept_ova_renown] must stand at #b 30#! or better. Costs #v @money![GetPlayer.MakeScope.ScriptValue('money_amount_multiplier_small')|0]#!, quietly, to a man who will spend it on wine."
+  ova_victoria_archive_effect_tt: "Pay for one night alone with the oldest books"
+  ova_victoria_archive_renown_tt: "Victoria's [concept_ova_renown] must be at least #b 30#!: the archivist does not lose his keys for a nobody"
+
+  ova_victoria_vault_button: "Answer the Invitation"
+  ova_victoria_vault_button_desc: "The wing-sealed letter offers Victoria the one thing no treaty ever has: the whole truth, told by a friend, in the Vault of Feathers beneath the Obsidian Court. Send her. Once she has heard it all, the girl from another world will decide what a Hero is for, and nothing about that decision will be small."
+  ova_victoria_vault_effect_tt: "Victoria descends into the Vault of Feathers. What she learns there cannot be unlearned."
+
+  # --- Decisions
+  ova_hero_petition_summoning_decision: "Petition for a Hero"
+  ova_hero_petition_summoning_decision_desc: "Join the Church's [concept_ova_summoning_pact] ourselves. In exchange for coin and deference to Lux Aeternae, we may summon our own [concept_ova_hero] from another world to champion us against the Demonic Empire, or simply against whichever neighbor the Church deems heretic enough this season."
+  ova_hero_petition_relations_tt: "Our relations with Lux Aeternae must not be too poor"
+
+  ova_hero_renounce_summonings_decision: "Renounce the Summonings"
+  ova_hero_renounce_summonings_decision_desc: "Break faith with Lux Aeternae. No more Heroes will be summoned in our name, and the Church will not soon forgive the insult, but neither shall we go on paying its tithe for a war of its choosing."
+
+  ova_hero_academy_decision: "Enroll at Saint Christine's Academy"
+  ova_hero_academy_decision_desc: "Send our [concept_ova_hero] to Saint Christine's Academy, the Church's own finishing school for Heroes: a full #b four-year#! course of lectures, duels, and doctrine that leaves them wiser, if not always wiser about the right things. They will be away from court, and from every battlefield, until they graduate."
+
+  ova_hero_war_brokerage_decision: "Broker the War"
+  ova_hero_war_brokerage_decision_desc: "We need summon no Hero of our own to profit from the [concept_ova_eternal_crusade]. Arm both sides quietly enough and the war that must never end becomes the business that never stops paying, though the Demonic Empire will notice whose foundries fill its enemies' arsenals."
+
+  # --- Game concepts
+  concept_ova_hero: "Hero"
+  concept_ova_hero_desc: "A Hero is an otherworlder [concept_ova_champion], summoned rather than chosen, born of the Church's rite rather than raised from our own people. They earn extra Renown for the wonder of their origin, and only a Hero may be sent campaigning against the Demonic Empire even without a shared border, where a mundane Champion could never make landfall."
+  concept_ova_summoning_pact: "The Summoning Pact"
+  concept_ova_summoning_pact_desc: "The pact binding a nation to Lux Aeternae's summoning rites: a petition decision, a [concept_ova_hero] drawn from another world at a price paid to the Church, and a renounce decision for those who tire of the arrangement. While bound, mundane Champion selection is closed. Only the Church's chosen may serve."
+  concept_ova_eternal_crusade: "The Eternal Crusade"
+  concept_ova_eternal_crusade_desc: "Lux Aeternae's holy war against the Demonic Empire, which the Church has no intention of ever letting end. While it endures: prestige for every living Hero summoned anywhere in the world, an unbreakable covenant locking the Radiant Crusade power bloc together, and no shortage of crowned heads willing to pay for one more miracle. It dies the day the world recognizes the empire it was raised to destroy, or the day the Church's oldest secret walks into the daylight."
+
+  # --- War of the Dawn (rebellion path war goal + diplomatic play)
+  ova_war_of_the_dawn: "The War of the Dawn"
+  dp_ova_restoration: "$war_goal_ova_restoration_type_name$"
+  dp_ova_restoration_tooltip: "#header Start a $dp_ova_restoration$ [concept_diplomatic_play]#!\n$TOOLTIP_DELIMITER$\n$dp_ova_restoration_desc$"
+  dp_ova_restoration_desc: "The sundering of Lysna admits no treaty and no half-measure: two crowns claim one realm, and the war ends only when one of them owns the whole of it, as a civil war ends."
+  war_goal_ova_restoration_type_name: "Reunite the Sundered Realm"
+  war_goal_ova_restoration_type_desc: "One realm, two crowns, and room for only one of them: the winner annexes the loser outright."
+  war_goal_ova_restoration: "Reunite the Sundered Realm"
+  war_goal_ova_restoration_desc: "[WAR_GOAL_DRAFT.GetHolder.GetName] annexes [WAR_GOAL_DRAFT.GetTarget.GetName] outright, reuniting the sundered realm beneath a single crown."
+  war_goal_ova_restoration_sway_desc: "Try to win [WAR_GOAL_DRAFT.GetHolder.GetName] to your side by letting it reunite the sundered realm beneath its own crown."
+
+  # --- AI strategies (loc beyond the spec's explicit list, matching vanilla
+  # --- ai_strategy_*/_desc convention so diplomatic-acceptance tooltips and
+  # --- the AI strategy debug list do not show a raw key)
+  ai_strategy_ova_radiant_crusader: "Radiant Crusade"
+  ai_strategy_ova_radiant_crusader_desc: "[COUNTRY.GetName] presses the Church's holy war against the Demonic Empire."
+  ai_strategy_ova_demonic_reclamation: "Demonic Reclamation"
+  ai_strategy_ova_demonic_reclamation_desc: "[COUNTRY.GetName] means to reclaim every border march the colonizers planted on demon land."
+  ai_strategy_ova_loyalist_restoration: "Imperial Restoration"
+  ai_strategy_ova_loyalist_restoration_desc: "[COUNTRY.GetName] fights to drag the seceded marches back beneath the old imperial crown."
+  ai_strategy_ova_dawn_concord: "The Dawn Concord"
+  ai_strategy_ova_dawn_concord_desc: "[COUNTRY.GetName] defends the dawn Victoria proclaimed, keeps faith with the Demonic Empire, and will not bow to the old crown again."
+
+  # --- Religion-gated mundane champion selection: a light_orthodoxy nation must
+  # --- use the Church's summoning pact for a champion while the Eternal Crusade
+  # --- lasts, no mundane selection.
+  ova_hero_light_orthodoxy_requires_summoning_tt: "A #b Radiant#! nation must seek a Hero through the Church's summoning rite while the #b Eternal Crusade#! endures"
+
+  # --- Murim nations hold the champion seat open for the Returner until his
+  # --- fate is settled (placed with a host, or gone for good).
+  ova_murim_await_returner_tt: "The martial world waits on the #b Returner#!: a murim nation cannot raise its own champion until his fate is settled"
+
+  # --- Static modifier display names (every modifier needs one)
+  ova_lux_voice_of_the_goddess: "Voice of the Goddess"
+  ova_lux_summoned_legion: "The Summoned Legion"
+  ova_lux_crusade_triumphant: "Crusade Triumphant"
+  ova_hero_crusade_fulfilled: "The Crusade Fulfilled"
+  ova_dem_demon_lord_wounded: "The Demon Lord Wounded"
+  ova_dem_iron_unity: "Iron Unity"
+  ova_dem_reclamation_fervor: "Reclamation Fervor"
+  ova_dem_hero_terror: "Terror of the Hero"
+  ova_dem_empire_endures: "The Empire Endures"
+  ova_dem_uniters_compact: "The Uniter's Compact"
+  ova_dem_old_grudges: "Old Grudges"
+  ova_lux_crusade_broken: "The Crusade Broken"
+  ova_lux_beatification: "Beatification"
+  ova_hero_martyrs_glory: "A Martyr's Glory"
+  ova_lys_heroes_resolve: "The Hero's Resolve"
+  ova_lys_truth_buried: "The Comfortable Lie"
+  ova_dawn_new_nation: "The New Dawn"
+  ova_dawn_winged_legion: "The Winged Legion"
+  ova_dawn_reconciliation: "Reconciliation"
+  ova_lys_hero_mourning: "Mourning the Hero"
+  ova_hero_war_brokerage: "War Brokerage"
+  ova_hero_academy_term: "A Term at the Academy"
+  ova_unbreakable_covenant: "Unbreakable Covenant"
+
+  # --- Dynamic country name (AUR, Victoria's splinter, carries it; the LYS
+  # --- block only matters in the no-marches fallback)
+  dyn_c_ova_dawn: "Concord Aurorae"
+  dyn_c_ova_dawn_adj: "Concordian"

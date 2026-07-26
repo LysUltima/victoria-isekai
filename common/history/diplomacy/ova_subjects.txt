@@ -1,0 +1,137 @@
+﻿DIPLOMACY = {
+  # The two Chinese dynasties (Great Feng, Great Yao) hold their vassals as subordinate Sects
+  c:FEN = {
+		create_diplomatic_pact = {
+			country = c:SWO
+			type = sect
+		}
+	}
+  c:FEN = {
+		create_diplomatic_pact = {
+			country = c:HEA
+			type = sect
+		}
+	}
+  c:FEN = {
+		create_diplomatic_pact = {
+			country = c:FLO
+			type = sect
+		}
+	}
+  c:FEN = {
+		create_diplomatic_pact = {
+			country = c:MYS
+			type = sect
+		}
+	}
+  c:FEN = {
+		create_diplomatic_pact = {
+			country = c:FEA
+			type = sect
+		}
+	}
+    c:FEN = {
+		create_diplomatic_pact = {
+			country = c:PUR
+			type = sect
+		}
+	}
+
+  c:YAO = {
+		create_diplomatic_pact = {
+			country = c:SPI
+			type = sect
+		}
+	}
+  c:YAO = {
+		create_diplomatic_pact = {
+			country = c:VER
+			type = sect
+		}
+	}
+  c:YAO = {
+		create_diplomatic_pact = {
+			country = c:SNO
+			type = sect
+		}
+	}
+
+  c:SUN = {
+		create_diplomatic_pact = {
+			country = c:ASI
+			type = puppet
+		}
+	}
+  c:SUN = {
+		create_diplomatic_pact = {
+			country = c:TAM
+			type = puppet
+		}
+	}
+  c:SUN = {
+		create_diplomatic_pact = {
+			country = c:LUJ
+			type = protectorate
+		}
+	}
+
+  c:DEM = {
+		create_diplomatic_pact = {
+			country = c:YOL
+			type = tributary
+		}
+	}
+
+  c:CAT = {
+		create_diplomatic_pact = {
+			country = c:TUC
+			type = tributary
+		}
+	}
+
+  c:WAP = {
+		create_diplomatic_pact = {
+			country = c:URR
+			type = tributary
+		}
+	}
+
+  c:MAK = {
+		create_diplomatic_pact = {
+			country = c:LAA
+			type = tributary
+		}
+	}
+  c:MAK = {
+		create_diplomatic_pact = {
+			country = c:WAI
+			type = tributary
+		}
+	}
+
+  c:KAN = {
+		create_diplomatic_pact = {
+			country = c:MAL
+			type = tributary
+		}
+	}
+
+  c:KAI = {
+		create_diplomatic_pact = {
+			country = c:WHA
+			type = vassal
+		}
+	}
+  c:KAI = {
+		create_diplomatic_pact = {
+			country = c:RAN
+			type = vassal
+		}
+	}
+  c:KAI = {
+		create_diplomatic_pact = {
+			country = c:HAW
+			type = tributary
+		}
+	}
+}

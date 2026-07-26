@@ -1,0 +1,46 @@
+﻿# Languages for OVA's mod-unique cultures (replaces vanilla real-world language flavor).
+language_lysic = { type = language trait_group = language_group_isekai_human }
+language_solennic = { type = language trait_group = language_group_isekai_human }
+language_marnic = { type = language trait_group = language_group_isekai_human }
+language_vardic = { type = language trait_group = language_group_isekai_human }
+language_velmic = { type = language trait_group = language_group_isekai_human }
+language_skarnic = { type = language trait_group = language_group_isekai_human }
+language_altanic = { type = language trait_group = language_group_isekai_human }
+
+language_sylvan = { type = language trait_group = language_group_sylvan }
+language_frosttongue = { type = language trait_group = language_group_sylvan }
+language_umbraltongue = { type = language trait_group = language_group_sylvan }
+
+language_forgetongue = { type = language trait_group = language_group_stonekin }
+language_stonetongue = { type = language trait_group = language_group_stonekin }
+
+language_orcish = { type = language trait_group = language_group_orcish }
+
+language_goblinish = { type = language trait_group = language_group_goblinoid }
+
+language_infernal = { type = language trait_group = language_group_demonic }
+
+language_warrentongue = { type = language trait_group = language_group_beastfolk }
+language_packtongue = { type = language trait_group = language_group_beastfolk }
+language_embertongue = { type = language trait_group = language_group_beastfolk }
+language_hidetongue = { type = language trait_group = language_group_beastfolk }
+language_windtongue = { type = language trait_group = language_group_beastfolk }
+language_whiskertongue = { type = language trait_group = language_group_beastfolk }
+
+language_lansic = { type = language trait_group = language_group_xianxia_human }
+language_liansic = { type = language trait_group = language_group_xianxia_human }
+language_maesic = { type = language trait_group = language_group_xianxia_human }
+language_khambusic = { type = language trait_group = language_group_xianxia_human }
+language_arasnisic = { type = language trait_group = language_group_xianxia_human }
+language_melatic = { type = language trait_group = language_group_xianxia_human }
+language_lilic = { type = language trait_group = language_group_xianxia_human }
+language_sakuric = { type = language trait_group = language_group_xianxia_human }
+language_deigoic = { type = language trait_group = language_group_xianxia_human }
+
+language_moanic = { type = language trait_group = language_group_moana }
+
+language_saharic = { type = language trait_group = language_group_desert_human }
+language_faryanic = { type = language trait_group = language_group_desert_human }
+
+# Vat-cant spoken by homunculi.
+language_homunculus = { type = language trait_group = language_group_constructed }

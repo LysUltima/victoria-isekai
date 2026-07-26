@@ -1,0 +1,596 @@
+﻿# Perform the actual summoning rite. The Hero is drawn from one of the two
+# otherworld cultures (cu:otherworld_english / cu:otherworld_japanese) at random,
+# with a random gender; the engine names them from the rolled culture's list.
+# Usage: ova_hero_perform_summoning = { LEVEL = 10 }
+ova_hero_perform_summoning = {
+	ova_champion_grant_otherworlder = yes
+	random_list = {
+		50 = { 
+            random_list = {
+                50 = { ova_champion_create_named_by_culture = { CULTURE = cu:otherworld_english AGE = 17 LEVEL = $LEVEL$ FEMALE = no } }
+                50 = { ova_champion_create_named_by_culture = { CULTURE = cu:otherworld_english  AGE = 17 LEVEL = $LEVEL$ FEMALE = yes } }
+            }
+        }
+		50 = {
+            random_list = {
+                50 = { ova_champion_create_named_by_culture = { CULTURE = cu:otherworld_japanese AGE = 17 LEVEL = $LEVEL$ FEMALE = no } }
+                50 = { ova_champion_create_named_by_culture = { CULTURE = cu:otherworld_japanese  AGE = 17 LEVEL = $LEVEL$ FEMALE = yes } }
+            }
+        }
+	}
+	remove_variable = ova_hero_summoning_pending
+}
+
+# DEM-expedition specials dispatcher. Fired from je_ova_hero_summoning's
+# on_monthly_pulse for every summoning-pact holder; only does anything while an
+# expedition against DEM is actually running and the champion is available -
+# every branch event carries its OWN trigger too, so a roll that lands on a
+# gated event simply fizzles (mostly uneventful, matching the shared
+# expedition philosophy).
+ova_hero_dem_pulse = {
+	if = {
+		limit = {
+			exists = c:DEM
+			has_diplomatic_pact = { who = c:DEM type = ova_champion_expedition }
+			ova_champion_is_available = yes
+		}
+		random_list = {
+			70 = { }
+			8 = { trigger_event = { id = ova_hero.23 } }
+			8 = { trigger_event = { id = ova_hero.24 } }
+			6 = { trigger_event = { id = ova_hero.20 } }
+			5 = { trigger_event = { id = ova_hero.21 } }
+			3 = { trigger_event = { id = ova_hero.22 } }
+		}
+	}
+}
+
+# Shatter the Demonic Empire into six splinter clans (AHD/DUS/VEI/RUI/NOX/VOI -
+# common/country_definitions/01a_demon_splinters.txt). Runs in the country
+# scope of whoever fires it (e.g. ova_hero.22 in the champion's country scope);
+# each splinter only spawns from a seed state DEM still owns, and any leftover
+# DEM territory sweeps to the imperial rump (AHD) once it exists. One-shot,
+# guarded by the global variable.
+effect_ova_hero_shatter_dem = {
+	if = {
+		limit = {
+			exists = c:DEM
+			NOT = { has_global_variable = ova_dem_shattered }
+		}
+		set_global_variable = ova_dem_shattered
+
+		# --- horned_demon clans ---
+		if = {
+			limit = { s:STATE_EX_TENEBRIS.region_state:DEM ?= { always = yes } }
+			create_country = {
+				origin = c:DEM
+				tag = AHD
+				state = s:STATE_EX_TENEBRIS.region_state:DEM
+				on_created = {
+					s:STATE_LUCENT_UMBRAE.region_state:DEM ?= { set_state_owner = c:AHD }
+					s:STATE_SOMNIA_NOCTIS.region_state:DEM ?= { set_state_owner = c:AHD }
+					s:STATE_CEU_ARDENT.region_state:DEM ?= { set_state_owner = c:AHD }
+				}
+			}
+		}
+		if = {
+			limit = { s:STATE_RESTAT_VOX.region_state:DEM ?= { always = yes } }
+			create_country = {
+				origin = c:DEM
+				tag = DUS
+				state = s:STATE_RESTAT_VOX.region_state:DEM
+				on_created = {
+					s:STATE_NE_PEREANT.region_state:DEM ?= { set_state_owner = c:DUS }
+					s:STATE_ADHUC_CANTAVI.region_state:DEM ?= { set_state_owner = c:DUS }
+				}
+			}
+		}
+
+		# --- winged_demon clans ---
+		if = {
+			limit = { s:STATE_EX_CAELO.region_state:DEM ?= { always = yes } }
+			create_country = {
+				origin = c:DEM
+				tag = VEI
+				state = s:STATE_EX_CAELO.region_state:DEM
+				on_created = {
+					s:STATE_QUAE_AMAVI.region_state:DEM ?= { set_state_owner = c:VEI }
+					s:STATE_CADUNT_STELLAE.region_state:DEM ?= { set_state_owner = c:VEI }
+					s:STATE_ASTRORUM.region_state:DEM ?= { set_state_owner = c:VEI }
+				}
+			}
+		}
+		if = {
+			limit = { s:STATE_RUIT_SPES.region_state:DEM ?= { always = yes } }
+			create_country = {
+				origin = c:DEM
+				tag = RUI
+				state = s:STATE_RUIT_SPES.region_state:DEM
+				on_created = {
+					s:STATE_RUINA.region_state:DEM ?= { set_state_owner = c:RUI }
+					s:STATE_LUMINA_FRACTA.region_state:DEM ?= { set_state_owner = c:RUI }
+				}
+			}
+		}
+
+		# --- shadow_demon clans ---
+		if = {
+			limit = { s:STATE_IN_SILENTIO.region_state:DEM ?= { always = yes } }
+			create_country = {
+				origin = c:DEM
+				tag = NOX
+				state = s:STATE_IN_SILENTIO.region_state:DEM
+				on_created = {
+					s:STATE_IN_SPECULA.region_state:DEM ?= { set_state_owner = c:NOX }
+					s:STATE_TREMIT_LUMEN.region_state:DEM ?= { set_state_owner = c:NOX }
+					s:STATE_FUGIT_TEMPUS.region_state:DEM ?= { set_state_owner = c:NOX }
+				}
+			}
+		}
+		if = {
+			limit = { s:STATE_LATENT_VIAE.region_state:DEM ?= { always = yes } }
+			create_country = {
+				origin = c:DEM
+				tag = VOI
+				state = s:STATE_LATENT_VIAE.region_state:DEM
+				on_created = {
+					s:STATE_SICUT_LACRIMAE.region_state:DEM ?= { set_state_owner = c:VOI }
+				}
+			}
+		}
+
+		# sweep any leftover DEM territory to the imperial rump
+		if = {
+			limit = { exists = c:AHD }
+			c:DEM ?= {
+				every_scope_state = { set_state_owner = c:AHD }
+			}
+		}
+	}
+}
+
+# ---------------------------------------------------------------------------
+# Victoria arc (the 9-chapter chain) support effects
+# ---------------------------------------------------------------------------
+
+# Find the Uniter's daughter (created with role = other in DEM's history file
+# from template_demon_king_daughter) and give her the story's plot armor.
+# Idempotent; retried monthly from je_ova_demonic_dawn and once from
+# je_ova_victoria_2 in case DEM never activated its own JE.
+effect_ova_daughter_capture = {
+	if = {
+		limit = {
+			NOT = { has_global_variable = ova_daughter_char }
+			exists = c:DEM
+		}
+		c:DEM ?= {
+			random_scope_character = {
+				limit = { has_template = template_demon_king_daughter }
+				save_scope_as = ova_daughter
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+			}
+		}
+		if = {
+			limit = { exists = scope:ova_daughter }
+			set_global_variable = { name = ova_daughter_char value = scope:ova_daughter }
+		}
+	}
+}
+
+# Plot armor on for Victoria herself - the story needs her alive until it is
+# told. Called from je_ova_victoria_1's immediate, after the character var is
+# captured.
+effect_ova_victoria_armor_on = {
+	if = {
+		limit = {
+			has_variable = ova_victoria_char
+			exists = var:ova_victoria_char
+		}
+		var:ova_victoria_char ?= {
+			set_variable = ova_plot_armor
+			set_character_immortal = yes
+		}
+	}
+}
+
+# The story is over (completed, failed, or resolved on the empire path):
+# plot armor comes off Victoria and the Uniter's daughter both. Safe to call
+# repeatedly and with either character already dead or never captured.
+effect_ova_victoria_story_over = {
+	if = {
+		limit = {
+			has_variable = ova_victoria_char
+			exists = var:ova_victoria_char
+		}
+		var:ova_victoria_char ?= {
+			if = {
+				limit = { has_variable = ova_plot_armor }
+				remove_variable = ova_plot_armor
+			}
+			set_character_immortal = no
+		}
+	}
+	if = {
+		limit = {
+			has_global_variable = ova_daughter_char
+			exists = global_var:ova_daughter_char
+		}
+		global_var:ova_daughter_char ?= {
+			if = {
+				limit = { has_variable = ova_plot_armor }
+				remove_variable = ova_plot_armor
+			}
+			set_character_immortal = no
+		}
+	}
+}
+
+# Shared on_fail dispatcher for chapters 2-9: the chain fails either because
+# Victoria is dead (plot armor makes this nearly impossible, but the fail
+# trigger keeps the safety net) or because the Demonic Empire ceased to exist
+# before her story could finish.
+effect_ova_victoria_fail_events = {
+	if = {
+		limit = {
+			has_variable = ova_victoria_char
+			NOT = { exists = var:ova_victoria_char }
+		}
+		trigger_event = { id = ova_hero.78 days = 3 }
+	}
+	else = {
+		trigger_event = { id = ova_hero.79 days = 3 }
+	}
+}
+
+# ---------------------------------------------------------------------------
+# Victoria chapter ticks - one story beat per year, in order.
+# Called from each chapter JE's on_yearly_pulse. The beats are dispatched
+# through these ladders rather than through the JE's own random_events,
+# because every chapter is a STRICT chain: each beat requires the previous
+# beat's flag and refuses to fire twice. A random_events roll picks uniformly
+# among the listed ids, so most years it would land on a beat whose turn has
+# already passed or has not yet come, that roll fizzles, and a four-beat
+# chapter crawls for well over a decade. The ladder instead always offers
+# exactly the next unseen beat, so the story advances at a steady one beat a
+# year. Each event still carries its OWN trigger (an expedition under way, a
+# Renown floor, a living champion): a beat whose conditions are not met simply
+# fizzles and is offered again next year, which is what keeps "go campaign in
+# the dusk country" an actual instruction and not a formality.
+# Same dispatcher pattern as ova_hero_dem_pulse above.
+# ---------------------------------------------------------------------------
+
+# Chapter 1: she settles in while the masons work.
+effect_ova_victoria_ch1_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_50 } }
+		trigger_event = { id = ova_hero.50 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_51 } }
+		trigger_event = { id = ova_hero.51 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_120 } }
+		trigger_event = { id = ova_hero.120 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_90 } }
+		trigger_event = { id = ova_hero.90 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_91 } }
+		trigger_event = { id = ova_hero.91 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_121 } }
+		trigger_event = { id = ova_hero.121 }
+	}
+}
+
+# Chapter 3: the wall, and the nagging of a Hero who has stopped improving.
+effect_ova_victoria_ch3_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_96 } }
+		trigger_event = { id = ova_hero.96 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_122 } }
+		trigger_event = { id = ova_hero.122 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_123 } }
+		trigger_event = { id = ova_hero.123 }
+	}
+}
+
+# Chapter 4: her first crossing, and the face she does not report.
+effect_ova_victoria_ch4_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_52 } }
+		trigger_event = { id = ova_hero.52 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_97 } }
+		trigger_event = { id = ova_hero.97 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_98 } }
+		trigger_event = { id = ova_hero.98 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_met_daughter } }
+		trigger_event = { id = ova_hero.53 }
+	}
+}
+
+# Chapter 5 has no tick: like chapters 7 and 9 it hangs off its own scripted
+# button (ova_victoria_ward_button), and the beats chain .54 -> .99 -> .100 ->
+# .55 on day offsets from there.
+
+# Chapter 6: an enemy becomes a person becomes a friend.
+effect_ova_victoria_ch6_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_56 } }
+		trigger_event = { id = ova_hero.56 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_101 } }
+		trigger_event = { id = ova_hero.101 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_102 } }
+		trigger_event = { id = ova_hero.102 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_125 } }
+		trigger_event = { id = ova_hero.125 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_knows_her_name } }
+		trigger_event = { id = ova_hero.57 }
+	}
+}
+
+# Chapter 8: the long road back, and the court that stops reaching for its swords.
+effect_ova_victoria_ch8_tick = {
+	if = {
+		limit = { NOT = { has_variable = ova_victoria_audience_done } }
+		trigger_event = { id = ova_hero.70 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_105 } }
+		trigger_event = { id = ova_hero.105 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_71 } }
+		trigger_event = { id = ova_hero.71 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_106 } }
+		trigger_event = { id = ova_hero.106 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_seen_107 } }
+		trigger_event = { id = ova_hero.107 }
+	}
+	else_if = {
+		limit = { NOT = { has_variable = ova_victoria_invited } }
+		trigger_event = { id = ova_hero.72 }
+	}
+}
+
+# The rebellion path (ova_hero.75 option a). Runs in LYS country scope only.
+# Exposes the truth (fails the crusade and every summoning JE), then Victoria
+# LEAVES: EVERY state the old crown still holds in sr:region_demonland secedes
+# as AUR, the Concord Aurorae (not a fixed list - the marches she takes are
+# whatever Lysna actually owns there when she chooses), with Victoria
+# transferred over and crowned, the champion role moving with her, and the
+# Demonic Empire at her back. The old crown keeps the tag LYS. The two go to
+# war at once via dp_ova_restoration (annex_as_civil_war): whichever crown
+# wins swallows the other whole, as in a civil war. LUX backs the old crown;
+# DEM backs the dawn. The dawn aftermath JEs run on AUR.
+# Two degenerate borders are handled: holding no demon march at all, she walks
+# out with the capital instead; down to a single state, there is nothing to
+# secede from and she simply wins where she stands.
+effect_ova_victoria_rebellion = {
+	set_variable = { name = ova_victoria_choice value = 1 }
+	set_global_variable = ova_truth_exposed
+
+	# every demon march still under the old crown is winged homeland again,
+	# whoever ends up holding it when the dust settles. add_homeland lives on
+	# the state REGION, not the state instance (same chain the homunculus
+	# on_action uses - see ova_homunculus_on_actions.txt).
+	every_scope_state = {
+		limit = { region = sr:region_demonland }
+		state_region = { add_homeland = cu:winged_demon }
+	}
+
+	if = {
+		# The old empire is down to its last state: there is nothing to secede
+		# from, and no second province for the old crown to fight on from. The
+		# dawn wins on the spot, over the throne it is already standing on.
+		limit = {
+			NOT = { any_scope_state = { count >= 2 } }
+		}
+		set_variable = ova_new_dawn
+		var:ova_victoria_char ?= { set_character_as_ruler = yes }
+		add_modifier = { name = ova_dawn_new_nation days = -1 }
+		if = {
+			limit = { exists = c:DEM }
+			change_relations = { country = c:DEM value = 100 }
+			create_bidirectional_truce = { country = c:DEM months = 120 }
+		}
+		change_relations = { country = c:LUX value = -100 }
+		c:LUX ?= { trigger_event = { id = ova_hero.80 days = 5 } }
+		add_radicals = { value = medium_radicals }
+		# No war of the dawn: there is no rival crown left to fight one, so
+		# je_ova_dawn_1 is skipped and its reward (je_ova_dawn_3, which is
+		# normally granted by dawn_1's on_complete) is handed over directly.
+		add_journal_entry = { type = je_ova_dawn_2 }
+		add_journal_entry = { type = je_ova_dawn_3 }
+		trigger_event = { id = ova_hero.76 days = 5 }
+	}
+	else = {
+		# Seed the secession. Every demon march the crown still holds leaves
+		# with her; holding none, she walks out with the capital itself and
+		# the old crown falls back on its provinces.
+		if = {
+			limit = { any_scope_state = { region = sr:region_demonland } }
+			random_scope_state = {
+				limit = { region = sr:region_demonland }
+				save_scope_as = ova_dawn_seed
+			}
+		}
+		else = {
+			capital = { save_scope_as = ova_dawn_seed }
+		}
+
+		# carry her, her Level, and her Renown across before LYS's books are wiped
+		var:ova_victoria_char ?= { save_scope_as = ova_dawn_victoria }
+		save_temporary_scope_value_as = { name = ova_dawn_level value = var:ova_champion_level }
+		save_temporary_scope_value_as = { name = ova_dawn_renown value = var:ova_champion_popularity }
+
+		create_country = {
+			tag = AUR
+			origin = c:LYS
+			state = scope:ova_dawn_seed
+		}
+
+		# Everything past this point assumes the dawn actually rose. It always
+		# should (the seed is a state we already own), but nothing below is
+		# safe to run against a country that failed to spawn: the old crown
+		# must not lose its Hero, nor declare war on nobody, over a silent
+		# failure.
+		if = {
+			limit = { exists = c:AUR }
+
+			# every other demon march follows her out (the seed already
+			# belongs to AUR by now, so this iterates only what is left)
+			every_scope_state = {
+				limit = { region = sr:region_demonland }
+				set_state_owner = c:AUR
+			}
+
+			c:AUR ?= {
+				set_variable = ova_new_dawn
+				# the champion page first (its immediate zeroes the counters),
+				# then Victoria's actual numbers over the top
+				add_journal_entry = { type = je_ova_champion }
+				set_variable = { name = ova_champion_char value = scope:ova_dawn_victoria }
+				set_variable = { name = ova_victoria_char value = scope:ova_dawn_victoria }
+				set_variable = { name = ova_champion_level value = scope:ova_dawn_level }
+				set_variable = { name = ova_champion_popularity value = scope:ova_dawn_renown }
+				ova_champion_init_progress = yes
+				ova_champion_update_army_buff = yes
+				add_modifier = { name = ova_dawn_new_nation days = -1 }
+
+				# demonic support: the Uniter empties a war chest and swears the peace
+				add_treasury = { value = money_amount_multiplier_medium }
+				if = {
+					limit = { exists = c:DEM }
+					change_relations = { country = c:DEM value = 100 }
+					create_bidirectional_truce = { country = c:DEM months = 120 }
+				}
+
+				# the old crown and the Church will never forgive the dawn
+				change_relations = { country = ROOT value = -100 }
+				change_relations = { country = c:LUX value = -100 }
+
+				add_journal_entry = { type = je_ova_dawn_1 }
+				add_journal_entry = { type = je_ova_dawn_2 }
+				trigger_event = { id = ova_hero.76 days = 5 }
+			}
+
+			# Victoria crosses over, plot armor and all, and takes the new throne
+			scope:ova_dawn_victoria ?= {
+				transfer_character = c:AUR
+				set_character_as_ruler = yes
+			}
+
+			# the old crown keeps the old empire, and loses its Hero: clean the
+			# champion books on LYS without stripping her traits (she is still a
+			# champion - just not ours)
+			remove_variable = ova_champion_char
+			remove_variable = ova_victoria_char
+			set_variable = { name = ova_champion_level value = 0 }
+			set_variable = { name = ova_champion_popularity value = 0 }
+			ova_champion_init_progress = yes
+			remove_variable = ova_expedition_active
+			remove_variable = ova_expedition_return
+			remove_variable = ova_adventure_cooldown
+			set_variable = { name = ova_expedition_lockout value = 12 }
+			if = {
+				limit = { has_modifier = ova_champion_patronage_program }
+				remove_modifier = ova_champion_patronage_program
+			}
+			if = {
+				limit = { has_modifier = ova_champion_training_program }
+				remove_modifier = ova_champion_training_program
+			}
+			if = {
+				limit = { has_modifier = ova_champion_renown }
+				remove_modifier = ova_champion_renown
+			}
+			if = {
+				limit = { has_modifier = ova_champion_living_legend }
+				remove_modifier = ova_champion_living_legend
+			}
+			if = {
+				limit = { has_modifier = ova_champion_ascendant_guardian }
+				remove_modifier = ova_champion_ascendant_guardian
+			}
+			ova_champion_sync_bars = yes
+
+			# the home front splits over the truth she told on her way out
+			add_radicals = { value = medium_radicals }
+			c:LUX ?= { trigger_event = { id = ova_hero.80 days = 5 } }
+
+			# and the two crowns go to war at once - winner takes the whole
+			# house, as a civil war (no negotiated peace, no infamy, full annex)
+			if = {
+				limit = { exists = c:LUX }
+				create_diplomatic_play = {
+					name = ova_war_of_the_dawn
+					war = yes
+					annex_as_civil_war = yes
+					type = dp_ova_restoration
+					target_country = c:AUR
+					add_initiator_backers = { c:LUX }
+					add_target_backers = { c:DEM }
+				}
+			}
+			else = {
+				create_diplomatic_play = {
+					name = ova_war_of_the_dawn
+					war = yes
+					annex_as_civil_war = yes
+					type = dp_ova_restoration
+					target_country = c:AUR
+					add_target_backers = { c:DEM }
+				}
+			}
+
+			# the human who chose the dawn crosses over with Victoria: they now
+			# play c:AUR, the Concord Aurorae, while the old crown they abdicated
+			# (ROOT here) fights on under the AI as the enemy in the war of the dawn
+			if = {
+				limit = { is_player = yes }
+				play_as = c:AUR
+			}
+		}
+	}
+}
+
+# The empire path (ova_hero.75 option b). The truth stays buried; the crusade
+# keeps its Hero and the Hero keeps her silence. With chapter 9 the last
+# entry of the chain, her story ends here - the plot armor comes off.
+effect_ova_victoria_empire = {
+	set_variable = { name = ova_victoria_choice value = 2 }
+	add_modifier = { name = ova_lys_heroes_resolve days = -1 }
+	add_modifier = { name = ova_lys_truth_buried days = -1 }
+	change_relations = { country = c:LUX value = 30 }
+	change_relations = { country = c:DEM value = -50 }
+	effect_ova_victoria_story_over = yes
+	trigger_event = { id = ova_hero.77 days = 5 }
+}

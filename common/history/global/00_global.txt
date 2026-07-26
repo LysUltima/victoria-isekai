@@ -1,0 +1,153 @@
+﻿# This is executed last among all history
+GLOBAL = {
+	
+	every_country = {
+		limit = { NOT = { has_law_or_variant = law_type:law_slavery_banned } }
+		if = {
+			limit = {
+				has_law_or_variant = law_type:law_colonial_slavery
+			}
+			ig:ig_landowners ?= { add_ideology = ideology_pro_slavery_colonial }
+		}
+		else = {
+			ig:ig_landowners ?= { add_ideology = ideology_pro_slavery }
+		}
+	}
+
+	every_country = {
+		limit = {
+			has_law = law_type:law_monarchy
+			has_law_or_variant = law_type:law_autocracy
+		}
+		set_variable = king_in_parliament_possible
+	}
+
+    every_country = { # Mercantile ideology
+		limit = {
+			OR = {
+				has_law_or_variant = law_type:law_traditionalism
+				has_law_or_variant = law_type:law_isolationism
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_ideology = ideology_mercantile
+		}
+	}
+
+    every_country = {
+		limit = {
+			navy_size >= 1
+		}
+		add_supply_ships = {
+			value = 1
+			add = navy_size
+			if = {
+				limit = {
+					any_scope_building = {
+						is_building_type = building_shipyard
+					}
+				}
+				every_scope_building = {
+					limit = {
+						is_building_type = building_shipyard
+					}
+					add = 10
+				}
+			}
+			multiply = 8
+		}
+	}
+
+    every_country = {
+        limit = {
+            NOT = { is_country_type = decentralized }
+        }
+        add_journal_entry = { type = je_ova_champion }
+    }
+
+    every_country = {
+        limit = {
+            country_has_state_religion = rel:light_orthodoxy
+            NOT = { c:LUX = this }
+        }
+        add_journal_entry = { type = je_ova_hero_summoning }
+    }
+
+    every_country = {
+        limit = {
+            country_has_state_religion = rel:light_orthodoxy
+        }
+        set_mutual_secret_goal = {
+            country = c:DEM
+            secret_goal = antagonize
+        }
+    }
+
+    # Single-country storyline JEs are raised from each nation's own history file
+    # (common/history/countries/), not here: they are self-contained and need no
+    # global-last ordering. je_ova_demonic_dawn -> DEM, je_ova_xianxia_blood_lotus
+    # -> BLO, je_ova_xianxia_jade_mandate -> FEN, je_ova_murim_heavenly_demon ->
+    # CHE, je_ova_murim_alliance_banner -> HWA. (Victoria's chapter 1 is likewise
+    # not here: it rides ova_hero.2, once her deferred create_character resolves.)
+    # The every_country storyline sweeps below stay - they genuinely need the
+    # all-countries pass to evaluate their per-country membership triggers.
+
+    # Xianxia dao war - the remaining banners are membership sweeps over every
+    # righteous / covenant sect, so they belong in this global pass.
+    every_country = {
+        limit = {
+            OR = {
+                ova_xianxia_is_righteous_sect_trigger = yes
+                c:YAO ?= THIS
+            }
+        }
+        add_journal_entry = { type = je_ova_xianxia_righteous_banner }
+        trigger_event = { id = ova_xianxia.5 days = 8 }
+    }
+    every_country = {
+        limit = {
+            OR = {
+                c:GHO ?= THIS
+                c:SHA ?= THIS
+                c:NIN ?= THIS
+            }
+        }
+        add_journal_entry = { type = je_ova_xianxia_covenant_banner }
+        trigger_event = { id = ova_xianxia.5 days = 8 }
+    }
+
+    # Murim war of the murim - the remaining sect banner is a membership sweep
+    # over every alliance sect, so it belongs in this global pass. The two
+    # single-country war JEs (CHE, HWA) are raised from their own history files.
+    every_country = {
+        limit = {
+            ova_murim_is_alliance_sect_trigger = yes
+            NOT = { c:HWA ?= THIS }
+        }
+        add_journal_entry = { type = je_ova_murim_sect_banner }
+    }
+
+	#Event Variables
+	
+	set_global_variable = {
+		name = number_of_mega_earthquakes
+		value = 0
+	}
+
+	set_global_variable = {
+		name = number_of_mega_floods
+		value = 0
+	}
+	
+	set_global_variable = {
+		name = number_of_mega_eruptions
+		value = 0
+	}
+
+	# Restored: vanilla history/global/00_global.txt initializes num_coups/failed_coups here;
+	# without it the change_global_variable = add calls in journal_entries/01_coup.txt and
+	# events/ip4_coup_events.txt (both kept, generic engine content) were incrementing a variable
+	# that was never set.
+	set_global_variable = { name = num_coups value = 0 }
+	set_global_variable = { name = failed_coups value = 0 }
+}

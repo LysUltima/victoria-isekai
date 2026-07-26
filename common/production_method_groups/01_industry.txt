@@ -1,0 +1,416 @@
+﻿pmg_base_building_food_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_bakery
+		pm_sweeteners
+		pm_baking_powder
+	}
+}
+
+pmg_canning = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_disabled_canning
+		pm_cannery
+		pm_cannery_fish
+		pm_vacuum_canning
+		pm_vacuum_canning_principle_3
+	}
+}
+
+pmg_distillery = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_disabled_distillery
+		pm_pot_stills
+		pm_patent_stills
+	}
+}
+
+pmg_automation_building_food_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_manual_dough_processing
+		pm_watertube_boiler_building_food_industry
+		pm_automated_bakery
+		pm_assembly_lines_building_food_industry
+	}
+}
+
+pmg_base_building_textile_mill = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_handsewn_clothes
+		pm_dye_workshops
+		pm_sewing_machines
+		pm_electric_sewing_machines
+	}
+}
+
+pmg_luxury_building_textile_mill = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_luxury_clothes
+		pm_craftsman_sewing
+	}
+}
+
+pmg_automation_building_textile_mill = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_traditional_looms
+		pm_mechanized_looms
+		pm_automatic_power_looms
+		pm_assembly_lines_building_textile_mill
+	}
+}
+
+pmg_base_building_furniture_manufactory = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_handcrafted_furniture
+		pm_lathe
+		pm_mechanized_workshops
+	}
+}
+
+pmg_luxury_building_furniture_manufactory = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_luxuries
+		pm_luxury_furniture
+		pm_precision_tools
+	}
+}
+
+pmg_automation_building_furniture_manufactory = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_furniture_manufactory
+		pm_rotary_valve_engine_building_furniture_manufactory
+		pm_assembly_lines_building_furniture_manufactory
+	}
+}
+
+pmg_base_building_tooling_workshop = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_crude_tools
+		pm_iron_tools
+		pm_magic_core_tools
+	}
+}
+
+pmg_automation_building_tooling_workshop = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_tooling_workshop
+		pm_rotary_valve_engine_building_tooling_workshop
+		pm_assembly_lines_building_tooling_workshop
+	}
+}
+
+pmg_base_building_glassworks = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_forest_glass
+		pm_leaded_glass
+		pm_crystal_glass
+	}
+}
+
+pmg_luxury_building_glassworks = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_disabled_ceramics
+		pm_ceramics
+		pm_fine_porcelain
+	}
+}
+
+pmg_glassblowing = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_manual_glassblowing
+		pm_watertube_boiler_building_glassworks
+		pm_automatic_bottle_blowers
+		pm_assembly_lines_building_glassworks
+	}
+}
+
+pmg_base_building_paper_mill = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_pulp_pressing
+		pm_sulfite_pulping
+		pm_bleached_paper
+	}
+}
+
+pmg_automation_building_paper_mill = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_paper_mill
+		pm_rotary_valve_engine_building_paper_mill
+		pm_assembly_lines_building_paper_mill
+	}
+}
+
+pmg_fertilizer_production = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_artificial_fertilizers
+		pm_improved_fertilizer
+		pm_nitrogen_fixation
+	}
+}
+
+pmg_explosives_building_chemical_plant = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_crude_reagent_synthesis
+		pm_catalyzed_reagent_synthesis
+		pm_vacuum_evaporation
+		pm_arc_reagent_synthesis
+	}
+}
+
+pmg_synthetic_dyes = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_dye_production
+		pm_reagent_catalyzed_brewing
+		pm_stabilized_catalysis
+		pm_grand_alchemical_vats
+	}
+}
+
+pmg_health_potions = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_no_health_potions
+		pm_health_potion_brewing
+	}
+}
+
+pmg_synthetic_silk = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_artificial_fibers
+		pm_rayon
+	}
+}
+
+pmg_steelmaking_process = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_crude_core_smelting
+		pm_resonance_forging
+		pm_sealed_crucible_forging
+		pm_arc_resonance_process
+	}
+}
+
+pmg_automation_building_steel_mill = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_steel_mill
+		pm_rotary_valve_engine_building_steel_mill
+		pm_assembly_lines_building_steel_mill
+	}
+}
+
+pmg_base_building_motor_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_steam_engines
+		pm_electric_engines
+	}
+}
+
+pmg_automation_building_motor_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_motor_industry
+		pm_rotary_valve_engine_building_motor_industry
+		pm_assembly_lines_building_motor_industry
+	}
+}
+
+pmg_base_building_shipyard = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_basic_shipbuilding
+		pm_complex_shipbuilding
+		pm_metal_shipbuilding
+		pm_arc_welding_shipbuilding
+	}
+}
+
+pmg_military_base = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_military_shipbuilding_wooden
+		pm_military_shipbuilding_wooden_2
+		pm_military_shipbuilding_steam
+		pm_military_shipbuilding_steam_2
+	}
+}
+
+pmg_automobile_production = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_aeroplane_production
+		pm_core_lifted_airships
+		pm_magic_carpets
+		pm_capacitor_airships
+		pm_arc_welded_airships
+	}
+}
+
+pmg_automation_building_automotive_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_automotive_industry
+		pm_rotary_valve_engine_building_automotive_industry
+		pm_assembly_lines_building_automotive_industry
+	}
+}
+
+pmg_telephones_category = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_telephones
+	}
+}
+
+pmg_firearms_manufacturing = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_muskets
+		pm_rifles
+		pm_repeaters
+		pm_bolt_action_rifles
+	}
+}
+
+pmg_automation_building_arms_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_arms_industry
+		pm_rotary_valve_engine_building_arms_industry
+		pm_assembly_lines_building_arms_industry
+	}
+}
+
+pmg_foundries = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_cannons
+		pm_smoothbores
+		pm_breech_loaders
+		pm_recoiled_barrels
+	}
+}
+
+pmg_base_building_munition_plant = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_bound_talismans
+		pm_explosive_shells
+	}
+}
+
+pmg_core_infusion_building_munition_plant = {
+	# ISEKAI TC: Artifice secondary line - magic cores boost consumables output
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_no_core_infusion
+		pm_core_infused_consumables
+		pm_resonant_core_consumables
+		pm_arc_core_consumables
+	}
+}
+
+pmg_talisman_infusion_building_munition_plant = {
+	# ISEKAI TC: Spiritualism secondary line - paper + spirit stone talismans
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_no_talisman_infusion
+		pm_printed_talisman_consumables
+		pm_sealed_talisman_consumables
+		pm_grand_talisman_consumables
+	}
+}
+
+pmg_automation_building_munition_plant = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_munition_plant
+		pm_rotary_valve_engine_building_munition_plant
+		pm_assembly_lines_building_munition_plant
+	}
+}
+
+### ISEKAI TC: Sentient Automata Works
+
+pmg_base_building_sentient_automata_works = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_soul_bound_automata
+		pm_awakened_automata
+	}
+}
+
+pmg_automation_building_sentient_automata_works = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_sentient_automata_works
+		pm_rotary_valve_engine_building_sentient_automata_works
+		pm_assembly_lines_building_sentient_automata_works
+	}
+}
+
+### ISEKAI TC: Spirit Wine Distillery
+
+pmg_base_building_wine_distillery = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_spirit_wine_stills
+		pm_purified_fermentation
+	}
+}
+
+pmg_infusion_building_wine_distillery = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_wine_infusion
+		pm_sugar_infusion
+		pm_spirit_herb_infusion
+	}
+}

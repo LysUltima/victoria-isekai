@@ -1,0 +1,9 @@
+﻿# Religious heritage groups for OVA's mod-unique religions.
+heritage_group_light_faith = { type = heritage }
+heritage_group_eastern_ova = { type = heritage }
+heritage_group_moana_faith = { type = heritage }
+heritage_group_desert_faith = { type = heritage }
+heritage_group_elf_faith = { type = heritage }
+heritage_group_beastkin_faiths = { type = heritage }
+# heritage_group_non_spiritual is defined by vanilla common/discrimination_trait_groups/02_religious_heritage_groups.txt
+# (not wiped by replace_paths) and reused as-is for the atheist religion; redefining it here caused a duplicate-key error.

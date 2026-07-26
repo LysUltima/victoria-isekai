@@ -1,0 +1,16 @@
+﻿# Isekai TC: intentionally empty override of vanilla
+# common/scripted_effects/00_victoria_great_game_scripted_effects.txt.
+#
+# The Great Game was a Britain/Russia/Persia/Afghanistan/Central Asia storyline.
+# Its journal entries, progress bars, events and countries are all removed by
+# this conversion, so every one of the 16 effects this file used to define had
+# no caller left anywhere in the mod. They still wrote ~24 global variables
+# (afghanistan_*, persia_*, kazakhstan_*, khanates_*, korean_protectorate_*,
+# proposed_* border lines, caucasus_*, trans_siberian_done, ...), which the game
+# reported at load as "Variable 'x' is used but is never set. Setting it in an
+# unused scripted trigger or effect does not count" once the readers in
+# common/customizable_localization were migrated away.
+#
+# The file is kept rather than deleted: common/scripted_effects is NOT in
+# metadata.json replace_paths, so removing it would let vanilla's copy load
+# again and bring the whole dead feature back.

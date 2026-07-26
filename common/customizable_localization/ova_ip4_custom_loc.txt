@@ -1,0 +1,17 @@
+﻿# Isekai TC: NOTE - common/customizable_localization is NOT in metadata.json replace_paths, so
+# vanilla's victoria_ip4_custom_loc.txt (which ip4_election_rigging.txt's caciquismo.1.d depends
+# on via get_political_boss_name) does load. It is overridden by the migrated copy alongside this
+# file, which drops its get_political_boss_name so the version below wins. Defined here with the
+# generic fallback - vanilla's per-language (hispanophone/basque/lusophone) variants have no mod
+# analogue discrimination traits. "boss_bosses" -> "bosses" loc key already exists unedited in
+# vanilla's ip4_04_l_english.yml.
+
+get_political_boss_name = {
+	type = country
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = boss_bosses
+	}
+}

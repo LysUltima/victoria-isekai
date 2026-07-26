@@ -1,0 +1,33 @@
+﻿### Champions JE - "Demand Champion Sanctuary" diplomatic play
+# The player-facing diplomatic play for the ova_demand_sanctuary war goal:
+# go to war to force a rival to leave your Champion alone (a unilateral
+# Champion Sanctuary). Available to any centralized nation with a living
+# Champion against any centralized target; thematically the answer to a
+# neighbour who will not stop sabotaging or raiding your Champion.
+
+dp_ova_demand_sanctuary = {
+	war_goal = ova_demand_sanctuary
+
+	texture = "gfx/interface/icons/war_goals/enforce_treaty_article.dds"
+
+	add_infamy_for_starting_target_wargoals = yes
+
+	possible = {
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		ova_has_living_champion = yes
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+			NOT = { is_subject_of = root }
+		}
+		NOT = { is_subject_of = scope:target_country }
+	}
+
+	ai_acceptance_max = 100
+
+	on_weekly_pulse = {}
+
+	on_war_begins = {}
+
+	on_war_end = {}
+}

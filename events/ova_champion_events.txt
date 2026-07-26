@@ -1,0 +1,976 @@
+﻿### Champions JE - mechanical core events
+# ova_champion.1      choose a champion (fired by the JE button)
+# ova_champion.10-14  hinterland adventure outcomes (own monster country)
+# ova_champion.20-24  adventure outcomes vs a decentralized neighbor
+# ova_champion.30-34  raid outcomes vs a centralized neighbor (demonic_scriptures)
+# Flavor events live in ova_champion_flavor_events.txt (separate namespace).
+
+namespace = ova_champion
+
+# ------------------------------------------------------------------ selection
+ova_champion.1 = {
+	type = country_event
+	placement = root
+
+	title = ova_champion.1.t
+	desc = ova_champion.1.d
+	flavor = ova_champion.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+	}
+
+	immediate = {
+		# candidates are picked HERE so the options can show their names
+		ruler ?= { save_scope_as = ova_cand_ruler }
+		heir ?= { save_scope_as = ova_cand_heir }
+		random_interest_group = {
+			limit = { exists = leader }
+			leader = { save_scope_as = ova_cand_notable }
+		}
+	}
+
+	option = { # scour the realm for an unknown talent
+		name = ova_champion.1.opt_local
+		default_option = yes
+		remove_variable = ova_champion_choosing
+		ova_champion_create_local = yes
+	}
+
+	option = { # the crown takes the mantle itself
+		name = ova_champion.1.opt_ruler
+		trigger = { exists = scope:ova_cand_ruler }
+		remove_variable = ova_champion_choosing
+		scope:ova_cand_ruler = { save_scope_as = ova_champion_candidate }
+		ova_champion_adopt = yes
+	}
+
+	option = { # the heir must prove themselves
+		name = ova_champion.1.opt_heir
+		trigger = { exists = scope:ova_cand_heir }
+		remove_variable = ova_champion_choosing
+		scope:ova_cand_heir = { save_scope_as = ova_champion_candidate }
+		ova_champion_adopt = yes
+	}
+
+	option = { # elevate a figure of consequence
+		name = ova_champion.1.opt_notable
+		trigger = { exists = scope:ova_cand_notable }
+		remove_variable = ova_champion_choosing
+		scope:ova_cand_notable = { save_scope_as = ova_champion_candidate }
+		ova_champion_adopt = yes
+	}
+}
+
+# ---------------------------------------------------- hinterland (10-14)
+ova_champion.10 = { # a great beast slain
+	type = country_event
+	placement = root
+	title = ova_champion.10.t
+	desc = ova_champion.10.d
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.10.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 60 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+		add_treasury = 250000
+	}
+}
+
+ova_champion.11 = { # trophies and tales
+	type = country_event
+	placement = root
+	title = ova_champion.11.t
+	desc = ova_champion.11.d
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.11.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+		add_treasury = 100000
+	}
+}
+
+ova_champion.12 = { # the ballads write themselves
+	type = country_event
+	placement = root
+	title = ova_champion.12.t
+	desc = ova_champion.12.d
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.12.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+		ova_champion_add_popularity = { AMOUNT = 15 }
+	}
+}
+
+ova_champion.13 = { # carried back on a shield
+	type = country_event
+	placement = root
+	title = ova_champion.13.t
+	desc = ova_champion.13.d
+	duration = 3
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.13.a
+		default_option = yes
+		ova_champion_injure = { MONTHS = 6 }
+		ova_champion_add_popularity = { AMOUNT = -5 }
+	}
+}
+
+ova_champion.15 = { # an uneventful hunt (the common outcome)
+	type = country_event
+	placement = root
+	title = ova_champion.15.t
+	desc = ova_champion.15.d
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.15.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 5 }
+	}
+}
+
+ova_champion.14 = { # death in the wilds
+	type = country_event
+	placement = root
+	title = ova_champion.14.t
+	desc = ova_champion.14.d
+	duration = 3
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	# plot armor: a story champion (Victoria, the Returner) cannot die on a
+	# random hunt while its journal chain is unfinished - the roll simply
+	# fizzles and the champion survives the outing.
+	trigger = {
+		NOT = { ova_champion_plot_armored = yes }
+	}
+	immediate = { }
+	option = {
+		name = ova_champion.14.a
+		default_option = yes
+		ova_champion_kill = yes
+		add_modifier = { name = ova_champion_mourning days = 730 }
+	}
+}
+
+# ------------------------------------- vs decentralized neighbor (20-24)
+ova_champion.20 = { # a province carved out
+	type = country_event
+	placement = root
+	title = ova_champion.20.t
+	desc = ova_champion.20.d
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	trigger = { }
+	immediate = {
+		# prefers a state we already hold a slice of (fill it out) over a fresh
+		# border state - see ova_champion_pick_seize_state
+		ova_champion_pick_seize_state = yes
+	}
+	option = {
+		name = ova_champion.20.a
+		default_option = yes
+		# the expedition does NOT end on a seizure - the champion presses on and
+		# may carve the next province next time. The pact only ends on the
+		# champion's death or when the target is annexed out of existence.
+		if = {
+			limit = { exists = scope:ova_seized_state }
+			ova_champion_resolve_seize = yes # ONE province, not the whole state
+		}
+		if = {
+			limit = { has_variable = ova_province_seized }
+			remove_variable = ova_province_seized
+			# ?= - the raided region_state may cease to exist if the carved
+			# province was its last
+			scope:ova_seized_state ?= { add_devastation = 20 }
+			ova_champion_add_xp = { AMOUNT = 40 }
+			ova_champion_add_popularity = { AMOUNT = 10 }
+		}
+		else = { # no carvable border province after all - plunder instead
+			add_treasury = 250000
+			ova_champion_add_xp = { AMOUNT = 40 }
+			ova_champion_add_popularity = { AMOUNT = 5 }
+		}
+	}
+}
+
+ova_champion.21 = { # plunder of the frontier
+	type = country_event
+	placement = root
+	title = ova_champion.21.t
+	desc = ova_champion.21.d
+	duration = 3
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.21.a
+		default_option = yes
+		add_treasury = 300000
+		add_modifier = { name = ova_champion_war_spoils days = 365 }
+		scope:ova_adventure_target ?= {
+			random_scope_state = {
+				add_devastation = 15
+			}
+		}
+		ova_champion_add_xp = { AMOUNT = 40 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_champion.22 = { # tales of the frontier
+	type = country_event
+	placement = root
+	title = ova_champion.22.t
+	desc = ova_champion.22.d
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.22.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+		ova_champion_add_popularity = { AMOUNT = 15 }
+	}
+}
+
+ova_champion.23 = { # ambushed in the wastes
+	type = country_event
+	placement = root
+	title = ova_champion.23.t
+	desc = ova_champion.23.d
+	duration = 3
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.23.a
+		default_option = yes
+		ova_champion_injure = { MONTHS = 6 }
+	}
+}
+
+ova_champion.24 = { # fallen beyond the border
+	type = country_event
+	placement = root
+	title = ova_champion.24.t
+	desc = ova_champion.24.d
+	duration = 3
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	# plot armor: a story champion cannot fall on a random expedition roll
+	# while its journal chain is unfinished (the roll fizzles, and it keeps
+	# campaigning).
+	trigger = {
+		NOT = { ova_champion_plot_armored = yes }
+	}
+	immediate = { }
+	option = {
+		name = ova_champion.24.a
+		default_option = yes
+		ova_champion_kill = yes
+		add_modifier = { name = ova_champion_mourning days = 730 }
+	}
+}
+
+# --------------------------- vs centralized neighbor, demonic path (30-34)
+ova_champion.30 = { # a border province seized
+	type = country_event
+	placement = root
+	title = ova_champion.30.t
+	desc = ova_champion.30.d
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	trigger = { }
+	immediate = {
+		# prefers a state we already hold a slice of (fill it out); falls back
+		# to a bordering state, then a coastal beachhead for a landless
+		# Otherworlder crusade - see ova_champion_pick_seize_state_centralized
+		ova_champion_pick_seize_state_centralized = yes
+	}
+	option = {
+		name = ova_champion.30.a
+		default_option = yes
+		# the expedition presses on after a seizure (see ova_champion.20)
+		if = {
+			limit = { exists = scope:ova_seized_state }
+			ova_champion_resolve_seize = yes # ONE adjacent province, not the whole state
+		}
+		if = {
+			limit = { has_variable = ova_province_seized }
+			remove_variable = ova_province_seized
+			# ?= - the raided region_state may cease to exist if the carved
+			# province was its last
+			scope:ova_seized_state ?= { add_devastation = 25 }
+			change_infamy = { value = 5 }
+			ova_champion_add_xp = { AMOUNT = 40 }
+			ova_champion_add_popularity = { AMOUNT = 10 }
+			# a CENTRALIZED victim gets a claim on the region we just carved a
+			# province from - a decentralized victim has no use for one, but a
+			# proper nation keeps a legitimate path back to what it lost
+			if = {
+				limit = {
+					exists = scope:ova_seized_region
+					scope:ova_adventure_target ?= { NOT = { is_country_type = decentralized } }
+				}
+				scope:ova_seized_region = { add_claim = scope:ova_adventure_target }
+			}
+		}
+		else = { # no carvable border province after all - plunder instead (see ova_champion.20)
+			add_treasury = 250000
+			ova_champion_add_xp = { AMOUNT = 40 }
+			ova_champion_add_popularity = { AMOUNT = 5 }
+		}
+	}
+}
+
+ova_champion.31 = { # sack and plunder
+	type = country_event
+	placement = root
+	title = ova_champion.31.t
+	desc = ova_champion.31.d
+	duration = 3
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.31.a
+		default_option = yes
+		add_treasury = 500000
+		add_modifier = { name = ova_champion_war_spoils days = 365 }
+		scope:ova_adventure_target ?= {
+			random_scope_state = {
+				add_devastation = 25
+			}
+		}
+		ova_champion_add_xp = { AMOUNT = 40 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_champion.32 = { # terror by night
+	type = country_event
+	placement = root
+	title = ova_champion.32.t
+	desc = ova_champion.32.d
+	duration = 3
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.32.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+		scope:ova_adventure_target ?= {
+			random_scope_state = {
+				add_devastation = 10
+			}
+		}
+	}
+}
+
+ova_champion.33 = { # driven back bleeding
+	type = country_event
+	placement = root
+	title = ova_champion.33.t
+	desc = ova_champion.33.d
+	duration = 3
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.33.a
+		default_option = yes
+		ova_champion_injure = { MONTHS = 8 }
+		ova_champion_add_popularity = { AMOUNT = -5 }
+	}
+}
+
+ova_champion.25 = { # the champion takes a break: the expedition packs up
+	type = country_event
+	placement = root
+	title = ova_champion.25.t
+	desc = ova_champion.25.d
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.25.a
+		default_option = yes
+		# the break ends the expedition at once and locks new ones out a while
+		set_variable = ova_expedition_return
+		set_variable = { name = ova_expedition_lockout value = 6 }
+		ova_champion_add_popularity = { AMOUNT = 3 }
+	}
+}
+
+ova_champion.26 = { # supplies run low (any expedition)
+	type = country_event
+	placement = root
+	title = ova_champion.26.t
+	desc = ova_champion.26.d
+	duration = 3
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	trigger = { }
+	immediate = { }
+	option = { # resupply the expedition
+		name = ova_champion.26.a
+		default_option = yes
+		add_treasury = -15000
+	}
+	option = { # recall the champion
+		name = ova_champion.26.b
+		set_variable = ova_expedition_return
+		ova_champion_add_popularity = { AMOUNT = -5 }
+	}
+}
+
+ova_champion.34 = { # slain on foreign soil
+	type = country_event
+	placement = root
+	title = ova_champion.34.t
+	desc = ova_champion.34.d
+	duration = 3
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	# plot armor: a story champion cannot be slain on a random expedition roll
+	# while its journal chain is unfinished (the roll fizzles, and it keeps
+	# campaigning).
+	trigger = {
+		NOT = { ova_champion_plot_armored = yes }
+	}
+	immediate = { }
+	option = {
+		name = ova_champion.34.a
+		default_option = yes
+		ova_champion_kill = yes
+		add_modifier = { name = ova_champion_mourning days = 730 }
+	}
+}
+
+# ============================================================================
+# Expanded expedition outcomes (40-49 vs a decentralized frontier, 50-59 vs a
+# centralized neighbor). Decisive-but-not-final: like 20-33 they do NOT end
+# the campaign - the Champion presses on until death, a break, or the target's
+# annexation. Weighted in ova_expedition_roll (weights slide every 5 Levels).
+# ============================================================================
+
+# ------------------------------------- vs decentralized neighbor (40-49)
+ova_champion.40 = { # a warlord's hoard
+	type = country_event
+	placement = root
+	title = ova_champion.40.t
+	desc = ova_champion.40.d
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.40.a
+		default_option = yes
+		add_treasury = 400000
+		ova_champion_add_xp = { AMOUNT = 30 }
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+}
+
+ova_champion.41 = { # a relic of the wastes
+	type = country_event
+	placement = root
+	title = ova_champion.41.t
+	desc = ova_champion.41.d
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.41.a
+		default_option = yes
+		add_modifier = { name = ova_champion_sacred_relic days = 730 }
+		ova_champion_add_xp = { AMOUNT = 35 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+}
+
+ova_champion.42 = { # the champion's duel
+	type = country_event
+	placement = root
+	title = ova_champion.42.t
+	desc = ova_champion.42.d
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.42.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 55 }
+		ova_champion_add_popularity = { AMOUNT = 12 }
+	}
+}
+
+ova_champion.43 = { # sworn to the banner
+	type = country_event
+	placement = root
+	title = ova_champion.43.t
+	desc = ova_champion.43.d
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.43.a
+		default_option = yes
+		add_treasury = 150000
+		ova_champion_add_xp = { AMOUNT = 20 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+}
+
+ova_champion.44 = { # secrets of an old master
+	type = country_event
+	placement = root
+	title = ova_champion.44.t
+	desc = ova_champion.44.d
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.44.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 70 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_champion.45 = { # a long cold march (uneventful)
+	type = country_event
+	placement = root
+	title = ova_champion.45.t
+	desc = ova_champion.45.d
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.45.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_champion.46 = { # cursed plunder
+	type = country_event
+	placement = root
+	title = ova_champion.46.t
+	desc = ova_champion.46.d
+	duration = 3
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.46.a
+		default_option = yes
+		add_treasury = 250000
+		add_modifier = { name = ova_champion_dark_omen days = 365 }
+		ova_champion_add_xp = { AMOUNT = 15 }
+	}
+}
+
+ova_champion.47 = { # fever in the camp
+	type = country_event
+	placement = root
+	title = ova_champion.47.t
+	desc = ova_champion.47.d
+	duration = 3
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.47.a
+		default_option = yes
+		ova_champion_injure = { MONTHS = 4 }
+		add_treasury = -20000
+	}
+}
+
+ova_champion.48 = { # two valleys fall at once
+	type = country_event
+	placement = root
+	title = ova_champion.48.t
+	desc = ova_champion.48.d
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	trigger = { }
+	immediate = {
+		ova_champion_pick_seize_state = yes
+	}
+	option = {
+		name = ova_champion.48.a
+		default_option = yes
+		if = {
+			limit = { exists = scope:ova_seized_state }
+			ova_champion_resolve_seize = yes
+		}
+		if = {
+			limit = { has_variable = ova_province_seized }
+			remove_variable = ova_province_seized
+			scope:ova_seized_state ?= { add_devastation = 25 }
+			ova_champion_add_xp = { AMOUNT = 30 }
+			ova_champion_add_popularity = { AMOUNT = 8 }
+			# press for a SECOND province in the same state (now that we hold a
+			# slice of it, a plain land seizure reaches the next province)
+			ova_champion_seize_province = yes
+			if = {
+				limit = { has_variable = ova_province_seized }
+				remove_variable = ova_province_seized
+				scope:ova_seized_state ?= { add_devastation = 15 }
+				ova_champion_add_xp = { AMOUNT = 25 }
+				ova_champion_add_popularity = { AMOUNT = 7 }
+			}
+		}
+		else = { # nothing carvable after all - plunder instead
+			add_treasury = 300000
+			ova_champion_add_xp = { AMOUNT = 40 }
+			ova_champion_add_popularity = { AMOUNT = 6 }
+		}
+	}
+}
+
+ova_champion.49 = { # a rival slips away
+	type = country_event
+	placement = root
+	title = ova_champion.49.t
+	desc = ova_champion.49.d
+	duration = 3
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.49.a
+		default_option = yes
+		ova_champion_injure = { MONTHS = 5 }
+		ova_champion_add_xp = { AMOUNT = 25 }
+		ova_champion_add_popularity = { AMOUNT = 3 }
+	}
+}
+
+# --------------------------- vs centralized neighbor, demonic path (50-59)
+ova_champion.50 = { # the war-chest emptied
+	type = country_event
+	placement = root
+	title = ova_champion.50.t
+	desc = ova_champion.50.d
+	duration = 3
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_raiding.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.50.a
+		default_option = yes
+		add_treasury = 600000
+		add_modifier = { name = ova_champion_war_spoils days = 365 }
+		change_infamy = { value = 3 }
+		ova_champion_add_xp = { AMOUNT = 30 }
+		ova_champion_add_popularity = { AMOUNT = 6 }
+	}
+}
+
+ova_champion.51 = { # a relic of the fallen
+	type = country_event
+	placement = root
+	title = ova_champion.51.t
+	desc = ova_champion.51.d
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.51.a
+		default_option = yes
+		add_modifier = { name = ova_champion_sacred_relic days = 730 }
+		change_infamy = { value = 2 }
+		ova_champion_add_xp = { AMOUNT = 35 }
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+}
+
+ova_champion.52 = { # a legend crosses the border
+	type = country_event
+	placement = root
+	title = ova_champion.52.t
+	desc = ova_champion.52.d
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.52.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 25 }
+		ova_champion_add_popularity = { AMOUNT = 15 }
+	}
+}
+
+ova_champion.53 = { # the enemy's champion answered
+	type = country_event
+	placement = root
+	title = ova_champion.53.t
+	desc = ova_champion.53.d
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.53.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 55 }
+		ova_champion_add_popularity = { AMOUNT = 14 }
+		change_infamy = { value = 2 }
+	}
+}
+
+ova_champion.54 = { # tribute extorted
+	type = country_event
+	placement = root
+	title = ova_champion.54.t
+	desc = ova_champion.54.d
+	duration = 3
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.54.a
+		default_option = yes
+		add_treasury = 250000
+		add_modifier = { name = ova_champion_war_spoils days = 365 }
+		change_infamy = { value = 3 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_champion.55 = { # an uneasy standoff (uneventful)
+	type = country_event
+	placement = root
+	title = ova_champion.55.t
+	desc = ova_champion.55.d
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.55.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_champion.56 = { # curse of the vanquished
+	type = country_event
+	placement = root
+	title = ova_champion.56.t
+	desc = ova_champion.56.d
+	duration = 3
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.56.a
+		default_option = yes
+		add_modifier = { name = ova_champion_dark_omen days = 365 }
+		change_infamy = { value = 2 }
+		ova_champion_add_xp = { AMOUNT = 12 }
+	}
+}
+
+ova_champion.57 = { # poisoned wells
+	type = country_event
+	placement = root
+	title = ova_champion.57.t
+	desc = ova_champion.57.d
+	duration = 3
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.57.a
+		default_option = yes
+		ova_champion_injure = { MONTHS = 5 }
+		add_treasury = -20000
+		change_infamy = { value = 2 }
+	}
+}
+
+ova_champion.58 = { # two marches overrun at once
+	type = country_event
+	placement = root
+	title = ova_champion.58.t
+	desc = ova_champion.58.d
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	trigger = { }
+	immediate = {
+		ova_champion_pick_seize_state_centralized = yes
+	}
+	option = {
+		name = ova_champion.58.a
+		default_option = yes
+		if = {
+			limit = { exists = scope:ova_seized_state }
+			ova_champion_resolve_seize = yes
+		}
+		if = {
+			limit = { has_variable = ova_province_seized }
+			remove_variable = ova_province_seized
+			scope:ova_seized_state ?= { add_devastation = 30 }
+			change_infamy = { value = 6 }
+			ova_champion_add_xp = { AMOUNT = 30 }
+			ova_champion_add_popularity = { AMOUNT = 8 }
+			# a centralized victim keeps a claim on the carved region
+			if = {
+				limit = {
+					exists = scope:ova_seized_region
+					scope:ova_adventure_target ?= { NOT = { is_country_type = decentralized } }
+				}
+				scope:ova_seized_region = { add_claim = scope:ova_adventure_target }
+			}
+			# press for a SECOND province in the same state
+			ova_champion_seize_province = yes
+			if = {
+				limit = { has_variable = ova_province_seized }
+				remove_variable = ova_province_seized
+				scope:ova_seized_state ?= { add_devastation = 15 }
+				ova_champion_add_xp = { AMOUNT = 25 }
+				ova_champion_add_popularity = { AMOUNT = 7 }
+			}
+		}
+		else = { # nothing carvable after all - plunder instead
+			add_treasury = 350000
+			ova_champion_add_xp = { AMOUNT = 40 }
+			ova_champion_add_popularity = { AMOUNT = 6 }
+		}
+	}
+}
+
+ova_champion.59 = { # the champion ransomed
+	type = country_event
+	placement = root
+	title = ova_champion.59.t
+	desc = ova_champion.59.d
+	duration = 3
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { }
+	immediate = { }
+	option = {
+		name = ova_champion.59.a
+		default_option = yes
+		ova_champion_injure = { MONTHS = 6 }
+		add_treasury = -50000
+		ova_champion_add_popularity = { AMOUNT = -5 }
+	}
+}

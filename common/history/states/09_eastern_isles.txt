@@ -1,0 +1,92 @@
+﻿STATES = {
+    s:STATE_ASA_NO_IKAZUCHI = {
+        create_state = {
+            country = c:ASH
+            owned_provinces = { "x969D00" "x998802" "x9A8922" "x9A9317" "x9D7C24" "xA67E0B" "xAC991C" "xAE9B00" "xB1820F" "xB37907" "xBA9610" }
+        }
+
+        add_homeland = cu:sakura
+    }
+    s:STATE_KASUMU_KURE = {
+        create_state = {
+            country = c:ASH
+            owned_provinces = { "xC2203B" "xC52631" "xC60332" "xC71027" "xC72129" "xC9292A" "xCA1222" "xCC1D2D" "xD60B34" "xD9212F" "xDB0544" }
+        }
+
+        add_homeland = cu:sakura
+    }
+    s:STATE_YOAKE_NO_UTA = {
+        create_state = {
+            country = c:ASH
+            owned_provinces = { "x701721" "x711B1C" "x721328" "x7A1426" "x7A173F" "x7C0A39" "x812721" "x85052D" "x89151A" "x891B33" "x8C0542" "x8C1C34" "x932834" "x95242B" "x96281F" }
+        }
+
+        add_homeland = cu:sakura
+    }
+    s:STATE_YURURU_HANABIRA = {
+        create_state = {
+            country = c:HAN
+            owned_provinces = { "xB54345" "xB8583A" "xB95531" "xBA464E" "xBB414C" "xBD4E38" "xC54940" "xC94D4C" "xCC462C" "xD16136" "xD74531" "xD75A2B" "xD8544C" "x882439" }
+        }
+
+        add_homeland = cu:sakura
+    }
+    s:STATE_UTSUROFU_KAORI = {
+        create_state = {
+            country = c:IRO
+            owned_provinces = { "x141B01" "x161F09" "x162410" "x1D2A09" "x1F2208" "x272714" "x272A16" "x2E1A0C" "x2F2513" "x311D04" }
+        }
+
+        add_homeland = cu:sakura
+    }
+    s:STATE_CHIRASU_HONOO = {
+        create_state = {
+            country = c:HIB
+            owned_provinces = { "x35FF00" "x3CF500" "x4CFF12" "x4DFF18" "x51F902" }
+        }
+
+        add_homeland = cu:sakura
+    }
+    s:STATE_KURENAI_NO_HA = {
+        create_state = {
+            country = c:KON
+            owned_provinces = { "x837B4D" "x868D30" "x86933F" "x897634" "x899939" "x8A7444" "x8B7D47" "x8C8C46" "x90973C" "x918843" "x938240" "x978F2F" "x9B924A" "xA18635" "xA2924B" "xA47936" "xA7723C" "xA89833" "xAB903D" }
+        }
+
+        add_homeland = cu:sakura
+    }
+    s:STATE_KIYURU_HAI = {
+        create_state = {
+            country = c:SHI
+            owned_provinces = { "x964021" "x965B25" "x993D49" "x9F3328" "x9F4D40" "xA2402F" "xAC5745" "xAE4346" "xB03347" "xB04D3A" "xB34C22" "xB53B3A" "xB6352C" "xB6582A" "xB83443" "xB8383B" "xBA5245" "xBB532B" }
+        }
+
+        add_homeland = cu:sakura
+    }
+    s:STATE_AFURURU_SHIZUKU = {
+        create_state = {
+            country = c:SHI
+            owned_provinces = { "xECD53F" "xF1D921" "xF5D23A" "xFFE02A" "xFFE523" }
+        }
+
+        add_homeland = cu:sakura
+    }
+    s:STATE_SHIRABOSHI = {
+        create_state = {
+            country = c:YUK
+            owned_provinces = { "xCF011D" "xD1011D" "xD20014" "xD30000" "xD40011" "xD5000F" "xD70000" "xD71216" "xD80007" "xD80018" "xD9001E" "xDA0001" "xE10C0E" "xE30013" "xE30300" "xE40008" "xE41314" "xE60D19" "xE70000" "xE71100" "xE71400" "xE8000E" "xE8041B" "xE90000" "xE90204" "xEA0B00" "xEB001E" "xED0000" "xED0400" "xEE1219" "xEF0000" "xEF0411" "xF11004" "xF20B08" "xF60004" }
+        }
+
+        add_homeland = cu:sakura
+        add_homeland = cu:bearkin
+    }
+    s:STATE_KURURU_MURASAKI = {
+        create_state = {
+            country = c:YUU
+            owned_provinces = { "x24B41E" "x26C416" "x26D427" "x27B310" "x27CD27" "x28BC0F" "x29C82F" "x2AC51D" "x2BCF22" "x2CB520" "x2CD90C" "x2EB20B" "x30C22A" "x30C70C" "x32CA0A" "x32D61D" "x35CE23" "x39B524" "x3AD819" "x3BBC26" "x3CD128" "x3CD622" "x3EC530" "x3FB80E" "x3FDA10" "x40BD23" "x40BF2F" "x43B418" "x43CE19" "x44D71D" "x44D80F" "x45BF2D" "x46C220" "x46D11D" "x48C230" "x49B314" "x4AC927" "x4BC20A" "x4BDA0C" }
+        }
+
+        add_homeland = cu:sakura
+        add_homeland = cu:bearkin
+    }
+}

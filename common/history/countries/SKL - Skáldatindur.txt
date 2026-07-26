@@ -1,0 +1,7 @@
+﻿# Skáldatindur (north: artifice_alchemy tier 3)
+COUNTRIES = {
+	c:SKL ?= {
+		effect_starting_technology_artifice_alchemy_tier_3 = yes
+		effect_starting_politics_traditional = yes
+	}
+}

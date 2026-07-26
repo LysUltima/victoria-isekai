@@ -1,0 +1,62 @@
+﻿POPULATION = {
+    c:BLO = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:FEA = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:FEN = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:FLO = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:GHO = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:HEA = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:MYS = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:NIN = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:PUR = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:SHA = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:SNO = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:SPI = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:SWO = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:VER = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:YAO = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+}

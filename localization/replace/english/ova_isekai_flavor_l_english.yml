@@ -1,0 +1,208 @@
+﻿l_english:
+  # --- ova_isekai_flavor.1 - a refugee column from the marches
+  ova_isekai_flavor.1.t: "The Long Road from the Marches"
+  ova_isekai_flavor.1.d: "Every season the demon war grinds on, another column of the dispossessed shuffles in from the border marches: farmers, weavers, children carrying what they could carry. They are not soldiers. They are the bill the war sends when no one is looking."
+  ova_isekai_flavor.1.f: "An old woman at the head of the column still has straw from her burned roof caught in her shawl."
+  ova_isekai_flavor.1.a: "Take them in"
+  ova_isekai_flavor.1.b: "Turn them back at the border"
+
+  # --- ova_isekai_flavor.2 - hero-mania among the youth
+  ova_isekai_flavor.2.t: "Wooden Swords and Broken Fences"
+  ova_isekai_flavor.2.d: "Every child in the district now fancies themselves a Hero. Fence posts have been whittled into swords, the miller's dog has been recruited as a war-steed, and at least one prize hedge has not survived the campaign."
+  ova_isekai_flavor.2.f: "The apothecary reports a run on bandages for scraped knees, not demon claws."
+  ova_isekai_flavor.2.a: "Let them play at heroes"
+  ova_isekai_flavor.2.b: "Confiscate the wooden swords"
+
+  # --- ova_isekai_flavor.3 - the war-orphan charity drive
+  ova_isekai_flavor.3.t: "The War-Orphan Charity Drive"
+  ova_isekai_flavor.3.d: "Local notables have organized a subscription for the war's orphans, children whose fathers marched to the marches and did not march back. The lists of donors are already being read aloud with great ceremony."
+  ova_isekai_flavor.3.f: "Some give from grief. Some give because their neighbor gave first."
+  ova_isekai_flavor.3.a: "Fund a grand orphanage"
+  ova_isekai_flavor.3.b: "A modest almshouse will do"
+
+  # --- ova_isekai_flavor.4 - the Church's tithe collectors
+  ova_isekai_flavor.4.t: "The Church's Tithe Collectors"
+  ova_isekai_flavor.4.d: "The Church of the Goddess sends its collectors on schedule, invoice in hand: a war tithe, they call it, to keep the Goddess' favor upon the crusade. The arithmetic is always generous, to the Church."
+  ova_isekai_flavor.4.f: "The collector smiles the whole time. He has done this before, in a hundred other kingdoms just as afraid of the dark as this one."
+  ova_isekai_flavor.4.a: "Pay the tithe in full"
+  ova_isekai_flavor.4.b: "Resist the collectors"
+
+  # --- ova_isekai_flavor.5 - the mercenary boom
+  ova_isekai_flavor.5.t: "The Mercenary Boom"
+  ova_isekai_flavor.5.d: "Free companies have sprouted like weeds along every road that leads toward the marches, selling steel to whoever pays first. A war that never ends is, for them, simply steady employment."
+  ova_isekai_flavor.5.f: "One captain has taken to advertising his company's services on a painted sign, complete with prices."
+  ova_isekai_flavor.5.a: "License the free companies"
+  ova_isekai_flavor.5.b: "Crack down on unlicensed bands"
+
+  # --- ova_isekai_flavor.6 - border panic (false alarm)
+  ova_isekai_flavor.6.t: "Smoke on the Horizon"
+  ova_isekai_flavor.6.d: "A shepherd swears he saw torches and horned shadows moving along the ridge at dusk. By morning half the district is packing wagons. By noon the smoke turns out to be a charcoal burner's kiln, and the shadows a herd of spooked cattle."
+  ova_isekai_flavor.6.f: "Fear does not wait for facts before it starts running."
+  ova_isekai_flavor.6.a: "Calm the countryside"
+  ova_isekai_flavor.6.b: "Muster the militia anyway"
+
+  # --- ova_isekai_flavor.7 - the profiteers' banquet
+  ova_isekai_flavor.7.t: "The Profiteers' Banquet"
+  ova_isekai_flavor.7.d: "The men who supply the war, steel and grain and transport and powder, have thrown themselves a banquet to celebrate a very good year. Toasts are raised to the crusade's health. No one at the table wishes it to end."
+  ova_isekai_flavor.7.f: "Someone proposes a toast 'to peace, someday' and is met with polite, uncomfortable silence."
+  ova_isekai_flavor.7.a: "Attend and toast the war"
+  ova_isekai_flavor.7.b: "Decline, and let them know you watch"
+
+  # --- ova_isekai_flavor.8 - pilgrimage to a summoning site
+  ova_isekai_flavor.8.t: "Pilgrimage to a Summoning Site"
+  ova_isekai_flavor.8.d: "Word has spread that a Hero was once called into the world at a shrine nearby, and the faithful now walk for weeks to stand where it happened, hoping some of the Goddess' favor still lingers in the stones."
+  ova_isekai_flavor.8.f: "A vendor has already set up a stall selling small tin replicas of a sword no one actually saw."
+  ova_isekai_flavor.8.a: "Host the pilgrims"
+  ova_isekai_flavor.8.b: "Charge a toll for passage"
+
+  # --- ova_isekai_flavor.9 - a demon peddler in town
+  ova_isekai_flavor.9.t: "A Demon Peddler in Town"
+  ova_isekai_flavor.9.d: "A horned trader has set up quietly at the edge of the market, selling knives of a make no local smith can match. He is unfailingly polite, pays his stall fee on time, and has not once mentioned the war. This unsettles people more than open hostility would."
+  ova_isekai_flavor.9.f: "The knives really are excellent. That is, somehow, the most disturbing part."
+  ova_isekai_flavor.9.a: "Let him trade"
+  ova_isekai_flavor.9.b: "Run him out of town"
+
+  # --- ova_isekai_flavor.10 - veterans come home changed
+  ova_isekai_flavor.10.t: "Veterans Come Home Changed"
+  ova_isekai_flavor.10.d: "The men who marched to the marches are trickling back, and they are not the men who left. They flinch at loud noises, drink alone, and say little about what they saw on the border. The crown must decide what, if anything, it owes them for it."
+  ova_isekai_flavor.10.f: "One veteran was asked what the demons were like. He said only: 'frightened. Same as us.'"
+  ova_isekai_flavor.10.a: "Pensions and care"
+  ova_isekai_flavor.10.b: "Let them fend for themselves"
+
+  # --- ova_isekai_flavor.11 - the relic auction
+  ova_isekai_flavor.11.t: "The Relic Auction"
+  ova_isekai_flavor.11.d: "A dead soldier's cloak, a broken shield, a letter never sent: the war has generated no shortage of 'relics,' real and invented, and an auction house has been only too happy to sell them to the highest bidder."
+  ova_isekai_flavor.11.f: "The auctioneer swears, hand on heart, that lot fourteen belonged to a genuine hero. He swore the same of lot eleven."
+  ova_isekai_flavor.11.a: "Bid for the crown's collection"
+  ova_isekai_flavor.11.b: "Let foreign collectors have them"
+
+  # --- ova_isekai_flavor.12 - "not our war" pamphlets
+  ova_isekai_flavor.12.t: "\"Not Our War\" Pamphlets"
+  ova_isekai_flavor.12.d: "Cheap pamphlets are circulating in the taverns, asking an uncomfortable question in blunt print: why is this kingdom's blood and coin spent on a border quarrel it did not start, for a Church that never seems to want it finished?"
+  ova_isekai_flavor.12.f: "No one has found the printer. Several people claim to know exactly who it is, and name three different people."
+  ova_isekai_flavor.12.a: "Suppress the pamphlets"
+  ova_isekai_flavor.12.b: "Let them print"
+
+  # --- ova_isekai_flavor.13 - rumor of a miracle at the front
+  ova_isekai_flavor.13.t: "Rumor of a Miracle at the Front"
+  ova_isekai_flavor.13.d: "Soldiers write home of a light that turned an ambush at the last moment, of a wound that closed on its own, of a voice that was not quite anyone's. The Church's traveling clerks are already writing it down as gospel before anyone has confirmed a word of it."
+  ova_isekai_flavor.13.f: "It hardly matters, in the end, whether it happened. It will be preached either way."
+  ova_isekai_flavor.13.a: "Endorse the miracle"
+  ova_isekai_flavor.13.b: "Quietly investigate"
+
+  # --- ova_isekai_flavor.14 - letters from the front, read aloud in the square
+  ova_isekai_flavor.14.t: "Letters from the Front"
+  ova_isekai_flavor.14.d: "A sackful of letters has arrived from the marches, and the square fills to hear them read: news of sons and husbands, cheerful lies to spare the worried, and here and there a line that says, plainly, more than the writer meant to."
+  ova_isekai_flavor.14.f: "One letter simply says: 'Tell the children I am well. Do not tell them anything else.'"
+  ova_isekai_flavor.14.a: "Read them aloud in the square"
+  ova_isekai_flavor.14.b: "Read them privately, family by family"
+
+  # ===================== stock fantasy-isekai color (.15-.28) =====================
+  # --- ova_isekai_flavor.15 - a wandering bard's new ballad
+  ova_isekai_flavor.15.t: "The Wandering Bard"
+  ova_isekai_flavor.15.d: "A bard has drifted into the capital with a lute, a fine coat gone shabby at the cuffs, and a repertoire of ballads about heroes, dragons, and doomed romances that have every tavern in the district weeping into its ale by the third verse. The takings at the door are considerable."
+  ova_isekai_flavor.15.f: "Nobody can say whether a word of his songs is true. Nobody, on the fourth pint, particularly cares."
+  ova_isekai_flavor.15.a: "Give the bard a stage"
+  ova_isekai_flavor.15.b: "Tax the tavern takings"
+
+  # --- ova_isekai_flavor.16 - the adventurers' guild opens a branch
+  ova_isekai_flavor.16.t: "The Adventurers' Guild"
+  ova_isekai_flavor.16.d: "The Adventurers' Guild wishes to open a branch in the capital: a chartered clearing-house where sworn adventurers take contracts to clear monster nests, escort caravans, and retrieve whatever the gentry have lost down old wells. They pay handsomely for the charter, and take a tidy cut of every bounty forever after."
+  ova_isekai_flavor.16.f: "The proposed guildmaster has an eyepatch, a ledger, and the manner of a man who has survived both dragons and accountants."
+  ova_isekai_flavor.16.a: "Charter the guild"
+  ova_isekai_flavor.16.b: "Keep the monster-slaying contracts for the crown"
+
+  # --- ova_isekai_flavor.17 - a slime in the granary
+  ova_isekai_flavor.17.t: "A Slime in the Granary"
+  ova_isekai_flavor.17.d: "A gelatinous slime the size of a hay-cart has taken up residence in the district granary and is placidly digesting the winter stores. It is not dangerous, exactly. It is simply eating everything, slowly, and no one wants to be the one to poke it."
+  ova_isekai_flavor.17.f: "The village priest has tried praying at it. The slime remains, on the whole, unconverted."
+  ova_isekai_flavor.17.a: "Hire a party to clear it out"
+  ova_isekai_flavor.17.b: "The militia can manage a few slimes"
+
+  # --- ova_isekai_flavor.18 - a traveling menagerie with a "tame" wyvern
+  ova_isekai_flavor.18.t: "The Traveling Menagerie"
+  ova_isekai_flavor.18.d: "A traveling menagerie has come to town, and its prize attraction is a wyvern the ringmaster swears is perfectly tame. The children are enchanted. The fire brigade is nervous. The wyvern regards the whole affair with the flat, patient contempt of a creature biding its time."
+  ova_isekai_flavor.18.f: "'Perfectly tame,' the ringmaster repeats, a little too often for anyone's comfort."
+  ova_isekai_flavor.18.a: "Welcome the show to the capital"
+  ova_isekai_flavor.18.b: "A caged wyvern is a fire waiting to happen"
+
+  # --- ova_isekai_flavor.19 - the harvest festival
+  ova_isekai_flavor.19.t: "The Harvest Festival"
+  ova_isekai_flavor.19.d: "The year's harvest is in, and the villages want their festival: lantern-lit dances, a marrow-growing contest of unusual ferocity, and a mage hired to paint the evening sky in colors it does not normally attempt. The crown is invited to sponsor the whole cheerful business, or to let the districts fund their own."
+  ova_isekai_flavor.19.f: "The reigning marrow champion has held the title four years. Rumors of enchantment persist, and are strenuously denied."
+  ova_isekai_flavor.19.a: "Sponsor a grand festival"
+  ova_isekai_flavor.19.b: "Let the villages hold their own"
+
+  # --- ova_isekai_flavor.20 - a dungeon under the old mill
+  ova_isekai_flavor.20.t: "The Dungeon Under the Mill"
+  ova_isekai_flavor.20.d: "The old mill collapsed into a staircase no one built, descending into a labyrinth of worked stone that predates the town, the kingdom, and quite possibly the language. Adventurers are already lining up to plunder it. So, more quietly, are the crown's tax assessors."
+  ova_isekai_flavor.20.f: "The first party down reported treasure, traps, and 'a truly upsetting number of skeletons.' They went back the next morning regardless."
+  ova_isekai_flavor.20.a: "License expeditions and tax the loot"
+  ova_isekai_flavor.20.b: "Seal it and post a guard"
+
+  # --- ova_isekai_flavor.21 - entrance-exam season at the magic academy
+  ova_isekai_flavor.21.t: "Entrance-Exam Season"
+  ova_isekai_flavor.21.d: "It is entrance-exam season at the royal magic academy, and the capital is full of anxious hopefuls levitating small objects at one another to practice. Most of the places, by long tradition, go to the noble houses. A scholarship fund could change that, and make the crown some grateful and gifted friends among the common-born."
+  ova_isekai_flavor.21.f: "One applicant has already set a curtain on fire. The examiners note this as 'promising, if unrefined.'"
+  ova_isekai_flavor.21.a: "Fund scholarships for common-born talent"
+  ova_isekai_flavor.21.b: "Let the noble houses keep the places"
+
+  # --- ova_isekai_flavor.22 - a dragon sighting (probably a big lizard)
+  ova_isekai_flavor.22.t: "A Dragon on the Ridge"
+  ova_isekai_flavor.22.d: "A dragon has been sighted on the northern ridge, or a very large lizard, or a shadow, or nothing at all, depending on which terrified farmer you believe. The district is one bad rumor away from a full panic. A calm word and a few scouts might settle it. So, less honestly, might a well-publicized dragon-hunt."
+  ova_isekai_flavor.22.f: "The most reliable witness turned out to be nine years old and 'pretty sure it was a dragon, or maybe a big goose.'"
+  ova_isekai_flavor.22.a: "Send scouts before anyone panics"
+  ova_isekai_flavor.22.b: "A dragon-hunt makes for good morale, real or not"
+
+  # --- ova_isekai_flavor.23 - the potion-seller's miracle tonic
+  ova_isekai_flavor.23.t: "The Miracle Tonic"
+  ova_isekai_flavor.23.d: "A silver-tongued potion-seller has arrived hawking a tonic he swears cures gout, grief, baldness, and low spirits, all in one bottle, at a very reasonable price. The alchemists' guild is skeptical. The public is buying it by the crate. Somebody ought to test the stuff before anyone drinks the whole crate at once."
+  ova_isekai_flavor.23.f: "The main ingredient, on inspection, appears to be strong wine and stronger confidence."
+  ova_isekai_flavor.23.a: "Have the alchemists' guild test it"
+  ova_isekai_flavor.23.b: "Let the market sort the fraud from the cure"
+
+  # --- ova_isekai_flavor.24 - a masquerade at the ducal palace
+  ova_isekai_flavor.24.t: "The Masquerade"
+  ova_isekai_flavor.24.d: "The duke is throwing a masquerade, the social event of the season, and half the intrigues of the realm will be conducted behind feathered masks and too much wine. An appearance would be good for the crown's standing. An absence would be good for the crown's peace of mind. Both are defensible."
+  ova_isekai_flavor.24.f: "At least three people intend to arrive dressed as the Hero. All three will be mortified to meet the others."
+  ova_isekai_flavor.24.a: "Attend, and be seen"
+  ova_isekai_flavor.24.b: "Send regrets; there is work to do"
+
+  # --- ova_isekai_flavor.25 - a stray demi-human child
+  ova_isekai_flavor.25.t: "The Stray"
+  ova_isekai_flavor.25.d: "A demi-human child, beast-eared and half-starved, has been found sleeping in a market doorway with no family anyone can name. She is polite, wary, and clearly used to being moved along. The question of where she belongs has landed, somehow, on the crown's desk."
+  ova_isekai_flavor.25.f: "Asked her name, she gives one, then a different one, then watches carefully to see which gets her fed."
+  ova_isekai_flavor.25.a: "Place the child with a kind family"
+  ova_isekai_flavor.25.b: "The orphanage will take one more"
+
+  # --- ova_isekai_flavor.26 - the blacksmith's enchanted commission
+  ova_isekai_flavor.26.t: "The Master's Commission"
+  ova_isekai_flavor.26.d: "The capital's finest smith, old and half-retired, offers the crown one last masterwork: an enchanted blade of the sort he made in his prime, when such things were still worth making. It would cost a small fortune and take a season. Ordinary steel would cost nothing and take a week. He is very clearly hoping to be indulged."
+  ova_isekai_flavor.26.f: "'One more,' he says, flexing a scarred hand. 'A good one. Then these old bones can rest.'"
+  ova_isekai_flavor.26.a: "Commission a masterwork for the armory"
+  ova_isekai_flavor.26.b: "Standard steel will serve"
+
+  # --- ova_isekai_flavor.27 - a falling star
+  ova_isekai_flavor.27.t: "The Falling Star"
+  ova_isekai_flavor.27.d: "A star fell in the night, trailing green fire, and came down somewhere in the eastern hills. The temples are calling it an omen, the scholars are calling it a fallen fragment of the heavens worth studying, and the local children are calling it 'ours, we saw it first.' Someone should reach it before the treasure-hunters do."
+  ova_isekai_flavor.27.f: "Half the district saw a blessing. The other half saw a very good reason to check their insurance."
+  ova_isekai_flavor.27.a: "Send scholars to find where it fell"
+  ova_isekai_flavor.27.b: "Let the temples read what omens they like"
+
+  # --- ova_isekai_flavor.28 - the ice-mage's relief in a hot summer
+  ova_isekai_flavor.28.t: "The Long Hot Summer"
+  ova_isekai_flavor.28.d: "It is the hottest summer in memory, the wells are low and tempers shorter, and the ice-mages' guild has offered, for a fee, to cool the markets and public squares with a season of gentle frost-craft. It would be a great comfort to the capital. It would also be a great expense, for a discomfort every generation before this one simply endured."
+  ova_isekai_flavor.28.f: "The fishmongers, whose wares are turning in the heat, have become the frost-mages' most passionate advocates."
+  ova_isekai_flavor.28.a: "Pay the mages to cool the markets"
+  ova_isekai_flavor.28.b: "Everyone survived summer before magic was cheap"
+
+  # --- Static modifier display names (every modifier needs one)
+  ova_isekai_flavor_war_profiteers: "War Profiteers"
+  ova_isekai_flavor_tithe_resentment: "Tithe Resentment"
+  ova_isekai_flavor_charity_relief: "Charity's Relief"
+  ova_isekai_flavor_veteran_unrest: "Veteran Unrest"
+  ova_isekai_flavor_pilgrim_fervor: "Pilgrim Fervor"
+  ova_isekai_flavor_demon_trade: "Demon Trade"
+  ova_isekai_flavor_adventurer_boom: "Adventurers' Boom"
+  ova_isekai_flavor_festival_cheer: "Festival Cheer"
+  ova_isekai_flavor_dungeon_boom: "Dungeon Rush"

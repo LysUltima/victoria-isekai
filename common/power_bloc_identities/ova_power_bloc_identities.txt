@@ -1,0 +1,162 @@
+﻿# Three custom power bloc identities for the isekai/murim/xianxia JE storylines.
+# Shape copied verbatim from vanilla common/power_bloc_identities/00_power_bloc_identities.txt
+# (identity_trade_league / identity_religious / identity_military_treaty_organization / identity_cultural).
+# mandate_progress + on_created reuse the exact vanilla values shared by every vanilla identity.
+# cohesion block omitted (falls back to engine default — same as identities that don't override it
+# would use; all 5 vanilla identities DO define one, but ours don't need custom cohesion math, so we
+# rely on the base engine cohesion formula rather than inventing script we can't verify).
+
+identity_radiant_crusade = {
+	power_bloc_modifier = {
+		power_bloc_leader_can_force_state_religion_bool = yes
+		power_bloc_mandate_progress_per_great_power_member_add = 10
+		power_bloc_mandate_progress_per_major_power_member_add = 5
+		power_bloc_mandate_progress_per_minor_power_member_add = 2
+		power_bloc_mandate_progress_per_unrecognized_major_power_member_add = 2
+		power_bloc_mandate_progress_per_unrecognized_regional_power_member_add = 1
+		power_bloc_cohesion_per_member_add = -1
+	}
+
+	leader_modifier = {
+		country_prestige_mult = 0.1
+	}
+
+	non_leader_modifier = {}
+
+	can_leave = {
+        AND = {
+            OR = {
+                is_power_bloc_leader = yes
+                power_bloc = {
+                    leverage_advantage = {
+                        target = root
+                        value <= 30
+                    }
+                }
+            }
+            NOT = { power_bloc = { has_modifier = ova_unbreakable_covenant } }
+        }
+	}
+
+	possible = {
+		OR = {
+			has_law_or_variant = law_type:law_state_religion
+			has_law_or_variant = law_type:law_freedom_of_conscience
+		}
+	}
+
+	member_modifier = {
+		state_conversion_mult = 0.33
+		interest_group_ig_devout_pol_str_mult = 0.25
+		country_prestige_mult = 0.05
+	}
+
+	icon = "gfx/interface/icons/central_identity_pillars_icons/religious.dds"
+	background = "gfx/interface/power_blocs/backgrounds/pb_background_generic.dds"
+
+	mandate_progress = power_bloc_mandate_progress_by_rank
+
+	on_created = { relations_hit_with_power_bloc_leaders = yes }
+}
+
+identity_martial_alliance = {
+	power_bloc_modifier = {
+		power_bloc_leader_can_add_wargoal_bool = yes
+		power_bloc_disallow_war_bool = yes
+		power_bloc_mandate_progress_per_great_power_member_add = 10
+		power_bloc_mandate_progress_per_major_power_member_add = 5
+		power_bloc_mandate_progress_per_minor_power_member_add = 2
+		power_bloc_mandate_progress_per_unrecognized_major_power_member_add = 2
+		power_bloc_mandate_progress_per_unrecognized_regional_power_member_add = 1
+		power_bloc_cohesion_per_member_add = -1
+	}
+
+	leader_modifier = {
+		unit_offense_mult = 0.05
+        country_prestige_add = 100
+	}
+
+	non_leader_modifier = {}
+
+	can_leave = {
+        AND = {
+            OR = {
+                is_power_bloc_leader = yes
+                power_bloc = {
+                    leverage_advantage = {
+                        target = root
+                        value <= 30
+                    }
+                }
+            }
+            NOT = { power_bloc = { has_modifier = ova_unbreakable_covenant } }
+        }
+	}
+
+	possible = {
+		has_law_or_variant = law_type:law_martial_sect
+	}
+
+	member_modifier = {
+		unit_defense_mult = 0.05
+		unit_morale_recovery_mult = 0.05
+        country_prestige_mult = 0.2
+	}
+
+	icon = "gfx/interface/icons/central_identity_pillars_icons/military_treaty_organization.dds"
+	background = "gfx/interface/power_blocs/backgrounds/pb_background_generic.dds"
+
+	mandate_progress = power_bloc_mandate_progress_by_rank
+
+	on_created = { relations_hit_with_power_bloc_leaders = yes }
+}
+
+identity_demonic_covenant = {
+	power_bloc_modifier = {
+		power_bloc_leader_can_spread_culture_to_pb_bool = yes
+		power_bloc_mandate_progress_per_great_power_member_add = 10
+		power_bloc_mandate_progress_per_major_power_member_add = 5
+		power_bloc_mandate_progress_per_minor_power_member_add = 2
+		power_bloc_mandate_progress_per_unrecognized_major_power_member_add = 2
+		power_bloc_mandate_progress_per_unrecognized_regional_power_member_add = 1
+		power_bloc_cohesion_per_member_add = -1
+	}
+
+	leader_modifier = {
+		country_society_tech_spread_mult = 0.1
+        country_prestige_add = 20
+	}
+
+	non_leader_modifier = {}
+
+	can_leave = {
+        AND = {
+            OR = {
+                is_power_bloc_leader = yes
+                power_bloc = {
+                    leverage_advantage = {
+                        target = root
+                        value <= 30
+                    }
+                }
+            }
+            NOT = { power_bloc = { has_modifier = ova_unbreakable_covenant } }
+        }
+	}
+
+	possible = {
+		has_law_or_variant = law_type:law_martial_sect
+	}
+
+	member_modifier = {
+		country_society_tech_spread_mult = 0.1
+		state_radicals_from_political_movements_mult = -0.1
+	}
+
+	icon = "gfx/interface/icons/central_identity_pillars_icons/cultural.dds"
+	background = "gfx/interface/power_blocs/backgrounds/pb_background_generic.dds"
+
+	mandate_progress = power_bloc_mandate_progress_by_rank
+
+	on_created = { relations_hit_with_power_bloc_leaders = yes }
+}

@@ -1,0 +1,358 @@
+﻿country_restore_japanese_emperor = {
+	if = {
+		limit = {
+			any_scope_character = {
+				has_trait = special_character_japanese_emperor
+			}
+		}
+		if = {
+			limit = {
+				has_gov_regency = yes
+			}
+			heir ?= {
+				remove_character_role = heir # Child-Shoguns get no shot
+			}
+			remove_regency_modifier = yes
+		}
+		else = {
+			heir ?= {
+				retire_character = yes
+			}
+			ruler ?= {
+				if = {
+					limit = {
+						OR = {
+							has_role = character_role_general
+							has_role = character_role_admiral
+						}
+					}
+					set_commander_rank = 3
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_role = character_role_politician
+						}
+					}
+					add_character_role = character_role_politician
+				}
+				set_variable = former_shogun_var # designates Taikun
+				set_as_interest_group_leader = yes # Landowners leader, typically
+				hidden_effect = { set_character_immortal = yes }
+				# removed: temporary_immortality_var was only read by a deleted event
+			}
+		}
+		random_scope_character = {
+			limit = {
+				has_trait = special_character_japanese_emperor
+			}
+			set_character_as_ruler = yes
+		}
+		japan_generate_scripted_heirs = yes
+	}
+	else = { # Should never happen, but just in case
+		if = {
+			limit = {
+				has_gov_regency = yes
+			}
+			heir ?= {
+				remove_character_role = heir # Child-Shoguns get no shot
+			}
+			remove_regency_modifier = yes
+		}
+		else = {
+			heir ?= {
+				retire_character = yes
+			}
+			ruler ?= {
+				set_variable = former_shogun_var # designates Taikun
+				set_as_interest_group_leader = yes # Landowners leader, typically
+				set_character_immortal = yes
+				# removed: temporary_immortality_var was only read by a deleted event
+			}
+		}
+		country_generate_japanese_emperor = yes
+	}
+}
+
+country_generate_japanese_emperor = {
+	# Emptied: created rulers from vanilla Earth character templates (JAP_*),
+	# wiped by replace_paths (common/character_templates). Kept as a no-op stub because
+	# live code still calls it; the Earth-flavour body was dead. See CLAUDE.md.
+}
+
+
+country_generate_japanese_shogun = {
+	# Emptied: created rulers from vanilla Earth character templates (JAP_*),
+	# wiped by replace_paths (common/character_templates). Kept as a no-op stub because
+	# live code still calls it; the Earth-flavour body was dead. See CLAUDE.md.
+}
+
+
+character_get_and_save_coup_reason = {
+    if = {
+		limit = {
+			owner ?= {
+				any_political_lobby = {
+					always = no
+				}
+			}
+		}
+		owner = {
+			set_variable = { name = coup_reason_var value = 6 } # Case 6 - Foreign-Backed Coup
+		}
+	}
+    else_if = {
+		limit = {
+			has_modifier = modifier_dynastic_coup
+		}
+		owner = {
+			set_variable = { name = coup_reason_var value = 5 } # Case 5 - Dynastic Coup
+		}
+	}
+    else_if = {
+		limit = {
+			save_temporary_scope_as = coupist_to_be
+			owner ?= { # Case 1 - owner is enacting a law the character does not approve of
+				save_temporary_scope_as = couped_to_be
+				exists = currently_enacting_law
+				OR = {
+					scope:coupist_to_be ?= {
+						law_enactment_stance = { # Refers to any_scope_character
+							law = scope:couped_to_be.currently_enacting_law.type # Refers to owner
+							value < neutral # Disapproves of the law
+						}
+					}
+					AND = {
+						scope:coupist_to_be ?= {
+							law_enactment_stance = { # Refers to any_scope_character
+								law = scope:couped_to_be.currently_enacting_law.type # Refers to owner
+								value < approve # Character does not approve of the law
+							}
+							interest_group ?= {
+								law_enactment_stance = { # Refers to any_scope_character's interest group
+									law = scope:couped_to_be.currently_enacting_law.type # Refers to owner
+									value < neutral # Interest group opposes the law
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		owner = {
+			set_variable = { name = coup_reason_var value = 1 }
+		}
+	}
+	else_if = {
+		limit = {
+			this.interest_group = {
+				has_modifier = modifier_failed_to_meet_petition # Case 2 - owner has failed a petition for this.interest_group
+			}
+		}
+		owner = {
+			set_variable = { name = coup_reason_var value = 2 }
+		}
+	}
+	else_if = {
+		limit = {
+			this.interest_group ?= {
+				has_modifier = negotiation_failed_quest # Case 3 - owner has failed a negotiation for this.interest_group
+			}
+		}
+		owner = {
+			set_variable = { name = coup_reason_var value = 3 }
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = special_character_napoleonic_return # Case 4 - this just has a coupiful personality
+		}
+		owner = {
+			set_variable = { name = coup_reason_var value = 4 }
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = special_character_blanqui_is_free
+		}
+		owner = {
+			set_variable = { name = coup_reason_var value = 7 } # Case 7 - Louis Auguste Blanqui
+		}
+	}
+	else = {
+		owner = {
+			set_variable = { name = coup_reason_var value = 0 } # If 0, something is broken
+		}
+	}
+}
+
+country_assess_daimyo_alignments = {
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_bakufu
+				country_is_taikunate = yes
+			}
+		}
+		every_scope_character = {
+			limit = {
+				always = no
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_fudai_daimyo_restoration
+				}
+				remove_modifier = modifier_fudai_daimyo_restoration
+				add_modifier = modifier_fudai_daimyo
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_tozama_daimyo_restoration
+				}
+				remove_modifier = modifier_tozama_daimyo_restoration
+				add_modifier = modifier_tozama_daimyo
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_shinpan_daimyo_restoration
+				}
+				remove_modifier = modifier_shinpan_daimyo_restoration
+				add_modifier = modifier_shinpan_daimyo
+			}
+		}
+	}
+	else = {
+		every_scope_character = {
+			limit = {
+				always = no
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_fudai_daimyo
+				}
+				remove_modifier = modifier_fudai_daimyo
+				add_modifier = modifier_fudai_daimyo_restoration
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_tozama_daimyo
+				}
+				remove_modifier = modifier_tozama_daimyo
+				add_modifier = modifier_tozama_daimyo_restoration
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_shinpan_daimyo
+				}
+				remove_modifier = modifier_shinpan_daimyo
+				add_modifier = modifier_shinpan_daimyo_restoration
+			}
+		}
+	}
+}
+
+transition_off_of_monarchy_law_effects = {
+	if = {
+		limit = {
+			has_law = law_type:law_neo_absolutism
+		}
+		show_as_tooltip = {
+			deactivate_law = law_type:law_neo_absolutism
+		}
+		activate_law = law_type:law_autocracy
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_bakufu
+		}
+		show_as_tooltip = {
+			deactivate_law = law_type:law_bakufu
+		}
+		activate_law = law_type:law_autocracy
+	}
+}
+
+transition_off_of_monarchy_effects = {
+	crown_land_republic_effect = yes
+	transition_off_of_monarchy_law_effects = yes
+	if = {
+		limit = {
+			any_interest_group = {
+				has_ideology = ideology:ideology_constitutionalist
+			}
+		}
+		every_interest_group = {
+			limit = {
+				has_ideology = ideology:ideology_constitutionalist
+			}
+			remove_ideology = ideology_constitutionalist
+			add_ideology = ideology_republican
+		}
+	}
+	if = {
+		# restored 2026-07-14: je_abolish_monarchy exists again (00_abolish_monarchy.txt, 2026-07-11)
+		limit = {
+			NOR = {
+				has_journal_entry = je_abolish_monarchy
+				has_variable = monarchy_stamped_out_var
+			}
+		}
+		set_variable = {
+			name = abolishing_monarchy_var
+			value = 0
+		}
+		add_journal_entry = { type = je_abolish_monarchy }
+	}
+}
+
+on_remove_ruler_effects = {
+	if = {
+		limit = {
+			has_trait = special_character_japanese_emperor
+		}
+		remove_trait = special_character_japanese_emperor
+	}
+	if = {
+		limit = {
+			always = no
+			game_date >= 1852.11.3
+		}
+		owner = {
+			if = {
+				limit = {
+					has_dlc_feature = ep2_content
+				}
+				# removed: trigger_event = { id = japan_monarchy.2 }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			always = no
+			game_date >= 1879.8.31
+		}
+		owner = {
+			if = {
+				limit = {
+					has_dlc_feature = ep2_content
+				}
+				# removed: trigger_event = { id = japan_monarchy.3 }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			always = no
+			game_date >= 1901.4.29
+		}
+		owner = {
+			if = {
+				limit = {
+					has_dlc_feature = ep2_content
+				}
+				# removed: trigger_event = { id = japan_monarchy.4 }
+			}
+		}
+	}
+}

@@ -1,0 +1,431 @@
+﻿l_english:
+ # Kitties
+ # CAT Catellenya
+ HUB_NAME_STATE_CATPITAL_city: "Nayosha"
+ HUB_NAME_STATE_CATPITAL_farm: "Miratso"
+ HUB_NAME_STATE_CATPITAL_mine: "Kelvashi"
+ HUB_NAME_STATE_CATPITAL_wood: "Sunreva"
+ HUB_NAME_STATE_CATPITAL_port: "Vokashu"
+
+ HUB_NAME_STATE_MEOWNTAINS_city: "Horuma"
+ HUB_NAME_STATE_MEOWNTAINS_farm: "Petola"
+ HUB_NAME_STATE_MEOWNTAINS_mine: "Katimo"
+ HUB_NAME_STATE_MEOWNTAINS_wood: "Wesuha"
+
+ HUB_NAME_STATE_ANYA_city: "Kalumu"
+ HUB_NAME_STATE_ANYA_farm: "Furosa"
+ HUB_NAME_STATE_ANYA_mine: "Nemitsa"
+ HUB_NAME_STATE_ANYA_wood: "Ashelo"
+
+ HUB_NAME_STATE_ERENYA_city: "Tarosi"
+ HUB_NAME_STATE_ERENYA_farm: "Holaveshi"
+ HUB_NAME_STATE_ERENYA_mine: "Rikuvo"
+ HUB_NAME_STATE_ERENYA_wood: "Lasito"
+
+ HUB_NAME_STATE_ISLANYA_city: "Sevalo"
+ HUB_NAME_STATE_ISLANYA_farm: "Tsanuve"
+ HUB_NAME_STATE_ISLANYA_mine: "Shonevi"
+ HUB_NAME_STATE_ISLANYA_wood: "Ratomi"
+ HUB_NAME_STATE_ISLANYA_port: "Ponarisha"
+
+ # TUC Tuconya
+ HUB_NAME_STATE_TUCONYA_city: "Ruveta"
+ HUB_NAME_STATE_TUCONYA_farm: "Yonsuva"
+ HUB_NAME_STATE_TUCONYA_mine: "Muvela"
+ HUB_NAME_STATE_TUCONYA_wood: "Halomi"
+ HUB_NAME_STATE_TUCONYA_port: "Senapu"
+
+ # AIL Ailenya
+ HUB_NAME_STATE_AILENYA_city: "Fenoru"
+ HUB_NAME_STATE_AILENYA_farm: "Miharo"
+ HUB_NAME_STATE_AILENYA_mine: "Vaskoni"
+ HUB_NAME_STATE_AILENYA_wood: "Tomelavu"
+ HUB_NAME_STATE_AILENYA_port: "Furela"
+
+ # HAR Harunya
+ HUB_NAME_STATE_HARUNYA_city: "Mosive"
+ HUB_NAME_STATE_HARUNYA_farm: "Nokelu"
+ HUB_NAME_STATE_HARUNYA_mine: "Kanoshi"
+ HUB_NAME_STATE_HARUNYA_wood: "Palumeko"
+ HUB_NAME_STATE_HARUNYA_port: "Zoravu"
+
+ # Foxies
+
+ HUB_NAME_STATE_WAPAPOW_city: "Wapapow"
+ HUB_NAME_STATE_WAPAPOW_farm: "Tiridira"
+ HUB_NAME_STATE_WAPAPOW_mine: "Vukuvuku"
+ HUB_NAME_STATE_WAPAPOW_wood: "Tambowi"
+ HUB_NAME_STATE_WAPAPOW_port: "Shimirra"
+
+ HUB_NAME_STATE_JACHACHOW_city: "Jachachow"
+ HUB_NAME_STATE_JACHACHOW_farm: "Kirriwa"
+ HUB_NAME_STATE_JACHACHOW_mine: "Gongorrat"
+ HUB_NAME_STATE_JACHACHOW_wood: "Tumbara"
+ HUB_NAME_STATE_JACHACHOW_port: "Marrawak"
+
+ HUB_NAME_STATE_FRAKAKOW_city: "Frakakow"
+ HUB_NAME_STATE_FRAKAKOW_farm: "Yabaraki"
+ HUB_NAME_STATE_FRAKAKOW_mine: "Dingirrok"
+ HUB_NAME_STATE_FRAKAKOW_wood: "Wokolai"
+ HUB_NAME_STATE_FRAKAKOW_port: "Ringading"
+
+ HUB_NAME_STATE_AOWO_city: "Aowo"
+ HUB_NAME_STATE_AOWO_farm: "Wururra"
+ HUB_NAME_STATE_AOWO_mine: "Bokkurai"
+ HUB_NAME_STATE_AOWO_wood: "Yirrawei"
+ HUB_NAME_STATE_AOWO_port: "Dingirak"
+
+ HUB_NAME_STATE_HATEEHO_city: "Hateeho"
+ HUB_NAME_STATE_HATEEHO_farm: "Tumbakira"
+ HUB_NAME_STATE_HATEEHO_mine: "Rarraku"
+ HUB_NAME_STATE_HATEEHO_wood: "Wolawei"
+ HUB_NAME_STATE_HATEEHO_port: "Tiddalak"
+
+ HUB_NAME_STATE_GERING_city: "Gering"
+ HUB_NAME_STATE_GERING_farm: "Dindarra"
+ HUB_NAME_STATE_GERING_mine: "Kurrako"
+ HUB_NAME_STATE_GERING_wood: "Mirrawak"
+ HUB_NAME_STATE_GERING_port: "Yirramak"
+
+ HUB_NAME_STATE_AHEE_city: "Ahee"
+ HUB_NAME_STATE_AHEE_farm: "Haheela"
+ HUB_NAME_STATE_AHEE_mine: "Gurruwin"
+ HUB_NAME_STATE_AHEE_wood: "Jarrabul"
+ HUB_NAME_STATE_AHEE_port: "Kimbirra"
+
+ # Bunnies
+ HUB_NAME_STATE_ANEPYON_city: "Anerak"
+ HUB_NAME_STATE_ANEPYON_farm: "Tolwen"
+ HUB_NAME_STATE_ANEPYON_mine: "Sarkim"
+ HUB_NAME_STATE_ANEPYON_wood: "Yanotek"
+ HUB_NAME_STATE_ANEPYON_port: "Yurnak"
+
+ HUB_NAME_STATE_KAWEPYON_city: "Kawenar"
+ HUB_NAME_STATE_KAWEPYON_farm: "Hagadun"
+ HUB_NAME_STATE_KAWEPYON_mine: "Rembok"
+ HUB_NAME_STATE_KAWEPYON_wood: "Silomu"
+
+ HUB_NAME_STATE_WUSAPYON_city: "Wusawik"
+ HUB_NAME_STATE_WUSAPYON_farm: "Panteru"
+ HUB_NAME_STATE_WUSAPYON_mine: "Doksen"
+ HUB_NAME_STATE_WUSAPYON_wood: "Wemalik"
+ HUB_NAME_STATE_WUSAPYON_port: "Kirsalu"
+
+ HUB_NAME_STATE_KIPYON_city: "Kipnaq"
+ HUB_NAME_STATE_KIPYON_farm: "Nadeshu"
+ HUB_NAME_STATE_KIPYON_mine: "Talgoru"
+ HUB_NAME_STATE_KIPYON_wood: "Nemashu"
+ HUB_NAME_STATE_KIPYON_port: "Behrolu"
+
+ HUB_NAME_STATE_TEPYON_city: "Tepeng"
+ HUB_NAME_STATE_TEPYON_farm: "Munarpe"
+ HUB_NAME_STATE_TEPYON_mine: "Deshkol"
+ HUB_NAME_STATE_TEPYON_wood: "Onwiluk"
+ HUB_NAME_STATE_TEPYON_port: "Ramsuko"
+
+ HUB_NAME_STATE_MIRAPYON_city: "Miratan"
+ HUB_NAME_STATE_MIRAPYON_farm: "Tungabel"
+ HUB_NAME_STATE_MIRAPYON_mine: "Sorkano"
+ HUB_NAME_STATE_MIRAPYON_wood: "Delamu"
+ HUB_NAME_STATE_MIRAPYON_port: "Wenati"
+
+ HUB_NAME_STATE_HAPYON_city: "Hanuk"
+ HUB_NAME_STATE_HAPYON_farm: "Iglomar"
+ HUB_NAME_STATE_HAPYON_mine: "Buskero"
+ HUB_NAME_STATE_HAPYON_wood: "Taleru"
+ HUB_NAME_STATE_HAPYON_port: "Hishaben"
+
+ HUB_NAME_STATE_BAIPYON_city: "Baidor"
+ HUB_NAME_STATE_BAIPYON_farm: "Kelombu"
+ HUB_NAME_STATE_BAIPYON_mine: "Girsuk"
+ HUB_NAME_STATE_BAIPYON_wood: "Turaneg"
+
+ HUB_NAME_STATE_SEPYON_city: "Setir"
+ HUB_NAME_STATE_SEPYON_farm: "Menoli"
+ HUB_NAME_STATE_SEPYON_mine: "Wahiru"
+ HUB_NAME_STATE_SEPYON_wood: "Palensu"
+ HUB_NAME_STATE_SEPYON_port: "Doryun"
+
+ # ========================
+ # SIR NATION - Sirokani
+ # Ainu-adjacent (shiro = white, kani = metal/crab in Ainu); has port
+ # Treated as Ainu/Evenki like BEA
+ # ========================
+
+ # STATE_SIROKANI - has port
+ # sirokani = state name (shares); nupuribet = Ainu nupuri (mountain) + bet (river);
+ # kiraushi = Ainu kira (glitter) + ushi (place); nitaymosse = Ainu nitay (forest) + mosse (light);
+ # rerakotan = Ainu rera (wind) + kotan (village) - a windswept port village
+ HUB_NAME_STATE_SIROKANI_city: "Sirokani"
+ HUB_NAME_STATE_SIROKANI_farm: "Nupuribet"
+ HUB_NAME_STATE_SIROKANI_mine: "Kiraushi"
+ HUB_NAME_STATE_SIROKANI_wood: "Nitaymosse"
+ HUB_NAME_STATE_SIROKANI_port: "Rerakotan"
+
+ # ========================
+ # BEA NATION - Bear Mosir
+ # Ainu phonology (kotan, pet/bet, nupuri, nitay, kamuy, repun, pirika...)
+ # supplemented by Evenki (-kan, bira, alin, tungak, orgochi...)
+ # ========================
+
+ # STATE_PORONUPURI - poro nupuri = big mountain (Ainu); has port
+ # City hub distinct from the real Hokkaido mountain name.
+ # niputakotan = Ainu niputa (wetland) + kotan; runrupet = runru (lowland) + pet;
+ # kirakotan = kira (glittering/mica) + kotan; nitaybet = nitay (forest) + bet;
+ # repunkotan = Ainu repun (offshore) + kotan - the fishing port
+ HUB_NAME_STATE_PORONUPURI_city: "Niputakotan"
+ HUB_NAME_STATE_PORONUPURI_farm: "Runrupet"
+ HUB_NAME_STATE_PORONUPURI_mine: "Kirakotan"
+ HUB_NAME_STATE_PORONUPURI_wood: "Nitaybet"
+ HUB_NAME_STATE_PORONUPURI_port: "Repunkotan"
+
+ # STATE_CUPKA - Evenki-feel name; no port
+ # cupkan = Cupka + Evenki diminutive -kan; elgekan = Evenki elge (elk meadow) + kan;
+ # orgochan = Evenki orgochi (rocky outcrop) + -an; numaikan = Ainu numa (swamp) + Evenki -kan
+ HUB_NAME_STATE_CUPKA_city: "Cupkan"
+ HUB_NAME_STATE_CUPKA_farm: "Elgekan"
+ HUB_NAME_STATE_CUPKA_mine: "Orgochan"
+ HUB_NAME_STATE_CUPKA_wood: "Numaikan"
+
+ # STATE_NAMWAKKA - Ainu nam (cold) + wakka (water); has port
+ # namwakka = state name (shares); tokatchipet = tokaichi (flatland) + pet;
+ # kanikanra = kani (metal) + kan + ra; moshirinay = moshiri (land) + nay (stream);
+ # repunbet = repun (offshore) + bet
+ HUB_NAME_STATE_NAMWAKKA_city: "Namwakka"
+ HUB_NAME_STATE_NAMWAKKA_farm: "Tokatchipet"
+ HUB_NAME_STATE_NAMWAKKA_mine: "Kanikanra"
+ HUB_NAME_STATE_NAMWAKKA_wood: "Moshirinay"
+ HUB_NAME_STATE_NAMWAKKA_port: "Repunbet"
+
+ # STATE_NISEYKOAN - Ainu; has port
+ # City hub distinct from real Niseko area.
+ # yupeshiri = Ainu yupe (salmon) + shiri (land); tomamkotan = tomam (swamp grass) + kotan;
+ # pirikaushi = pirika (beautiful/good) + ushi (place); nitayushiri = nitay + ushiri (island-land);
+ # shiombet = shio (tide, Japanese-Ainu hybrid) + bet
+ HUB_NAME_STATE_NISEYKOAN_city: "Yupeshiri"
+ HUB_NAME_STATE_NISEYKOAN_farm: "Tomamkotan"
+ HUB_NAME_STATE_NISEYKOAN_mine: "Pirikaushi"
+ HUB_NAME_STATE_NISEYKOAN_wood: "Nitayushiri"
+ HUB_NAME_STATE_NISEYKOAN_port: "Shiombet"
+
+ # STATE_HURANUI - no port; mountainous
+ # nupkanbet = Ainu nupkan (to overlook) + bet; sirpetkotan = sirpet (clear river) + kotan;
+ # etupirka = Ainu etupirka (fine headland/cape); chitatapnay = chitatatap (branching) + nay
+ HUB_NAME_STATE_HURANUI_city: "Nupkanbet"
+ HUB_NAME_STATE_HURANUI_farm: "Sirpetkotan"
+ HUB_NAME_STATE_HURANUI_mine: "Etupirka"
+ HUB_NAME_STATE_HURANUI_wood: "Chitatapnay"
+
+ # STATE_OTANOSKI - Ainu otane (sandy shore) + -ski; has port
+ # otanoshiri = otane (sandy beach) + shiri (place); kamuiushi = kamuy (spirit) + ushi;
+ # nishpanay = nishpa (noble) + nay; repunchikar = repun (offshore) + chikar (birds)
+ HUB_NAME_STATE_OTANOSKI_city: "Otanoshiri"
+ HUB_NAME_STATE_OTANOSKI_farm: "Upashkotan"
+ HUB_NAME_STATE_OTANOSKI_mine: "Kamuiushi"
+ HUB_NAME_STATE_OTANOSKI_wood: "Nishpanay"
+ HUB_NAME_STATE_OTANOSKI_port: "Repunchikar"
+
+ # STATE_TOMAKOMA - Ainu; has port; city hub distinct from real Tomakomai
+ # shikotsupet = Ainu shikotsu (great hollow) + pet; runrukotan = runru (low-lying) + kotan;
+ # kamuietup = kamuy (divine) + etup (tip/point); nipaushi = nipa (marsh) + ushi;
+ # yachiushi = Ainu yachi (boggy ground) + ushi - a coastal marsh-port
+ HUB_NAME_STATE_TOMAKOMA_city: "Shikotsupet"
+ HUB_NAME_STATE_TOMAKOMA_farm: "Runrukotan"
+ HUB_NAME_STATE_TOMAKOMA_mine: "Kamuietup"
+ HUB_NAME_STATE_TOMAKOMA_wood: "Nipaushi"
+ HUB_NAME_STATE_TOMAKOMA_port: "Yachiushi"
+
+ # STATE_PEKERPET - Ainu peker (clear/bright) + pet (river); no port
+ # pekerkotan = peker + kotan; mokobet = Ainu moko (tranquil) + bet;
+ # tungakchan = Evenki tungak (rock face) + -chan; nitaymosir = Ainu nitay (forest) + mosir (land)
+ HUB_NAME_STATE_PEKERPET_city: "Pekerkotan"
+ HUB_NAME_STATE_PEKERPET_farm: "Mokobet"
+ HUB_NAME_STATE_PEKERPET_mine: "Tungakchan"
+ HUB_NAME_STATE_PEKERPET_wood: "Nitaymosir"
+
+ # STATE_KAMUY - Ainu for divine spirit/bear god; no port
+ # kamuykotan = kamuy (divine) + kotan; upashbet = Ainu upash (snow) + bet;
+ # pirishima = Ainu piri (crack/fissure) + shima (island-feel); nitaymosir already used,
+ # use chironnumai = Ainu chironnup (fox) + -mai, a forest with foxes about
+ HUB_NAME_STATE_KAMUY_city: "Kamuykotan"
+ HUB_NAME_STATE_KAMUY_farm: "Upashbet"
+ HUB_NAME_STATE_KAMUY_mine: "Pirishima"
+ HUB_NAME_STATE_KAMUY_wood: "Chironnumai"
+
+ # Doggies
+ HUB_NAME_STATE_UANG_KO_city: "Uang-Ko"
+ HUB_NAME_STATE_UANG_KO_farm: "Noo-Ba"
+ HUB_NAME_STATE_UANG_KO_mine: "Kar-Gan"
+ HUB_NAME_STATE_UANG_KO_wood: "Fee-Lar"
+ HUB_NAME_STATE_UANG_KO_port: "Ban-Soo"
+
+ HUB_NAME_STATE_EE_NOO_city: "Ee-Noo"
+ HUB_NAME_STATE_EE_NOO_farm: "Ha-Loo"
+ HUB_NAME_STATE_EE_NOO_mine: "Dar-Kee"
+ HUB_NAME_STATE_EE_NOO_wood: "Soo-Fan"
+ HUB_NAME_STATE_EE_NOO_port: "Bee-Char"
+
+ HUB_NAME_STATE_HU_SKEE_city: "Hu-Skee"
+ HUB_NAME_STATE_HU_SKEE_farm: "Na-Boo"
+ HUB_NAME_STATE_HU_SKEE_mine: "Gar-Dan"
+ HUB_NAME_STATE_HU_SKEE_wood: "Lo-Fee"
+
+ HUB_NAME_STATE_SEE_BA_city: "See-Ba"
+ HUB_NAME_STATE_SEE_BA_farm: "Noo-Han"
+ HUB_NAME_STATE_SEE_BA_mine: "Kak-Dar"
+ HUB_NAME_STATE_SEE_BA_wood: "Fa-Lee"
+ HUB_NAME_STATE_SEE_BA_port: "So-Gan"
+
+ HUB_NAME_STATE_UAN_CHAN_city: "Uan-Chan"
+ HUB_NAME_STATE_UAN_CHAN_farm: "Ba-Nee"
+ HUB_NAME_STATE_UAN_CHAN_mine: "Gang-Kar"
+ HUB_NAME_STATE_UAN_CHAN_wood: "Loo-Fen"
+ HUB_NAME_STATE_UAN_CHAN_port: "Har-Soo"
+
+ HUB_NAME_STATE_KOE_NOO_city: "Koe-Noo"
+ HUB_NAME_STATE_KOE_NOO_farm: "Ba-Hee"
+ HUB_NAME_STATE_KOE_NOO_mine: "Dak-Gar"
+ HUB_NAME_STATE_KOE_NOO_wood: "Fee-Noe"
+ HUB_NAME_STATE_KOE_NOO_port: "Sar-Boo"
+
+ HUB_NAME_STATE_KO_LEE_city: "Ko-Lee"
+ HUB_NAME_STATE_KO_LEE_farm: "Ha-Noo"
+ HUB_NAME_STATE_KO_LEE_mine: "Gar-Dak"
+ HUB_NAME_STATE_KO_LEE_wood: "Fan-Loo"
+ HUB_NAME_STATE_KO_LEE_port: "Bee-Sar"
+
+ HUB_NAME_STATE_UO_FEE_city: "Uo-Fee"
+ HUB_NAME_STATE_UO_FEE_farm: "Na-Hoo"
+ HUB_NAME_STATE_UO_FEE_mine: "Kar-Dang"
+ HUB_NAME_STATE_UO_FEE_wood: "Loo-Ba"
+
+ HUB_NAME_STATE_DO_GEE_city: "Do-Gee"
+ HUB_NAME_STATE_DO_GEE_farm: "Ha-Ban"
+ HUB_NAME_STATE_DO_GEE_mine: "Gak-Ner"
+ HUB_NAME_STATE_DO_GEE_wood: "Loo-Fang"
+
+ HUB_NAME_STATE_BOK_SER_city: "Bok-Ser"
+ HUB_NAME_STATE_BOK_SER_farm: "Ha-Doo"
+ HUB_NAME_STATE_BOK_SER_mine: "Gar-Kak"
+ HUB_NAME_STATE_BOK_SER_wood: "Noo-Fer"
+
+ # Horsies
+ # STATE_URRUMA (Martal) - mar(e)+tal
+ HUB_NAME_STATE_URRUMA_city: "Martal"
+ HUB_NAME_STATE_URRUMA_farm: "Burigol"
+ HUB_NAME_STATE_URRUMA_mine: "Khufuurkhai"
+ HUB_NAME_STATE_URRUMA_wood: "Vidaroi"
+
+ # STATE_RAUMA (Koltengol) - kolt(e)+gol
+ HUB_NAME_STATE_RAUMA_city: "Koltengol"
+ HUB_NAME_STATE_RAUMA_farm: "Sadalbelcheer"
+ HUB_NAME_STATE_RAUMA_mine: "Ravuurkhai"
+ HUB_NAME_STATE_RAUMA_wood: "Filoi"
+
+ # STATE_KHOKHUMA (Khökhuma) - exact form from source comment
+ HUB_NAME_STATE_KHOKHUMA_city: "Khökhuma"
+ HUB_NAME_STATE_KHOKHUMA_farm: "Neyigbelcheer"
+ HUB_NAME_STATE_KHOKHUMA_mine: "Girtuurkhai"
+ HUB_NAME_STATE_KHOKHUMA_wood: "Kantiroi"
+
+ # STATE_GAZARUMA (Folgatuma) - fol(al)+gat(gazar)+uma
+ HUB_NAME_STATE_GAZARUMA_city: "Folgatuma"
+ HUB_NAME_STATE_GAZARUMA_farm: "Stabulgol"
+ HUB_NAME_STATE_GAZARUMA_mine: "Bitaikhad"
+ HUB_NAME_STATE_GAZARUMA_wood: "Gazaroi"
+
+ # STATE_ALTANUMA (Altansadal) - altan(gold)+sadal
+ HUB_NAME_STATE_ALTANUMA_city: "Altansadal"
+ HUB_NAME_STATE_ALTANUMA_farm: "Khoroobelcheer"
+ HUB_NAME_STATE_ALTANUMA_mine: "Altanuurkhai"
+ HUB_NAME_STATE_ALTANUMA_wood: "Ispuroi"
+
+ # STATE_TSAGAANUMA (Tsagaanman) - tsagaan(white)+maan
+ HUB_NAME_STATE_TSAGAANUMA_city: "Tsagaanman"
+ HUB_NAME_STATE_TSAGAANUMA_farm: "Padokbelcheer"
+ HUB_NAME_STATE_TSAGAANUMA_mine: "Faraiuurkhai"
+ HUB_NAME_STATE_TSAGAANUMA_wood: "Khichoi"
+
+ # STATE_ZULZAIKHUMA (Zulneytal) - zul(flame)+neyig+tal
+ HUB_NAME_STATE_ZULZAIKHUMA_city: "Zulneytal"
+ HUB_NAME_STATE_ZULZAIKHUMA_farm: "Vinaibelcheer"
+ HUB_NAME_STATE_ZULZAIKHUMA_mine: "Zaikhuurkhai"
+ HUB_NAME_STATE_ZULZAIKHUMA_wood: "Reynoi"
+
+ # STATE_KHARIINUMA (Kharstalgol) - khar(dark)+stal+gol
+ HUB_NAME_STATE_KHARIINUMA_city: "Kharstalgol"
+ HUB_NAME_STATE_KHARIINUMA_farm: "Marbelcheer"
+ HUB_NAME_STATE_KHARIINUMA_mine: "Khufkhad"
+ HUB_NAME_STATE_KHARIINUMA_wood: "Ariinoi"
+
+ # STATE_MONGONUMA (Möngönuma) - exact form from source comment
+ HUB_NAME_STATE_MONGONUMA_city: "Möngönuma"
+ HUB_NAME_STATE_MONGONUMA_farm: "Galopbelcheer"
+ HUB_NAME_STATE_MONGONUMA_mine: "Möngönuurkhai"
+ HUB_NAME_STATE_MONGONUMA_wood: "Istabuloi"
+
+ # STATE_GOVSHIKHUMA (Govkhuvnutag) - gov(shi)+khuv(hoof)+nutag
+ HUB_NAME_STATE_GOVSHIKHUMA_city: "Govkhuvnutag"
+ HUB_NAME_STATE_GOVSHIKHUMA_farm: "Stiidgol"
+ HUB_NAME_STATE_GOVSHIKHUMA_mine: "Govshuurkhai"
+ HUB_NAME_STATE_GOVSHIKHUMA_wood: "Padoi"
+
+ # STATE_NARIINUMA (Nariinreygol) - nariin(narrow)+reyn+gol
+ HUB_NAME_STATE_NARIINUMA_city: "Nariinreygol"
+ HUB_NAME_STATE_NARIINUMA_farm: "Filibelcheer"
+ HUB_NAME_STATE_NARIINUMA_mine: "Nariinuurkhai"
+ HUB_NAME_STATE_NARIINUMA_wood: "Vidoi"
+
+ # STATE_TENGERUMA (Tengermaansar) - tenger(sky)+maan+sar
+ HUB_NAME_STATE_TENGERUMA_city: "Tengermaansar"
+ HUB_NAME_STATE_TENGERUMA_farm: "Girtbelcheer"
+ HUB_NAME_STATE_TENGERUMA_mine: "Tengeruurkhai"
+ HUB_NAME_STATE_TENGERUMA_wood: "Bitoi"
+
+ # STATE_AIRAGUMA (Airagmarnutag) - airag+mar(e)+nutag
+ HUB_NAME_STATE_AIRAGUMA_city: "Airagmarnutag"
+ HUB_NAME_STATE_AIRAGUMA_farm: "Airagbelcheer"
+ HUB_NAME_STATE_AIRAGUMA_mine: "Stabuurkhai"
+ HUB_NAME_STATE_AIRAGUMA_wood: "Geldoi"
+
+ # STATE_SHILDEGUMA (Shildegstalkhan) - shildeg(elite)+stal+khan
+ HUB_NAME_STATE_SHILDEGUMA_city: "Shildegstalkhan"
+ HUB_NAME_STATE_SHILDEGUMA_farm: "Spurgol"
+ HUB_NAME_STATE_SHILDEGUMA_mine: "Shildeguurkhai"
+ HUB_NAME_STATE_SHILDEGUMA_wood: "Khorooi"
+
+ # STATE_ULAANUMA (Ulaanmangol) - ulaan(red)+maan+gol
+ HUB_NAME_STATE_ULAANUMA_city: "Ulaanmangol"
+ HUB_NAME_STATE_ULAANUMA_farm: "Padokgol"
+ HUB_NAME_STATE_ULAANUMA_mine: "Ulaanuurkhai"
+ HUB_NAME_STATE_ULAANUMA_wood: "Vinoi"
+
+ # STATE_KHADANUMA (Khadankhuvtal) - khadan(cliff)+khuv+tal
+ HUB_NAME_STATE_KHADANUMA_city: "Khadankhuvtal"
+ HUB_NAME_STATE_KHADANUMA_farm: "Farbelcheer"
+ HUB_NAME_STATE_KHADANUMA_mine: "Khadanuurkhai"
+ HUB_NAME_STATE_KHADANUMA_wood: "Spuroi"
+
+ # STATE_TSEREGUMA (Tseregburdgan) - tsereg(soldier)+burd+gan
+ HUB_NAME_STATE_TSEREGUMA_city: "Tseregburdgan"
+ HUB_NAME_STATE_TSEREGUMA_farm: "Koltbelcheer"
+ HUB_NAME_STATE_TSEREGUMA_mine: "Tseregüürkhai"
+ HUB_NAME_STATE_TSEREGUMA_wood: "Stiidoi"
+
+ # STATE_KHARUMA (Khartsokhtal) - khar(dark)+tsokh+tal
+ HUB_NAME_STATE_KHARUMA_city: "Khartsokhtal"
+ HUB_NAME_STATE_KHARUMA_farm: "Reynbelcheer"
+ HUB_NAME_STATE_KHARUMA_mine: "Kharuurkhai"
+ HUB_NAME_STATE_KHARUMA_wood: "Girtoi"
+
+ # STATE_ZULUMA (Zulfolsar) - zul(flame)+fol+sar
+ HUB_NAME_STATE_ZULUMA_city: "Zulfolsar"
+ HUB_NAME_STATE_ZULUMA_farm: "Khoroogol"
+ HUB_NAME_STATE_ZULUMA_mine: "Zuluurkhai"
+ HUB_NAME_STATE_ZULUMA_wood: "Istaboi"
+
+ # STATE_GALTANUMA (Galtangalop) - galtan(fiery)+galop
+ HUB_NAME_STATE_GALTANUMA_city: "Galtangalop"
+ HUB_NAME_STATE_GALTANUMA_farm: "Stalbelcheer"
+ HUB_NAME_STATE_GALTANUMA_mine: "Galtanuurkhai"
+ HUB_NAME_STATE_GALTANUMA_wood: "Maanoi"

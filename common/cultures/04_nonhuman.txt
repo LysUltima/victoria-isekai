@@ -1,0 +1,583 @@
+﻿wood_elf = {
+	color= hsv{ 0.50 0.32 0.62 }
+	religion = elder_grove
+	heritage = heritage_wood_elf
+	language = language_sylvan
+	traditions = { }
+	male_common_first_names = {
+        Urum Haetum Rafano Dotumhast Linomsun Amnadin Taleno Dadeno
+        Ramsethe Sasasarn Lini Ramsun Paca Mitdinthe Suca Dofafran
+        Ciren Tasano Vimena Minosian Maecen Masa Nuhaesun Lanram
+        Lufran Reaen Mivan Vestfran Sutiti Vrestas Rejo Hapin
+        Sinahan Nono Siti Naci Muno Emcen Sunom Nareva
+        Vajovrest Sehas Efmi Thipan Jasa Sasaethe Rinades Sarnsian
+        Murin Etadus Navapan Senasu Sarnno Sulesa Tharent Pihast
+        Thevest Sahast Franfaesun Panpinhast Vestcisin Saelinans Fedin Stirin
+        Hosasan Salasa Eveth Savan Carerin Stidedes Seloth Runa
+        Masian Nada Fannajan Thileth Emra Rinsisi Lirantus Nihaenom
+        Ieffan Aecen Sticoi Calan Cirade Suco Haevevren Nehas
+        Stedeas Haeda Cides Suuren Viane Sotuha Giprerath Lolin
+        Emthavan Vraevanfan Pirent Halomit Lis
+    }
+    
+    female_common_first_names = {
+        Sarara Dinmevae Rentda Noresi Slovifae Pili Salore Hansi
+        Sici Vaviasae Naredo Sehama Teta Tumsavae Lafee Nohi
+        Vrenlose Riso Joma Nasu Nestrae Ranvevi Sunta Macapo
+        Sunsela Leciso Isi Isami Rumpislo Leho Suvaemi Slothaste
+        Rensilo Hanre Rinci Epre Sisa Lisahi Siha Hatraru
+        Tunavae Pretali Vaste Rummida Onmi Rastemi Prestithae Sanu
+        Ciso Dohe Lasa Thife Franso Savia Semitlu Pari
+        Thene Sithi Linmaste Niapi Enese Etra Vestha Fesae
+        Reranru Jansae Soma Denu Vraevesa Lincota Simaere Fanse
+        Nuri Hastve Thafa Rajanmi Nano Viso Dovraema Fannosa
+        Vapofa Veha Nathaete Futole Nosa Raevia Nonia Nori
+        Sili Thaerili Rencathae Dinla Sasu Aho Ita Ritari
+        Hansu Detha Nomri Sahi Elis Alis Lisivae
+    }
+    
+    common_last_names = {
+        Thidin Natuem Ades Mitmi Nisintha Sanlalin Linsafu Remitco
+        Tian Redares Miharae Lanem Sotum Hinia Sahaci Deleth
+        Deran Daeta Carath Munestsi Vileth Amevath Rinniafe Fransa
+        Raenaci Vrestne Vanvrest Tosi Vetu Thase Rasumi Vaesase
+        Tipin Tucen Loni Janprera Nou Tumnomsarn Mutra Vesara
+        Faete Fevera Arees Aefa Cohasa Teleth Maelin Daniasi
+        Dinrent Sianvi Resihe Nepinpan Evihe Tranom Tesinthi Asinla
+        Lani Hapode Ranren Nuse Slono Jani Amrath Sarnsathi
+        Sapo Aenvi Talu Vanhi Nestnalin Reviase Musuu Eloth
+        Nei Desanon Hanvae Ravath Epinsan Sufe Stiru Fufapan
+        Suuhosi Vraeso Sivasi Nonest Fetina Sithirath Amijan Vestnehe
+        Trarath Vavrae Nalan Rulepan Vanrent Emef Vana Hani
+        Niapo Sano Thinahi Vasalan Gaenin
+    }
+
+	ethnicities = {
+		1 = wood_elf
+	}
+	graphics = european
+	seal_and_signature_texture = "gfx/interface/diplomatic_treaties/seal_and_signature_cultures/diplomatic_treaties_seal_and_signature_russian.dds"
+}
+
+snow_elf = {
+	color= hsv{ 0 0 0.86 }
+	religion = rime
+	heritage = heritage_snow_elf
+	language = language_frosttongue
+
+	traditions = { }
+    male_common_first_names = {
+        Uruu Heetu Rafanoo Totuhaa Linosuu Aanati Taaleno Tatenoo
+        Rasetee Sasyaasa Linii Rasuu Paaka Miitite Sukaa Tofafaa
+        Kiire Taasyano Vimenaa Minosaa Meeke Maasa Nuheesu Laraa
+        Lufaa Ree Mivaa Vefaa Syutitii Vee Reyoo Hapii
+        Siiha Nonoo Sitii Naaki Munoo Ekee Syunoo Naareva
+        Vayovee Syehaa Emii Tiipa Yasaa Syaseete Ritee Sasaa
+        Murii Etatuu Navapaa Senasuu Sanoo Sulesyaa Taree Piiha
+        Tevee Saaha Fafeesu Papiiha Vekisii Seeli Fetii Tiiri
+        Hosasyaa Salaasa Evee Syavaa Kaareri Tiitete Seloo Runaa
+        Masaa Nataa Faanaya Tilee Eraa Risiisi Liratuu Niheeno
+        Ifaa Eeke Tiiko Kaala Kiirate Syukoo Heeveve Nehaa
+        Tetee Heeta Kiite Suree Vanee Sotuhaa Kiipera Lolii
+        Etavaa Veevafa Piire Haalomi
+    }
+
+    female_common_first_names = {
+        Syararaa Timevee Retaa Noresii Soviife Piili Syaalore Hasii
+        Syiiki Vavasee Naretoo Syehamaa Tetaa Tusyaave Lafee Nohii
+        Velosee Riiso Yomaa Nasyuu Neree Ravevii Sutaa Maakapo
+        Susyelaa Lekisoo Iisi Isyamii Rupisoo Lehoo Suveemi Sotatee
+        Resiilo Haree Rikii Epee Sisaa Liisahi Syiiha Hataruu
+        Tunaave Petaali Vatee Rumiita Omii Ratemii Petiite Sanuu
+        Kiiso Tohee Lasyaa Tifee Fasoo Saava Semiilu Paari
+        Tenee Syiiti Limaate Nipii Enesee Etaa Vehaa Fesee
+        Reraruu Yasee Somaa Tenuu Veevesya Liikota Simeere Faasye
+        Nurii Havee Tafaa Rayamii Nanoo Viiso Toveema Faanosya
+        Vapofaa Sipaa Nateete Futolee Nosaa Reeva Nonii Norii
+        Syiili Teerili Rekatee Tilaa Sasuu Aaho Iita Ritarii
+        Hasuu Reraaha Feeve Saahi
+    }
+
+    common_last_names = {
+        Tiiti Natuu Atee Miimi Nisiita Salalii Lisafuu Remiiko
+        Tii Retaree Miihare Laa Sotuu Hiini Sahakii Telee
+        Teraa Tataa Kaara Munesii Viile Aameva Rinifee Fasyaa
+        Reenaki Venee Vavee Tosii Vetuu Tasee Rasumii Veesasye
+        Tipii Tukee Lonii Yaperaa Noo Tunosaa Mutaa Vesyaara
+        Feete Feveraa Aree Eefa Kohaasa Syaa Meeli Tanisii
+        Tiire Savii Resyihee Nepiipa Evihee Tanoo Tesiiti Aasila
+        Laani Hapotee Raree Nusee Sonoo Yanii Aara Sasaati
+        Saapo Eevi Taluu Vahii Nenalii Revasee Musuu Eloo
+        Nee Tesyaa Lavee Raava Epiisya Sufee Tiiru Fufapaa
+        Suhosii Veeso Syivasii Nonee Fetinaa Sitiraa Aaya Venehee
+        Taraa Mikekaa Nalaa Rulepaa Varee Ee Vanaa Hanii
+        Nipoo Saraa Tiinahi Vasalaa
+    }
+	graphics = east_asian
+	ethnicities = {
+		1 = moon_elf
+	}
+}
+
+dark_elf = {
+	color= hsv{ 0.40 0.36 0.70 }
+	religion = duskpact
+	heritage = heritage_dark_elf
+	language = language_umbraltongue
+	traditions = { tradition_demonic }
+
+	male_common_first_names = {
+        Urrum Heitum Rafasnov Dotumhast Nornav Aimnardyn Tailenol Dadelnor
+        Ramzethel Zashaisarn Linil Ramsun Pakal Mytdynthel Zulkal Dofasfran
+        Aris Taishainor Vimenav Minolsyan Meiken Maisal Nuheisun Lanram
+        Halas Resein Mivan Vestfran Shutitir Vrestas Relyol Hapyn
+        Synazhayn Novnol Siltir Naikiv Munol Emken Shunom Nairesval
+        Tavlyn Shehas Efmiv Thypan Yasal Sharseithel Rinasdes Sarnsyan
+        Tirthel Estadus Navvapan Senavzul Sarnnol Suleshar Tharent Pyhast
+        Lethis Saihast Franfeisun Panpynhast Vestkivsyn Seilynans Fedyn Styrin
+        Hosavshan Salaisav Esveth Shavan Karerin Stydedes Zeloth Runar
+        Masyan Nardal Fainnalyan Thileth Emrav Rinzysil Lirantus Niheinom
+        Iseffain Eivken Stykovyl Kallan Kivradel Shukov Heivevren Nehas
+        Stedesaz Heidal Kivdes Suuren Vyanel Zotushal Giprerath Lolyn
+        Vyshar Vreivanfain Pyrent Hailomyt Lys
+    }
+    
+    female_common_first_names = {
+        Sharravrai Shuva Rentda Norethzy Slovyfei Pyly Shailothre Haynzy
+        Shyki Vathvyasei Narrethdo Shehalma Teta Tumshaivei Laifere Raimai
+        Vrenlose Ryso Yolma Nashu Nestrei Ranvevi Suntai Maikapo
+        Sunshelai Lekizo Ylzy Issharmy Loze Leho Suveimy Slothalste
+        Renzylo Haynre Rinki Erpre Zivzai Lyzaihy Shyha Hastraru
+        Tunaivei Pretaily Valste Rummyda Onmy Ravstemi Prestythei Salnu
+        Kivso Dohe Lasha Thife Franso Saivya Zemytlu Pari
+        Thelne Shythy Linmaiste Niapy Ernese Etra Vestha Fersei
+        Rethranru Yansei Soma Delnu Vreivesha Lynkovtai Lyma Fainshe
+        Nuri Hastve Thalfa Ravyanmi Narno Vyzo Dovreimai Fainnosha
+        Vapofa Vethhai Naytheite Shanai Norsai Reivya Novnia Nori
+        Shyli Theirily Renkathei Vestai Savzu Aiho Yta Ritary
+        Haynzu Detha Nomry Zaihy Elys Alys Lysivei
+    }
+        
+    common_last_names = {
+        Thydyn Navtusem Ades Mytmi Nisynthal Pyka Linzafu Rethmytkov
+        Tiran Rethdares Myharei Saihy Zotum Hynia Savhaski Deleth
+        Azni Dalestav Karath Munestsil Vyleth Aimevath Yainai Fransha
+        Reinaiki Vrestne Shyhal Tozi Vethtu Thaze Razumiv Veisashe
+        Tirpyn Tusken Lothnil Yanprerav Novur Tumnomsarn Mutra Veshaira
+        Zadel Fervethra Areses Eifa Kovhaisai Teleth Meilyn Dalniaziv
+        Dynrent Syanvi Reshihe Nepynpan Evihe Tranom Tesynthy Aisynla
+        Laini Hapodel Ranren Nuse Slono Yanil Aimrath Sarnzaithi
+        Zaipo Einvi Talu Vanhy Nestnaylin Relvyase Zaran Erloth
+        Nely Deshanon Haynvei Raivath Espynshan Zufe Styru Fufapan
+        Suuhozi Vreizo Shivazi Novnest Fetina Zithirath Aimylyan Vestnelhe
+        Trarath Vathvrei Nalan Devy Vanrent Emef Valnay Halnil
+        Niapo Zanor Thynahi Vathsaylan Geinin
+    }
+
+	graphics = balkan
+	ethnicities = {
+		1 = ruinborn_epednar
+	}
+}
+
+steel_dwarf = {
+	color= hsv{ 0.98 0.38 0.94 }
+	religion = forgefaith
+	heritage = heritage_steel_dwarf
+	language = language_forgetongue
+	traditions = { }
+	male_common_first_names = {
+        Zwiddath Vudwal Lerrul Vorradwe Dullid Ralle Dorud Lirid
+        Dwodud Zaddar Dwendil Zworruth Zunar Theddar Menid Lullerur
+        Dwondeth Dweroth Donad Lurrid Thirur Dwinder Rudder Varreth
+        Varril Menor Dotheddur Zwellel Zurrar Maduddod Rikkivid Zwallud
+        Zwellith Ruddur Zullol Lullel Lorred Zwadde Rinthul Lurrad
+        Dwolinil Rallid Vallal Zwanuth Zwallul Munal Zorrel Thurril
+        Dwarud Mavar Vethuddor Rinthel Zeddel Zwenuth Muddil Dwillith
+        Melovith Midde Zwirur Thiddud Ladud Thillir Thurrol Larid
+        Luded Theddorul Thundul Voddod Linel Lullar Zwollil Vedwe
+        Miluddol Madwad Thudwir Middel Thurral Luthirrul Reddol Lorrad
+        Vonel Muddel Daruth Therre Lathollel Zelel Thidwad Lurrir
+        Luddol Theddanel Zworul Zenthor Dweniddol Lollil Mellal Minadwod
+        Mullil Zeddod Zwinil Zedwil
+    }
+    female_common_first_names = {
+        Munthenda Zorrer Thurra Retha Deddil Vollel Dave Lokkovura
+        Zwadda Linderror Zorre Zirre Zollonad Menel Zillol Zwolluth
+        Thule Rirra Maddid Dithudwar Randilla Zidda Zworre Likkinde
+        Lunith Thille Mena Miror Voroddel Roddud Merrel Lenile
+        Dwillende Dullad Lonthel Lonir Lane Lellindol Zunthed Lirruna
+        Dodel Thivel Doneddol Rodwir Thande Duva Zollol Donde
+        Dwintha Vonil Zona Rarrad Zworral Linellel Rarre Zirrir
+        Middor Lullor Zirreth Thilla Zwalla Dondeth Muved Dondoddil
+        Zedded Zwevor Thena Dwovidde Lenune Dweddil Mellud Zadda
+        Rolul Thuddol Rella Lorror Ludda Zwothe Lidda Dwenadde
+        Midda Runuth Lerra Rova Vudid Zwidwe Medda Dwerrina
+        Luna Line Lidwaddul Ronava Rarra Divunel Zwaned Deddor
+        Zweddath Linuth Ditha Roned
+    }
+    common_last_names = {
+        Allunonel Vodde Tholallod Zwenellol Mutheddir Manovul Lerroth Rothenud
+        Vollune Thuddoved Relle Revadder Zeddolal Allunur Lunir Vidorrad
+        Davorre Meddiral Mulliled Tholanir Zwonid Duvanor Zadde Thunol
+        Zweddeth Mellanal Maddad Thinid Ruthulle Irrendeth Zorrinul Tholaned
+        Dworrur Zweddil Davorrith Vandorrel Volladwad Ziddeth Mivul Duvaddal
+        Irrene Lenil Zwonol Zorrined Ruthad Irrende Ellenol Thuddul
+        Dithul Mullel Dwadul Duvanur Menarrar Zallil Thuddud Vidorrel
+        Rollith Rirred Molarred Vairurror Diddor Thillud Zwilolle Zilunul
+        Ludoddil Ranur Rindullid Zenerrath Menallud Munthed Muvovad Zunid
+        Dwidder Tharrunud Dorrir Undorrud Zellanad Zwaddoth Irrenil Undorrar
+        Avirrel Vollalir Zuluvil Thividdid Vairunthe Zwallol Avirrar Rarror
+        Zwenthe Rodwollur Zweddoth Zullul Rurodder Molallid Dollanul Vairunath
+        Menarre Dorrundul Zoddel Dwerrid
+    }
+
+	ethnicities = {
+		1 = dwarf
+	}
+	graphics = european
+	seal_and_signature_texture = "gfx/interface/diplomatic_treaties/seal_and_signature_cultures/diplomatic_treaties_seal_and_signature_african.dds"
+}
+
+stone_dwarf = {
+	color= hsv{ 0.70 0.43 0.47}
+	religion = stonefaith
+	heritage = heritage_stone_dwarf
+	language = language_stonetongue
+	traditions = { }
+	male_common_first_names = {
+        Simmathe Hutale Legrule Hograte Tullite Bralle Torute Lirite
+        Totute Sammare Tentile Sogruthe Sunare Themmare Menite Lullerure
+        Tontethe Terothe Tonate Lugrite Thirure Tintere Brummere Hagrethe
+        Hagrile Menore Tothemmure Sellele Sugrare Matummote Brikkihite Sallute
+        Sellithe Brummure Sullole Lullele Logrete Tommute Brinthule Lugrate
+        Tolinile Brallite Hallale Sanuthe Sallule Munale Sogrele Thugrile
+        Tarute Mahare Hethummore Brinthele Semmele Senuthe Mummile Tillithe
+        Melohithe Mimme Sirure Thimmute Latute Thillire Thugrole Larite
+        Lutete Themmorule Thuntule Hommote Linele Lullare Sollile Hete
+        Milummole Matate Thutire Mimmele Thugrale Luthigrule Bremmole Lograte
+        Honele Mummele Taruthe Thegre Lathollele Selele Thitate Lugrire
+        Lummole Themmanele Sorule Senthore Tenimmole Lollile Mellale Minatote
+        Mullile Semmote Sinile Setile
+    }
+    female_common_first_names = {
+        Munthenta Solera Thula Etha Temmila Hollela Tahea Lokkohura
+        Samma Lintelora Solea Silea Sollonata Menela Sillola Sollutha
+        Thulea Ila Mammita Tithutara Antilla Simma Sammota Likkintea
+        Lunitha Thillea Mena Mirora Horommela Ommuta Melela Lenilea
+        Tillentea Tullata Lonthela Lonira Lanea Lellintola Suntheta Liluna
+        Totela Thihela Tonemmola Otira Thantea Tuha Sollola Tontea
+        Tintha Honila Sona Alata Solala Linellela Alea Silira
+        Mimmora Lullora Siletha Thilla Salla Tontetha Muheta Tontommila
+        Semmeta Sehora Thena Tohimmea Lenunea Seteta Melluta Salala
+        Olula Thummola Ella Lolora Lumma Sothea Limma Tenammea
+        Mimma Unutha Lela Oha Hutita Sitea Memma Telina
+        Luna Linea Litammula Onaha Ala Tihunela Saneta Temmora
+        Semmatha Linutha Titha Oneta
+    }
+    common_last_names = {
+        Allunonele Homme Tholallote Senellole Muthemmire Manohule Legrothe Brothenute
+        Hollune Thummohete Brelle Brehammere Semmolale Allunure Lunire Hitograte
+        Tahogre Memmirale Mullilete Tholanire Sonite Tuhanore Samme Thunole
+        Semmethe Mellanale Mammate Thinite Bruthulle Igrentethe Sogrinule Tholanete
+        Togrure Semmile Tahogrithe Hantogrele Hollatate Simmethe Mihule Tuhammale
+        Igrene Lenile Sonole Sogrinete Bruthate Igrente Ellenole Thummule
+        Tithule Mullele Tatule Tuhanure Menagrare Sallile Thummute Hitogrele
+        Brollithe Brigrete Molagrete Hairugrore Timmore Thillute Silolle Silunule
+        Lutommile Branure Brintullite Senegrathe Menallute Munthete Muhohate Sunite
+        Timmere Thagrunute Togrire Untogrute Sellanate Sammothe Igrenile Untograre
+        Ahigrele Hollalire Suluhile Thihimmite Hairunthe Sallole Ahigrare Bragrore
+        Senthe Brotollure Semmothe Sullule Brurommere Molallite Tollanule Hairunathe
+        Menagre Togruntule Sommele Tegrite
+    }
+
+	ethnicities = {
+		1 = dwarf
+	}
+	graphics = east_asian
+	seal_and_signature_texture = "gfx/interface/diplomatic_treaties/seal_and_signature_cultures/diplomatic_treaties_seal_and_signature_african.dds"
+}
+
+horned_demon = {
+	color= hsv{ 0.20 0.53 0.23 }
+	religion = lunar
+	heritage = heritage_horned_demon
+	language = language_infernal
+	traditions = { tradition_demonic tradition_monsteric }
+	male_common_first_names = {
+		Amyrteos Ankhmachis Anemhor Aratos Arganos Charias Djedhor Ezena Horemakhet Isocrates
+		Khabbabash Leonippus Lydiadas Manetho Massiva Nakhthoreb Naravas Nefaarud Neferibre
+		Nesisti Nicias Nicodemus Oezalces Oxyntas Pedubast Peneus Perdiccas Philocrates
+		Philotheos Polyperchon Psherenamun Psherenptah Psammuthes Ptolemy Theocritus Therapon
+		Timoleon Xanthos Xenon Zeteres Zosimus Ahmes Ahmose Alarus Amasus Ameny Bakenrenef
+		Cleomenes Euclid Harsiotef Henut Ibi Khabash Lagus Nectanebo Kheperkare Neferkare
+		Nehi Osorkon Pami Petubastis Teos
+	}
+	female_common_first_names = {
+		Agape Agathoclea Amanishabheto Antigone Apame Apollonia Aristomache Artemisia Aspacia
+		Athenais Berenice Charis Cleopatra Cynna Demetria Elpis Eirene Eudocia Eunice Euphemia
+		Eurydice Euthalia Hypatia Nysa Oenanthe Olympia Phila Phile Sostrate Stratonice Thais
+		Theophila Thetima Thessaloniki Thorakis Timo Arsinoe Lysandra Kiya Qelhata
+	}
+	common_last_names = {
+		"dynn_Ahmid"
+		"dynn_Galestid"
+		"dynn_Kenamid"
+		"dynn_Penamid"
+		"dynn_Senuid"
+		"dynn_Setnid"
+		"dynn_Arganid"
+		"dynn_Psammid"
+		"dynn_Philothid"
+		"dynn_Timolid"
+		"dynn_Zosid"
+		"dynn_Phileid"
+		"dynn_Nicodemid"
+		"dynn_Nefarid"
+		"dynn_Bastid"
+		"dynn_Xeneid"
+		"dynn_Naravid"
+		"dynn_Ezanid"
+		"dynn_Alarus"
+		"dynn_Alara"
+		"dynn_Alarid"
+		"dynn_Harsiotes"
+		"dynn_Harsiotid"
+		"dynn_Henus"
+		"dynn_Hena"
+		"dynn_Henid"
+		"dynn_Ibus"
+		"dynn_Iba"
+		"dynn_Ibid"
+		"dynn_Khabbash"
+		"dynn_Khabbashid"
+		"dynn_Amasus"
+		"dynn_Amasa"
+		"dynn_Amasid"
+		"dynn_Nectanebo"
+		"dynn_Nectanebid"
+		"dynn_Petubast"
+		"dynn_Petubastes"
+		"dynn_Petubastid"
+		"dynn_Djedhid"
+		"dynn_Tachys"
+		"dynn_Tachya"
+		"dynn_Tachyes"
+		"dynn_Tachyid"
+		"dynn_Mago"
+		"dynn_Magid"
+	}
+	graphics = balkan
+	ethnicities = {
+		1 = horned_ogre
+	}
+}
+
+winged_demon = {
+	color= hsv{ 0.20 0.53 0.23 }
+	religion = lunar
+	heritage = heritage_winged_demon
+	language = language_infernal
+	traditions = { tradition_demonic }
+	male_common_first_names = {
+		Aemilian Aemilius Aetius Albinus Alexander Anastasius Anicius Annius Antoninus Antonius Arcadius Aurelian Aurelius
+		Avitus Belisarius Britannicus Caecilius Caesar Callistus Carinus Carus Cassius Claudius Clementius Constans Constantine
+		Constantius Cornelius Crassus Decimus Decius Diocletian Domitian Domitius Drusus Ennodius Fabianus Fabius Fabricius Faustus Felix Flavianus Florian
+		Gaius Galerius Gallienus Gallus Germanus Gordian Gracchus Gratian Hadrian Herculius Honorius Joannes Jovian
+		Julian Julius Julius-Caesar Junius Justin Justinian Leo Leontius Liberius Licinius Lucius Magnus Marcellinus
+		Marcellus Marcian Marcus Marinus Marius Martinus Maximian Maximinus Maximus Nepotian Nerva Numerian Octavianus Octavius Otho
+		Paulinus Paulus Petronius Philip Pompeius Pontianus Priscus Probus Publius Quintus Romanus Romulus Rufinus Rutilius Sabinianus
+		Saturninus Sempronius Septimius Sergius Severinus Severus Sextus Symmachus Tacitus Theodosius Tiberius
+		Titius Titus Trajan Urbanus Valens Valentinian Valerian Valerius Venantius Vespasian Victor Victorinus Vigilius Vitalianus Volusianus
+	}
+	female_common_first_names = {
+		Aelia Agrippina Antonia Antonina Aquilia Aurelia Caecilia Caesaris Candida Cassia Claudia Clementia Constantia
+		Constantina Cornelia Crispina Dominica Domitiana Domna Domnina Drusilla Fausta Faustina Flacilla Flavia Fortunata Frontina Gaia Galeria
+		Gordiana Hadriana Helvia Hilara Honoria Hortensia Julia Juliana Junia Justa Justina Justiniana Licinia Livia Livilla Lucilla
+		Magnia Magnilla Marcella Marcia Marciana Marina Martina Matrona Maxima Maximiana Messalina Minervina Minucia Modia Mustela
+		Octavia Palatina Paula Paulina Petronella Petronia Placidia Plautia Plautilla Pompeia Poppaea Praeiecta Publia Pulcheria
+		Rusticiana Sabina Sallustia Salonina Salvianella Scantilla Serena Sergia Severa Severina Silvia Spadusa Sulpicia Tarsilla Titiana Ulpia Valeria
+		Verina Victoria Vigilantia Viviana
+	}
+	common_last_names = {
+		"dynn_Julio_Claudian"
+		"dynn_Flavian"
+		"dynn_Nerva_Antonine"
+		"dynn_Severan"
+		"dynn_Gordian"
+		"dynn_Constantinian"
+		"dynn_Valentinian"
+		"dynn_Theodosian"
+		"dynn_Leonid"
+		"dynn_Justinian"
+		"dynn_Heraclian"
+		"dynn_Isaurian"
+		"dynn_Nikephorian"
+		"dynn_Amorian"
+		"dynn_Macedonian"
+		"dynn_Doukid"
+		"dynn_Komnenid"
+		"dynn_Angelid"
+		"dynn_Laskarid"
+		"dynn_Palaiologan"
+		"dynn_Fabricius"
+	}
+	graphics = balkan
+	ethnicities = {
+		1 = harpy
+	}
+}
+
+shadow_demon = {
+	color= hsv{ 0.20 0.53 0.23 }
+	religion = lunar
+	heritage = heritage_shadow_demon
+	language = language_infernal
+	traditions = { tradition_demonic tradition_monsteric }
+	male_common_first_names = {
+		Abreas Achaios Aineias Airopos Agaios Agatharchides Agathokles Agathon Agelaos Agenor
+		Agesipolis Agis Aiakides Aischines Aknonios Akrotatos Alexandros Alexarchos Alketas
+		Alkimachos Alkimos Amantas Amphoteros Amyntas Anaxarchos Anaxikrates Anaximandros
+		Anaxippos Andragoras Andromachos Andromenes Andronikos Androsthenes Antenor Antialkidas
+		Antigonos Antikles Antimachos Antiochos Antipatros Antiphates Antiphilos Antisthenes
+		Aphrodisios Apollodoros Apollodotos Apollonios Apollophanes Aratos Archagathos Archebios
+		Archelaos Archias Archidamos Archimedes Archippos Aretas Areus Aristarchos Aristobulos
+		Aristodemos Aristogeiton Aristomachos Ariston Aristonikos Aristophanes Aristophon
+		Aristoteles Arrhabaios Arrhidaios Arseas Artemidoros Artemidotos Asandros Asklepiades
+		Athanadoros Athenodoros Attalos Audoleon Bakchides Balakros Bikon Bryaxis Chabrias
+		Chairestratos Chairondas Chares Charidemos Charikles Charinos Chremes Chremonides
+		Chrysippos Damokrates Damophon Damoteles Deimachos Deinippos Demades Demaratos Demetrios
+		Demochares Demodamas Demogenes Demokleides Demokritos Demophanes Demosthenes Derdas
+		Deriades Didas Dikaiarchos Dikaios Dimnos Diodoros Diodotos Diogenes Diomedes Dion
+		Dionysios Dropidas Echekrates Eisigonos Ekdemos Empedokles Epameinondas Epandros Epikuros
+		Epikydes Epimenes Epokillos Erasistratos Eratosthenes Erigyios Euainetos Euandros Eubulos
+		Eudamidas Eudoxos Euhemeros Eukleides Eukrates Eukratides Euktemon Eumenes Eupolemos
+		Euripides Eurylochos Euthydemos Euthykrates Euthykritos Eutychides Euxenippos Gelon
+		Glaukias Gorgias Gorgippos Gorgos Gylippos Hagesandros Halkyoneus Harpalos Hegemachos
+		Hegesias Hekataios Hektor Helenos Heliodoros Heliokles Hephaistion Herakleides Herakon
+		Hermaios Hermarchos Hermesianax Hermias Hermogenes Hermolaos Herodas Heromenes Herophilos
+		Hierax Hieron Hieronymos Hiketas Hippalos Hipparchos Hippokrates Hippostratos Hyakinthos
+		Hyperbatas Hypereides Ikadion Iollas Iphikrates Ismenias Isokrates Kalas Kalliarchos
+		Kallines Kallisthenes Kallistratos Kallixeinos Karneades Karsis Kassandros Kebalinos
+		Kephalon Kephisodoros Kephisodotos Kephisophon Kineas Kleandros Kleanthes Klearchos
+		Kleitos Kleombrotos Kleomenes Kleonymos Koinos Koroibos Krateros Krates Krateuas Krenides
+		Ktesikles Lachares Laomedon Leonidas Leonnatos Leontios Leosthenes Leostratos Leukon
+		Lydiadas Lykurgos Lysandridas Lysandros Lysias Lysimachos Lysippos Lysistratos Machanidas
+		Machatas Magas Makartatos Marsyas Megaleas Megasthenes Meleagros Memnon Menandros
+		Menedemos Menelaos Menes Menidas Menippos Menon Menos Metrodoros Metron Milon Mnaseas
+		Mnesidemos Molon Nabis Neaichmos Nearchos Neoptolemos Nikagoras Nikandros Nikanor
+		Nikarchos Nikephoros Nikeratos Niketes Nikias Nikodoros Nikokles Nikokrates Nikokreon
+		Nikomachos Nikomedes Nikostratos Numenios Olympiodoros Onomarchos Onomastos Ophellas
+		Orestes Paionios Pairisades Pantaleon Pantauchos Pantordanos Parmenion Patrokles Pausanias
+		Peithagoras Peithon Pelopidas Pelops Perdikkas Peroidas Perseus Peukestas Peukolaos
+		Pherekles Philemon Philetairos Philetas Philinos Philippos Philokles Philon Philonides
+		Philopoimenos Philotas Philoxenos Phrynichos Phylarkhos Phyromachos Platon Pleistarchos
+		Polemon Polybios Polydamas Polydoros Polyeuktos Polygnotos Polyperchon Poseidippos
+		Poseidonios Praxibulos Praxiteles Prepelaos Proteas Ptolemaios Pyrrhias Pyrrhos Pytheas
+		Pythodelos Satyros Seleukos Simmias Simonides Sophytes Sopolis Sosistratos Sosthenes
+		Sostratos Sotas Spalyris Spartokos Stasanor Stilpon Stratokles Straton Stratonikos Taurion
+		Tauriskos Teisikrates Telesarchos Thearidas Themistios Theodamas Theodoros Theodotos
+		Theokritos Theophilos Theophrastos Thoas Thoinias Thoinon Thrasykles Timaios Timarchos
+		Timoleon Timotheos Tryphon Xanthippos Xenares Xenokrates Xenophon Zeionises Zenon Zeuxis
+		Zoilos Zopyrion
+		Argaios Dioskourides Dokimos Telesphoros
+	}
+	female_common_first_names = {
+		Charis Demetria Diantha Dionysia Agathokleia Agiatis Antiochis Apame
+		Apollonia Ariadne Arsinoe Artemisia Athenais Belistiche Berenike Damarate
+		Daphne Demo Elpis Eirene Euphemia Euthalia Hypatia Kandake Kassandra Megaira
+		Melaina Narkissa Nysa Olympia Phila Phile Eurydike Histieia Isidora Kalliope
+		Kallista Kellanthis Kleio Kratesikleia Lanassa Laodike
+		Libys Lysandra Lysis Mestris Monime Nephoris Oinanthe
+		Phthia Ptolema Sofia Sostrate Thais Theophila Thetima Timo Xanthe Xene Xenia
+		Ptolemais Selene Sophe Stratonike Theoxene Thoeris Tryphaina Zosime
+		Ada Aigyptia Anthis Antigona Antigone Aphrodisia Archestrate Archilla Archippe Aristagora 
+		Ariste Aristion Aristo Aristoboule Aristodike Aristokleia Aristokrateia Aristomache 
+		Aristonike Aristylla Artemis Aspasia Beroaia Biote Boidion Chairestrate Chairippe Choirine 
+		Chrysilla Chrysis Deidamia Demokrateia Demostrate Diokleia Doris Dorkas Eukleia Eukoline
+		Euphrosyne Euporia Eutychis Glykera Hedeia Hediste Hedyle Hedyline Herais Hiero Hierokleia
+		Hippostrate Homolois Kadmeia Kallimache Kallippe Kallis Kallistion Kallisto Kallistomache
+		Kallistrate Kleagora Kleariste Kleino Kleito Kleo Kleopatra Kleostrate Krateia Leaina
+		Leontis Lysimache Lysistrate Malthake Mania Melissa Melitta Menestrate Meniske Metrodora
+		Mika Mnesarete Mnesistrate Murrhine Nausistrate Nikagora Nikaia Nikareta Nikarete Nikeso
+		Niko Nikomache Nikostrate Olympias Pamphile Parthenis Patrokleia Phanagora Phano
+		Phanostrate Philainis Phileia Philias Philinna Philippa Philista Phillo Philokleia
+		Philostrate Philotera Philotis Philoumene Philoxena Plangon Plathane Pythias 
+		Rhode Satyra Sima Simale Simon Syra Theano Theodora Theodote Thessalonike Thraitta
+		Timagora Timarete Timokleia Timostrate Troias Xeno Xenokrateia Zopyra Zopyris
+		Nikesipolis Gygaia
+	}
+	common_last_names = {
+		"dynn_Agathoklid"
+		"dynn_Alketid"
+		"dynn_Apollonid"
+		"dynn_Aratid"
+		"dynn_Helladid"
+		"dynn_Omirid"
+		"dynn_Peithid"
+		"dynn_Peneid"
+		"dynn_Philonid"
+		"dynn_Proktid"
+		"dynn_Pytheid"
+		"dynn_Sosiklid"
+		"dynn_Tauromeneid"
+		"dynn_Therid"
+		"dynn_Theronid"
+		"dynn_Timolid"
+		"dynn_Xenonid"
+		"dynn_Zagreid"
+		"dynn_Zosimid"
+		"dynn_Zotikid"
+		"dynn_Pelopid"
+		"dynn_Philetid"
+		"dynn_Proteid"
+		"dynn_Zenonid"
+		"dynn_Sostratid"
+		"dynn_Tauriskid"
+		"dynn_Sosthenid"
+		"dynn_Pyhrrid"
+		"dynn_Leonidid"
+		"dynn_Killistratid"
+		"dynn_Nikoklid"
+		"dynn_Pantauchid"
+		"dynn_Leukonid"
+		"dynn_Onomastid"
+		"dynn_Kephistodid"
+		"dynn_Karsid"
+		"dynn_Nikokrid"
+		"dynn_Persid"
+		"dynn_Hippostratid"
+		"dynn_Epandrid"
+		"dynn_Gylippid"
+		"dynn_Helenid"
+		"dynn_Megalid"
+		"dynn_Charinid"
+		"dynn_Dydid"
+		"dynn_Dionid"
+		"dynn_Hiketasid"
+		"dynn_Stratoklid"
+		"dynn_Spartokid"
+		"dynn_Stratonikid"
+		"dynn_Taurid"
+		"dynn_Timaid"
+		"dynn_Timarchid"
+		"dynn_Timoleid"
+		"dynn_Timotheid"
+		"dynn_Tryphid"
+		"dynn_Xanthippid"
+		"dynn_Xenarid"
+		"dynn_Xenokratid"
+		"dynn_Xenophid"
+		"dynn_Zenid"
+		"dynn_Lagid"
+		"dynn_Magid"
+		"dynn_Euryklid"
+		"dynn_Aleuadai"
+		"dynn_Philaidai"
+		"dynn_Demostenid"
+	}
+	graphics = balkan
+	ethnicities = {
+		1 = half_orc_grombari
+	}
+}

@@ -1,0 +1,554 @@
+﻿POPS = {
+    s:STATE_YONGAN = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 8480000
+            }
+        }
+    }
+    s:STATE_FENGSHAN = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 3348000
+            }
+            create_pop = {
+                culture = lian
+                size = 317400
+            }
+        }
+    }
+    s:STATE_FEILIN = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 4012000
+            }
+            create_pop = {
+                culture = lian
+                size = 779000
+            }
+        }
+    }
+    s:STATE_ANDU = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 7848000
+            }
+        }
+    }
+    s:STATE_CANGMU = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 5712000
+            }
+            create_pop = {
+                culture = lian
+                size = 283200
+            }
+        }
+    }
+    s:STATE_QINGHAI = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 4912000
+            }
+            create_pop = {
+                culture = tong
+                size = 161300
+            }
+        }
+    }
+    s:STATE_JINGFENG = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 4344000
+            }
+        }
+    }
+    s:STATE_LIANXIAO = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 4820000
+            }
+        }
+    }
+    s:STATE_BEIHAI = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 6560000
+            }
+        }
+    }
+    s:STATE_XIAMENG = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 2472000
+            }
+        }
+    }
+    s:STATE_YUANXIANG = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 5344000
+            }
+        }
+    }
+    s:STATE_HONGYING = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 5872000
+            }
+        }
+    }
+    s:STATE_CHENGYI = {
+        region_state:FEN = {
+            create_pop = {
+                culture = lan
+                size = 5544000
+            }
+        }
+    }
+    s:STATE_SHENJIAN = {
+        region_state:SWO = {
+            create_pop = {
+                culture = lan
+                size = 4836000
+            }
+        }
+    }
+    s:STATE_CHUNYA = {
+        region_state:SWO = {
+            create_pop = {
+                culture = lan
+                size = 4084000
+            }
+        }
+    }
+    s:STATE_TIANYIN = {
+        region_state:HEA = {
+            create_pop = {
+                culture = lan
+                size = 4496000
+            }
+            create_pop = {
+                culture = lian
+                size = 582300
+            }
+        }
+    }
+    s:STATE_QIUGE = {
+        region_state:HEA = {
+            create_pop = {
+                culture = lan
+                size = 3996000
+            }
+            create_pop = {
+                culture = lian
+                size = 138600
+            }
+        }
+    }
+    s:STATE_ZHUSHI = {
+        region_state:HEA = {
+            create_pop = {
+                culture = lan
+                size = 5616000
+            }
+            create_pop = {
+                culture = lian
+                size = 273800
+            }
+        }
+    }
+    s:STATE_HUAYUN = {
+        region_state:FLO = {
+            create_pop = {
+                culture = lan
+                size = 8152000
+            }
+        }
+    }
+    s:STATE_KAIHUA = {
+        region_state:FLO = {
+            create_pop = {
+                culture = lan
+                size = 4368000
+            }
+            create_pop = {
+                culture = lian
+                size = 240300
+            }
+        }
+    }
+    s:STATE_GANGSHANG = {
+        region_state:FLO = {
+            create_pop = {
+                culture = lan
+                size = 4472000
+            }
+            create_pop = {
+                culture = khambu
+                size = 434400
+            }
+        }
+    }
+    s:STATE_ZIXIA = {
+        region_state:PUR = {
+            create_pop = {
+                culture = lan
+                size = 4244000
+            }
+            create_pop = {
+                culture = khambu
+                size = 247500
+            }
+        }
+    }
+    s:STATE_XUANYUE = {
+        region_state:MYS = {
+            create_pop = {
+                culture = lan
+                size = 4772000
+            }
+            create_pop = {
+                culture = khambu
+                size = 439300
+            }
+        }
+    }
+    s:STATE_HEJIN = {
+        region_state:MYS = {
+            create_pop = {
+                culture = lan
+                size = 3748000
+            }
+            create_pop = {
+                culture = tong
+                size = 143000
+            }
+            create_pop = {
+                culture = khambu
+                size = 130300
+            }
+        }
+    }
+    s:STATE_LANXIU = {
+        region_state:MYS = {
+            create_pop = {
+                culture = lan
+                size = 3784000
+            }
+            create_pop = {
+                culture = tong
+                size = 716300
+            }
+        }
+    }
+    s:STATE_YUDAO = {
+        region_state:FEA = {
+            create_pop = {
+                culture = lan
+                size = 6344000
+            }
+        }
+    }
+    s:STATE_MINGJING = {
+        region_state:YAO = {
+            create_pop = {
+                culture = tong
+                size = 6728000
+            }
+        }
+    }
+    s:STATE_LIMING = {
+        region_state:YAO = {
+            create_pop = {
+                culture = tong
+                size = 5168000
+            }
+            create_pop = {
+                culture = lan
+                size = 268600
+            }
+        }
+    }
+    s:STATE_QIANHU = {
+        region_state:YAO = {
+            create_pop = {
+                culture = tong
+                size = 3276000
+            }
+        }
+    }
+    s:STATE_ZHAOHAI = {
+        region_state:YAO = {
+            create_pop = {
+                culture = tong
+                size = 5512000
+            }
+            create_pop = {
+                culture = lan
+                size = 538400
+            }
+        }
+    }
+    s:STATE_LONGYUN = {
+        region_state:YAO = {
+            create_pop = {
+                culture = tong
+                size = 2112000
+            }
+        }
+    }
+    s:STATE_ZHONGYUAN = {
+        region_state:YAO = {
+            create_pop = {
+                culture = tong
+                size = 4768000
+            }
+        }
+    }
+    s:STATE_YINGHAI = {
+        region_state:YAO = {
+            create_pop = {
+                culture = tong
+                size = 5056000
+            }
+        }
+    }
+    s:STATE_JINAN = {
+        region_state:YAO = {
+            create_pop = {
+                culture = tong
+                size = 4660000
+            }
+        }
+    }
+    s:STATE_GUILIN = {
+        region_state:YAO = {
+            create_pop = {
+                culture = tong
+                size = 2964000
+            }
+        }
+    }
+    s:STATE_TUYU = {
+        region_state:YAO = {
+            create_pop = {
+                culture = tong
+                size = 700000
+            }
+        }
+    }
+    s:STATE_BIAN = {
+        region_state:YAO = {
+            create_pop = {
+                culture = tong
+                size = 1484000
+            }
+            create_pop = {
+                culture = arasni
+                size = 160300
+            }
+            create_pop = {
+                culture = khambu
+                size = 45600
+            }
+        }
+    }
+    s:STATE_LINGGU = {
+        region_state:SPI = {
+            create_pop = {
+                culture = tong
+                size = 4348000
+            }
+            create_pop = {
+                culture = lan
+                size = 342700
+            }
+            create_pop = {
+                culture = khambu
+                size = 377900
+            }
+        }
+    }
+    s:STATE_SHIYU = {
+        region_state:SPI = {
+            create_pop = {
+                culture = tong
+                size = 4368000
+            }
+            create_pop = {
+                culture = lan
+                size = 159400
+            }
+            create_pop = {
+                culture = khambu
+                size = 214100
+            }
+        }
+    }
+    s:STATE_ZHUMING = {
+        region_state:VER = {
+            create_pop = {
+                culture = tong
+                size = 3870000
+            }
+        }
+    }
+    s:STATE_CHIJIANG = {
+        region_state:VER = {
+            create_pop = {
+                culture = tong
+                size = 2785000
+            }
+        }
+    }
+    s:STATE_XUEHUA = {
+        region_state:SNO = {
+            create_pop = {
+                culture = tong
+                size = 1780000
+            }
+            create_pop = {
+                culture = mae
+                size = 75200
+            }
+        }
+    }
+    s:STATE_XIELIAN = {
+        region_state:BLO = {
+            create_pop = {
+                culture = lian
+                size = 5072000
+            }
+            create_pop = {
+                culture = lan
+                size = 500900
+            }
+        }
+    }
+    s:STATE_LANSHAN = {
+        region_state:BLO = {
+            create_pop = {
+                culture = lian
+                size = 2388000
+            }
+        }
+    }
+    s:STATE_HUNJIANG = {
+        region_state:BLO = {
+            create_pop = {
+                culture = lian
+                size = 5076000
+            }
+            create_pop = {
+                culture = lan
+                size = 175200
+            }
+        }
+    }
+    s:STATE_FUQU = {
+        region_state:BLO = {
+            create_pop = {
+                culture = lian
+                size = 1720000
+            }
+        }
+    }
+    s:STATE_SHAHAI = {
+        region_state:BLO = {
+            create_pop = {
+                culture = lian
+                size = 3024000
+            }
+        }
+    }
+    s:STATE_HONGLIN = {
+        region_state:BLO = {
+            create_pop = {
+                culture = lian
+                size = 4224000
+            }
+            create_pop = {
+                culture = lan
+                size = 503100
+            }
+        }
+    }
+    s:STATE_GUISHAN = {
+        region_state:GHO = {
+            create_pop = {
+                culture = lian
+                size = 4348000
+            }
+            create_pop = {
+                culture = lan
+                size = 393800
+            }
+        }
+    }
+    s:STATE_YINGSHA = {
+        region_state:SHA = {
+            create_pop = {
+                culture = lian
+                size = 2388000
+            }
+        }
+    }
+    s:STATE_MOYUAN = {
+        region_state:SHA = {
+            create_pop = {
+                culture = lian
+                size = 2380000
+            }
+        }
+    }
+    s:STATE_JIUYOU = {
+        region_state:NIN = {
+            create_pop = {
+                culture = lian
+                size = 5092000
+            }
+            create_pop = {
+                culture = lan
+                size = 723100
+            }
+        }
+    }
+    s:STATE_FENGDU = {
+        region_state:NIN = {
+            create_pop = {
+                culture = lian
+                size = 3996000
+            }
+            create_pop = {
+                culture = lan
+                size = 201700
+            }
+        }
+    }
+    s:STATE_HUANGQUAN = {
+        region_state:NIN = {
+            create_pop = {
+                culture = lian
+                size = 3924000
+            }
+            create_pop = {
+                culture = lan
+                size = 229300
+            }
+        }
+    }
+}

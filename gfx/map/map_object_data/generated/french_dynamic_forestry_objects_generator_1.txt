@@ -1,0 +1,9 @@
+﻿object={
+	name="french_dynamic_forestry_objects_generator_1_0"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=yes
+	layer="forestry_dynamic"
+	pdxmesh="french_forestry_scatter_01_mesh"
+	transform_bin_file="gfx/map/map_object_data/french_dynamic_forestry_objects_generator_1_0.bin"
+}

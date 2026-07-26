@@ -1,0 +1,8 @@
+﻿object={
+	name="dlc_coin_rp1"
+	clamp_to_water_level=no
+	render_under_water=no
+	generated_content=no
+	layer="papermap_layer"
+	pdxmesh="dlc_coin_rp1_mesh"
+}

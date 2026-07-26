@@ -1,0 +1,39 @@
+﻿### Isekai storyline - "War of the Dawn" diplomatic play
+# Script-created only (effect_ova_victoria_rebellion, with war = yes and
+# annex_as_civil_war = yes): the old Lysnan crown against Victoria's Concord
+# Aurorae, winner takes the whole house. Mirrored war goals so BOTH sides
+# hold ova_restoration against each other. Structure follows vanilla
+# dp_revolution, but unlike a vanilla civil war this one ALLOWS a negotiated
+# peace: since the only war goal on the table is the full annexation, the sole
+# soft option the negotiation offers is a white peace (status quo), letting the
+# two crowns lay down arms and live sundered rather than fight to the death.
+
+dp_ova_restoration = {
+	requires_interest_marker = no
+	enable_switch_sides = yes
+	# yes = the peace table opens, and with only the annex goal in play the one
+	# non-annex outcome it can offer is a white peace (status quo)
+	allow_negotiated_peace = yes
+	mirror_war_goal = yes
+	initiator_can_add_war_goals = no
+	target_can_add_war_goals = no
+	add_infamy_for_starting_initiator_wargoals = no
+
+	war_goal = ova_restoration
+
+	texture = "gfx/interface/icons/war_goals/annex_country.dds"
+
+	selectable_in_lens = {
+		always = no
+	}
+
+	possible = {
+		has_global_variable = ova_truth_exposed
+	}
+
+	on_weekly_pulse = {}
+
+	on_war_begins = {}
+
+	on_war_end = {}
+}

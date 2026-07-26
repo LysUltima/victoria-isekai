@@ -1,0 +1,10 @@
+﻿# Al-Fawz (desert: alchemy tier 1)
+COUNTRIES = {
+	c:FAW ?= {
+		effect_starting_technology_alchemy_tier_1 = yes
+		effect_starting_politics_conservative = yes
+
+        add_technology_researched = apothecaries
+        add_technology_researched = homunculus_creation
+	}
+}

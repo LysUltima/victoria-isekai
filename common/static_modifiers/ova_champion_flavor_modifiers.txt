@@ -1,0 +1,76 @@
+﻿### Champions JE - flavor-layer static modifiers
+# Applied by the champion-flavor events / effects. Display names live in
+# ova_champion_l_english.yml under the modifier's key (without one the raw
+# key shows in-game).
+
+# CHARACTER-scoped: renown-scaled political weight. Reapplied every month by the
+# foundation monthly tick with multiplier = the champion's renown level, so a
+# renown-100 champion carries +100 prominence on top of the flat trait bonuses.
+ova_champion_renown_prominence = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	character_prominence_add = 1
+}
+
+# The champion was bought off instead of obeyed: an ongoing drain on the budget
+# (applied with multiplier = money_amount_multiplier_medium, so it scales to GDP).
+ova_champion_bribe = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_expenses_add = 1
+}
+
+# The champion was given a seat at the council (the "high office" concession).
+ova_champion_high_office = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_legitimacy_base_add = 8
+	country_authority_add = 50
+}
+
+# The crown pledged to grow the army for the champion (the "army" concession).
+ova_champion_army_pledge = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	unit_offense_mult = 0.05
+	unit_defense_mult = 0.05
+}
+
+# Pilgrims drawn by the champion's fame keep the capital's inns and peddlers
+# busy for a year (applied with multiplier = money_amount_multiplier_small).
+ova_champion_pilgrim_trade = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_expenses_add = -1
+}
+
+# The crown enacted a reform the champion demanded: a legitimate, popular regime.
+ova_champion_beloved_reformer = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_legitimacy_base_add = 10
+	country_prestige_mult = 0.05
+}
+
+# A champion's demand was refused: resentment simmers at court and among admirers.
+ova_champion_disillusioned = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	country_legitimacy_base_add = -5
+}
+
+# The champion's followers agitate for the refused cause: a temporary swell of
+# unrest behind the corresponding movement (paired with add_radicals + the
+# movement itself in ova_champion_stir_movement). NOT a revolution.
+ova_champion_agitation = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_legitimacy_base_add = -5
+	state_turmoil_effects_mult = 0.25
+}
+
+# The champion seized the throne. A crown taken by force sits uneasily.
+ova_champion_usurper = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_legitimacy_base_add = -25
+	state_turmoil_effects_mult = 0.25
+}
+
+# A coup was put down: the crown held, but at a cost to its standing.
+ova_champion_coup_crushed = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_legitimacy_base_add = -8
+	country_prestige_mult = -0.05
+}

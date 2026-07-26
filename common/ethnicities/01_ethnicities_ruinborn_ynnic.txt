@@ -1,0 +1,56 @@
+﻿ruinborn_sarda = {
+	template = "moon_elf"
+
+	hair_color = {
+		# Brown
+		15 = { 0.65 0.5 0.9 0.8 }
+		# Red
+		10 = { 0.85 0.0 0.99 0.5 }
+		# Black
+		15 = { 0.0 0.9 0.5 0.99 }
+		# Rainbow
+		60 = { 1.0 0.0 1.0 1.0 }
+	}
+}
+
+ruinborn_dolindhan = {
+	template = "moon_elf"
+
+	hair_color = {
+		# White
+		15 = { 0.0 0.05 0.1 0.8 }
+		# Brown
+		15 = { 0.65 0.5 0.9 0.8 }
+		# Blonde
+		15 = { 0.4 0.25 0.75 0.5 }
+		# Red
+		20 = { 0.85 0.0 0.99 0.5 }
+		# Black
+		15 = { 0.0 0.9 0.5 1.0 }
+		# Rainbow
+		15 = { 1.0 0.0 1.0 1.0 }
+	}
+}
+
+ruinborn_veykodan = {
+	template = "ruinborn_kwineh"
+
+	hair_color = {
+		# White
+		15 = { 0.0 0.05 0.1 0.8 }
+		# Brown
+		15 = { 0.65 0.5 0.9 0.8 }
+		# Blonde
+		15 = { 0.4 0.25 0.75 0.5 }
+		# Red
+		20 = { 0.85 0.0 0.99 0.5 }
+		# Black
+		15 = { 0.0 0.9 0.5 1.0 }
+		# Rainbow
+		15 = { 1.0 0.0 1.0 1.0 }
+	}
+	
+	hairstyles = {  
+		10 = { name = elven_hairstyles 		range = { 0.0 1.0 } }
+	}
+}

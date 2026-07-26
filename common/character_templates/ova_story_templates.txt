@@ -1,0 +1,436 @@
+﻿# Named templates for the two hardcoded storyline champions. Used via
+# ova_champion_create_from_template (common/scripted_effects/ova_champion_effects.txt)
+# instead of inlining first_name/last_name/age/culture at the call site.
+
+# The murim Returner (common/scripted_effects/ova_murim_effects.txt,
+# effect_ova_murim_returner_arrives).
+template_kang_jinwoo = {
+	first_name = Jin-woo
+	last_name = Kang
+	historical = yes
+	religion = random_accepted
+	culture = cu:mae
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 16
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+	}
+}
+
+# The isekai Hero, Victoria Clausewitz. Created by the storyline (not by the generic
+# ova_hero_perform_summoning roll), with a fixed Lysian culture so her homeland
+# and acceptance mechanics stay tied to Lysna.
+template_victoria = {
+	first_name = Victoria
+	last_name = Clausewitz
+	historical = yes
+	religion = random_accepted
+	culture = cu:otherworld_english
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 14
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+	}
+}
+
+
+template_heavenly_demon = {
+	first_name = Demon
+	last_name = Heavenly
+	historical = yes
+	religion = random_accepted
+	culture = primary_culture
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 19
+	interest_group = ig_armed_forces
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_return_to_the_void
+	}
+}
+
+# DEM (void)
+template_demon_king = {
+	first_name = Lucifer
+	last_name = Noctis
+	historical = yes
+	religion = random_accepted
+	culture = cu:winged_demon
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 54
+	interest_group = ig_armed_forces
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_return_to_the_void
+	}
+}
+
+# The Demon King's daughter - not a ruler, created alongside DEM's ruler.
+# Fixed name and explicitly winged_demon: she carries Victoria's storyline
+# (the encounters, the Vault of Feathers) and the loc text names her, so the
+# name cannot be culture-random. Plot armor is applied lazily by
+# effect_ova_daughter_capture (common/scripted_effects/ova_hero_effects.txt),
+# which finds her via has_template.
+template_demon_king_daughter = {
+	first_name = Aurelia
+	last_name = Noctis
+	historical = yes
+	religion = random_accepted
+	culture = cu:winged_demon
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 14
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 6
+		add_random_trait = personality
+		add_random_trait = skill
+		add_trait = trait_golden_core
+	}
+}
+
+# ---------------------------------------------------------------------------
+# The Eight Banners arc (murim) - one scripted companion per Alliance sect/clan
+# (je_ova_murim_ally_* chain). Each is created IN THE HOST COUNTRY by the
+# chapter's INTRO beat (so the trial beats can hurt or help them), captured +
+# plot-armored inside the create_character on_created block, and released by
+# effect_ova_murim_story_over. Clan characters (JEG/TAN/NAM/PAE/SAM) are all
+# DAUGHTERS of their clans and carry the clan name as surname (loc keys already
+# exist for the ruler templates); sect characters (HWA/SOR/MUD) carry personal
+# surnames and any gender. mae is name_format = last_first.
+# ---------------------------------------------------------------------------
+
+# SOR - the iron-body monk of Sorim. Sworn brother. Seok (release-surname) Hye-gang.
+template_ova_murim_ally_sor = {
+	first_name = Hye-gang
+	last_name = Seok
+	historical = yes
+	religion = random_accepted
+	culture = cu:mae
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 22
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# PAE - the saber heiress of the Paeng clan, the She-Bear of Hobuk. Companion (harem)
+# - every CLAN companion is a daughter of her house, so the Returner's good ending
+# (marrying into the host clan) always has a bride when the host is a clan.
+template_ova_murim_ally_pae = {
+	first_name = Ha-ran
+	last_name = Paeng
+	historical = yes
+	religion = random_accepted
+	culture = cu:mae
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 23
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# TAN - the poison maiden of the Tang clan. Companion (harem).
+template_ova_murim_ally_tan = {
+	first_name = So-yeol
+	last_name = Tang
+	historical = yes
+	religion = random_accepted
+	culture = cu:mae
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 20
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# NAM - the proud young mistress of the Namgung clan. Companion (harem) - clan
+# companions are all daughters of their houses (see the PAE note above).
+template_ova_murim_ally_nam = {
+	first_name = Wol-hee
+	last_name = Namgung
+	historical = yes
+	religion = random_accepted
+	culture = cu:mae
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 21
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# JEG - the strategist of the Jegal clan. Companion (harem).
+template_ova_murim_ally_jeg = {
+	first_name = Seo-yeon
+	last_name = Jegal
+	historical = yes
+	religion = random_accepted
+	culture = cu:mae
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 19
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# MUD - the taoist priestess of Mudang. Companion (harem).
+template_ova_murim_ally_mud = {
+	first_name = Cheong-ha
+	last_name = Wi
+	historical = yes
+	religion = random_accepted
+	culture = cu:mae
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 20
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# SAM - the information broker of the Sama clan. Companion (harem).
+template_ova_murim_ally_sam = {
+	first_name = Ryeon
+	last_name = Sama
+	historical = yes
+	religion = random_accepted
+	culture = cu:mae
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 22
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# HWA - the plum blossom sword saintess of Hwasan. Companion (harem). Only
+# courted when Hwasan is not itself the Returner's host sect.
+template_ova_murim_ally_hwa = {
+	first_name = Seol-mae
+	last_name = Yeon
+	historical = yes
+	religion = random_accepted
+	culture = cu:mae
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 20
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# ---------------------------------------------------------------------------
+# Reyorn harem storyline (John Paradox, the summoned hero of the beastfolk
+# republic). John is an otherworlder Hero raised through the shared champion
+# layer (ova_champion_create_from_template + ova_champion_grant_otherworlder,
+# same as Victoria), created a few days into the game by ova_rey.1 so the
+# universal je_ova_champion has already run its zeroing immediate. The five
+# heroines are each the beastkin daughter of one of Reyorn's five states,
+# created + plot-armored inside their courtship JE's intro beat and released
+# by effect_ova_rey_story_over. Their cultures match the beastkin pop already
+# living in each state (history/pops/00_isekai.txt): Katzenburg desert_catkin,
+# Welpenstadt dogkin, Barenberg bearkin, Hasenhafen western_rabbitkin,
+# Fuschtal forest_foxkin. Names lean on each species' flavor over Reyorn's
+# Germanic (vardish) surnames.
+# ---------------------------------------------------------------------------
+
+template_john_paradox = {
+	first_name = John
+	last_name = Paradox
+	historical = yes
+	religion = random_accepted
+	culture = cu:otherworld_english
+	female = no
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 19
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+	}
+}
+
+# KATZENBURG - the desert-cat merchant heiress of the capital. Aloof, mercantile.
+template_ova_rey_cat = {
+	first_name = Nasira
+	last_name = al-Sahra
+	historical = yes
+	religion = random_accepted
+	culture = cu:desert_catkin
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 22
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# WELPENSTADT - the dogkin guard-captain. Loyal, earnest, tireless.
+template_ova_rey_dog = {
+	first_name = Bruna
+	last_name = Falk
+	historical = yes
+	religion = random_accepted
+	culture = cu:dogkin
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 21
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# BARENBERG - the bearkin smith of the mountain. Gruff, mighty, warm underneath.
+template_ova_rey_bear = {
+	first_name = Ursla
+	last_name = Steinfell
+	historical = yes
+	religion = random_accepted
+	culture = cu:bearkin
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 24
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# HASENHAFEN - the rabbitkin harvest maiden of the harbor. Gentle, shy, kind.
+template_ova_rey_rabbit = {
+	first_name = Lieselotte
+	last_name = Klee
+	historical = yes
+	religion = random_accepted
+	culture = cu:western_rabbitkin
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 20
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}
+
+# FUSCHTAL - the foxkin scholar of the wooded vale. Clever, teasing, secretive.
+template_ova_rey_fox = {
+	first_name = Fenna
+	last_name = Rotwald
+	historical = yes
+	religion = random_accepted
+	culture = cu:forest_foxkin
+	female = yes
+	home_region = random
+	holding_type = random
+	dna = random
+	age = 21
+	interest_group = random
+	commander_rank = default
+	trait_generation = {
+		add_experience = 4
+		add_random_trait = personality
+		add_random_trait = skill
+	}
+}

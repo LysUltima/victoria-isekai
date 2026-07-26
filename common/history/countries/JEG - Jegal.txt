@@ -1,0 +1,10 @@
+﻿# Jegal (murim: spiritualism tier 3)
+COUNTRIES = {
+	c:JEG ?= {
+		effect_starting_technology_spiritualism_tier_3 = yes
+		create_character = { template = template_ruler_jeg role = ruler }
+		effect_starting_politics_traditional = yes
+
+        activate_law = law_type:law_professional_army
+	}
+}

@@ -1,0 +1,16 @@
+﻿# Great Feng (xianxia: spiritualism tier 2)
+COUNTRIES = {
+	c:FEN ?= {
+		effect_starting_technology_spiritualism_tier_2 = yes
+		create_character = { template = template_ruler_fen role = ruler }
+		effect_starting_politics_traditional = yes
+
+        activate_law = law_type:law_professional_army
+
+		# Xianxia dao-war JE + intro proclamation, raised here at start (the war-JE
+		# pattern: the JE defines no is_shown_when_inactive and no immediate).
+		# Self-contained, so it needs no global-last ordering.
+		add_journal_entry = { type = je_ova_xianxia_jade_mandate }
+		trigger_event = { id = ova_xianxia.4 days = 5 }
+	}
+}

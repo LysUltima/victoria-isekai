@@ -1,0 +1,106 @@
+﻿### Universal Champions journal entry
+# Granted to every centralized nation on day one via
+# common/history/global/ova_champion_journals.txt; nations formed later
+# activate it via is_shown_when_inactive. Owns ALL champion bookkeeping: the
+# monthly tick runs here and ONLY here. Regional JEs (isekai/murim/xianxia)
+# layer their storylines on top and must not call ova_champion_monthly_tick.
+# The flavor-events agent may append random_events to on_monthly_pulse.
+# Level XP and Renown are both scripted progress bars: each shows percent
+# progress toward the NEXT level and visibly resets when a level is gained.
+
+je_ova_champion = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_internal_affairs
+
+	scripted_button = ova_choose_champion_button
+	scripted_button = ova_hinterland_hunt_button
+	scripted_button = ova_patronage_button
+	scripted_button = ova_training_button
+	scripted_button = ova_exile_champion_button
+	scripted_button = ova_sabotage_watch_button
+
+	scripted_progress_bar = ova_champion_level_bar
+	scripted_progress_bar = ova_champion_renown_bar
+
+	immediate = {
+        set_variable = { name = ova_champion_level value = 0 }
+        set_variable = { name = ova_champion_popularity value = 0 }
+        ova_champion_init_progress = yes
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			ova_champion_monthly_tick = yes
+		}
+		# Generic champion flavor (ova_champion_flavor_events.txt). The first
+		# weight is the "nothing happens" weight; every listed event carries its
+		# own trigger, so a roll that lands on an ungated event simply passes.
+		random_events = {
+			1000 = 0
+			# the champion's demand audience - a single negotiation-format event
+			# that offers 3 of many concessions (one a bribe) or a refusal
+			30 = ova_champion_flavor.1
+			# the overmighty-champion stir (only fires at very high renown)
+			4 = ova_champion_flavor.12
+			# minor renown / XP flavor
+			10 = ova_champion_flavor.30
+			8 = ova_champion_flavor.31
+			8 = ova_champion_flavor.32
+			10 = ova_champion_flavor.33
+			8 = ova_champion_flavor.34
+			8 = ova_champion_flavor.35
+			10 = ova_champion_flavor.36
+			# ten more flavor events
+			8 = ova_champion_flavor.40
+			7 = ova_champion_flavor.41
+			7 = ova_champion_flavor.42
+			8 = ova_champion_flavor.43
+			6 = ova_champion_flavor.44
+			7 = ova_champion_flavor.45
+			8 = ova_champion_flavor.46
+			5 = ova_champion_flavor.47
+			8 = ova_champion_flavor.48
+			8 = ova_champion_flavor.49
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_champion_status_none
+				trigger = {
+					NOT = { has_variable = ova_champion_char }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_champion_status_injured
+				trigger = {
+					has_variable = ova_champion_injured_months
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_champion_status_secluded
+				trigger = {
+					has_variable = ova_champion_secluded_months
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_champion_status_sabotaged
+				trigger = {
+					ova_champion_is_sabotaged = yes
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_champion_status_active
+				trigger = {
+					always = yes
+				}
+			}
+		}
+	}
+
+	weight = 100
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}

@@ -1,0 +1,885 @@
+﻿l_english:
+ ############################################################
+ # Names
+ ############################################################
+ dynn_Amorian:0 "Amorian"
+ dynn_Angelid:0 "Angelid"
+ dynn_AqtO_be:0 "Aqtöbe"
+ dynn_Aralkum:0 "Aralkum"
+ dynn_Arlat:0 "Arlat"
+ dynn_Arpardi:0 "Arpardi"
+ dynn_Baarin:0 "Baarin"
+ dynn_Bailjar:0 "Bailjar"
+ dynn_Bairam:0 "Bairam"
+ dynn_Baransi:0 "Baransi"
+ dynn_Bargujin:0 "Bargujin"
+ dynn_Barlas:0 "Barlas"
+ dynn_Begchik:0 "Begchik"
+ dynn_Besud:0 "Besud"
+ dynn_Bolormaa:0 "Bolormaa"
+ dynn_Borjigin:0 "Borjigin"
+ dynn_Borogchin:0 "Borogchin"
+ dynn_Bujakhin:0 "Bujakhin"
+ dynn_Cadota:0 "Cadota"
+ dynn_Chagatayid:0 "Chagatayid"
+ dynn_Chupanid:0 "Chupanid"
+ dynn_Constantinian:0 "Constantinian"
+ dynn_Dak:0 "Dak"
+ dynn_Dana:0 "Dana"
+ dynn_Dantapur:0 "Dantapur"
+ dynn_Dong:0 "Dong"
+ dynn_Doukid:0 "Doukid"
+ dynn_Dro:0 "Dro"
+ dynn_Dughlat:0 "Dughlat"
+ dynn_Eljigin:0 "Eljigin"
+ dynn_Enkhjargal:0 "Enkhjargal"
+ dynn_Enkhtuyaa:0 "Enkhtuyaa"
+ dynn_Fabricius: "Fabricius"
+ dynn_Flavian:0 "Flavian"
+ dynn_Ganbaatar:0 "Ganbaatar"
+ dynn_Ganbold:0 "Ganbold"
+ dynn_Gank:0 "Gank"
+ dynn_Gantulga:0 "Gantulga"
+ dynn_Ganzorig:0 "Ganzorig"
+ dynn_Gar:0 "Gar"
+ dynn_Gordian:0 "Gordian"
+ dynn_Gurib:0 "Gurib"
+ dynn_Heraclian:0 "Heraclian"
+ dynn_Ikheres:0 "Ikheres"
+ dynn_Iksvaku:0 "Iksvaku"
+ dynn_Iljigin:0 "Iljigin"
+ dynn_Injuid:0 "Injuid"
+ dynn_Isaurian:0 "Isaurian"
+ dynn_Jadaran:0 "Jadaran"
+ dynn_Jalair:0 "Jalair"
+ dynn_Jochid:0 "Jochid"
+ dynn_Ju:0 "Ju"
+ dynn_Julio_Claudian:0 "Julio-Claudian"
+ dynn_Justinian:0 "Justinian"
+ dynn_Kangly:0 "Kangly"
+ dynn_Kasake:0 "Kasake"
+ dynn_Kausal:0 "Kausal"
+ dynn_Kausika:0 "Kausika"
+ dynn_Kaztal:0 "Kaztal"
+ dynn_Kereyit:0 "Kereyit"
+ dynn_Khatagin:0 "Khatagin"
+ dynn_KhO_n:0 "Khön"
+ dynn_Khorchi:0 "Khorchi"
+ dynn_Khunggirad:0 "Khunggirad"
+ dynn_Khyungpo:0 "Khyungpo"
+ dynn_Komnenid:0 "Komnenid"
+ dynn_Kunlyu:0 "Kunlyu"
+ dynn_Lang:0 "Lang"
+ dynn_Laskarid:0 "Laskarid"
+ dynn_Leonid:0 "Leonid"
+ dynn_LkhagvasU_ren:0 "Lkhagvasüren"
+ dynn_Lyam:0 "Lyam"
+ dynn_Ma:0 "Ma"
+ dynn_Macedonian:0 "Macedonian"
+ dynn_Mengu-Timur:0 "Mengu-Timur"
+ dynn_Mergid:0 "Mergid"
+ dynn_Meu:0 "Meu"
+ dynn_MO_nkh-Erdene:0 "Mönkh-Erdene"
+ dynn_MO_nkhbat:0 "Mönkhbat"
+ dynn_MO_nkhtsetseg:0 "Mönkhtsetseg"
+ dynn_Mongoljin:0 "Mongoljin"
+ dynn_Mu:0 "Mu"
+ dynn_Nanam:0 "Nanam"
+ dynn_Narantsetseg:0 "Narantsetseg"
+ dynn_Nerva_Antonine:0 "Nerva-Antonine"
+ dynn_Nikephorian:0 "Nikephorian"
+ dynn_Noyan:0 "Noyan"
+ dynn_Nyang:0 "Nyang"
+ dynn_Olkhunut:0 "Olkhunut"
+ dynn_Onggirat:0 "Onggirat"
+ dynn_Orduk:0 "Orduk"
+ dynn_Otgonbayar:0 "Otgonbayar"
+ dynn_Palaiologan:0 "Palaiologan"
+ dynn_Pecha:0 "Pecha"
+ dynn_PU_revsU_ren:0 "Pürevsüren"
+ dynn_Qaraunas:0 "Qaraunas"
+ dynn_Quralas:0 "Quralas"
+ dynn_Ra:0 "Ra"
+ dynn_Rohini:0 "Rohini"
+ dynn_Sakke:0 "Sakke"
+ dynn_Sartaq:0 "Sartaq"
+ dynn_Sartuul:0 "Sartuul"
+ dynn_Severan:0 "Severan"
+ dynn_Shen:0 "Shen"
+ dynn_Sumpa:0 "Sumpa"
+ dynn_Sunit:0 "Sunit"
+ dynn_Tatar:0 "Tatar"
+ dynn_Telingid:0 "Telingid"
+ dynn_Tenare:0 "Tenare"
+ dynn_Theodosian:0 "Theodosian"
+ dynn_Timurid:0 "Timurid"
+ dynn_Toluid:0 "Toluid"
+ dynn_Tong:0 "Tong"
+ dynn_Tripuskar:0 "Tripuskar"
+ dynn_Tsookhor:0 "Tsookhor"
+ dynn_Uriankhai:0 "Khentii"
+ dynn_Vaideh:0 "Vaideh"
+ dynn_Vaisali:0 "Vaisali"
+ dynn_Valentinian:0 "Valentinian"
+ dynn_Yarkam:0 "Yarkam"
+ dynn_Ytarim:0 "Ytarim"
+ dynn_Yu:0 "Yu"
+ dynn_Yurpaska:0 "Yurpaska"
+ dynn_ZU_bU_:0 "Zübü"
+
+ # PATRONYMS - PREFIXES AND SUFFIXES
+
+ 
+ 
+ 
+ #Uyghur
+ #Kirghiz
+ # Samoyed
+ # Sami
+ # Karelian
+ # Vepsians
+ # Old Saxon
+ # Baloch
+ # Cornish
+ # Cumbrian
+ # Nubian
+ # Butr
+ # Kanuri
+ # Zaghawa
+ #Mongolic - mongol
+ dynn_Keshmiti:0 "Keshmiti"
+ dynn_Uduyid:0 "Uduyid"
+ dynn_Uvas:0 "Uvas"
+ dynn_Khaad:0 "Khaad"
+ dynn_Khalka:0 "Khalka"
+ #Mongolic - buryat
+ #Mongolic - oirat
+ #Mongolic - naiman
+ #Mongolic - kerait
+ #Turkic - uriankhai
+ dynn_NyO_:0 "Nyö"
+ # Burman
+ # Iberian
+ # Sardinian
+ # Chuvash
+ # Africa
+ dynn_Ger:0 "Ger"
+ dynn_Azha:0 "Azha"
+
+ dynn_Adro:0 "Adro"
+ dynn_Arik:0 "Arik"
+ dynn_Ba:0 "Ba"
+ dynn_Ber:0 "Ber"
+ dynn_Zeu:0 "Ze'u"
+ dynn_Sha:0 "Sha"
+ dynn_Nup:0 "Nup"
+ dynn_Bitsa:0 "Bitsa"
+ dynn_Gar_Ratsang:0 "Gar Ratsang"
+ dynn_Gyamo:0 "Gyamo"
+ dynn_Apang:0 "Aphang"
+ dynn_Lhalung:0 "Lhalung"
+ dynn_Ngen:0 "Ngen"
+ dynn_Denma:0 "Denma"
+ dynn_Gya:0 "Gya"
+ dynn_Len:0 "Len"
+ dynn_Zi:0 "Zi"
+ dynn_Odren:0 "Odren"
+ dynn_Dilgo:0 "Dilgo"
+ dynn_Doring:0 "Doring"
+ dynn_Drom:0 "Drom"
+ dynn_Go:0 "Go" # 고
+ dynn_Gyanak_Rawa:0 "Gyanak Rawa"
+ dynn_Gyangkhar:0 "Gyangkhar"
+ dynn_Ja:0 "Ja"
+ dynn_Lingtsang:0 "Lingtsang"
+ dynn_Lomi:0 "Lomi"
+ dynn_Naktso:0 "Naktso"
+ dynn_Ngupa:0 "Ngupa"
+ dynn_Nya:0 "Nya"
+ dynn_Nyak:0 "Nyak"
+ dynn_Rok:0 "Rok"
+ dynn_Shar:0 "Shar"
+ dynn_Shingkhamga:0 "Shingkhamga"
+ dynn_Tati_Zhamar:0 "Tati Zhamar"
+ dynn_Tukwan:0 "Tukwan"
+ dynn_Wangda:0 "Wangda"
+ dynn_Yudra:0 "Yudra"
+ dynn_Yungok:0 "Yungok"
+ dynn_Zhak:0 "Zhak"
+ dynn_Zhangpa:0 "Zhangpa"
+ dynn_Zhiwatsang:0 "Zhiwatsang"
+ dynn_Zira:0 "Zira"
+ dynn_Zur:0 "Zur"
+ dynn_Chakgong:0 "Chakgong"
+ dynn_Chim:0 "Chim"
+ dynn_Cho:0 "Cho"
+ dynn_Chungpa:0 "Chungpa"
+ dynn_Den_Atub_Tsang:0 "Den Atub Tsang"
+ 
+ #bodpa expanded
+ dynn_ChakdU__Nyarong:0 "Chakdü Nyarong"
+ dynn_ChE_:0 "Ché"
+ dynn_DE_pa_TO_npo:0 "Dépa Tönpo"
+ dynn_DrE_:0 "Dré"
+ dynn_Dru_2:0 "Dru"
+ dynn_Ga_2:0 "Ga"
+ dynn_GE_tsE_:0 "Gétsé"
+ dynn_GO_:0 "Gö"
+ dynn_Gyakong_ShE_drubtsang:0 "Gyakong Shédrubtsang"
+ dynn_GyU_:0 "Gyü"
+ dynn_KhE_mE_:0 "Khémé"
+ dynn_KyO_:0 "Kyö"
+ dynn_LingmO_:0 "Lingmö"
+ dynn_ME_:0 "Mé"
+ dynn_MengE_:0 "Mengé"
+ dynn_NamsE_ling:0 "Namséling"
+ dynn_NgojE_:0 "Ngojé"
+ dynn_NgU_lchu:0 "Ngülchu"
+ dynn_NyakrE_:0 "Nyakré"
+ dynn_NyakshU_l:0 "Nyakshül"
+ dynn_SE_:0 "Sé"
+ dynn_ShU_pu:0 "Shüpu"
+ dynn_TO_nmi:0 "Tönmi"
+ dynn_Trokho_NumE__PelshU_l:0 "Trokho Numé Pelshül"
+ dynn_TsE_dong:0 "Tsédong"
+ dynn_TsongpO_n:0 "Tsongpön"
+ dynn_WelshU_l:0 "Welshül"
+ dynn_Ngok:0 "Ngok"
+ dynn_Ling:0 "Ling"
+ dynn_Gung:0 "Gung"
+ dynn_Tum:0 "Tum"
+ dynn_Chakhung:0 "Chakhung"
+ dynn_Bochung:0 "Bochung"
+ dynn_Akyong:0 "Akyong"
+ dynn_Lasum:0 "Lasum"
+ dynn_Drenka:0 "Drenka"
+ dynn_Dzeng:0 "Dzeng"
+ dynn_Dru:0 "Dru"
+ dynn_Ngenlam:0 "Ngenlam"
+ dynn_Mukpo:0 "Mukpo"
+ dynn_Drokmi:0 "Drokmi"
+ dynn_Pugyel:0 "Pugyel"
+ dynn_Drangti:0 "Drangti"
+ dynn_Dra:0 "Dra"
+ dynn_Yi:0 "Yi"
+ dynn_Ram:0 "Ram"
+ dynn_Gazi:0 "Gazi"
+ dynn_Dawa:0 "Dawa"
+ dynn_Sharkhapa:0 "Sharkhapa"
+ dynn_Trotsik:0 "Trotsik"
+ dynn_Zamtsa_Ngorang:0 "Zamtsa Ngorang"
+ dynn_Jadra:0 "Jadra"
+ dynn_Janak:0 "Janak"
+ dynn_Khangsar:0 "Khangsar"
+ dynn_Kharchen:0 "Kharchen"
+ dynn_Kyasu:0 "Kyasu"
+ dynn_Kyi:0 "Kyi"
+ dynn_Kyuchok:0 "Kyuchok"
+ dynn_Kyura:0 "Kyura"
+ dynn_Ga:0 "Ga"
+ 
+ #Turkish
+ 
+ #Persian cultures
+ 
+ 
+
+ # Italian
+ 
+ 
+ 
+ 
+ #Additional African dynasties
+ 
+ #Czech and Slovien
+
+ #Vlach
+
+ #Dutch
+ 
+ #Russian
+ 
+ # Additional prussian
+ 
+ # Additional latgalian
+ 
+ # Additional sami
+ 
+ # Additional estonian
+ 
+ # Additional karelian
+ 
+ # Additional vepsian
+ 
+ # Additional pictish
+ 
+ # Additional cornish
+ 
+ # Additional cumbrian
+ 
+ # Additional visigothic
+ 
+ # Additional lombard
+ 
+ # Additional baloch
+ 
+ # Additional samoyed (=Bjarmian)
+ 
+ # Additional khanty (=Ostyak)
+ 
+ # Additional khazar
+ 
+ # Additional bolghar
+ 
+ # Additional laktan
+ 
+ # Additional kirghiz
+ 
+ # Additional kipchak, kimek
+ 
+ # Additional cuman
+ 
+ # Additional bashkir
+ 
+ # Additional mordvin
+ 
+ # Additional merya
+ 
+ # Additional meshchera & muroma
+ 
+ # Additional mari
+ 
+ # Additional tamil
+ 
+ # Additional telugu
+ 
+ # Additional kannada
+ 
+ # Additional bengali & assamese
+ 
+ # Additional kannauji & rajput & sindhi
+ 
+ # Additional gujarati
+ 
+ # Additional punjabi
+ 
+ # Additional marathi
+ 
+ 
+ # Additional kashmiri
+ 
+ # Additional sinhala
+ 
+ 
+ dynn_Gyer:0 "Gyer"
+ dynn_Rakar_Khyungpo:0 "Rakar Khyungpo"
+ 
+ 
+
+
+ # Outremer additions
+ 
+ #Carantanian
+
+ #Additional Tamil / Malayali
+
+
+ # Additional Misc
+ 
+
+ #Punjabi
+
+#Telugu
+
+
+
+
+
+
+ # FP2
+
+ #Oriya
+
+ # Sicily
+
+ #FP3
+ 
+#FP3 East Bantu
+ 
+#EP3
+
+ # TGP
+
+ ### JAPANESE
+ dynn_Abiru: "Abiru" # 阿比留
+ dynn_Adachi: "Adachi" # 安達
+ dynn_Aida: "Aida" # 合田
+ dynn_Aihara: "Aihara" # 粟飯原
+ dynn_AikO_: "Aikō" # 愛甲
+ dynn_Akahori: "Akahori" # 赤堀
+ dynn_Akamatsu: "Akamatsu" # 赤松
+ dynn_Akasaka: "Akasaka" # 赤坂
+ dynn_Akasu: "Akasu" # 赤須
+ dynn_Akata: "Akata" # 赤田
+ dynn_Akatsuka: "Akatsuka" # 赤塚
+ dynn_Akazawa: "Akazawa" # 赤沢
+ dynn_Akiyama: "Akiyama" # 秋山
+ dynn_Amago: "Amago" # 尼子
+ dynn_Amenomori: "Amenomori" # 雨森
+ dynn_Ano: "Ano" # 阿野
+ dynn_Anzai: "Anzai" # 安西
+ dynn_Asaka: "Asaka" # 安積
+ dynn_Asano: "Asano" # 浅野
+ dynn_Ashida: "Ashida" # 芦田
+ dynn_Ashikaga: "Ashikaga" # 足利
+ dynn_Aso: "Aso" # 阿蘇
+ dynn_Atobe: "Atobe" # 跡部
+ dynn_Awataguchi: "Awataguchi" # 粟田口
+ dynn_Chiba: "Chiba" # 千葉
+ dynn_Chichibu: "Chichibu" # 秩父
+ dynn_ChO_sokabe: "Chōsokabe" # 長宗我部
+ dynn_Date: "Date" # 伊達
+ dynn_Deura: "Deura" # 出浦
+ dynn_Doi: "Doi" # 土肥
+ dynn_Ebata: "Ebata" # 江幡
+ dynn_Ebina: "Ebina" # 海老名
+ dynn_Ema: "Ema" # 江馬
+ dynn_Fuchie: "Fuchie" # 淵江
+ dynn_Fujinami: "Fujinami" # 藤波
+ dynn_FurugO_ri: "Furugōri" # 古郡
+ dynn_Furuya: "Furuya" # 古屋
+ dynn_GO_do: "Gōdo" # 額戸
+ dynn_GojO_: "Gojō" # 五条
+ dynn_Gosho: "Gosho" # 御所
+ dynn_Hachisuka: "Hachisuka" # 蜂須賀
+ dynn_Haga: "Haga" # 芳賀
+ dynn_Hakoda: "Hakoda" # 箱田
+ dynn_Hamuro: "Hamuro" # 葉室
+ dynn_HanyU_: "Hanyū" # 羽生
+ dynn_Hara: "Hara" # 原
+ dynn_Harada: "Harada" # 原田
+ dynn_Hasuike: "Hasuike" # 蓮池
+ dynn_Hatakeyama: "Hatakeyama" # 畠山
+ dynn_Hatano: "Hatano" # 波多野
+ dynn_Hatta: "Hatta" # 八田
+ dynn_Hattori: "Hattori" # 服部
+ dynn_Hayami: "Hayami" # 速水
+ dynn_Hayashi: "Hayashi" # 林
+ dynn_Henmi: "Henmi" # 逸見
+ dynn_Higuchi: "Higuchi" # 樋口
+ dynn_Hiki: "Hiki" # 比企
+ dynn_Hiraga: "Hiraga" # 平賀
+ dynn_Hirako: "Hirako" # 平子
+ dynn_Hirata: "Hirata" # 平田
+ dynn_Hirosawa: "Hirosawa" # 広沢
+ dynn_Hizume: "Hizume" # 樋爪
+ dynn_HO_in: "Hōin" # 法印
+ dynn_HO_jO_: "Hōjō" # 北条
+ dynn_Hokage: "Hokage" # 帆影
+ dynn_Honda: "Honda" # 本多
+ dynn_HonjO_: "Honjō" # 本庄
+ dynn_Horikawa: "Horikawa" # 堀川
+ dynn_Hoshina: "Hoshina" # 保科
+ dynn_Hosokawa: "Hosokawa" # 細川
+ dynn_IchijO_: "Ichijō" # 一条
+ dynn_Iga: "Iga" # 伊賀
+ dynn_Ii: "Ii" # 井伊
+ dynn_Iida: "Iida" # 飯田
+ dynn_Iinuma: "Iinuma" # 飯沼
+ dynn_Ijichi: "Ijichi" # 伊地知
+ dynn_Ikeda: "Ikeda" # 池田
+ dynn_Ikoma: "Ikoma" # 生駒
+ dynn_Ina: "Ina" # 伊奈
+ dynn_Inage: "Inage" # 稲毛
+ dynn_Inazawa: "Inazawa" # 稲沢
+ dynn_Inomata: "Inomata" # 猪俣
+ dynn_Isa: "Isa" # 伊佐
+ dynn_Ishibashi: "Ishibashi" # 石橋
+ dynn_Ishii: "Ishii" # 石井
+ dynn_Ishikawa: "Ishikawa" # 石川
+ dynn_Isobe: "Isobe" # 磯部
+ dynn_Isshiki: "Isshiki" # 一色
+ dynn_Itakura: "Itakura" # 板倉
+ dynn_ItO_: "Itō" # 伊藤
+ dynn_Itoga: "Itoga" # 糸我
+ dynn_Iwamatsu: "Iwamatsu" # 岩松
+ dynn_Iwata: "Iwata" # 岩田
+ dynn_JikO_ji: "Jikōji" # 慈光寺
+ dynn_JimyO_in: "Jimyōin" # 持明院
+ dynn_Jinbo: "Jinbo" # 神保
+ dynn_Kagami: "Kagami" # 加賀美
+ dynn_Kagawa: "Kagawa" # 香川
+ dynn_Kajiwara: "Kajiwara" # 梶原
+ dynn_Kamachi: "Kamachi" # 蒲池
+ dynn_Kamata: "Kamata" # 鎌田
+ dynn_Kamone: "Kamone" # 鴨根
+ dynn_Kanazu: "Kanazu" # 金津
+ dynn_Kanehara: "Kanehara" # 金原
+ dynn_Kaneko: "Kaneko" # 金子
+ dynn_Karita: "Karita" # 苅田
+ dynn_Kasai: "Kasai" # 葛西
+ dynn_Kasuga: "Kasuga" # 春日
+ dynn_Kasuya: "Kasuya" # 糟屋
+ dynn_Katagiri: "Katagiri" # 片桐
+ dynn_Kataoka: "Kataoka" # 片岡
+ dynn_Kawabata: "Kawabata" # 河端
+ dynn_Kawabe: "Kawabe" # 河辺
+ dynn_Kawagoe: "Kawagoe" # 河越
+ dynn_Kawasaki: "Kawasaki" # 河崎
+ dynn_Kawazu: "Kawazu" # 河津
+ dynn_Kayane: "Kayane" # 茅根
+ dynn_Kazusa: "Kazusa" # 上総
+ dynn_Kida: "Kida" # 木田
+ dynn_Kikkawa: "Kikkawa" # 吉川
+ dynn_Kikuchi: "Kikuchi" # 菊池
+ dynn_Kimotsuki: "Kimotsuki" # 肝付
+ dynn_Kira: "Kira" # 吉良
+ dynn_Kiso: "Kiso" # 木曽
+ dynn_Kitabatake: "Kitabatake" # 北畠
+ dynn_Kitahara: "Kitahara" # 北原
+ dynn_Kiyotaki: "Kiyotaki" # 清滝
+ dynn_KO_no: "Kōno" # 河野
+ dynn_KO_saka: "Kōsaka" # 高坂
+ dynn_KO_sokabe: "Kōsokabe" # 香宗我部
+ dynn_Kobayakawa: "Kobayakawa" # 小早川
+ dynn_Kodama: "Kodama" # 児玉
+ dynn_Koga: "Koga" # 久賀
+ dynn_Kokubu: "Kokubu" # 国分
+ dynn_KondO_: "Kondō" # 近藤
+ dynn_Konoe: "Konoe" # 近衛
+ dynn_KudO_: "Kudō" # 工藤
+ dynn_Kuki: "Kuki" # 九鬼
+ dynn_Kumasaka: "Kumasaka" # 熊坂
+ dynn_Kunugi: "Kunugi" # 功刀
+ dynn_Kurita: "Kurita" # 栗田
+ dynn_Kuroko: "Kuroko" # 黒子
+ dynn_Kutsuki: "Kutsuki" # 朽木
+ dynn_Maki: "Maki" # 牧
+ dynn_Masunari: "Masunari" # 益成
+ dynn_Matano: "Matano" # 俣野
+ dynn_Matsudaira: "Matsudaira" # 松平
+ dynn_Matsura: "Matsura" # 松浦
+ dynn_Matsuyama: "Matsuyama" # 松山
+ dynn_Mikata: "Mikata" # 三方
+ dynn_Miki: "Miki" # 三木
+ dynn_Mimura: "Mimura" # 三村
+ dynn_Minase: "Minase" # 水無瀬
+ dynn_Misawa: "Misawa" # 三沢
+ dynn_Mitoya: "Mitoya" # 三刀屋
+ dynn_Miura: "Miura" # 三浦
+ dynn_Miyadera: "Miyadera" # 宮寺
+ dynn_Mochizuki: "Mochizuki" # 望月
+ dynn_Mogami: "Mogami" # 最上
+ dynn_Momonoi: "Momonoi" # 桃井
+ dynn_Murayama: "Murayama" # 村山
+ dynn_MutO_: "Mutō" # 武藤
+ dynn_Nagae: "Nagae" # 長江
+ dynn_Nagao: "Nagao" # 長尾
+ dynn_Nakagawa: "Nakagawa" # 中川
+ dynn_NakagO_ri: "Nakagōri" # 中郡
+ dynn_NakajO_: "Nakajō" # 中条
+ dynn_Nakamikado: "Nakamikado" # 中御門
+ dynn_Nakamura: "Nakamura" # 中村
+ dynn_Nakano: "Nakano" # 中野
+ dynn_Nakayama: "Nakayama" # 中山
+ dynn_Namba: "Namba" # 難波
+ dynn_Namekata: "Namekata" # 行方
+ dynn_Namezu: "Namezu" # 奈目津
+ dynn_Nanbu: "Nanbu" # 南部
+ dynn_NanjO_: "Nanjō" # 南条
+ dynn_Narita: "Narita" # 成田
+ dynn_Nasu: "Nasu" # 那須
+ dynn_Natsume: "Natsume" # 夏目
+ dynn_Nemoto: "Nemoto" # 根本
+ dynn_Nezu: "Nezu" # 根津
+ dynn_NijO_: "Nijō" # 二条
+ dynn_Nikaido: "Nikaido" # 二階堂
+ dynn_Niki: "Niki" # 仁木
+ dynn_Nitoda: "Nitoda" # 仁戸田
+ dynn_Nitta: "Nitta" # 新田
+ dynn_Nomoto: "Nomoto" # 野本
+ dynn_Nose: "Nose" # 能勢
+ dynn_Noyo: "Noyo" # 野与
+ dynn_O_ba: "Ōba" # 大庭
+ dynn_O_hara: "Ōhara" # 大原
+ dynn_O_i: "Ōi" # 大井
+ dynn_O_inomikado: "Ōinomikado" # 大炊御門
+ dynn_O_kawa: "Ōwaka" # 大河
+ dynn_O_kubo: "Ōkubo" # 大窪
+ dynn_O_mi: "Ōmi" # 大見
+ dynn_O_miya: "Ōmiya" # 大宮
+ dynn_O_shikO_chi: "Ōshikōchi" # 凡河内
+ dynn_O_suga: "Ōsuga" # 大須賀
+ dynn_O_tawa: "Ōtawa" # 大多和
+ dynn_O_tera: "Ōtera" # 大寺
+ dynn_O_tomo: "Ōtomo" # 大友
+ dynn_O_uchi: "Ōuchi" # 大内
+ dynn_O_zone: "Ōzone" # 大曽根
+ dynn_Obata: "Obata" # 小幡
+ dynn_Obu: "Obu" # 飯富
+ dynn_Ochi: "Ochi" # 越智
+ dynn_Oda: "Oda" # 織田
+ dynn_Odagiri: "Odagiri" # 小田切
+ dynn_Ogasawara: "Ogasawara" # 小笠原
+ dynn_Ogata: "Ogata" # 緒方
+ dynn_Ogawa: "Ogawa" # 小河
+ dynn_Ogura: "Ogura" # 小倉
+ dynn_Okada: "Okada" # 岡田
+ dynn_Okazaki: "Okazaki" # 岡崎
+ dynn_Omuro: "Omuro" # 御室
+ dynn_Onozaki: "Onozaki" # 小野崎
+ dynn_Osada: "Osada" # 長田
+ dynn_Owari: "Owari" # 尾張
+ dynn_Oyama: "Oyama" # 小山
+ dynn_Ozo: "Ozo" # 於曾
+ dynn_Rokkaku: "Rokkaku" # 六角
+ dynn_RokujO_: "Rokujō" # 六条
+ dynn_Sagae: "Sagae" # 寒河江
+ dynn_SaitO_: "Saitō" # 斎藤
+ dynn_Sakata: "Sakata" # 坂田
+ dynn_Sanada: "Sanada" # 真田
+ dynn_SanjO_: "Sanjō" # 三条
+ dynn_Sano: "Sano" # 佐野
+ dynn_Sasaki: "Sasaki" # 佐々木
+ dynn_Satake: "Satake" # 佐竹
+ dynn_SatO_: "Satō" # 佐藤
+ dynn_Satomi: "Satomi" # 里見
+ dynn_Seki: "Seki" # 関
+ dynn_Shiba: "Shiba" # 斯波
+ dynn_Shibuya: "Shibuya" # 渋谷
+ dynn_Shiga: "Shiga" # 志賀
+ dynn_ShijO_: "Shijō" # 四条
+ dynn_Shimada: "Shimada" # 島田
+ dynn_Shimazu: "Shimazu" # 島津
+ dynn_ShimokO_be: "Shimokōbe" # 下河辺
+ dynn_ShingU_: "Shingū" # 新宮
+ dynn_Shioda: "Shioda" # 塩田
+ dynn_Shionoya: "Shionoya" # 塩谷
+ dynn_Shioya: "Shioya" # 塩谷
+ dynn_Shiratori: "Shiratori" # 白鳥
+ dynn_ShO_: "Shō" # 庄
+ dynn_ShU_in: "Shūin" # 執印
+ dynn_SO_: "Sō" # 宗
+ dynn_SO_ma: "Sōma" # 相馬
+ dynn_Sogabe: "Sogabe" # 曽我部
+ dynn_SogO_: "Sogō" # 十河
+ dynn_Sugihara: "Sugihara" # 杉原
+ dynn_Sugime: "Sugime" # 杉目
+ dynn_Sugimoto: "Sugimoto" # 杉本
+ dynn_Suwabe: "Suwabe" # 諏訪部
+ dynn_Suzuki: "Suzuki" # 鈴木
+ dynn_Tachibana: "Tachibana" # 橘
+ dynn_Tagawa: "Tagawa" # 田川
+ dynn_Tagaya: "Tagaya" # 多賀谷
+ dynn_Taguchi: "Taguchi" # 田口
+ dynn_Takakura: "Takakura" # 高倉
+ dynn_Takatsukasa: "Takatsukasa" # 鷹司
+ dynn_Takayama: "Takayama" # 高山
+ dynn_Take: "Take" # 多気
+ dynn_Takeda: "Takeda" # 武田
+ dynn_Takeishi: "Takeishi" # 武石
+ dynn_Tamura: "Tamura" # 田村
+ dynn_Tana_JP: "Tana" # 多名
+ dynn_Tashiro: "Tashiro" # 田代
+ dynn_Taya: "Taya" # 田屋
+ dynn_TO_: "Tō" # 東
+ dynn_TO_gO_: "Tōgō" # 東郷
+ dynn_Togashi: "Togashi" # 富樫
+ dynn_Toida: "Toida" # 問田
+ dynn_Tokiwa: "Tokiwa" # 常盤
+ dynn_Tokuchi: "Tokuchi" # 得地
+ dynn_Tokuda: "Tokuda" # 得田
+ dynn_Tokugawa: "Tokugawa" # 得川
+ dynn_Tokushuku: "Tokushuku" # 徳宿
+ dynn_Tomita: "Tomita" # 富田
+ dynn_Tomono: "Tomono" # 伴野
+ dynn_Tomura: "Tomura" # 戸村
+ dynn_Tosaki: "Tosaki" # 戸崎
+ dynn_Toshima: "Toshima" # 豊島
+ dynn_Toyoda: "Toyoda" # 豊田
+ dynn_Tsuchimikado: "Tsuchimikado" # 土御門
+ dynn_Tsuchimoto: "Tsuchimoto" # 土本
+ dynn_Tsuchiya: "Tsuchiya" # 土屋
+ dynn_Tsugiura: "Tsugiura" # 次浦
+ dynn_Tsutsumi: "Tsutumi" # 津々見
+ dynn_Uji_ie: "Uji'ie" # 氏家
+ dynn_Unno: "Unno" # 海野
+ dynn_Urushima: "Urushima" # 漆間
+ dynn_Usami: "Usami" # 宇佐美
+ dynn_Ushimaru: "Ushimaru" # 牛丸
+ dynn_Wada: "Wada" # 和田
+ dynn_Washizu: "Washizu" # 鷲頭
+ dynn_Watanabe: "Watanabe" # 渡辺
+ dynn_Watari: "Watari" # 亘理
+ dynn_Yabuki: "Yabuki" # 矢吹
+ dynn_Yamada: "Yamada" # 山田
+ dynn_Yamaga: "Yamaga" # 山鹿
+ dynn_Yamagata: "Yamagata" # 山県
+ dynn_Yamaguchi: "Yamaguchi" # 山口
+ dynn_Yamamoto: "Yamamoto" # 山本
+ dynn_Yamana: "Yamana" # 山名
+ dynn_Yamashina: "Yamashina" # 山科
+ dynn_Yamauchi: "Yamauchi" # 山内
+ dynn_Yashiro: "Yashiro" # 屋代
+ dynn_Yasu: "Yasu" # 夜須
+ dynn_Yasuda: "Yasuda" # 安田
+ dynn_Yasuoka: "Yasuoka" # 安岡
+ dynn_Yasutomi: "Yasutomi" # 安富
+ dynn_Yato: "Yato" # 谷戸
+ dynn_Yoda: "Yoda" # 依田
+ dynn_Yokoyama: "Yokoyama" # 横山
+ dynn_Yoshida: "Yoshida" # 吉田
+ dynn_YU_ki: "Yūki" # 結城
+ dynn_Yuasa: "Yuasa" # 湯浅
+ dynn_Yuri: "Yuri" # 由利
+ # Emishi
+ # Ainu
+ dynn_Akam: "Akam" # アカム
+ dynn_Amamsuke: "Amamsuke" # アママスケ
+ dynn_Aptapet: "Aptapet" # アプタペッ
+ dynn_Atkeusi: "Atkeusi" # アッケウシ
+ dynn_Cipasir: "Cipasir" # チパシリ
+ dynn_Ciroti: "Ciroti" # チリオティ
+ dynn_Esausi: "Esausi" # エサウシ
+ dynn_Huranuy: "Huranuy" # フラヌイ
+ dynn_Hurpira: "Hurpira" # フルピラ
+ dynn_Ioci: "Ioci" # イオチ
+ dynn_Iput: "Iput" # イプッ
+ dynn_Iskar: "Iskar" # イシカラ
+ dynn_Kusuri: "Kusuri" # クスリ
+ dynn_Maske: "Maske" # マシケ
+ dynn_Mopet: "Mopet" # モペッ
+ dynn_Moruran: "Moruran" # モルラン
+ dynn_Mukap: "Mukap" # ムカップ
+ dynn_Nayoro: "Nayoro" # ナイオロ
+ dynn_Nayporo: "Nayporo" # ナイポロ
+ dynn_Nikap: "Nikap" # ニカップ
+ dynn_Nimuoro: "Nimuoro" # ニムオロ
+ dynn_Nupurpet: "Nupurpet" # ヌプルペッ
+ dynn_Otarunay: "Otarunay" # オタルナイ
+ dynn_Piporo: "Piporo" # ピポロ
+ dynn_Piratur: "Piratur" # ピラトゥル
+ dynn_Poropet: "Poropet" # ポロペッ
+ dynn_Rironay: "Rironay" # リロナイ
+ dynn_Rusut: "Rusut" # ルスッ
+ dynn_Sakkotan: "Sakkotan" # サクコタン
+ dynn_Samani: "Samani" # サマニ
+ dynn_Sar: "Sar" # シャル
+ dynn_Satporopet: "Satporopet" # サッポロペッ
+ dynn_Setanay: "Setanay" # セタナイ
+ dynn_Sikot: "Sikot" # シコッ
+ dynn_Simukap: "Simukap" # シムカップ
+ dynn_Sipet: "Sipet" # シペッ
+ dynn_Sipicar: "Sipicar" # シピチャリ
+ dynn_Sirawoi: "Sirawoi" # シラオイ
+ dynn_Sirpet: "Sirpet" # シリペッ
+ dynn_Sorapci: "Sorapci" # ソラプチ
+ dynn_Soya: "Soya" # ソーヤ
+ dynn_Tes_uni: "Tes'uni" # テシウニ
+ dynn_Tokapusi: "Tokapusi" # トカプシ
+ dynn_Tokor: "Tokor" # トーコロ
+ dynn_Toya: "Toya" # トーヤ
+ dynn_Urarpet: "Urarpet" # ウララペッ
+ dynn_Usor: "Usor" # ウショロ
+ dynn_Yuparo: "Yuparo" # ユーパロ
+ # Ryukyu
+ dynn_Agina: "Agina" # 安慶名
+ dynn_Can: "Can" # 喜屋武
+ dynn_Catan: "Catan" # 北谷
+ dynn_Cin: "Cin" # 金武
+ dynn_Goya: "Goya" # 越来
+ dynn_Gusicaa: "Gusicaa" # 具志川
+ dynn_Gusican: "Gusican" # 具志頭
+ dynn_Haniji: "Haniji" # 羽地
+ dynn_Ifa: "Ifa" # 伊覇
+ dynn_Iizu: "Iizu" # 伊祖
+ dynn_Iribaru: "Iribaru" # 西原
+ dynn_Katcin: "Katcin" # 勝連
+ dynn_Kunjan: "Kunjan" # 国頭
+ dynn_Mutubu: "Mutubu" # 本部
+ dynn_Nacijin: "Nacijin" # 今帰仁
+ dynn_Nagu: "Nagu" # 名護
+ dynn_Nakagusiku: "Nakagusiku" # 中城
+ dynn_Nakazuni: "Nakazuni" # 仲宗根
+ dynn_Sasici: "Sasici" # 佐敷
+ dynn_Tamagusiku: "Tamagusiku" # 玉城
+ dynn_Ufugaa: "Ufugaa" # 大川
+ dynn_Ufugusiku: "Ufugusiku" # 大城
+ dynn_Ufusatu: "Ufusatu" # 大里
+ dynn_Urasii: "Urasii" # 浦添
+ dynn_Wakugaa: "Wakugaa" # 湧川
+ dynn_Yeeji: "Yeeji" # 八重瀬
+ dynn_Yuntanza: "Yuntanza" # 読谷山
+ # Nivkh
+
+
+
+
+
+ 
+
+ 
+
+
+
+ #Mohe
+ #End of Mohe
+
+
+
+
+
+ ### KOREA
+ dynn_An_694A: "An" # 楊 (안)
+ dynn_Baek_767D: "Baek" # 白 (백)
+ dynn_Bak_6734: "Bak" # 朴 (박) - aka Park
+ dynn_Chae_8521: "Chae" # 蔡 (채)
+ dynn_Cheok_62D3: "Cheok" # 拓 (척)
+ dynn_Choe_5D14: "Choe" # 崔 (최)
+ dynn_Gang_59DC: "Kang" # 姜 (강)
+ dynn_Gang_5EB7: "Kang" # 康 (강)
+ dynn_Gim_91D1: "Kim" # 金 (김) - aka Gim, localised as Kim despite RR for clarity
+ dynn_Go_53E4: "Ko" # 古 (고)
+ dynn_Go_9AD8: "Ko" # 高 (고)
+ dynn_Gyeong_6176: "Kyeong" # 慶 (경)
+ dynn_Han_97D3_KO: "Han" # 韓 (한)
+ dynn_Heo_8F09: "Heo" # 許 (허)
+ dynn_Hong_6D2A: "Hong" # 洪 (홍)
+ dynn_Hwangbo: "Hwangbo" # 皇甫 (황보)
+ dynn_I_5DF2: "Yi" # 已 (이) - aka Lee/I, localised as Yi despite RR for clarity
+ dynn_I_674E: "Yi" # 李 (이) - aka Lee/I, localised as Yi despite RR for clarity
+ dynn_Im_4EFB: "Im" # 任 (임)
+ dynn_Jeong_912D: "Jeong" # 鄭 (정)
+ dynn_Jo_8D99: "Jo" # 趙 (조)
+ dynn_Min_9594: "Min" # 閔 (민)
+ dynn_Mun_6587: "Mun" # 文 (문)
+ dynn_Mun_9580: "Mun" # 門 (문)
+ dynn_Myeong_660E: "Myeong" # 明 (명)
+ dynn_Pyeong_5E73: "Pyeong" # 平 (평)
+ dynn_Seok_C11D: "Seok" # 석
+ dynn_Song_5B8B_KO: "Song" # 宋 (송)
+ dynn_Yeon_6DF5: "Yeon" # 淵 (연)
+ dynn_Yun_5C39: "Yun" # 尹 (윤)
+ dynn_Wang_738B_KO: "Wang" # 王 (왕)
+
+
+ #Viet
+ #Cham
+ #Malay
+ #Javanese
+ #Khmer
+ #Mon
+ #Tai
+
+ #House Name Rules:
+
+
+
+# Tangut
+
+ 
+ # Nakkavaram
+
+ # Custom Character
+
+ #Senoi

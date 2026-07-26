@@ -1,0 +1,1395 @@
+﻿getPluralDemonym = {
+	type = culture
+	text = {
+		trigger = {
+			cu:lysian ?= this
+		}
+		localization_key = PLURAL_DEMONYM_lysian
+	}
+	text = {
+		trigger = {
+			cu:aldrican ?= this
+		}
+		localization_key = PLURAL_DEMONYM_aldrican
+	}
+	text = {
+		trigger = {
+			cu:solenne ?= this
+		}
+		localization_key = PLURAL_DEMONYM_solenne
+	}
+	text = {
+		trigger = {
+			cu:alena ?= this
+		}
+		localization_key = PLURAL_DEMONYM_alena
+	}
+	text = {
+		trigger = {
+			cu:vardish ?= this
+		}
+		localization_key = PLURAL_DEMONYM_vardish
+	}
+	text = {
+		trigger = {
+			cu:aurora ?= this
+		}
+		localization_key = PLURAL_DEMONYM_aurora
+	}
+	text = {
+		trigger = {
+			cu:skarholt ?= this
+		}
+		localization_key = PLURAL_DEMONYM_skarholt
+	}
+	text = {
+		trigger = {
+			cu:fjordic ?= this
+		}
+		localization_key = PLURAL_DEMONYM_fjordic
+	}
+	text = {
+		trigger = {
+			cu:frostholm ?= this
+		}
+		localization_key = PLURAL_DEMONYM_frostholm
+	}
+	text = {
+		trigger = {
+			cu:farshore ?= this
+		}
+		localization_key = PLURAL_DEMONYM_farshore
+	}
+	text = {
+		trigger = {
+			cu:altan ?= this
+		}
+		localization_key = PLURAL_DEMONYM_altan
+	}
+	text = {
+		trigger = {
+			cu:wood_elf ?= this
+		}
+		localization_key = PLURAL_DEMONYM_wood_elf
+	}
+	text = {
+		trigger = {
+			cu:snow_elf ?= this
+		}
+		localization_key = PLURAL_DEMONYM_snow_elf
+	}
+	text = {
+		trigger = {
+			cu:dark_elf ?= this
+		}
+		localization_key = PLURAL_DEMONYM_dark_elf
+	}
+	text = {
+		trigger = {
+			cu:steel_dwarf ?= this
+		}
+		localization_key = PLURAL_DEMONYM_steel_dwarf
+	}
+	text = {
+		trigger = {
+			cu:stone_dwarf ?= this
+		}
+		localization_key = PLURAL_DEMONYM_stone_dwarf
+	}
+	text = {
+		trigger = {
+			cu:northern_orc ?= this
+		}
+		localization_key = PLURAL_DEMONYM_northern_orc
+	}
+	text = {
+		trigger = {
+			cu:southern_orc ?= this
+		}
+		localization_key = PLURAL_DEMONYM_southern_orc
+	}
+	text = {
+		trigger = {
+			cu:goblin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_goblin
+	}
+	text = {
+		trigger = {
+			cu:sand_goblin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_sand_goblin
+	}
+	text = {
+		trigger = {
+			cu:horned_demon ?= this
+		}
+		localization_key = PLURAL_DEMONYM_horned_demon
+	}
+	text = {
+		trigger = {
+			cu:winged_demon ?= this
+		}
+		localization_key = PLURAL_DEMONYM_winged_demon
+	}
+	text = {
+		trigger = {
+			cu:shadow_demon ?= this
+		}
+		localization_key = PLURAL_DEMONYM_shadow_demon
+	}
+	text = {
+		trigger = {
+			cu:eastern_rabbitkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_eastern_rabbitkin
+	}
+	text = {
+		trigger = {
+			cu:western_rabbitkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_western_rabbitkin
+	}
+	text = {
+		trigger = {
+			cu:wolfkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_wolfkin
+	}
+	text = {
+		trigger = {
+			cu:dogkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_dogkin
+	}
+	text = {
+		trigger = {
+			cu:snow_foxkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_snow_foxkin
+	}
+	text = {
+		trigger = {
+			cu:forest_foxkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_forest_foxkin
+	}
+	text = {
+		trigger = {
+			cu:bearkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_bearkin
+	}
+	text = {
+		trigger = {
+			cu:horsekin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_horsekin
+	}
+	text = {
+		trigger = {
+			cu:island_catkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_island_catkin
+	}
+	text = {
+		trigger = {
+			cu:plains_catkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_plains_catkin
+	}
+	text = {
+		trigger = {
+			cu:desert_catkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_desert_catkin
+	}
+	text = {
+		trigger = {
+			cu:lan ?= this
+		}
+		localization_key = PLURAL_DEMONYM_lan
+	}
+	text = {
+		trigger = {
+			cu:tong ?= this
+		}
+		localization_key = PLURAL_DEMONYM_tong
+	}
+	text = {
+		trigger = {
+			cu:lian ?= this
+		}
+		localization_key = PLURAL_DEMONYM_lian
+	}
+	text = {
+		trigger = {
+			cu:mae ?= this
+		}
+		localization_key = PLURAL_DEMONYM_mae
+	}
+	text = {
+		trigger = {
+			cu:khambu ?= this
+		}
+		localization_key = PLURAL_DEMONYM_khambu
+	}
+	text = {
+		trigger = {
+			cu:arasni ?= this
+		}
+		localization_key = PLURAL_DEMONYM_arasni
+	}
+	text = {
+		trigger = {
+			cu:melati ?= this
+		}
+		localization_key = PLURAL_DEMONYM_melati
+	}
+	text = {
+		trigger = {
+			cu:lily ?= this
+		}
+		localization_key = PLURAL_DEMONYM_lily
+	}
+	text = {
+		trigger = {
+			cu:sakura ?= this
+		}
+		localization_key = PLURAL_DEMONYM_sakura
+	}
+	text = {
+		trigger = {
+			cu:deigo ?= this
+		}
+		localization_key = PLURAL_DEMONYM_deigo
+	}
+	text = {
+		trigger = {
+			cu:tagata ?= this
+		}
+		localization_key = PLURAL_DEMONYM_tagata
+	}
+	text = {
+		trigger = {
+			cu:kanaka ?= this
+		}
+		localization_key = PLURAL_DEMONYM_kanaka
+	}
+	text = {
+		trigger = {
+			cu:whenua ?= this
+		}
+		localization_key = PLURAL_DEMONYM_whenua
+	}
+	text = {
+		trigger = {
+			cu:zaharin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_zaharin
+	}
+	text = {
+		trigger = {
+			cu:nadirene ?= this
+		}
+		localization_key = PLURAL_DEMONYM_nadirene
+	}
+	text = {
+		trigger = {
+			cu:ghazalin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_ghazalin
+	}
+	text = {
+		trigger = {
+			cu:qadirin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_qadirin
+	}
+	text = {
+		trigger = {
+			cu:faryan ?= this
+		}
+		localization_key = PLURAL_DEMONYM_faryan
+	}
+	text = {
+		trigger = {
+			cu:ixioran ?= this
+		}
+		localization_key = PLURAL_DEMONYM_ixioran
+	}
+	text = {
+		trigger = {
+			cu:ju ?= this
+		}
+		localization_key = PLURAL_DEMONYM_ju
+	}
+	text = {
+		trigger = {
+			cu:homunculus ?= this
+		}
+		localization_key = PLURAL_DEMONYM_homunculus
+	}
+	text = {
+		trigger = {
+			cu:otherworld_english ?= this
+		}
+		localization_key = PLURAL_DEMONYM_otherworld_english
+	}
+	text = {
+		trigger = {
+			cu:otherworld_japanese ?= this
+		}
+		localization_key = PLURAL_DEMONYM_otherworld_japanese
+	}
+	text = {
+		localization_key = PLURAL_DEMONYM_DEFAULT
+	}
+}
+
+getSingularDemonym = {
+	type = culture
+	text = {
+		trigger = {
+			cu:lysian ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_lysian
+	}
+	text = {
+		trigger = {
+			cu:aldrican ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_aldrican
+	}
+	text = {
+		trigger = {
+			cu:solenne ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_solenne
+	}
+	text = {
+		trigger = {
+			cu:alena ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_alena
+	}
+	text = {
+		trigger = {
+			cu:vardish ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_vardish
+	}
+	text = {
+		trigger = {
+			cu:aurora ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_aurora
+	}
+	text = {
+		trigger = {
+			cu:skarholt ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_skarholt
+	}
+	text = {
+		trigger = {
+			cu:fjordic ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_fjordic
+	}
+	text = {
+		trigger = {
+			cu:frostholm ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_frostholm
+	}
+	text = {
+		trigger = {
+			cu:farshore ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_farshore
+	}
+	text = {
+		trigger = {
+			cu:altan ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_altan
+	}
+	text = {
+		trigger = {
+			cu:wood_elf ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_wood_elf
+	}
+	text = {
+		trigger = {
+			cu:snow_elf ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_snow_elf
+	}
+	text = {
+		trigger = {
+			cu:dark_elf ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_dark_elf
+	}
+	text = {
+		trigger = {
+			cu:steel_dwarf ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_steel_dwarf
+	}
+	text = {
+		trigger = {
+			cu:stone_dwarf ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_stone_dwarf
+	}
+	text = {
+		trigger = {
+			cu:northern_orc ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_northern_orc
+	}
+	text = {
+		trigger = {
+			cu:southern_orc ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_southern_orc
+	}
+	text = {
+		trigger = {
+			cu:goblin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_goblin
+	}
+	text = {
+		trigger = {
+			cu:sand_goblin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_sand_goblin
+	}
+	text = {
+		trigger = {
+			cu:horned_demon ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_horned_demon
+	}
+	text = {
+		trigger = {
+			cu:winged_demon ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_winged_demon
+	}
+	text = {
+		trigger = {
+			cu:shadow_demon ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_shadow_demon
+	}
+	text = {
+		trigger = {
+			cu:eastern_rabbitkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_eastern_rabbitkin
+	}
+	text = {
+		trigger = {
+			cu:western_rabbitkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_western_rabbitkin
+	}
+	text = {
+		trigger = {
+			cu:wolfkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_wolfkin
+	}
+	text = {
+		trigger = {
+			cu:dogkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_dogkin
+	}
+	text = {
+		trigger = {
+			cu:snow_foxkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_snow_foxkin
+	}
+	text = {
+		trigger = {
+			cu:forest_foxkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_forest_foxkin
+	}
+	text = {
+		trigger = {
+			cu:bearkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_bearkin
+	}
+	text = {
+		trigger = {
+			cu:horsekin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_horsekin
+	}
+	text = {
+		trigger = {
+			cu:island_catkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_island_catkin
+	}
+	text = {
+		trigger = {
+			cu:plains_catkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_plains_catkin
+	}
+	text = {
+		trigger = {
+			cu:desert_catkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_desert_catkin
+	}
+	text = {
+		trigger = {
+			cu:lan ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_lan
+	}
+	text = {
+		trigger = {
+			cu:tong ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_tong
+	}
+	text = {
+		trigger = {
+			cu:lian ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_lian
+	}
+	text = {
+		trigger = {
+			cu:mae ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_mae
+	}
+	text = {
+		trigger = {
+			cu:khambu ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_khambu
+	}
+	text = {
+		trigger = {
+			cu:arasni ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_arasni
+	}
+	text = {
+		trigger = {
+			cu:melati ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_melati
+	}
+	text = {
+		trigger = {
+			cu:lily ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_lily
+	}
+	text = {
+		trigger = {
+			cu:sakura ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_sakura
+	}
+	text = {
+		trigger = {
+			cu:deigo ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_deigo
+	}
+	text = {
+		trigger = {
+			cu:tagata ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_tagata
+	}
+	text = {
+		trigger = {
+			cu:kanaka ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_kanaka
+	}
+	text = {
+		trigger = {
+			cu:whenua ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_whenua
+	}
+	text = {
+		trigger = {
+			cu:zaharin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_zaharin
+	}
+	text = {
+		trigger = {
+			cu:nadirene ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_nadirene
+	}
+	text = {
+		trigger = {
+			cu:ghazalin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_ghazalin
+	}
+	text = {
+		trigger = {
+			cu:qadirin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_qadirin
+	}
+	text = {
+		trigger = {
+			cu:faryan ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_faryan
+	}
+	text = {
+		trigger = {
+			cu:ixioran ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_ixioran
+	}
+	text = {
+		trigger = {
+			cu:ju ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_ju
+	}
+	text = {
+		trigger = {
+			cu:homunculus ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_homunculus
+	}
+	text = {
+		trigger = {
+			cu:otherworld_english ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_otherworld_english
+	}
+	text = {
+		trigger = {
+			cu:otherworld_japanese ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_otherworld_japanese
+	}
+	text = {
+		localization_key = SINGULAR_DEMONYM_DEFAULT
+	}
+}
+
+getPluralDemonymFemale = {
+	type = culture
+	text = {
+		trigger = {
+			cu:lysian ?= this
+		}
+		localization_key = PLURAL_DEMONYM_lysian
+	}
+	text = {
+		trigger = {
+			cu:aldrican ?= this
+		}
+		localization_key = PLURAL_DEMONYM_aldrican
+	}
+	text = {
+		trigger = {
+			cu:solenne ?= this
+		}
+		localization_key = PLURAL_DEMONYM_solenne
+	}
+	text = {
+		trigger = {
+			cu:alena ?= this
+		}
+		localization_key = PLURAL_DEMONYM_alena
+	}
+	text = {
+		trigger = {
+			cu:vardish ?= this
+		}
+		localization_key = PLURAL_DEMONYM_vardish
+	}
+	text = {
+		trigger = {
+			cu:aurora ?= this
+		}
+		localization_key = PLURAL_DEMONYM_aurora
+	}
+	text = {
+		trigger = {
+			cu:skarholt ?= this
+		}
+		localization_key = PLURAL_DEMONYM_skarholt
+	}
+	text = {
+		trigger = {
+			cu:fjordic ?= this
+		}
+		localization_key = PLURAL_DEMONYM_fjordic
+	}
+	text = {
+		trigger = {
+			cu:frostholm ?= this
+		}
+		localization_key = PLURAL_DEMONYM_frostholm
+	}
+	text = {
+		trigger = {
+			cu:farshore ?= this
+		}
+		localization_key = PLURAL_DEMONYM_farshore
+	}
+	text = {
+		trigger = {
+			cu:altan ?= this
+		}
+		localization_key = PLURAL_DEMONYM_altan
+	}
+	text = {
+		trigger = {
+			cu:wood_elf ?= this
+		}
+		localization_key = PLURAL_DEMONYM_wood_elf
+	}
+	text = {
+		trigger = {
+			cu:snow_elf ?= this
+		}
+		localization_key = PLURAL_DEMONYM_snow_elf
+	}
+	text = {
+		trigger = {
+			cu:dark_elf ?= this
+		}
+		localization_key = PLURAL_DEMONYM_dark_elf
+	}
+	text = {
+		trigger = {
+			cu:steel_dwarf ?= this
+		}
+		localization_key = PLURAL_DEMONYM_steel_dwarf
+	}
+	text = {
+		trigger = {
+			cu:stone_dwarf ?= this
+		}
+		localization_key = PLURAL_DEMONYM_stone_dwarf
+	}
+	text = {
+		trigger = {
+			cu:northern_orc ?= this
+		}
+		localization_key = PLURAL_DEMONYM_northern_orc
+	}
+	text = {
+		trigger = {
+			cu:southern_orc ?= this
+		}
+		localization_key = PLURAL_DEMONYM_southern_orc
+	}
+	text = {
+		trigger = {
+			cu:goblin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_goblin
+	}
+	text = {
+		trigger = {
+			cu:sand_goblin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_sand_goblin
+	}
+	text = {
+		trigger = {
+			cu:horned_demon ?= this
+		}
+		localization_key = PLURAL_DEMONYM_horned_demon
+	}
+	text = {
+		trigger = {
+			cu:winged_demon ?= this
+		}
+		localization_key = PLURAL_DEMONYM_winged_demon
+	}
+	text = {
+		trigger = {
+			cu:shadow_demon ?= this
+		}
+		localization_key = PLURAL_DEMONYM_shadow_demon
+	}
+	text = {
+		trigger = {
+			cu:eastern_rabbitkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_eastern_rabbitkin
+	}
+	text = {
+		trigger = {
+			cu:western_rabbitkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_western_rabbitkin
+	}
+	text = {
+		trigger = {
+			cu:wolfkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_wolfkin
+	}
+	text = {
+		trigger = {
+			cu:dogkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_dogkin
+	}
+	text = {
+		trigger = {
+			cu:snow_foxkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_snow_foxkin
+	}
+	text = {
+		trigger = {
+			cu:forest_foxkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_forest_foxkin
+	}
+	text = {
+		trigger = {
+			cu:bearkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_bearkin
+	}
+	text = {
+		trigger = {
+			cu:horsekin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_horsekin
+	}
+	text = {
+		trigger = {
+			cu:island_catkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_island_catkin
+	}
+	text = {
+		trigger = {
+			cu:plains_catkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_plains_catkin
+	}
+	text = {
+		trigger = {
+			cu:desert_catkin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_desert_catkin
+	}
+	text = {
+		trigger = {
+			cu:lan ?= this
+		}
+		localization_key = PLURAL_DEMONYM_lan
+	}
+	text = {
+		trigger = {
+			cu:tong ?= this
+		}
+		localization_key = PLURAL_DEMONYM_tong
+	}
+	text = {
+		trigger = {
+			cu:lian ?= this
+		}
+		localization_key = PLURAL_DEMONYM_lian
+	}
+	text = {
+		trigger = {
+			cu:mae ?= this
+		}
+		localization_key = PLURAL_DEMONYM_mae
+	}
+	text = {
+		trigger = {
+			cu:khambu ?= this
+		}
+		localization_key = PLURAL_DEMONYM_khambu
+	}
+	text = {
+		trigger = {
+			cu:arasni ?= this
+		}
+		localization_key = PLURAL_DEMONYM_arasni
+	}
+	text = {
+		trigger = {
+			cu:melati ?= this
+		}
+		localization_key = PLURAL_DEMONYM_melati
+	}
+	text = {
+		trigger = {
+			cu:lily ?= this
+		}
+		localization_key = PLURAL_DEMONYM_lily
+	}
+	text = {
+		trigger = {
+			cu:sakura ?= this
+		}
+		localization_key = PLURAL_DEMONYM_sakura
+	}
+	text = {
+		trigger = {
+			cu:deigo ?= this
+		}
+		localization_key = PLURAL_DEMONYM_deigo
+	}
+	text = {
+		trigger = {
+			cu:tagata ?= this
+		}
+		localization_key = PLURAL_DEMONYM_tagata
+	}
+	text = {
+		trigger = {
+			cu:kanaka ?= this
+		}
+		localization_key = PLURAL_DEMONYM_kanaka
+	}
+	text = {
+		trigger = {
+			cu:whenua ?= this
+		}
+		localization_key = PLURAL_DEMONYM_whenua
+	}
+	text = {
+		trigger = {
+			cu:zaharin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_zaharin
+	}
+	text = {
+		trigger = {
+			cu:nadirene ?= this
+		}
+		localization_key = PLURAL_DEMONYM_nadirene
+	}
+	text = {
+		trigger = {
+			cu:ghazalin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_ghazalin
+	}
+	text = {
+		trigger = {
+			cu:qadirin ?= this
+		}
+		localization_key = PLURAL_DEMONYM_qadirin
+	}
+	text = {
+		trigger = {
+			cu:faryan ?= this
+		}
+		localization_key = PLURAL_DEMONYM_faryan
+	}
+	text = {
+		trigger = {
+			cu:ixioran ?= this
+		}
+		localization_key = PLURAL_DEMONYM_ixioran
+	}
+	text = {
+		trigger = {
+			cu:ju ?= this
+		}
+		localization_key = PLURAL_DEMONYM_ju
+	}
+	text = {
+		trigger = {
+			cu:homunculus ?= this
+		}
+		localization_key = PLURAL_DEMONYM_homunculus
+	}
+	text = {
+		trigger = {
+			cu:otherworld_english ?= this
+		}
+		localization_key = PLURAL_DEMONYM_otherworld_english
+	}
+	text = {
+		trigger = {
+			cu:otherworld_japanese ?= this
+		}
+		localization_key = PLURAL_DEMONYM_otherworld_japanese
+	}
+	text = {
+		localization_key = PLURAL_DEMONYM_DEFAULT
+	}
+}
+
+getSingularDemonymFemale = {
+	type = culture
+	text = {
+		trigger = {
+			cu:lysian ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_lysian
+	}
+	text = {
+		trigger = {
+			cu:aldrican ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_aldrican
+	}
+	text = {
+		trigger = {
+			cu:solenne ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_solenne
+	}
+	text = {
+		trigger = {
+			cu:alena ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_alena
+	}
+	text = {
+		trigger = {
+			cu:vardish ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_vardish
+	}
+	text = {
+		trigger = {
+			cu:aurora ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_aurora
+	}
+	text = {
+		trigger = {
+			cu:skarholt ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_skarholt
+	}
+	text = {
+		trigger = {
+			cu:fjordic ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_fjordic
+	}
+	text = {
+		trigger = {
+			cu:frostholm ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_frostholm
+	}
+	text = {
+		trigger = {
+			cu:farshore ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_farshore
+	}
+	text = {
+		trigger = {
+			cu:altan ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_altan
+	}
+	text = {
+		trigger = {
+			cu:wood_elf ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_wood_elf
+	}
+	text = {
+		trigger = {
+			cu:snow_elf ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_snow_elf
+	}
+	text = {
+		trigger = {
+			cu:dark_elf ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_dark_elf
+	}
+	text = {
+		trigger = {
+			cu:steel_dwarf ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_steel_dwarf
+	}
+	text = {
+		trigger = {
+			cu:stone_dwarf ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_stone_dwarf
+	}
+	text = {
+		trigger = {
+			cu:northern_orc ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_northern_orc
+	}
+	text = {
+		trigger = {
+			cu:southern_orc ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_southern_orc
+	}
+	text = {
+		trigger = {
+			cu:goblin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_goblin
+	}
+	text = {
+		trigger = {
+			cu:sand_goblin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_sand_goblin
+	}
+	text = {
+		trigger = {
+			cu:horned_demon ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_horned_demon
+	}
+	text = {
+		trigger = {
+			cu:winged_demon ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_winged_demon
+	}
+	text = {
+		trigger = {
+			cu:shadow_demon ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_shadow_demon
+	}
+	text = {
+		trigger = {
+			cu:eastern_rabbitkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_eastern_rabbitkin
+	}
+	text = {
+		trigger = {
+			cu:western_rabbitkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_western_rabbitkin
+	}
+	text = {
+		trigger = {
+			cu:wolfkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_wolfkin
+	}
+	text = {
+		trigger = {
+			cu:dogkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_dogkin
+	}
+	text = {
+		trigger = {
+			cu:snow_foxkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_snow_foxkin
+	}
+	text = {
+		trigger = {
+			cu:forest_foxkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_forest_foxkin
+	}
+	text = {
+		trigger = {
+			cu:bearkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_bearkin
+	}
+	text = {
+		trigger = {
+			cu:horsekin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_horsekin
+	}
+	text = {
+		trigger = {
+			cu:island_catkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_island_catkin
+	}
+	text = {
+		trigger = {
+			cu:plains_catkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_plains_catkin
+	}
+	text = {
+		trigger = {
+			cu:desert_catkin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_desert_catkin
+	}
+	text = {
+		trigger = {
+			cu:lan ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_lan
+	}
+	text = {
+		trigger = {
+			cu:tong ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_tong
+	}
+	text = {
+		trigger = {
+			cu:lian ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_lian
+	}
+	text = {
+		trigger = {
+			cu:mae ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_mae
+	}
+	text = {
+		trigger = {
+			cu:khambu ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_khambu
+	}
+	text = {
+		trigger = {
+			cu:arasni ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_arasni
+	}
+	text = {
+		trigger = {
+			cu:melati ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_melati
+	}
+	text = {
+		trigger = {
+			cu:lily ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_lily
+	}
+	text = {
+		trigger = {
+			cu:sakura ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_sakura
+	}
+	text = {
+		trigger = {
+			cu:deigo ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_deigo
+	}
+	text = {
+		trigger = {
+			cu:tagata ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_tagata
+	}
+	text = {
+		trigger = {
+			cu:kanaka ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_kanaka
+	}
+	text = {
+		trigger = {
+			cu:whenua ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_whenua
+	}
+	text = {
+		trigger = {
+			cu:zaharin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_zaharin
+	}
+	text = {
+		trigger = {
+			cu:nadirene ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_nadirene
+	}
+	text = {
+		trigger = {
+			cu:ghazalin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_ghazalin
+	}
+	text = {
+		trigger = {
+			cu:qadirin ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_qadirin
+	}
+	text = {
+		trigger = {
+			cu:faryan ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_faryan
+	}
+	text = {
+		trigger = {
+			cu:ixioran ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_ixioran
+	}
+	text = {
+		trigger = {
+			cu:ju ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_ju
+	}
+	text = {
+		trigger = {
+			cu:homunculus ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_homunculus
+	}
+	text = {
+		trigger = {
+			cu:otherworld_english ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_otherworld_english
+	}
+	text = {
+		trigger = {
+			cu:otherworld_japanese ?= this
+		}
+		localization_key = SINGULAR_DEMONYM_otherworld_japanese
+	}
+	text = {
+		localization_key = SINGULAR_DEMONYM_DEFAULT
+	}
+}

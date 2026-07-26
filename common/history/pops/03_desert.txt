@@ -1,0 +1,462 @@
+﻿POPS = {
+    s:STATE_AYN_ASH_SHAMS = {
+        region_state:SUN = {
+            create_pop = {
+                culture = nadirene
+                size = 6040000
+            }
+            create_pop = {
+                culture = zaharin
+                size = 277900
+            }
+        }
+    }
+    s:STATE_BAHR_AL_GHABAS = {
+        region_state:SUN = {
+            create_pop = {
+                culture = nadirene
+                size = 4840000
+            }
+        }
+    }
+    s:STATE_BAHR_AL_SHURUQ = {
+        region_state:SUN = {
+            create_pop = {
+                culture = nadirene
+                size = 4530000
+            }
+            create_pop = {
+                culture = zaharin
+                size = 270200
+            }
+        }
+    }
+    s:STATE_NAJD_AS_SALASIL = {
+        region_state:SUN = {
+            create_pop = {
+                culture = zaharin
+                size = 300000
+            }
+            create_pop = {
+                culture = nadirene
+                size = 25600
+            }
+            create_pop = {
+                culture = qadirin
+                size = 23300
+            }
+            create_pop = {
+                culture = ghazalin
+                size = 27300
+            }
+        }
+    }
+    s:STATE_WADI_AL_DIYA = {
+        region_state:SUN = {
+            create_pop = {
+                culture = ghazalin
+                size = 272000
+            }
+            create_pop = {
+                culture = nadirene
+                size = 8000
+            }
+            create_pop = {
+                culture = zaharin
+                size = 8500
+            }
+            create_pop = {
+                culture = qadirin
+                size = 13700
+            }
+        }
+    }
+    s:STATE_SAHIL_AL_SHUAC = {
+        region_state:SUN = {
+            create_pop = {
+                culture = ghazalin
+                size = 213500
+            }
+            create_pop = {
+                culture = qadirin
+                size = 122500
+            }
+            create_pop = {
+                culture = nadirene
+                size = 14000
+            }
+            create_pop = {
+                culture = zaharin
+                size = 20500
+            }
+        }
+    }
+    s:STATE_SABKHA_SAHILIYYA = {
+        region_state:SUN = {
+            create_pop = {
+                culture = ghazalin
+                size = 378000
+            }
+            create_pop = {
+                culture = nadirene
+                size = 12000
+            }
+        }
+    }
+    s:STATE_AL_ASIL_AL_GHARIB = {
+        region_state:ASI = {
+            create_pop = {
+                culture = ghazalin
+                size = 2450000
+            }
+            create_pop = {
+                culture = farshore
+                size = 100200
+            }
+            create_pop = {
+                culture = steel_dwarf
+                size = 112000
+            }
+        }
+    }
+    s:STATE_JAZIRAT_ATH_TIBR = {
+        region_state:LUJ = {
+            create_pop = {
+                culture = qadirin
+                size = 930000
+            }
+        }
+    }
+    s:STATE_BARZAKH_AL_FIDDA = {
+        region_state:LUJ = {
+            create_pop = {
+                culture = qadirin
+                size = 655000
+            }
+            create_pop = {
+                culture = ghazalin
+                size = 33800
+            }
+        }
+    }
+    s:STATE_BILAD_BANI_TAMIM = {
+        region_state:TAM = {
+            create_pop = {
+                culture = zaharin
+                size = 195000
+            }
+            create_pop = {
+                culture = faryan
+                size = 7800
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 10900
+            }
+            create_pop = {
+                culture = nadirene
+                size = 9000
+            }
+        }
+    }
+    s:STATE_RAWDAT_AL_FURAT = {
+        region_state:GHA = {
+            create_pop = {
+                culture = qadirin
+                size = 2170000
+            }
+            create_pop = {
+                culture = zaharin
+                size = 174200
+            }
+            create_pop = {
+                culture = ghazalin
+                size = 113100
+            }
+        }
+    }
+    s:STATE_AL_GHAFRAH_AL_MAIYYAH = {
+        region_state:GHA = {
+            create_pop = {
+                culture = qadirin
+                size = 180000
+            }
+            create_pop = {
+                culture = zaharin
+                size = 97500
+            }
+        }
+    }
+    s:STATE_THAGHR_AL_UFQ = {
+        region_state:GHA = {
+            create_pop = {
+                culture = qadirin
+                size = 855000
+            }
+            create_pop = {
+                culture = zaharin
+                size = 77200
+            }
+        }
+    }
+    s:STATE_SILSILAT_AL_JUMAN = {
+        region_state:JUM = {
+            create_pop = {
+                culture = qadirin
+                size = 820000
+            }
+        }
+    }
+    s:STATE_BILAD_BANI_ASAT = {
+        region_state:ASA = {
+            create_pop = {
+                culture = zaharin
+                size = 215000
+            }
+            create_pop = {
+                culture = qadirin
+                size = 20200
+            }
+            create_pop = {
+                culture = faryan
+                size = 19700
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 20200
+            }
+        }
+    }
+    s:STATE_QALCAT_AL_NASR = {
+        region_state:FAW = {
+            create_pop = {
+                culture = faryan
+                size = 2955000
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 237200
+            }
+            create_pop = {
+                culture = homunculus
+                size = 40200
+            }
+            create_pop = {
+                culture = zaharin
+                size = 325500
+            }
+        }
+    }
+    s:STATE_AL_JAFAF_AL_MUAKHKHIR = {
+        region_state:FAW = {
+            create_pop = {
+                culture = faryan
+                size = 217500
+            }
+            create_pop = {
+                culture = zaharin
+                size = 145000
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 200600
+            }
+        }
+    }
+    s:STATE_AL_JAFAF_AL_MUQADDAM = {
+        region_state:FAW = {
+            create_pop = {
+                culture = faryan
+                size = 300000
+            }
+            create_pop = {
+                culture = zaharin
+                size = 127500
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 209000
+            }
+        }
+    }
+    s:STATE_SAHAT_AL_JUD = {
+        region_state:FAW = {
+            create_pop = {
+                culture = faryan
+                size = 810000
+            }
+            create_pop = {
+                culture = zaharin
+                size = 580000
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 353700
+            }
+        }
+    }
+    s:STATE_AYN_AL_WAFA = {
+        region_state:IKH = {
+            create_pop = {
+                culture = faryan
+                size = 3510000
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 308900
+            }
+            create_pop = {
+                culture = dogkin
+                size = 202800
+            }
+            create_pop = {
+                culture = zaharin
+                size = 162400
+            }
+        }
+    }
+    s:STATE_QIFAR_AL_ZUHD = {
+        region_state:IKH = {
+            create_pop = {
+                culture = faryan
+                size = 238000
+            }
+            create_pop = {
+                culture = zaharin
+                size = 129500
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 161200
+            }
+        }
+    }
+    s:STATE_QIFAR_AL_SABR = {
+        region_state:IKH = {
+            create_pop = {
+                culture = faryan
+                size = 158000
+            }
+            create_pop = {
+                culture = zaharin
+                size = 74500
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 142000
+            }
+        }
+    }
+    s:STATE_AL_MARAI_AL_SAHILIYYAH = {
+        region_state:DES = {
+            create_pop = {
+                culture = zaharin
+                size = 135000
+            }
+        }
+    }
+    s:STATE_JABAL_AL_BALIGH = {
+        region_state:DES = {
+            create_pop = {
+                culture = zaharin
+                size = 200000
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 85100
+            }
+        }
+    }
+    s:STATE_AL_SHURUB_AL_GHAMIRAH = {
+        region_state:DES = {
+            create_pop = {
+                culture = zaharin
+                size = 105000
+            }
+        }
+    }
+    s:STATE_WADI_AL_AZHAR = {
+        region_state:DES = {
+            create_pop = {
+                culture = zaharin
+                size = 115000
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 70100
+            }
+        }
+    }
+    s:STATE_RAWABI_AL_MILH = {
+        region_state:DES = {
+            create_pop = {
+                culture = zaharin
+                size = 80000
+            }
+        }
+    }
+    s:STATE_AL_TIH_AL_AKBAR = {
+        region_state:DES = {
+            create_pop = {
+                culture = zaharin
+                size = 60000
+            }
+        }
+    }
+    s:STATE_HADBAT_AL_SIJN = {
+        region_state:DES = {
+            create_pop = {
+                culture = zaharin
+                size = 80000
+            }
+        }
+    }
+    s:STATE_AL_BAYDA_AL_MAHLAKAH = {
+        region_state:SCO = {
+            create_pop = {
+                culture = zaharin
+                size = 100000
+            }
+        }
+    }
+    s:STATE_SHAMMAKH_AL_KHARAB = {
+        region_state:SCO = {
+            create_pop = {
+                culture = zaharin
+                size = 70000
+            }
+        }
+    }
+    s:STATE_AJAM_AL_GHULAM = {
+        region_state:BUR = {
+            create_pop = {
+                culture = southern_orc
+                size = 60000
+            }
+        }
+    }
+    s:STATE_MERTEBAT_AL_AFACI = {
+        region_state:BUR = {
+            create_pop = {
+                culture = southern_orc
+                size = 60000
+            }
+        }
+    }
+    s:STATE_JIBAL_AL_SUKHUR = {
+        region_state:DAY = {
+            create_pop = {
+                culture = zaharin
+                size = 60000
+            }
+        }
+    }
+    s:STATE_ATBAC_AL_ICSAR = {
+        region_state:DAY = {
+            create_pop = {
+                culture = zaharin
+                size = 50000
+            }
+        }
+    }
+}

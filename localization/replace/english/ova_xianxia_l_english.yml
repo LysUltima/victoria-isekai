@@ -1,0 +1,127 @@
+﻿l_english:
+  # --- Journal entries: war banners
+  je_ova_xianxia_blood_lotus: "The Blood Lotus Blooms"
+  je_ova_xianxia_blood_lotus_reason: "In the carrion hills beyond the imperial road the Blood Lotus Sect (血莲宗) leads the Blood Lotus Covenant - Ghost Mountain, Shadow Fiend, Nine Nether - down a dao the orthodox schools have named forbidden for a hundred generations. This is [concept_ova_dao_war]: the Covenant wins by drowning the Jade Throne of Great Feng, or by holding five of the nine righteous mountain seats, whichever comes first."
+  je_ova_xianxia_blood_lotus_status: "The nine righteous banners still stand. The lotus roots deeper and waits for its hour."
+  ova_xianxia_demonic_victory_tt: "Great Feng is drowned or bowed to the Covenant, or the demonic path holds five of the nine righteous mountain seats"
+  ova_xianxia_lotus_severed_tt: "The Blood Lotus Sect no longer exists, or has bowed to a power outside the demonic path"
+
+  je_ova_xianxia_jade_mandate: "The Mandate of the Jade Throne"
+  je_ova_xianxia_jade_mandate_reason: "Great Feng holds the Jade Throne and with it the mandate of heaven over six sworn sects - Divine Sword, Heavenly Note, Flowering Cloud, Purple Mist, Mystic Moon, Feather Island. The [concept_ova_dao_war] is not won by decree alone: while it is undecided an unbreakable oath binds the Blood Lotus Covenant together no matter how cohesion would otherwise drift. The oath ends only when the lotus is cut down, or when the throne itself is drowned."
+  je_ova_xianxia_jade_mandate_status: "The mandate holds. The court counts its sworn sects and watches the carrion hills."
+  ova_xianxia_righteous_victory_tt: "The Blood Lotus Sect no longer exists, or has bowed to a power outside the demonic path"
+  ova_xianxia_mandate_broken_tt: "The demonic path has won the dao war, or we ourselves have bowed to another power"
+
+  je_ova_xianxia_righteous_banner: "The Righteous Banner"
+  je_ova_xianxia_righteous_banner_reason: "Ours is one of the nine righteous sects sworn to Great Feng or Great Yao, bound against the Blood Lotus Covenant by oath and by dao. We need not lead the [concept_ova_dao_war] to help win it - every duel fought, every spy rooted out, every champion sent across the carrion hills brings the fall of the lotus a little closer."
+  je_ova_xianxia_righteous_banner_status: "The righteous banners hold together. Our sect plays its part in the dao war."
+  ova_xianxia_banner_falls_tt: "The demonic path has won the dao war, or we ourselves have bowed to the Covenant"
+
+  je_ova_xianxia_covenant_banner: "The Covenant of the Lotus"
+  je_ova_xianxia_covenant_banner_reason: "Ours stands with the Blood Lotus Sect in the Covenant, sworn to a dao the orthodox schools call forbidden. We need not lead the [concept_ova_dao_war] to help win it: every raid, every duel, every drop spilled in the old rites brings the Jade Throne a little closer to drowning."
+  je_ova_xianxia_covenant_banner_status: "The Covenant holds together beyond the carrion hills. Our sect plays its part in the dao war."
+  ova_xianxia_covenant_broken_tt: "The righteous path has won the dao war, or we ourselves have bowed to another power"
+
+  # --- Journal entries: the Destined One chain (six realms, one chapter each)
+  je_ova_xianxia_mc_1: "Qi Gathering"
+  je_ova_xianxia_mc_1_reason: "Every legend the storytellers will one day mangle begins the same way: a youth in plain grey robes, a broom taller than he is, and ten thousand stone steps that must be swept before dawn. The elders read the omens five different ways, but the mountain has already decided. He is [concept_ova_destined_one], and this is the chapter where nobody believes it yet. Let him sweep, let him breathe, let him be laughed at exactly once by everyone who will later claim to have discovered him."
+  je_ova_xianxia_mc_1_tale_tt: "The tale of the outer courts has been told to its end"
+  je_ova_xianxia_mc_1_level_tt: "The Foundation Establishment realm has been reached (Level 10)"
+  je_ova_xianxia_mc_1_name_tt: "His name is spoken in the outer courts (any Renown)"
+
+  je_ova_xianxia_mc_2: "Foundation Establishment"
+  je_ova_xianxia_mc_2_reason: "The foundation is laid and the outer courts are suddenly very polite. Inner robes come with inner enemies: whispered envy, a silk-clad young master who has never once been told no, and a first walk on the roads of the jianghu where the sect cannot shield him. Somewhere in the archives waits a half-worn jade slip that the auction houses could not read. Comprehend it, survive the road, and the Golden Core is no longer a rumor."
+  je_ova_xianxia_mc_2_tale_tt: "The tale of the inner court has been told to its end"
+  je_ova_xianxia_mc_2_level_tt: "The Golden Core realm has been reached (Level 20)"
+  je_ova_xianxia_mc_2_manual_tt: "A secret manual has been comprehended (the Comprehend a Secret Manual decision)"
+
+  je_ova_xianxia_mc_3: "Golden Core"
+  je_ova_xianxia_mc_3_reason: "A golden core turns a disciple into a name. The sect grants him a cave dwelling on the spirit vein, the banquet invitations arrive faster than the stewards can refuse them, and the old sword tablet in the rear court, silent for three generations of juniors, has begun to hum when he passes. Somewhere in the domain a secret realm has cracked open. Golden cores are forged in exactly such places, and occasionally broken there too."
+  je_ova_xianxia_mc_3_tale_tt: "The tale of the golden core has been told to its end"
+  je_ova_xianxia_mc_3_level_tt: "The Nascent Soul realm has been reached (Level 30)"
+  je_ova_xianxia_mc_3_realm_tt: "A secret realm has been ventured (the Enter a Secret Realm decision)"
+
+  je_ova_xianxia_mc_4: "Nascent Soul"
+  je_ova_xianxia_mc_4_reason: "The nascent soul steps free of the flesh, and the whole jianghu adjusts its ledgers. Old debts come collecting in order of face lost: the slapped clan sends its grand-elder with gifts in one hand and a coffin in the other, the enemy path sends poison in the victory wine, and the dao war itself finally arrives at his doorstep with banners. A realm this high is not proven in seclusion. It is proven against another protagonist, or before ten thousand witnesses at the grand competition."
+  je_ova_xianxia_mc_4_tale_tt: "The tale of the nascent soul has been told to its end"
+  je_ova_xianxia_mc_4_level_tt: "The Soul Formation realm has been reached (Level 40)"
+  je_ova_xianxia_mc_4_rival_tt: "A rival Destined One has been defeated, or the Grand Sect Competition carried"
+
+  je_ova_xianxia_mc_5: "Soul Formation"
+  je_ova_xianxia_mc_5_reason: "Above Soul Formation there is only the Void, and the heavens have started paying attention: incense smoke bends toward him, spirit beasts bow at forty paces, and the sect ancestor has left seclusion for the first time in sixty years just to deliver one warning. What comes next cannot be met empty-handed. A natal weapon must be forged from star-iron and his own core fire, and every lightning-ward treasure the auction houses have hoarded must be gathered before the sky falls."
+  je_ova_xianxia_mc_5_tale_tt: "The tale of the soul formed has been told to its end"
+  je_ova_xianxia_mc_5_level_tt: "The Return to the Void realm has been reached (Level 50)"
+  je_ova_xianxia_mc_5_weapon_tt: "A natal weapon has been forged (the Forge the Natal Weapon decision)"
+  je_ova_xianxia_mc_5_treasures_tt: "Tribulation treasures have been gathered (the Gather Tribulation Treasures decision)"
+
+  je_ova_xianxia_mc_6: "Return to the Void"
+  je_ova_xianxia_mc_6_reason: "The sky above the mountain darkens on cloudless days now, and the old texts agree on what that means: [concept_ova_heavenly_tribulation] has chosen its date and is merely being polite about announcing it. There is no realm after this one, only the nine bolts and whatever stands in the scorched circle when the thunder clears. Every manual comprehended, every treasure gathered, every year of the long road ends here, in the open, looking up."
+  je_ova_xianxia_mc_6_omens_tt: "The omens have gathered above the mountain"
+  je_ova_xianxia_mc_6_tribulation_tt: "The Heavenly Tribulation has been faced and survived (the Face the Heavenly Tribulation decision)"
+
+  je_ova_xianxia_mc_dead_tt: "The Destined One has fallen. The tale ends unfinished."
+
+  # --- Realm status (feeds status_desc on the Destined One chain - no apostrophes)
+  je_ova_xianxia_realm_none: "No Destined One of ours yet walks the jianghu."
+  je_ova_xianxia_realm_qi_gathering: "[ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName] cultivates only the Qi Gathering realm, a disciple among ten thousand nobodies."
+  je_ova_xianxia_realm_foundation: "[ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName] has reached the Foundation Establishment realm, a name the outer halls now notice."
+  je_ova_xianxia_realm_golden_core: "[ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName] has condensed a Golden Core, a name the jianghu now repeats."
+  je_ova_xianxia_realm_nascent_soul: "[ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName] has formed a Nascent Soul, feared across every sworn sect."
+  je_ova_xianxia_realm_soul_formation: "[ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName] has entered Soul Formation, a master among masters."
+  je_ova_xianxia_realm_return_void: "[ROOT.GetCountry.MakeScope.Var('ova_champion_char').GetCharacter.GetFullName] stands at the threshold of Return to the Void, a legend the jianghu will not soon forget."
+
+  # --- Decisions
+  ova_xianxia_secret_realm_decision: "Enter a Secret Realm"
+  ova_xianxia_secret_realm_decision_desc: "Send our Destined One into a secret realm rumored to have opened somewhere in the sect domain, a fold of spirit-rich land sealed away from the common world. A find of true worth can refine a cultivator beyond his years; a realm with teeth can cost a season of recovery. Either way, he will have walked where the Golden Core chapter demands he walk."
+  ova_xianxia_challenge_rival_decision: "Challenge a Rival Destined One"
+  ova_xianxia_challenge_rival_decision_desc: "Send word to a rival Destined One that two protagonists cannot share one sky. Win, and his name eclipses every other junior in the jianghu; lose, and there is no shame in it, only a longer road back to health."
+  ova_xianxia_grand_competition_decision: "Host the Grand Sect Competition"
+  ova_xianxia_grand_competition_decision_desc: "Throw open our gates and summon every sect, wandering cultivator, and hungry junior in the jianghu to compete for glory and face. It costs a season of treasury to stage properly, but a well-run competition is remembered for a generation, and a champion who carries the field proves his realm before ten thousand witnesses."
+  ova_xianxia_blood_sacrifice_decision: "Perform the Blood Sacrifice"
+  ova_xianxia_blood_sacrifice_decision_desc: "The demonic dao demands what the orthodox schools will not give: blood, devastation, and a rite the outer world calls atrocity. Power answers, at a cost the sect will carry for a season."
+  ova_xianxia_heavenly_tribulation_decision: "Face the Heavenly Tribulation"
+  ova_xianxia_heavenly_tribulation_decision_desc: "The sky above the mountain has darkened on a cloudless day, the sign of [concept_ova_heavenly_tribulation]. Our Destined One must step into the open and answer nine bolts of lightning, or wait, and risk the sign fading before he is ready. A forged natal weapon and gathered tribulation treasures both steady his footing under the thunder."
+  ova_xianxia_consult_cheat_decision: "Consult the Golden Finger"
+  ova_xianxia_consult_cheat_decision_desc: "Sit our Destined One down and ask him, plainly, what his gift shows him now: a voice that counts days, a cauldron that refines, a ring that remembers, a war he has already lived, or a book he has already read. He answers slowly, and not always to our liking."
+  ova_xianxia_secret_manual_decision: "Comprehend a Secret Manual"
+  ova_xianxia_secret_manual_decision_desc: "Buy the half-worn jade slip no appraiser in three auction houses could read and set our Destined One to comprehending it. Half its strokes are worn away; happily, a cauldron can refine a jade slip like anything else, a dead patriarch may have known the author, and a Reader may simply have read the unabridged edition. The Foundation Establishment chapter asks for nothing less."
+  ova_xianxia_natal_weapon_decision: "Forge the Natal Weapon"
+  ova_xianxia_natal_weapon_decision_desc: "Commission star-iron, borrow the spirit-vein fire, and set seven days aside at the forge: a cultivator who means to face the heavens should not do it holding sect-issue steel. A natal weapon is quenched in the bearer's own core fire and answers no other hand, and it steadies the footing under tribulation lightning."
+  ova_xianxia_tribulation_treasures_decision: "Gather Tribulation Treasures"
+  ova_xianxia_tribulation_treasures_decision_desc: "Send buyers to every auction house in the jianghu for lightning-ward talismans, thunder-bathed wood, and the cracked turtle shell the appraisers swear predates the sect itself. The heavens count what a challenger carries into the open, and they have never once been impressed by empty hands."
+
+  # --- Game concepts
+  concept_ova_destined_one: "Destined One"
+  concept_ova_destined_one_desc: "A [concept_ova_champion] born with one of five archetype gifts the Heavens favor: the Check-In System, the Mysterious Cauldron, the ring of a dead grandfather, the memory of a Returner, or the foreknowledge of a Reader who has already read the tale. His journal chain climbs the six realms one chapter at a time, each with its own deeds to accomplish; his death ends the tale unfinished. Rival Destined Ones hosted by other sects may be dueled, courted, or simply outlived."
+  concept_ova_dao_war: "The Dao War"
+  concept_ova_dao_war_desc: "The struggle between the Blood Lotus Covenant and the sworn sects of Great Feng and Great Yao for mastery of the cultivation world. The demonic path wins when Great Feng is drowned or bowed, or when it holds five of the nine righteous mountain seats. The righteous path wins when the Blood Lotus Sect ceases to exist or is brought to heel by anyone outside the demonic path."
+  concept_ova_heavenly_tribulation: "The Heavenly Tribulation"
+  concept_ova_heavenly_tribulation_desc: "The gamble that crowns the Destined One chain: step into nine bolts of lightning the Heavens reserve for those who defy the natural order. Survive, and ascend beyond what any ordinary cultivator reaches. Fail, and carry the scars for years. A high realm, a forged natal weapon, gathered tribulation treasures, and a Reader who knows which bolt is the last all tilt the odds."
+
+  # --- AI strategies (loc beyond the spec's explicit list, matching vanilla
+  # --- ai_strategy_*/_desc convention, same courtesy the murim storyline paid)
+  ai_strategy_ova_righteous_path: "Righteous Path"
+  ai_strategy_ova_righteous_path_desc: "[COUNTRY.GetName] presses the dao war against the Blood Lotus Covenant."
+  ai_strategy_ova_demonic_path: "Demonic Path"
+  ai_strategy_ova_demonic_path_desc: "[COUNTRY.GetName] means to drown the Jade Throne of Great Feng beneath the lotus."
+
+  # --- Static modifier display names (every modifier needs one; no apostrophes)
+  ova_xianxia_sovereign_of_the_demonic_dao: "Sovereign of the Demonic Dao"
+  ova_xianxia_orthodoxy_restored: "Orthodoxy Restored"
+  ova_xianxia_sect_triumph: "Sect Triumph"
+  ova_xianxia_sect_despair: "Sect Despair"
+  ova_xianxia_destined_halo: "Destined Halo"
+  ova_xianxia_ascendant_glory: "Ascendant Glory"
+  ova_xianxia_face_resounding: "Face Resounding"
+  ova_xianxia_plot_divergence: "Plot Divergence"
+  ova_xianxia_blood_rites: "Blood Rites"
+  ova_xianxia_tribulation_scars: "Tribulation Scars"
+  ova_xianxia_heaven_blessed: "Heaven Blessed"
+  ova_xianxia_competition_glory: "Competition Glory"
+  ova_xianxia_righteous_fervor: "Sect Fervor"
+  ova_xianxia_demonic_terror: "Demonic Terror"
+  ova_xianxia_dao_companion: "Dao Companion"
+  ova_xianxia_spirit_vein_windfall: "Spirit Vein Windfall"
+
+  # --- Modifiers
+  ova_xianxia_incense_trade: "Incense Trade"

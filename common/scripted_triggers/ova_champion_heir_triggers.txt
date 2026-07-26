@@ -1,0 +1,188 @@
+﻿### Champions JE - heir cultivation training triggers (country scope)
+# Used by the heir-training decisions. Each capital-training rung needs the
+# matching Spiritualism technology AND a Cultivation Grounds in the CAPITAL at a
+# rising level (5 per rung) running a Production Method of the target realm or
+# higher. The building has five realm PMs (Qi Gathering -> Golden Core ->
+# Nascent Soul -> Soul Formation -> Void Return); the Foundation Establishment
+# rung reuses the Qi Gathering PM (the building has no distinct one).
+
+# ---- capital Cultivation Grounds at level >= N with a PM of a given realm+ ----
+ova_capital_cultivation_qi = {        # any realm PM, level >= 5
+	capital ?= {
+		any_scope_building = {
+			is_building_type = building_cultivation_grounds
+			level >= 5
+			OR = {
+				has_active_production_method = pm_qi_gathering_halls
+				has_active_production_method = pm_golden_core_pavilions
+				has_active_production_method = pm_nascent_soul_sanctums
+				has_active_production_method = pm_soul_formation_retreats
+				has_active_production_method = pm_void_return_temples
+			}
+		}
+	}
+}
+
+ova_capital_cultivation_foundation = { # any realm PM, level >= 10
+	capital ?= {
+		any_scope_building = {
+			is_building_type = building_cultivation_grounds
+			level >= 10
+			OR = {
+				has_active_production_method = pm_qi_gathering_halls
+				has_active_production_method = pm_golden_core_pavilions
+				has_active_production_method = pm_nascent_soul_sanctums
+				has_active_production_method = pm_soul_formation_retreats
+				has_active_production_method = pm_void_return_temples
+			}
+		}
+	}
+}
+
+ova_capital_cultivation_golden = {    # Golden Core PM+, level >= 15
+	capital ?= {
+		any_scope_building = {
+			is_building_type = building_cultivation_grounds
+			level >= 15
+			OR = {
+				has_active_production_method = pm_golden_core_pavilions
+				has_active_production_method = pm_nascent_soul_sanctums
+				has_active_production_method = pm_soul_formation_retreats
+				has_active_production_method = pm_void_return_temples
+			}
+		}
+	}
+}
+
+ova_capital_cultivation_nascent = {   # Nascent Soul PM+, level >= 20
+	capital ?= {
+		any_scope_building = {
+			is_building_type = building_cultivation_grounds
+			level >= 20
+			OR = {
+				has_active_production_method = pm_nascent_soul_sanctums
+				has_active_production_method = pm_soul_formation_retreats
+				has_active_production_method = pm_void_return_temples
+			}
+		}
+	}
+}
+
+ova_capital_cultivation_soul = {      # Soul Formation PM+, level >= 25
+	capital ?= {
+		any_scope_building = {
+			is_building_type = building_cultivation_grounds
+			level >= 25
+			OR = {
+				has_active_production_method = pm_soul_formation_retreats
+				has_active_production_method = pm_void_return_temples
+			}
+		}
+	}
+}
+
+ova_capital_cultivation_void = {      # Void Return PM, level >= 30
+	capital ?= {
+		any_scope_building = {
+			is_building_type = building_cultivation_grounds
+			level >= 30
+			has_active_production_method = pm_void_return_temples
+		}
+	}
+}
+
+# Heir has NO cultivation realm yet.
+ova_heir_uncultivated = {
+	heir ?= {
+		NOR = {
+			has_trait = trait_qi_gathering
+			has_trait = trait_foundation_establishment
+			has_trait = trait_golden_core
+			has_trait = trait_nascent_soul
+			has_trait = trait_soul_formation
+			has_trait = trait_return_to_the_void
+		}
+	}
+}
+
+# The heir can be advanced ONE rung by capital training right now: the matching
+# tech is researched and the capital Cultivation Grounds meets that rung.
+ova_heir_can_train_capital = {
+	exists = heir
+	NOT = { has_variable = ova_heir_in_training }
+	heir ?= { NOT = { has_trait = trait_return_to_the_void } }
+	OR = {
+		AND = {
+			ova_heir_uncultivated = yes
+			has_technology_researched = qi_gathering
+			ova_capital_cultivation_qi = yes
+		}
+		AND = {
+			heir ?= { has_trait = trait_qi_gathering }
+			has_technology_researched = foundation_establishment
+			ova_capital_cultivation_foundation = yes
+		}
+		AND = {
+			heir ?= { has_trait = trait_foundation_establishment }
+			has_technology_researched = golden_core
+			ova_capital_cultivation_golden = yes
+		}
+		AND = {
+			heir ?= { has_trait = trait_golden_core }
+			has_technology_researched = nascent_soul
+			ova_capital_cultivation_nascent = yes
+		}
+		AND = {
+			heir ?= { has_trait = trait_nascent_soul }
+			has_technology_researched = soul_formation
+			ova_capital_cultivation_soul = yes
+		}
+		AND = {
+			heir ?= { has_trait = trait_soul_formation }
+			has_technology_researched = return_to_the_void
+			ova_capital_cultivation_void = yes
+		}
+	}
+}
+
+# A Martial Sect government we are formally bound to - an ally (same power bloc,
+# a defensive pact, or an alliance) or one of our own subjects - is a place to
+# send the heir to a sect. A loose "friendly neighbor" no longer qualifies.
+ova_has_friendly_sect_neighbor = {
+	any_country = {
+		has_law = law_type:law_martial_sect
+		NOT = { any_enemy_in_diplo_play = { root ?= this } }
+		OR = {
+			is_subject_of = root
+			is_in_same_power_bloc = root
+			# alliance / defensive pact are treaty articles under the Pivot of
+			# Empire treaty system, not legacy diplomatic pacts
+			any_scope_treaty = {
+				binds = root
+				any_scope_article = {
+					OR = {
+						has_type = alliance
+						has_type = defensive_pact
+					}
+				}
+			}
+		}
+	}
+}
+
+# Can the sect trainee still gain another rung? (former heir alive, not a ruler,
+# and the sect out-techs their current realm.)
+ova_heir_sect_can_advance = {
+	exists = var:ova_heir_trainee
+	exists = var:ova_heir_sect
+	var:ova_heir_trainee = {
+		is_character_alive = yes
+		is_ruler_of_own_country = no
+	}
+	OR = {
+		AND = { var:ova_heir_trainee = { has_trait = trait_foundation_establishment } var:ova_heir_sect = { has_technology_researched = golden_core } }
+		AND = { var:ova_heir_trainee = { has_trait = trait_golden_core } var:ova_heir_sect = { has_technology_researched = nascent_soul } }
+		AND = { var:ova_heir_trainee = { has_trait = trait_nascent_soul } var:ova_heir_sect = { has_technology_researched = soul_formation } }
+		AND = { var:ova_heir_trainee = { has_trait = trait_soul_formation } var:ova_heir_sect = { has_technology_researched = return_to_the_void } }
+	}
+}

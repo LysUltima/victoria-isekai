@@ -1,0 +1,1292 @@
+﻿### OVA shared "champion" layer
+# One system drives the great characters of all three JE storylines and the
+# universal je_ova_champion: isekai Heroes, murim Peerless Martial Artists,
+# xianxia Sect Ancestors, and every other centralized nation's Champion.
+# Storyline files provide only flavor (events, decisions, victory conditions)
+# on top of these effects. All effects run in COUNTRY scope.
+#
+# Country variables used:
+#   ova_champion_char            - character scope of the living champion
+#   ova_champion_level           - 1..60, the champion's level
+#   ova_champion_xp              - XP toward the NEXT level; resets on level-up
+#   ova_champion_xp_to_next      - XP cost of the next level = 40 + 4*level
+#   ova_champion_popularity      - 0..100 renown LEVEL; deliberately a country
+#                                  variable, separate from the character
+#                                  popularity stat. Feeds country prestige via
+#                                  ova_champion_renown (+1 prestige per level).
+#   ova_champion_renown_points   - points toward the NEXT renown level
+#   ova_champion_renown_to_next  - point cost of next renown level = 20 + renown
+#   ova_champion_injured_months  - exists only while injured (blocks adventures)
+#   ova_champion_secluded_months - exists only while away training/studying
+#   ova_adventure_cooldown       - months until the next hinterland hunt
+#   ova_expedition_active        - exists while OUR expedition pact runs (set
+#                                  by the diplomatic action's accept_effect,
+#                                  cleared by its break effects)
+#   ova_expedition_lockout       - months during which no expedition may be
+#                                  launched (and a running one auto-breaks);
+#                                  set by the break interlude and champion death
+#   ova_expedition_return        - one-shot flag: an outcome sent the
+#                                  expedition home (breaks the pact)
+#
+# Realm representation: the cultivation condition-trait ladder
+# (trait_qi_gathering .. trait_return_to_the_void) at levels 10/20/30/40/50/60,
+# tech-gated per rung. If the engine's weekly condition roll hands the character
+# a higher rung on its own, the LEVEL IS NOT RAISED to match (per design).
+#
+# XP sources (monthly; skipped entirely while injured/secluded, and with a 50%
+# chance of being spoiled while sabotaged - see ova_champion_apply_growth):
+# base 1; Champion Hall support lines; the two upkeep toggles; the otherworlder
+# renown bonus. Events and seclusion grant lump XP (roughly 20 XP per level the
+# old pre-XP system handed out).
+#
+# CHARACTER CREATION GOTCHA: create_character is deferred - the character (and
+# any scope saved in on_created) does NOT exist until the calling effect chain
+# finishes. Scopes saved in on_created are invisible to the caller's remaining
+# lines ("Event target link 'scope' returned an unset scope").
+
+# Summon/raise a new champion with explicit stats (used by the isekai summoning
+# ritual and Victoria). Caller guards against an existing champion.
+# Usage: ova_champion_create = { FIRST_NAME = "Victoria" LAST_NAME = "Clausewitz" AGE = 19 CULTURE = cu:lysian LEVEL = 15 }
+ova_champion_create = {
+	create_character = {
+		first_name = $FIRST_NAME$
+		last_name = $LAST_NAME$
+		age = $AGE$
+		culture = $CULTURE$
+		on_created = {
+			# see CHARACTER CREATION GOTCHA in the header: everything the new
+			# champion needs must happen here, not after create_character.
+			# $POPULARITY$ is accepted for back-compat but ignored - every
+			# champion now starts at 0 renown.
+			save_scope_as = ova_new_champion
+			add_trait = trait_champion
+            add_career_length = {
+                years = 100
+            }
+			owner = {
+				set_variable = { name = ova_champion_char value = scope:ova_new_champion }
+				set_variable = { name = ova_champion_level value = $LEVEL$ }
+				set_variable = { name = ova_champion_popularity value = 0 }
+				# otherworlder flag set before the (deferred) create call is
+				# consumed here - see ova_champion_grant_otherworlder
+				if = {
+					limit = { has_variable = ova_pending_otherworlder }
+					remove_variable = ova_pending_otherworlder
+					scope:ova_new_champion = { add_trait = trait_otherworlder }
+				}
+				ova_champion_init_progress = yes
+				ova_champion_sync_traits = yes
+				ova_champion_update_army_buff = yes
+			}
+		}
+	}
+}
+
+# Same as ova_champion_create but sources name/age/culture/traits from a
+# common/character_templates/ entry instead of inline fields - used by
+# characters that already have a dedicated template (Kang Jin-woo, Victoria
+# Clausewitz). Usage: ova_champion_create_from_template = { TEMPLATE = template_kang_jinwoo LEVEL = 12 }
+ova_champion_create_from_template = {
+	create_character = {
+		template = $TEMPLATE$
+		on_created = {
+			save_scope_as = ova_new_champion
+			add_trait = trait_champion
+            add_career_length = {
+                years = 100
+            }
+			owner = {
+				set_variable = { name = ova_champion_char value = scope:ova_new_champion }
+				set_variable = { name = ova_champion_level value = $LEVEL$ }
+				set_variable = { name = ova_champion_popularity value = 0 }
+				# otherworlder flag set before the (deferred) create call is
+				# consumed here - see ova_champion_grant_otherworlder
+				if = {
+					limit = { has_variable = ova_pending_otherworlder }
+					remove_variable = ova_pending_otherworlder
+					scope:ova_new_champion = { add_trait = trait_otherworlder }
+				}
+				ova_champion_init_progress = yes
+				ova_champion_sync_traits = yes
+				ova_champion_update_army_buff = yes
+			}
+		}
+	}
+}
+
+# As ova_champion_create, but the NAME is left to the engine to roll from
+# CULTURE's own name list (so the two otherworld cultures' modern British /
+# Japanese lists drive it) and the GENDER is passed explicitly. Used by the
+# isekai summoning rite, which rolls both culture and gender before calling in.
+# Usage: ova_champion_create_named_by_culture = { CULTURE = cu:x AGE = 17 LEVEL = 10 FEMALE = yes }
+ova_champion_create_named_by_culture = {
+	create_character = {
+		age = $AGE$
+		female = $FEMALE$
+		culture = $CULTURE$
+		on_created = {
+			# see CHARACTER CREATION GOTCHA in the header: everything the new
+			# champion needs must happen here, not after create_character.
+			save_scope_as = ova_new_champion
+			add_trait = trait_champion
+            add_career_length = {
+                years = 100
+            }
+			owner = {
+				set_variable = { name = ova_champion_char value = scope:ova_new_champion }
+				set_variable = { name = ova_champion_level value = $LEVEL$ }
+				set_variable = { name = ova_champion_popularity value = 0 }
+				# otherworlder flag set before the (deferred) create call is
+				# consumed here - see ova_champion_grant_otherworlder
+				if = {
+					limit = { has_variable = ova_pending_otherworlder }
+					remove_variable = ova_pending_otherworlder
+					scope:ova_new_champion = { add_trait = trait_otherworlder }
+				}
+				ova_champion_init_progress = yes
+				ova_champion_sync_traits = yes
+				ova_champion_update_army_buff = yes
+			}
+		}
+	}
+}
+
+# Mark the NEXT (or current) champion as an otherworlder Hero. Call BEFORE
+# ova_champion_create (deferred creation consumes the pending flag in
+# on_created); if a champion already exists it is retagged immediately.
+# Storyline gameplay checks trait_otherworlder, never the summoning JE.
+ova_champion_grant_otherworlder = {
+	if = {
+		limit = { exists = var:ova_champion_char }
+		var:ova_champion_char ?= { add_trait = trait_otherworlder }
+	}
+	else = {
+		set_variable = ova_pending_otherworlder
+	}
+}
+
+# "Find a local hero": random unknown from the population, made a general.
+# Gender is rolled here (create_character defaults to male, so a female hero
+# needs female = yes at the call): 10% female, 90% male.
+ova_champion_create_local = {
+	random_list = {
+		90 = { ova_champion_create_local_gendered = { FEMALE = no } }
+		10 = { ova_champion_create_local_gendered = { FEMALE = yes } }
+	}
+}
+
+# Internal: the actual create for ova_champion_create_local, with an explicit
+# gender passed by the roll above.
+ova_champion_create_local_gendered = {
+	create_character = {
+		age = 18
+		female = $FEMALE$
+		on_created = {
+			save_scope_as = ova_champion_candidate
+            add_career_length = {
+                years = 100
+            }
+			owner = {
+				# a rare local prodigy already carries a cultivation realm, which
+				# the adopt effect below reads to set their starting Level (Qi
+				# Gathering -> 10, Foundation Establishment -> 20)
+				ova_champion_roll_local_cultivation = yes
+				ova_champion_adopt = yes
+			}
+		}
+	}
+}
+
+# Adopt an EXISTING character (ruler, heir, IG leader, local hero) as champion.
+# Expects scope:ova_champion_candidate. Starting level comes from the
+# candidate's cultivation trait; every champion starts at 0 renown.
+ova_champion_adopt = {
+	set_variable = { name = ova_champion_char value = scope:ova_champion_candidate }
+	set_variable = { name = ova_champion_level value = 1 }
+	if = {
+		limit = { scope:ova_champion_candidate = { has_trait = trait_return_to_the_void } }
+		set_variable = { name = ova_champion_level value = 60 }
+	}
+	else_if = {
+		limit = { scope:ova_champion_candidate = { has_trait = trait_soul_formation } }
+		set_variable = { name = ova_champion_level value = 50 }
+	}
+	else_if = {
+		limit = { scope:ova_champion_candidate = { has_trait = trait_nascent_soul } }
+		set_variable = { name = ova_champion_level value = 40 }
+	}
+	else_if = {
+		limit = { scope:ova_champion_candidate = { has_trait = trait_golden_core } }
+		set_variable = { name = ova_champion_level value = 30 }
+	}
+	else_if = {
+		limit = { scope:ova_champion_candidate = { has_trait = trait_foundation_establishment } }
+		set_variable = { name = ova_champion_level value = 20 }
+	}
+	else_if = {
+		limit = { scope:ova_champion_candidate = { has_trait = trait_qi_gathering } }
+		set_variable = { name = ova_champion_level value = 10 }
+	}
+	# every champion starts at 0 renown - a legend is earned, not granted
+	set_variable = { name = ova_champion_popularity value = 0 }
+	scope:ova_champion_candidate = { add_trait = trait_champion }
+	ova_champion_init_progress = yes
+	ova_champion_sync_traits = yes
+	ova_champion_update_army_buff = yes
+}
+
+# Zero the XP/renown-point counters and (re)compute both thresholds.
+# Internal - called by create/adopt.
+ova_champion_init_progress = {
+	set_variable = { name = ova_champion_xp value = 0 }
+	set_variable = { name = ova_champion_renown_points value = 0 }
+	ova_champion_update_xp_threshold = yes
+	ova_champion_update_renown_threshold = yes
+	ova_champion_sync_bars = yes
+}
+
+# xp_to_next = 40 + 4 * level. Internal.
+ova_champion_update_xp_threshold = {
+	set_variable = { name = ova_champion_xp_to_next value = 0 }
+	change_variable = { name = ova_champion_xp_to_next add = var:ova_champion_level }
+	change_variable = { name = ova_champion_xp_to_next multiply = 4 }
+	change_variable = { name = ova_champion_xp_to_next add = 40 }
+}
+
+# renown_to_next = 20 + renown level. Internal.
+ova_champion_update_renown_threshold = {
+	set_variable = { name = ova_champion_renown_to_next value = 0 }
+	change_variable = { name = ova_champion_renown_to_next add = var:ova_champion_popularity }
+	change_variable = { name = ova_champion_renown_to_next add = 20 }
+}
+
+# Push both scripted progress bars to their true values. Bars can only be
+# moved by add_progress deltas on the JE scope (je:je_x = { add_progress = {
+# name = <bar> value = n } }), so compute target percent minus current
+# progress. Runs on the monthly tick and after every XP/renown change; with
+# the variables gone (no champion) it drains both bars to zero. Safe to call
+# any time. Internal.
+ova_champion_sync_bars = {
+	if = {
+		limit = { has_journal_entry = je_ova_champion }
+		save_temporary_scope_value_as = {
+			name = ova_level_bar_delta
+			value = {
+				value = 0
+				if = {
+					limit = {
+						has_variable = ova_champion_xp
+						has_variable = ova_champion_xp_to_next
+					}
+					add = var:ova_champion_xp
+					multiply = 100
+					divide = var:ova_champion_xp_to_next
+				}
+				subtract = "je:je_ova_champion.scripted_bar_progress(ova_champion_level_bar)"
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = ova_renown_bar_delta
+			value = {
+				value = 0
+				if = {
+					limit = {
+						has_variable = ova_champion_renown_points
+						has_variable = ova_champion_renown_to_next
+					}
+					add = var:ova_champion_renown_points
+					multiply = 100
+					divide = var:ova_champion_renown_to_next
+				}
+				subtract = "je:je_ova_champion.scripted_bar_progress(ova_champion_renown_bar)"
+			}
+		}
+		je:je_ova_champion ?= {
+			add_progress = { name = ova_champion_level_bar value = scope:ova_level_bar_delta }
+			add_progress = { name = ova_champion_renown_bar value = scope:ova_renown_bar_delta }
+		}
+	}
+}
+
+# THE experience entry point: add XP, level up (possibly repeatedly) when the
+# threshold is met, carry the remainder, resync traits. XP is discarded at the
+# level 60 cap. Usage: ova_champion_add_xp = { AMOUNT = 20 }
+ova_champion_add_xp = {
+	if = {
+		limit = {
+			exists = var:ova_champion_char
+			var:ova_champion_level < 60
+		}
+        set_local_variable = {
+            name = added_xp
+            value = $AMOUNT$
+        }
+		# Otherworldly Heroes (trait_otherworlder) gain DOUBLE experience from
+		# every source - this entry point is the single funnel for all XP, so
+		# doubling here covers both the monthly tick and every event/effect.
+		if = {
+			limit = { var:ova_champion_char ?= { has_trait = trait_otherworlder } }
+			set_local_variable = {
+				name = added_xp
+				value = {
+					value = $AMOUNT$
+					multiply = 2
+				}
+			}
+		}
+		change_variable = { name = ova_champion_xp add = local_var:added_xp }
+		custom_tooltip = ova_champion_add_xp_tt
+		while = {
+			limit = {
+				var:ova_champion_xp >= var:ova_champion_xp_to_next
+				var:ova_champion_level < 60
+			}
+			change_variable = { name = ova_champion_xp subtract = var:ova_champion_xp_to_next }
+			change_variable = { name = ova_champion_level add = 1 }
+			ova_champion_update_xp_threshold = yes
+			custom_tooltip = ova_champion_level_up_tt
+		}
+		if = {
+			limit = { var:ova_champion_level >= 60 }
+			set_variable = { name = ova_champion_xp value = 0 }
+		}
+		ova_champion_sync_traits = yes
+		ova_champion_sync_bars = yes
+        # get rid of variable unused error (only used in localization)
+        if = {
+            limit = {
+                has_variable = added_xp
+            }
+        }
+	}
+}
+
+# DIRECT level jumps (bypasses XP - storyline realm rewards). The XP counter
+# resets: a fresh level starts empty. Usage: ova_champion_gain_levels = { LEVELS = 2 }
+ova_champion_gain_levels = {
+    set_local_variable = {
+        name = added_levels
+        value = $LEVELS$
+    }
+	change_variable = { name = ova_champion_level add = $LEVELS$ }
+	if = {
+		limit = { var:ova_champion_level > 60 }
+		set_variable = { name = ova_champion_level value = 60 }
+	}
+	set_variable = { name = ova_champion_xp value = 0 }
+	ova_champion_update_xp_threshold = yes
+	ova_champion_sync_traits = yes
+	ova_champion_sync_bars = yes
+	custom_tooltip = ova_champion_gain_levels_tt
+    # get rid of variable unused error (only used in localization)
+    if = {
+        limit = {
+            has_variable = added_levels
+        }
+    }
+}
+
+# Renown POINT change (may be negative). Points fill the renown bar; each
+# renown level costs 20 + current renown. Losing points below zero drains
+# whole renown levels. Renown level is clamped 0..100.
+# Usage: ova_champion_add_popularity = { AMOUNT = 5 }
+ova_champion_add_popularity = {
+	if = {
+		limit = { exists = var:ova_champion_char }
+        set_local_variable = {
+            name = added_renown
+            value = $AMOUNT$
+        }
+		# Otherworldly Heroes (trait_otherworlder) earn DOUBLE renown from every
+		# source - this entry point is the single funnel for all renown, so
+		# doubling here covers both the monthly tick and every event/effect.
+		if = {
+			limit = { var:ova_champion_char ?= { has_trait = trait_otherworlder } }
+			set_local_variable = {
+				name = added_renown
+				value = {
+					value = $AMOUNT$
+					multiply = 2
+				}
+			}
+		}
+		change_variable = { name = ova_champion_renown_points add = local_var:added_renown }
+		custom_tooltip = ova_champion_add_renown_tt
+		while = {
+			limit = {
+				var:ova_champion_renown_points >= var:ova_champion_renown_to_next
+				var:ova_champion_popularity < 100
+			}
+			change_variable = { name = ova_champion_renown_points subtract = var:ova_champion_renown_to_next }
+			change_variable = { name = ova_champion_popularity add = 1 }
+			ova_champion_update_renown_threshold = yes
+			custom_tooltip = ova_champion_renown_level_up_tt
+		}
+		if = {
+			limit = { var:ova_champion_popularity >= 100 }
+			set_variable = { name = ova_champion_renown_points value = 0 }
+		}
+		while = {
+			limit = {
+				var:ova_champion_renown_points < 0
+				var:ova_champion_popularity > 0
+			}
+			change_variable = { name = ova_champion_popularity subtract = 1 }
+			ova_champion_update_renown_threshold = yes
+			change_variable = { name = ova_champion_renown_points add = var:ova_champion_renown_to_next }
+			custom_tooltip = ova_champion_renown_level_down_tt
+		}
+		if = {
+			limit = { var:ova_champion_renown_points < 0 }
+			set_variable = { name = ova_champion_renown_points value = 0 }
+		}
+		ova_champion_sync_bars = yes
+        # get rid of variable unused error (only used in localization)
+        if = {
+            limit = {
+                has_variable = added_renown
+            }
+        }
+	}
+}
+
+# Injury: no adventures until healed. Usage: ova_champion_injure = { MONTHS = 6 }
+# Tooltipped like the XP/renown entry points: event options that wound the
+# champion must SAY so before the player clicks, or a story beat silently costs
+# half a year of adventures. Same local-variable idiom as ova_champion_add_xp
+# (the loc reads MONTHS off local_var:injured_months).
+ova_champion_injure = {
+	set_local_variable = {
+		name = injured_months
+		value = $MONTHS$
+	}
+	set_variable = { name = ova_champion_injured_months value = $MONTHS$ }
+	custom_tooltip = ova_champion_injure_tt
+	# get rid of variable unused error (only used in localization)
+	if = {
+		limit = {
+			has_local_variable = injured_months
+		}
+	}
+}
+
+ova_champion_heal = {
+	remove_variable = ova_champion_injured_months
+}
+
+# Seclusion (academy term / closed-door training): unavailable for MONTHS, then
+# the monthly tick grants a lump of XP and clears the state.
+# Usage: ova_champion_seclude = { MONTHS = 12 }
+ova_champion_seclude = {
+	set_variable = { name = ova_champion_secluded_months value = $MONTHS$ }
+}
+
+# Kill the champion and clean all bookkeeping.
+ova_champion_kill = {
+	var:ova_champion_char ?= { kill_character = yes }
+	ova_champion_cleanup = yes
+}
+
+# Clear the champion and all state (also used when the character died outside
+# script control - old age, battle). The level/renown counters are RESET TO
+# ZERO rather than removed so the progress-bar loc always has values to
+# render. Losing the champion locks the expedition action out for a year; a
+# running expedition breaks on its own via the pact's champion-alive
+# requirement.
+ova_champion_cleanup = {
+	# strip the champion identity traits while the character (if any) still
+	# exists - a demoted/replaced champion should stop being marked as one
+	var:ova_champion_char ?= {
+		if = { limit = { has_trait = trait_champion } remove_trait = trait_champion }
+		if = { limit = { has_trait = trait_otherworlder } remove_trait = trait_otherworlder }
+		# the renown-scaled prominence modifier ends with the champion role too
+		if = {
+			limit = { has_modifier = ova_champion_renown_prominence }
+			remove_modifier = ova_champion_renown_prominence
+		}
+	}
+	remove_variable = ova_champion_char
+	set_variable = { name = ova_champion_level value = 0 }
+	set_variable = { name = ova_champion_popularity value = 0 }
+	ova_champion_init_progress = yes
+	remove_variable = ova_champion_injured_months
+	remove_variable = ova_champion_secluded_months
+	remove_variable = ova_adventure_cooldown
+	remove_variable = ova_expedition_return
+	remove_variable = ova_pending_otherworlder
+    remove_variable = ova_hero_academy_graduated
+	remove_variable = ova_academy_term
+	# the two upkeep programs (modifiers) end with the champion
+	if = {
+		limit = { has_modifier = ova_champion_patronage_program }
+		remove_modifier = ova_champion_patronage_program
+	}
+	if = {
+		limit = { has_modifier = ova_champion_training_program }
+		remove_modifier = ova_champion_training_program
+	}
+	set_variable = { name = ova_expedition_lockout value = 12 }
+	if = {
+		limit = { has_modifier = ova_champion_living_legend }
+		remove_modifier = ova_champion_living_legend
+	}
+	if = {
+		limit = { has_modifier = ova_champion_ascendant_guardian }
+		remove_modifier = ova_champion_ascendant_guardian
+	}
+	if = {
+		limit = { has_modifier = ova_champion_renown }
+		remove_modifier = ova_champion_renown
+	}
+	# drain both progress bars right away rather than waiting for the tick
+	ova_champion_sync_bars = yes
+}
+
+# Apply one month of champion growth (XP + renown from every source:
+# base, Champion Hall lines, otherworlder bonus, storyline patronage
+# marker, and the two upkeep toggles). Split out of the monthly tick so
+# sabotage can gate it behind a 50% roll (see ova_champion_monthly_tick).
+ova_champion_apply_growth = {
+	# base growth
+	ova_champion_add_xp = { AMOUNT = 1 }
+	# Champion Hall: Martial Training line (XP, highest tier wins)
+	if = {
+		limit = { ova_champion_hall_pm = { PM = pm_ova_ascendant_arena } }
+		ova_champion_add_xp = { AMOUNT = 4 }
+	}
+	else_if = {
+		limit = { ova_champion_hall_pm = { PM = pm_ova_grand_dojo } }
+		ova_champion_add_xp = { AMOUNT = 3 }
+	}
+	else_if = {
+		limit = { ova_champion_hall_pm = { PM = pm_ova_masters_arena } }
+		ova_champion_add_xp = { AMOUNT = 2 }
+	}
+	else_if = {
+		limit = { ova_champion_hall_pm = { PM = pm_ova_sparring_yards } }
+		ova_champion_add_xp = { AMOUNT = 1 }
+	}
+	# Champion Hall: Scholarly Tutelage line (XP, highest tier wins)
+	if = {
+		limit = { ova_champion_hall_pm = { PM = pm_ova_celestial_archive } }
+		ova_champion_add_xp = { AMOUNT = 4 }
+	}
+	else_if = {
+		limit = { ova_champion_hall_pm = { PM = pm_ova_grand_athenaeum } }
+		ova_champion_add_xp = { AMOUNT = 3 }
+	}
+	else_if = {
+		limit = { ova_champion_hall_pm = { PM = pm_ova_arcane_library } }
+		ova_champion_add_xp = { AMOUNT = 2 }
+	}
+	else_if = {
+		limit = { ova_champion_hall_pm = { PM = pm_ova_hall_library } }
+		ova_champion_add_xp = { AMOUNT = 1 }
+	}
+	# Champion Hall: Patronage line (renown, highest tier wins)
+	if = {
+		limit = { ova_champion_hall_pm = { PM = pm_ova_imperial_apotheosis } }
+		ova_champion_add_popularity = { AMOUNT = 4 }
+	}
+	else_if = {
+		limit = { ova_champion_hall_pm = { PM = pm_ova_royal_pageants } }
+		ova_champion_add_popularity = { AMOUNT = 3 }
+	}
+	else_if = {
+		limit = { ova_champion_hall_pm = { PM = pm_ova_grand_patronage } }
+		ova_champion_add_popularity = { AMOUNT = 2 }
+	}
+	else_if = {
+		limit = { ova_champion_hall_pm = { PM = pm_ova_hall_patronage } }
+		ova_champion_add_popularity = { AMOUNT = 1 }
+	}
+	# otherworldly heroes get more renown (checks the trait, NOT the
+	# summoning JE, so any otherworlder champion qualifies)
+	if = {
+		limit = { var:ova_champion_char ?= { has_trait = trait_otherworlder } }
+		ova_champion_add_popularity = { AMOUNT = 1 }
+	}
+	# storyline patronage boost (ova_champion_patronage modifier):
+	# renown, not prestige
+	if = {
+		limit = { has_modifier = ova_champion_patronage }
+		ova_champion_add_popularity = { AMOUNT = 1 }
+	}
+	# Royal Patronage toggle (modifier): renown while active
+	if = {
+		limit = { has_modifier = ova_champion_patronage_program }
+		ova_champion_add_popularity = { AMOUNT = 2 }
+	}
+	# Closed-Door Training toggle (modifier): XP while active
+	if = {
+		limit = { has_modifier = ova_champion_training_program }
+		ova_champion_add_xp = { AMOUNT = 3 }
+	}
+}
+
+# Re-apply the upkeep-program modifiers so their money_amount_multiplier-scaled
+# cost tracks GDP. Called from on_five_year_pulse_country. A modifier's
+# multiplier is captured at apply-time, so removing and re-adding refreshes it.
+# Only touches a program that is still toggled on while a champion still lives.
+ova_champion_refresh_programs = {
+	if = {
+		limit = {
+			exists = var:ova_champion_char
+			has_modifier = ova_champion_patronage_program
+		}
+		remove_modifier = ova_champion_patronage_program
+		add_modifier = {
+			name = ova_champion_patronage_program
+			days = -1
+			multiplier = money_amount_multiplier_medium
+		}
+	}
+	if = {
+		limit = {
+			exists = var:ova_champion_char
+			has_modifier = ova_champion_training_program
+		}
+		remove_modifier = ova_champion_training_program
+		add_modifier = {
+			name = ova_champion_training_program
+			days = -1
+			multiplier = money_amount_multiplier_small
+		}
+	}
+}
+
+# Apply the renown-prominence CHARACTER modifier at a fixed magnitude.
+# Country scope. Internal - only the monthly tick's quantization ladder calls
+# it. $MULT$ is substituted at parse time, so the modifier gets a LITERAL
+# multiplier - character modifiers cannot lazily resolve variables in their
+# multiplier (they silently lock to 1; see the ladder in the monthly tick).
+# Usage: ova_champion_apply_prominence = { MULT = 40 }
+ova_champion_apply_prominence = {
+	var:ova_champion_char ?= {
+		add_modifier = {
+			name = ova_champion_renown_prominence
+			days = -1
+			multiplier = $MULT$
+		}
+	}
+}
+
+# Monthly upkeep - called ONLY from je_ova_champion's on_monthly_pulse
+# (regional JEs must NOT also call it, or XP doubles).
+ova_champion_monthly_tick = {
+	# an expedition marked "returning" broke its pact days ago - clear the flag
+	remove_variable = ova_expedition_return
+	# expedition lockout counts down with or without a living champion
+	if = {
+		limit = { has_variable = ova_expedition_lockout }
+		change_variable = { name = ova_expedition_lockout add = -1 }
+		if = {
+			limit = { var:ova_expedition_lockout <= 0 }
+			remove_variable = ova_expedition_lockout
+		}
+	}
+	# safety net: if the expedition pact vanished without firing a break effect
+	# (e.g. the target was annexed), don't leave the marker stuck forever
+	if = {
+		limit = {
+			has_variable = ova_expedition_active
+			NOT = {
+				any_country = {
+					has_diplomatic_pact = { who = prev type = ova_champion_expedition }
+				}
+			}
+		}
+		remove_variable = ova_expedition_active
+	}
+	# character died outside script control -> clean bookkeeping
+	if = {
+		limit = {
+			has_variable = ova_champion_char
+			NOT = { exists = var:ova_champion_char }
+		}
+		ova_champion_cleanup = yes
+	}
+	if = {
+		limit = { exists = var:ova_champion_char }
+		# self-heal: the level/renown counters must exist whenever a champion
+		# does - they are read in VALUE contexts below (save_temporary_scope_
+		# value_as, add_modifier multiplier), where a missing variable is an
+		# engine error ("Value of wrong type ... Got value of type 'none'")
+		if = {
+			limit = { NOT = { has_variable = ova_champion_popularity } }
+			set_variable = { name = ova_champion_popularity value = 0 }
+		}
+		if = {
+			limit = { NOT = { has_variable = ova_champion_level } }
+			set_variable = { name = ova_champion_level value = 1 }
+		}
+		var:ova_champion_char ?= {
+			if = {
+				limit = { is_in_void = yes }
+				free_character_from_void = yes
+			}
+		}
+		# adventure cooldown countdown
+		if = {
+			limit = { has_variable = ova_adventure_cooldown }
+			change_variable = { name = ova_adventure_cooldown add = -1 }
+			if = {
+				limit = { var:ova_adventure_cooldown <= 0 }
+				remove_variable = ova_adventure_cooldown
+			}
+		}
+		# injury recovery countdown
+		if = {
+			limit = { has_variable = ova_champion_injured_months }
+			change_variable = { name = ova_champion_injured_months add = -1 }
+			if = {
+				limit = { var:ova_champion_injured_months <= 0 }
+				remove_variable = ova_champion_injured_months
+			}
+		}
+		# seclusion countdown; big payoff when it completes
+		else_if = {
+			limit = { has_variable = ova_champion_secluded_months }
+			change_variable = { name = ova_champion_secluded_months add = -1 }
+			if = {
+				limit = { var:ova_champion_secluded_months <= 0 }
+				remove_variable = ova_champion_secluded_months
+				ova_champion_add_xp = { AMOUNT = 60 }
+			}
+		}
+		else = {
+			# monthly growth (XP + renown). Sabotage does NOT stop growth
+			# outright - it merely has a 50% chance to spoil the month; the
+			# other half of the time the champion grows despite the saboteurs.
+			if = {
+				limit = { NOT = { ova_champion_is_sabotaged = yes } }
+				ova_champion_apply_growth = yes
+			}
+			else = {
+				random = {
+					chance = 50
+					ova_champion_apply_growth = yes
+				}
+			}
+		}
+		# renown feeds national prestige (+1 prestige per renown level).
+		# IMPORTANT: add_modifier's `multiplier` is evaluated LAZILY by the
+		# modifier system, after this effect has finished. Temporary scopes
+		# (save_temporary_scope_value_as) are gone by then - the multiplier
+		# reads as 'none' (jomini_scriptvalue error) and silently defaults to
+		# 1. Only a variable on the modifier's own holder survives to that
+		# point, so each modifier below scales off a variable on its holder.
+		if = {
+			limit = { has_modifier = ova_champion_renown }
+			remove_modifier = ova_champion_renown
+		}
+		if = {
+			limit = { var:ova_champion_popularity >= 1 }
+			add_modifier = {
+				name = ova_champion_renown
+				days = -1
+				multiplier = var:ova_champion_popularity
+			}
+		}
+		# renown also swells the champion's own political weight (prominence):
+		# reapply a renown-scaled CHARACTER modifier on the champion, mirroring
+		# the country renown modifier above. Unlike country modifiers, a
+		# CHARACTER modifier cannot lazily resolve ANY variable in its
+		# multiplier (not even one on the character itself - it applies but
+		# the multiplier reads 'none' and silently locks to 1), so the level
+		# is quantized through an effect-time ladder onto LITERAL multipliers
+		# via ova_champion_apply_prominence (exact 1-9, then floored to tens).
+		if = {
+			limit = { var:ova_champion_popularity >= 1 }
+			var:ova_champion_char ?= {
+				if = {
+					limit = { has_modifier = ova_champion_renown_prominence }
+					remove_modifier = ova_champion_renown_prominence
+				}
+			}
+			if = { limit = { var:ova_champion_popularity >= 100 } ova_champion_apply_prominence = { MULT = 100 } }
+			else_if = { limit = { var:ova_champion_popularity >= 90 } ova_champion_apply_prominence = { MULT = 90 } }
+			else_if = { limit = { var:ova_champion_popularity >= 80 } ova_champion_apply_prominence = { MULT = 80 } }
+			else_if = { limit = { var:ova_champion_popularity >= 70 } ova_champion_apply_prominence = { MULT = 70 } }
+			else_if = { limit = { var:ova_champion_popularity >= 60 } ova_champion_apply_prominence = { MULT = 60 } }
+			else_if = { limit = { var:ova_champion_popularity >= 50 } ova_champion_apply_prominence = { MULT = 50 } }
+			else_if = { limit = { var:ova_champion_popularity >= 40 } ova_champion_apply_prominence = { MULT = 40 } }
+			else_if = { limit = { var:ova_champion_popularity >= 30 } ova_champion_apply_prominence = { MULT = 30 } }
+			else_if = { limit = { var:ova_champion_popularity >= 20 } ova_champion_apply_prominence = { MULT = 20 } }
+			else_if = { limit = { var:ova_champion_popularity >= 10 } ova_champion_apply_prominence = { MULT = 10 } }
+			else_if = { limit = { var:ova_champion_popularity >= 9 } ova_champion_apply_prominence = { MULT = 9 } }
+			else_if = { limit = { var:ova_champion_popularity >= 8 } ova_champion_apply_prominence = { MULT = 8 } }
+			else_if = { limit = { var:ova_champion_popularity >= 7 } ova_champion_apply_prominence = { MULT = 7 } }
+			else_if = { limit = { var:ova_champion_popularity >= 6 } ova_champion_apply_prominence = { MULT = 6 } }
+			else_if = { limit = { var:ova_champion_popularity >= 5 } ova_champion_apply_prominence = { MULT = 5 } }
+			else_if = { limit = { var:ova_champion_popularity >= 4 } ova_champion_apply_prominence = { MULT = 4 } }
+			else_if = { limit = { var:ova_champion_popularity >= 3 } ova_champion_apply_prominence = { MULT = 3 } }
+			else_if = { limit = { var:ova_champion_popularity >= 2 } ova_champion_apply_prominence = { MULT = 2 } }
+			else = { ova_champion_apply_prominence = { MULT = 1 } }
+		}
+		else = {
+			# renown 0: no prominence bonus at all
+			var:ova_champion_char ?= {
+				if = {
+					limit = { has_modifier = ova_champion_renown_prominence }
+					remove_modifier = ova_champion_renown_prominence
+				}
+			}
+		}
+		ova_champion_update_army_buff = yes
+	}
+	# keep both progress bars true even for countries with no champion (drains
+	# them to zero) and in months where no XP/renown changed
+	ova_champion_sync_bars = yes
+}
+
+# Country scope. Resyncs ova_sabotage_saboteurs (the display-list read by
+# ova_champion_is_sabotaged / ova_sabotage_watch_button) against the live
+# pact state - removes entries whose pact lapsed, adds any live
+# ova_sabotage_champion pact not yet listed. has_diplomatic_pact is safe here
+# because it's a plain effect/trigger context, not wrapped in custom_tooltip
+# (see the comment on ova_champion_is_sabotaged in ova_champion_triggers.txt).
+# 60_ova_sabotage.txt's accept/break effects mutate the list instantly for
+# real-time gating; this pass is the safety net AND, called from the canonical
+# on_monthly_pulse_country on_action (common/on_actions/00_code_on_actions.txt)
+# rather than from a diplomatic_action or JE field, is the add/remove site the
+# engine's variable-list validator actually credits as "used" (diplomatic
+# action pact effects and JE on_monthly_pulse apparently aren't scanned for
+# this - the list kept logging "used but never set" until this was added).
+ova_champion_sabotage_resync = {
+	if = {
+		limit = { has_variable_list = ova_sabotage_saboteurs }
+		every_in_list = {
+			variable = ova_sabotage_saboteurs
+			limit = {
+				NOT = { has_diplomatic_pact = { who = prev type = ova_sabotage_champion } }
+			}
+			remove_list_variable = {
+				name = ova_sabotage_saboteurs
+				target = this
+			}
+		}
+	}
+	every_country = {
+		limit = { has_diplomatic_pact = { who = prev type = ova_sabotage_champion } }
+		save_temporary_scope_as = ova_sabotage_resync_candidate
+		prev = {
+			if = {
+				limit = {
+					NOT = {
+						is_target_in_variable_list = {
+							name = ova_sabotage_saboteurs
+							target = scope:ova_sabotage_resync_candidate
+						}
+					}
+				}
+				add_to_variable_list = {
+					name = ova_sabotage_saboteurs
+					target = scope:ova_sabotage_resync_candidate
+				}
+			}
+		}
+	}
+}
+
+# Map level to the cultivation trait ladder, respecting each rung's tech gate.
+# Forward-only: if the engine's weekly condition-trait roll granted a HIGHER
+# rung than the level warrants, the trait stays but the level is NOT raised.
+ova_champion_sync_traits = {
+	if = {
+		limit = { exists = var:ova_champion_char }
+		if = {
+			limit = {
+				var:ova_champion_level >= 10
+				var:ova_champion_char ?= {
+					NOR = {
+						has_trait = trait_qi_gathering
+						has_trait = trait_foundation_establishment
+						has_trait = trait_golden_core
+						has_trait = trait_nascent_soul
+						has_trait = trait_soul_formation
+						has_trait = trait_return_to_the_void
+					}
+				}
+			}
+			var:ova_champion_char ?= { add_trait = trait_qi_gathering }
+		}
+		if = {
+			limit = {
+				var:ova_champion_level >= 20
+				var:ova_champion_char ?= {
+					has_trait = trait_qi_gathering
+					NOR = {
+						has_trait = trait_foundation_establishment
+						has_trait = trait_golden_core
+						has_trait = trait_nascent_soul
+						has_trait = trait_soul_formation
+						has_trait = trait_return_to_the_void
+					}
+				}
+			}
+			var:ova_champion_char ?= { add_trait = trait_foundation_establishment }
+		}
+		if = {
+			limit = {
+				var:ova_champion_level >= 30
+				var:ova_champion_char ?= {
+					has_trait = trait_foundation_establishment
+					NOR = {
+						has_trait = trait_golden_core
+						has_trait = trait_nascent_soul
+						has_trait = trait_soul_formation
+						has_trait = trait_return_to_the_void
+					}
+				}
+			}
+			var:ova_champion_char ?= { add_trait = trait_golden_core }
+		}
+		if = {
+			limit = {
+				var:ova_champion_level >= 40
+				var:ova_champion_char ?= {
+					has_trait = trait_golden_core
+					NOR = {
+						has_trait = trait_nascent_soul
+						has_trait = trait_soul_formation
+						has_trait = trait_return_to_the_void
+					}
+				}
+			}
+			var:ova_champion_char ?= { add_trait = trait_nascent_soul }
+		}
+		if = {
+			limit = {
+				var:ova_champion_level >= 50
+				var:ova_champion_char ?= {
+					has_trait = trait_nascent_soul
+					NOR = {
+						has_trait = trait_soul_formation
+						has_trait = trait_return_to_the_void
+					}
+				}
+			}
+			var:ova_champion_char ?= { add_trait = trait_soul_formation }
+		}
+		if = {
+			limit = {
+				var:ova_champion_level >= 60
+				var:ova_champion_char ?= {
+					has_trait = trait_soul_formation
+					NOT = { has_trait = trait_return_to_the_void }
+				}
+			}
+			var:ova_champion_char ?= { add_trait = trait_return_to_the_void }
+		}
+	}
+}
+
+# Country-wide army aura while the champion holds the top realms.
+ova_champion_update_army_buff = {
+	if = {
+		limit = {
+			var:ova_champion_char ?= {
+				OR = {
+					has_trait = trait_soul_formation
+					has_trait = trait_return_to_the_void
+				}
+			}
+		}
+		if = {
+			limit = { has_modifier = ova_champion_ascendant_guardian }
+			remove_modifier = ova_champion_ascendant_guardian
+		}
+		if = {
+			limit = { NOT = { has_modifier = ova_champion_living_legend } }
+			add_modifier = { name = ova_champion_living_legend days = -1 }
+		}
+	}
+	else_if = {
+		limit = {
+			var:ova_champion_char ?= {
+				OR = {
+					has_trait = trait_golden_core
+					has_trait = trait_nascent_soul
+				}
+			}
+		}
+		if = {
+			limit = { has_modifier = ova_champion_living_legend }
+			remove_modifier = ova_champion_living_legend
+		}
+		if = {
+			limit = { NOT = { has_modifier = ova_champion_ascendant_guardian } }
+			add_modifier = { name = ova_champion_ascendant_guardian days = -1 }
+		}
+	}
+	else = {
+		if = {
+			limit = { has_modifier = ova_champion_living_legend }
+			remove_modifier = ova_champion_living_legend
+		}
+		if = {
+			limit = { has_modifier = ova_champion_ascendant_guardian }
+			remove_modifier = ova_champion_ascendant_guardian
+		}
+	}
+}
+
+# --------------------------------------------------------------------------
+# Expedition seizure helpers. All three run in the initiator's country scope
+# with scope:ova_adventure_target (the victim) already saved. They pick and
+# resolve the state/province a seizure event bites into.
+
+# Pick the state a seizure carves from. PRIORITY: a state we ALREADY hold a
+# slice of (is_split_state, and one of the region's states is ours) so the
+# expedition finishes filling out a state it has already broken into before
+# opening a fresh front; only if there is no such shared state does it fall on
+# a new state that merely borders us. (any_scope_state on the state region is
+# the vanilla idiom for "who else owns part of this region", see
+# diplomatic_actions/04_trade_states.txt.)
+ova_champion_pick_seize_state = {
+	scope:ova_adventure_target ?= {
+		random_scope_state = {
+			limit = {
+				is_split_state = yes
+				state_region = { any_scope_state = { owner = ROOT } }
+			}
+			save_scope_as = ova_seized_state
+		}
+		if = {
+			limit = { NOT = { exists = scope:ova_seized_state } }
+			random_scope_state = {
+				limit = { any_neighbouring_state = { owner = ROOT } }
+				save_scope_as = ova_seized_state
+			}
+		}
+	}
+}
+
+# As above, plus the two centralized-target extras: an Otherworlder crusade
+# with NO land border aims at a coastal state for a beachhead, and the state
+# REGION is saved (permanent geography) so a claim can survive even if the
+# seizure carves away the target's last province in that region.
+ova_champion_pick_seize_state_centralized = {
+	ova_champion_pick_seize_state = yes
+	scope:ova_adventure_target ?= {
+		if = {
+			limit = {
+				NOT = { exists = scope:ova_seized_state }
+				ROOT = { var:ova_champion_char ?= { has_trait = trait_otherworlder } }
+			}
+			random_scope_state = {
+				limit = { is_coastal = yes }
+				save_scope_as = ova_seized_state
+			}
+		}
+	}
+	scope:ova_seized_state ?= {
+		state_region = { save_scope_as = ova_seized_region }
+	}
+}
+
+# Resolve ONE province seizure on scope:ova_seized_state. An Otherworlder
+# crusade with no land border storms a coastal beachhead; everyone with a land
+# border takes a province adjacent to their own soil. Sets ova_province_seized
+# on success (the caller reads and clears it).
+ova_champion_resolve_seize = {
+	if = {
+		limit = {
+			var:ova_champion_char ?= { has_trait = trait_otherworlder }
+			NOT = { scope:ova_adventure_target ?= { is_adjacent_to_country = ROOT } }
+		}
+		ova_champion_seize_coastal_province = yes
+	}
+	else = {
+		ova_champion_seize_province = yes
+	}
+}
+
+# Expedition event roll - fired from ova_champion_expedition's weekly_effect
+# (scope = the expedition's source country, scope:target_country = victim).
+# Outcome mix depends on target type; decisive outcomes (province seized,
+# champion dead) end the expedition via the ova_expedition_return variable /
+# the champion-alive pact requirement. A wounded or secluded champion makes
+# no progress (no events).
+#
+# Each branch is now a SINGLE weighted list whose entry weights slide with the
+# Champion's Level in 5-level steps (via the per-entry weight modifiers):
+# seizures and grand feats climb, wounds and death recede, so a stronger
+# Champion faces a steadily kinder outcome table. The doubled-up "carve two at
+# once" feats (48 / 58) only appear from Level 10.
+# NOTE on the weight modifiers: inside a random_list entry a `modifier = {}`
+# block is a SCRIPT VALUE added to the base weight, so every level gate must be
+# an `if = { limit = { ... } add = N }` (a bare `var >= N` there is a parse
+# error). Growth uses positive adds, the receding setbacks use negative ones
+# (base weights are chosen so no entry can fall below ~2).
+ova_expedition_roll = {
+	if = {
+		limit = { ova_champion_is_available = yes }
+		scope:target_country ?= { save_scope_as = ova_adventure_target }
+		if = {
+			limit = { scope:ova_adventure_target = { is_country_type = decentralized } }
+			random_list = {
+				# --- territory (grows with Level)
+				14 = {
+					modifier = {
+						if = { limit = { var:ova_champion_level >= 5 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 15 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 25 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 35 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 45 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 55 } add = 2 }
+					}
+					trigger_event = { id = ova_champion.20 }
+				}
+				1 = { # two valleys fall at once (Level 10+)
+					trigger = { var:ova_champion_level >= 10 }
+					modifier = {
+						if = { limit = { var:ova_champion_level >= 10 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 20 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 30 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 40 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 50 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 60 } add = 2 }
+					}
+					trigger_event = { id = ova_champion.48 }
+				}
+				# --- spoils and glory
+				18 = {
+					modifier = {
+						if = { limit = { var:ova_champion_level >= 20 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 40 } add = 2 }
+					}
+					trigger_event = { id = ova_champion.21 }
+				}
+				8 = {
+					modifier = { if = { limit = { var:ova_champion_level >= 30 } add = 2 } }
+					trigger_event = { id = ova_champion.40 }
+				}
+				5 = { trigger_event = { id = ova_champion.41 } }
+				8 = {
+					modifier = {
+						if = { limit = { var:ova_champion_level >= 25 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 45 } add = 2 }
+					}
+					trigger_event = { id = ova_champion.42 }
+				}
+				7 = { trigger_event = { id = ova_champion.43 } }
+				6 = {
+					modifier = { if = { limit = { var:ova_champion_level >= 35 } add = 2 } }
+					trigger_event = { id = ova_champion.44 }
+				}
+				12 = { trigger_event = { id = ova_champion.22 } }
+				# --- neutral / logistics
+				10 = { trigger_event = { id = ova_champion.45 } }
+				6 = { trigger_event = { id = ova_champion.46 } }
+				10 = { trigger_event = { id = ova_champion.25 } }
+				9 = { trigger_event = { id = ova_champion.26 } }
+				# --- setbacks (recede with Level)
+				12 = {
+					modifier = {
+						if = { limit = { var:ova_champion_level >= 20 } add = -3 }
+						if = { limit = { var:ova_champion_level >= 40 } add = -3 }
+					}
+					trigger_event = { id = ova_champion.23 }
+				}
+				8 = {
+					modifier = { if = { limit = { var:ova_champion_level >= 30 } add = -2 } }
+					trigger_event = { id = ova_champion.47 }
+				}
+				6 = {
+					modifier = { if = { limit = { var:ova_champion_level >= 35 } add = -2 } }
+					trigger_event = { id = ova_champion.49 }
+				}
+				8 = {
+					modifier = {
+						if = { limit = { var:ova_champion_level >= 15 } add = -2 }
+						if = { limit = { var:ova_champion_level >= 30 } add = -2 }
+						if = { limit = { var:ova_champion_level >= 45 } add = -2 }
+					}
+					trigger_event = { id = ova_champion.24 }
+				}
+			}
+		}
+		else = {
+			random_list = {
+				# --- territory (grows with Level)
+				12 = {
+					modifier = {
+						if = { limit = { var:ova_champion_level >= 5 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 15 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 25 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 35 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 45 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 55 } add = 2 }
+					}
+					trigger_event = { id = ova_champion.30 }
+				}
+				1 = { # two marches overrun at once (Level 10+)
+					trigger = { var:ova_champion_level >= 10 }
+					modifier = {
+						if = { limit = { var:ova_champion_level >= 10 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 20 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 30 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 40 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 50 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 60 } add = 2 }
+					}
+					trigger_event = { id = ova_champion.58 }
+				}
+				# --- spoils and glory
+				18 = {
+					modifier = {
+						if = { limit = { var:ova_champion_level >= 20 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 40 } add = 2 }
+					}
+					trigger_event = { id = ova_champion.31 }
+				}
+				8 = {
+					modifier = { if = { limit = { var:ova_champion_level >= 30 } add = 2 } }
+					trigger_event = { id = ova_champion.50 }
+				}
+				5 = { trigger_event = { id = ova_champion.51 } }
+				10 = { trigger_event = { id = ova_champion.52 } }
+				7 = {
+					modifier = {
+						if = { limit = { var:ova_champion_level >= 25 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 45 } add = 2 }
+					}
+					trigger_event = { id = ova_champion.53 }
+				}
+				7 = { trigger_event = { id = ova_champion.54 } }
+				12 = { trigger_event = { id = ova_champion.32 } }
+				# --- neutral / logistics
+				9 = { trigger_event = { id = ova_champion.55 } }
+				6 = { trigger_event = { id = ova_champion.56 } }
+				10 = { trigger_event = { id = ova_champion.25 } }
+				9 = { trigger_event = { id = ova_champion.26 } }
+				# --- setbacks (recede with Level)
+				12 = {
+					modifier = {
+						if = { limit = { var:ova_champion_level >= 20 } add = -3 }
+						if = { limit = { var:ova_champion_level >= 40 } add = -3 }
+					}
+					trigger_event = { id = ova_champion.33 }
+				}
+				8 = {
+					modifier = { if = { limit = { var:ova_champion_level >= 30 } add = -2 } }
+					trigger_event = { id = ova_champion.57 }
+				}
+				6 = {
+					modifier = { if = { limit = { var:ova_champion_level >= 35 } add = -2 } }
+					trigger_event = { id = ova_champion.59 }
+				}
+				8 = {
+					modifier = {
+						if = { limit = { var:ova_champion_level >= 15 } add = -2 }
+						if = { limit = { var:ova_champion_level >= 30 } add = -2 }
+						if = { limit = { var:ova_champion_level >= 45 } add = -2 }
+					}
+					trigger_event = { id = ova_champion.34 }
+				}
+			}
+		}
+	}
+}

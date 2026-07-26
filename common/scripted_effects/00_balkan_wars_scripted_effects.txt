@@ -1,0 +1,210 @@
+﻿partition_ottoman_balkans = {
+    # release countries if they dont exist
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:ALB' not present in this mod
+            }
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:albanian (no mod analogue)
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:albanian (no mod analogue)
+                }
+            }
+            save_scope_as = albania_scope
+        }
+        # removed (create_country: Invalid tag)
+        # removed effect block: vanilla ref 'c:ALB' not present in this mod
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:BUL' not present in this mod
+            }
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # vanilla ref 'cu:bulgarian' not present in this mod
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # vanilla ref 'cu:bulgarian' not present in this mod
+                }
+            }
+            save_scope_as = bulgaria_scope
+        }
+        # removed (create_country block)
+        # removed effect block: vanilla ref 'c:BUL' not present in this mod
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:BOS' not present in this mod
+            }
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:bosniak (no mod analogue)
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:bosniak (no mod analogue)
+                }
+            }
+            save_scope_as = bosnia_scope
+        }
+        # removed (create_country block)
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:CRO' not present in this mod
+            }
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:croat (no mod analogue)
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:croat (no mod analogue)
+                }
+            }
+            save_scope_as = croatia_scope
+        }
+        # removed (create_country block)
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:MON' not present in this mod
+            }
+            always = no # vanilla ref 's:STATE_MONTENEGRO' not present in this mod
+        }
+        # removed effect block: vanilla ref 's:STATE_MONTENEGRO' not present in this mod
+        # removed (create_country block)
+        # removed effect block: vanilla ref 'c:MON' not present in this mod
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:SER' not present in this mod
+            }
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:serb (no mod analogue)
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:serb (no mod analogue)
+                }
+            }
+            save_scope_as = serbia_scope
+        }
+        # removed (create_country block)
+        # removed effect block: vanilla ref 'c:SER' not present in this mod
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:GRE' not present in this mod
+            }
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:greek (no mod analogue)
+                }
+            }
+        }
+        random_scope_state = {
+            limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                state_region = {
+                    always = no # was culture = cu:greek (no mod analogue)
+                }
+            }
+            save_scope_as = greece_scope
+        }
+        # removed (create_country: Invalid tag)
+        # removed effect block: vanilla ref 'c:GRE' not present in this mod
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:WAL' not present in this mod
+            }
+            always = no # vanilla ref 's:STATE_WALLACHIA' not present in this mod
+        }
+        # removed effect block: vanilla ref 's:STATE_WALLACHIA' not present in this mod
+        # removed (create_country: Invalid tag)
+    }
+    if = {
+        limit = {
+            NOT = {
+                always = no # vanilla ref 'c:MOL' not present in this mod
+            }
+            always = no # vanilla ref 's:STATE_MOLDAVIA' not present in this mod
+        }
+        # removed effect block: vanilla ref 's:STATE_MOLDAVIA' not present in this mod
+        # removed (create_country block, invalid vanilla reference)
+    }
+
+    # divide up states
+    while = {
+        limit = {
+            any_scope_state = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+            }
+        }
+		random_country = {
+			limit = {
+                capital = {
+                    always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                }
+				any_neighbouring_state = {
+                    is_homeland_of_country_cultures = prev
+					owner = root
+				}
+			}
+			save_scope_as = new_owner_scope
+		}
+		random_scope_state = {
+			limit = {
+                always = no # vanilla ref 'sr:region_balkans' not present in this mod
+                is_homeland_of_country_cultures = scope:new_owner_scope
+				any_neighbouring_state = {
+					owner = scope:new_owner_scope
+				}
+			}
+			set_state_owner = scope:new_owner_scope
+		}
+		clear_saved_scope = new_owner_scope
+    }
+
+
+}

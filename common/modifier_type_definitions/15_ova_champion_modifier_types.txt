@@ -1,0 +1,25 @@
+﻿### Champions JE - engine-required throughput modifier types for the new
+### building group / building (auto-referenced per building defined in script)
+
+building_champion_hall_throughput_add={
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+### Description-only boolean modifiers (no gameplay effect - the champion XP /
+### renown is granted script-side by ova_champion_monthly_tick). These exist
+### solely so each Champion Hall PM can DISPLAY its effect as a custom tooltip
+### line (PMs have no _desc; the confirmed pattern is a no-effect modifier in a
+### PM modifier block - cf. state_control_strait_bool). One per (kind, amount).
+country_ova_champion_xp_1_bool={ script_only = yes color=good boolean=yes game_data={ ai_value=0 } }
+country_ova_champion_xp_2_bool={ script_only = yes color=good boolean=yes game_data={ ai_value=0 } }
+country_ova_champion_xp_3_bool={ script_only = yes color=good boolean=yes game_data={ ai_value=0 } }
+country_ova_champion_xp_4_bool={ script_only = yes color=good boolean=yes game_data={ ai_value=0 } }
+country_ova_champion_renown_1_bool={ script_only = yes color=good boolean=yes game_data={ ai_value=0 } }
+country_ova_champion_renown_2_bool={ script_only = yes color=good boolean=yes game_data={ ai_value=0 } }
+country_ova_champion_renown_3_bool={ script_only = yes color=good boolean=yes game_data={ ai_value=0 } }
+country_ova_champion_renown_4_bool={ script_only = yes color=good boolean=yes game_data={ ai_value=0 } }

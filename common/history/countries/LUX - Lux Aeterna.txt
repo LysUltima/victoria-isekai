@@ -1,0 +1,16 @@
+﻿# Lux Aeterna (isekai: artifice tier 2)
+COUNTRIES = {
+	c:LUX ?= {
+		effect_starting_technology_artifice_tier_2 = yes
+		create_character = { template = template_ruler_lux role = ruler }
+		effect_starting_politics_conservative = yes
+        activate_law = law_type:law_theocracy
+        activate_law = law_type:law_oligarchy
+        activate_law = law_type:law_professional_army
+        
+        
+		add_modifier = { name = ova_lux_voice_of_the_goddess days = -1 }
+        set_variable = { name = ova_lux_hero_count value = 0 }
+        add_journal_entry = { type = je_ova_eternal_crusade }
+	}
+}

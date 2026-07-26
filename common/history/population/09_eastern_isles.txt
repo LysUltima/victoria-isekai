@@ -1,0 +1,34 @@
+﻿POPULATION = {
+    c:ASH = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:HAN = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:HIB = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:IRO = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:KON = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:SHI = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:YUK = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:YUU = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+}

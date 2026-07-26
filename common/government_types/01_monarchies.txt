@@ -1,0 +1,1246 @@
+﻿### Regencies are split off into government_types/01_regencies
+gov_domain_alliance = {
+	transfer_of_power = hereditary
+
+	male_ruler = "DAIMYO_TITLE"
+	female_ruler = "DAIMYO_TITLE"
+
+	male_heir = "RULER_TITLE_HEIR_APPARENT"
+	female_heir = "RULER_TITLE_HEIR_APPARENT"
+
+	possible = {
+		is_domain_alliance_gov = yes
+
+		country_is_not_united_kingdom_overlord = yes
+		country_is_not_united_kingdom_subject = yes
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_crown_land_governor_generic = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_GOVERNOR"
+	female_ruler = "RULER_TITLE_GOVERNESS"
+
+	possible = {
+		is_subject_type = subject_type_crown_land
+		overlord ?= {
+			has_law = law_type:law_monarchy
+		}
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_triple_monarchy = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_EMPEROR_KING"
+	female_ruler = "RULER_TITLE_EMPRESS_QUEEN"
+
+	male_heir = "RULER_TITLE_ARCHDUKE"
+	female_heir = "RULER_TITLE_ARCHDESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			AND = {
+				any_subject_or_below = {
+					is_subject_type = subject_type_personal_union
+					count = 2
+				}
+			}
+			AND = {
+				is_subject_type = subject_type_personal_union
+				any_overlord_or_above = {
+					any_subject_or_below = {
+                        is_subject_type = subject_type_personal_union
+						count = 2
+					}
+				}
+			}
+		}
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_dual_monarchy = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_EMPEROR_KING"
+	female_ruler = "RULER_TITLE_EMPRESS_QUEEN"
+
+	male_heir = "RULER_TITLE_ARCHDUKE"
+	female_heir = "RULER_TITLE_ARCHDESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			AND = {
+				any_subject_or_below = {
+					is_subject_type = subject_type_personal_union
+					count = 1
+				}
+			}
+			AND = {
+				is_subject_type = subject_type_personal_union
+				any_overlord_or_above = {
+					NOT = {
+						any_subject_or_below = {
+                            is_subject_type = subject_type_personal_union
+						}
+					}
+				}
+			}
+		}
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+# TODO reflavor to pirate
+gov_griqua_captaincy = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_CAPTAIN"
+	female_ruler = "RULER_TITLE_CAPTAIN"
+
+	male_heir = "RULER_TITLE_HEIR_APPARENT"
+	female_heir = "RULER_TITLE_HEIR_APPARENT"
+
+	possible = {
+		always = no # was culture = cu:griqua (no mod analogue), no in-mod analogue
+		has_law = law_type:law_monarchy
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_enlightened_despotate = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_PHILOSOPHER_KING"
+	female_ruler = "RULER_TITLE_PHILOSOPHER_QUEEN"
+
+	male_heir = "RULER_TITLE_HEIR_APPARENT"
+	female_heir = "RULER_TITLE_HEIR_APPARENT"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_technocracy
+		country_is_not_dual_or_triple_monarchy_subject = yes
+		country_is_not_united_kingdom_overlord = yes
+		country_is_not_united_kingdom_subject = yes
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_shogunate = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_SHOGUN"
+	female_ruler = "RULER_TITLE_SHOGUN"
+
+	male_heir = "RULER_TITLE_KEISHI"
+	female_heir = "RULER_TITLE_KEISHI"
+
+	possible = {
+		country_has_primary_culture = cu:sakura
+		has_law = law_type:law_monarchy
+		has_law = law_type:law_bakufu
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_hawaiian_monarchy_recognised = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_MOI"
+	female_ruler = "RULER_TITLE_MOIWAHINE"
+
+	male_heir = "RULER_TITLE_KAMALII"
+	female_heir = "RULER_TITLE_KAMALII_WAHINE"
+
+	possible = {
+		country_has_primary_culture = cu:kanaka
+		NOT = { is_country_type = unrecognized }
+		has_law = law_type:law_monarchy
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_hawaiian_monarchy = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_ALII_NUI"
+	female_ruler = "RULER_TITLE_ALII_NUI"
+
+	male_heir = "RULER_TITLE_KAMALII"
+	female_heir = "RULER_TITLE_KAMALII_WAHINE"
+
+	possible = {
+		country_has_primary_culture = cu:kanaka
+		is_country_type = unrecognized
+		has_law = law_type:law_monarchy
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_malikdom = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_MALIK"
+	female_ruler = "RULER_TITLE_MALIKA"
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_primary_culture = cu:faryan
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_sultanate = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_SULTAN"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_IMPERIAL_PRINCE"
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+        NOT = { country_tier = empire }
+		OR = {
+            country_has_primary_culture = cu:nadirene
+            country_has_primary_culture = cu:ghazalin
+        }
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_hakimate = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_HAKIM"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		country_has_primary_culture = cu:qadirin
+		country_tier = principality
+		has_law = law_type:law_monarchy
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_sheikhdom = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_SHEIKH"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		country_tier = principality
+		has_law = law_type:law_monarchy
+		country_has_primary_culture = cu:zaharin
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_bhutanese_monarchy = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_DRAGON_KING"
+	female_ruler = "RULER_TITLE_DRAGON_QUEEN"
+
+	male_heir = "RULER_TITLE_DRAGON_PRINCE"
+	female_heir = "RULER_TITLE_DRAGON_PRINCESS"
+
+	possible = {
+		country_has_primary_culture = cu:arasni
+		has_law = law_type:law_monarchy
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_caliphate = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_CALIPH"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		country_tier = empire
+        OR = {
+            country_has_primary_culture = cu:nadirene
+            country_has_primary_culture = cu:ghazalin
+        }
+		has_law = law_type:law_monarchy
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_shah = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_SHAH"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_CROWN_PRINCE"
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_primary_culture = cu:desert_catkin
+		NOT = {
+			is_subject_type = subject_type_crown_land
+		}
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_prince = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_PRINCE"
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_HEIR_APPARENT"
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		always = no
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_decentralized_realm = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_KING"
+	female_ruler = "RULER_TITLE_QUEEN"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+
+
+	possible = {
+		is_country_type = decentralized
+		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_autocracy
+		#country_tier = principality
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+
+gov_tibetan_kingdom = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_GYALPO"
+	female_ruler = "RULER_TITLE_GYALMO"
+
+	male_heir = "RULER_TITLE_GYALSRAS"
+	female_heir = "RULER_TITLE_GYALSMO"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_primary_culture = cu:khambu
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+
+gov_khanate = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_KHAN"
+	female_ruler = "RULER_TITLE_KHATUN"
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_primary_culture = cu:horsekin
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_absolute_principality_muslim = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_EMIR"
+	female_ruler = "RULER_TITLE_EMIRA"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_autocracy
+		country_tier = principality
+		OR = {
+			country_has_state_religion = rel:dawnfast
+		}
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_absolute_empire = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_EMPEROR"
+	female_ruler = "RULER_TITLE_EMPRESS"
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_autocracy
+		NOT = {
+			has_law = law_type:law_bakufu
+		}
+		OR = {
+			country_tier = hegemony
+			country_tier = empire
+		}
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_feudal_empire = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_EMPEROR"
+	female_ruler = "RULER_TITLE_EMPRESS"
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = no
+		NOR = {
+			has_law_or_variant = law_type:law_technocracy
+			has_law = law_type:law_bakufu
+		}
+		has_law_or_variant = law_type:law_serfdom
+		OR = {
+			country_tier = hegemony
+			country_tier = empire
+		}
+		country_is_not_united_kingdom_overlord = yes
+		country_is_not_united_kingdom_subject = yes
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_empire = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_EMPEROR"
+	female_ruler = "RULER_TITLE_EMPRESS"
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = no
+		NOR = {
+			has_law_or_variant = law_type:law_technocracy
+			has_law = law_type:law_bakufu
+		}
+		OR = {
+			country_tier = hegemony
+			country_tier = empire
+		}
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+
+gov_constitutional_empire = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_EMPEROR"
+	female_ruler = "RULER_TITLE_EMPRESS"
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = yes
+		OR = {
+			country_tier = hegemony
+			country_tier = empire
+		}
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_absolute_kingdom = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_KING"
+	female_ruler = "RULER_TITLE_QUEEN"
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_autocracy
+		OR = {
+			country_tier = kingdom
+		}
+		country_is_not_dual_or_triple_monarchy_subject = yes
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_feudal_kingdom = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_KING"
+	female_ruler = "RULER_TITLE_QUEEN"
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = no
+		NOT = {
+			has_law_or_variant = law_type:law_technocracy
+		}
+		has_law_or_variant = law_type:law_serfdom
+		country_tier = kingdom
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_kingdom = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_KING"
+	female_ruler = "RULER_TITLE_QUEEN"
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = no
+		NOT = {
+			has_law_or_variant = law_type:law_technocracy
+		}
+		OR = {
+			country_tier = kingdom
+		}
+		country_is_not_dual_or_triple_monarchy_subject = yes
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_constitutional_kingdom = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_KING"
+	female_ruler = "RULER_TITLE_QUEEN"
+
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = yes
+		OR = {
+			country_tier = kingdom
+		}
+		country_is_not_dual_or_triple_monarchy_subject = yes
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_absolute_county = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_COUNT"
+	female_ruler = "RULER_TITLE_COUNTESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+
+
+	possible = {
+		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_autocracy
+		country_tier = city_state
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_constitutional_county = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_COUNT"
+	female_ruler = "RULER_TITLE_COUNTESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = yes
+		country_tier = city_state
+
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_county = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_COUNT"
+	female_ruler = "RULER_TITLE_COUNTESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = no
+		NOT = {
+			has_law_or_variant = law_type:law_technocracy
+		}
+		country_tier = city_state
+
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+
+gov_absolute_duchy = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_DUKE"
+	female_ruler = "RULER_TITLE_DUCHESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+
+
+	possible = {
+		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_autocracy
+		country_tier = principality
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_constitutional_duchy = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_DUKE"
+	female_ruler = "RULER_TITLE_DUCHESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = yes
+		country_tier = principality
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_duchy = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_DUKE"
+	female_ruler = "RULER_TITLE_DUCHESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = no
+		NOT = {
+			has_law_or_variant = law_type:law_technocracy
+		}
+		country_tier = principality
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+
+gov_absolute_principality = {
+	transfer_of_power = hereditary
+	male_ruler = "RULER_TITLE_PRINCE"
+	female_ruler = "RULER_TITLE_PRINCESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_autocracy
+		country_tier = principality
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_principality = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_PRINCE"
+	female_ruler = "RULER_TITLE_PRINCESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = no
+		NOT = {
+			has_law_or_variant = law_type:law_technocracy
+		}
+		country_tier = principality
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+
+gov_constitutional_principality = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_PRINCE"
+	female_ruler = "RULER_TITLE_PRINCESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = yes
+		country_tier = principality
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_absolute_grand_duchy = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_GRAND_DUKE"
+	female_ruler = "RULER_TITLE_GRAND_DUCHESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_autocracy
+		country_tier = grand_principality
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_grand_duchy = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_GRAND_DUKE"
+	female_ruler = "RULER_TITLE_GRAND_DUCHESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = no
+		NOT = {
+			has_law_or_variant = law_type:law_technocracy
+		}
+		country_tier = grand_principality
+
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+
+gov_constitutional_grand_duchy = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_GRAND_DUKE"
+	female_ruler = "RULER_TITLE_GRAND_DUCHESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = yes
+		country_tier = grand_principality
+
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_absolute_grand_principality = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_GRAND_PRINCE"
+	female_ruler = "RULER_TITLE_GRAND_PRINCESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_autocracy
+		country_tier = grand_principality
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_grand_principality = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_GRAND_PRINCE"
+	female_ruler = "RULER_TITLE_GRAND_PRINCESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = no
+		NOT = {
+			has_law_or_variant = law_type:law_technocracy
+		}
+		country_tier = grand_principality
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+
+gov_constitutional_grand_principality = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_GRAND_PRINCE"
+	female_ruler = "RULER_TITLE_GRAND_PRINCESS"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_has_voting_franchise = yes
+		country_tier = grand_principality
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}

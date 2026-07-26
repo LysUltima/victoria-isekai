@@ -1,0 +1,495 @@
+﻿# CRI Crimson Jade Sect
+STATE_QIONGHUA = {
+    # 瓊華
+    id = 330
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x8DE215" "x8FE01C" "x95D311" "x96D717" "xA1D80F" "xA1D90A" "xA1E91E" "xA4C80C" "xAACC08" "xAACE19" "xABC711" "xAEE90D" "xAFCA07" "xAFE62F" "xB0D219" "xB0DE16" "xB1DC2A" "xB1EE1C" "xB3CB11" "xB5D20D" }
+    impassable = { xA1D80F x8DE215 x96D717 xABC711 }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" "state_trait_natural_harbors" }
+    city = "xAACC08"
+    port = "x95D311"
+    farm = "xAEE90D"
+    mine = "xB0DE16"
+    wood = "xAFE62F"
+    arable_land = 128
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 9
+        building_iron_mine = 42
+        building_logging_camp = 20
+    }
+    naval_exit_id = 3045
+}
+
+STATE_BIYING = {
+    # 碧瑩
+    id = 331
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x53C53C" "x57B835" "x57CA2E" "x58B723" "x5CC23A" "x6ABA3E" "x6BC530" "x6BCE3D" "x6DB131" "x6FCC43" "x70D42A" "x71CD39" "x72BE26" "x72CD3F" "x75C32F" "x77BD2A" "x78B427" "x78D23E" "x7BBD26" "x23993F" }
+    impassable = { x78B427 x78D23E x7BBD26 x53C53C }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x72CD3F"
+    port = "x6FCC43"
+    farm = "x57CA2E"
+    mine = "x57B835"
+    wood = "x58B723"
+    arable_land = 134
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 9
+        building_logging_camp = 20
+    }
+    naval_exit_id = 3045
+}
+
+STATE_YUXU = {
+    # 玉虛
+    id = 332
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "xCA5A23" "xCB571E" "xCD4F38" "xCD5C18" "xD7601C" "xD94F31" "xDA5E2C" "xDC6013" "xDC6517" "xDD5837" "xDE5220" "xE3491B" "xE46B20" "xE55918" "xE6481A" "xEB4E14" "xED6929" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "xED6929"
+    port = "xD7601C"
+    farm = "xCB571E"
+    mine = "xCA5A23"
+    wood = "xE46B20"
+    arable_land = 172
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_coal_mine = 31
+        building_fishing_wharf = 11
+        building_iron_mine = 43
+        building_lead_mine = 58
+        building_logging_camp = 25
+    }
+    naval_exit_id = 3008
+}
+# UND Underworld Sect
+STATE_YOUMING = {
+    # 幽冥
+    id = 333
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x7A6630" "x7C6740" "x7C6E23" "x7D773D" "x80762A" "x835D30" "x88641F" "x887826" "x895E3E" "x896528" "x897839" "x8A6D2C" "x8B751F" "x8E6942" "x8F561E" "x945323" "x94712E" "x95623B" "x996343" "x9A762A" "xA0761E" "xA16A32" }
+    impassable = { "x80762A" "xA16A32" "x95623B" "x7A6630" "xA0761E" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x897839"
+    port = "x8E6942"
+    farm = "x94712E"
+    mine = "x7C6E23"
+    wood = "x895E3E"
+    arable_land = 162
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 14
+        building_logging_camp = 22
+    }
+    naval_exit_id = 3008
+}
+# SUR Surging Waves
+STATE_FUHAI_NUTAO = {
+    # 覆海怒涛
+    id = 334
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x3B4826" "x3E2512" "x412707" "x423427" "x433026" "x524516" "x552301" "x553E13" "x5A4110" }
+    traits = { "state_trait_malaria" }
+    city = "x3B4826"
+    port = "x412707"
+    farm = "x552301"
+    mine = "x433026"
+    wood = "x3E2512"
+    arable_land = 185
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 11
+        building_logging_camp = 25
+    }
+    naval_exit_id = 3045
+}
+# XIL Xila Wulada
+STATE_XILA_WULADA = {
+    # Selat Berdarah
+    id = 335
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x00180B" "x001B02" "x002100" "x00221C" "x002903" "x00321C" "x003713" "x031A1A" "x03261C" "x09370F" "x0A111F" "x0C1606" "x0D3708" "x0E2C00" "x0F1500" "x132D15" "x133600" "x15350B" "x15361B" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x00321C"
+    port = "x001B02"
+    farm = "x132D15"
+    mine = "x031A1A"
+    wood = "x0F1500"
+    arable_land = 142
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 14
+        building_iron_mine = 44
+        building_lead_mine = 68
+        building_logging_camp = 24
+    }
+    naval_exit_id = 3008
+}
+# PUL Pulao Wuya
+STATE_PULAO_WUYA = {
+    # Pulau Buaya
+    id = 336
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x4E380B" "x4E4314" "x5A3704" "x622C03" "x663E05" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x663E05"
+    port = "x663E05"
+    farm = "x5A3704"
+    mine = "x622C03"
+    wood = "x4E4314"
+    arable_land = 136
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 9
+        building_lead_mine = 27
+        building_logging_camp = 22
+    }
+    naval_exit_id = 3008
+}
+# HAD Hada Silu
+STATE_HADA_SILU = {
+    # Harta Seribu
+    id = 337
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x3E8637" "x3FA22F" "x5B9C2A" "x5C9225" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x5C9225"
+    port = "x3FA22F"
+    farm = "x3E8637"
+    mine = "x5B9C2A"
+    wood = "x5C9225"
+    arable_land = 84
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 9
+        building_logging_camp = 16
+    }
+    naval_exit_id = 3008
+}
+# LAN White Pearl Sect
+STATE_LANGGAN = {
+    # 琅玕
+    id = 338
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x97C224" "x9ACC2C" "x9BCF32" "x9CD815" "x9DCC28" "x9FC20E" "xA0D714" "xA1BF13" "xA2DE24" "xA6D419" "xA9CE29" "xAAC110" "xAAC71A" "xABD11F" "xADE117" "xAEC028" "xAEC91C" "xAFD80D" "xB0C02B" "xB0D621" "xB1D231" "xB4D02D" "xB6E430" "xB7CF0C" "xB8CB2F" "xBDC41C" "xBDCC10" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" "state_trait_natural_harbors" }
+    city = "xB7CF0C"
+    port = "xAAC110"
+    farm = "xB0C02B"
+    mine = "x9FC20E"
+    wood = "xAFD80D"
+    arable_land = 125
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 13
+        building_logging_camp = 19
+    }
+    naval_exit_id = 3000
+}
+# KUI Kuilei
+STATE_WULAI = {
+    # Uray
+    id = 339
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x151100" "x1A1B0F" "x1D0B00" "x1E110D" "x200000" "x201403" "x230002" "x240000" "x241200" "x250000" "x250015" "x260000" "x260502" "x261B0B" "x291200" "x2A080D" "x2B1C00" "x2D0000" "x2D0700" "x310004" "x350000" "x350B0A" "x360015" "x371C00" "x3A1300" "x3B0000" "x3B0800" "x3B170F" "x3C030E" "x3C1811" "x3D0000" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x310004"
+    port = "x3C1811"
+    farm = "x240000"
+    mine = "x2D0700"
+    wood = "x230002"
+    arable_land = 123
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 20
+        building_logging_camp = 21
+    }
+    naval_exit_id = 3000
+}
+
+STATE_DUOLUOMAN = {
+    # Twaruman
+    id = 340
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x875B00" "x8A550C" "x8C4317" "x90540B" "x915A0C" "x924417" "x974513" "x994C00" "x9A4A0A" "x9D5A00" "x9E4800" "x9F5900" "xA44B00" "xA55F0F" "xA73F12" "xA74100" "xA85105" "xAA4613" "xAC3E00" "xAD4405" "xAD4700" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "xA44B00"
+    port = "xAD4700"
+    farm = "xA55F0F"
+    mine = "x9E4800"
+    wood = "x8C4317"
+    arable_land = 107
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 17
+        building_logging_camp = 18
+    }
+    naval_exit_id = 3000
+}
+# JAD Jade Sea Peoples
+STATE_JIAYING_PO = {
+    # Kayu Purba
+    id = 341
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x18993A" "x1AAB1C" "x1AC12E" "x1DB630" "x1EA722" "x1EB037" "x1EB038" "x1F9F20" "x209A23" "x209B39" "x219A1C" "x22B539" "x23B929" "x269C1F" "x279F3A" "x28B622" "x2DAE3F" "x2FB03F" "x369E2C" "x38AB1A" "x3AA03C" "x3AC126" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x1EA722"
+    port = "x279F3A"
+    farm = "x1EB037"
+    mine = "x209B39"
+    wood = "x38AB1A"
+    arable_land = 147
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 7
+        building_logging_camp = 22
+    }
+    naval_exit_id = 3045
+}
+
+STATE_WUJI_DINGYI = {
+    # Bukit Tinggi
+    id = 342
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x9B8244" "x9F7528" "xA18B37" "xA2782D" "xA47C29" "xA7922B" "xA89B2B" "xA99426" "xA99644" "xA99C24" "xAA9938" "xAB7842" "xAB9C43" "xAF813D" "xAF8730" "xB09026" "xB19430" "xB27D45" "xB2991E" "xB47B39" "xB4852D" "xB59A3F" "xB59B43" "xB8811E" "xBA923E" "xBB9023" "xBC8337" "xBC9641" "xBE7D2B" }
+    impassable = { "xAF8730" "xB59A3F" "xBC8337" "xBE7D2B" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "xAA9938"
+    port = "xA99426"
+    farm = "xAB7842"
+    mine = "xAB7842"
+    wood = "xA7922B"
+    arable_land = 187
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 12
+        building_logging_camp = 28
+    }
+    naval_exit_id = 3045
+}
+
+STATE_GUALA_WULAO = {
+    # Kuala Pulau
+    id = 343
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x11A700" "x13A40A" "x1A9C03" "x1AA118" "x1AB01E" "x1CAF16" "x1DC117" "x1EA400" "x1EBA07" "x27AB1F" "x2ABB1F" "x2BA100" "x2CA700" "x2CC010" "x2EC015" "x2FA608" "x30A612" "x319C16" "x31C100" "x37AE00" "x37B520" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x1EBA07"
+    port = "x2CC010"
+    farm = "x2CA700"
+    mine = "x30A612"
+    wood = "x37AE00"
+    arable_land = 108
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 9
+        building_logging_camp = 18
+    }
+    naval_exit_id = 3045
+}
+
+STATE_DANA_WUSHA = {
+    # Tanah Besar
+    id = 344
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x54B23E" "x56B647" "x57942C" "x599836" "x5DB547" "x5F992C" "x65A248" "x69A242" "x6CBB35" "x6FA03B" "x6FB043" "x73973F" "x74B553" "x79A23F" "x7ABB2D" }
+    impassable = { x5DB547 x74B553 x73973F }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x65A248"
+    farm = "x54B23E"
+    mine = "x69A242"
+    wood = "x6FB043"
+    arable_land = 163
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_logging_camp = 25
+    }
+}
+
+STATE_DANRONG_MASI = {
+    # Tanjung Emas
+    id = 345
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x7FDE0E" "x80C803" "x81C000" "x82DB15" "x83C300" "x85CA14" "x8DD600" "x8EC709" "x8FD400" "x90C100" "x93CC03" "x93CF08" "x94D90D" "x95C00E" "x95C31F" "x96D400" "x96E10E" "x99D600" "x9AC31D" "x9DC300" "x9DD205" "x9DE101" "xA1CB0A" "xA1E204" "xA2C81F" "xA4CF08" "xA5C419" "xA5C918" "xA6C30F" "xA6C91E" "xA7CF0F" "xA7D603" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "xA5C419"
+    port = "x8DD600"
+    farm = "x9DC300"
+    mine = "xA6C30F"
+    wood = "x80C803"
+    arable_land = 170
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 11
+        building_logging_camp = 26
+    }
+    naval_exit_id = 3045
+}
+
+STATE_SHUANGXI_LIWU = {
+    # Sungai Ribut
+    id = 346
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x4BD42C" "x4BDB3B" "x52D428" "x52DD1A" "x54E62E" "x55D527" "x57E526" "x5AF119" "x5AF22F" "x5BED23" "x5CDA38" "x5CF531" "x64F128" "x65CE1B" "x68E43A" "x69F43C" "x6BCF1D" "x6DCE23" "x6ED639" "x6EE72F" "x70D21A" "x70E532" "x73EF2B" }
+    impassable = { x54E62E }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x65CE1B"
+    port = "x5AF22F"
+    farm = "x64F128"
+    mine = "x5CF531"
+    wood = "x73EF2B"
+    arable_land = 142
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_coal_mine = 38
+        building_fishing_wharf = 9
+        building_logging_camp = 21
+    }
+    naval_exit_id = 3008
+}
+
+STATE_BADI_LU = {
+    # Batu Roh
+    id = 347
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x8B0F38" "x8D083A" "x910B2F" "x920032" "x93022B" "x990040" "x990051" "x991636" "x9B074B" "x9D004E" "x9F004B" "xA01244" "xA4044D" "xA5032E" "xA50348" "xA6004B" "xA6022F" "xA70348" "xA80049" "xAA0044" "xAC002C" "xAC0E39" "xAC0E4F" "xAF0049" "xB0003B" "xB0073D" "xB1072E" "xB20735" "xB20B4A" "xB3104C" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "xA4044D"
+    port = "xA6004B"
+    farm = "x920032"
+    mine = "x991636"
+    wood = "xA70348"
+    arable_land = 173
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 13
+        building_logging_camp = 27
+    }
+    naval_exit_id = 3045
+}
+
+STATE_BULAO_JILABA = {
+    # Pulau Kelapa
+    id = 348
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x8A4917" "x8C6A27" "x8D4B20" "x8E4521" "x916029" "x954931" "x98670B" "x9A6923" "x9D4F0B" "xA54418" "xA54519" "xA54F2F" "xA84D1B" "xA95C26" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x8C6A27"
+    port = "x954931"
+    farm = "x98670B"
+    mine = "x8D4B20"
+    wood = "x8A4917"
+    arable_land = 118
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 16
+        building_lead_mine = 27
+        building_logging_camp = 21
+    }
+    naval_exit_id = 3008
+}
+
+STATE_SILI_YALAN = {
+    # Seri Alam
+    id = 349
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x82FF4A" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x82FF4A"
+    port = "x82FF4A"
+    farm = "x82FF4A"
+    mine = "x82FF4A"
+    wood = "x82FF4A"
+    arable_land = 98
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 7
+        building_iron_mine = 48
+        building_logging_camp = 18
+    }
+    naval_exit_id = 3008
+}
+
+STATE_LAWU_BILU = {
+    # Laut Biru
+    id = 350
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x47384D" "x4A2C40" "x654B2A" "x655443" "x6E2F46" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x654B2A"
+    port = "x47384D"
+    farm = "x6E2F46"
+    mine = "x655443"
+    wood = "x4A2C40"
+    arable_land = 100
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 9
+        building_logging_camp = 20
+    }
+    naval_exit_id = 3008
+}
+
+STATE_BULAO_KAJIANG = {
+    # Pulau Kaca
+    id = 351
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "xA0C029" "xB2AE2A" "xB4BE24" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "xB2AE2A"
+    port = "xB4BE24"
+    farm = "xA0C029"
+    mine = "xA0C029"
+    wood = "xB4BE24"
+    arable_land = 103
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 8
+        building_lead_mine = 54
+        building_logging_camp = 20
+    }
+    naval_exit_id = 3035
+}
+
+STATE_WULU_XIANDANG = {
+    # Ulu Bintang
+    id = 352
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "xAA732C" "xAB7114" "xAC5719" "xAD502B" "xAD582E" "xAF6D26" "xB1530E" "xB26730" "xB36F30" "xB45E1B" "xB67026" "xB96D1F" "xB97412" "xBA6C16" "xBE512F" "xC3621A" "xC5590F" "xC7682D" "xC8571C" "xCA5718" "xCB6433" "xCD5F11" "xD06D16" "xD07619" "xD26F33" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "xAF6D26"
+    port = "xCB6433"
+    farm = "xAA732C"
+    mine = "xAC5719"
+    wood = "xC7682D"
+    arable_land = 130
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 20
+        building_iron_mine = 39
+        building_logging_camp = 22
+    }
+    naval_exit_id = 3035
+}
+
+STATE_BULAO_JIALANG = {
+    # Pulau Karang
+    id = 353
+    subsistence_building = "building_subsistence_orchard"
+    provinces = { "x32DD07" "x34F003" "x3CD100" "x3CEA00" "x40F900" "x47D60E" "x47F200" "x4CD506" "x4FED0A" "x5ADB1C" }
+    traits = { "state_trait_tropical_rainforest" "state_trait_malaria" }
+    city = "x34F003"
+    port = "x47F200"
+    farm = "x32DD07"
+    mine = "x4FED0A"
+    wood = "x4CD506"
+    arable_land = 102
+    arable_resources = { "building_livestock_ranch" "building_rice_farm" "building_banana_plantation" "building_tea_plantation" "building_coffee_plantation" "building_silk_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
+    capped_resources = {
+        building_fishing_wharf = 12
+        building_logging_camp = 20
+    }
+    naval_exit_id = 3035
+}

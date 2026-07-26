@@ -1,0 +1,59 @@
+﻿# Isekai TC: NOTE - common/customizable_localization is NOT in metadata.json replace_paths, so
+# vanilla's agitators_custom_loc.txt does load. It is overridden by the migrated copy alongside
+# this file, which drops its generic_worker_profession so the version below wins. Defined here
+# with only the
+# generic_worker_profession function (used by revolution_pulse2_events / this mod's
+# events/agitators_events/revolution_events_03.txt hatmakersfeud event, which still sets
+# custom_profession_{hatmaker,watchmaker,fishmonger,cooper,smith,brewer,tailor}_var but had no
+# reader left). Vanilla's other functions in that file (dynamic_french_pretender,
+# dynamic_ship_name, dynamic_dreyfus_case_strength, dynamic_paris_commune_drift) are French/
+# Russian-culture- and removed-journal-entry-specific with no mod analogue, so they were not
+# restored. Loc keys custom_profession_* / GetCustom('generic_worker_profession') callers are
+# untouched vanilla localization (localization/ is not wiped by replace_paths).
+
+generic_worker_profession = {
+	type = country
+	random_valid = yes
+	text = {
+		trigger = {
+			has_variable = custom_profession_hatmaker_var
+		}
+		localization_key = custom_profession_hatmaker
+	}
+	text = {
+		trigger = {
+			has_variable = custom_profession_watchmaker_var
+		}
+		localization_key = custom_profession_watchmaker
+	}
+	text = {
+		trigger = {
+			has_variable = custom_profession_fishmonger_var
+		}
+		localization_key = custom_profession_fishmonger
+	}
+	text = {
+		trigger = {
+			has_variable = custom_profession_cooper_var
+		}
+		localization_key = custom_profession_cooper
+	}
+	text = {
+		trigger = {
+			has_variable = custom_profession_smith_var
+		}
+		localization_key = custom_profession_smith
+	}
+	text = {
+		trigger = {
+			has_variable = custom_profession_tailor_var
+		}
+		localization_key = custom_profession_tailor
+	}
+	text = {
+		trigger = {
+			has_variable = custom_profession_brewer_var
+		}
+		localization_key = custom_profession_brewer
+	}
+}

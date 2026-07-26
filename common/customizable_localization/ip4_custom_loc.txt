@@ -1,0 +1,584 @@
+﻿# Isekai TC: migrated copy of vanilla ip4_custom_loc.txt.
+# common/customizable_localization is NOT in metadata.json replace_paths, so the
+# vanilla file loads unless a same-named mod file overrides it (this file).
+# Text blocks whose triggers referenced deleted Earth content were removed; keys
+# left empty fall back to their original localization_key so callers still
+# resolve. Regenerate with tools/migrate_custom_loc.py.
+
+country_female_royal_title = {
+	type = country
+	text = {
+		trigger = {
+			has_government_type = gov_regency_enlightened_despotate
+		}
+		localization_key = RULER_TITLE_PHILOSOPHER_QUEEN
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_shogunate
+		}
+		localization_key = RULER_TITLE_SHOGUN
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_hawaiian_monarchy_recognised
+		}
+		localization_key = RULER_TITLE_MOIWAHINE
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_hawaiian_monarchy
+		}
+		localization_key = RULER_TITLE_ALII_NUI
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_malikdom
+		}
+		localization_key = RULER_TITLE_MALIKA
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_sultanate
+		}
+		localization_key = TITLE_RULER
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_hakimate
+		}
+		localization_key = TITLE_RULER
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_sheikhdom
+		}
+		localization_key = RULER_TITLE_QUEEN
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_bhutanese_monarchy
+		}
+		localization_key = RULER_TITLE_DRAGON_QUEEN
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_caliphate
+		}
+		localization_key = TITLE_RULER
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_shah
+		}
+		localization_key = TITLE_RULER
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_tibetan_kingdom
+		}
+		localization_key = RULER_TITLE_GYALMO
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_khanate
+		}
+		localization_key = RULER_TITLE_KHATUN
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_absolute_principality_muslim
+		}
+		localization_key = RULER_TITLE_EMIRA
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_empire
+		}
+		localization_key = RULER_TITLE_EMPRESS
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_kingdom
+		}
+		localization_key = RULER_TITLE_QUEEN
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_grand_principality
+		}
+		localization_key = RULER_TITLE_GRAND_PRINCESS
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_grand_duchy
+		}
+		localization_key = RULER_TITLE_GRAND_DUCHESS
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_principality
+		}
+		localization_key = RULER_TITLE_PRINCESS
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_duchy
+		}
+		localization_key = RULER_TITLE_DUCHESS
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_city_state
+		}
+		localization_key = RULER_TITLE_COUNTESS
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_empire_constitutional
+		}
+		localization_key = RULER_TITLE_EMPRESS
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_kingdom_constitutional
+		}
+		localization_key = RULER_TITLE_QUEEN
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_grand_principality_constitutional
+		}
+		localization_key = RULER_TITLE_GRAND_PRINCESS
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_grand_duchy_constitutional
+		}
+		localization_key = RULER_TITLE_GRAND_DUCHESS
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_principality_constitutional
+		}
+		localization_key = RULER_TITLE_PRINCESS
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_duchy_constitutional
+		}
+		localization_key = RULER_TITLE_DUCHESS
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_city_state_constitutional
+		}
+		localization_key = RULER_TITLE_COUNTESS
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = TITLE_RULER
+	}
+}
+
+country_male_royal_title = {
+	type = country
+	text = {
+		trigger = {
+			has_government_type = gov_regency_enlightened_despotate
+		}
+		localization_key = RULER_TITLE_PHILOSOPHER_KING
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_shogunate
+		}
+		localization_key = RULER_TITLE_SHOGUN
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_hawaiian_monarchy_recognised
+		}
+		localization_key = RULER_TITLE_MOI
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_hawaiian_monarchy
+		}
+		localization_key = RULER_TITLE_ALII_NUI
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_malikdom
+		}
+		localization_key = RULER_TITLE_MALIK
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_sultanate
+		}
+		localization_key = RULER_TITLE_SULTAN
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_hakimate
+		}
+		localization_key = RULER_TITLE_HAKIM
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_sheikhdom
+		}
+		localization_key = RULER_TITLE_SHEIKH
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_bhutanese_monarchy
+		}
+		localization_key = RULER_TITLE_DRAGON_KING
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_caliphate
+		}
+		localization_key = RULER_TITLE_CALIPH
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_shah
+		}
+		localization_key = RULER_TITLE_SHAH
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_tibetan_kingdom
+		}
+		localization_key = RULER_TITLE_GYALPO
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_khanate
+		}
+		localization_key = RULER_TITLE_KHAN
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_absolute_principality_muslim
+		}
+		localization_key = RULER_TITLE_EMIR
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_empire
+		}
+		localization_key = RULER_TITLE_EMPEROR
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_kingdom
+		}
+		localization_key = RULER_TITLE_KING
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_grand_principality
+		}
+		localization_key = RULER_TITLE_GRAND_PRINCE
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_grand_duchy
+		}
+		localization_key = RULER_TITLE_GRAND_DUKE
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_principality
+		}
+		localization_key = RULER_TITLE_PRINCE
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_duchy
+		}
+		localization_key = RULER_TITLE_DUKE
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_city_state
+		}
+		localization_key = RULER_TITLE_COUNT
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_empire_constitutional
+		}
+		localization_key = RULER_TITLE_EMPEROR
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_kingdom_constitutional
+		}
+		localization_key = RULER_TITLE_KING
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_grand_principality_constitutional
+		}
+		localization_key = RULER_TITLE_GRAND_PRINCE
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_grand_duchy_constitutional
+		}
+		localization_key = RULER_TITLE_GRAND_DUKE
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_principality_constitutional
+		}
+		localization_key = RULER_TITLE_PRINCE
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_duchy_constitutional
+		}
+		localization_key = RULER_TITLE_DUKE
+	}
+	text = {
+		trigger = {
+			has_government_type = gov_regency_city_state_constitutional
+		}
+		localization_key = RULER_TITLE_COUNT
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = TITLE_RULER
+	}
+}
+
+getGeneralAdmiral = {
+	type = character
+	text = {
+		trigger = {
+			has_role_of_type = general
+		}
+		localization_key = concept_general
+	}
+	text = {
+		trigger = {
+			has_role_of_type = admiral
+		}
+		localization_key = concept_admiral
+	}
+}
+
+getCurrentMonthName = {
+	type = country
+	text = {
+		trigger = {
+			month = 0
+		}
+		localization_key = JANUARY
+	}
+	text = {
+		trigger = {
+			month = 1
+		}
+		localization_key = FEBRUARY
+	}
+	text = {
+		trigger = {
+			month = 2
+		}
+		localization_key = MARCH
+	}
+	text = {
+		trigger = {
+			month = 3
+		}
+		localization_key = APRIL
+	}
+	text = {
+		trigger = {
+			month = 4
+		}
+		localization_key = May # Because Maya
+	}
+	text = {
+		trigger = {
+			month = 5
+		}
+		localization_key = JUNE
+	}
+	text = {
+		trigger = {
+			month = 6
+		}
+		localization_key = JULY
+	}
+	text = {
+		trigger = {
+			month = 7
+		}
+		localization_key = AUGUST
+	}
+	text = {
+		trigger = {
+			month = 8
+		}
+		localization_key = SEPTEMBER
+	}
+	text = {
+		trigger = {
+			month = 9
+		}
+		localization_key = OCTOBER
+	}
+	text = {
+		trigger = {
+			month = 10
+		}
+		localization_key = NOVEMBER
+	}
+	text = {
+		trigger = {
+			month = 11
+		}
+		localization_key = DECEMBER
+	}
+}
+
+getPortugalRevolutionMonthName = {
+	type = country
+	text = {
+		localization_key = DECEMBER
+	}
+}
+
+getPortugalRevolutionMonthPartyName = {
+	type = country
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = party_septemberist_party
+	}
+}
+
+getCurrentPeripheralBraganza = {
+	type = country
+	text = {
+		trigger = {
+			game_date < 1853.1.1
+		}
+		localization_key = ana_de_jesus_maria_de_braganca_loc
+	}
+	text = {
+		trigger = {
+			game_date >= 1853.1.1
+			game_date < 1872.1.1
+		}
+		localization_key = fernando_de_saxe_coburg_gotha_loc
+	}
+	text = {
+		trigger = {
+			game_date >= 1872.1.1
+			game_date < 1920.1.1
+		}
+		localization_key = afonso_de_braganca_loc
+	}
+}
+
+getRegionalLanguagesType = {
+	type = country
+	text = {
+		localization_key = concept_regional_languages
+	}
+}
+
+getManilaCathedralCount = {
+	type = country
+	text = { # Stop custom loc count after eighth Manila Cathedral
+		localization_key = blank_tt
+	}
+}
+
+GetJoinUSALine = {
+	type = country
+	text = {
+		localization_key = je_cuba_stay_status_desc
+	}
+}
+
+get_special_colonial_trait = {
+	type = character
+	text = {
+		trigger = {
+			has_trait = special_character_colonial_plantation
+		}
+		localization_key = special_character_colonial_plantation_loc
+	}
+	text = {
+		trigger = {
+			has_trait = special_character_colonial_local
+		}
+		localization_key = special_character_colonial_local_loc
+	}
+	text = {
+		trigger = {
+			has_trait = special_character_colonial_extraction
+		}
+		localization_key = special_character_colonial_extraction_loc
+	}
+	text = {
+		trigger = {
+			has_trait = special_character_colonial_business
+		}
+		localization_key = special_character_colonial_business_loc
+	}
+	text = {
+		trigger = {
+			has_trait = special_character_colonial_military
+		}
+		localization_key = special_character_colonial_military_loc
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = special_character_colonial_fallback_loc
+	}
+}
+
+getNameIBEorSPA = {
+	type = country
+	text = {
+		localization_key = IBE_var
+	}
+}
+
+getNameIBEorSPANoFormatting = {
+	type = country
+	text = {
+		localization_key = IBE
+	}
+}
+
+getSpainName = {
+	type = country
+	text = {
+		localization_key = SPA_var
+	}
+}
+
+getSpainNameNoFormatting = {
+	type = country
+	text = {
+		localization_key = SPA
+	}
+}

@@ -1,0 +1,51 @@
+﻿# Isekai TC: migrated copy of vanilla 01_ep2_custom_loc.txt.
+# common/customizable_localization is NOT in metadata.json replace_paths, so the
+# vanilla file loads unless a same-named mod file overrides it (this file).
+# Text blocks whose triggers referenced deleted Earth content were removed; keys
+# left empty fall back to their original localization_key so callers still
+# resolve. Regenerate with tools/migrate_custom_loc.py.
+
+ryukyu_rivalry_reaffirm_suzerainty = {
+	type = country
+	text = {
+		localization_key = je_ryukyu_rivalry_reaffirm_suzerainty_china
+	}
+}
+
+colonize_korea_state_owned_by_japan = {
+	type = state
+	random_valid = no
+
+	text = {
+		localization_key = checkbox_unticked
+	}
+}
+
+colonize_korea_state_is_incorporated = {
+	type = state
+	random_valid = no
+
+	text = {
+		localization_key = checkbox_unticked
+	}
+}
+
+colonize_korea_state_turmoil = {
+	type = state
+	random_valid = no
+
+	text = {
+		localization_key = checkbox_unticked
+	}
+
+}
+
+colonize_korea_state_is_assimilated = {
+	type = state
+	random_valid = no
+
+	text = {
+		localization_key = checkbox_unticked
+	}
+
+}

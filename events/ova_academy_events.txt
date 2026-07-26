@@ -1,0 +1,1139 @@
+﻿### Saint Christine's Academy - a FOUR-YEAR school for summoned Heroes.
+# Split out of ova_hero_events.txt (2026-07-23) into its own namespace.
+#
+# Structure (Korean academy-novel beats):
+#   ova_academy.1        enrollment intro (fired from ova_hero_academy_decision)
+#   ova_academy.10       the TERM dispatcher (hidden; counter-routed)
+#   ova_academy.20       the GRADUATION dispatcher (hidden)
+#   ova_academy.101-.104 Term 1 pool (Year 1, Semester 1 - arrival/awakening)
+#   ova_academy.111-.114 Term 2 pool (Year 1, Semester 2 - first finals)
+#   ova_academy.121-.124 Term 3 pool (Year 2, Semester 1 - practicals begin)
+#   ova_academy.131-.134 Term 4 pool (Year 2, Semester 2 - festival + terror)
+#   ova_academy.141-.144 Term 5 pool (Year 3, Semester 1 - scouted/tower)
+#   ova_academy.151-.154 Term 6 pool (Year 3, Semester 2 - trials/rival-ally)
+#   ova_academy.161-.164 Term 7 pool (Year 4, Semester 1 - senior/tournament)
+#   ova_academy.171-.174 Term 8 pool (Year 4, Semester 2 - run-up to graduation)
+#   ova_academy.181-.184 Graduation pool (the four graduation scenes)
+#
+# The course runs 1460 days. TWO term-beats fire per 365-day year (eight in
+# total), then graduation. Each term draws at random from its OWN unique pool
+# of four - no pool is ever reused for another term. A running counter
+# (ova_academy_term) tells the dispatcher which term it is.
+#
+# VICTORIA (c:LYS) keeps her four private chapter-2 beats (ova_hero.92-.95),
+# and they fire AT THE APPROPRIATE TIME: one per year, on the second term of
+# each year, so .92 (year one) ... .95 (year four, the Final Practicum) lands
+# as the very last beat before graduation. On her other four terms she draws
+# that term's generic pool like anyone else. Any non-Victoria Hero simply walks
+# all eight generic pools in order.
+#
+# The graduation variable is kept under its old name (ova_hero_academy_graduated)
+# because the decision gate, je_ova_victoria_2's complete, ova_hero.35's trigger
+# and the champion-death cleanup all still read it.
+# All champion XP/popularity effects are the foundation's (ova_champion_*).
+
+namespace = ova_academy
+
+# ---------------------------------------------------------------- .1 enrollment
+ova_academy.1 = { # Saint Christine's Academy
+	type = country_event
+	placement = root
+
+	title = ova_academy.1.t
+	desc = ova_academy.1.d
+	flavor = ova_academy.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	immediate = {
+		# reset the term counter so a fresh enrollee (e.g. a new champion after
+		# the last one graduated and died) always starts from term one
+		set_variable = { name = ova_academy_term value = 0 }
+	}
+
+	option = {
+		name = ova_academy.1.a
+		default_option = yes
+		# eight term-beats (two per year) then graduation
+		trigger_event = { id = ova_academy.10 days = 150 }
+		trigger_event = { id = ova_academy.10 days = 330 }
+		trigger_event = { id = ova_academy.10 days = 510 }
+		trigger_event = { id = ova_academy.10 days = 690 }
+		trigger_event = { id = ova_academy.10 days = 870 }
+		trigger_event = { id = ova_academy.10 days = 1050 }
+		trigger_event = { id = ova_academy.10 days = 1230 }
+		trigger_event = { id = ova_academy.10 days = 1410 }
+		trigger_event = { id = ova_academy.20 days = 1455 }
+	}
+}
+
+# ------------------------------------------------------- .10 the term dispatcher
+# Hidden - it only routes. Increments the term counter, weaves in Victoria's
+# private year-beat where one is due, otherwise fires this term's own pool.
+ova_academy.10 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	immediate = {
+		change_variable = { name = ova_academy_term add = 1 }
+
+		# Victoria's four private beats: one per year, on the second term of
+		# each year (terms 2/4/6/8), .92 -> .95 in order. Each falls through to
+		# the generic pool if she has somehow already seen it.
+		if = {
+			limit = {
+				c:LYS ?= THIS
+				var:ova_academy_term = 2
+				NOT = { has_variable = ova_victoria_seen_92 }
+			}
+			trigger_event = { id = ova_hero.92 }
+		}
+		else_if = {
+			limit = {
+				c:LYS ?= THIS
+				var:ova_academy_term = 4
+				NOT = { has_variable = ova_victoria_seen_93 }
+			}
+			trigger_event = { id = ova_hero.93 }
+		}
+		else_if = {
+			limit = {
+				c:LYS ?= THIS
+				var:ova_academy_term = 6
+				NOT = { has_variable = ova_victoria_seen_94 }
+			}
+			trigger_event = { id = ova_hero.94 }
+		}
+		else_if = {
+			limit = {
+				c:LYS ?= THIS
+				var:ova_academy_term = 8
+				NOT = { has_variable = ova_victoria_seen_95 }
+			}
+			trigger_event = { id = ova_hero.95 }
+		}
+		# generic pools, one unique set of four per term
+		else_if = {
+			limit = { var:ova_academy_term = 1 }
+			random_list = {
+				25 = { trigger_event = { id = ova_academy.101 } }
+				25 = { trigger_event = { id = ova_academy.102 } }
+				25 = { trigger_event = { id = ova_academy.103 } }
+				25 = { trigger_event = { id = ova_academy.104 } }
+			}
+		}
+		else_if = {
+			limit = { var:ova_academy_term = 2 }
+			random_list = {
+				25 = { trigger_event = { id = ova_academy.111 } }
+				25 = { trigger_event = { id = ova_academy.112 } }
+				25 = { trigger_event = { id = ova_academy.113 } }
+				25 = { trigger_event = { id = ova_academy.114 } }
+			}
+		}
+		else_if = {
+			limit = { var:ova_academy_term = 3 }
+			random_list = {
+				25 = { trigger_event = { id = ova_academy.121 } }
+				25 = { trigger_event = { id = ova_academy.122 } }
+				25 = { trigger_event = { id = ova_academy.123 } }
+				25 = { trigger_event = { id = ova_academy.124 } }
+			}
+		}
+		else_if = {
+			limit = { var:ova_academy_term = 4 }
+			random_list = {
+				25 = { trigger_event = { id = ova_academy.131 } }
+				25 = { trigger_event = { id = ova_academy.132 } }
+				25 = { trigger_event = { id = ova_academy.133 } }
+				25 = { trigger_event = { id = ova_academy.134 } }
+			}
+		}
+		else_if = {
+			limit = { var:ova_academy_term = 5 }
+			random_list = {
+				25 = { trigger_event = { id = ova_academy.141 } }
+				25 = { trigger_event = { id = ova_academy.142 } }
+				25 = { trigger_event = { id = ova_academy.143 } }
+				25 = { trigger_event = { id = ova_academy.144 } }
+			}
+		}
+		else_if = {
+			limit = { var:ova_academy_term = 6 }
+			random_list = {
+				25 = { trigger_event = { id = ova_academy.151 } }
+				25 = { trigger_event = { id = ova_academy.152 } }
+				25 = { trigger_event = { id = ova_academy.153 } }
+				25 = { trigger_event = { id = ova_academy.154 } }
+			}
+		}
+		else_if = {
+			limit = { var:ova_academy_term = 7 }
+			random_list = {
+				25 = { trigger_event = { id = ova_academy.161 } }
+				25 = { trigger_event = { id = ova_academy.162 } }
+				25 = { trigger_event = { id = ova_academy.163 } }
+				25 = { trigger_event = { id = ova_academy.164 } }
+			}
+		}
+		else = { # term 8
+			random_list = {
+				25 = { trigger_event = { id = ova_academy.171 } }
+				25 = { trigger_event = { id = ova_academy.172 } }
+				25 = { trigger_event = { id = ova_academy.173 } }
+				25 = { trigger_event = { id = ova_academy.174 } }
+			}
+		}
+	}
+}
+
+# ------------------------------------------------- .20 the graduation dispatcher
+ova_academy.20 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	immediate = {
+		random_list = {
+			25 = { trigger_event = { id = ova_academy.181 } }
+			25 = { trigger_event = { id = ova_academy.182 } }
+			25 = { trigger_event = { id = ova_academy.183 } }
+			25 = { trigger_event = { id = ova_academy.184 } }
+		}
+	}
+}
+
+# ============================ TERM 1 - Year 1, Semester 1: arrival & awakening
+ova_academy.101 = { # The Aptitude Stone
+	type = country_event
+	placement = root
+	title = ova_academy.101.t
+	desc = ova_academy.101.d
+	flavor = ova_academy.101.f
+	duration = 3
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # let the stone blaze and top the ledger
+		name = ova_academy.101.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+	option = { # cup your hand over it and read the room first
+		name = ova_academy.101.b
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_academy.102 = { # The Placement Examination
+	type = country_event
+	placement = root
+	title = ova_academy.102.t
+	desc = ova_academy.102.d
+	flavor = ova_academy.102.f
+	duration = 3
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # answer everything, place where you place
+		name = ova_academy.102.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+	option = { # aim for the anonymous middle of the class
+		name = ova_academy.102.b
+		ova_champion_add_popularity = { AMOUNT = 5 }
+		ova_champion_add_xp = { AMOUNT = 3 }
+	}
+}
+
+ova_academy.103 = { # The Assigned Roommate
+	type = country_event
+	placement = root
+	title = ova_academy.103.t
+	desc = ova_academy.103.d
+	flavor = ova_academy.103.f
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # win over the strange roommate
+		name = ova_academy.103.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+	option = { # keep to your side of the room and train
+		name = ova_academy.103.b
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_academy.104 = { # The Empty Purse
+	type = country_event
+	placement = root
+	title = ova_academy.104.t
+	desc = ova_academy.104.d
+	flavor = ova_academy.104.f
+	duration = 3
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # take a part-time job down in the city
+		name = ova_academy.104.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 6 }
+	}
+	option = { # sell a keepsake from home to a collector
+		name = ova_academy.104.b
+		ova_champion_add_xp = { AMOUNT = 6 }
+		ova_champion_add_popularity = { AMOUNT = 3 }
+	}
+}
+
+# ============================ TERM 2 - Year 1, Semester 2: first finals & a rival
+ova_academy.111 = { # First-Year Finals
+	type = country_event
+	placement = root
+	title = ova_academy.111.t
+	desc = ova_academy.111.d
+	flavor = ova_academy.111.f
+	duration = 3
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # cram all night
+		name = ova_academy.111.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+	option = { # trust your instincts and sleep
+		name = ova_academy.111.b
+		ova_champion_add_popularity = { AMOUNT = 5 }
+		ova_champion_add_xp = { AMOUNT = 3 }
+	}
+}
+
+ova_academy.112 = { # The Noble's Sneer
+	type = country_event
+	placement = root
+	title = ova_academy.112.t
+	desc = ova_academy.112.d
+	flavor = ova_academy.112.f
+	duration = 3
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # answer with cold courtesy
+		name = ova_academy.112.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+	option = { # answer with a very public wager
+		name = ova_academy.112.b
+		random_list = {
+			70 = {
+				ova_champion_add_popularity = { AMOUNT = 10 }
+				ova_champion_add_xp = { AMOUNT = 4 }
+			}
+			30 = {
+				ova_champion_add_xp = { AMOUNT = 4 }
+			}
+		}
+	}
+}
+
+ova_academy.113 = { # The Forced Duel
+	type = country_event
+	placement = root
+	title = ova_academy.113.t
+	desc = ova_academy.113.d
+	flavor = ova_academy.113.f
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # win clean and let them glimpse your true level
+		name = ova_academy.113.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 12 }
+		ova_champion_add_popularity = { AMOUNT = 4 }
+	}
+	option = { # win ugly on purpose, stay underestimated
+		name = ova_academy.113.b
+		ova_champion_add_xp = { AMOUNT = 5 }
+	}
+}
+
+ova_academy.114 = { # The Winter Break Invitation
+	type = country_event
+	placement = root
+	title = ova_academy.114.t
+	desc = ova_academy.114.d
+	flavor = ova_academy.114.f
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # go home for the holiday
+		name = ova_academy.114.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 6 }
+	}
+	option = { # stay and drill the empty halls
+		name = ova_academy.114.b
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+# ============================ TERM 3 - Year 2, Semester 1: practicals begin
+ova_academy.121 = { # The Subjugation Practical
+	type = country_event
+	placement = root
+	title = ova_academy.121.t
+	desc = ova_academy.121.d
+	flavor = ova_academy.121.f
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # lead the squad from the front
+		name = ova_academy.121.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 12 }
+	}
+	option = { # direct from the rear and let the juniors shine
+		name = ova_academy.121.b
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+}
+
+ova_academy.122 = { # The Scarred Professor
+	type = country_event
+	placement = root
+	title = ova_academy.122.t
+	desc = ova_academy.122.d
+	flavor = ova_academy.122.f
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # accept the grueling private lessons
+		name = ova_academy.122.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 12 }
+	}
+	option = { # decline, keep your own counsel
+		name = ova_academy.122.b
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_academy.123 = { # The Rankings Board
+	type = country_event
+	placement = root
+	title = ova_academy.123.t
+	desc = ova_academy.123.d
+	flavor = ova_academy.123.f
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # challenge the name posted above yours
+		name = ova_academy.123.a
+		default_option = yes
+		random_list = {
+			70 = {
+				ova_champion_add_xp = { AMOUNT = 15 }
+				ova_champion_add_popularity = { AMOUNT = 5 }
+			}
+			30 = {
+				ova_champion_add_xp = { AMOUNT = 5 }
+			}
+		}
+	}
+	option = { # sit tight and let the challengers come to you
+		name = ova_academy.123.b
+		ova_champion_add_xp = { AMOUNT = 6 }
+		ova_champion_add_popularity = { AMOUNT = 3 }
+	}
+}
+
+ova_academy.124 = { # The Restricted Archive
+	type = country_event
+	placement = root
+	title = ova_academy.124.t
+	desc = ova_academy.124.d
+	flavor = ova_academy.124.f
+	duration = 3
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # copy the sealed treatise by candlelight
+		name = ova_academy.124.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 12 }
+	}
+	option = { # report the unlocked door like a good student
+		name = ova_academy.124.b
+		change_relations = { country = c:LUX value = 5 }
+	}
+}
+
+# ============================ TERM 4 - Year 2, Semester 2: the festival & the terror
+ova_academy.131 = { # The Founding Festival
+	type = country_event
+	placement = root
+	title = ova_academy.131.t
+	desc = ova_academy.131.d
+	flavor = ova_academy.131.f
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # enter the exhibition duel
+		name = ova_academy.131.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+	option = { # run the charity booth for the war orphans
+		name = ova_academy.131.b
+		ova_champion_add_popularity = { AMOUNT = 4 }
+		change_relations = { country = c:LUX value = 5 }
+	}
+}
+
+ova_academy.132 = { # The War Games
+	type = country_event
+	placement = root
+	title = ova_academy.132.t
+	desc = ova_academy.132.d
+	flavor = ova_academy.132.f
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # command the underclassmen to a famous upset
+		name = ova_academy.132.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 12 }
+		ova_champion_add_popularity = { AMOUNT = 4 }
+	}
+	option = { # play the anchor - unbreakable and dull
+		name = ova_academy.132.b
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_academy.133 = { # The Festival Incident
+	type = country_event
+	placement = root
+	title = ova_academy.133.t
+	desc = ova_academy.133.d
+	flavor = ova_academy.133.f
+	duration = 3
+	event_image = { video = "unspecific_fire" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # cut them down before the crowd even panics
+		name = ova_academy.133.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 15 }
+		ova_champion_add_popularity = { AMOUNT = 6 }
+	}
+	option = { # get the civilians clear first, fight second
+		name = ova_academy.133.b
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+}
+
+ova_academy.134 = { # The Summer Training Camp
+	type = country_event
+	placement = root
+	title = ova_academy.134.t
+	desc = ova_academy.134.d
+	flavor = ova_academy.134.f
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # spar dawn to dusk on the sand
+		name = ova_academy.134.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+	option = { # actually rest, for once in your life
+		name = ova_academy.134.b
+		ova_champion_add_popularity = { AMOUNT = 6 }
+	}
+}
+
+# ============================ TERM 5 - Year 3, Semester 1: scouted & the tower
+ova_academy.141 = { # The Elite Class Selection
+	type = country_event
+	placement = root
+	title = ova_academy.141.t
+	desc = ova_academy.141.d
+	flavor = ova_academy.141.f
+	duration = 3
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # test into the elite cohort
+		name = ova_academy.141.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 12 }
+	}
+	option = { # stay with your year, refuse the ladder
+		name = ova_academy.141.b
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+}
+
+ova_academy.142 = { # The Great House's Envoy
+	type = country_event
+	placement = root
+	title = ova_academy.142.t
+	desc = ova_academy.142.d
+	flavor = ova_academy.142.f
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # hear the offer, bank the favor
+		name = ova_academy.142.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+	option = { # turn it down flat, keep your freedom
+		name = ova_academy.142.b
+		ova_champion_add_xp = { AMOUNT = 6 }
+		ova_champion_add_popularity = { AMOUNT = 3 }
+	}
+}
+
+ova_academy.143 = { # The Tower Ascent
+	type = country_event
+	placement = root
+	title = ova_academy.143.t
+	desc = ova_academy.143.d
+	flavor = ova_academy.143.f
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # push for a new floor record
+		name = ova_academy.143.a
+		default_option = yes
+		random_list = {
+			70 = {
+				ova_champion_add_xp = { AMOUNT = 15 }
+				ova_champion_add_popularity = { AMOUNT = 5 }
+			}
+			30 = {
+				ova_champion_add_xp = { AMOUNT = 5 }
+			}
+		}
+	}
+	option = { # clear it steadily, no heroics
+		name = ova_academy.143.b
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_academy.144 = { # The Infirmary Window
+	type = country_event
+	placement = root
+	title = ova_academy.144.t
+	desc = ova_academy.144.d
+	flavor = ova_academy.144.f
+	duration = 3
+	event_image = { video = "unspecific_sick_in_hospital" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # heal properly, let the wound teach you
+		name = ova_academy.144.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+	option = { # sneak back to the training ring early
+		name = ova_academy.144.b
+		ova_champion_add_popularity = { AMOUNT = 5 }
+		ova_champion_add_xp = { AMOUNT = 3 }
+	}
+}
+
+# ============================ TERM 6 - Year 3, Semester 2: trials & the rival
+ova_academy.151 = { # Third-Year Finals
+	type = country_event
+	placement = root
+	title = ova_academy.151.t
+	desc = ova_academy.151.d
+	flavor = ova_academy.151.f
+	duration = 3
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # top the written boards
+		name = ova_academy.151.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 12 }
+	}
+	option = { # coast, and coach the strugglers through
+		name = ova_academy.151.b
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+}
+
+ova_academy.152 = { # The Rival's Debt
+	type = country_event
+	placement = root
+	title = ova_academy.152.t
+	desc = ova_academy.152.d
+	flavor = ova_academy.152.f
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # pull them out of the collapse in front of everyone
+		name = ova_academy.152.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+	option = { # pull them out, and never once mention it
+		name = ova_academy.152.b
+		ova_champion_add_xp = { AMOUNT = 8 }
+		ova_champion_add_popularity = { AMOUNT = 4 }
+	}
+}
+
+ova_academy.153 = { # The Hidden Dungeon
+	type = country_event
+	placement = root
+	title = ova_academy.153.t
+	desc = ova_academy.153.d
+	flavor = ova_academy.153.f
+	duration = 3
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # delve to the bottom and claim the relic
+		name = ova_academy.153.a
+		default_option = yes
+		random_list = {
+			65 = {
+				ova_champion_add_xp = { AMOUNT = 16 }
+			}
+			35 = {
+				ova_champion_add_xp = { AMOUNT = 6 }
+			}
+		}
+	}
+	option = { # seal it and report it to the faculty
+		name = ova_academy.153.b
+		change_relations = { country = c:LUX value = 8 }
+	}
+}
+
+ova_academy.154 = { # The Sponsor's Banquet
+	type = country_event
+	placement = root
+	title = ova_academy.154.t
+	desc = ova_academy.154.d
+	flavor = ova_academy.154.f
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # charm the sponsors, secure a stipend
+		name = ova_academy.154.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+	option = { # bore them on purpose and owe no one
+		name = ova_academy.154.b
+		ova_champion_add_xp = { AMOUNT = 6 }
+	}
+}
+
+# ============================ TERM 7 - Year 4, Semester 1: senior year & the tournament
+ova_academy.161 = { # The Inter-Academy Tournament
+	type = country_event
+	placement = root
+	title = ova_academy.161.t
+	desc = ova_academy.161.d
+	flavor = ova_academy.161.f
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # fight to the final, hold nothing back
+		name = ova_academy.161.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 15 }
+		ova_champion_add_popularity = { AMOUNT = 6 }
+	}
+	option = { # throw an early round to hide your ceiling
+		name = ova_academy.161.b
+		ova_champion_add_xp = { AMOUNT = 5 }
+	}
+}
+
+ova_academy.162 = { # The Professor's Past
+	type = country_event
+	placement = root
+	title = ova_academy.162.t
+	desc = ova_academy.162.d
+	flavor = ova_academy.162.f
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # keep the old soldier's secret
+		name = ova_academy.162.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+	option = { # press them for the whole story
+		name = ova_academy.162.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_academy.163 = { # The Recruiting Orders
+	type = country_event
+	placement = root
+	title = ova_academy.163.t
+	desc = ova_academy.163.d
+	flavor = ova_academy.163.f
+	duration = 3
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # let the orders bid each other up
+		name = ova_academy.163.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+	option = { # commit to none, stay your own blade
+		name = ova_academy.163.b
+		ova_champion_add_xp = { AMOUNT = 6 }
+		ova_champion_add_popularity = { AMOUNT = 3 }
+	}
+}
+
+ova_academy.164 = { # The Juniors' Mentor
+	type = country_event
+	placement = root
+	title = ova_academy.164.t
+	desc = ova_academy.164.d
+	flavor = ova_academy.164.f
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # drill the first-years without mercy
+		name = ova_academy.164.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+	option = { # teach them the one trick that kept you alive
+		name = ova_academy.164.b
+		ova_champion_add_xp = { AMOUNT = 8 }
+		ova_champion_add_popularity = { AMOUNT = 4 }
+	}
+}
+
+# ============================ TERM 8 - Year 4, Semester 2: the run-up to graduation
+ova_academy.171 = { # The Final Practicum
+	type = country_event
+	placement = root
+	title = ova_academy.171.t
+	desc = ova_academy.171.d
+	flavor = ova_academy.171.f
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # ace the capstone alone
+		name = ova_academy.171.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 15 }
+	}
+	option = { # bring your whole squad home graded
+		name = ova_academy.171.b
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+}
+
+ova_academy.172 = { # The Doctrine Oral
+	type = country_event
+	placement = root
+	title = ova_academy.172.t
+	desc = ova_academy.172.d
+	flavor = ova_academy.172.f
+	duration = 3
+	event_image = { video = "unspecific_politicians_arguing" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # tell the lectors exactly what they want to hear
+		name = ova_academy.172.a
+		default_option = yes
+		change_relations = { country = c:LUX value = 8 }
+	}
+	option = { # tell them what you actually believe
+		name = ova_academy.172.b
+		ova_champion_add_xp = { AMOUNT = 12 }
+		change_relations = { country = c:LUX value = -5 }
+	}
+}
+
+ova_academy.173 = { # The Senior Send-Off
+	type = country_event
+	placement = root
+	title = ova_academy.173.t
+	desc = ova_academy.173.d
+	flavor = ova_academy.173.f
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # give the farewell address
+		name = ova_academy.173.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+	option = { # slip away and train the empty ring
+		name = ova_academy.173.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_academy.174 = { # The Night Before
+	type = country_event
+	placement = root
+	title = ova_academy.174.t
+	desc = ova_academy.174.d
+	flavor = ova_academy.174.f
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # sit up with your class one last time
+		name = ova_academy.174.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 8 }
+	}
+	option = { # polish your blade in silence
+		name = ova_academy.174.b
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+# ============================ GRADUATION - the four graduation scenes
+# Every one of these stamps ova_hero_academy_graduated (which completes
+# je_ova_victoria_2 and lets the decision retire) and clears the term counter.
+ova_academy.181 = { # Valedictorian
+	type = country_event
+	placement = root
+	title = ova_academy.181.t
+	desc = ova_academy.181.d
+	flavor = ova_academy.181.f
+	duration = 3
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # accept the laurel at the head of the class
+		name = ova_academy.181.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 12 }
+		set_variable = ova_hero_academy_graduated
+		remove_variable = ova_academy_term
+	}
+}
+
+ova_academy.182 = { # The Frontier Posting
+	type = country_event
+	placement = root
+	title = ova_academy.182.t
+	desc = ova_academy.182.d
+	flavor = ova_academy.182.f
+	duration = 3
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # take the commission to the scarred border
+		name = ova_academy.182.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+		ova_champion_add_popularity = { AMOUNT = 6 }
+		set_variable = ova_hero_academy_graduated
+		remove_variable = ova_academy_term
+	}
+}
+
+ova_academy.183 = { # The Church's Chosen
+	type = country_event
+	placement = root
+	title = ova_academy.183.t
+	desc = ova_academy.183.d
+	flavor = ova_academy.183.f
+	duration = 3
+	event_image = { video = "unspecific_ruler_speaking_to_people" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # kneel and accept the reliquary blade
+		name = ova_academy.183.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 8 }
+		change_relations = { country = c:LUX value = 8 }
+		set_variable = ova_hero_academy_graduated
+		remove_variable = ova_academy_term
+	}
+}
+
+ova_academy.184 = { # The Quiet Diploma
+	type = country_event
+	placement = root
+	title = ova_academy.184.t
+	desc = ova_academy.184.d
+	flavor = ova_academy.184.f
+	duration = 3
+	event_image = { video = "unspecific_signed_contract" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	trigger = { ova_has_living_champion = yes }
+	immediate = { }
+
+	option = { # leave without the speeches
+		name = ova_academy.184.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 8 }
+		ova_champion_add_popularity = { AMOUNT = 6 }
+		set_variable = ova_hero_academy_graduated
+		remove_variable = ova_academy_term
+	}
+}

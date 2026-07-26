@@ -1,0 +1,502 @@
+﻿@maleMin = -0.5
+@maleMax = 0.499
+@femaleMin = -0.4
+@femaleMax = 0.4
+@boyMin = -0.5
+@boyMax = 0.499
+@girlMin = -0.4
+@girlMax = 0.4
+
+@maleBsMin = 0.0
+@maleBsMax = 1.0
+@femaleBsMin = 0.0
+@femaleBsMax = 0.8
+@boyBsMin = 0.0
+@girlBsMin = 0.0
+@boyBsMax = 1.0
+@girlBsMax = 0.8
+
+morph_genes = {
+
+	race_features = {
+		inheritable = yes
+
+		human_features = {
+			index = 0
+			male = {}
+			female = male
+			boy = male
+			girl = male
+		}
+
+		harimari_features = {
+			index = 1
+			set_tags = "harimari_features"
+			set_tags = "no_hair"
+			set_tags = "no_beard"
+			male = {
+
+				
+
+			setting = { attribute = "harimari_head_bs"	value = { min = 1.0 max = 1.0 }	}
+				texture_override = {
+					weight = 100000  #if there are multiple texture_overrides in a character's dna one will be picked by weighted random
+					diffuse = 		"gfx/models/portraits/decals/male_head/harimari/harimari_head_base_diffuse.dds"
+					normal = 		"gfx/models/portraits/decals/male_head/harimari/harimari_head_base_normal.dds"
+					specular = 	"gfx/models/portraits/decals/male_head/harimari/harimari_head_base_properties.dds"
+				}
+
+
+                 
+				decal = {   
+
+                        body_part = torso
+                        textures = {
+                            diffuse = "gfx/models/portraits/decals/male_body/harimari/harimari_body_base_diffuse.dds"
+                            normal = "gfx/models/portraits/decals/male_body/harimari/harimari_body_base_normal.dds"
+							properties =  "gfx/models/portraits/decals/male_body/harimari/harimari_body_base_properties.dds"
+                        }
+                        alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                            #gene strength%, decal alpha
+                            { 1.0  1.0 }
+                            { 1.0  1.0 }
+                        }
+                        blend_modes = {              #overlay/replace/hard_light/multiply
+                            diffuse = multiply
+                            normal = replace
+							properties = replace
+                        }
+                        priority = 10
+                }
+
+
+			}
+
+			female = {
+
+			setting = { attribute = "harimari_female_head_bs"	value = { min = 1.0 max = 1.0 }	}
+
+				texture_override = {
+					weight = 100000  #if there are multiple texture_overrides in a character's dna one will be picked by weighted random
+					diffuse = 		"gfx/models/portraits/decals/male_head/harimari/harimari_head_base_diffuse.dds"
+					normal = 		"gfx/models/portraits/decals/male_head/harimari/harimari_head_base_normal.dds"
+					specular = 	"gfx/models/portraits/decals/male_head/harimari/harimari_head_base_properties.dds"
+				}
+            	
+				decal = {   
+
+                        body_part = torso
+                        textures = {
+                            diffuse = "gfx/models/portraits/decals/male_body/harimari/harimari_body_base_diffuse.dds"
+                            #normal = "gfx/models/portraits/decals/male_body/harimari/harimari_body_base_normal.dds"
+							#properties =  "gfx/models/portraits/decals/male_body/harimari/harimari_body_base_properties.dds"
+                        }
+                        alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                            #gene strength%, decal alpha
+                            { 0.0  0.0 }
+                            { 1.0  1.0 }
+                        }
+                        blend_modes = {              #overlay/replace/hard_light/multiply
+                            diffuse = hard_light
+                            normal = replace
+							properties = replace
+                        }
+                        priority = 10
+                }
+
+
+			}
+			boy = male
+			girl = female
+		}
+		
+		kobold_features = {
+			index = 2
+			set_tags = "kobold_features"
+			set_tags = "no_hair"
+			set_tags = "no_beard"
+			male = {
+
+			setting = { attribute = "kobold_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+
+
+				decal = {   
+
+                        body_part = head
+                        textures = {
+					        #diffuse = 		"gfx/models/portraits/decals/male_head/kobold/kobold_head_base_diffuse.dds"
+					        normal = 		"gfx/models/portraits/decals/male_head/kobold/kobold_head_base_normal.dds"
+					        properties =  	"gfx/models/portraits/decals/male_head/kobold/kobold_head_base_properties.dds"
+                        }
+                        alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                            #gene strength%, decal alpha
+                            { 0.0  0.0 }
+                            { 1.0  1.0 }
+                        }
+                        blend_modes = {              #overlay/replace/hard_light/multiply
+                            #diffuse = hard_light
+                            normal = replace
+							properties = hard_light
+                        }
+                        priority = 10
+                }
+
+				decal = {   
+
+                        body_part = torso
+                        textures = {
+                            #diffuse =     "gfx/models/portraits/decals/male_body/kobold/kobold_body_base_diffuse.dds"
+                            normal =      "gfx/models/portraits/decals/male_body/kobold/kobold_body_base_normal.dds"
+							properties =  "gfx/models/portraits/decals/male_body/kobold/kobold_body_base_properties.dds"
+                        }
+                        alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                            #gene strength%, decal alpha
+                            { 0.0  0.0 }
+                            { 1.0  1.0 }
+                        }
+                        blend_modes = {              #overlay/replace/hard_light/multiply
+                            #diffuse = replace
+                            normal = replace
+							properties = hard_light
+                        }
+                        priority = 10
+                }
+			}
+
+			female = {
+
+			setting = { attribute = "kobold_female_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+
+				decal = {   
+
+                        body_part = head
+                        textures = {
+					        #diffuse = 		"gfx/models/portraits/decals/male_head/kobold/kobold_head_base_diffuse.dds"
+					        normal = 		"gfx/models/portraits/decals/male_head/kobold/kobold_head_base_normal.dds"
+					        properties =  	"gfx/models/portraits/decals/male_head/kobold/kobold_head_base_properties.dds"
+                        }
+                        alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                            #gene strength%, decal alpha
+                            { 0.0  0.0 }
+                            { 1.0  1.0 }
+                        }
+                        blend_modes = {              #overlay/replace/hard_light/multiply
+                            #diffuse = hard_light
+                            normal = replace
+							properties = hard_light
+                        }
+                        priority = 10
+                }
+
+				decal = {   
+
+                        body_part = torso
+                        textures = {
+                            #diffuse = "gfx/models/portraits/decals/male_body/kobold/kobold_body_base_diffuse.dds"
+                            normal = "gfx/models/portraits/decals/male_body/kobold/kobold_body_base_normal.dds"
+							properties =  "gfx/models/portraits/decals/male_body/kobold/kobold_body_base_properties.dds"
+                        }
+                        alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                            #gene strength%, decal alpha
+                            { 0.0  0.0 }
+                            { 1.0  1.0 }
+                        }
+                        blend_modes = {              #overlay/replace/hard_light/multiply
+                            #diffuse = hard_light
+                            normal = replace
+							properties = hard_light
+                        }
+                        priority = 10
+                }
+			}
+
+			boy = male
+			girl = female
+		}
+
+		lizardfolk_features = {
+			index = 3
+			set_tags = "no_beard"
+			set_tags = "lizardfolk_features"
+			set_tags = "no_hair"
+			male = {
+
+			setting = { attribute = "lizardfolk_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+				
+				decal = {   
+
+                        body_part = head
+                        textures = {
+					        #diffuse = 		"gfx/models/portraits/decals/male_head/lizardfolk/lizardfolk_head_base_diffuse.dds"
+					        normal = 		"gfx/models/portraits/decals/male_head/lizardfolk/lizardfolk_head_base_normal.dds"
+					        properties =  	"gfx/models/portraits/decals/male_head/lizardfolk/lizardfolk_head_base_properties.dds"
+                        }
+                        alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                            #gene strength%, decal alpha
+                            { 0.0  0.0 }
+                            { 1.0  1.0 }
+                        }
+                        blend_modes = {              #overlay/replace/hard_light/multiply
+                            #diffuse = hard_light
+                            normal = replace
+							properties = replace
+                        }
+                        priority = 10
+                }
+
+				decal = {   
+
+                        body_part = torso
+                        textures = {
+                            #diffuse =     "gfx/models/portraits/decals/male_body/kobold/kobold_body_base_diffuse.dds"
+                            normal =      "gfx/models/portraits/decals/male_body/kobold/kobold_body_base_normal.dds"
+							properties =  "gfx/models/portraits/decals/male_body/kobold/kobold_body_base_properties.dds"
+                        }
+                        alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                            #gene strength%, decal alpha
+                            { 0.0  0.0 }
+                            { 1.0  1.0 }
+                        }
+                        blend_modes = {              #overlay/replace/hard_light/multiply
+                            #diffuse = replace
+                            normal = replace
+							properties = replace
+                        }
+                        priority = 10
+                }
+			}
+
+
+			female = {
+
+			setting = { attribute = "lizardfolk_female_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+				
+				decal = {   
+
+                        body_part = head
+                        textures = {
+					        #diffuse = 		"gfx/models/portraits/decals/male_head/lizardfolk/lizardfolk_head_base_diffuse.dds"
+					        normal = 		"gfx/models/portraits/decals/male_head/lizardfolk/lizardfolk_head_base_normal.dds"
+					        properties =  	"gfx/models/portraits/decals/male_head/lizardfolk/lizardfolk_head_base_properties.dds"
+                        }
+                        alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                            #gene strength%, decal alpha
+                            { 0.0  0.0 }
+                            { 1.0  1.0 }
+                        }
+                        blend_modes = {              #overlay/replace/hard_light/multiply
+                            #diffuse = hard_light
+                            normal = replace
+							properties = replace
+                        }
+                        priority = 10
+                }
+
+				decal = {   
+
+                        body_part = torso
+                        textures = {
+                            #diffuse = "gfx/models/portraits/decals/male_body/kobold/kobold_body_base_diffuse.dds"
+                            normal = "gfx/models/portraits/decals/male_body/kobold/kobold_body_base_normal.dds"
+							properties =  "gfx/models/portraits/decals/male_body/kobold/kobold_body_base_properties.dds"
+                        }
+                        alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                            #gene strength%, decal alpha
+                            { 0.0  0.0 }
+                            { 1.0  1.0 }
+                        }
+                        blend_modes = {              #overlay/replace/hard_light/multiply
+                            #diffuse = hard_light
+                            normal = replace
+							properties = replace
+                        }
+                        priority = 10
+                }
+			}
+
+			boy = male
+			girl = female
+		}
+
+				
+		gnoll_features = {
+			index = 4
+			set_tags = "gnoll_features"
+			set_tags = "no_beard"
+			set_tags = "no_hair"
+			male = {
+
+			setting = { attribute = "gnoll_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+
+				texture_override = {
+					weight = 100000  #if there are multiple texture_overrides in a character's dna one will be picked by weighted random
+					diffuse = 		"gfx/models/portraits/decals/male_head/gnoll/gnoll_head_base_diffuse.dds"
+					normal = 		"gfx/models/portraits/decals/male_head/gnoll/gnoll_head_base_normal.dds"
+					specular = 	"gfx/models/portraits/decals/male_head/gnoll/gnoll_head_base_properties.dds"
+				}
+			}
+
+			female = {
+
+			setting = { attribute = "gnoll_female_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+
+				texture_override = {
+					weight = 100000  #if there are multiple texture_overrides in a character's dna one will be picked by weighted random
+					diffuse = 		"gfx/models/portraits/decals/male_head/gnoll/gnoll_head_base_diffuse.dds"
+					normal = 		"gfx/models/portraits/decals/male_head/gnoll/gnoll_head_base_normal.dds"
+					specular = 	"gfx/models/portraits/decals/male_head/gnoll/gnoll_head_base_properties.dds"
+				}
+			}
+			boy = male
+			girl = female
+		}
+
+		mechanim_features = { 
+			index = 5
+			set_tags = "mechanim_features"
+			set_tags = "no_hair"
+			set_tags = "no_beard"
+			male = {
+
+
+				decal = {   
+
+                        body_part = head
+                        textures = {
+					        diffuse = 		"gfx/models/portraits/decals/male_head/mechanim/mechanim_head_base_diffuse.dds"
+					        normal = 		"gfx/models/portraits/decals/male_head/mechanim/mechanim_head_base_normal.dds"
+					        properties =  	"gfx/models/portraits/decals/male_head/mechanim/mechanim_head_base_properties.dds"
+                        }
+                        alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                            #gene strength%, decal alpha
+                            { 0.0  0.0 }
+                            { 1.0  1.0 }
+                        }
+                        blend_modes = {              #overlay/replace/hard_light/multiply
+                            diffuse = replace
+                            normal = replace
+							properties = replace
+                        }
+                        priority = 10
+                }
+
+				decal = {   
+
+                        body_part = torso
+                        textures = {
+                            diffuse = "gfx/models/portraits/decals/male_body/mechanim/mechanim_body_base_diffuse.dds"
+                            normal = "gfx/models/portraits/decals/male_body/mechanim/mechanim_body_base_normal.dds"
+							properties =  "gfx/models/portraits/decals/male_body/mechanim/mechanim_body_base_properties.dds"
+                        }
+                        alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                            #gene strength%, decal alpha
+                            { 0.0  0.0 }
+                            { 1.0  1.0 }
+                        }
+                        blend_modes = {              #overlay/replace/hard_light/multiply
+                            diffuse = replace
+                            normal = replace
+							properties = replace
+                        }
+                        priority = 10
+                }
+			}
+
+			female = male
+			boy = male
+			girl = female
+		}
+
+		goblin_features = {
+			index = 6
+			set_tags = "goblin_features"
+			male = {
+
+			setting = { attribute = "goblin_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+
+			}
+
+			female = {
+
+			setting = { attribute = "goblin_female_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+			}
+
+
+			boy = male
+			girl = female
+		}
+
+		gnome_features = {
+			index = 7
+			set_tags = "gnome_features"
+			male = {
+
+			setting = { attribute = "gnome_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+
+			}
+
+			female = {
+
+			setting = { attribute = "gnome_female_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+			}
+
+
+			boy = male
+			girl = female
+		}
+
+		half-orc_features = {
+			index = 8
+			set_tags = "half-orc_features"
+			male = {
+
+			setting = { attribute = "half-orc_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+
+			}
+
+			female = {
+
+			setting = { attribute = "half-orc_female_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+			}
+
+
+			boy = male
+			girl = female
+		}
+
+		orc_features = {
+			index = 9
+			set_tags = "orc_features"
+			male = {
+
+			setting = { attribute = "orc_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+
+			}
+
+			female = {
+
+			setting = { attribute = "orc_female_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+			}
+
+
+			boy = male
+			girl = female
+		}
+
+		harpy_features = {
+			index = 10
+			set_tags = "harpy_features"
+			male = female
+
+			female = {
+
+			setting = { attribute = "harpy_female_head_bs"	value = { min = 0.0 max = 1.0 }	 }
+			}
+
+
+			boy = male
+			girl = female
+		}
+		
+	}
+}		

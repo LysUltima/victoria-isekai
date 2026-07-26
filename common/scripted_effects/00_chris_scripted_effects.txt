@@ -1,0 +1,347 @@
+﻿cuba_annex_effects = {
+	active_law:lawgroup_slavery = {
+		type = {
+			save_temporary_scope_as = current_slave_law
+		}
+	}
+	overlord ?= {
+        save_temporary_scope_as = boss
+        # removed effect line: vanilla ref 'c:CUB' not present in this mod
+        activate_law = scope:current_slave_law
+        add_primary_culture = cu:alena
+    }
+    play_as = scope:boss
+}
+
+reapply_raiding_state_modifier = {
+	remove_global_variable = mon_raid_state
+	every_neighbouring_state = {
+		limit = {
+			always = no # modifier 'raid_target' not present in this mod (montenegrin_modifiers.txt disabled)
+		}
+		# removed effect line: modifier 'raid_target' not present in this mod
+	}
+	random_neighbouring_state = {
+		limit = {
+			always = no # vanilla ref 'c:TUR' not present in this mod
+		}
+		save_scope_as = raid_target
+		if = {
+			limit = {
+				raiding_level >= 2
+			}
+			# removed effect block: modifier 'raid_target' not present in this mod (montenegrin_modifiers.txt disabled)
+			set_global_variable = {
+				name = mon_raid_state
+				value = scope:raid_target
+			}
+		}
+		add_radicals_in_state = {
+			value = {
+				add = 0.015
+				multiply = raiding_level
+			}
+		}
+	}
+}
+
+
+end_raiding_cleanup = { #Used to #cleanup effects of je_montenegrin_raiding
+	custom_tooltip = {
+		text = montenegrin_raiding_stop_tt
+		# removed effect line: modifier 'modifier_montenegrin_raiding' not present in this mod
+		# removed effect line: modifier 'modifier_montenegrin_disobedience' not present in this mod
+	}
+	hidden_effect = {
+		# removed effect block: vanilla ref 'c:RUS' not present in this mod
+		# removed effect block: vanilla ref 'c:TUR' not present in this mod
+	}
+	hidden_effect = {
+		every_neighbouring_state = {
+			limit = {
+				always = no # modifier 'raid_target' not present in this mod (montenegrin_modifiers.txt disabled)
+			}
+			# removed effect line: modifier 'raid_target' not present in this mod
+		}
+		# removed effect block: vanilla ref 'c:TUR' not present in this mod
+		remove_global_variable = mon_raid_state
+	}
+}
+
+mon_failure_events = {
+	hidden_effect = {
+				# removed (trigger_event: Event not found! EventID: mon_state_formation.16)
+	
+	}
+}
+
+russia_breaks_independence_pact = {
+	if = {
+		limit = {
+			always = no # vanilla ref 'c:MON' not present in this mod
+			always = no # blanked: vanilla ref 'c:RUS' not present in this mod
+		}
+		custom_tooltip = {
+			text = russia_no_longer_guarantor_tt
+			# removed effect block: vanilla ref 'c:RUS' not present in this mod
+		}
+	}
+}
+
+increase_raiding = { #increases raiding intensity, if valid
+	if = {
+		limit = {
+			always = no # vanilla ref 'je_montenegrin_raiding' not present in this mod
+			always = no
+		}
+		custom_tooltip = {
+			text = mon_more_heads_tt
+			# change_variable = {
+				# name = raiding_intensity
+				# add = 25
+			# }
+			# removed effect lines: modifiers 'modifier_montenegrin_raiding'/'modifier_montenegrin_disobedience' not present in this mod
+		}
+	}
+}
+
+generate_ottoman_side_list = {
+	# clear_global_variable_list = ottoman_side_list
+}
+
+generate_balkan_league_side_list = {
+	clear_global_variable_list = balkan_league_side_list
+	every_country = {
+		limit = {
+			always = no # vanilla ref 'je_the_balkan_league' not present in this mod
+		}
+		save_temporary_scope_as = balkan_league_member
+		if = {
+			limit = {
+				NOT = { #just in case already added
+					is_target_in_global_variable_list = {
+						name = balkan_league_side_list
+						target = THIS
+					}
+				}
+			}
+			add_to_global_variable_list = {
+				name = balkan_league_side_list
+				target = THIS
+			}
+		}
+		every_country = {
+			limit = {
+				NOR = { #not above, not already counted
+					this = scope:balkan_league_member
+					is_target_in_global_variable_list = {
+						name = balkan_league_side_list
+						target = THIS
+					}
+				}
+				any_scope_treaty = {
+					binds = scope:balkan_league_member
+					any_scope_article = {
+						OR = {
+							has_type = alliance
+							AND = {
+								has_type = support_independence
+								target_country = scope:balkan_league_member
+							}
+						}
+					}
+				}
+				NOT = { #not if also Turk ally
+					any_scope_treaty = {
+						always = no # vanilla ref 'c:TUR' not present in this mod
+						any_scope_article = {
+							OR = {
+								has_type = alliance
+								has_type = defensive_pact
+							}
+						}
+					}
+				}
+			}
+			add_to_global_variable_list = {
+				name = balkan_league_side_list
+				target = THIS
+			}
+		}
+	}
+}
+
+transfer_province = { # Changes ownership of PROVINCE(here use ID number without p:, eg xF5F6C2) from GIVER to TAKER countries (e.g. c:TUR). Automatically checks GIVER owns the state.
+	if = {
+		limit = {
+			exists = $GIVER$
+			exists = $TAKER$
+			$TAKER$ != $GIVER$
+			p:$PROVINCE$  = {
+				$GIVER$ ?= state.owner
+			}
+		}
+		p:$PROVINCE$.state.state_region = {
+			set_owner_of_provinces = {
+				country = $TAKER$
+				provinces = { $PROVINCE$ }
+			}
+		}
+	}
+}
+
+transfer_state = { # Changes ownership of any state within a STATE region (e.g. s:STATE_MONTENEGRO) from GIVER to TAKER countries (e.g. c:TUR). Automatically checks GIVER exists and owns the state.
+	if = {
+		limit = {
+			exists = $GIVER$
+			exists = $TAKER$
+			$TAKER$ != $GIVER$
+			$STATE$ = {
+				any_scope_state = {
+					$GIVER$ = owner
+				}
+			}
+		}
+		$STATE$ = {
+			every_scope_state = {
+				limit = {
+					owner = $GIVER$
+				}
+				set_state_owner = $TAKER$
+			}
+		}
+	}
+}
+
+balkan_war_give_tech = { # if c:TUR has $TECH$, and root doesn't, instant research it. Includes an else_if
+	if = {
+		limit = {
+			always = no # blanked: vanilla ref 'c:TUR' not present in this mod
+			root = {
+				NOT = {
+					has_technology_researched = $TECH$
+				}
+			}
+		}
+		root = {
+			add_technology_researched = $TECH$
+			# removed: balkan_got_tech_cooldown was only read by a deleted event
+		}
+	}
+}
+
+balkan_war_even_tech = {
+	balkan_war_give_tech = {
+		TECH = massed_levies
+	}
+	balkan_war_give_tech = {
+		TECH = mobile_automata_doctrine
+	}
+	balkan_war_give_tech = {
+		TECH = army_reserves
+	}
+	balkan_war_give_tech = {
+		TECH = formation_arrays
+	}
+	balkan_war_give_tech = {
+		TECH = battle_consumables
+	}
+	balkan_war_give_tech = {
+		TECH = rune_etched_arms
+	}
+	balkan_war_give_tech = {
+		TECH = battlefield_draughts
+	}
+	balkan_war_give_tech = {
+		TECH = general_staff
+	}
+	balkan_war_give_tech = {
+		TECH = modern_nursing
+	}
+	balkan_war_give_tech = {
+		TECH = enlistment_offices
+	}
+	balkan_war_give_tech = {
+		TECH = relay_orbs
+	}
+	balkan_war_give_tech = {
+		TECH = chain_enchanted_arms
+	}
+	balkan_war_give_tech = {
+		TECH = spell_array_batteries
+	}
+	balkan_war_give_tech = {
+		TECH = calculation_engines
+	}
+	balkan_war_give_tech = {
+		TECH = modern_nursing
+	}
+	balkan_war_give_tech = {
+		TECH = perfected_enchanted_arms
+	}
+	balkan_war_give_tech = {
+		TECH = auto_cycling_war_cores
+	}
+	balkan_war_give_tech = {
+		TECH = entrenched_formations
+	}
+	balkan_war_give_tech = {
+		TECH = war_propaganda
+	}
+	balkan_war_give_tech = {
+		TECH = siege_automata_doctrine
+	}
+	balkan_war_give_tech = {
+		TECH = layered_formation_arrays
+	}
+	balkan_war_give_tech = { #era 5
+		TECH = nco_training
+	}
+	balkan_war_give_tech = {
+		TECH = miasmic_reagents
+	}
+	balkan_war_give_tech = {
+		TECH = vanguard_cultivators
+	}
+	balkan_war_give_tech = {
+		TECH = warded_bastions
+	}
+	balkan_war_give_tech = {
+		TECH = airship_flight
+	}
+	balkan_war_give_tech = {
+		TECH = flame_talismans
+	}
+	balkan_war_give_tech = {
+		TECH = colossal_war_automata
+	}
+}
+
+destroy_barracks = { #Used to destroy and rebuild barracks in montenegrin_raiding.1 and montenegrin_raiding.2
+	custom_tooltip = {
+		text = mon_lost_men_tt
+		save_temporary_scope_value_as = {
+			name = barracks_amount
+			value = barracks_levels_to_leave_unburned
+		}
+		random_scope_state = {
+			limit = {
+				always = no # vanilla ref 's:STATE_MONTENEGRO' not present in this mod
+			}
+			remove_building = building_barrack
+			create_building = {
+				building = "building_barrack"
+				level = scope:barracks_amount
+					reserves = 1
+			}
+		}
+	}
+}
+
+eastern_crisis_2_event_effects = {
+	# removed effect block: vanilla ref 'c:TUR' not present in this mod
+}
+
+eastern_crisis_3_event_effects = {
+	# removed effect block: vanilla ref 'c:TUR' not present in this mod
+}

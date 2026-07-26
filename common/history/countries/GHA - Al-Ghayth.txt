@@ -1,0 +1,7 @@
+﻿# Al-Ghayth (desert: alchemy tier 2)
+COUNTRIES = {
+	c:GHA ?= {
+		effect_starting_technology_alchemy_tier_2 = yes
+		effect_starting_politics_reactionary = yes
+	}
+}

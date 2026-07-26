@@ -1,0 +1,2440 @@
+﻿### Reyorn harem storyline - narrative events (John Paradox)
+# A summoned otherworlder Hero courts, one state at a time, the beastkin woman
+# of each of Reyorn's five provinces. Every courtship is EIGHT date beats: an
+# intro that creates the heroine and seven more dates, each offering three
+# choices that raise Affection by different amounts (best +5 / good +3 / poor
+# +1). Once the Affection bar is full (50: eight best dates give 40, so at least
+# one objective is always needed) the confession BUTTON on the journal lights up
+# (ova_rey_buttons.txt); clicking it fires her confession event, and accepting
+# any option there is the sole thing that wins her. Fall short and John moves on:
+# if after all eight dates affection is still under 20 the courtship fails at
+# once, and either way a spent five-year clock simply sends him to the next state.
+#
+# EVERY option carries exactly one gameplay effect on top of its affection, and
+# that effect is THE LITERAL CONSEQUENCE OF WHAT THE OPTION TEXT SAYS HE DID. It
+# is never a generic payout: help Nasira break the cartel and her spice routes
+# reopen (a Katzenburg trade modifier); pay the deserter's fine and the treasury
+# pays it; burn Fenna's manuscript and the republic loses the knowledge in it;
+# gawk at Ursla in her own forge and the forge hands turn radical. The effect
+# should always be guessable from the option line alone. Where the beat is
+# purely private, the consequence is her own people's reaction in her own state
+# (effect_ova_rey_state_loyalists / _radicals, keyed to her culture).
+#
+# There is no fixed reward curve any more, so there is nothing to pattern-match,
+# but three balance rules hold across the whole chain:
+#
+#  1. THE BEST (+5) OPTION USUALLY COSTS HIM SOMETHING REAL - coin (outbidding an
+#     auction for her, back-paying a season of accounts he was never charged for),
+#     credit (feeding Fenna the fact that wins her debate), knowledge (trading away
+#     a secret of his own world) or blood. EIGHT beats wound him via
+#     ova_champion_injure, which locks the champion out of adventures for months
+#     and is tooltipped at the option: .13.a stepping in front of bandit blades (3),
+#     .53.a putting himself between Fenna and the thing in the archive (3), .23.b
+#     walking into a grain riot alone (2), .33.a taking a mine beam on his shoulders
+#     (2), .22.a letting Bruna put him in the dirt at full strength (1), .31.a going
+#     all out against a bearkin arm (1), .35.a steadying the tongs through a molten
+#     pour (1), .43.b a night chest-deep in snowmelt damming the weir (1).
+#  2. THE POOR (+1) OPTION MUST BE TEMPTING, NOT A TRAP. It is the pragmatic,
+#     professional or frankly mercenary choice, and it PAYS: coin (skim her ledger,
+#     sell the map, sell her cart out in an hour, take the arm-wrestling stakes), a
+#     state gain (review the ranks like a general and every fault does get fixed),
+#     bureaucracy (ask about the promotion paperwork and the paperwork gets filed),
+#     innovation (explain the lantern physics), or the practical outcome anyway in a
+#     lesser form (tell her the ledgers can wait and it still gets untangled, slower).
+#     Only four beats are pure sting with no upside, and all four are genuine rudeness
+#     (.22.c, .27.c, .41.c, .44.c) at very_small magnitude.
+#  3. XP AND RENOWN ARE EARNED BY THE OPTION'S OWN CONTENT, never handed out for
+#     standing there. XP only where he trains, fights, climbs, forges, labours or
+#     studies for real; renown only where a crowd actually witnesses something
+#     impressive (out-haggling Nasira in the open bazaar, holding Ursla to a draw in
+#     a packed hall, facing a riot alone, winning a public debate). A tone-deaf
+#     option never earns renown FOR being tone-deaf.
+#
+# The best option is still shuffled between the a/b/c slots beat to beat. The
+# state-scope boilerplate lives in effect_ova_rey_state_* (ova_rey_effects.txt) and
+# the modifiers in common/static_modifiers/ova_rey_modifiers.txt.
+#
+# ova_rey.1          John Paradox is summoned (prologue, creates the champion)
+# ova_rey.10-.17     Katzenburg  - Nasira, the desert-cat merchant heiress (8 dates)
+# ova_rey.18         ... her confession (fired by the journal button)
+# ova_rey.19         ... she is won (from je on_complete)
+# ova_rey.20-.27     Welpenstadt - Bruna, the dogkin guard-captain (8 dates)
+# ova_rey.28 / .29   ... confession / won
+# ova_rey.30-.37     Barenberg   - Ursla, the bearkin mountain smith (8 dates)
+# ova_rey.38 / .39   ... confession / won
+# ova_rey.40-.47     Hasenhafen  - Lieselotte, the rabbitkin harvest maiden (8 dates)
+# ova_rey.48 / .49   ... confession / won
+# ova_rey.50-.57     Fuschtal    - Fenna, the foxkin scholar (8 dates)
+# ova_rey.58 / .59   ... confession / won
+# ova_rey.78         John has died (fail ending, extremely rare - he is plot-armored)
+# ova_rey.80         a courtship ended cold; she moves on, and so does he
+# ova_rey.90         the capstone: standing for the presidency
+# ova_rey.91         the capstone epilogue
+# ova_rey.94         hidden beat relay (fires the next unseen date mid-year)
+#
+# Each date sets an ova_rey_seen_NN flag in its immediate and refuses to fire
+# twice; the eighth date of each girl also sets ova_rey_all_dates_<x> (the
+# under-20 fail gate). All champion XP / renown flows through the foundation
+# (ova_champion_*); all affection flows through effect_ova_rey_add_affection.
+
+namespace = ova_rey
+
+# =====================================================================
+# Prologue: the summoning
+# =====================================================================
+ova_rey.1 = { # A Hero for the Republic
+	type = country_event
+	placement = root
+
+	title = ova_rey.1.t
+	desc = ova_rey.1.d
+	flavor = ova_rey.1.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		NOT = { has_variable = ova_rey_john_char }
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_rey.1.a
+		default_option = yes
+		# The whole marble hall watched him step out of the light, and the republic
+		# decided on the spot that it had been sent something wonderful.
+		ova_champion_add_popularity = { AMOUNT = 5 }
+		add_loyalists = { value = very_small_radicals }
+		effect_ova_rey_courtship_tick = yes
+	}
+}
+
+# =====================================================================
+# Hidden relay: advance the current courtship's date ladder
+# =====================================================================
+ova_rey.94 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	immediate = {
+		effect_ova_rey_courtship_tick = yes
+		effect_ova_rey_objectives_check = yes
+	}
+}
+
+# =====================================================================
+# KATZENBURG - Nasira, the desert-cat merchant heiress (the capital)
+# =====================================================================
+ova_rey.10 = { # The Cat Who Names Her Price (date 1, intro)
+	type = country_event
+	placement = root
+
+	title = ova_rey.10.t
+	desc = ova_rey.10.d
+	flavor = ova_rey.10.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_10 }
+	}
+
+	immediate = {
+		set_variable = ova_rey_seen_10
+		create_character = {
+			template = template_ova_rey_cat
+			on_created = {
+				save_scope_as = ova_rey_new_heroine
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = { set_variable = { name = ova_rey_char_cat value = scope:ova_rey_new_heroine } }
+			}
+		}
+	}
+
+	# order a,b,c (best first)
+	option = { # best: meet her as an equal in trade - she respects nerve
+		name = ova_rey.10.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The whole bazaar watched an otherworlder out-haggle Nasira al-Sahra.
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+	option = { # good: flatter the merchant princess
+		name = ova_rey.10.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Praise from the republic's hero is worth a season of custom to a stallholder.
+		effect_ova_rey_state_loyalists = { STATE = STATE_KATZENBURG CULTURE = desert_catkin AMOUNT = very_small_radicals }
+	}
+	option = { # poor: simply buy the most expensive thing on the stall
+		name = ova_rey.10.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He is robbed, cheerfully, in public, at the asking price. The bazaar has
+		# never seen a customer it liked better.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+		effect_ova_rey_state_loyalists = { STATE = STATE_KATZENBURG CULTURE = desert_catkin AMOUNT = small_radicals }
+	}
+}
+
+ova_rey.11 = { # A Ledger by Lamplight (date 2)
+	type = country_event
+	placement = root
+
+	title = ova_rey.11.t
+	desc = ova_rey.11.d
+	flavor = ova_rey.11.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_11 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_11 }
+
+	# order b,c,a (best last)
+	option = { # good: lend her the coin she is too proud to ask for
+		name = ova_rey.11.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# The loan she was too proud to ask for, paid out of the republic's purse.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+	option = { # poor: tell her the numbers can wait until morning
+		name = ova_rey.11.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# She sleeps, and they untangle it calmly in the morning. It works. It is
+		# simply not the night she needed him for.
+		effect_ova_rey_state_mod = { STATE = STATE_KATZENBURG MOD = ova_rey_cat_routes_open DAYS = 365 }
+	}
+	option = { # best: help her corner a rival cartel, cleverly and fairly
+		name = ova_rey.11.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# He funds the counter-play out of his own purse, and the cartel is broken
+		# off the spice routes for good.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+		effect_ova_rey_state_mod = { STATE = STATE_KATZENBURG MOD = ova_rey_cat_routes_open DAYS = 1825 }
+	}
+}
+
+ova_rey.12 = { # The Rooftops of the Bazaar (date 3)
+	type = country_event
+	placement = root
+
+	title = ova_rey.12.t
+	desc = ova_rey.12.d
+	flavor = ova_rey.12.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_12 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_12 }
+
+	# order c,a,b (best middle)
+	option = { # poor: remind her that heiresses do not scale rooftops
+		name = ova_rey.12.c
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# She comes down, and they spend the afternoon on business instead. The
+		# business goes very well.
+		add_treasury = { value = money_amount_multiplier_very_small }
+	}
+	option = { # best: chase her across the tiles and match her leap for leap
+		name = ova_rey.12.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# An afternoon of rooftop chases after a desert cat is its own training.
+		ova_champion_add_xp = { AMOUNT = 12 }
+	}
+	option = { # good: wait below with a lantern and her favorite sweets
+		name = ova_rey.12.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Lantern oil, and the good sweets from the north end of the bazaar.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+}
+
+ova_rey.13 = { # The Caravan Ambush (date 4, a crisis)
+	type = country_event
+	placement = root
+
+	title = ova_rey.13.t
+	desc = ova_rey.13.d
+	flavor = ova_rey.13.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_13 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_13 }
+
+	# order a,c,b (best first)
+	option = { # best: put yourself between her and the bandit blades
+		name = ova_rey.13.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# Every surviving guard tells the story of who stood in front of the blades.
+		# The blades, meanwhile, were quite real.
+		ova_champion_add_popularity = { AMOUNT = 6 }
+		ova_champion_injure = { MONTHS = 3 }
+	}
+	option = { # poor: let her fight - she has claws, after all
+		name = ova_rey.13.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He fights his own half of the dunes, at his own pace, and comes out of it
+		# whole and a good deal wiser about bandits.
+		ova_champion_add_xp = { AMOUNT = 15 }
+	}
+	option = { # good: save the caravan and its goods first, then her
+		name = ova_rey.13.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# The cargo comes home intact, and the duty on it with it.
+		add_treasury = { value = money_amount_multiplier_very_small }
+	}
+}
+
+ova_rey.14 = { # What the Ledger Never Priced (date 5)
+	type = country_event
+	placement = root
+
+	title = ova_rey.14.t
+	desc = ova_rey.14.d
+	flavor = ova_rey.14.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_14 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_14 }
+
+	# order b,a,c (best middle)
+	option = { # good: offer a partnership, sealed with a handshake
+		name = ova_rey.14.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# A handshake partnership between her house and his.
+		effect_ova_rey_state_mod = { STATE = STATE_KATZENBURG MOD = ova_rey_cat_partnership DAYS = 1095 }
+	}
+	option = { # best: tell her the truth: some things you would never sell
+		name = ova_rey.14.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The bazaar learns the hero cannot be bought, and its merchants adore him for it.
+		effect_ova_rey_state_loyalists = { STATE = STATE_KATZENBURG CULTURE = desert_catkin AMOUNT = small_radicals }
+	}
+	option = { # poor: deflect with a joke about interest rates
+		name = ova_rey.14.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# She laughs, they talk shop until dawn, and he leaves with a rate on the
+		# republic's paper that no minister could have argued her down to.
+		add_treasury = { value = money_amount_multiplier_very_small }
+	}
+}
+
+ova_rey.15 = { # The Auction War (date 6)
+	type = country_event
+	placement = root
+
+	title = ova_rey.15.t
+	desc = ova_rey.15.d
+	flavor = ova_rey.15.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_15 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_15 }
+
+	# order c,b,a (best last)
+	option = { # poor: outbid the rival for yourself and gift it to no one
+		name = ova_rey.15.c
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He pays the fever price and keeps the most famous jewel in Katzenburg.
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_modifier = { name = ova_rey_cat_star_sapphire days = 1825 }
+	}
+	option = { # good: talk the rival down so the price never climbs
+		name = ova_rey.15.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# The lot closes cheap, and the auction house's cut comes to the republic.
+		add_treasury = { value = money_amount_multiplier_very_small }
+	}
+	option = { # best: win the relic she covets and lay it in her hands
+		name = ova_rey.15.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# A star-sapphire the size of a plum, bought at the top of a bidding fever
+		# and handed straight to someone else.
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+	}
+}
+
+ova_rey.16 = { # The Silent Partner (date 7)
+	type = country_event
+	placement = root
+
+	title = ova_rey.16.t
+	desc = ova_rey.16.d
+	flavor = ova_rey.16.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_16 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_16 }
+
+	# order a,b,c (best first)
+	option = { # best: hand the ledger back unread and tell her you trust her
+		name = ova_rey.16.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# He gives up knowing what her cartel is worth. She gives him the cartel.
+		effect_ova_rey_state_mod = { STATE = STATE_KATZENBURG MOD = ova_rey_cat_partnership DAYS = 1825 }
+	}
+	option = { # good: audit it together and tighten every loose thread
+		name = ova_rey.16.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Every loose thread in the cartel's books, tightened in one long night.
+		effect_ova_rey_state_mod = { STATE = STATE_KATZENBURG MOD = ova_rey_cat_open_ledger DAYS = 1825 }
+	}
+	option = { # poor: skim the accounts for what her cartel is truly worth
+		name = ova_rey.16.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He now knows what her cartel is truly worth, and quietly takes a cut of it.
+		add_treasury = { value = money_amount_multiplier_small }
+	}
+}
+
+ova_rey.17 = { # The Last Ledger (date 8)
+	type = country_event
+	placement = root
+
+	title = ova_rey.17.t
+	desc = ova_rey.17.d
+	flavor = ova_rey.17.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_17 }
+	}
+
+	immediate = {
+		set_variable = ova_rey_seen_17
+		set_variable = ova_rey_all_dates_cat
+	}
+
+	# order b,c,a (best last)
+	option = { # good: settle the season's accounts fairly, to the copper
+		name = ova_rey.17.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# This season's account, settled fairly, out of his own purse.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+	option = { # poor: pocket the balance she forgot to charge you
+		name = ova_rey.17.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# The balance she forgot to charge stays in his pocket.
+		add_treasury = { value = money_amount_multiplier_small }
+	}
+	option = { # best: notice she has stopped charging you at all, and say so
+		name = ova_rey.17.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# Saying it out loud means settling it: every meal, every trinket, every
+		# quiet kindness she never billed him for, back-paid to the copper.
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+	}
+}
+
+ova_rey.18 = { # The Price of Her Heart (confession, fired by the journal button)
+	type = country_event
+	placement = root
+
+	title = ova_rey.18.t
+	desc = ova_rey.18.d
+	flavor = ova_rey.18.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	# accepting ANY option wins her: the confessed flag is the JE's sole complete
+	option = { # she names the only price she will accept: him
+		name = ova_rey.18.a
+		default_option = yes
+		set_variable = ova_rey_confessed_cat
+		# The heiress of the grand bazaar names her price in front of the grand bazaar.
+		ova_champion_add_popularity = { AMOUNT = 12 }
+	}
+	option = { # take her paw across the ledger and promise the rest of it
+		name = ova_rey.18.b
+		set_variable = ova_rey_confessed_cat
+		# Two houses, one ledger, for good.
+		effect_ova_rey_state_mod = { STATE = STATE_KATZENBURG MOD = ova_rey_cat_partnership DAYS = 3650 }
+	}
+	option = { # seal it as she would - a contract, and a kiss to sign it
+		name = ova_rey.18.c
+		set_variable = ova_rey_confessed_cat
+		# Signed, sealed and kissed: her fortune enters the hero's household with her.
+		add_treasury = { value = money_amount_multiplier_small }
+	}
+}
+
+ova_rey.19 = { # The Silk-Whiskered Bride (won)
+	type = country_event
+	placement = root
+
+	title = ova_rey.19.t
+	desc = ova_rey.19.d
+	flavor = ova_rey.19.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = { always = yes }
+
+	option = {
+		name = ova_rey.19.a
+		default_option = yes
+		# GONE COURTING. She shuts the richest stall in the bazaar and moves her
+		# ledgers, her fortune and her cartel into the hero's household.
+		add_treasury = { value = money_amount_multiplier_small }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+		effect_ova_rey_wedding = { STATE = STATE_KATZENBURG CULTURE = desert_catkin }
+	}
+}
+
+# =====================================================================
+# WELPENSTADT - Bruna, the dogkin guard-captain
+# =====================================================================
+ova_rey.20 = { # The Captain at the Gate (date 1, intro)
+	type = country_event
+	placement = root
+
+	title = ova_rey.20.t
+	desc = ova_rey.20.d
+	flavor = ova_rey.20.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_20 }
+	}
+
+	immediate = {
+		set_variable = ova_rey_seen_20
+		create_character = {
+			template = template_ova_rey_dog
+			on_created = {
+				save_scope_as = ova_rey_new_heroine
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = { set_variable = { name = ova_rey_char_dog value = scope:ova_rey_new_heroine } }
+			}
+		}
+	}
+
+	# order c,a,b (best middle)
+	option = { # poor: pull rank and wave the paperwork away
+		name = ova_rey.20.c
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# His baggage goes through unopened and undeclared, which is worth a good
+		# deal. The watch, standing there, does the arithmetic too.
+		add_treasury = { value = money_amount_multiplier_very_small }
+		effect_ova_rey_state_radicals = { STATE = STATE_WELPENSTADT CULTURE = dogkin AMOUNT = very_small_radicals }
+	}
+	option = { # best: pass her inspection to the letter, then salute her back
+		name = ova_rey.20.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# No one has ever stood still for Bruna Falk's third paper check before.
+		effect_ova_rey_state_loyalists = { STATE = STATE_WELPENSTADT CULTURE = dogkin AMOUNT = small_radicals }
+	}
+	option = { # good: bring her honest guard a round of good ale
+		name = ova_rey.20.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# A round of the good ale for an entire gate watch.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+}
+
+ova_rey.21 = { # The Long Night Watch (date 2)
+	type = country_event
+	placement = root
+
+	title = ova_rey.21.t
+	desc = ova_rey.21.d
+	flavor = ova_rey.21.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_21 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_21 }
+
+	# order a,c,b (best first)
+	option = { # best: stand the whole watch beside her, hour for hour
+		name = ova_rey.21.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# A hero who stands a whole frost watch on the wall is the army's favourite story.
+		add_modifier = { name = ova_rey_dog_hero_in_the_ranks days = 730 }
+	}
+	option = { # poor: order her to rest and take the watch yourself
+		name = ova_rey.21.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# One man, one wall, one very long night. He learns the north approaches by heart.
+		ova_champion_add_xp = { AMOUNT = 15 }
+	}
+	option = { # good: bring her a warm cloak and keep her company a while
+		name = ova_rey.21.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# A good fur-lined cloak, bought in the small hours at small-hours prices.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+}
+
+ova_rey.22 = { # The Sparring Yard (date 3)
+	type = country_event
+	placement = root
+
+	title = ova_rey.22.t
+	desc = ova_rey.22.d
+	flavor = ova_rey.22.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_22 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_22 }
+
+	# order b,a,c (best middle)
+	option = { # good: fight her honestly and win, then help her up
+		name = ova_rey.22.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# A real bout against the best blade in Welpenstadt, won honestly.
+		ova_champion_add_xp = { AMOUNT = 12 }
+	}
+	option = { # best: meet her at full strength and lose gracefully on purpose
+		name = ova_rey.22.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The whole watch saw their captain put the hero of the republic in the dirt,
+		# and she did not hold back doing it.
+		effect_ova_rey_state_mod = { STATE = STATE_WELPENSTADT MOD = ova_rey_dog_watch_sharpened DAYS = 1095 }
+		ova_champion_injure = { MONTHS = 1 }
+	}
+	option = { # poor: decline; a hero does not brawl with the watch
+		name = ova_rey.22.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He keeps his dignity and his unbruised ribs. The watch had gathered to see
+		# a bout, and does not forget being disappointed.
+		effect_ova_rey_state_radicals = { STATE = STATE_WELPENSTADT CULTURE = dogkin AMOUNT = very_small_radicals }
+	}
+}
+
+ova_rey.23 = { # The Riot in the Kennelward (date 4, a crisis)
+	type = country_event
+	placement = root
+
+	title = ova_rey.23.t
+	desc = ova_rey.23.d
+	flavor = ova_rey.23.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_23 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_23 }
+
+	# order c,b,a (best last)
+	option = { # poor: tell her to crack down hard and be done with it
+		name = ova_rey.23.c
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# The warehouse holds and its grain reaches market at riot prices. So does
+		# the grudge.
+		add_treasury = { value = money_amount_multiplier_very_small }
+		effect_ova_rey_state_mod = { STATE = STATE_WELPENSTADT MOD = ova_rey_dog_iron_hand DAYS = 730 }
+	}
+	option = { # good: disperse the mob yourself and spare her the choice
+		name = ova_rey.23.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# One hero walking alone into a grain riot is a thing a city talks about.
+		# A grain riot is also several hundred people with bricks.
+		ova_champion_add_popularity = { AMOUNT = 6 }
+		ova_champion_injure = { MONTHS = 2 }
+	}
+	option = { # best: stand at her shoulder and hold the line without blood
+		name = ova_rey.23.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The poorest ward in Welpenstadt remembers the night nobody drew steel on it.
+		effect_ova_rey_state_mod = { STATE = STATE_WELPENSTADT MOD = ova_rey_dog_kennelward_calm DAYS = 1095 }
+	}
+}
+
+ova_rey.24 = { # Off Duty at Last (date 5)
+	type = country_event
+	placement = root
+
+	title = ova_rey.24.t
+	desc = ova_rey.24.d
+	flavor = ova_rey.24.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_24 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_24 }
+
+	# order a,b,c (best first)
+	option = { # best: walk her home the long way and let her talk about nothing
+		name = ova_rey.24.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# Welpenstadt sees its iron captain walking home talking about nothing, and melts.
+		effect_ova_rey_state_loyalists = { STATE = STATE_WELPENSTADT CULTURE = dogkin AMOUNT = small_radicals }
+	}
+	option = { # good: gift her a new whistle for the watch, engraved
+		name = ova_rey.24.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# A silver watch-whistle, engraved, from the good smith on the market street.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+	option = { # poor: ask her, awkwardly, about promotion paperwork
+		name = ova_rey.24.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He asked about the promotion paperwork. She did the promotion paperwork.
+		add_modifier = { name = ova_rey_dog_paperwork_filed days = 730 }
+	}
+}
+
+ova_rey.25 = { # The Deserter's Trial (date 6)
+	type = country_event
+	placement = root
+
+	title = ova_rey.25.t
+	desc = ova_rey.25.d
+	flavor = ova_rey.25.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_25 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_25 }
+
+	# order b,c,a (best last)
+	option = { # good: help her weigh the law and the mercy of it, together
+		name = ova_rey.25.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# A sentence the watch can respect, arrived at in the open, together.
+		effect_ova_rey_state_mod = { STATE = STATE_WELPENSTADT MOD = ova_rey_dog_watch_sharpened DAYS = 730 }
+	}
+	option = { # poor: tell her to make an example and move on
+		name = ova_rey.25.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# Discipline in the watch becomes absolute overnight. So does the ward's
+		# opinion of the watch.
+		effect_ova_rey_state_mod = { STATE = STATE_WELPENSTADT MOD = ova_rey_dog_watch_sharpened DAYS = 1095 }
+		effect_ova_rey_state_mod = { STATE = STATE_WELPENSTADT MOD = ova_rey_dog_iron_hand DAYS = 730 }
+	}
+	option = { # best: stand for the frightened boy and pay his debt yourself
+		name = ova_rey.25.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The frightened boy's debt to the watch, paid off out of his own pocket.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+}
+
+ova_rey.26 = { # The Parade Review (date 7)
+	type = country_event
+	placement = root
+
+	title = ova_rey.26.t
+	desc = ova_rey.26.d
+	flavor = ova_rey.26.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_26 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_26 }
+
+	# order c,a,b (best middle)
+	option = { # poor: review the ranks like a general and note every fault
+		name = ova_rey.26.c
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# Every fault he named does get fixed. She simply hates how he named it.
+		effect_ova_rey_state_mod = { STATE = STATE_WELPENSTADT MOD = ova_rey_dog_watch_sharpened DAYS = 1095 }
+	}
+	option = { # best: stand in the ranks with her watch and drill as one of them
+		name = ova_rey.26.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The hero of the republic drilled in the ranks like any other soldier.
+		add_modifier = { name = ova_rey_dog_hero_in_the_ranks days = 1095 }
+	}
+	option = { # good: praise the watch loudly and let her take the credit
+		name = ova_rey.26.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# The credit goes to the captain, loudly, in front of the inspector.
+		effect_ova_rey_state_loyalists = { STATE = STATE_WELPENSTADT CULTURE = dogkin AMOUNT = small_radicals }
+	}
+}
+
+ova_rey.27 = { # The Oath Stone (date 8)
+	type = country_event
+	placement = root
+
+	title = ova_rey.27.t
+	desc = ova_rey.27.d
+	flavor = ova_rey.27.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_27 }
+	}
+
+	immediate = {
+		set_variable = ova_rey_seen_27
+		set_variable = ova_rey_all_dates_dog
+	}
+
+	# order a,c,b (best first)
+	option = { # best: lay your hand on the old stone beside hers and mean it
+		name = ova_rey.27.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# A thousand years of dogkin granite is a serious witness to swear on.
+		add_modifier = { name = ova_rey_dog_oathsworn days = 1825 }
+	}
+	option = { # poor: call it a quaint custom and stand aside
+		name = ova_rey.27.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He calls the dogkin oath stone a quaint custom. Within earshot of dogkin.
+		effect_ova_rey_state_radicals = { STATE = STATE_WELPENSTADT CULTURE = dogkin AMOUNT = very_small_radicals }
+	}
+	option = { # good: ask her to teach you the words first
+		name = ova_rey.27.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# The old oath-words of Welpenstadt, learned properly, by heart.
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_rey.28 = { # A Faithful Heart (confession, fired by the journal button)
+	type = country_event
+	placement = root
+
+	title = ova_rey.28.t
+	desc = ova_rey.28.d
+	flavor = ova_rey.28.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	option = { # she asks to guard one man for the rest of her life
+		name = ova_rey.28.a
+		default_option = yes
+		set_variable = ova_rey_confessed_dog
+		# The truest guard in the republic swears herself to one man, for good.
+		add_modifier = { name = ova_rey_dog_oathsworn days = 3650 }
+	}
+	option = { # pin your own badge over her heart and answer yes
+		name = ova_rey.28.b
+		set_variable = ova_rey_confessed_dog
+		# The watch of Welpenstadt wears the hero's badge from that day on.
+		effect_ova_rey_state_mod = { STATE = STATE_WELPENSTADT MOD = ova_rey_dog_watch_sharpened DAYS = 3650 }
+	}
+	option = { # swear it back to her at the oath stone, watch and all
+		name = ova_rey.28.c
+		set_variable = ova_rey_confessed_dog
+		# He swears it back at the oath stone with her entire watch as witness.
+		effect_ova_rey_state_loyalists = { STATE = STATE_WELPENSTADT CULTURE = dogkin AMOUNT = medium_radicals }
+	}
+}
+
+ova_rey.29 = { # The Captain's Vow (won)
+	type = country_event
+	placement = root
+
+	title = ova_rey.29.t
+	desc = ova_rey.29.d
+	flavor = ova_rey.29.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = { always = yes }
+
+	option = {
+		name = ova_rey.29.a
+		default_option = yes
+		# She hands her watch-roster to a startled lieutenant and brings the whole
+		# habit of the Welpenstadt guard into the hero's household with her.
+		add_modifier = { name = ova_rey_dog_hero_in_the_ranks days = 1825 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+		effect_ova_rey_wedding = { STATE = STATE_WELPENSTADT CULTURE = dogkin }
+	}
+}
+
+# =====================================================================
+# BARENBERG - Ursla, the bearkin mountain smith
+# =====================================================================
+ova_rey.30 = { # The Smith Who Bends Iron (date 1, intro)
+	type = country_event
+	placement = root
+
+	title = ova_rey.30.t
+	desc = ova_rey.30.d
+	flavor = ova_rey.30.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_30 }
+	}
+
+	immediate = {
+		set_variable = ova_rey_seen_30
+		create_character = {
+			template = template_ova_rey_bear
+			on_created = {
+				save_scope_as = ova_rey_new_heroine
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = { set_variable = { name = ova_rey_char_bear value = scope:ova_rey_new_heroine } }
+			}
+		}
+	}
+
+	# order a,b,c (best first)
+	option = { # best: take up the second hammer and work the forge with her
+		name = ova_rey.30.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# A second hammer at the great forge of Barenberg, swung all day for nothing.
+		effect_ova_rey_state_mod = { STATE = STATE_BARENBERG MOD = ova_rey_bear_forge_heart DAYS = 1825 }
+	}
+	option = { # good: commission the grandest blade she has ever been asked for
+		name = ova_rey.30.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# The largest single commission the forge has ever been handed.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+	option = { # poor: stare, because she is very large and very strong
+		name = ova_rey.30.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He stares for a full minute, and in fairness he does work out exactly how
+		# she gets the bar to come straight.
+		ova_champion_add_xp = { AMOUNT = 8 }
+	}
+}
+
+ova_rey.31 = { # The Arm-Wrestle at the Alehouse (date 2)
+	type = country_event
+	placement = root
+
+	title = ova_rey.31.t
+	desc = ova_rey.31.d
+	flavor = ova_rey.31.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_31 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_31 }
+
+	# order b,c,a (best last)
+	option = { # good: lose cheerfully and buy the whole hall a round
+		name = ova_rey.31.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# A round for the whole hall, and the hall is the size of a barn.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+	option = { # poor: win with an otherworld trick and gloat
+		name = ova_rey.31.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He takes the table's stakes. The mountain notes exactly how he took them.
+		add_treasury = { value = money_amount_multiplier_very_small }
+		effect_ova_rey_state_radicals = { STATE = STATE_BARENBERG CULTURE = bearkin AMOUNT = very_small_radicals }
+	}
+	option = { # best: go all out and hold her arm to a proud, roaring draw
+		name = ova_rey.31.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# A packed alehouse watched a slight otherworlder hold Ursla Steinfell to a
+		# draw. His arm does not forgive him for a month.
+		ova_champion_add_popularity = { AMOUNT = 6 }
+		ova_champion_injure = { MONTHS = 1 }
+	}
+}
+
+ova_rey.32 = { # The Climb to the Cinder Peak (date 3)
+	type = country_event
+	placement = root
+
+	title = ova_rey.32.t
+	desc = ova_rey.32.d
+	flavor = ova_rey.32.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_32 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_32 }
+
+	# order c,a,b (best middle)
+	option = { # poor: complain about the cold the whole way up
+		name = ova_rey.32.c
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He complains the entire way. He also, complaining, climbs the entire way.
+		ova_champion_add_xp = { AMOUNT = 6 }
+	}
+	option = { # best: match her pace up the mountain and watch the dawn together
+		name = ova_rey.32.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# A night ascent of a live cinder peak, carrying his own pack the whole way.
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+	option = { # good: let her carry the packs, since she insists, and thank her
+		name = ova_rey.32.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Bearfolk approve, loudly, of anyone who lets a bear be strong at him.
+		effect_ova_rey_state_loyalists = { STATE = STATE_BARENBERG CULTURE = bearkin AMOUNT = very_small_radicals }
+	}
+}
+
+ova_rey.33 = { # The Cave-In (date 4, a crisis)
+	type = country_event
+	placement = root
+
+	title = ova_rey.33.t
+	desc = ova_rey.33.d
+	flavor = ova_rey.33.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_33 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_33 }
+
+	# order a,c,b (best first)
+	option = { # best: hold the fallen beam with her, shoulder to shoulder
+		name = ova_rey.33.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The gallery is held up long enough to be shored properly, and stays shored.
+		# A mine beam does not care whose shoulders are under it.
+		effect_ova_rey_state_mod = { STATE = STATE_BARENBERG MOD = ova_rey_bear_gallery_shored DAYS = 1095 }
+		ova_champion_injure = { MONTHS = 2 }
+	}
+	option = { # poor: shout for the crews and organize from safety
+		name = ova_rey.33.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# It was, to be fair, a well-run rescue, and running one teaches a man a
+		# great deal. He simply ran it from outside.
+		ova_champion_add_xp = { AMOUNT = 12 }
+	}
+	option = { # good: dig the miners free while she braces the roof
+		name = ova_rey.33.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Every miner behind that beam walked out. Barenberg counted them.
+		effect_ova_rey_state_loyalists = { STATE = STATE_BARENBERG CULTURE = bearkin AMOUNT = small_radicals }
+	}
+}
+
+ova_rey.34 = { # Soft Words, Hard Hands (date 5)
+	type = country_event
+	placement = root
+
+	title = ova_rey.34.t
+	desc = ova_rey.34.d
+	flavor = ova_rey.34.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_34 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_34 }
+
+	# order b,a,c (best middle)
+	option = { # good: forge her a ring at her own anvil while she sleeps
+		name = ova_rey.34.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# A whole night at a bearkin anvil teaches more than a year of watching.
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+	option = { # best: tell her that gentle is not the opposite of strong
+		name = ova_rey.34.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# She sleeps that night, and her forge sings for a month afterwards.
+		effect_ova_rey_state_mod = { STATE = STATE_BARENBERG MOD = ova_rey_bear_forge_heart DAYS = 730 }
+	}
+	option = { # poor: awkwardly compliment her grip strength
+		name = ova_rey.34.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# She is mortified. The forge hands think a hero this obviously smitten is
+		# the funniest thing to happen to Barenberg in years.
+		effect_ova_rey_state_loyalists = { STATE = STATE_BARENBERG CULTURE = bearkin AMOUNT = very_small_radicals }
+	}
+}
+
+ova_rey.35 = { # The Masterwork (date 6)
+	type = country_event
+	placement = root
+
+	title = ova_rey.35.t
+	desc = ova_rey.35.d
+	flavor = ova_rey.35.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_35 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_35 }
+
+	# order c,b,a (best last)
+	option = { # poor: buy the finished piece and put your own name to it
+		name = ova_rey.35.c
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He buys it outright, at a master's price, and the blade goes into the world
+		# under his name.
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_modifier = { name = ova_rey_bear_masterwork days = 1825 }
+	}
+	option = { # good: fetch and pump and keep the fire perfect for a day
+		name = ova_rey.35.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# A day of bellows and charcoal at a master smith's shoulder.
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+	option = { # best: steady the great tongs with her through the last pour
+		name = ova_rey.35.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The sword of her life exists, and two ranges know whose hands were on the
+		# tongs. Molten steel is unsentimental about hands.
+		add_modifier = { name = ova_rey_bear_masterwork days = 1825 }
+		ova_champion_injure = { MONTHS = 1 }
+	}
+}
+
+ova_rey.36 = { # The Mountain Feast (date 7)
+	type = country_event
+	placement = root
+
+	title = ova_rey.36.t
+	desc = ova_rey.36.d
+	flavor = ova_rey.36.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_36 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_36 }
+
+	# order a,b,c (best first)
+	option = { # best: match the mountain drink for drink and song for song
+		name = ova_rey.36.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The clan decides the little otherworlder is theirs, and says so until dawn.
+		effect_ova_rey_state_loyalists = { STATE = STATE_BARENBERG CULTURE = bearkin AMOUNT = medium_radicals }
+	}
+	option = { # good: toast her clan and learn every rowdy name
+		name = ova_rey.36.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# He stands the toasts. There are many, and the barrels are man-sized.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+	option = { # poor: slip out early and let the bears roar without you
+		name = ova_rey.36.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He leaves sober, rested, and unbilled for a feast the size of a mountain.
+		add_treasury = { value = money_amount_multiplier_very_small }
+	}
+}
+
+ova_rey.37 = { # The Quiet Forge (date 8)
+	type = country_event
+	placement = root
+
+	title = ova_rey.37.t
+	desc = ova_rey.37.d
+	flavor = ova_rey.37.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_37 }
+	}
+
+	immediate = {
+		set_variable = ova_rey_seen_37
+		set_variable = ova_rey_all_dates_bear
+	}
+
+	# order b,c,a (best last)
+	option = { # good: ask her to teach you the one secret she keeps
+		name = ova_rey.37.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# The one secret of the Steinfell forge, taught properly, at the small anvil.
+		ova_champion_add_xp = { AMOUNT = 15 }
+	}
+	option = { # poor: pry after the trick worth a fortune in any market
+		name = ova_rey.37.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# A smithing trick worth a fortune in any market, taken to market.
+		add_treasury = { value = money_amount_multiplier_small }
+	}
+	option = { # best: just sit in the warm dark and watch her work, saying nothing
+		name = ova_rey.37.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# She finishes the delicate thing she would not show, and works lighter for weeks.
+		effect_ova_rey_state_mod = { STATE = STATE_BARENBERG MOD = ova_rey_bear_forge_heart DAYS = 730 }
+	}
+}
+
+ova_rey.38 = { # Tempered Together (confession, fired by the journal button)
+	type = country_event
+	placement = root
+
+	title = ova_rey.38.t
+	desc = ova_rey.38.d
+	flavor = ova_rey.38.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	option = { # she lifts you off your feet in answer
+		name = ova_rey.38.a
+		default_option = yes
+		set_variable = ova_rey_confessed_bear
+		# She lifts him off his feet in front of half the mountain, and the mountain roars.
+		effect_ova_rey_state_loyalists = { STATE = STATE_BARENBERG CULTURE = bearkin AMOUNT = medium_radicals }
+	}
+	option = { # take her huge hand in both of yours and hold on
+		name = ova_rey.38.b
+		set_variable = ova_rey_confessed_bear
+		# The strongest hands in Barenberg, held at last, and held for good.
+		effect_ova_rey_state_mod = { STATE = STATE_BARENBERG MOD = ova_rey_bear_forge_heart DAYS = 3650 }
+	}
+	option = { # forge the rings together, one at each anvil
+		name = ova_rey.38.c
+		set_variable = ova_rey_confessed_bear
+		# Two rings, two anvils, one masterwork apiece.
+		add_modifier = { name = ova_rey_bear_masterwork days = 3650 }
+	}
+}
+
+ova_rey.39 = { # The Mountain's Bride (won)
+	type = country_event
+	placement = root
+
+	title = ova_rey.39.t
+	desc = ova_rey.39.d
+	flavor = ova_rey.39.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_military_parade" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = { always = yes }
+
+	option = {
+		name = ova_rey.39.a
+		default_option = yes
+		# The great forge of Barenberg belongs to the hero's household now, and the
+		# whole mountain works as though it were a wedding gift.
+		effect_ova_rey_state_mod = { STATE = STATE_BARENBERG MOD = ova_rey_bear_forge_heart DAYS = -1 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+		effect_ova_rey_wedding = { STATE = STATE_BARENBERG CULTURE = bearkin }
+	}
+}
+
+# =====================================================================
+# HASENHAFEN - Lieselotte, the rabbitkin harvest maiden
+# =====================================================================
+ova_rey.40 = { # The Girl Among the Clover (date 1, intro)
+	type = country_event
+	placement = root
+
+	title = ova_rey.40.t
+	desc = ova_rey.40.d
+	flavor = ova_rey.40.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_40 }
+	}
+
+	immediate = {
+		set_variable = ova_rey_seen_40
+		create_character = {
+			template = template_ova_rey_rabbit
+			on_created = {
+				save_scope_as = ova_rey_new_heroine
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = { set_variable = { name = ova_rey_char_rabbit value = scope:ova_rey_new_heroine } }
+			}
+		}
+	}
+
+	# order c,a,b (best middle)
+	option = { # poor: startle at how fast a frightened rabbit can bolt
+		name = ova_rey.40.c
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# She bolts, comes back for her basket, and gets the field in anyway. The
+		# harvest does not need him. That is rather the trouble.
+		effect_ova_rey_state_mod = { STATE = STATE_HASENHAFEN MOD = ova_rey_rabbit_full_baskets DAYS = 365 }
+	}
+	option = { # best: kneel in the field and help her bring in the harvest
+		name = ova_rey.40.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The republic's hero, on his knees in the clover, bringing in her harvest.
+		effect_ova_rey_state_mod = { STATE = STATE_HASENHAFEN MOD = ova_rey_rabbit_full_baskets DAYS = 1825 }
+	}
+	option = { # good: praise the finest crop in all Hasenhafen
+		name = ova_rey.40.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Her crop is declared the finest in Hasenhafen by the hero himself.
+		effect_ova_rey_state_loyalists = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin AMOUNT = very_small_radicals }
+	}
+}
+
+ova_rey.41 = { # Baking Day (date 2)
+	type = country_event
+	placement = root
+
+	title = ova_rey.41.t
+	desc = ova_rey.41.d
+	flavor = ova_rey.41.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_41 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_41 }
+
+	# order a,c,b (best first)
+	option = { # best: ruin your hands in the dough and let her laugh at you
+		name = ova_rey.41.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The village hears the hero spent baking day floured to the elbows, and melts.
+		effect_ova_rey_state_loyalists = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin AMOUNT = small_radicals }
+	}
+	option = { # poor: eat everything and forget to compliment the baker
+		name = ova_rey.41.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He ate a whole baking day and said nothing about it. Hasenhafen hears.
+		effect_ova_rey_state_radicals = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin AMOUNT = very_small_radicals }
+	}
+	option = { # good: bring rare honey from the capital for her recipe
+		name = ova_rey.41.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Rare capital honey, carried a very long way, for one small recipe.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+}
+
+ova_rey.42 = { # The Spring Fair (date 3)
+	type = country_event
+	placement = root
+
+	title = ova_rey.42.t
+	desc = ova_rey.42.d
+	flavor = ova_rey.42.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_42 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_42 }
+
+	# order b,a,c (best middle)
+	option = { # good: dance with her under the maypole till she is dizzy
+		name = ova_rey.42.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# The whole green watches the shyest girl in Hasenhafen dance until she is dizzy.
+		effect_ova_rey_state_loyalists = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin AMOUNT = small_radicals }
+	}
+	option = { # best: win her the ribbon at every stall until her arms are full
+		name = ova_rey.42.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# He plays, and pays, at every stall on the green until her arms are full.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+	option = { # poor: lecture her about the economics of festival stalls
+		name = ova_rey.42.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# The stallholders take his advice, insultingly, and the fair clears a profit.
+		add_treasury = { value = money_amount_multiplier_very_small }
+	}
+}
+
+ova_rey.43 = { # The Flood on the Weir (date 4, a crisis)
+	type = country_event
+	placement = root
+
+	title = ova_rey.43.t
+	desc = ova_rey.43.d
+	flavor = ova_rey.43.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_43 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_43 }
+
+	# order c,b,a (best last)
+	option = { # poor: tell her the harvest is a loss and to save herself
+		name = ova_rey.43.c
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# The low fields are written off and they drown. Not one villager drowns with
+		# them, which Hasenhafen also notices.
+		effect_ova_rey_state_mod = { STATE = STATE_HASENHAFEN MOD = ova_rey_rabbit_fields_drowned DAYS = 730 }
+		effect_ova_rey_state_loyalists = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin AMOUNT = very_small_radicals }
+	}
+	option = { # good: dam the breach yourself with sandbags and stubbornness
+		name = ova_rey.43.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# The breach is dammed by hand overnight and the standing crop is saved. A
+		# night chest-deep in snowmelt is paid for afterwards.
+		effect_ova_rey_state_mod = { STATE = STATE_HASENHAFEN MOD = ova_rey_rabbit_full_baskets DAYS = 1095 }
+		ova_champion_injure = { MONTHS = 1 }
+	}
+	option = { # best: carry the little ones to high ground while she rallies the village
+		name = ova_rey.43.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The children are dry, the village holds, and the weir is rebuilt to last.
+		effect_ova_rey_state_mod = { STATE = STATE_HASENHAFEN MOD = ova_rey_rabbit_weir_held DAYS = 1095 }
+	}
+}
+
+ova_rey.44 = { # Under the Harvest Moon (date 5)
+	type = country_event
+	placement = root
+
+	title = ova_rey.44.t
+	desc = ova_rey.44.d
+	flavor = ova_rey.44.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_44 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_44 }
+
+	# order a,b,c (best first)
+	option = { # best: tell her that brave and timid can be the same brave heart
+		name = ova_rey.44.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# Hasenhafen starts repeating it to its own frightened children.
+		effect_ova_rey_state_loyalists = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin AMOUNT = small_radicals }
+	}
+	option = { # good: give her a pressed four-leaf clover you kept all season
+		name = ova_rey.44.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# A clover pressed and carried all season. In a village that story travels by noon.
+		effect_ova_rey_state_loyalists = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin AMOUNT = very_small_radicals }
+	}
+	option = { # poor: ask, too directly, why she trembles so much
+		name = ova_rey.44.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# You do not ask a rabbitkin, in public, why she shakes.
+		effect_ova_rey_state_radicals = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin AMOUNT = very_small_radicals }
+	}
+}
+
+ova_rey.45 = { # The Market Day (date 6)
+	type = country_event
+	placement = root
+
+	title = ova_rey.45.t
+	desc = ova_rey.45.d
+	flavor = ova_rey.45.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_45 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_45 }
+
+	# order b,c,a (best last)
+	option = { # good: stand at her elbow and gently coax her voice out
+		name = ova_rey.45.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Coaxed out, a little, with him standing at her elbow the whole time.
+		effect_ova_rey_state_mod = { STATE = STATE_HASENHAFEN MOD = ova_rey_rabbit_market_voice DAYS = 730 }
+	}
+	option = { # poor: take over the stall and sell the lot in an hour
+		name = ova_rey.45.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# The whole cart sold in an hour, at prices she would never have dared ask.
+		add_treasury = { value = money_amount_multiplier_very_small }
+	}
+	option = { # best: buy nothing, but stay all day until she is calling prices herself
+		name = ova_rey.45.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# He buys nothing all day, which is the point, and by evening the quietest
+		# seller on the row is calling her own prices.
+		effect_ova_rey_state_mod = { STATE = STATE_HASENHAFEN MOD = ova_rey_rabbit_market_voice DAYS = 1825 }
+	}
+}
+
+ova_rey.46 = { # The Lantern Walk (date 7)
+	type = country_event
+	placement = root
+
+	title = ova_rey.46.t
+	desc = ova_rey.46.d
+	flavor = ova_rey.46.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_46 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_46 }
+
+	# order c,a,b (best middle)
+	option = { # poor: explain the physics of why the lanterns float
+		name = ova_rey.46.c
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# Somebody at the back of the crowd writes down what he says about hot air.
+		add_modifier = { name = ova_rey_otherworld_lecture days = 730 }
+	}
+	option = { # best: set your lantern on the water beside hers and make no wish but one
+		name = ova_rey.46.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The whole village is on the bank to see whose lantern goes beside hers,
+		# and draws its own conclusions out loud.
+		effect_ova_rey_state_loyalists = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin AMOUNT = small_radicals }
+	}
+	option = { # good: light the whole village's lanterns for the children
+		name = ova_rey.46.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Paper, oil and candles for every child in Hasenhafen.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+}
+
+ova_rey.47 = { # The Warren Gathering (date 8)
+	type = country_event
+	placement = root
+
+	title = ova_rey.47.t
+	desc = ova_rey.47.d
+	flavor = ova_rey.47.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_47 }
+	}
+
+	immediate = {
+		set_variable = ova_rey_seen_47
+		set_variable = ova_rey_all_dates_rabbit
+	}
+
+	# order a,c,b (best first)
+	option = { # best: sit on the floor with the little ones and let them climb you
+		name = ova_rey.47.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# A warren beyond counting decides, all at once, to adopt him.
+		effect_ova_rey_state_loyalists = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin AMOUNT = medium_radicals }
+	}
+	option = { # poor: impress the elders with talk of the wider world
+		name = ova_rey.47.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He holds the elders' room for three hours. They tell everyone. They do not
+		# tell her.
+		ova_champion_add_popularity = { AMOUNT = 6 }
+	}
+	option = { # good: bring gifts enough for the whole enormous family
+		name = ova_rey.47.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Gifts for aunts, cousins and a tumbling heap of little ones. It adds up.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+}
+
+ova_rey.48 = { # A Gentle Yes (confession, fired by the journal button)
+	type = country_event
+	placement = root
+
+	title = ova_rey.48.t
+	desc = ova_rey.48.d
+	flavor = ova_rey.48.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	option = { # she whispers it into your collar so no one else can hear
+		name = ova_rey.48.a
+		default_option = yes
+		set_variable = ova_rey_confessed_rabbit
+		# She has said the hardest sentence of her life out loud. Nothing frightens
+		# her quite the same way afterwards, market days least of all.
+		effect_ova_rey_state_mod = { STATE = STATE_HASENHAFEN MOD = ova_rey_rabbit_market_voice DAYS = 3650 }
+	}
+	option = { # cup her face and answer for her, softly
+		name = ova_rey.48.b
+		set_variable = ova_rey_confessed_rabbit
+		# Hasenhafen sees the republic's hero be gentle with its gentlest daughter.
+		effect_ova_rey_state_loyalists = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin AMOUNT = small_radicals }
+	}
+	option = { # let the whole warren hear it, so she never has to say it twice
+		name = ova_rey.48.c
+		set_variable = ova_rey_confessed_rabbit
+		# He says it loudly enough for the entire warren, so she never says it twice.
+		effect_ova_rey_state_loyalists = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin AMOUNT = medium_radicals }
+	}
+}
+
+ova_rey.49 = { # The Harvest Bride (won)
+	type = country_event
+	placement = root
+
+	title = ova_rey.49.t
+	desc = ova_rey.49.d
+	flavor = ova_rey.49.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = { always = yes }
+
+	option = {
+		name = ova_rey.49.a
+		default_option = yes
+		# A whole village walks its harvest maiden to the hero's door with baskets,
+		# and keeps sending the baskets long after the wedding.
+		effect_ova_rey_state_mod = { STATE = STATE_HASENHAFEN MOD = ova_rey_rabbit_full_baskets DAYS = -1 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+		effect_ova_rey_wedding = { STATE = STATE_HASENHAFEN CULTURE = western_rabbitkin }
+	}
+}
+
+# =====================================================================
+# FUSCHTAL - Fenna, the foxkin scholar of the wooded vale
+# =====================================================================
+ova_rey.50 = { # The Fox Who Asks the Riddles (date 1, intro)
+	type = country_event
+	placement = root
+
+	title = ova_rey.50.t
+	desc = ova_rey.50.d
+	flavor = ova_rey.50.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_50 }
+	}
+
+	immediate = {
+		set_variable = ova_rey_seen_50
+		create_character = {
+			template = template_ova_rey_fox
+			on_created = {
+				save_scope_as = ova_rey_new_heroine
+				set_variable = ova_plot_armor
+				set_character_immortal = yes
+				owner = { set_variable = { name = ova_rey_char_fox value = scope:ova_rey_new_heroine } }
+			}
+		}
+	}
+
+	# order a,b,c (best first)
+	option = { # best: answer her riddle with a sharper riddle of your own
+		name = ova_rey.50.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# His riddle goes round the vale's scholars for a whole season, unsolved.
+		add_modifier = { name = ova_rey_fox_two_worlds_lore days = 730 }
+	}
+	option = { # good: admit you are stumped and ask her to teach you
+		name = ova_rey.50.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# The cleverest woman in the vale, teaching, at length, for free.
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+	option = { # poor: guess wildly and wrong, with great confidence
+		name = ova_rey.50.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# She is so delighted by how wrong he is that she explains the whole answer,
+		# twice, with diagrams.
+		ova_champion_add_xp = { AMOUNT = 6 }
+	}
+}
+
+ova_rey.51 = { # The Midnight Library (date 2)
+	type = country_event
+	placement = root
+
+	title = ova_rey.51.t
+	desc = ova_rey.51.d
+	flavor = ova_rey.51.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_51 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_51 }
+
+	# order b,c,a (best last)
+	option = { # good: read to her until the lamp gutters out
+		name = ova_rey.51.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# A whole night of the vale's library, read aloud, cover to cover.
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+	option = { # poor: fall asleep on the books she wanted to discuss
+		name = ova_rey.51.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He wakes with a page printed backwards on his cheek and, irritatingly,
+		# word-perfect in his head.
+		ova_champion_add_xp = { AMOUNT = 5 }
+	}
+	option = { # best: trade her a secret of your own world for one of hers
+		name = ova_rey.51.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# He gives away a secret of his own world to get one of hers.
+		add_modifier = { name = ova_rey_fox_two_worlds_lore days = 1825 }
+	}
+}
+
+ova_rey.52 = { # The Game of Wits (date 3)
+	type = country_event
+	placement = root
+
+	title = ova_rey.52.t
+	desc = ova_rey.52.d
+	flavor = ova_rey.52.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_52 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_52 }
+
+	# order c,a,b (best middle)
+	option = { # poor: accuse her, correctly, of cheating
+		name = ova_rey.52.c
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# The game is his by forfeit, and the stake with it. Foxes do not enjoy being
+		# named out loud.
+		add_treasury = { value = money_amount_multiplier_very_small }
+		effect_ova_rey_state_radicals = { STATE = STATE_FUSCHTAL CULTURE = forest_foxkin AMOUNT = very_small_radicals }
+	}
+	option = { # best: let her think she is winning, then reveal you saw it all
+		name = ova_rey.52.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# Two hours spent reading a cheat who cheats better than anyone he has met.
+		ova_champion_add_xp = { AMOUNT = 12 }
+	}
+	option = { # good: play earnestly and cede a graceful loss
+		name = ova_rey.52.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Fuschtal hears that their scholar beat the republic's hero at his own table.
+		effect_ova_rey_state_loyalists = { STATE = STATE_FUSCHTAL CULTURE = forest_foxkin AMOUNT = small_radicals }
+	}
+}
+
+ova_rey.53 = { # The Forbidden Chapter (date 4, a crisis)
+	type = country_event
+	placement = root
+
+	title = ova_rey.53.t
+	desc = ova_rey.53.d
+	flavor = ova_rey.53.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_53 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_53 }
+
+	# order a,c,b (best first)
+	option = { # best: stand between her and the thing that answered her research
+		name = ova_rey.53.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# Whatever answered her out of the sealed archive, the hero went in first,
+		# and it went through him to get to her.
+		ova_champion_add_popularity = { AMOUNT = 6 }
+		ova_champion_injure = { MONTHS = 3 }
+	}
+	option = { # poor: tell her that her curiosity has gone too far
+		name = ova_rey.53.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# She does stop. She also stops telling him what she is reading.
+		effect_ova_rey_state_radicals = { STATE = STATE_FUSCHTAL CULTURE = forest_foxkin AMOUNT = very_small_radicals }
+	}
+	option = { # good: burn the dangerous manuscript before it costs her
+		name = ova_rey.53.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# She is safe. The knowledge in those pages is not coming back.
+		add_modifier = { name = ova_rey_fox_burned_chapter days = 730 }
+	}
+}
+
+ova_rey.54 = { # Behind the Clever Smile (date 5)
+	type = country_event
+	placement = root
+
+	title = ova_rey.54.t
+	desc = ova_rey.54.d
+	flavor = ova_rey.54.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_54 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_54 }
+
+	# order b,a,c (best middle)
+	option = { # good: give her a puzzle box that opens to a question
+		name = ova_rey.54.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# A puzzle box commissioned from the best joiner in the capital.
+		add_treasury = { value = money_amount_multiplier_very_small multiply = -1 }
+	}
+	option = { # best: tell her you like the truths she hides more than the tricks
+		name = ova_rey.54.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# The vale notices its prickliest scholar has gone unaccountably warm.
+		effect_ova_rey_state_loyalists = { STATE = STATE_FUSCHTAL CULTURE = forest_foxkin AMOUNT = small_radicals }
+	}
+	option = { # poor: try, and fail, to out-riddle her again
+		name = ova_rey.54.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# His attempt becomes a standing joke in every common room in Fuschtal, and
+		# the vale is extremely fond of it.
+		effect_ova_rey_state_loyalists = { STATE = STATE_FUSCHTAL CULTURE = forest_foxkin AMOUNT = very_small_radicals }
+	}
+}
+
+ova_rey.55 = { # The Cartographer's Puzzle (date 6)
+	type = country_event
+	placement = root
+
+	title = ova_rey.55.t
+	desc = ova_rey.55.d
+	flavor = ova_rey.55.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_55 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_55 }
+
+	# order c,b,a (best last)
+	option = { # poor: sell the decoded map to a treasure-hunter for a fortune
+		name = ova_rey.55.c
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# A decoded treasure map is worth a great deal to the right sort of buyer.
+		add_treasury = { value = money_amount_multiplier_small }
+	}
+	option = { # good: solve the last cipher for her and let her write it up
+		name = ova_rey.55.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Her name on the paper that cracked a hundred-year cipher.
+		add_modifier = { name = ova_rey_fox_scholars_favor days = 1095 }
+	}
+	option = { # best: chase the map's ending at her side, wherever it leads
+		name = ova_rey.55.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# Wherever a century-old cipher leads, they walk it, and he learns the road.
+		ova_champion_add_xp = { AMOUNT = 15 }
+	}
+}
+
+ova_rey.56 = { # The Debate (date 7)
+	type = country_event
+	placement = root
+
+	title = ova_rey.56.t
+	desc = ova_rey.56.d
+	flavor = ova_rey.56.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_56 }
+	}
+
+	immediate = { set_variable = ova_rey_seen_56 }
+
+	# order a,b,c (best first)
+	option = { # best: feed her the one fact that wins it and let her land the blow
+		name = ova_rey.56.a
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# She lands the blow herself, and the vale's scholars never forget who let her.
+		add_modifier = { name = ova_rey_fox_scholars_favor days = 1825 }
+	}
+	option = { # good: take the podium and argue her case beside her
+		name = ova_rey.56.b
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# The hero of the republic on a public podium, winning in front of the vale.
+		ova_champion_add_popularity = { AMOUNT = 6 }
+	}
+	option = { # poor: win the crowd for yourself with an otherworld flourish
+		name = ova_rey.56.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# He wins the room with things nobody in this world had ever heard.
+		add_modifier = { name = ova_rey_otherworld_lecture days = 730 }
+	}
+}
+
+ova_rey.57 = { # The Observatory (date 8)
+	type = country_event
+	placement = root
+
+	title = ova_rey.57.t
+	desc = ova_rey.57.d
+	flavor = ova_rey.57.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_rey_seen_57 }
+	}
+
+	immediate = {
+		set_variable = ova_rey_seen_57
+		set_variable = ova_rey_all_dates_fox
+	}
+
+	# order b,c,a (best last)
+	option = { # good: name the constellations of your world against hers
+		name = ova_rey.57.b
+		default_option = yes
+		effect_ova_rey_add_affection = { AMOUNT = 3 }
+		# Two skies laid over one another, and both of them written down.
+		add_modifier = { name = ova_rey_fox_star_charts days = 730 }
+	}
+	option = { # poor: chart the sky properly and forget she is beside you
+		name = ova_rey.57.c
+		effect_ova_rey_add_affection = { AMOUNT = 1 }
+		# It is, to be fair, the finest star survey the vale has ever produced.
+		add_modifier = { name = ova_rey_fox_star_charts days = 1825 }
+	}
+	option = { # best: trade one true thing for each star, until dawn
+		name = ova_rey.57.a
+		effect_ova_rey_add_affection = { AMOUNT = 5 }
+		# One true thing for every star, and she writes down more than she admits.
+		add_modifier = { name = ova_rey_fox_two_worlds_lore days = 1825 }
+	}
+}
+
+ova_rey.58 = { # The One Riddle She Cannot Solve (confession, fired by the journal button)
+	type = country_event
+	placement = root
+
+	title = ova_rey.58.t
+	desc = ova_rey.58.d
+	flavor = ova_rey.58.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	option = { # give her the answer: it was always going to be you
+		name = ova_rey.58.a
+		default_option = yes
+		set_variable = ova_rey_confessed_fox
+		# The cleverest woman in two worlds, answered at last, in her own library.
+		ova_champion_add_popularity = { AMOUNT = 12 }
+	}
+	option = { # let her win this one, and lose your heart on purpose
+		name = ova_rey.58.b
+		set_variable = ova_rey_confessed_fox
+		# She wins the last riddle she will ever need to win, and the vale approves.
+		add_modifier = { name = ova_rey_fox_scholars_favor days = 3650 }
+	}
+	option = { # answer her riddle with a ring, and no words at all
+		name = ova_rey.58.c
+		set_variable = ova_rey_confessed_fox
+		# A ring cut as a puzzle she cannot solve, from the best jeweller in Reyorn.
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+	}
+}
+
+ova_rey.59 = { # The Vixen's Answer (won)
+	type = country_event
+	placement = root
+
+	title = ova_rey.59.t
+	desc = ova_rey.59.d
+	flavor = ova_rey.59.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = { always = yes }
+
+	option = {
+		name = ova_rey.59.a
+		default_option = yes
+		# She closes the great library of Fuschtal and moves one trunk of its most
+		# dangerous books into the hero's household, where they stay.
+		add_modifier = { name = ova_rey_fox_two_worlds_lore days = -1 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+		effect_ova_rey_wedding = { STATE = STATE_FUSCHTAL CULTURE = forest_foxkin }
+	}
+}
+
+# =====================================================================
+# Shared endings
+# =====================================================================
+ova_rey.80 = { # She Moves On (a courtship ended cold)
+	type = country_event
+	placement = root
+
+	title = ova_rey.80.t
+	desc = ova_rey.80.d
+	flavor = ova_rey.80.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = { always = yes }
+
+	option = {
+		name = ova_rey.80.a
+		default_option = yes
+		# Not every heart is won. A hero learns, and rides on.
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_rey.78 = { # The Hero Falls (fail ending)
+	type = country_event
+	placement = root
+
+	title = ova_rey.78.t
+	desc = ova_rey.78.d
+	flavor = ova_rey.78.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_devastation" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = { always = yes }
+
+	option = {
+		name = ova_rey.78.a
+		default_option = yes
+		# The republic lowers its banners for a hero who was supposed to be unkillable.
+		add_modifier = { name = ova_rey_republic_in_mourning days = 730 }
+		add_radicals = { value = small_radicals }
+	}
+}
+
+# =====================================================================
+# Capstone: the presidency of Reyorn
+# =====================================================================
+ova_rey.90 = { # A President for a New Reyorn
+	type = country_event
+	placement = root
+
+	title = ova_rey.90.t
+	desc = ova_rey.90.d
+	flavor = ova_rey.90.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+
+	trigger = {
+		NOT = { has_variable = ova_rey_ascended }
+	}
+
+	option = { # a quiet inauguration, and a home full of many peoples
+		name = ova_rey.90.a
+		default_option = yes
+		effect_ova_rey_take_presidency = yes
+		# No ceremony at all, and five peoples under one roof by the end of the week.
+		add_modifier = { name = ova_rey_many_peoples days = -1 }
+	}
+	option = { # a grand festival of every fur and feather in the republic
+		name = ova_rey.90.b
+		effect_ova_rey_take_presidency = yes
+		# Every fur and feather in Reyorn, fed and watered at the republic's expense.
+		add_treasury = { value = money_amount_multiplier_medium multiply = -1 }
+		add_modifier = { name = ova_rey_festival_of_furs days = 1825 }
+		add_loyalists = { value = medium_radicals }
+	}
+	option = { # stand as First Citizen, the hero the beastfolk chose
+		name = ova_rey.90.c
+		effect_ova_rey_take_presidency = yes
+		# Not the husband of five states: the First Citizen the beastfolk chose.
+		add_modifier = { name = ova_rey_first_citizen days = -1 }
+	}
+}
+
+ova_rey.91 = { # The Paradox Republic
+	type = country_event
+	placement = root
+
+	title = ova_rey.91.t
+	desc = ova_rey.91.d
+	flavor = ova_rey.91.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+
+	trigger = { always = yes }
+
+	option = {
+		name = ova_rey.91.a
+		default_option = yes
+		# A republic remade in the image of the household that runs it.
+		ova_champion_add_popularity = { AMOUNT = 15 }
+		add_modifier = { name = ova_rey_paradox_republic days = -1 }
+	}
+}

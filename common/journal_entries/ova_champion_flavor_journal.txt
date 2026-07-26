@@ -1,0 +1,116 @@
+﻿### Champions JE - the Champion's Coup
+# Raised by ova_champion_start_coup (from a refused demand, the overmighty-
+# champion stir, or a backfired exile attempt). A progress-bar race in the mould
+# of vanilla's je_ip4_coup, tuned to the champion system: the bar climbs with the
+# champion's renown/level (pushed each week by ova_champion_coup_tick) and the
+# crown fights back through the coup pulse events. Reaching 100 puts the champion
+# on the throne; collapsing to 0, or the two-year timeout, sees them exiled.
+# While it runs, adventuring is locked out (ova_champion_coup_block_refresh tops
+# up the expedition lockout + hunt cooldown every month).
+
+je_ova_champion_coup = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_crises
+
+	scripted_progress_bar = ova_champion_coup_bar
+
+	immediate = {
+		# already blocked at launch, but make doubly sure
+		ova_champion_coup_block_refresh = yes
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			ova_champion_coup_tick = yes
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			# keep adventuring locked while the crisis runs
+			ova_champion_coup_block_refresh = yes
+		}
+		random_events = {
+			100 = 0
+			10 = ova_champion_flavor.60
+			10 = ova_champion_flavor.61
+			10 = ova_champion_flavor.62
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = ova_coup_bar_full_tt
+			scope:journal_entry = { "scripted_bar_progress(ova_champion_coup_bar)" >= 100 }
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = ova_champion_flavor.63 popup = yes }
+	}
+
+	fail = {
+		OR = {
+			NOT = { ova_has_living_champion = yes }
+			custom_tooltip = {
+				text = ova_coup_bar_empty_tt
+				scope:journal_entry = { "scripted_bar_progress(ova_champion_coup_bar)" <= 0 }
+			}
+		}
+	}
+
+	on_fail = {
+		if = {
+			limit = { ova_has_living_champion = yes }
+			trigger_event = { id = ova_champion_flavor.64 popup = yes }
+		}
+		else = {
+			ova_champion_coup_unblock = yes
+		}
+	}
+
+	timeout = 730
+
+	on_timeout = {
+		if = {
+			limit = { ova_has_living_champion = yes }
+			trigger_event = { id = ova_champion_flavor.64 popup = yes }
+		}
+		else = {
+			ova_champion_coup_unblock = yes
+		}
+	}
+
+	# the champion took the throne some other way, or stopped being our champion:
+	# the coup is moot
+	invalid = {
+		OR = {
+			NOT = { has_variable = ova_champion_char }
+			var:ova_champion_char ?= { is_ruler_of_own_country = yes }
+		}
+	}
+
+	on_invalid = {
+		ova_champion_coup_unblock = yes
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_ova_champion_coup_status_high
+				trigger = {
+					scope:journal_entry = { "scripted_bar_progress(ova_champion_coup_bar)" >= 60 }
+				}
+			}
+			triggered_desc = {
+				desc = je_ova_champion_coup_status_low
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	weight = 5000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+}

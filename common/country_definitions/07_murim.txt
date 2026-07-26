@@ -1,0 +1,172 @@
+﻿HWA = {
+    color = { 207 136 177 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_HWASAN
+}
+
+SOR = {
+    color = { 196 163 100 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_SUNGSAN
+}
+
+MUD = {
+    color = { 140 141 168 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_MUDANGSAN
+}
+
+JEG = {
+    color = { 168 40 51 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_YANGJU
+}
+
+TAN = {
+    color = { 191 124 73 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_SACHEON
+}
+
+NAM = {
+    color = { 105 28 33 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_NAMWON
+}
+
+PAE = {
+    color = { 50 50 50 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_HOBUK
+}
+
+SAM = {
+    color = { 120 70 70 }
+
+    country_type = recognized
+    
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_HONAM
+}
+
+CHE = {
+    color = { 15 19 51 }
+
+    country_type = unrecognized
+    
+    tier = kingdom
+
+    cultures = { mae }
+
+    capital = STATE_MAGYEONG
+}
+
+# Amita Sect (아미파) - the Buddhist swordnun sect, from Magyeong
+AMT = {
+    color = { 204 164 66 }
+
+    country_type = unrecognized
+
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_MAGYEONG
+}
+
+# Gonryun Sect (곤륜파) - the celestial Taoist sword sect, from Cheonseong
+GON = {
+    color = { 92 152 176 }
+
+    country_type = unrecognized
+
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_CHEONSEONG
+}
+
+# Jongnam Sect (종남파) - the mountain sword sect, from Baekhwa
+JON = {
+    color = { 72 132 92 }
+
+    country_type = unrecognized
+
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_BAEKHWA
+}
+
+# Moyong Clan (모용세가) - the great sword family, from Gyeonggi
+MOY = {
+    color = { 122 92 162 }
+
+    country_type = unrecognized
+
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_GYEONGGI
+}
+
+# Gaebang (개방) - the Beggars' Sect, the greatest of the martial gangs, from Seoldo
+GAE = {
+    color = { 124 92 56 }
+
+    country_type = unrecognized
+
+    tier = principality
+
+    cultures = { mae }
+
+    capital = STATE_SEOLDO
+}

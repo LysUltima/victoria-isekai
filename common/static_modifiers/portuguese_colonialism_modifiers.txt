@@ -1,0 +1,1 @@
+﻿# Isekai TC: vanilla event/content-specific static modifiers disabled (their triggering events/content were removed; referenced culture/religion/tag keys no longer exist)

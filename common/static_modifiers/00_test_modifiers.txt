@@ -1,0 +1,11 @@
+﻿# Isekai TC: vanilla event/content-specific static modifiers disabled (their triggering events/content were removed; referenced culture/religion/tag keys no longer exist)
+
+debug_movement_activism_up = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	political_movement_radicalism_add = 0.1
+}
+
+debug_movement_activism_down = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	political_movement_radicalism_add = -0.1
+}

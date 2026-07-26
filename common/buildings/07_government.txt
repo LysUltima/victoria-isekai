@@ -1,0 +1,234 @@
+﻿############ GOVERNMENT BUILDINGS
+building_government_administration = {
+	building_group = bg_bureaucracy
+	city_type = city
+
+	levels_per_mesh = 50
+
+	unlocking_technologies = {
+		tech_bureaucracy
+	}
+
+	should_auto_expand = {
+		occupancy >= 0.8
+		OR = {
+			state.tax_capacity < state.tax_capacity_usage
+			owner = {
+				bureaucracy < -10
+			}
+		}
+	}
+
+	production_method_groups = {
+		pmg_base_building_government_administration
+		pmg_government_administration_bureaucrat_professionalism
+		pmg_government_administration_religious_administration
+	}
+
+	icon = "gfx/interface/icons/building_icons/building_government_administration.dds"
+
+	required_construction = construction_cost_very_low
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_university = {
+
+	building_group = bg_technology
+
+	city_type = city
+
+	levels_per_mesh = 50
+
+	unlocking_technologies = {
+		academia
+	}
+
+	production_method_groups = {
+		pmg_base_building_university
+		pmg_university_academia
+		pmg_principle_freedom_of_movement_3
+	}
+
+	icon = "gfx/interface/icons/building_icons/building_university.dds"
+
+	required_construction = construction_cost_medium
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+	ai_value = {
+		value = 2000 # Higher base value
+        if = {
+            limit = { 
+                owner = {
+                    any_primary_culture = {
+                        has_discrimination_trait_group = heritage_group_xianxia_human
+                    }
+                }
+            }
+            subtract = 2000
+        }
+	}
+}
+
+building_homunculus_factory = {
+	building_group = bg_technology
+	city_type = city
+
+	levels_per_mesh = 25
+
+	# The AI's government-building management prunes gov-funded buildings it
+	# has no hardcoded want for (this produces no bureaucracy/innovation/units),
+	# regardless of ai_value - same reason all vanilla monuments carry this.
+	downsizeable = no
+
+	unlocking_technologies = {
+		homunculus_creation
+	}
+
+	production_method_groups = {
+		pmg_base_building_homunculus_factory
+	}
+
+	icon = "gfx/interface/icons/building_icons/soulwrought_assembly_plant.dds"
+
+	required_construction = construction_cost_medium
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+	ai_value = {
+		value = 2500
+
+		if = {
+			limit = { state_unemployment_rate < 0.05 }
+			add = 1000000
+		}
+		if = {
+			limit = { state_unemployment_rate < 0.02 }
+			add = 4000000
+		}
+
+        if = {
+            limit = { 
+                owner = {
+                    any_primary_culture = {
+                        has_discrimination_trait_group = heritage_group_desert_human
+                    }
+                }
+            }
+            add = 5000
+        }
+	}
+}
+
+building_cultivation_grounds = {
+	building_group = bg_technology
+	city_type = city
+
+	levels_per_mesh = 25
+
+	# see building_homunculus_factory - keeps the AI from deleting it
+	downsizeable = no
+
+	unlocking_technologies = {
+		qi_gathering
+	}
+
+	production_method_groups = {
+		pmg_base_building_cultivation_grounds
+		pmg_demonic_rites_cultivation_grounds
+	}
+
+	icon = "gfx/interface/icons/building_icons/machu_picchu.dds"
+
+	required_construction = construction_cost_medium
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+    ai_value = {
+		value = 1000
+
+        if = {
+            limit = { 
+                owner = {
+                    any_primary_culture = {
+                        has_discrimination_trait_group = heritage_group_xianxia_human
+                    }
+                }
+            }
+            add = 5000
+        }
+    }
+}
+
+building_champion_hall = {
+	building_group = bg_technology
+	city_type = city
+
+	levels_per_mesh = 1
+
+	expandable = no
+	downsizeable = no
+
+	production_method_groups = {
+		pmg_ova_hall_base
+		pmg_ova_martial_training
+		pmg_ova_scholarly_tutelage
+		pmg_ova_champions_patronage
+	}
+
+	icon = "gfx/interface/icons/building_icons/building_victoria_terminus.dds"
+
+	required_construction = construction_cost_medium
+
+	can_build_government = {
+		is_capital = yes
+	}
+	can_build_private = {
+		always = no
+	}
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+	ai_value = {
+		value = 50000
+	}
+}
+
+building_skyscraper = {
+
+	building_group = bg_skyscraper
+
+	city_type = city
+
+	levels_per_mesh = 1
+
+	enable_air_connection = yes
+
+	expandable = no
+
+	downsizeable = no
+
+	production_method_groups = {
+		pmg_base_building_skyscraper
+		pmg_airship_mooring_post
+	}
+
+	icon = "gfx/interface/icons/building_icons/skyscraper.dds"
+
+	required_construction = construction_cost_monument
+
+	can_build_government = {
+		custom_tooltip = {
+			text = skyscraper_can_construct_tt
+			has_modifier = skyscraper_site
+		}
+	}
+	can_build_private = {
+		always = no
+	}
+
+	ai_value = 50000
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}

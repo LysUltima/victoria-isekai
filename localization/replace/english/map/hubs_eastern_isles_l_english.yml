@@ -1,0 +1,99 @@
+﻿l_english:
+  # ---------------------------------------------------------
+  # ASA_NO_IKAZUCHI (朝の雷)
+  # ---------------------------------------------------------
+  HUB_NAME_STATE_ASA_NO_IKAZUCHI_city: "Kamunari" # 神鳴 (かむなり) - 神が鳴らす雷、雷神
+  HUB_NAME_STATE_ASA_NO_IKAZUCHI_farm: "Inazuma" # 稲妻 (いなづま) - 稲の夫（つま）。雷光が稲を実らせるという和歌の定番表現
+  HUB_NAME_STATE_ASA_NO_IKAZUCHI_mine: "Iwabashiru" # 石走 (いわばしる) - 水が岩の上を激しく流れる様。「近江」などの枕詞
+  HUB_NAME_STATE_ASA_NO_IKAZUCHI_wood: "Kaminabi" # 神奈備 (かんなび) - 神が鎮座する神聖な森や山
+  HUB_NAME_STATE_ASA_NO_IKAZUCHI_port: "Arisoumi" # 荒磯海 (ありそうみ) - 波が打ち付ける荒々しい岩礁の海
+
+  # ---------------------------------------------------------
+  # KASUMU_KURE (霞む暮れ)
+  # ---------------------------------------------------------
+  HUB_NAME_STATE_KASUMU_KURE_city: "Yuzutsu" # 夕星 (ゆうづつ) - 宵の明星、夕暮れの空に光る星
+  HUB_NAME_STATE_KASUMU_KURE_farm: "Asajigahara" # 浅茅が原 (あさじがはら) - まばらに茅が生える寂れた野。哀愁漂う歌の名舞台
+  HUB_NAME_STATE_KASUMU_KURE_mine: "Matsugane" # 松が根 (まつがね) - 松の根。「待つ」に掛け、人を待ちわびる和歌に多用される
+  HUB_NAME_STATE_KASUMU_KURE_wood: "Tanabiki" # 雲引 (たなびき) - 霞や雲が薄く横に長くたなびく美しい様子
+  HUB_NAME_STATE_KASUMU_KURE_port: "Yunagi" # 夕凪 (ゆうなぎ) - 夕暮れ時に海風がふと止む、静寂のひととき
+
+  # ---------------------------------------------------------
+  # YOAKE_NO_UTA (夜明けの歌)
+  # ---------------------------------------------------------
+  HUB_NAME_STATE_YOAKE_NO_UTA_city: "Akebono" # 曙 (あけぼの) - 夜がほのかに明けていく頃。清少納言も愛した美の象徴
+  HUB_NAME_STATE_YOAKE_NO_UTA_farm: "Shiratsuyu" # 白露 (しらつゆ) - 葉に結ぶ輝く朝露。命や恋の儚さの比喩
+  HUB_NAME_STATE_YOAKE_NO_UTA_mine: "Aratama" # 荒玉 (あらたま) - 磨かれていない宝石。「年・月・春」などを導く枕詞
+  HUB_NAME_STATE_YOAKE_NO_UTA_wood: "Konure" # 木末 (こぬれ) - 木々の梢。夜明けに小鳥たちが歌う場所
+  HUB_NAME_STATE_YOAKE_NO_UTA_port: "Asabiraki" # 朝開き (あさびらき) - 夜明けと共に船が港から漕ぎ出していく情景
+
+  # ---------------------------------------------------------
+  # YURURU_HANABIRA (揺るる花びら)
+  # ---------------------------------------------------------
+  HUB_NAME_STATE_YURURU_HANABIRA_city: "Miyoshino" # み吉野 (みよしの) - 桜の名所「吉野」の美称。和歌における花の最高峰
+  HUB_NAME_STATE_YURURU_HANABIRA_farm: "Kasugano" # 春日野 (かすがの) - 若菜摘みや春の情景を詠む際の代表的な歌枕
+  HUB_NAME_STATE_YURURU_HANABIRA_mine: "Sazareishi" # 細石 (さざれし) - 小さな石。年月を経て巌（いわお）となる永遠の象徴
+  HUB_NAME_STATE_YURURU_HANABIRA_wood: "Onoe" # 尾上 (おのえ) - 峰の上。風が吹き抜け、花が舞い散る和歌の舞台
+  HUB_NAME_STATE_YURURU_HANABIRA_port: "Hanaikada" # 花筏 (はないかだ) - 水面に散り敷いた花びらが筏のように流れる風雅な様
+
+  # ---------------------------------------------------------
+  # UTSUROFU_KAORI (移ろふ香り)
+  # ---------------------------------------------------------
+  HUB_NAME_STATE_UTSUROFU_KAORI_city: "Tachibana" # 橘 (たちばな) - 昔の恋人の香りを思い起こさせる花（五月待つ花橘の…）
+  HUB_NAME_STATE_UTSUROFU_KAORI_farm: "Sodenoka" # 袖の香 (そでのか) - 移り香が染み付いた着物の袖。残り香と追憶の象徴
+  HUB_NAME_STATE_UTSUROFU_KAORI_mine: "Shinobuzuri" # 忍摺 (しのぶずり) - 石の模様。「忍ぶ恋（秘めた恋）」の乱れを石の乱れ模様に掛ける
+  HUB_NAME_STATE_UTSUROFU_KAORI_wood: "Utsusemi" # 空蝉 (うつせみ) - 蝉の抜け殻。香りが消えゆくようなこの世の虚しさ
+  HUB_NAME_STATE_UTSUROFU_KAORI_port: "Ukifune" # 浮舟 (うきふね) - 波間に漂う定めのない小舟。香りのようにあてどない様子
+
+  # ---------------------------------------------------------
+  # CHIRASU_HONOO (散らす炎)
+  # ---------------------------------------------------------
+  HUB_NAME_STATE_CHIRASU_HONOO_city: "Omohi" # 思ひ (おもひ) - 「火（ひ）」を内包する語。和歌では燃え上がる恋心の掛詞となる
+  HUB_NAME_STATE_CHIRASU_HONOO_farm: "Hotarubi" # 蛍火 (ほたるび) - 闇を飛ぶ蛍の光。燃え焦がれる魂（身を焦がす恋）の比喩
+  HUB_NAME_STATE_CHIRASU_HONOO_mine: "Uzumibi" # 埋み火 (うずみび) - 灰の中でひそかに燃え続ける炭火。秘めた情熱のメタファー
+  HUB_NAME_STATE_CHIRASU_HONOO_wood: "Takigi" # 薪 (たきぎ) - 木こりが拾う薪。くすぶる思いや孤独を詠む歌によく登場する
+  HUB_NAME_STATE_CHIRASU_HONOO_port: "Moshio" # 藻塩 (もしお) - 海水に浸した海藻を焼いて塩を採る火。「燃えつつ（思いつつ）」の掛詞
+
+  # ---------------------------------------------------------
+  # KURENAI_NO_HA (紅の葉)
+  # ---------------------------------------------------------
+  HUB_NAME_STATE_KURENAI_NO_HA_city: "Tatsuta" # 竜田 (たつた) - 紅葉といえば竜田川。川面を真紅に染め上げる和歌の絶対的歌枕
+  HUB_NAME_STATE_KURENAI_NO_HA_farm: "Hagigahana" # 萩が花 (はぎがはな) - 秋の七草の代表。鹿の鳴き声と共に詠まれる秋の風情
+  HUB_NAME_STATE_KURENAI_NO_HA_mine: "Sigure" # 時雨 (しぐれ) - 晩秋の通り雨。この雨が降ると木々が紅葉に染まるとされた
+  HUB_NAME_STATE_KURENAI_NO_HA_wood: "Ogurayama" # 小倉山 (おぐらやま) - 鹿の鳴き声と見事な紅葉で知られる京都の歌枕
+  HUB_NAME_STATE_KURENAI_NO_HA_port: "Shigarami" # 柵 (しがらみ) - 水流をせき止める柵。流れてきた紅葉が美しく吹き溜まる場所
+
+  # ---------------------------------------------------------
+  # KIYURU_HAI (消ゆる灰)
+  # ---------------------------------------------------------
+  HUB_NAME_STATE_KIYURU_HAI_city: "Kagerou" # 陽炎 (かげろう) - 春の立ち上る気嵐。ゆらめいて実体がなく消えやすいものの象徴
+  HUB_NAME_STATE_KIYURU_HAI_farm: "Kusagare" # 草枯 (くさがれ) - 冬になり草が白く枯れ果てた野。灰のような寂寥感
+  HUB_NAME_STATE_KIYURU_HAI_mine: "Yukemuri" # 夕煙 (ゆうけむり) - 火葬や夕餉（ゆうげ）の煙が空へ消えゆく物悲しい情景
+  HUB_NAME_STATE_KIYURU_HAI_wood: "Konoha" # 木の葉 (このは) - もろく散りゆく枯れ葉。風に吹かれて舞う哀れさ
+  HUB_NAME_STATE_KIYURU_HAI_port: "Amabune" # 海人舟 (あまぶね) - 漁師の小舟が沖の彼方へふっと消えていく様（漕ぎゆく舟の跡なき…）
+
+  # ---------------------------------------------------------
+  # AFURURU_SHIZUKU (溢るる雫)
+  # ---------------------------------------------------------
+  HUB_NAME_STATE_AFURURU_SHIZUKU_city: "Tamamizu" # 玉水 (たまみず) - 水滴を美しい宝石（玉）に見立てた雅語
+  HUB_NAME_STATE_AFURURU_SHIZUKU_farm: "Samidare" # 五月雨 (さみだれ) - 梅雨の長雨。「水垂れ」や、涙が溢れて止まらない心情の掛詞
+  HUB_NAME_STATE_AFURURU_SHIZUKU_mine: "Mikumari" # 水分 (みくまり) - 山から湧き出る水を分け与える神、またはその源流の地
+  HUB_NAME_STATE_AFURURU_SHIZUKU_wood: "Koketsuyu" # 苔の露 (こけのつゆ) - 苔に落ちた雫。涙で濡れた袖のメタファーとして多用される
+  HUB_NAME_STATE_AFURURU_SHIZUKU_port: "Miotsukushi" # 澪標 (みおつくし) - 水路を示す杭。「身を尽くし（命がけで恋をする）」の有名な掛詞
+
+  # ---------------------------------------------------------
+  # SHIRABOSHI (白星)
+  # ---------------------------------------------------------
+  HUB_NAME_STATE_SHIRABOSHI_city: "Hoshidukuyo" # 星月夜 (ほしづくよ) - 月が出ていなくても、星が月のように白く明るい夜
+  HUB_NAME_STATE_SHIRABOSHI_farm: "Tsuyukusa" # 露草 (つゆくさ) - 朝露を帯びた草。星の瞬きを地上に映したような青い花
+  HUB_NAME_STATE_SHIRABOSHI_mine: "Hisakata" # 久方 (ひさかた) - 「天・月・光・星」などを導く、天空の壮大さを表す枕詞
+  HUB_NAME_STATE_SHIRABOSHI_wood: "Hahakigi" # 帚木 (ははきぎ) - 遠くからは見えるが近づくと消える伝説の木。光源氏も詠んだ幻
+  HUB_NAME_STATE_SHIRABOSHI_port: "Amatsukaze" # 天津風 (あまつかぜ) - 雲の通り道を吹き抜ける天上の風（天津風雲の通ひ路吹き閉ぢよ…）
+
+  # ---------------------------------------------------------
+  # KURURU_MURASAKI (暮るる紫)
+  # ---------------------------------------------------------
+  HUB_NAME_STATE_KURURU_MURASAKI_city: "Fujinami" # 藤波 (ふじなみ) - 藤の花房が風に揺れる様。高貴な紫色の波
+  HUB_NAME_STATE_KURURU_MURASAKI_farm: "Musashino" # 武蔵野 (むさしの) - 紫草（紫色の染料の原料）の名産地として歌に詠まれた広大な野
+  HUB_NAME_STATE_KURURU_MURASAKI_mine: "Nubatama" # 射干玉 (ぬばたま) - 「黒・夜・暗闇」などを導く枕詞。漆黒の鉱山に相応しい
+  HUB_NAME_STATE_KURURU_MURASAKI_wood: "Shinobugusa" # 忍草 (しのぶぐさ) - 軒端などに生えるシダ。暗い情念や「忍ぶ（耐え忍ぶ）」に掛ける
+  HUB_NAME_STATE_KURURU_MURASAKI_port: "Yumagure" # 夕まぐれ (ゆうまぐれ) - 日が沈み、辺りが濃い紫から暗闇へと紛れていく逢魔が時

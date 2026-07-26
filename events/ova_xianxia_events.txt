@@ -1,0 +1,2968 @@
+﻿### Xianxia storyline - narrative events (the Destined One chain + the Blood Lotus dao war)
+# ova_xianxia.1        A Destined One Appears (the offer, from effect_ova_xianxia_mc_dispatch)
+# ova_xianxia.3        The Blood Lotus Blooms (BLO intro, fired from history)
+# ova_xianxia.4        The Mandate of the Jade Throne (FEN intro, fired from history)
+# ova_xianxia.5        The Sects Take Sides (righteous/covenant banner intro, fired from history)
+# ova_xianxia.10-.14   archetype intros (check-in / cauldron / grandpa / returner / reader)
+# ova_xianxia.15-.19   chapter beats shared with the old rise set (.16/.17/.18 ch1, .19/.15 ch2)
+# ova_xianxia.20-.24   chapter 3 archetype rung - the gift matures (self-gated on mc_type)
+# ova_xianxia.25-.29   chapter 1 archetype rung - the gift stirs (self-gated on mc_type)
+# ova_xianxia.30       the yearly check-in (type 1 only, self-rescheduling)
+# ova_xianxia.40-.45   ambition: .40 (ch3 beat), .41/.43 (ch4 beats), .44/.45 (pool)
+# ova_xianxia.50-.52   rival Destined Ones
+# ova_xianxia.55-.58   the war layer (banner JE pulses)
+# ova_xianxia.60-.62   outing outcomes (secret realm, tribulation)
+# ova_xianxia.63       the realm breaks open (chapter completion celebration)
+# ova_xianxia.64-.65   the grand competition, the ascension epilogue
+# ova_xianxia.66-.68   goal decisions: secret manual / natal weapon / tribulation treasures
+# ova_xianxia.70-.72   endings
+# ova_xianxia.80-.84   cheat consults (type-branched)
+# ova_xianxia.85-.89   chapter 5 archetype rung - the gift bares its depth
+# ova_xianxia.100-.109 realm chapter beats (intros and finales)
+# ova_xianxia.130-.135 hidden chapter relay events (call the tick ladders off-pulse)
+# All champion XP/renown/effects are called from the foundation (ova_champion_*) or defined in
+# the xianxia support files - never redefined here. Beats set ova_xianxia_seen_* flags in their
+# immediate and refuse to fire twice; the tick ladders in
+# common/scripted_effects/ova_xianxia_effects.txt walk them in order.
+
+namespace = ova_xianxia
+
+# ------------------------------------------------------------- .1 the offer
+ova_xianxia.1 = { # A Destined One Appears
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.1.t
+	desc = ova_xianxia.1.desc
+	flavor = ova_xianxia.1.flavor
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_xianxia_is_sect_trigger = yes
+		NOT = { has_variable = ova_xianxia_mc_type }
+		NOT = { has_variable = ova_champion_char }
+		NOT = { has_variable = ova_xianxia_declined }
+	}
+
+	immediate = { }
+
+	option = { # the check-in disciple
+		name = ova_xianxia.1.a
+		default_option = yes
+		ai_chance = {
+			base = 18
+		}
+		effect_ova_xianxia_mc_arrives = { TYPE = 1 }
+		effect_ova_xianxia_check_in_start = yes
+		trigger_event = { id = ova_xianxia.10 days = 7 }
+	}
+
+	option = { # the mysterious cauldron
+		name = ova_xianxia.1.b
+		ai_chance = {
+			base = 18
+		}
+		effect_ova_xianxia_mc_arrives = { TYPE = 2 }
+		trigger_event = { id = ova_xianxia.11 days = 7 }
+	}
+
+	option = { # the grandpa ring
+		name = ova_xianxia.1.c
+		ai_chance = {
+			base = 18
+		}
+		effect_ova_xianxia_mc_arrives = { TYPE = 3 }
+		trigger_event = { id = ova_xianxia.12 days = 7 }
+	}
+
+	option = { # the returner
+		name = ova_xianxia.1.d
+		ai_chance = {
+			base = 18
+		}
+		effect_ova_xianxia_mc_arrives = { TYPE = 4 }
+		trigger_event = { id = ova_xianxia.13 days = 7 }
+	}
+
+	option = { # the reader
+		name = ova_xianxia.1.e
+		ai_chance = {
+			base = 18
+		}
+		effect_ova_xianxia_mc_arrives = { TYPE = 5 }
+		trigger_event = { id = ova_xianxia.14 days = 7 }
+	}
+
+	option = { # turn the omen away
+		name = ova_xianxia.1.f
+		ai_chance = {
+			base = 10
+		}
+		set_variable = ova_xianxia_declined
+		remove_variable = ova_xianxia_offer_pending
+	}
+}
+
+# ------------------------------------------------------------- .3-.5 faction intros
+# Fired from history (common/history/global/00_global.txt), never from a JE immediate.
+ova_xianxia.3 = { # The Blood Lotus Blooms
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.3.t
+	desc = ova_xianxia.3.d
+	flavor = ova_xianxia.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		c:BLO ?= THIS
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.3.a
+		default_option = yes
+		add_modifier = { name = ova_xianxia_blood_rites days = 365 }
+	}
+}
+
+ova_xianxia.4 = { # The Mandate of the Jade Throne
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.4.t
+	desc = ova_xianxia.4.d
+	flavor = ova_xianxia.4.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:FEN ?= THIS
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.4.a
+		default_option = yes
+		add_modifier = { name = ova_xianxia_righteous_fervor days = 730 }
+	}
+}
+
+ova_xianxia.5 = { # The Sects Take Sides
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.5.t
+	desc = ova_xianxia.5.d
+	flavor = ova_xianxia.5.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		OR = {
+			ova_xianxia_on_righteous_side_trigger = yes
+			ova_xianxia_on_demonic_side_trigger = yes
+		}
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.5.a
+		default_option = yes
+	}
+}
+
+# ------------------------------------------------------- .10-.14 archetype intros
+ova_xianxia.10 = { # The First Check-In
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.10.t
+	desc = ova_xianxia.10.d
+	flavor = ova_xianxia.10.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.10.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+	}
+}
+
+ova_xianxia.11 = { # The Cauldron Wakes
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.11.t
+	desc = ova_xianxia.11.d
+	flavor = ova_xianxia.11.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.11.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_xianxia.12 = { # The Ring Speaks
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.12.t
+	desc = ova_xianxia.12.d
+	flavor = ova_xianxia.12.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.12.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_xianxia.13 = { # Three Elders Not Yet Dead
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.13.t
+	desc = ova_xianxia.13.d
+	flavor = ova_xianxia.13.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.13.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_xianxia.14 = { # What Chapter Is This
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.14.t
+	desc = ova_xianxia.14.d
+	flavor = ova_xianxia.14.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.14.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+# ----------------------------------------------- .15-.19 shared chapter beats
+ova_xianxia.15 = { # The Arrogant Young Master (chapter 2 beat)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.15.t
+	desc = ova_xianxia.15.d
+	flavor = ova_xianxia.15.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_15 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_15
+	}
+
+	option = { # let him taste the floor
+		name = ova_xianxia.15.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 10 }
+		add_modifier = { name = ova_xianxia_face_resounding days = 730 }
+		set_variable = ova_xianxia_ym_slapped
+	}
+
+	option = { # swallow the insult, for now
+		name = ova_xianxia.15.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_xianxia.16 = { # The Outer-Disciple Tournament (chapter 1 beat)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.16.t
+	desc = ova_xianxia.16.d
+	flavor = ova_xianxia.16.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_16 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_16
+	}
+
+	option = { # let him compete
+		name = ova_xianxia.16.a
+		default_option = yes
+		random_list = {
+			75 = {
+				ova_champion_add_xp = { AMOUNT = 15 }
+				ova_champion_add_popularity = { AMOUNT = 10 }
+			}
+			25 = {
+				ova_champion_injure = { MONTHS = 3 }
+			}
+		}
+	}
+
+	option = { # keep him training
+		name = ova_xianxia.16.b
+		ova_champion_add_xp = { AMOUNT = 5 }
+	}
+}
+
+ova_xianxia.17 = { # The Jealous Senior Brother (chapter 1 beat)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.17.t
+	desc = ova_xianxia.17.d
+	flavor = ova_xianxia.17.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_17 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_17
+	}
+
+	option = { # turns it back on him
+		name = ova_xianxia.17.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 15 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+
+	option = { # the elders hush it up
+		name = ova_xianxia.17.b
+		add_modifier = { name = ova_xianxia_plot_divergence days = 365 }
+	}
+}
+
+ova_xianxia.18 = { # The Herb-Garden Incident (chapter 1 final beat)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.18.t
+	desc = ova_xianxia.18.d
+	flavor = ova_xianxia.18.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_18 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_18
+	}
+
+	option = {
+		name = ova_xianxia.18.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+	}
+}
+
+ova_xianxia.19 = { # Whispers in the Sect (chapter 2 beat)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.19.t
+	desc = ova_xianxia.19.d
+	flavor = ova_xianxia.19.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_19 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_19
+	}
+
+	option = { # the sect master silences the talk
+		name = ova_xianxia.19.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+
+	option = { # let envy sharpen him
+		name = ova_xianxia.19.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+		ova_champion_add_popularity = { AMOUNT = -5 }
+	}
+}
+
+# ------------------------------- .20-.24 chapter 3 archetype rung: the gift matures
+ova_xianxia.20 = { # The Check-In Jackpot
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.20.t
+	desc = ova_xianxia.20.d
+	flavor = ova_xianxia.20.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 1
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch3 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch3
+	}
+
+	option = {
+		name = ova_xianxia.20.a
+		default_option = yes
+		random_list = {
+			50 = {
+				add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+			}
+			30 = {
+				ova_champion_add_xp = { AMOUNT = 20 }
+			}
+			20 = {
+				ova_champion_add_popularity = { AMOUNT = 10 }
+			}
+		}
+	}
+}
+
+ova_xianxia.21 = { # The Cauldron Eats a Spirit Sword
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.21.t
+	desc = ova_xianxia.21.d
+	flavor = ova_xianxia.21.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 2
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch3 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch3
+	}
+
+	option = { # return the improved blade
+		name = ova_xianxia.21.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+
+	option = { # keep it and apologize profusely
+		name = ova_xianxia.21.b
+		ova_champion_add_xp = { AMOUNT = 20 }
+		ova_champion_add_popularity = { AMOUNT = -5 }
+	}
+}
+
+ova_xianxia.22 = { # The Grandpa Remembers a Cave
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.22.t
+	desc = ova_xianxia.22.d
+	flavor = ova_xianxia.22.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 3
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch3 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch3
+	}
+
+	option = {
+		name = ova_xianxia.22.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+	}
+}
+
+ova_xianxia.23 = { # The Granary He Remembered
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.23.t
+	desc = ova_xianxia.23.d
+	flavor = ova_xianxia.23.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 4
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch3 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch3
+	}
+
+	option = { # heed him
+		name = ova_xianxia.23.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		ova_champion_add_popularity = { AMOUNT = 15 }
+	}
+
+	option = { # ignore him
+		name = ova_xianxia.23.b
+		add_modifier = { name = ova_xianxia_plot_divergence days = 365 }
+	}
+}
+
+ova_xianxia.24 = { # The Chapter He Read
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.24.t
+	desc = ova_xianxia.24.d
+	flavor = ova_xianxia.24.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 5
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch3 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch3
+	}
+
+	option = { # act on the plot
+		name = ova_xianxia.24.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 15 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+
+	option = { # test whether the plot still holds
+		name = ova_xianxia.24.b
+		add_modifier = { name = ova_xianxia_plot_divergence days = 365 }
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+# ------------------------------- .25-.29 chapter 1 archetype rung: the gift stirs
+ova_xianxia.25 = { # Day Seven (type 1)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.25.t
+	desc = ova_xianxia.25.d
+	flavor = ova_xianxia.25.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 1
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch1 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch1
+	}
+
+	option = {
+		name = ova_xianxia.25.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+		add_treasury = { value = money_amount_multiplier_small multiply = 5 }
+	}
+}
+
+ova_xianxia.26 = { # The Practice Sword (type 2)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.26.t
+	desc = ova_xianxia.26.d
+	flavor = ova_xianxia.26.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 2
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch1 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch1
+	}
+
+	option = {
+		name = ova_xianxia.26.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_xianxia.27 = { # Midnight Corrections (type 3)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.27.t
+	desc = ova_xianxia.27.d
+	flavor = ova_xianxia.27.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 3
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch1 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch1
+	}
+
+	option = {
+		name = ova_xianxia.27.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 15 }
+	}
+}
+
+ova_xianxia.28 = { # The Names of Winter (type 4)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.28.t
+	desc = ova_xianxia.28.d
+	flavor = ova_xianxia.28.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 4
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch1 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch1
+	}
+
+	option = { # heed the list
+		name = ova_xianxia.28.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 5 }
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+
+	option = { # a boy's fancies
+		name = ova_xianxia.28.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_xianxia.29 = { # Chapter Twelve (type 5)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.29.t
+	desc = ova_xianxia.29.d
+	flavor = ova_xianxia.29.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 5
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch1 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch1
+	}
+
+	option = {
+		name = ova_xianxia.29.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+# --------------------------------------------------- .30 the yearly check-in
+ova_xianxia.30 = { # The Yearly Check-In
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.30.t
+	desc = ova_xianxia.30.d
+	flavor = ova_xianxia.30.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 1
+		ova_xianxia_mc_is_alive_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # claim it
+		name = ova_xianxia.30.a
+		default_option = yes
+		random_list = {
+			30 = {
+				add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+			}
+			25 = {
+				ova_champion_add_xp = { AMOUNT = 20 }
+			}
+			20 = {
+				ova_champion_add_popularity = { AMOUNT = 10 }
+			}
+			15 = {
+				add_modifier = { name = ova_xianxia_spirit_vein_windfall days = 365 }
+			}
+			10 = {
+				if = {
+					limit = { NOT = { has_technology_researched = meridian_theory } }
+					add_technology_progress = {
+						progress = 2500
+						technology = meridian_theory
+					}
+				}
+				else = {
+					ova_champion_add_xp = { AMOUNT = 20 }
+				}
+			}
+		}
+		trigger_event = { id = ova_xianxia.30 days = 365 }
+	}
+}
+
+# --------------------------------------------------------------- .40-.45 ambition
+ova_xianxia.40 = { # The Banquet of a Hundred Sects (chapter 3 beat)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.40.t
+	desc = ova_xianxia.40.d
+	flavor = ova_xianxia.40.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_40 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_40
+		random_country = {
+			limit = {
+				ova_xianxia_is_participant_trigger = yes
+				NOT = { THIS = ROOT }
+			}
+			save_scope_as = ova_xianxia_banquet_rival
+		}
+	}
+
+	option = { # he gives face where face is due
+		name = ova_xianxia.40.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+
+	option = { # he humiliates a boastful core disciple with three words
+		name = ova_xianxia.40.b
+		add_modifier = { name = ova_xianxia_face_resounding days = 730 }
+		if = {
+			limit = { exists = scope:ova_xianxia_banquet_rival }
+			change_relations = { country = scope:ova_xianxia_banquet_rival value = -10 }
+		}
+	}
+}
+
+ova_xianxia.41 = { # The Clan Demands Satisfaction (chapter 4 beat, needs ym_slapped)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.41.t
+	desc = ova_xianxia.41.d
+	flavor = ova_xianxia.41.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		has_variable = ova_xianxia_ym_slapped
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_41 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_41
+	}
+
+	option = { # the destined one answers the duel
+		name = ova_xianxia.41.a
+		default_option = yes
+		random_list = {
+			70 = {
+				modifier = {
+					if = {
+						limit = { var:ova_champion_level >= 25 }
+						add = 20
+					}
+				}
+				ova_champion_add_popularity = { AMOUNT = 15 }
+				ova_champion_add_xp = { AMOUNT = 15 }
+			}
+			30 = {
+				ova_champion_injure = { MONTHS = 6 }
+			}
+		}
+	}
+
+	option = { # pay reparations
+		name = ova_xianxia.41.b
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+	}
+}
+
+ova_xianxia.42 = { # A Dao Companion (chapter 5 beat)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.42.t
+	desc = ova_xianxia.42.d
+	flavor = ova_xianxia.42.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_42 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_42
+	}
+
+	option = { # accept
+		name = ova_xianxia.42.a
+		default_option = yes
+		add_modifier = { name = ova_xianxia_dao_companion days = -1 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+
+	option = { # the dao of the heart can wait
+		name = ova_xianxia.42.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_xianxia.43 = { # Poison in the Wine (chapter 4 beat)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.43.t
+	desc = ova_xianxia.43.d
+	flavor = ova_xianxia.43.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_sick_in_hospital"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_43 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_43
+	}
+
+	option = { # the ring flares
+		name = ova_xianxia.43.a
+		trigger = {
+			var:ova_xianxia_mc_type ?= 3
+		}
+		ova_champion_add_xp = { AMOUNT = 15 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+
+	option = { # the destined one sweats it out through his meridians
+		name = ova_xianxia.43.b
+		default_option = yes
+		random_list = {
+			70 = {
+				ova_champion_add_xp = { AMOUNT = 15 }
+			}
+			30 = {
+				ova_champion_injure = { MONTHS = 4 }
+			}
+		}
+	}
+
+	option = { # the taster dies in his place
+		name = ova_xianxia.43.c
+		add_radicals = { value = small_radicals }
+	}
+}
+
+ova_xianxia.44 = { # The Auction of the Nameless Relic (pool)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.44.t
+	desc = ova_xianxia.44.d
+	flavor = ova_xianxia.44.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # buy it at any price
+		name = ova_xianxia.44.a
+		trigger = {
+			var:ova_xianxia_mc_type ?= 5
+		}
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		ova_champion_add_xp = { AMOUNT = 25 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+
+	option = { # bid modestly
+		name = ova_xianxia.44.b
+		default_option = yes
+		random_list = {
+			50 = {
+				ova_champion_add_xp = { AMOUNT = 15 }
+			}
+			50 = {
+				ova_champion_add_popularity = { AMOUNT = -5 }
+			}
+		}
+	}
+
+	option = { # let it pass
+		name = ova_xianxia.44.c
+	}
+}
+
+ova_xianxia.45 = { # Rumor of a Secret Realm (pool)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.45.t
+	desc = ova_xianxia.45.d
+	flavor = ova_xianxia.45.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.45.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 5 }
+	}
+}
+
+# ---------------------------------------------------- .50-.52 rival destined ones
+ova_xianxia.50 = { # Duel of Destinies
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.50.t
+	desc = ova_xianxia.50.d
+	flavor = ova_xianxia.50.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		ova_xianxia_rival_exists_trigger = yes
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				NOT = { THIS = ROOT }
+				has_variable = ova_xianxia_mc_type
+				ova_xianxia_mc_is_alive_trigger = yes
+				ova_has_living_champion = yes
+			}
+			save_scope_as = ova_xianxia_rival
+		}
+	}
+
+	option = { # heaven decides
+		name = ova_xianxia.50.a
+		default_option = yes
+		random_list = {
+			55 = {
+				modifier = {
+					if = {
+						limit = { var:ova_champion_level >= 30 }
+						add = 20
+					}
+				}
+				change_variable = { name = ova_xianxia_rivals_defeated add = 1 }
+				ova_champion_add_xp = { AMOUNT = 20 }
+				ova_champion_add_popularity = { AMOUNT = 15 }
+				scope:ova_xianxia_rival ?= {
+					ova_champion_add_popularity = { AMOUNT = -10 }
+					ova_champion_injure = { MONTHS = 4 }
+				}
+			}
+			45 = {
+				ova_champion_injure = { MONTHS = 4 }
+				ova_champion_add_popularity = { AMOUNT = -5 }
+				scope:ova_xianxia_rival ?= {
+					ova_champion_add_popularity = { AMOUNT = 10 }
+				}
+			}
+		}
+	}
+
+	option = { # exchange pointers only
+		name = ova_xianxia.50.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+		change_relations = { country = scope:ova_xianxia_rival value = 10 }
+	}
+}
+
+ova_xianxia.51 = { # The Rivals Provocation
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.51.t
+	desc = ova_xianxia.51.d
+	flavor = ova_xianxia.51.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		ova_xianxia_rival_exists_trigger = yes
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				NOT = { THIS = ROOT }
+				has_variable = ova_xianxia_mc_type
+				ova_xianxia_mc_is_alive_trigger = yes
+				ova_has_living_champion = yes
+			}
+			save_scope_as = ova_xianxia_rival
+		}
+	}
+
+	option = { # answer in kind
+		name = ova_xianxia.51.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 5 }
+		change_relations = { country = scope:ova_xianxia_rival value = -10 }
+	}
+
+	option = { # endure
+		name = ova_xianxia.51.b
+		ova_champion_add_popularity = { AMOUNT = -5 }
+	}
+}
+
+ova_xianxia.52 = { # An Accord Between Protagonists
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.52.t
+	desc = ova_xianxia.52.d
+	flavor = ova_xianxia.52.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		ova_xianxia_rival_exists_trigger = yes
+		NOT = { has_variable = ova_xianxia_c52_done }
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				NOT = { THIS = ROOT }
+				has_variable = ova_xianxia_mc_type
+				ova_xianxia_mc_is_alive_trigger = yes
+				ova_has_living_champion = yes
+			}
+			save_scope_as = ova_xianxia_rival
+		}
+		set_variable = ova_xianxia_c52_done
+	}
+
+	option = { # an accord
+		name = ova_xianxia.52.a
+		default_option = yes
+		change_relations = { country = scope:ova_xianxia_rival value = 25 }
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+
+	option = { # there is only one protagonist
+		name = ova_xianxia.52.b
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+# ------------------------------------------------------------- .55-.58 the war layer
+ova_xianxia.55 = { # Skirmish at the Carrion Hills
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.55.t
+	desc = ova_xianxia.55.d
+	flavor = ova_xianxia.55.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+		exists = c:BLO
+	}
+
+	immediate = { }
+
+	option = { # reinforce
+		name = ova_xianxia.55.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_modifier = { name = ova_xianxia_righteous_fervor days = 365 }
+	}
+
+	option = { # cede the hills
+		name = ova_xianxia.55.b
+	}
+}
+
+ova_xianxia.56 = { # The Listener in the Walls
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.56.t
+	desc = ova_xianxia.56.d
+	flavor = ova_xianxia.56.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		ova_xianxia_is_participant_trigger = yes
+		exists = c:BLO
+	}
+
+	immediate = { }
+
+	option = { # execute
+		name = ova_xianxia.56.a
+		default_option = yes
+		add_modifier = { name = ova_xianxia_righteous_fervor days = 365 }
+	}
+
+	option = { # turn him
+		name = ova_xianxia.56.b
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_xp = { AMOUNT = 10 }
+		}
+	}
+}
+
+ova_xianxia.57 = { # The Blood Cavalry Raids
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.57.t
+	desc = ova_xianxia.57.d
+	flavor = ova_xianxia.57.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		ova_xianxia_is_demonic_sect_trigger = yes
+		any_country = {
+			ova_xianxia_is_righteous_sect_trigger = yes
+		}
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				ova_xianxia_is_righteous_sect_trigger = yes
+			}
+			save_scope_as = ova_xianxia_raid_target
+		}
+	}
+
+	option = {
+		name = ova_xianxia.57.a
+		default_option = yes
+		scope:ova_xianxia_raid_target = {
+			add_modifier = { name = ova_xianxia_demonic_terror days = 730 }
+		}
+		change_relations = { country = scope:ova_xianxia_raid_target value = -20 }
+		add_modifier = { name = ova_xianxia_blood_rites days = 365 }
+	}
+}
+
+ova_xianxia.58 = { # The Righteous Expedition Musters
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.58.t
+	desc = ova_xianxia.58.d
+	flavor = ova_xianxia.58.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		ova_xianxia_on_righteous_side_trigger = yes
+	}
+
+	immediate = { }
+
+	option = { # contribute blades
+		name = ova_xianxia.58.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_modifier = { name = ova_xianxia_righteous_fervor days = 730 }
+	}
+
+	option = { # prayers only
+		name = ova_xianxia.58.b
+	}
+}
+
+# --------------------------------------------------- .60-.62 outing outcomes
+ova_xianxia.60 = { # The Secret Realms Heart
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.60.t
+	desc = ova_xianxia.60.d
+	flavor = ova_xianxia.60.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_secret_realm_done
+	}
+
+	option = {
+		name = ova_xianxia.60.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_xianxia.61 = { # The Secret Realms Teeth
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.61.t
+	desc = ova_xianxia.61.d
+	flavor = ova_xianxia.61.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_sick_in_hospital"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_secret_realm_done
+	}
+
+	option = {
+		name = ova_xianxia.61.a
+		default_option = yes
+		ova_champion_injure = { MONTHS = 6 }
+		ova_champion_add_xp = { AMOUNT = 5 }
+	}
+}
+
+ova_xianxia.62 = { # The Heavenly Tribulation
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.62.t
+	desc = ova_xianxia.62.d
+	flavor = ova_xianxia.62.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	immediate = { }
+
+	option = { # he steps into the open
+		name = ova_xianxia.62.a
+		default_option = yes
+		random_list = {
+			60 = {
+				modifier = {
+					if = {
+						limit = { var:ova_champion_level >= 50 }
+						add = 25
+					}
+					if = {
+						limit = { var:ova_xianxia_mc_type ?= 5 }
+						add = 10
+					}
+					# the natal weapon and the gathered treasures both earn their keep here
+					if = {
+						limit = { has_variable = ova_xianxia_weapon_forged }
+						add = 10
+					}
+					if = {
+						limit = { has_variable = ova_xianxia_treasures_gathered }
+						add = 15
+					}
+				}
+				set_variable = ova_xianxia_tribulation_passed
+				ova_champion_gain_levels = { LEVELS = 2 }
+				ova_champion_add_popularity = { AMOUNT = 20 }
+				add_modifier = { name = ova_xianxia_heaven_blessed days = 1825 }
+			}
+			40 = {
+				ova_champion_injure = { MONTHS = 12 }
+				add_modifier = { name = ova_xianxia_tribulation_scars days = 730 }
+			}
+		}
+	}
+}
+
+# ------------------------------------------------ .63 the realm breaks open
+ova_xianxia.63 = { # The Realm Breaks Open (chapter completion celebration)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.63.t
+	desc = ova_xianxia.63.d
+	flavor = ova_xianxia.63.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		ova_has_living_champion = yes
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.63.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+}
+
+# ---------------------------------------- .64-.65 the grand competition, ascension
+ova_xianxia.64 = { # The Grand Competition
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.64.t
+	desc = ova_xianxia.64.d
+	flavor = ova_xianxia.64.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	trigger = { }
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.64.a
+		default_option = yes
+		add_modifier = { name = ova_xianxia_competition_glory days = 1825 }
+		add_modifier = { name = ova_xianxia_righteous_fervor days = 730 }
+		if = {
+			limit = { ova_has_living_champion = yes }
+			ova_champion_add_popularity = { AMOUNT = 15 }
+			set_variable = ova_xianxia_competition_won
+		}
+	}
+}
+
+ova_xianxia.65 = { # The Gate of Heaven Opens
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.65.t
+	desc = ova_xianxia.65.d
+	flavor = ova_xianxia.65.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	trigger = { }
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.65.a
+		default_option = yes
+	}
+}
+
+# ------------------------------------------- .66-.68 goal decision outcomes
+ova_xianxia.66 = { # The Half-Worn Jade Slip (secret manual decision)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.66.t
+	desc = ova_xianxia.66.d
+	flavor = ova_xianxia.66.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_xianxia_manual_learned }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_manual_learned
+	}
+
+	option = { # the cauldron restores the missing strokes
+		name = ova_xianxia.66.a
+		trigger = {
+			var:ova_xianxia_mc_type ?= 2
+		}
+		ova_champion_add_xp = { AMOUNT = 25 }
+	}
+
+	option = { # the grandpa knew the author personally
+		name = ova_xianxia.66.b
+		trigger = {
+			var:ova_xianxia_mc_type ?= 3
+		}
+		ova_champion_add_xp = { AMOUNT = 25 }
+	}
+
+	option = { # the reader has read the unabridged edition
+		name = ova_xianxia.66.c
+		trigger = {
+			var:ova_xianxia_mc_type ?= 5
+		}
+		ova_champion_add_xp = { AMOUNT = 25 }
+	}
+
+	option = { # a hundred nights of study
+		name = ova_xianxia.66.d2
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 15 }
+	}
+}
+
+ova_xianxia.67 = { # Forging the Natal Weapon
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.67.t
+	desc = ova_xianxia.67.d
+	flavor = ova_xianxia.67.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_xianxia_weapon_forged }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_weapon_forged
+	}
+
+	option = { # the cauldron does the smelting
+		name = ova_xianxia.67.a
+		trigger = {
+			var:ova_xianxia_mc_type ?= 2
+		}
+		ova_champion_add_xp = { AMOUNT = 20 }
+		add_modifier = { name = ova_xianxia_face_resounding days = 730 }
+	}
+
+	option = { # seven days at the star-forge
+		name = ova_xianxia.67.b
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_xianxia.68 = { # Treasures Against the Thunder
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.68.t
+	desc = ova_xianxia.68.d
+	flavor = ova_xianxia.68.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_has_living_champion = yes
+		NOT = { has_variable = ova_xianxia_treasures_gathered }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_treasures_gathered
+	}
+
+	option = { # he remembers where a lightning-ward is buried
+		name = ova_xianxia.68.a
+		trigger = {
+			OR = {
+				var:ova_xianxia_mc_type ?= 4
+				var:ova_xianxia_mc_type ?= 5
+			}
+		}
+		ova_champion_add_xp = { AMOUNT = 15 }
+		add_treasury = { value = money_amount_multiplier_small multiply = 5 }
+	}
+
+	option = { # the system marks the price down
+		name = ova_xianxia.68.b
+		trigger = {
+			var:ova_xianxia_mc_type ?= 1
+		}
+		ova_champion_add_xp = { AMOUNT = 15 }
+	}
+
+	option = { # pay what the auction houses ask
+		name = ova_xianxia.68.c
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+# ------------------------------------------------------------------- .70-.72 endings
+ova_xianxia.70 = { # The Lotus Devours the Sun
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.70.t
+	desc = ova_xianxia.70.d
+	flavor = ova_xianxia.70.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		c:BLO ?= THIS
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.70.a
+		default_option = yes
+	}
+}
+
+ova_xianxia.71 = { # The Orthodox Dawn
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.71.t
+	desc = ova_xianxia.71.d
+	flavor = ova_xianxia.71.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		OR = {
+			c:FEN ?= THIS
+			ova_xianxia_is_righteous_sect_trigger = yes
+		}
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.71.a
+		default_option = yes
+	}
+}
+
+ova_xianxia.72 = { # The Destined One Falls
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.72.t
+	desc = ova_xianxia.72.d
+	flavor = ova_xianxia.72.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = { }
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.72.a
+		default_option = yes
+		add_modifier = { name = ova_xianxia_plot_divergence days = 730 }
+		add_radicals = { value = small_radicals }
+	}
+}
+
+# ------------------------------------------------------- .80-.84 cheat consults
+ova_xianxia.80 = { # The Streak Unbroken
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.80.t
+	desc = ova_xianxia.80.d
+	flavor = ova_xianxia.80.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 1
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.80.a
+		default_option = yes
+		random_list = {
+			40 = {
+				add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+			}
+			30 = {
+				ova_champion_add_xp = { AMOUNT = 15 }
+			}
+			30 = {
+				ova_champion_add_popularity = { AMOUNT = 10 }
+			}
+		}
+	}
+}
+
+ova_xianxia.81 = { # Feeding the Cauldron
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.81.t
+	desc = ova_xianxia.81.d
+	flavor = ova_xianxia.81.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 2
+	}
+
+	immediate = { }
+
+	option = { # feed it the treasury dross
+		name = ova_xianxia.81.a
+		default_option = yes
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		ova_champion_add_xp = { AMOUNT = 20 }
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+	}
+
+	option = { # feed it something dangerous
+		name = ova_xianxia.81.b
+		random_list = {
+			60 = {
+				ova_champion_add_xp = { AMOUNT = 30 }
+			}
+			40 = {
+				ova_champion_injure = { MONTHS = 3 }
+			}
+		}
+	}
+}
+
+ova_xianxia.82 = { # The Grandpas Lesson
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.82.t
+	desc = ova_xianxia.82.d
+	flavor = ova_xianxia.82.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 3
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.82.a
+		default_option = yes
+		if = {
+			limit = { has_variable = ova_champion_injured_months }
+			ova_champion_heal = yes
+		}
+		else = {
+			ova_champion_add_xp = { AMOUNT = 25 }
+		}
+	}
+}
+
+ova_xianxia.83 = { # Consulting His Memories
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.83.t
+	desc = ova_xianxia.83.d
+	flavor = ova_xianxia.83.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 4
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.83.a
+		default_option = yes
+		random_list = {
+			40 = {
+				if = {
+					limit = { NOT = { has_technology_researched = talisman_printing } }
+					add_technology_progress = {
+						progress = 2500
+						technology = talisman_printing
+					}
+				}
+				else = {
+					ova_champion_add_xp = { AMOUNT = 15 }
+				}
+			}
+			35 = {
+				add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+			}
+			25 = {
+				ova_champion_add_popularity = { AMOUNT = 10 }
+			}
+		}
+	}
+}
+
+ova_xianxia.84 = { # Consulting the Plot
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.84.t
+	desc = ova_xianxia.84.d
+	flavor = ova_xianxia.84.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 5
+	}
+
+	immediate = { }
+
+	option = {
+		name = ova_xianxia.84.a
+		default_option = yes
+		random_list = {
+			40 = {
+				ova_champion_add_xp = { AMOUNT = 20 }
+			}
+			35 = {
+				ova_champion_add_popularity = { AMOUNT = 10 }
+			}
+			25 = {
+				add_modifier = { name = ova_xianxia_plot_divergence days = 365 }
+				ova_champion_add_xp = { AMOUNT = 15 }
+			}
+		}
+	}
+}
+
+# ---------------------- .85-.89 chapter 5 archetype rung: the gift bares its depth
+ova_xianxia.85 = { # The Hundred-Year Settlement (type 1)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.85.t
+	desc = ova_xianxia.85.d
+	flavor = ova_xianxia.85.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 1
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch5 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch5
+	}
+
+	option = {
+		name = ova_xianxia.85.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 25 }
+		add_treasury = { value = money_amount_multiplier_small multiply = 10 }
+	}
+}
+
+ova_xianxia.86 = { # The Tribulation Elixir (type 2)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.86.t
+	desc = ova_xianxia.86.d
+	flavor = ova_xianxia.86.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 2
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch5 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch5
+	}
+
+	option = {
+		name = ova_xianxia.86.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 25 }
+	}
+}
+
+ova_xianxia.87 = { # The Last Borrowing (type 3)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.87.t
+	desc = ova_xianxia.87.d
+	flavor = ova_xianxia.87.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 3
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch5 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch5
+	}
+
+	option = {
+		name = ova_xianxia.87.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 30 }
+	}
+}
+
+ova_xianxia.88 = { # The Edge of Memory (type 4)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.88.t
+	desc = ova_xianxia.88.d
+	flavor = ova_xianxia.88.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 4
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch5 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch5
+	}
+
+	option = {
+		name = ova_xianxia.88.a
+		default_option = yes
+		add_modifier = { name = ova_xianxia_plot_divergence days = 365 }
+		ova_champion_add_xp = { AMOUNT = 25 }
+	}
+}
+
+ova_xianxia.89 = { # The Final Chapter (type 5)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.89.t
+	desc = ova_xianxia.89.d
+	flavor = ova_xianxia.89.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		var:ova_xianxia_mc_type ?= 5
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_arch5 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_arch5
+	}
+
+	option = {
+		name = ova_xianxia.89.a
+		default_option = yes
+		add_modifier = { name = ova_xianxia_plot_divergence days = 365 }
+		ova_champion_add_xp = { AMOUNT = 25 }
+	}
+}
+
+# --------------------------------------------- .100-.109 realm chapter beats
+ova_xianxia.100 = { # Sweeping the Ten Thousand Steps (chapter 1 opener)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.100.t
+	desc = ova_xianxia.100.d
+	flavor = ova_xianxia.100.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		NOT = { has_variable = ova_xianxia_seen_100 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_100
+	}
+
+	option = {
+		name = ova_xianxia.100.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_xianxia.101 = { # Robes of the Inner Court (chapter 2 opener)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.101.t
+	desc = ova_xianxia.101.d
+	flavor = ova_xianxia.101.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_101 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_101
+	}
+
+	option = {
+		name = ova_xianxia.101.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 5 }
+	}
+}
+
+ova_xianxia.102 = { # The Tribute Road (chapter 2 final beat)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.102.t
+	desc = ova_xianxia.102.d
+	flavor = ova_xianxia.102.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_102 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_102
+	}
+
+	option = { # he stands in the pass
+		name = ova_xianxia.102.a
+		default_option = yes
+		random_list = {
+			75 = {
+				ova_champion_add_xp = { AMOUNT = 15 }
+				ova_champion_add_popularity = { AMOUNT = 10 }
+			}
+			25 = {
+				ova_champion_injure = { MONTHS = 3 }
+				ova_champion_add_xp = { AMOUNT = 10 }
+			}
+		}
+	}
+
+	option = { # buy the raiders off
+		name = ova_xianxia.102.b
+		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		ova_champion_add_xp = { AMOUNT = 5 }
+	}
+}
+
+ova_xianxia.103 = { # A Cave on the Spirit Vein (chapter 3 opener)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.103.t
+	desc = ova_xianxia.103.d
+	flavor = ova_xianxia.103.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_103 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_103
+	}
+
+	option = {
+		name = ova_xianxia.103.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 15 }
+	}
+}
+
+ova_xianxia.104 = { # The Sword Tablet (chapter 3 final beat)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.104.t
+	desc = ova_xianxia.104.d
+	flavor = ova_xianxia.104.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_104 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_104
+	}
+
+	option = { # he bows to the tablet
+		name = ova_xianxia.104.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+
+	option = { # walk past it
+		name = ova_xianxia.104.b
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+ova_xianxia.105 = { # The Soul Steps Free (chapter 4 opener)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.105.t
+	desc = ova_xianxia.105.d
+	flavor = ova_xianxia.105.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_105 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_105
+	}
+
+	option = {
+		name = ova_xianxia.105.a
+		default_option = yes
+		ova_champion_add_popularity = { AMOUNT = 10 }
+	}
+}
+
+ova_xianxia.106 = { # Banners at the Carrion Hills (chapter 4 final beat)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.106.t
+	desc = ova_xianxia.106.d
+	flavor = ova_xianxia.106.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_106 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_106
+	}
+
+	option = { # he leads the vanguard
+		name = ova_xianxia.106.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+		add_modifier = { name = ova_xianxia_righteous_fervor days = 365 }
+	}
+
+	option = { # hold him back from the line
+		name = ova_xianxia.106.b
+		ova_champion_add_xp = { AMOUNT = 5 }
+	}
+}
+
+ova_xianxia.107 = { # The Heavens Take Notice (chapter 5 opener)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.107.t
+	desc = ova_xianxia.107.d
+	flavor = ova_xianxia.107.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_107 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_107
+	}
+
+	option = {
+		name = ova_xianxia.107.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 15 }
+	}
+}
+
+ova_xianxia.108 = { # The Ancestor Leaves Seclusion (chapter 5 final beat)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.108.t
+	desc = ova_xianxia.108.d
+	flavor = ova_xianxia.108.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_108 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_108
+	}
+
+	option = {
+		name = ova_xianxia.108.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 20 }
+	}
+}
+
+ova_xianxia.109 = { # The Sky Like a Bruise (chapter 6, the omens gather)
+	type = country_event
+	placement = root
+
+	title = ova_xianxia.109.t
+	desc = ova_xianxia.109.d
+	flavor = ova_xianxia.109.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_fire"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	trigger = {
+		has_variable = ova_xianxia_mc_type
+		ova_xianxia_mc_is_alive_trigger = yes
+		NOT = { has_variable = ova_xianxia_seen_109 }
+	}
+
+	immediate = {
+		set_variable = ova_xianxia_seen_109
+	}
+
+	option = {
+		name = ova_xianxia.109.a
+		default_option = yes
+		ova_champion_add_xp = { AMOUNT = 10 }
+	}
+}
+
+# --------------------------------------------- .130-.135 hidden chapter relays
+ova_xianxia.130 = { # chapter 1 third-of-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_xianxia_ch1_tick = yes
+	}
+}
+
+ova_xianxia.131 = { # chapter 2 third-of-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_xianxia_ch2_tick = yes
+	}
+}
+
+ova_xianxia.132 = { # chapter 3 third-of-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_xianxia_ch3_tick = yes
+	}
+}
+
+ova_xianxia.133 = { # chapter 4 third-of-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_xianxia_ch4_tick = yes
+	}
+}
+
+ova_xianxia.134 = { # chapter 5 third-of-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_xianxia_ch5_tick = yes
+	}
+}
+
+ova_xianxia.135 = { # chapter 6 half-year relay
+	type = country_event
+	hidden = yes
+	immediate = {
+		effect_ova_xianxia_ch6_tick = yes
+	}
+}

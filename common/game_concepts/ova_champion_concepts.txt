@@ -1,0 +1,13 @@
+﻿### Champions JE - game concepts (loc names/descs in ova_champion_l_english.yml)
+
+concept_ova_champion = {}
+
+concept_ova_renown = {}
+
+concept_ova_expedition = {}
+
+concept_ova_sabotage = {}
+
+concept_ova_champion_sanctuary = {}
+
+concept_ova_champion_hall = {}

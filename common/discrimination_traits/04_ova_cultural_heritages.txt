@@ -1,0 +1,47 @@
+﻿# Cultural heritages for OVA's mod-unique cultures.
+heritage_lysian = { type = heritage trait_group = heritage_group_isekai_human }
+heritage_solenne = { type = heritage trait_group = heritage_group_isekai_human }
+heritage_vardish = { type = heritage trait_group = heritage_group_isekai_human }
+heritage_altan = { type = heritage trait_group = heritage_group_isekai_human }
+
+heritage_wood_elf = { type = heritage trait_group = heritage_group_elf }
+heritage_snow_elf = { type = heritage trait_group = heritage_group_elf }
+heritage_dark_elf = { type = heritage trait_group = heritage_group_elf }
+
+heritage_steel_dwarf = { type = heritage trait_group = heritage_group_dwarf }
+heritage_stone_dwarf = { type = heritage trait_group = heritage_group_dwarf }
+
+heritage_orc = { type = heritage trait_group = heritage_group_greenskin }
+
+heritage_goblin = { type = heritage trait_group = heritage_group_greenskin }
+
+heritage_horned_demon = { type = heritage trait_group = heritage_group_demonic }
+heritage_winged_demon = { type = heritage trait_group = heritage_group_demonic }
+heritage_shadow_demon = { type = heritage trait_group = heritage_group_demonic }
+
+heritage_rabbitkin = { type = heritage trait_group = heritage_group_beastfolk }
+heritage_wolfkin = { type = heritage trait_group = heritage_group_beastfolk }
+heritage_foxkin = { type = heritage trait_group = heritage_group_beastfolk }
+heritage_bearkin = { type = heritage trait_group = heritage_group_beastfolk }
+heritage_horsekin = { type = heritage trait_group = heritage_group_beastfolk }
+heritage_catkin = { type = heritage trait_group = heritage_group_beastfolk }
+
+heritage_lan = { type = heritage trait_group = heritage_group_xianxia_human }
+heritage_mae = { type = heritage trait_group = heritage_group_xianxia_human }
+heritage_khambu = { type = heritage trait_group = heritage_group_xianxia_human }
+heritage_arasni = { type = heritage trait_group = heritage_group_xianxia_human }
+heritage_melati = { type = heritage trait_group = heritage_group_xianxia_human }
+heritage_sakura = { type = heritage trait_group = heritage_group_xianxia_human }
+
+heritage_lily = { type = heritage trait_group = heritage_group_moana }
+heritage_moana = { type = heritage trait_group = heritage_group_moana }
+
+heritage_zaharin = { type = heritage trait_group = heritage_group_desert_human }
+heritage_nadirene = { type = heritage trait_group = heritage_group_desert_human }
+heritage_faryan = { type = heritage trait_group = heritage_group_desert_human }
+
+# Vat-grown homunculi (created by building_homunculus_factory).
+heritage_homunculus = { type = heritage trait_group = heritage_group_constructed }
+
+# Summoned otherworlders (shared by both far-world cultures).
+heritage_otherworlder = { type = heritage trait_group = heritage_group_otherworld }

@@ -1,0 +1,300 @@
+﻿# Fired off on_yearly_pulse_country
+# Isekai TC: migrated from vanilla 1.13.7. Every event-firing pulse and the
+# real-world coin-toss actions (Kamehameha, Ryukyu rivalry) were removed; only the
+# generic "recover from a wound" character action survives.
+# on_yearly_events / exiles_yearly_events / slavery_abolition_yearly_events / famine_yearly_events
+# restored 2026-07-11 alongside the root events/ migration batch, filtered to entries that now
+# exist. Dropped: warlord_china_events.*, opium_wars.8, dreadnought_hoax.1, patagonia.2, amazon.*,
+# titanic.1, french_pretenders.2/3/4, algeria_events.2, acw_events.7/8, bp1_misc.*,
+# pedro.14, emu_war.1, austria_events.33, national_awakening.5 (none migrated yet - see
+# progress.tsv), plus the whole russian/japan/austrian-monarchy, portugal/spain single-fire,
+# historical_agitators, british_dictate, ip2_misc (india) blocks (real-world country content).
+# fascism_events.8 restored 2026-07-11 alongside its own migration. oil_rush.5 restored 2026-07-11
+# alongside the oil_rush_events.txt localization pass (task #12) - was missed when
+# oil_rush_events.txt was first migrated. lobby_yearly_events restored
+# 2026-07-11 alongside 00_lobbies_events_01.txt/03.txt/04.txt migration.
+# ig_suppression_events.1, prostitution.1-4, cable_street.1, assassination_events.1, strike.5-7,
+# communism.7/9, autocracy.2/3, trade_route_events.1-5, and the springtime_of_peoples_yearly_events
+# block (peoples_springtime.6) restored 2026-07-14 (E2 audit pass) - all now-migrated, verbatim,
+# fully generic events whose calls were simply dropped in the original pruning pass. autocracy.2/3,
+# cable_street.1, communism.7, prostitution.1-4 and strike.5-7 already fire from their owning
+# journal entries' monthly/yearly pulses (00_autocracy.txt, 00_scotland_yard.txt, 00_communism.txt,
+# 00_strike_je.txt) exactly as they do in vanilla; this yearly on_action call is a second,
+# country-wide roll layered on top, matching vanilla's own (intentional) double-sourcing rather
+# than a mod-introduced duplicate.
+
+on_yearly_events = {
+	random_events = {
+		chance_to_happen = 65
+		20 = government_conflicts.1
+		20 = government_conflicts.2
+		20 = government_conflicts.3
+		20 = government_conflicts.4
+		20 = government_conflicts.5
+		20 = government_conflicts.6
+		20 = government_conflicts.7
+		20 = government_conflicts.8
+		20 = government_conflicts.9
+		20 = government_conflicts.10
+		20 = government_conflicts.11
+		20 = goldrush.3
+		20 = goldrush.4
+		20 = ig_leaders.20
+		20 = ig_leaders.4
+		20 = ig_leaders.5
+		20 = ig_leaders.6
+		20 = character_events.2
+		10 = character_events.3
+		10 = character_events.4
+		20 = character_events.5
+		100 = character_events.6
+		20 = neighbor_events.1
+		20 = neighbor_events.2
+		20 = neighbor_events.3
+		20 = neighbor_events.4
+		20 = neighbor_events.5
+		20 = neighbor_events.6
+		20 = neighbor_events.7
+		20 = commander_events.2
+		20 = commander_events.4
+		20 = commander_events.5
+		5 = commander_events.6
+		50 = law_events.5
+		50 = law_events.6
+		10 = cultural_homeland_events.1
+		10 = cultural_homeland_events.10
+		10 = cultural_homeland_events.20
+		10 = cultural_homeland_events.30
+		10 = cultural_homeland_events.40
+		10 = cultural_homeland_events.50
+		20 = ig_suppression_events.1
+		20 = technology_events.1
+		20 = technology_events.10
+		20 = technology_events.20
+		20 = technology_events.30
+		20 = technology_events.40
+		20 = technology_events.50
+		10 = industrial_accident_events.1
+		5 = industrial_accident_events.2
+		10 = industrial_accident_events.3
+		10 = industrial_accident_events.4
+		20 = industrial_accident_events.5
+		20 = industrial_accident_events.6
+		10 = crime_events.1
+		10 = crime_events.2
+		10 = crime_events.10
+		10 = obligation_events.1
+		10 = obligation_events.3
+		10 = obligation_events.5
+		20 = prostitution.1
+		100 = prostitution.2
+		20 = prostitution.3
+		20 = prostitution.4
+		20 = cable_street.1
+		3 = natural_disaster_events.1
+		3 = natural_disaster_events.2
+		1 = natural_disaster_events.3
+		1 = natural_disaster_events.4
+		20 = natural_disaster_events.5
+		3 = natural_disaster_events.6
+		3 = natural_disaster_events.7
+		1 = natural_disaster_events.8
+		10 = assassination_events.1
+		20 = decree_events.1
+		20 = decree_events.2
+		20 = decree_events.3
+		20 = decree_events.4
+		20 = decree_events.5
+		20 = decree_events.6
+		20 = decree_events.100
+		20 = decree_events.101
+		20 = decree_events.102
+		20 = decree_events.103
+		20 = decree_events.104
+		20 = decree_events.105
+		20 = decree_events.106
+		20 = decree_events.107
+		20 = decree_events.108
+		20 = decree_events.109
+		50 = strike.5
+		50 = strike.6
+		50 = strike.7
+		10 = communism.7
+		10 = communism.9
+		20 = psychology_events.1
+		20 = psychology_events.2
+		20 = psychology_events.3
+		20 = psychology_events.4
+		20 = psychology_events.5
+		20 = psychology_events.6
+		20 = fascism_events.8
+		20 = oil_rush.5
+		20 = autocracy.2
+		20 = autocracy.3
+		10 = diplomatic_friction.1
+		10 = diplomatic_friction.2
+		10 = diplomatic_friction.20
+		5 = trains.1
+		30 = cholera.1
+		5 = slave_revolt.1
+		5 = slave_revolt.2
+		5 = slave_revolt.3
+		5 = slave_revolt.4
+		20 = discrimination_events.1
+		20 = discrimination_events.2
+		20 = discrimination_events.3
+		20 = discrimination_events.4
+		5 = acceptance_events.1
+		20 = trade_route_events.1
+		20 = trade_route_events.2
+		20 = trade_route_events.3
+		20 = trade_route_events.4
+		20 = trade_route_events.5
+		20 = pm_events.1
+		20 = pm_events.2
+		20 = pm_events.4
+		20 = pm_events.5
+
+		# Additional 1848
+		10 = 1848.10
+		10 = 1848.11
+		10 = 1848.12
+
+		1 = vampire_panic.1
+		30 = utopian.1
+	}
+}
+
+# Exiles
+exiles_yearly_events = {
+	random_events = {
+		chance_to_happen = 25
+		10 = exiles_events.1
+		10 = exiles_events.2
+		10 = exiles_events.3
+		10 = exiles_events.4
+		10 = exiles_events.5
+		10 = exiles_events.6
+		10 = exiles_events.7
+		10 = exiles_events.8
+		10 = exiles_events.9
+		10 = exiles_events.10
+		10 = exiles_more_events.1
+		10 = exiles_more_events.3
+		10 = exiles_more_events.4
+		10 = exiles_more_events.5
+		5 = exiles_more_events.6
+		10 = exiles_more_events.7
+		10 = exiles_more_events.8
+		10 = exiles_more_events.9
+		10 = exiles_more_events.10
+	}
+}
+
+# Slavery Abolition
+slavery_abolition_yearly_events = {
+	random_events = {
+		chance_to_happen = 20
+		1 = slavery_law_events.7
+	}
+}
+
+# Famine Yearly Events
+famine_yearly_events = {
+	random_events = {
+		chance_to_happen = 25
+		1 = famine_events.3
+		1 = famine_events.4
+		1 = famine_political.1
+		1 = famine_political.2
+		1 = famine_political.3
+		1 = famine_political.4
+		1 = famine_political.5
+	}
+}
+
+# Lobby Events
+# Isekai TC: restored 2026-07-11 alongside 00_lobbies_events_01.txt/03.txt/04.txt migration.
+# lobby_events.41-50 don't exist in vanilla.
+lobby_yearly_events = {
+	random_events = {
+		chance_to_happen = 25
+		5 = lobby_events.1
+		5 = lobby_events.2
+		5 = lobby_events.3
+		5 = lobby_events.4
+		5 = lobby_events.5
+		5 = lobby_events.6
+		5 = lobby_events.7
+		5 = lobby_events.8
+		5 = lobby_events.9
+		5 = lobby_events.10
+		5 = lobby_events.11
+		5 = lobby_events.12
+		5 = lobby_events.13
+		5 = lobby_events.14
+		5 = lobby_events.15
+		5 = lobby_events.16
+		5 = lobby_events.17
+		5 = lobby_events.18
+		5 = lobby_events.19
+		5 = lobby_events.20
+		5 = lobby_events.21
+		5 = lobby_events.22
+		5 = lobby_events.23
+		5 = lobby_events.24
+		5 = lobby_events.25
+		5 = lobby_events.26
+		5 = lobby_events.27
+		5 = lobby_events.28
+		5 = lobby_events.29
+		5 = lobby_events.30
+		5 = lobby_events.31
+		5 = lobby_events.32
+		5 = lobby_events.33
+		5 = lobby_events.34
+		5 = lobby_events.35
+		5 = lobby_events.36
+		5 = lobby_events.37
+		5 = lobby_events.38
+		5 = lobby_events.39
+		5 = lobby_events.40
+		5 = lobby_events.51
+		5 = lobby_events.52
+		5 = lobby_events.53
+		5 = lobby_events.54
+		5 = lobby_events.55
+		5 = lobby_events.56
+		5 = lobby_events.57
+		5 = lobby_events.58
+		5 = lobby_events.59
+		5 = lobby_events.60
+	}
+}
+
+# Springtime of Peoples
+# Isekai TC: restored 2026-07-14 (E2 audit pass) - fires peoples_springtime.6, which is the
+# generic, already-live je_springtime_of_the_peoples mechanic's "it's spreading to you" pulse
+# (common/journal_entries/00_peoples_springtime_je.txt, events/peoples_springtime.txt). The
+# 00_code_on_actions.txt call site is owned by another agent (see handoff notes).
+springtime_of_peoples_yearly_events = {
+	random_events = {
+		chance_to_happen = 20
+		1 = peoples_springtime.6
+	}
+}
+
+# On wounded
+on_wounded = {
+	trigger = {
+		has_trait = wounded
+	}
+	effect = {
+		random_list = {
+			80 = {}
+			20 = {
+				remove_trait = wounded
+			}
+		}
+	}
+}

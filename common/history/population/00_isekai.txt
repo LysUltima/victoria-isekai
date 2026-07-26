@@ -1,0 +1,62 @@
+﻿POPULATION = {
+    c:ACA = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_very_high = yes
+    }
+    c:ALE = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:DWA = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:EAS = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:ELV = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:EST = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:HEL = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:LUX = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:LYS = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:NIS = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:REY = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:SIN = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:SKA = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+    c:VAL = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:VIN = {
+        effect_starting_pop_wealth_medium = yes
+        effect_starting_pop_literacy_middling = yes
+    }
+}

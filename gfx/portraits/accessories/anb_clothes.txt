@@ -1,0 +1,58 @@
+﻿# These assets are then used in the genes (game/common/genes/..) at the bottom of the file. 
+
+#ANBENNAR CLOTHES
+
+#############################################################
+#															#
+# 			 Male Clothes and Clothing Accessories			#
+#															#
+#############################################################
+
+########################
+#				       #									
+# 	  	  SHIRTS       #	
+#				       #									
+########################
+
+
+## GNOMES ##
+
+
+
+male_gnome_cloth_shirt = {
+set_tags = "shrink_arms,shrink_chest,shrink_belly"
+	entity = { required_tags = ""					shared_pose_entity = torso		entity = "male_gnome_cloth_shirt_entity" }	
+}
+
+
+
+########################
+#					   #									
+# 	    LEGWEAR  	   #	
+#					   #									
+########################
+
+
+## GNOMES ##
+
+male_gnome_cloth_pants = {
+	set_tags = "shrink_legs"
+	entity = { required_tags = ""					shared_pose_entity = torso		entity = "male_gnome_cloth_pants_entity" }	
+}
+
+
+
+########################
+#					   #									
+# 	   NECKLECES       #	
+#					   #									
+########################
+
+
+## GNOMES ##
+
+
+male_gnome_cloth_scarf = {
+	entity = { required_tags = ""					shared_pose_entity = torso		entity = "male_gnome_cloth_scarf_entity" }	
+}
+

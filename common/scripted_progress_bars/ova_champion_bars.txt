@@ -1,0 +1,33 @@
+﻿### Champions JE - level (XP) bar + renown bar
+# Both bars are 0..100 PERCENT-to-next-level gauges. They have NO
+# weekly_progress of their own: they are pushed from script via
+# je:je_ova_champion = { add_progress = { name = <bar> value = <delta> } }
+# in ova_champion_sync_bars (ova_champion_effects.txt), which runs on the
+# monthly tick and after every XP/renown change. They visibly reset when a
+# level is gained (the counters reset / the remainder carries).
+# GOTCHA: the desc/second_desc loc strings are parsed into engine data
+# statements - an apostrophe inside them breaks PROGRESS_BAR_BREAKDOWN
+# parsing ("Expected ','"). Keep these strings apostrophe-free and SHORT
+# (desc renders on the bar itself, left side; second_desc right side).
+
+ova_champion_level_bar = {
+	name = "ova_champion_level_bar"
+	desc = "ova_champion_level_bar_desc"
+	second_desc = "ova_champion_level_bar_second_desc"
+
+	start_value = 0
+	min_value = 0
+	max_value = 100
+	default_green = yes
+}
+
+ova_champion_renown_bar = {
+	name = "ova_champion_renown_bar"
+	desc = "ova_champion_renown_bar_desc"
+	second_desc = "ova_champion_renown_bar_second_desc"
+
+	start_value = 0
+	min_value = 0
+	max_value = 100
+	default_green = yes
+}
