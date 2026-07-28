@@ -1236,6 +1236,13 @@ MUD = { # Mudang
 		color3 = oc_pearl_white
 		instance = { position = { 0.3 0.5 } scale = { 0.8 0.8 } }
 	}
+    colored_emblem = {
+		texture = "ce_barong.dds"
+		color1 = oc_gold
+		color2 = sc_SOR_2
+		color3 = oc_pearl_white
+		instance = { position = { 0.75 0.46 } scale = { 0.5 0.5 } }
+	}
 }
 
 JEG = { # Jegal
@@ -1243,7 +1250,7 @@ JEG = { # Jegal
 	color1 = col_JEG
 	color2 = oc_bone
 	colored_emblem = {
-		texture = "ce_kamon_wave.dds"
+		texture = "ce_african_cross_gur.dds"
 		color1 = oc_bone
 		color2 = sc_JEG_2
 		color3 = oc_pearl_white
@@ -1256,7 +1263,7 @@ TAN = { # Tang
 	color1 = col_TAN
 	color2 = oc_ivory
 	colored_emblem = {
-		texture = "ce_kamon_mirror_butterfly.dds"
+		texture = "ce_cloud_swirl_nestorian.dds"
 		color1 = sc_TAN_1
 		color2 = sc_TAN_2
 		color3 = oc_pearl_white
@@ -1269,7 +1276,7 @@ NAM = { # Namgung
 	color1 = col_NAM
 	color2 = oc_bone
 	colored_emblem = {
-		texture = "ce_kamon_oak.dds"
+		texture = "ce_african_ram_horns_02.dds"
 		color1 = oc_jade_green
 		color2 = sc_NAM_2
 		color3 = oc_pearl_white
@@ -1302,7 +1309,7 @@ SAM = { # Sama
 		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
 	}
 	colored_emblem = {
-		texture = "ce_kamon_clover.dds"
+		texture = "ce_african_circles.dds"
 		color1 = col_SAM
 		color2 = sc_SAM_2
 		color3 = oc_pearl_white
@@ -1643,7 +1650,7 @@ YUU = { # Yuuzora
 TID = { # Tidakani
 	pattern = "pattern_waves_01.dds"
 	color1 = col_TID
-	color2 = oc_lagoon
+	color2 = oc_coral
 }
 
 URU = { # Uruma

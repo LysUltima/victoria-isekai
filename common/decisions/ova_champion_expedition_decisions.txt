@@ -21,12 +21,8 @@ ova_champion_expedition_decentralized_decision = {
 		ova_champion_is_available = yes
 		NOT = { ova_champion_is_adventuring = yes }
 		NOT = { has_variable = ova_expedition_lockout }
-		# a champion seasoned enough to send abroad, mirroring the action's own
-		# will_propose level floor for non-crusade targets
+		# a champion seasoned enough to send abroad,
 		var:ova_champion_level >= 10
-		# do not divert the champion while a storyline that already claims them
-		# is running: the murim Returner arc, the demonic Blood Lotus sect arc,
-		# or the radiant Eternal Crusade
 		NOR = {
 			has_journal_entry = je_ova_murim_sect_banner
 			has_journal_entry = je_ova_murim_alliance_banner
@@ -41,24 +37,21 @@ ova_champion_expedition_decentralized_decision = {
 		# treaty is not pre-checked here: decentralized nations do not hold such
 		# treaties, and the pact's own requirement_to_maintain sanctuary trigger
 		# would auto-break the expedition on the off chance one existed.
-		any_country = {
-			is_country_type = decentralized
+		any_decentralized_country  = {
 			is_adjacent_to_country = root
 		}
+        NOT = { ova_champion_is_adventuring = yes }
 	}
 
 	when_taken = {
-		random_country = {
+		random_decentralized_country = {
 			limit = {
-				is_country_type = decentralized
 				is_adjacent_to_country = root
 			}
 			save_scope_as = ova_expedition_dc_target
 		}
 		if = {
 			limit = { exists = scope:ova_expedition_dc_target }
-			# --- inline copy of ova_champion_expedition's accept_effect, because
-			#     create_diplomatic_pact does not run the action's accept hook ---
 			set_variable = ova_expedition_active
 			if = {
 				limit = { has_modifier = ova_champion_patronage_program }
@@ -76,16 +69,11 @@ ova_champion_expedition_decentralized_decision = {
 	}
 
 	ai_chance = {
-		value = 15
+		value = 1500
 		# stronger champions campaign more readily
 		if = {
 			limit = { var:ova_champion_level >= 30 }
-			add = 15
-		}
-		# don't bankrupt ourselves on upkeep
-		if = {
-			limit = { scaled_gold_reserves < 0.1 }
-			multiply = 0
+			add = 1500
 		}
 	}
 }

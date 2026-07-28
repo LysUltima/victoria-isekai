@@ -291,7 +291,7 @@
 
   # --- FUSCHTAL: Fenna, the foxkin scholar
   ova_rey.50.t: "The Fox Who Asks the Riddles"
-  ova_rey.50.d: "The scholar of Fuschtal is Fenna Rotwald, a russet foxkin who greets the famous hero not with a bow but with a riddle, tail curled around her ankles, watching to see whether the otherworlder is as clever as he is celebrated. She rather expects to be disappointed."
+  ova_rey.50.d: "The scholar of Fuschtaal is Fenna Rotwald, a russet foxkin who greets the famous hero not with a bow but with a riddle, tail curled around her ankles, watching to see whether the otherworlder is as clever as he is celebrated. She rather expects to be disappointed."
   ova_rey.50.f: "She has never met a puzzle, or a man, she could not eventually read."
   ova_rey.50.a: "Answer her riddle with a sharper riddle of your own."
   ova_rey.50.b: "Admit you are stumped and ask her to teach you."
@@ -354,7 +354,7 @@
   ova_rey.58.c: "Answer her riddle with a ring, and no words at all."
 
   ova_rey.59.t: "The Vixen’s Answer"
-  ova_rey.59.d: "Fenna Rotwald closes the great library of Fuschtal, packs one trunk of her most dangerous books, and arrives at the hero’s household claiming she has simply run out of riddles worth staying for. Her tail, traitorously, will not stop wagging."
+  ova_rey.59.d: "Fenna Rotwald closes the great library of Fuschtaal, packs one trunk of her most dangerous books, and arrives at the hero’s household claiming she has simply run out of riddles worth staying for. Her tail, traitorously, will not stop wagging."
   ova_rey.59.f: "Five states courted. Every heart he set out to win, won. Now what?"
   ova_rey.59.a: "Five down. All of them."
 
@@ -370,7 +370,7 @@
   ova_rey.78.a: "A grievous loss."
 
   ova_rey.90.t: "A President for a New Reyorn"
-  ova_rey.90.d: "John Paradox set out to charm a beastfolk daughter of every state, and somehow ended by uniting the republic in his own household. The cat merchants of Katzenburg, the dogkin guard of Welpenstadt, the bearfolk of Barenberg, the rabbitkin of Hasenhafen, the foxfolk of Fuschtal: every people whose daughter he won now names the otherworlder their own. The councils, half exasperated and half adoring, ask him to stand for the presidency. Every bride he truly won will bring her whole nation into the founding cultures of Reyorn."
+  ova_rey.90.d: "John Paradox set out to charm a beastfolk daughter of every state, and somehow ended by uniting the republic in his own household. The cat merchants of Katzenburg, the dogkin guard of Welpenstadt, the bearfolk of Barenberg, the rabbitkin of Hasenhafen, the foxfolk of Fuschtaal: every people whose daughter he won now names the otherworlder their own. The councils, half exasperated and half adoring, ask him to stand for the presidency. Every bride he truly won will bring her whole nation into the founding cultures of Reyorn."
   ova_rey.90.f: "It is, everyone agrees, the strangest path to high office in living memory."
   ova_rey.90.a: "A quiet inauguration, and a home full of many peoples."
   ova_rey.90.b: "A grand festival of every fur and feather in the republic."

@@ -41,6 +41,7 @@ ova_crusade_flavor.1 = { # the crusade in cheap print
 
 	trigger = {
 		ova_hero_crusade_active = yes
+        country_has_state_religion = rel:light_orthodoxy
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
 		NOT = { c:LUX ?= THIS }
@@ -74,6 +75,7 @@ ova_crusade_flavor.2 = { # alms for the holy war
 
 	trigger = {
 		ova_hero_crusade_active = yes
+        country_has_state_religion = rel:light_orthodoxy
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
 		NOT = { c:LUX ?= THIS }
@@ -108,6 +110,7 @@ ova_crusade_flavor.3 = { # the man who came back rich
 
 	trigger = {
 		ova_hero_crusade_active = yes
+        country_has_state_religion = rel:light_orthodoxy
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
 		NOT = { c:LUX ?= THIS }
@@ -141,6 +144,7 @@ ova_crusade_flavor.4 = { # the painted demon
 
 	trigger = {
 		ova_hero_crusade_active = yes
+        country_has_state_religion = rel:light_orthodoxy
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
 		NOT = { c:LUX ?= THIS }
@@ -173,6 +177,7 @@ ova_crusade_flavor.5 = { # a Hero passes through
 
 	trigger = {
 		ova_hero_crusade_active = yes
+        country_has_state_religion = rel:light_orthodoxy
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
 		NOT = { c:LUX ?= THIS }
@@ -207,6 +212,7 @@ ova_crusade_flavor.6 = { # war prices
 
 	trigger = {
 		ova_hero_crusade_active = yes
+        country_has_state_religion = rel:light_orthodoxy
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
 		NOT = { c:LUX ?= THIS }
@@ -241,6 +247,7 @@ ova_crusade_flavor.7 = { # someone else's holy war
 
 	trigger = {
 		ova_hero_crusade_active = yes
+        country_has_state_religion = rel:light_orthodoxy
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
 		NOT = { c:LUX ?= THIS }
@@ -275,6 +282,7 @@ ova_crusade_flavor.8 = { # the sons who sailed
 
 	trigger = {
 		ova_hero_crusade_active = yes
+        country_has_state_religion = rel:light_orthodoxy
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
 		NOT = { c:LUX ?= THIS }
@@ -309,6 +317,7 @@ ova_crusade_flavor.9 = { # boots, biscuit, and blades
 
 	trigger = {
 		ova_hero_crusade_active = yes
+        country_has_state_religion = rel:light_orthodoxy
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
 		NOT = { c:LUX ?= THIS }
@@ -343,6 +352,7 @@ ova_crusade_flavor.10 = { # twice-told victories
 
 	trigger = {
 		ova_hero_crusade_active = yes
+        country_has_state_religion = rel:light_orthodoxy
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
 		NOT = { c:LUX ?= THIS }

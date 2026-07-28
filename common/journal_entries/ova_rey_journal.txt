@@ -454,7 +454,7 @@ je_ova_rey_court_rabbit = {
 }
 
 # ============================================================================
-# Chapter 5: Fuschtal - Fenna, the foxkin scholar of the wooded vale
+# Chapter 5: Fuschtaal - Fenna, the foxkin scholar of the wooded vale
 # ============================================================================
 je_ova_rey_court_fox = {
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"

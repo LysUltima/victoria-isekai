@@ -308,7 +308,7 @@ template_ova_murim_ally_hwa = {
 # by effect_ova_rey_story_over. Their cultures match the beastkin pop already
 # living in each state (history/pops/00_isekai.txt): Katzenburg desert_catkin,
 # Welpenstadt dogkin, Barenberg bearkin, Hasenhafen western_rabbitkin,
-# Fuschtal forest_foxkin. Names lean on each species' flavor over Reyorn's
+# Fuschtaal forest_foxkin. Names lean on each species' flavor over Reyorn's
 # Germanic (vardish) surnames.
 # ---------------------------------------------------------------------------
 

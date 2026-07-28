@@ -43,7 +43,7 @@
 #   dog    - Barracks lv20 (Welpenstadt)      | law_national_guard | Champion Level 14
 #   bear   - Arms Factory lv10 (Barenberg)    | Champion Renown 10 | Champion Level 20
 #   rabbit - Wheat Farm lv20 (Hasenhafen)     | Champion Renown 15 | Champion Level 26
-#   fox    - University lv10 (Fuschtal)        | Champion Renown 20 | Champion Level 32
+#   fox    - University lv10 (Fuschtaal)        | Champion Renown 20 | Champion Level 32
 # Design rules (all from user feedback, keep them):
 #  - Only cat/dog carry laws, and only ones an Artifice Reyorn can actually
 #    enact (unlocking tech HELD: international_trade for free_trade/laissez_faire,
@@ -291,7 +291,7 @@ effect_ova_rey_fox_tick = {
 #   dog    - Barracks lv20 (Welpenstadt)      | law_national_guard | Champion Level 12
 #   bear   - Arms Factory lv5 (Barenberg)    | Champion Renown 10 | Champion Level 14
 #   rabbit - Wheat Farm lv20 (Hasenhafen)     | Champion Renown 15 | Champion Level 26
-#   fox    - University lv10 (Fuschtal)        | Champion Renown 20 | Champion Level 32
+#   fox    - University lv10 (Fuschtaal)        | Champion Renown 20 | Champion Level 32
 # Only cat/dog carry laws (enactable by an Artifice Reyorn - international_trade
 # and law_enforcement are held - and not in its start law set). Everyone else
 # uses the summoned hero's own Renown/Level, which start at 0/8 and need real
@@ -428,7 +428,7 @@ effect_ova_rey_objectives_check = {
 		effect_ova_rey_add_affection = { AMOUNT = 10 }
 	}
 
-	# ---- Fuschtal / Fenna (fox) ----
+	# ---- Fuschtaal / Fenna (fox) ----
 	if = {
 		limit = {
 			has_journal_entry = je_ova_rey_court_fox

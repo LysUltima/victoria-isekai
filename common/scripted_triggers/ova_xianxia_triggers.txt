@@ -95,126 +95,126 @@ ova_xianxia_demonic_owns_five_capitals_trigger = {
 		s:STATE_SHENJIAN = {
             any_scope_state = {
                 OR = {
-                    owner = c:BLO
-                    owner = c:GHO
-                    owner = c:SHA
-                    owner = c:NIN
-                    owner = { is_subject_of = c:BLO }
-                    owner = { is_subject_of = c:GHO }
-                    owner = { is_subject_of = c:SHA }
-                    owner = { is_subject_of = c:NIN }
+                    AND = { exists = c:BLO owner = c:BLO }
+                    AND = { exists = c:GHO owner = c:GHO }
+                    AND = { exists = c:SHA owner = c:SHA }
+                    AND = { exists = c:NIN owner = c:NIN }
+                    owner = { AND = { exists = c:BLO is_subject_of = c:BLO } }
+                    owner = { AND = { exists = c:GHO is_subject_of = c:GHO} }
+                    owner = { AND = { exists = c:SHA is_subject_of = c:SHA } }
+                    owner = { AND = { exists = c:NIN is_subject_of = c:NIN } }
                 }
             }
 		}
 		s:STATE_TIANYIN = {
             any_scope_state = {
                 OR = {
-                    owner = c:BLO
-                    owner = c:GHO
-                    owner = c:SHA
-                    owner = c:NIN
-                    owner = { is_subject_of = c:BLO }
-                    owner = { is_subject_of = c:GHO }
-                    owner = { is_subject_of = c:SHA }
-                    owner = { is_subject_of = c:NIN }
+                    AND = { exists = c:BLO owner = c:BLO }
+                    AND = { exists = c:GHO owner = c:GHO }
+                    AND = { exists = c:SHA owner = c:SHA }
+                    AND = { exists = c:NIN owner = c:NIN }
+                    owner = { AND = { exists = c:BLO is_subject_of = c:BLO } }
+                    owner = { AND = { exists = c:GHO is_subject_of = c:GHO} }
+                    owner = { AND = { exists = c:SHA is_subject_of = c:SHA } }
+                    owner = { AND = { exists = c:NIN is_subject_of = c:NIN } }
                 }
             }
 		}
 		s:STATE_HUAYUN = {
             any_scope_state = {
                 OR = {
-                    owner = c:BLO
-                    owner = c:GHO
-                    owner = c:SHA
-                    owner = c:NIN
-                    owner = { is_subject_of = c:BLO }
-                    owner = { is_subject_of = c:GHO }
-                    owner = { is_subject_of = c:SHA }
-                    owner = { is_subject_of = c:NIN }
+                    AND = { exists = c:BLO owner = c:BLO }
+                    AND = { exists = c:GHO owner = c:GHO }
+                    AND = { exists = c:SHA owner = c:SHA }
+                    AND = { exists = c:NIN owner = c:NIN }
+                    owner = { AND = { exists = c:BLO is_subject_of = c:BLO } }
+                    owner = { AND = { exists = c:GHO is_subject_of = c:GHO} }
+                    owner = { AND = { exists = c:SHA is_subject_of = c:SHA } }
+                    owner = { AND = { exists = c:NIN is_subject_of = c:NIN } }
                 }
             }
 		}
 		s:STATE_ZIXIA = {
             any_scope_state = {
                 OR = {
-                    owner = c:BLO
-                    owner = c:GHO
-                    owner = c:SHA
-                    owner = c:NIN
-                    owner = { is_subject_of = c:BLO }
-                    owner = { is_subject_of = c:GHO }
-                    owner = { is_subject_of = c:SHA }
-                    owner = { is_subject_of = c:NIN }
+                    AND = { exists = c:BLO owner = c:BLO }
+                    AND = { exists = c:GHO owner = c:GHO }
+                    AND = { exists = c:SHA owner = c:SHA }
+                    AND = { exists = c:NIN owner = c:NIN }
+                    owner = { AND = { exists = c:BLO is_subject_of = c:BLO } }
+                    owner = { AND = { exists = c:GHO is_subject_of = c:GHO} }
+                    owner = { AND = { exists = c:SHA is_subject_of = c:SHA } }
+                    owner = { AND = { exists = c:NIN is_subject_of = c:NIN } }
                 }
             }
 		}
 		s:STATE_XUANYUE = {
             any_scope_state = {
                 OR = {
-                    owner = c:BLO
-                    owner = c:GHO
-                    owner = c:SHA
-                    owner = c:NIN
-                    owner = { is_subject_of = c:BLO }
-                    owner = { is_subject_of = c:GHO }
-                    owner = { is_subject_of = c:SHA }
-                    owner = { is_subject_of = c:NIN }
+                    AND = { exists = c:BLO owner = c:BLO }
+                    AND = { exists = c:GHO owner = c:GHO }
+                    AND = { exists = c:SHA owner = c:SHA }
+                    AND = { exists = c:NIN owner = c:NIN }
+                    owner = { AND = { exists = c:BLO is_subject_of = c:BLO } }
+                    owner = { AND = { exists = c:GHO is_subject_of = c:GHO} }
+                    owner = { AND = { exists = c:SHA is_subject_of = c:SHA } }
+                    owner = { AND = { exists = c:NIN is_subject_of = c:NIN } }
                 }
             }
 		}
 		s:STATE_YUDAO = {
             any_scope_state = {
                 OR = {
-                    owner = c:BLO
-                    owner = c:GHO
-                    owner = c:SHA
-                    owner = c:NIN
-                    owner = { is_subject_of = c:BLO }
-                    owner = { is_subject_of = c:GHO }
-                    owner = { is_subject_of = c:SHA }
-                    owner = { is_subject_of = c:NIN }
+                    AND = { exists = c:BLO owner = c:BLO }
+                    AND = { exists = c:GHO owner = c:GHO }
+                    AND = { exists = c:SHA owner = c:SHA }
+                    AND = { exists = c:NIN owner = c:NIN }
+                    owner = { AND = { exists = c:BLO is_subject_of = c:BLO } }
+                    owner = { AND = { exists = c:GHO is_subject_of = c:GHO} }
+                    owner = { AND = { exists = c:SHA is_subject_of = c:SHA } }
+                    owner = { AND = { exists = c:NIN is_subject_of = c:NIN } }
                 }
             }
 		}
 		s:STATE_LINGGU = {
             any_scope_state = {
                 OR = {
-                    owner = c:BLO
-                    owner = c:GHO
-                    owner = c:SHA
-                    owner = c:NIN
-                    owner = { is_subject_of = c:BLO }
-                    owner = { is_subject_of = c:GHO }
-                    owner = { is_subject_of = c:SHA }
-                    owner = { is_subject_of = c:NIN }
+                    AND = { exists = c:BLO owner = c:BLO }
+                    AND = { exists = c:GHO owner = c:GHO }
+                    AND = { exists = c:SHA owner = c:SHA }
+                    AND = { exists = c:NIN owner = c:NIN }
+                    owner = { AND = { exists = c:BLO is_subject_of = c:BLO } }
+                    owner = { AND = { exists = c:GHO is_subject_of = c:GHO} }
+                    owner = { AND = { exists = c:SHA is_subject_of = c:SHA } }
+                    owner = { AND = { exists = c:NIN is_subject_of = c:NIN } }
                 }
             }
 		}
 		s:STATE_ZHUMING = {
             any_scope_state = {
                 OR = {
-                    owner = c:BLO
-                    owner = c:GHO
-                    owner = c:SHA
-                    owner = c:NIN
-                    owner = { is_subject_of = c:BLO }
-                    owner = { is_subject_of = c:GHO }
-                    owner = { is_subject_of = c:SHA }
-                    owner = { is_subject_of = c:NIN }
+                    AND = { exists = c:BLO owner = c:BLO }
+                    AND = { exists = c:GHO owner = c:GHO }
+                    AND = { exists = c:SHA owner = c:SHA }
+                    AND = { exists = c:NIN owner = c:NIN }
+                    owner = { AND = { exists = c:BLO is_subject_of = c:BLO } }
+                    owner = { AND = { exists = c:GHO is_subject_of = c:GHO} }
+                    owner = { AND = { exists = c:SHA is_subject_of = c:SHA } }
+                    owner = { AND = { exists = c:NIN is_subject_of = c:NIN } }
                 }
             }
 		}
 		s:STATE_XUEHUA = {
             any_scope_state = {
                 OR = {
-                    owner = c:BLO
-                    owner = c:GHO
-                    owner = c:SHA
-                    owner = c:NIN
-                    owner = { is_subject_of = c:BLO }
-                    owner = { is_subject_of = c:GHO }
-                    owner = { is_subject_of = c:SHA }
-                    owner = { is_subject_of = c:NIN }
+                    AND = { exists = c:BLO owner = c:BLO }
+                    AND = { exists = c:GHO owner = c:GHO }
+                    AND = { exists = c:SHA owner = c:SHA }
+                    AND = { exists = c:NIN owner = c:NIN }
+                    owner = { AND = { exists = c:BLO is_subject_of = c:BLO } }
+                    owner = { AND = { exists = c:GHO is_subject_of = c:GHO} }
+                    owner = { AND = { exists = c:SHA is_subject_of = c:SHA } }
+                    owner = { AND = { exists = c:NIN is_subject_of = c:NIN } }
                 }
             }
 		}
@@ -229,10 +229,10 @@ ova_xianxia_demonic_victory_trigger = {
 		NOT = { exists = c:FEN }
 		c:FEN ?= {
 			OR = {
-				is_subject_of = c:BLO
-				is_subject_of = c:GHO
-				is_subject_of = c:SHA
-				is_subject_of = c:NIN
+				AND = { exists = c:BLO is_subject_of = c:BLO }
+				AND = { exists = c:GHO is_subject_of = c:GHO}
+				AND = { exists = c:SHA is_subject_of = c:SHA }
+				AND = { exists = c:NIN is_subject_of = c:NIN }
 			}
 		}
 		ova_xianxia_demonic_owns_five_capitals_trigger = yes
@@ -246,9 +246,9 @@ ova_xianxia_righteous_victory_trigger = {
 		NOT = { exists = c:BLO }
 		c:BLO ?= {
 			is_subject = yes
-			NOT = { is_subject_of = c:GHO }
-			NOT = { is_subject_of = c:SHA }
-			NOT = { is_subject_of = c:NIN }
+			NOT = { AND = { exists = c:GHO is_subject_of = c:GHO} }
+			NOT = { AND = { exists = c:SHA is_subject_of = c:SHA } }
+			NOT = { AND = { exists = c:NIN is_subject_of = c:NIN } }
 		}
 	}
 }

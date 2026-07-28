@@ -64,7 +64,7 @@
 # ova_rey.38 / .39   ... confession / won
 # ova_rey.40-.47     Hasenhafen  - Lieselotte, the rabbitkin harvest maiden (8 dates)
 # ova_rey.48 / .49   ... confession / won
-# ova_rey.50-.57     Fuschtal    - Fenna, the foxkin scholar (8 dates)
+# ova_rey.50-.57     Fuschtaal    - Fenna, the foxkin scholar (8 dates)
 # ova_rey.58 / .59   ... confession / won
 # ova_rey.78         John has died (fail ending, extremely rare - he is plot-armored)
 # ova_rey.80         a courtship ended cold; she moves on, and so does he
@@ -2026,7 +2026,7 @@ ova_rey.52 = { # The Game of Wits (date 3)
 	option = { # good: play earnestly and cede a graceful loss
 		name = ova_rey.52.b
 		effect_ova_rey_add_affection = { AMOUNT = 3 }
-		# Fuschtal hears that their scholar beat the republic's hero at his own table.
+		# Fuschtaal hears that their scholar beat the republic's hero at his own table.
 		effect_ova_rey_state_loyalists = { STATE = STATE_FUSCHTAL CULTURE = forest_foxkin AMOUNT = small_radicals }
 	}
 }
@@ -2114,7 +2114,7 @@ ova_rey.54 = { # Behind the Clever Smile (date 5)
 	option = { # poor: try, and fail, to out-riddle her again
 		name = ova_rey.54.c
 		effect_ova_rey_add_affection = { AMOUNT = 1 }
-		# His attempt becomes a standing joke in every common room in Fuschtal, and
+		# His attempt becomes a standing joke in every common room in Fuschtaal, and
 		# the vale is extremely fond of it.
 		effect_ova_rey_state_loyalists = { STATE = STATE_FUSCHTAL CULTURE = forest_foxkin AMOUNT = very_small_radicals }
 	}
@@ -2310,7 +2310,7 @@ ova_rey.59 = { # The Vixen's Answer (won)
 	option = {
 		name = ova_rey.59.a
 		default_option = yes
-		# She closes the great library of Fuschtal and moves one trunk of its most
+		# She closes the great library of Fuschtaal and moves one trunk of its most
 		# dangerous books into the hero's household, where they stay.
 		add_modifier = { name = ova_rey_fox_two_worlds_lore days = -1 }
 		ova_champion_add_popularity = { AMOUNT = 10 }

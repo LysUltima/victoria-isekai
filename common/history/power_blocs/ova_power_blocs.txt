@@ -22,7 +22,15 @@ POWER_BLOCS = {
 
 			founding_date = 1063.03.04
 			identity = identity_sovereign_empire
-			principle = principle_vassalization_1
+			principle = principle_vassalization_2
+		}
+        if = {
+			limit = {
+				has_dlc_feature = power_bloc_features
+			}
+			power_bloc = {
+				add_principle = principle_military_industry_1
+			}
 		}
 	}
 
@@ -109,6 +117,14 @@ POWER_BLOCS = {
             member = c:VIN
             member = c:SKA
             member = c:ACA
+		}
+        if = {
+			limit = {
+				has_dlc_feature = power_bloc_features
+			}
+			power_bloc = {
+				add_principle = principle_sacred_civics_3
+			}
 		}
         power_bloc = {
             add_leverage = {

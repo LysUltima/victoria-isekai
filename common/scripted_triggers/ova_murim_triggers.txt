@@ -9,7 +9,7 @@
 #
 # Verified vanilla patterns used here:
 #  - `c:TAG ?= THIS` country-identity check: common/journal_entries/00_taiping.txt (je_chinese_missions)
-#  - `is_subject` / `is_subject_of = c:TAG`: common/journal_entries/00_hawaii.txt,
+#  - `is_subject` / `AND = { exists = c:TAG is_subject_of = c:TAG }`: common/journal_entries/00_hawaii.txt,
 #    common/journal_entries/00_german_unification.txt, common/scripted_triggers/00_clothes_triggers.txt
 #  - `calc_true_if = { amount >= N ... }`: common/journal_entries/05_austria_journal_entries.txt
 #  - `var:x >= N` variable comparison: common/journal_entries/00_taiping.txt
@@ -78,14 +78,14 @@ ova_murim_alliance_still_stands_trigger = {
 ova_murim_six_sects_fallen_trigger = {
 	calc_true_if = {
 		amount >= 6
-		NOT = { AND = { exists = c:HWA c:HWA = { NOT = { is_subject_of = c:CHE } } } }
-		NOT = { AND = { exists = c:SOR c:SOR = { NOT = { is_subject_of = c:CHE } } } }
-		NOT = { AND = { exists = c:MUD c:MUD = { NOT = { is_subject_of = c:CHE } } } }
-		NOT = { AND = { exists = c:JEG c:JEG = { NOT = { is_subject_of = c:CHE } } } }
-		NOT = { AND = { exists = c:TAN c:TAN = { NOT = { is_subject_of = c:CHE } } } }
-		NOT = { AND = { exists = c:NAM c:NAM = { NOT = { is_subject_of = c:CHE } } } }
-		NOT = { AND = { exists = c:PAE c:PAE = { NOT = { is_subject_of = c:CHE } } } }
-		NOT = { AND = { exists = c:SAM c:SAM = { NOT = { is_subject_of = c:CHE } } } }
+		NOT = { AND = { exists = c:HWA c:HWA = { NOT = { AND = { exists = c:CHE is_subject_of = c:CHE } } } } }
+		NOT = { AND = { exists = c:SOR c:SOR = { NOT = { AND = { exists = c:CHE is_subject_of = c:CHE } } } } }
+		NOT = { AND = { exists = c:MUD c:MUD = { NOT = { AND = { exists = c:CHE is_subject_of = c:CHE } } } } }
+		NOT = { AND = { exists = c:JEG c:JEG = { NOT = { AND = { exists = c:CHE is_subject_of = c:CHE } } } } }
+		NOT = { AND = { exists = c:TAN c:TAN = { NOT = { AND = { exists = c:CHE is_subject_of = c:CHE } } } } }
+		NOT = { AND = { exists = c:NAM c:NAM = { NOT = { AND = { exists = c:CHE is_subject_of = c:CHE } } } } }
+		NOT = { AND = { exists = c:PAE c:PAE = { NOT = { AND = { exists = c:CHE is_subject_of = c:CHE } } } } }
+		NOT = { AND = { exists = c:SAM c:SAM = { NOT = { AND = { exists = c:CHE is_subject_of = c:CHE } } } } }
 	}
 }
 
@@ -94,21 +94,17 @@ ova_murim_six_sects_fallen_trigger = {
 # the banner JEs' fail conditions so joining the Returner's household does not read as defeat.
 ova_murim_is_subject_of_alliance_trigger = {
 	OR = {
-		is_subject_of = c:HWA
-		is_subject_of = c:SOR
-		is_subject_of = c:MUD
-		is_subject_of = c:JEG
-		is_subject_of = c:TAN
-		is_subject_of = c:NAM
-		is_subject_of = c:PAE
-		is_subject_of = c:SAM
+		AND = { exists = c:HWA is_subject_of = c:HWA }
+		AND = { exists = c:SOR is_subject_of = c:SOR }
+		AND = { exists = c:MUD is_subject_of = c:MUD }
+		AND = { exists = c:JEG is_subject_of = c:JEG }
+		AND = { exists = c:TAN is_subject_of = c:TAN }
+		AND = { exists = c:NAM is_subject_of = c:NAM }
+		AND = { exists = c:PAE is_subject_of = c:PAE }
+		AND = { exists = c:SAM is_subject_of = c:SAM }
 	}
 }
 
-# Cult victory condition A - CHE (or a CHE subject) owns at least 5 of the 8 sect capital states.
-# Scope-agnostic (hardcodes c:CHE, not ROOT) so it can be evaluated identically from CHE's own JE,
-# HWA's JE, or a member sect's JE. "owner = X" / "owner = { is_subject_of = X }" is the verified
-# vanilla pattern for "owned by X or X's subject" (common/journal_entries/00_east_indies.txt).
 ova_murim_cult_owns_five_capitals_trigger = {
     exists = c:CHE
 	calc_true_if = {
@@ -116,64 +112,64 @@ ova_murim_cult_owns_five_capitals_trigger = {
 		s:STATE_HWASAN = {
             any_scope_state = {
                 OR = {
-                    owner = { is_subject_of = c:CHE }
-                    owner = c:CHE
+                    owner = { AND = { exists = c:CHE is_subject_of = c:CHE } }
+                    AND = { exists = c:CHE owner = c:CHE }
                 }
             }
         }
 		s:STATE_SUNGSAN = {
             any_scope_state = {
                 OR = {
-                    owner = { is_subject_of = c:CHE }
-                    owner = c:CHE
+                    owner = { AND = { exists = c:CHE is_subject_of = c:CHE } }
+                    AND = { exists = c:CHE owner = c:CHE }
                 }
             }
         }
 		s:STATE_MUDANGSAN = {
             any_scope_state = {
                 OR = {
-                    owner = { is_subject_of = c:CHE }
-                    owner = c:CHE
+                    owner = { AND = { exists = c:CHE is_subject_of = c:CHE } }
+                    AND = { exists = c:CHE owner = c:CHE }
                 }
             }
         }
 		s:STATE_YANGJU = {
             any_scope_state = {
                 OR = {
-                    owner = { is_subject_of = c:CHE }
-                    owner = c:CHE
+                    owner = { AND = { exists = c:CHE is_subject_of = c:CHE } }
+                    AND = { exists = c:CHE owner = c:CHE }
                 }
             }
         }
 		s:STATE_SACHEON = {
             any_scope_state = {
                 OR = {
-                    owner = { is_subject_of = c:CHE }
-                    owner = c:CHE
+                    owner = { AND = { exists = c:CHE is_subject_of = c:CHE } }
+                    AND = { exists = c:CHE owner = c:CHE }
                 }
             }
         }
 		s:STATE_NAMWON = {
             any_scope_state = {
                 OR = {
-                    owner = { is_subject_of = c:CHE }
-                    owner = c:CHE
+                    owner = { AND = { exists = c:CHE is_subject_of = c:CHE } }
+                    AND = { exists = c:CHE owner = c:CHE }
                 }
             }
         }
 		s:STATE_HOBUK = {
             any_scope_state = {
                 OR = {
-                    owner = { is_subject_of = c:CHE }
-                    owner = c:CHE
+                    owner = { AND = { exists = c:CHE is_subject_of = c:CHE } }
+                    AND = { exists = c:CHE owner = c:CHE }
                 }
             }
         }
 		s:STATE_HONAM = {
             any_scope_state = {
                 OR = {
-                    owner = { is_subject_of = c:CHE }
-                    owner = c:CHE
+                    owner = { AND = { exists = c:CHE is_subject_of = c:CHE } }
+                    AND = { exists = c:CHE owner = c:CHE }
                 }
             }
         }

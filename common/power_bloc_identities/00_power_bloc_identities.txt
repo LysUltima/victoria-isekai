@@ -809,19 +809,6 @@ identity_religious = {
 			}
 			multiply = 1.5
 		}
-
-		if = {
-			limit = {
-				religion = {
-					NOR = { # Non-abrahamic religions probably wouldn't go for this type of bloc
-						has_discrimination_trait = heritage_light
-						has_discrimination_trait = heritage_sahar_faith
-						has_discrimination_trait = heritage_farvahar
-					}
-				}
-			}
-			multiply = 0.1
-		}
 	}
 }
 

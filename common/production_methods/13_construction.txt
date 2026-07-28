@@ -120,7 +120,7 @@ pm_alchemical_concrete_buildings = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_construction_add = 10
+			country_construction_add = 5
 		}
 	}
 
@@ -128,24 +128,19 @@ pm_alchemical_concrete_buildings = {
 		workforce_scaled = {
 			goods_input_dye_add = 50
 			goods_input_glass_add = 40
-			goods_input_wood_add = 40
-			goods_input_fabric_add = 30
 		}
 
 		level_scaled = {
-			building_employment_bureaucrats_add = 100
-			building_employment_clerks_add = 100
-			building_employment_machinists_add = 150
-			building_employment_laborers_add = 650
-		}
-		unscaled = {
-			building_laborers_mortality_mult = 0.1
+			building_employment_bureaucrats_add = 50
+			building_employment_clerks_add = 50
+			building_employment_machinists_add = 100
+			building_employment_laborers_add = 300
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_construction_mult = 0.007
+			state_construction_mult = 0.003
 		}
 	}
 }
@@ -160,7 +155,7 @@ pm_spirit_thread_lattice_buildings = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_construction_add = 15
+			country_construction_add = 10
 		}
 	}
 
@@ -169,24 +164,21 @@ pm_spirit_thread_lattice_buildings = {
 			goods_input_silk_add = 60
 			goods_input_dye_add = 60
 			goods_input_glass_add = 40
-			goods_input_fabric_add = 60
+			goods_input_explosives_add = 60
 		}
 
 		level_scaled = {
-			building_employment_bureaucrats_add = 100
-			building_employment_clerks_add = 100
+			building_employment_bureaucrats_add = 50
+			building_employment_clerks_add = 50
 			building_employment_engineers_add = 50
-			building_employment_machinists_add = 150
-			building_employment_laborers_add = 600
-		}
-		unscaled = {
-			building_laborers_mortality_mult = 0.1
+			building_employment_machinists_add = 100
+			building_employment_laborers_add = 250
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_construction_mult = 0.01
+			state_construction_mult = 0.006
 		}
 	}
 }
@@ -201,32 +193,28 @@ pm_geomantic_construction = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_construction_add = 10
+			country_construction_add = 5
 		}
 	}
 
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_coal_add = 60
-			goods_input_wood_add = 65
 			goods_input_fertilizer_add = 50
 			goods_input_paper_add = 30
 		}
 
 		level_scaled = {
-			building_employment_bureaucrats_add = 100
-			building_employment_clerks_add = 100
-			building_employment_machinists_add = 150
-			building_employment_laborers_add = 650
-		}
-		unscaled = {
-			building_laborers_mortality_mult = 0.1
+			building_employment_bureaucrats_add = 50
+			building_employment_clerks_add = 50
+			building_employment_machinists_add = 100
+			building_employment_laborers_add = 300
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_construction_mult = 0.007
+			state_construction_mult = 0.003
 		}
 	}
 }
@@ -241,7 +229,7 @@ pm_ley_conduit_construction = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_construction_add = 15
+			country_construction_add = 10
 		}
 	}
 
@@ -250,25 +238,21 @@ pm_ley_conduit_construction = {
 			goods_input_coal_add = 80
 			goods_input_fertilizer_add = 60
 			goods_input_electricity_add = 40
-			goods_input_iron_add = 20
 			goods_input_paper_add = 60
 		}
 
 		level_scaled = {
-			building_employment_bureaucrats_add = 100
-			building_employment_clerks_add = 100
+			building_employment_bureaucrats_add = 50
+			building_employment_clerks_add = 50
 			building_employment_engineers_add = 50
-			building_employment_machinists_add = 150
-			building_employment_laborers_add = 600
-		}
-		unscaled = {
-			building_laborers_mortality_mult = 0.1
+			building_employment_machinists_add = 100
+			building_employment_laborers_add = 250
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_construction_mult = 0.01
+			state_construction_mult = 0.006
 		}
 	}
 
@@ -314,4 +298,12 @@ pm_arc_welded_buildings = {
 			state_construction_mult = 0.01
 		}
 	}
+}
+
+pm_no_alchemy_construction = {
+    texture = "gfx/interface/icons/production_method_icons/no_tool_use.dds"
+}
+
+pm_no_spirit_construction = {
+    texture = "gfx/interface/icons/production_method_icons/no_tool_use.dds"
 }

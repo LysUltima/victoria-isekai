@@ -240,6 +240,13 @@ dp_leave_power_bloc = {
 	possible = {
 		NOT = { is_country_type = decentralized }
 		diplomatic_play_has_no_relations_blockers = yes
+        NOT = {
+            scope:target_country = {
+                power_bloc ?= {
+                    has_modifier = ova_unbreakable_covenant
+                }
+            }
+        }
 	}
 
 	ai_acceptance_max = 100

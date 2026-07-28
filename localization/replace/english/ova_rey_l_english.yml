@@ -74,12 +74,12 @@
   je_ova_rey_rabbit_obj3_tt: "John Paradox has reached Champion Level 18"
 
   # ===================================================================
-  # Chapter 5: Fuschtal - Fenna, the foxkin scholar
+  # Chapter 5: Fuschtaal - Fenna, the foxkin scholar
   # ===================================================================
-  je_ova_rey_court_fox: "The Fox of Fuschtal"
-  je_ova_rey_court_fox_reason: "In the wooded vale of Fuschtal, Fenna Rotwald asks riddles for a living and keeps her real answers to herself. She is the cleverest woman John has met in two worlds, and the hardest to read. Fill her Affection bar across eight dates matching wits with her, then confess from the journal button once it is full: that confession alone wins her. Three optional deeds each pour a great lump of affection into the bar and help you get there: raise an archive worthy of her mind (University at level 10 in Fuschtal), become the legend the whole vale argues about (reach Renown Level 14), and become the peerless hero even she must admire (reach Champion Level 22). Leave her cold after all eight dates, or fail to fill the bar in time, and she will smile a last unreadable smile and John will make for the capital instead."
+  je_ova_rey_court_fox: "The Fox of Fuschtaal"
+  je_ova_rey_court_fox_reason: "In the wooded vale of Fuschtaal, Fenna Rotwald asks riddles for a living and keeps her real answers to herself. She is the cleverest woman John has met in two worlds, and the hardest to read. Fill her Affection bar across eight dates matching wits with her, then confess from the journal button once it is full: that confession alone wins her. Three optional deeds each pour a great lump of affection into the bar and help you get there: raise an archive worthy of her mind (University at level 10 in Fuschtaal), become the legend the whole vale argues about (reach Renown Level 14), and become the peerless hero even she must admire (reach Champion Level 22). Leave her cold after all eight dates, or fail to fill the bar in time, and she will smile a last unreadable smile and John will make for the capital instead."
   je_ova_rey_fox_heart_tt: "Her heart is won (the Affection bar is full)"
-  je_ova_rey_fox_obj1_tt: "An archive worthy of her stands in Fuschtal (University at level 10)"
+  je_ova_rey_fox_obj1_tt: "An archive worthy of her stands in Fuschtaal (University at level 10)"
   je_ova_rey_fox_obj2_tt: "John Paradox has reached Renown Level 14"
   je_ova_rey_fox_obj3_tt: "John Paradox has reached Champion Level 22"
 
@@ -124,7 +124,7 @@
   ova_rey_rabbit_fields_drowned: "The Low Fields Drowned"
   ova_rey_rabbit_market_voice: "Voices at the Market"
 
-  # Fuschtal / Fenna
+  # Fuschtaal / Fenna
   ova_rey_fox_two_worlds_lore: "Lore of Two Worlds"
   ova_rey_fox_scholars_favor: "The Vale’s Scholars"
   ova_rey_fox_burned_chapter: "The Chapter That Burned"

@@ -148,15 +148,28 @@ SNE = { # Frostreach -- snow elf kingdom (silver star)
 	}
 }
 
-DEI = { # Deigokai -- deigo kingdom (dragon)
+DEI = { # Deigo
 	pattern = "pattern_solid.tga"
-	color1 = oc_blood_red
-	color2 = oc_gold
+	color1 = oc_coral
 	colored_emblem = {
-		texture = "ce_dragon.dds"
+		texture = "ce_circle_mask.dds"
 		color1 = oc_gold
-		color2 = oc_gold
-		instance = { position = { 0.5 0.44 } scale = { 0.7 0.7 } }
+		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
+	}
+	colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.6 } }
+	}
+    colored_emblem = {
+		texture = "ce_kamon_frame_thick_circle.dds"
+		color1 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+	colored_emblem = {
+		texture = "ce_kamon_turtle_shell.dds"
+		color1 = oc_coral
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.6 } }
 	}
 }
 

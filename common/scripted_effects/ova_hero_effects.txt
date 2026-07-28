@@ -397,15 +397,6 @@ effect_ova_victoria_rebellion = {
 	set_variable = { name = ova_victoria_choice value = 1 }
 	set_global_variable = ova_truth_exposed
 
-	# every demon march still under the old crown is winged homeland again,
-	# whoever ends up holding it when the dust settles. add_homeland lives on
-	# the state REGION, not the state instance (same chain the homunculus
-	# on_action uses - see ova_homunculus_on_actions.txt).
-	every_scope_state = {
-		limit = { region = sr:region_demonland }
-		state_region = { add_homeland = cu:winged_demon }
-	}
-
 	if = {
 		# The old empire is down to its last state: there is nothing to secede
 		# from, and no second province for the old crown to fight on from. The

@@ -147,6 +147,7 @@ ova_isekai_flavor.4 = { # the Church's tithe collectors
 		exists = c:LUX
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
+        NOT = { c:LUX ?= THIS }
 		ova_hero_capital_in_isekai = yes
 	}
 
@@ -287,6 +288,7 @@ ova_isekai_flavor.8 = { # pilgrimage to a summoning site
 		exists = c:LUX
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
+        NOT = { c:LUX ?= THIS }
 		ova_hero_capital_in_isekai = yes
 	}
 
@@ -427,6 +429,7 @@ ova_isekai_flavor.12 = { # "not our war" pamphlets
 		exists = c:LUX
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
+        NOT = { c:LUX ?= THIS }
 		ova_hero_capital_in_isekai = yes
 	}
 
@@ -462,6 +465,7 @@ ova_isekai_flavor.13 = { # rumor of a miracle at the front
 		exists = c:LUX
 		NOT = { is_country_type = decentralized }
 		NOT = { c:DEM ?= THIS }
+        NOT = { c:LUX ?= THIS }
 		ova_hero_capital_in_isekai = yes
 	}
 

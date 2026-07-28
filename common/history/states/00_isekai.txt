@@ -263,7 +263,7 @@
     s:STATE_KATZENBURG = {
         create_state = {
             country = c:REY
-            owned_provinces = { "x568A46" "x578952" "x599937" "x5B893A" "x5C9C50" "x5F883B" "x65982E" "x65994F" "x66A136" "x678738" "x697E3B" "x6A7C32" "x6B962F" "x6C9A4D" "x6F803B" "x709A4C" "x718230" "x757D40" "x758D31" "x769637" "x7A7B44" }
+            owned_provinces = { "x568A46" "x578952" "x599937" "x5C9C50" "x5F883B" "x65982E" "x65994F" "x66A136" "x678738" "x697E3B" "x6A7C32" "x6B962F" "x6C9A4D" "x6F803B" "x709A4C" "x757D40" "x758D31" "x769637" "x7A7B44" }
         }
 
         add_homeland = cu:vardish
@@ -272,7 +272,7 @@
     s:STATE_WELPENSTADT = {
         create_state = {
             country = c:REY
-            owned_provinces = { "x45BD21" "x45DC2B" "x47D230" "x48C022" "x4BCA43" "x54D534" "x55CC3D" "x56C823" "x5CC823" "x60BD24" "x64D53C" "x64D62A" }
+            owned_provinces = { "x45BD21" "x45DC2B" "x47D230" "x48C022" "x4BCA43" "x54D534" "x55CC3D" "x56C823" "x5CC823" "x60BD24" "x64D53C" "x64D62A" "x5B893A" "x718230" }
         }
 
         add_homeland = cu:vardish

@@ -1,5 +1,4 @@
-﻿### Xianxia jianghu flavor events (Agent C, sole owner of this file)
-# Namespace ova_xianxia_flavor. Not storyline-specific, so it no longer depends on a journal
+﻿# Namespace ova_xianxia_flavor. Not storyline-specific, so it no longer depends on a journal
 # entry: fired directly from the regular on_action xianxia_flavor_monthly_events
 # (common/on_actions/ova_flavor_on_actions.txt), hooked into the engine's on_monthly_pulse_country
 # (common/on_actions/00_code_on_actions.txt) - do not renumber these fixed ids, the on_action's

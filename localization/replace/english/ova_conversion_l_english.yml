@@ -543,6 +543,10 @@
   pm_spirit_thread_lattice_buildings: "Spirit Thread Lattices"
   pm_geomantic_construction: "Geomantic Construction"
   pm_ley_conduit_construction: "Spirit Conduit Construction"
+  pm_no_spirit_construction: "No Spirit Construction"
+  pm_no_alchemy_construction: "No Alchemy Construction"
+  pmg_alchemy_building_construction_sector: "Alchemy Construction"
+  pmg_spiritualism_building_construction_sector: "Spirit Construction"
 
   ### Plantation main line tiers
   pm_sparse_planting_building_coffee_plantation: "Sparse Planting"
