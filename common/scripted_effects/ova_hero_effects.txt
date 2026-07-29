@@ -35,22 +35,16 @@ ova_hero_dem_pulse = {
 			ova_champion_is_available = yes
 		}
 		random_list = {
-			70 = { }
-			8 = { trigger_event = { id = ova_hero.23 } }
-			8 = { trigger_event = { id = ova_hero.24 } }
-			6 = { trigger_event = { id = ova_hero.20 } }
-			5 = { trigger_event = { id = ova_hero.21 } }
-			3 = { trigger_event = { id = ova_hero.22 } }
+			900 = { }
+			30 = { trigger_event = { id = ova_hero.23 } } # capitves
+			30 = { trigger_event = { id = ova_hero.24 } } # pray the same
+			8 = { trigger_event = { id = ova_hero.20 } } # demon lord wounded
+			30 = { trigger_event = { id = ova_hero.21 } } # hero dead
+			2 = { trigger_event = { id = ova_hero.22 } } # demon lord dead
 		}
 	}
 }
 
-# Shatter the Demonic Empire into six splinter clans (AHD/DUS/VEI/RUI/NOX/VOI -
-# common/country_definitions/01a_demon_splinters.txt). Runs in the country
-# scope of whoever fires it (e.g. ova_hero.22 in the champion's country scope);
-# each splinter only spawns from a seed state DEM still owns, and any leftover
-# DEM territory sweeps to the imperial rump (AHD) once it exists. One-shot,
-# guarded by the global variable.
 effect_ova_hero_shatter_dem = {
 	if = {
 		limit = {
@@ -61,69 +55,14 @@ effect_ova_hero_shatter_dem = {
 
 		# --- horned_demon clans ---
 		if = {
-			limit = { s:STATE_EX_TENEBRIS.region_state:DEM ?= { always = yes } }
+			limit = { s:STATE_SICUT_LACRIMAE.region_state:DEM ?= { always = yes } }
 			create_country = {
 				origin = c:DEM
 				tag = AHD
-				state = s:STATE_EX_TENEBRIS.region_state:DEM
+				state = s:STATE_SICUT_LACRIMAE.region_state:DEM
 				on_created = {
-					s:STATE_LUCENT_UMBRAE.region_state:DEM ?= { set_state_owner = c:AHD }
-					s:STATE_SOMNIA_NOCTIS.region_state:DEM ?= { set_state_owner = c:AHD }
-					s:STATE_CEU_ARDENT.region_state:DEM ?= { set_state_owner = c:AHD }
-				}
-			}
-		}
-		if = {
-			limit = { s:STATE_RESTAT_VOX.region_state:DEM ?= { always = yes } }
-			create_country = {
-				origin = c:DEM
-				tag = DUS
-				state = s:STATE_RESTAT_VOX.region_state:DEM
-				on_created = {
-					s:STATE_NE_PEREANT.region_state:DEM ?= { set_state_owner = c:DUS }
-					s:STATE_ADHUC_CANTAVI.region_state:DEM ?= { set_state_owner = c:DUS }
-				}
-			}
-		}
-
-		# --- winged_demon clans ---
-		if = {
-			limit = { s:STATE_EX_CAELO.region_state:DEM ?= { always = yes } }
-			create_country = {
-				origin = c:DEM
-				tag = VEI
-				state = s:STATE_EX_CAELO.region_state:DEM
-				on_created = {
-					s:STATE_QUAE_AMAVI.region_state:DEM ?= { set_state_owner = c:VEI }
-					s:STATE_CADUNT_STELLAE.region_state:DEM ?= { set_state_owner = c:VEI }
-					s:STATE_ASTRORUM.region_state:DEM ?= { set_state_owner = c:VEI }
-				}
-			}
-		}
-		if = {
-			limit = { s:STATE_RUIT_SPES.region_state:DEM ?= { always = yes } }
-			create_country = {
-				origin = c:DEM
-				tag = RUI
-				state = s:STATE_RUIT_SPES.region_state:DEM
-				on_created = {
-					s:STATE_RUINA.region_state:DEM ?= { set_state_owner = c:RUI }
-					s:STATE_LUMINA_FRACTA.region_state:DEM ?= { set_state_owner = c:RUI }
-				}
-			}
-		}
-
-		# --- shadow_demon clans ---
-		if = {
-			limit = { s:STATE_IN_SILENTIO.region_state:DEM ?= { always = yes } }
-			create_country = {
-				origin = c:DEM
-				tag = NOX
-				state = s:STATE_IN_SILENTIO.region_state:DEM
-				on_created = {
-					s:STATE_IN_SPECULA.region_state:DEM ?= { set_state_owner = c:NOX }
-					s:STATE_TREMIT_LUMEN.region_state:DEM ?= { set_state_owner = c:NOX }
-					s:STATE_FUGIT_TEMPUS.region_state:DEM ?= { set_state_owner = c:NOX }
+					s:STATE_FUGIT_TEMPUS.region_state:DEM ?= { set_state_owner = c:AHD }
+					s:STATE_IN_SILENTIO.region_state:DEM ?= { set_state_owner = c:AHD }
 				}
 			}
 		}
@@ -131,19 +70,79 @@ effect_ova_hero_shatter_dem = {
 			limit = { s:STATE_LATENT_VIAE.region_state:DEM ?= { always = yes } }
 			create_country = {
 				origin = c:DEM
-				tag = VOI
+				tag = DUS
 				state = s:STATE_LATENT_VIAE.region_state:DEM
 				on_created = {
-					s:STATE_SICUT_LACRIMAE.region_state:DEM ?= { set_state_owner = c:VOI }
+					s:STATE_TREMIT_LUMEN.region_state:DEM ?= { set_state_owner = c:DUS }
+				}
+			}
+		}
+
+		# --- winged_demon clans ---
+		if = {
+			limit = { s:STATE_EX_TENEBRIS.region_state:DEM ?= { always = yes } }
+			create_country = {
+				origin = c:DEM
+				tag = VEI
+				state = s:STATE_EX_TENEBRIS.region_state:DEM
+				on_created = {
+					s:STATE_LUCENT_UMBRAE.region_state:DEM ?= { set_state_owner = c:VEI }
+					s:STATE_SOMNIA_NOCTIS.region_state:DEM ?= { set_state_owner = c:VEI }
+                    s:STATE_CEU_ARDENT.region_state:DEM ?= { set_state_owner = c:VEI }
+				}
+			}
+		}
+		if = {
+			limit = { s:STATE_NE_PEREANT.region_state:DEM ?= { always = yes } }
+			create_country = {
+				origin = c:DEM
+				tag = RUI
+				state = s:STATE_NE_PEREANT.region_state:DEM
+				on_created = {
+					s:STATE_ADHUC_CANTAVI.region_state:DEM ?= { set_state_owner = c:RUI }
+					s:STATE_RESTAT_VOX.region_state:DEM ?= { set_state_owner = c:RUI }
+                    s:STATE_QUAE_AMAVI.region_state:DEM ?= { set_state_owner = c:RUI }
+				}
+			}
+		}
+
+		# --- shadow_demon clans ---
+		if = {
+			limit = { s:STATE_TREMIT_LUMEN.region_state:DEM ?= { always = yes } }
+			create_country = {
+				origin = c:DEM
+				tag = NOX
+				state = s:STATE_TREMIT_LUMEN.region_state:DEM
+				on_created = {
+					s:STATE_IN_SPECULA.region_state:DEM ?= { set_state_owner = c:NOX }
+					s:STATE_LUMINA_FRACTA.region_state:DEM ?= { set_state_owner = c:NOX }
+					s:STATE_RUINA.region_state:DEM ?= { set_state_owner = c:NOX }
+                    s:STATE_EX_CAELO.region_state:DEM ?= { set_state_owner = c:NOX }
+                    s:STATE_CADUNT_STELLAE.region_state:DEM ?= { set_state_owner = c:NOX }
+				}
+			}
+		}
+		if = {
+			limit = { s:STATE_ASTRORUM.region_state:DEM ?= { always = yes } }
+			create_country = {
+				origin = c:DEM
+				tag = VOI
+				state = s:STATE_ASTRORUM.region_state:DEM
+				on_created = {
+					s:STATE_RUIT_SPES.region_state:DEM ?= { set_state_owner = c:VOI }
+                    s:STATE_QUAE_AMAVI.region_state:DEM ?= { set_state_owner = c:VOI }
+                    s:STATE_CONNELAND.region_state:DEM ?= { set_state_owner = c:VOI }
+                    s:STATE_GARLEHOLD.region_state:DEM ?= { set_state_owner = c:VOI }
+                    s:STATE_BLADEWASTE.region_state:DEM ?= { set_state_owner = c:VOI }
 				}
 			}
 		}
 
 		# sweep any leftover DEM territory to the imperial rump
 		if = {
-			limit = { exists = c:AHD }
+			limit = { exists = c:VEI }
 			c:DEM ?= {
-				every_scope_state = { set_state_owner = c:AHD }
+				every_scope_state = { set_state_owner = c:VEI }
 			}
 		}
 	}
@@ -491,6 +490,8 @@ effect_ova_victoria_rebellion = {
 				add_journal_entry = { type = je_ova_dawn_1 }
 				add_journal_entry = { type = je_ova_dawn_2 }
 				trigger_event = { id = ova_hero.76 days = 5 }
+
+                activate_law = law_type:law_womens_suffrage
 			}
 
 			# Victoria crosses over, plot armor and all, and takes the new throne
