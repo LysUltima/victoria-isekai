@@ -899,7 +899,6 @@ ova_hero.57 = { # A Name Given Freely (chapter 6)
 	option = { # a name is worth more than a province
 		name = ova_hero.57.a
 		default_option = yes
-		change_relations = { country = c:DEM value = 10 }
 		ova_champion_add_xp = { AMOUNT = 10 }
 	}
 }
@@ -1422,12 +1421,10 @@ ova_hero.70 = { # A Parley Behind the Lines (chapter 8, on campaign)
 	option = { # she bows exactly as low as she would to her own king
 		name = ova_hero.70.a
 		default_option = yes
-		change_relations = { country = c:DEM value = 10 }
 	}
 
 	option = { # she keeps the Church's forms, and everyone notices
 		name = ova_hero.70.b
-		change_relations = { country = c:LUX value = 5 }
 	}
 }
 
@@ -1465,7 +1462,6 @@ ova_hero.71 = { # Flight-Songs (chapter 8)
 	option = { # she learns the second verse by heart
 		name = ova_hero.71.a
 		default_option = yes
-		change_relations = { country = c:DEM value = 10 }
 		ova_champion_add_popularity = { AMOUNT = 5 }
 	}
 }
@@ -2611,7 +2607,6 @@ ova_hero.101 = { # The Shared Ration (chapter 6)
 	option = { # split the ration, argue about the better half
 		name = ova_hero.101.a
 		default_option = yes
-		change_relations = { country = c:DEM value = 5 }
 		ova_champion_add_xp = { AMOUNT = 8 }
 	}
 }
@@ -2650,7 +2645,6 @@ ova_hero.102 = { # What the Ridge Knows (chapter 6)
 	option = { # neither of them reports the meeting
 		name = ova_hero.102.a
 		default_option = yes
-		change_relations = { country = c:DEM value = 5 }
 		ova_champion_add_xp = { AMOUNT = 8 }
 	}
 
@@ -2763,7 +2757,6 @@ ova_hero.105 = { # The Herald's Escort (chapter 8)
 	option = { # ride with the escort, unarmed, and let them see it
 		name = ova_hero.105.a
 		default_option = yes
-		change_relations = { country = c:DEM value = 5 }
 		ova_champion_add_xp = { AMOUNT = 8 }
 	}
 }
@@ -2802,12 +2795,10 @@ ova_hero.106 = { # The Courtier Who Would Not Bow (chapter 8)
 	option = { # she agrees with him, out loud, in front of the court
 		name = ova_hero.106.a
 		default_option = yes
-		change_relations = { country = c:DEM value = 10 }
 	}
 
 	option = { # she answers him as a Hero of Lysna is expected to
 		name = ova_hero.106.b
-		change_relations = { country = c:LUX value = 5 }
 		ova_champion_add_popularity = { AMOUNT = 5 }
 	}
 }
@@ -2846,7 +2837,6 @@ ova_hero.107 = { # A Truce for One Evening (chapter 8)
 	option = { # both armies keep the evening, and nobody writes it down
 		name = ova_hero.107.a
 		default_option = yes
-		change_relations = { country = c:DEM value = 10 }
 		ova_champion_add_popularity = { AMOUNT = 8 }
 	}
 }
@@ -3176,7 +3166,6 @@ ova_hero.125 = { # Lessons on the Ridge (chapter 6)
 	option = { # one more guard, then the letters again
 		name = ova_hero.125.a
 		default_option = yes
-		change_relations = { country = c:DEM value = 5 }
 		ova_champion_add_xp = { AMOUNT = 8 }
 	}
 }
