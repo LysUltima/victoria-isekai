@@ -12,7 +12,6 @@
 # add_modifier's multiplier = money_amount_multiplier_small (an ongoing cut, not a one-off gift).
 ova_isekai_flavor_war_profiteers = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
-	building_group_bg_military_industry_throughput_add = 0.10
 	country_expenses_add = -1
 }
 
