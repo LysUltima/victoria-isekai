@@ -137,18 +137,20 @@ STATE_HARUNYA = {
     id = 188
     subsistence_building = "building_subsistence_farm"
     provinces = { "x6E5763" "x6E6243" "x706053" "x715D5F" "x725756" "x736149" "x736467" "x736A5A" "x785E48" "x7D5867" "x7E6349" "x7F5D48" "x806B5B" "x836644" "x874F49" "x8B5046" "x8B5364" "x8F5F54" "x904541" "x93493F" "x935567" "x944E60" "x945646" "x955740" }
+    traits = { state_trait_sacred_mountain state_trait_natural_harbors }
     city = "x945646"
     port = "x944E60"
     farm = "x874F49"
     mine = "x6E6243"
     wood = "x785E48"
-    arable_land = 182
+    arable_land = 242
     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_tobacco_plantation" }
     capped_resources = {
         building_logging_camp = 25
         building_fishing_wharf = 10
         building_lead_mine = 71
         building_iron_mine = 70
+        building_coal_mine = 55
     }
     naval_exit_id = 3040
 }

@@ -55,3 +55,12 @@ state_trait_blessed_land = {
         state_infrastructure_add = 200
     }
 }
+
+state_trait_sacred_mountain = {
+    icon = "gfx/interface/icons/state_trait_icons/mountain.dds"
+
+	modifier = {
+        state_standard_of_living_add = 0.5
+        building_coal_mine_throughput_add = 0.2
+    }
+}

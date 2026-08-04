@@ -126,7 +126,7 @@ pm_alchemical_concrete_buildings = {
 
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_dye_add = 50
+			goods_input_dye_add = 20
 			goods_input_glass_add = 40
 		}
 
@@ -161,10 +161,9 @@ pm_spirit_thread_lattice_buildings = {
 
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_silk_add = 60
+			goods_input_silk_add = 20
 			goods_input_dye_add = 60
 			goods_input_glass_add = 40
-			goods_input_explosives_add = 60
 		}
 
 		level_scaled = {
@@ -199,8 +198,8 @@ pm_geomantic_construction = {
 
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_coal_add = 60
-			goods_input_fertilizer_add = 50
+			goods_input_coal_add = 10
+			goods_input_fertilizer_add = 30
 			goods_input_paper_add = 30
 		}
 
@@ -235,8 +234,7 @@ pm_ley_conduit_construction = {
 
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_coal_add = 80
-			goods_input_fertilizer_add = 60
+			goods_input_fertilizer_add = 50
 			goods_input_electricity_add = 40
 			goods_input_paper_add = 60
 		}

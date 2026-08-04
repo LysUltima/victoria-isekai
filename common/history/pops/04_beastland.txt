@@ -87,7 +87,7 @@
         region_state:HAR = {
             create_pop = {
                 culture = island_catkin
-                size = 1845000
+                size = 2645000
             }
         }
     }

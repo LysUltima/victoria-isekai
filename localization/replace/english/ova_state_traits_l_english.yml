@@ -11,3 +11,5 @@
  state_trait_great_oasis_desc:0 "A grand oasis provides respite for the thirsty."
  state_trait_blessed_land:0 "Blessed Land"
  state_trait_blessed_land_desc:0 "Land blessed by a deity."
+ state_trait_sacred_mountain:0 "Sacred Mountain"
+ state_trait_sacred_mountain_desc:0 "A mountain held sacred by many."

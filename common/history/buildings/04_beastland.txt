@@ -651,6 +651,45 @@
     s:STATE_HARUNYA = {
         region_state:HAR = {
             create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:HAR"
+                        levels = 1
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_horizontal_drawer_cabinets"
+                }
+            }
+            create_building = {
+                building = "building_paper_mill"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAR"
+                        levels = 1
+                        region = "STATE_HARUNYA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_pulp_pressing"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_university"
+                add_ownership = {
+                    country = {
+                        country = "c:HAR"
+                        levels = 2
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
                 building = "building_textile_mill"
                 add_ownership = {
                     building = {
@@ -673,15 +712,29 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:HAR"
+                        levels = 2
+                        region = "STATE_HARUNYA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_lathe"
+                    "pm_no_luxuries"
+                    "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_tooling_workshop"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAR"
                         levels = 1
                         region = "STATE_HARUNYA"
                     }
                 }
                 reserves = 1
                 activate_production_methods = {
-                    "pm_handcrafted_furniture"
-                    "pm_no_luxuries"
-                    "pm_automation_disabled"
                 }
             }
             create_building = {
@@ -745,18 +798,75 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:HAR"
+                        levels = 5
+                        region = "STATE_HARUNYA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_saw_mills"
+                    "pm_no_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:HAR"
+                        levels = 2
+                        region = "STATE_HARUNYA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = {
+                        country = "c:HAR"
+                        levels = 2
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAR"
                         levels = 1
                         region = "STATE_HARUNYA"
                     }
                 }
                 reserves = 1
                 activate_production_methods = {
-                    "pm_simple_forestry"
-                    "pm_no_hardwood"
-                    "pm_no_equipment"
-                    "pm_road_carts"
-                    "pm_no_potion_enhancement"
+                    "pm_basic_shipbuilding"
                 }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAR"
+                        levels = 4
+                        region = "STATE_HARUNYA"
+                    }
+                }
+                reserves = 1
             }
         }
     }
@@ -872,6 +982,16 @@
                     "pm_pulp_pressing"
                     "pm_automation_disabled"
                 }
+            }
+            create_building = {
+                building = "building_university"
+                add_ownership = {
+                    country = {
+                        country = "c:WAP"
+                        levels = 3
+                    }
+                }
+                reserves = 1
             }
             create_building = {
                 building = "building_textile_mill"
