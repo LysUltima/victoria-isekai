@@ -442,6 +442,14 @@
   ### ---------------------------------------------------------------
   ### COMBAT UNITS
   ### ---------------------------------------------------------------
+  combat_unit_group_infantry: "Infantry"
+  combat_unit_group_infantry_desc: "The bulk of your army. These brave men fight for your country."
+  combat_unit_group_artillery: "Automata"
+  combat_unit_group_artillery_desc: "Gears and magic unite to create devastating machinery on the battlefield."
+  combat_unit_group_cavalry: "Mages"
+  combat_unit_group_cavalry_desc: "The spiritual elite, armed for war."
+  combat_unit_group_marines: "Marines"
+  combat_unit_group_marines_desc: "Specialized units used primarily in naval landing operations."
   combat_unit_type_cannon_artillery: "War Automata"
   combat_unit_type_cannon_artillery_desc: "First-generation war automata: slow, loud, and terrifying to anything within reach of their cannon-arms."
   combat_unit_type_mobile_artillery: "Mobile War Automata"
