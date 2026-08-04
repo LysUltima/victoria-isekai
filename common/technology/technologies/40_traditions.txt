@@ -8,11 +8,11 @@ tradition_artifice = {
 	can_research = no
 
 	modifier = {
-		country_production_tech_research_speed_mult = 0.50
-		country_production_tech_spread_mult = 0.50
-		country_military_tech_research_speed_mult = -0.50
+		country_production_tech_research_speed_mult = 0.25
+		country_production_tech_spread_mult = 1.0
+		country_military_tech_research_speed_mult = -0.25
 		country_military_tech_spread_mult = -2.0
-		country_society_tech_research_speed_mult = -0.50
+		country_society_tech_research_speed_mult = -0.25
 		country_society_tech_spread_mult = -2.0
 	}
 
@@ -28,11 +28,11 @@ tradition_alchemy = {
 	can_research = no
 
 	modifier = {
-		country_military_tech_research_speed_mult = 0.50
-		country_military_tech_spread_mult = 0.50
-		country_production_tech_research_speed_mult = -0.50
+		country_military_tech_research_speed_mult = 0.25
+		country_military_tech_spread_mult = 1.0
+		country_production_tech_research_speed_mult = -0.25
 		country_production_tech_spread_mult = -2.0
-		country_society_tech_research_speed_mult = -0.50
+		country_society_tech_research_speed_mult = -0.25
 		country_society_tech_spread_mult = -2.0
 	}
 
@@ -48,11 +48,11 @@ tradition_spiritualism = {
 	can_research = no
 
 	modifier = {
-		country_society_tech_research_speed_mult = 0.50
-		country_society_tech_spread_mult = 0.50
-		country_production_tech_research_speed_mult = -0.50
+		country_society_tech_research_speed_mult = 0.25
+		country_society_tech_spread_mult = 1.0
+		country_production_tech_research_speed_mult = -0.25
 		country_production_tech_spread_mult = -2.0
-		country_military_tech_research_speed_mult = -0.50
+		country_military_tech_research_speed_mult = -0.25
 		country_military_tech_spread_mult = -2.0
 	}
 
@@ -68,7 +68,7 @@ tradition_artifice_alchemy = {
 	can_research = no
 
 	modifier = {
-		country_society_tech_research_speed_mult = -0.50
+		country_society_tech_research_speed_mult = -0.25
 		country_society_tech_spread_mult = -2.0
 	}
 
@@ -84,7 +84,7 @@ tradition_spiritualism_artifice = {
 	can_research = no
 
 	modifier = {
-		country_military_tech_research_speed_mult = -0.50
+		country_military_tech_research_speed_mult = -0.25
 		country_military_tech_spread_mult = -2.0
 	}
 
@@ -100,7 +100,7 @@ tradition_spiritualism_alchemy = {
 	can_research = no
 
 	modifier = {
-		country_production_tech_research_speed_mult = -0.50
+		country_production_tech_research_speed_mult = -0.25
 		country_production_tech_spread_mult = -2.0
 	}
 

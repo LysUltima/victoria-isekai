@@ -1,8 +1,4 @@
-﻿# Isekai TC: migrated from vanilla common/journal_entries/00_request_recognition.txt
-# (2026-07-11). Fully generic diplomatic-recognition JE, no real-world references. Verbatim
-# copy. Hooks events/soi_events/00_earn_recognition_events.txt (already migrated).
-
-je_earn_recognition = {
+﻿je_earn_recognition = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 
 	group = je_group_foreign_affairs
@@ -29,15 +25,27 @@ je_earn_recognition = {
 					}
 					country_rank >= rank_value:unrecognized_major_power
 				}
-				has_technology_researched = colonization
+                OR = {
+                    has_technology_researched = colonization
+                    has_technology_researched = philosophical_pragmatism
+                    has_technology_researched = egalitarianism
+                }
 			}
 			AND = {
 				country_rank >= rank_value:unrecognized_regional_power
-				has_technology_researched = civilizing_mission
+                OR = {
+                    has_technology_researched = civilizing_mission
+                    has_technology_researched = communication_orbs
+                    has_technology_researched = human_rights
+                }
 			}
 			AND = {
 				country_rank >= rank_value:unrecognized_power
-				has_technology_researched = international_exchange_standards
+                OR = {
+                    has_technology_researched = international_exchange_standards
+                    has_technology_researched = communication_orbs
+                    has_technology_researched = corporate_management
+                }
 			}
 		}
 	}

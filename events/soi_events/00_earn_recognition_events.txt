@@ -1,9 +1,4 @@
-﻿# Isekai TC: migrated from vanilla events/soi_events/00_earn_recognition_events.txt (2026-07-11).
-# Fully generic diplomatic-recognition event, no real-world references. Verbatim copy. Hooked
-# from je_request_recognition (common/journal_entries/00_request_recognition.txt, not yet
-# migrated - will wire up when that file is processed).
-
-namespace = earn_recognition_events
+﻿namespace = earn_recognition_events
 
 earn_recognition_events.1 = {
 	type = country_event

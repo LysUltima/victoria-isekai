@@ -513,7 +513,6 @@ stabilized_reagents = {
 	# Unlocks Explosive Shells PM in Consumables Workshops
 	# Unlocks Stabilized Catalysis PM in Potion Factories
 	# Unlocks Refined Blasting Potions PM in Spirit Stone, Iron, Mythril, Sulfur, Gold Mines
-	# Countries get a +25% chance of discovering new resources
 	era = era_3
 	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
 	category = military
@@ -1092,6 +1091,10 @@ magic_carpets = {
 	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
 	category = military
 
+    modifier = {
+        country_max_companies_add = 1
+    }
+
 	unlocking_technologies = {
 		international_trade
 	}
@@ -1163,6 +1166,10 @@ floating_harbor = {
 	era = era_4
 	texture = "gfx/interface/icons/invention_icons/floating_harbor.dds"
 	category = military
+
+    modifier = {
+        country_max_companies_add = 1
+    }
 
 	unlocking_technologies = {
 		gantry_cranes
