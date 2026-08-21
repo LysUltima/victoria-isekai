@@ -1,24 +1,15 @@
 ﻿l_english:
-  # ===================================================================
-  # Reyorn harem storyline (John Paradox) - journal entries, objective
-  # tooltips, affection-tier status lines, and the Affection bar loc.
-  # Isekai light-novel voice, curly apostrophes, never em dashes. Defs:
-  # common/journal_entries/ova_rey_journal.txt. The bar desc/second_desc
-  # MUST stay apostrophe-free (progress-bar parsing gotcha).
-  # ===================================================================
-
   # --- The Affection bar
   ova_rey_affection_bar: "Affection"
   ova_rey_affection_bar_desc: "Affection"
   ova_rey_affection_bar_second_desc: "Fill the bar, then make your confession"
 
   # --- Shared affection-tier status lines
-  je_ova_rey_status_cool: "She regards this otherworlder with cool curiosity, and nothing warmer yet."
-  je_ova_rey_status_warming: "She has stopped pretending she is not glad to see him coming."
-  je_ova_rey_status_fond: "She is fond of him now, and no longer hides it well."
-  je_ova_rey_status_smitten: "She is quite thoroughly smitten. One good push more, and the question asks itself."
-  je_ova_rey_status_won: "Her heart is his. Make your confession from the journal button and win her."
-
+  je_ova_rey_status_cool: "For now, she only watches the otherworlder with mild curiosity. Romance? That is still a long way off."
+  je_ova_rey_status_warming: "She has started looking forward to his visits. Not that she would ever admit it so easily."
+  je_ova_rey_status_fond: "At this point, even she cannot hide that she likes him. Well, not very well, anyway."
+  je_ova_rey_status_smitten: "She is completely smitten. One more good push and even John should be able to tell what comes next."
+  je_ova_rey_status_won: "Her heart is already his. All that is left is for John to actually say the words."
   je_ova_rey_john_gone_tt: "John Paradox is dead, and his tale with him"
   je_ova_rey_confessed_tt: "She has said yes: John has made his confession"
   je_ova_rey_cold_tt: "Eight dates came and went and her heart stayed cool (under 20 Affection)"
@@ -37,7 +28,7 @@
   # Chapter 1: Katzenburg - Nasira, the desert-cat merchant heiress
   # ===================================================================
   je_ova_rey_court_cat: "The Cat of Katzenburg"
-  je_ova_rey_court_cat_reason: "The republic summoned a hero from another world and got John Paradox: an otherworlder with a champion’s soul and an eye for a pretty face. He has decided, before anything so dull as governing, to win the heart of a beastfolk daughter of every one of Reyorn’s five states. He begins in the capital, with Nasira al-Sahra, the desert-cat merchant heiress who prices everything and gives away nothing. Fill her Affection bar across eight dates, then confess from the journal button once it is full: that confession alone wins her. Three optional deeds each pour a great lump of affection into the bar and help you get there: raise a house of silks (Textile Mills at level 5 in Katzenburg), throw open the republic’s markets (enact Free Trade), and set its merchants free (enact Laissez-Faire). Leave her cold after all eight dates, or let the five-year season run out, and John will simply try the next state."
+  je_ova_rey_court_cat_reason: "So, the republic summoned a Hero from another world. What it got was John Paradox, a man blessed with a champion's soul and, unfortunately, a very healthy interest in beautiful women. Before dealing with anything as troublesome as governing, John has set himself a far more important goal: win the heart of one beastfolk woman from each of Reyorn's five states. First up is Nasira al-Sahra, the desert-cat heiress of Katzenburg. She is clever, wealthy, and the sort of merchant who seems to put a price on everything. Getting close to her will not be easy. Take her on eight dates and fill the Affection bar, then use the journal button to confess once it is full. That confession is what wins her heart. Three optional deeds give a large boost along the way: build Textile Mills to level 5 in Katzenburg, enact Free Trade, and enact Laissez-Faire. If eight dates pass and she is still cold, or five years slip away first, then that is that. John will have to swallow the rejection and move on to the next state."
   je_ova_rey_cat_heart_tt: "Her heart is won (the Affection bar is full)"
   je_ova_rey_cat_obj1_tt: "A house of silks stands in Katzenburg (Textile Mills at level 5)"
   je_ova_rey_cat_obj2_tt: "The republic trades freely (enact Free Trade)"
@@ -47,7 +38,7 @@
   # Chapter 2: Welpenstadt - Bruna, the dogkin guard-captain
   # ===================================================================
   je_ova_rey_court_dog: "The Captain of Welpenstadt"
-  je_ova_rey_court_dog_reason: "In Welpenstadt the gate is held by Bruna Falk, a dogkin guard-captain as loyal as she is tireless, who has never once let anyone past her inspection twice. John means to be the one exception she keeps forever. Fill her Affection bar across eight dates at her side, then confess from the journal button once it is full: that confession alone wins her. Three optional deeds each pour a great lump of affection into the bar and help you get there: raise a proper garrison (Barracks at level 20 in Welpenstadt), stand up a citizens’ watch to keep the peace (enact the National Guard), and become a hero she can look up to (reach Champion Level 12). Leave her cold after all eight dates, or let the season run out, and she will salute him one last time and John will move on to the next state."
+  je_ova_rey_court_dog_reason: "Next comes Welpenstadt, where Bruna Falk stands guard at the gate. She is a dogkin captain, endlessly diligent, painfully serious, and apparently capable of inspecting the same man twice without getting bored. John has decided he would rather become the one person she never wants to send away. Take Bruna on eight dates and fill the Affection bar, then confess from the journal button once it is full. That is the moment that wins her. Three optional deeds can make things much easier: raise Barracks to level 20 in Welpenstadt, enact the National Guard, and bring John to Champion Level 12. If all eight dates end with her heart still cold, or the courtship season expires, Bruna will give him one final salute. After that, John has no choice but to move on."
   je_ova_rey_dog_heart_tt: "Her heart is won (the Affection bar is full)"
   je_ova_rey_dog_obj1_tt: "A great garrison stands in Welpenstadt (Barracks at level 20)"
   je_ova_rey_dog_obj2_tt: "A citizens’ watch keeps the peace (enact the National Guard)"
@@ -57,7 +48,7 @@
   # Chapter 3: Barenberg - Ursla, the bearkin mountain smith
   # ===================================================================
   je_ova_rey_court_bear: "The Smith of Barenberg"
-  je_ova_rey_court_bear_reason: "High in Barenberg the forges roar for Ursla Steinfell, a bearkin smith who can bend an iron bar and blush at a kind word in the same breath. John means to be worth both. Fill her Affection bar across eight dates on the mountain beside her, then confess from the journal button once it is full: that confession alone wins her. Three optional deeds each pour a great lump of affection into the bar and help you get there: build her forges into an arsenal for the republic (Arms Factory at level 5 in Barenberg), win the proud mountain with a hero’s legend (reach Renown Level 6), and grow strong enough to stand beside her (reach Champion Level 15). Leave her cold after all eight dates, or come up short by season’s end, and she will clap him once on the shoulder in farewell and John will try the next state."
+  je_ova_rey_court_bear_reason: "High in the mountains of Barenberg lives Ursla Steinfell, a bearkin smith who can bend iron with her hands and somehow still turn red at a sincere compliment. John, naturally, finds this combination impossible to ignore. Take her on eight dates and fill the Affection bar, then confess from the journal button once it is full. That confession alone seals the courtship. Three optional deeds give a large boost: raise the Arms Factory in Barenberg to level 10, reach Renown Level 6, and reach Champion Level 15. In other words, if John wants to stand beside a mountain smith, he should at least become someone impressive enough not to embarrass himself. If eight dates pass without winning her over, or the season ends first, Ursla will clap him on the shoulder and send him on his way."
   je_ova_rey_bear_heart_tt: "Her heart is won (the Affection bar is full)"
   je_ova_rey_bear_obj1_tt: "Her forges arm the republic (Arms Factory at level 10 in Barenberg)"
   je_ova_rey_bear_obj2_tt: "John Paradox has reached Renown Level 6"
@@ -67,7 +58,7 @@
   # Chapter 4: Hasenhafen - Lieselotte, the rabbitkin harvest maiden
   # ===================================================================
   je_ova_rey_court_rabbit: "The Maiden of Hasenhafen"
-  je_ova_rey_court_rabbit_reason: "Out in the fields of Hasenhafen lives Lieselotte Klee, a rabbitkin harvest maiden as gentle and easily startled as she is kind, whose smile is worth more than the whole crop. John means to earn it. Fill her Affection bar across eight dates among the clover, then confess from the journal button once it is full: that confession alone wins her. Three optional deeds each pour a great lump of affection into the bar and help you get there: bring in a harvest to overflow her barns (Wheat Farm at level 20 in Hasenhafen), win her timid folk over with your fame (reach Renown Level 9), and grow strong enough to keep them safe (reach Champion Level 18). Leave her cold after all eight dates, or let the bar sit short when the season ends, and she will wave goodbye with tears she will not explain and John will move on to the next state."
+  je_ova_rey_court_rabbit_reason: "The fourth stop is Hasenhafen, and this time the target is Lieselotte Klee. She is a rabbitkin harvest maiden, gentle enough to worry about everyone and timid enough to startle at almost anything. Her smile alone is enough to make John decide the entire trip was worth it. Take her on eight dates and fill the Affection bar, then confess from the journal button once it is full. Three optional deeds can win a large amount of affection: raise Wheat Farms to level 20 in Hasenhafen, reach Renown Level 9, and reach Champion Level 18. A full barn, a famous name, and enough strength to protect the people around her. Those are the kinds of things that make Lieselotte feel safe. If the eighth date ends before her heart is won, or time runs out, she will wave goodbye with tears she refuses to explain. John will have to keep walking."
   je_ova_rey_rabbit_heart_tt: "Her heart is won (the Affection bar is full)"
   je_ova_rey_rabbit_obj1_tt: "A harvest overflows in Hasenhafen (Wheat Farm at level 20)"
   je_ova_rey_rabbit_obj2_tt: "John Paradox has reached Renown Level 9"
@@ -77,7 +68,7 @@
   # Chapter 5: Fuschtaal - Fenna, the foxkin scholar
   # ===================================================================
   je_ova_rey_court_fox: "The Fox of Fuschtaal"
-  je_ova_rey_court_fox_reason: "In the wooded vale of Fuschtaal, Fenna Rotwald asks riddles for a living and keeps her real answers to herself. She is the cleverest woman John has met in two worlds, and the hardest to read. Fill her Affection bar across eight dates matching wits with her, then confess from the journal button once it is full: that confession alone wins her. Three optional deeds each pour a great lump of affection into the bar and help you get there: raise an archive worthy of her mind (University at level 10 in Fuschtaal), become the legend the whole vale argues about (reach Renown Level 14), and become the peerless hero even she must admire (reach Champion Level 22). Leave her cold after all eight dates, or fail to fill the bar in time, and she will smile a last unreadable smile and John will make for the capital instead."
+  je_ova_rey_court_fox_reason: "Last among the five states is Fuschtaal, where Fenna Rotwald makes a living asking questions and revealing as little as possible about herself. She is probably the cleverest woman John has met in either world. She is also, annoyingly, the hardest to read. Take Fenna on eight dates, match wits with her, and fill the Affection bar. Once it is full, confess from the journal button to win her heart. Three optional deeds provide a large boost: raise a University to level 10 in Fuschtaal, reach Renown Level 14, and reach Champion Level 22. Build something worthy of her mind, become famous enough to interest her, and grow strong enough that even she has to acknowledge it. If eight dates pass without filling the bar, or the courtship season ends, Fenna will give John one final unreadable smile. Then it is back to the capital."
   je_ova_rey_fox_heart_tt: "Her heart is won (the Affection bar is full)"
   je_ova_rey_fox_obj1_tt: "An archive worthy of her stands in Fuschtaal (University at level 10)"
   je_ova_rey_fox_obj2_tt: "John Paradox has reached Renown Level 14"
@@ -87,11 +78,10 @@
   # Capstone: the presidency of Reyorn
   # ===================================================================
   je_ova_rey_ascension: "The Paradox Presidency"
-  je_ova_rey_ascension_reason: "John Paradox has courted his way clean across the republic, and the beastfolk of Reyorn have begun to say the otherworlder should not merely marry into their people but lead them. Every bride he truly won brings her whole nation to his side. Stand for the presidency, and enshrine the peoples of the women who chose him as founding cultures of a new Reyorn."
+  je_ova_rey_ascension_reason: "Somehow, John Paradox has managed to court his way across the entire republic. At this point, people have started asking an absurd question with completely straight faces: if the otherworlder can marry into Reyorn, why should he not lead it too? Each woman whose heart he truly won brings the support of her people with her. The next step is obvious, at least by John's standards. Stand for the presidency, take the chair, and make the peoples of his brides founding cultures of a new Reyorn."
   je_ova_rey_ascension_tt: "John Paradox has taken the presidency of Reyorn"
-  je_ova_rey_ascension_status_wait: "The republic waits on the otherworlder to take the chair that is already his in all but name."
-  je_ova_rey_ascension_status_done: "President Paradox holds the republic, and its people are many."
-
+  je_ova_rey_ascension_status_wait: "By now, everyone can see where this is going. The only thing left is for the otherworlder to actually take the presidential chair."
+  je_ova_rey_ascension_status_done: "President Paradox now holds the republic. Somehow, the ridiculous plan actually worked."
   # ===================================================================
   # Date-beat consequence modifiers. Defs:
   # common/static_modifiers/ova_rey_modifiers.txt. Each one is the literal
@@ -141,12 +131,7 @@
   ova_rey_paradox_republic: "The Paradox Republic"
 
   # ===================================================================
-  # Hardcoded character name keys. The templates in
-  # common/character_templates/ova_story_templates.txt use these bare tokens as
-  # first_name / last_name; without a loc key the game renders the raw token and
-  # vic3-tiger flags it as missing localization. The display ORDER (first-last vs
-  # last-first) comes from each culture's name_format, not from here. "John"
-  # already has a key in character_names_l_english.yml, so it is not repeated.
+  # Hardcoded character name keys.
   # ===================================================================
   # template_john_paradox (cu:otherworld_english)
   Paradox: "Paradox"
