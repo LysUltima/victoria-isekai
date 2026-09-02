@@ -1,4 +1,4 @@
-﻿############ GOVERNMENT BUILDINGS
+############ GOVERNMENT BUILDINGS
 building_government_administration = {
 	building_group = bg_bureaucracy
 	city_type = city
@@ -139,7 +139,7 @@ building_cultivation_grounds = {
 		pmg_demonic_rites_cultivation_grounds
 	}
 
-	icon = "gfx/interface/icons/building_icons/machu_picchu.dds"
+	icon = "gfx/interface/icons/building_icons/cultivation_grounds.dds"
 
 	required_construction = construction_cost_medium
 
@@ -177,7 +177,7 @@ building_champion_hall = {
 		pmg_ova_champions_patronage
 	}
 
-	icon = "gfx/interface/icons/building_icons/building_victoria_terminus.dds"
+	icon = "gfx/interface/icons/building_icons/champion_hall.dds"
 
 	required_construction = construction_cost_medium
 

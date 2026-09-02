@@ -1,5 +1,0 @@
-﻿ruinborn_devabhen= {
-	template = "ruinborn_kheionai"
-}
-
-	
