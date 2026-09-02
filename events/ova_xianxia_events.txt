@@ -253,7 +253,7 @@ ova_xianxia.11 = { # The Cauldron Wakes
 	duration = 3
 
 	event_image = {
-		video = "unspecific_fire"
+		texture = "gfx/event_pictures/xianxia_cauldron_wakes.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
