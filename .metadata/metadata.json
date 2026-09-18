@@ -47,6 +47,7 @@
       "common/history/treaties",
       "common/history/governments",
       "common/journal_entries",
+      "common/laws",
       "common/objective_subgoals",
       "common/scripted_buttons",
       "common/scripted_progress_bars",
