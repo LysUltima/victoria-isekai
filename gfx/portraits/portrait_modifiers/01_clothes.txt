@@ -1114,7 +1114,7 @@ clothes = {
             }
         }
         weight = {
-            base = 0
+            base = 1 # Default cloth to prevent nakedness
             modifier = {
                 add = 1000
                 OR = {
