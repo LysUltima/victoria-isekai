@@ -3239,3 +3239,28 @@ on_commander_promoted = {
 		}
 	}
 }
+
+# Root = Country
+# scope:target = Country that holds the treaty port
+on_treaty_ports_inherited = {
+	effect = {
+		trigger_event = {
+			id = treaty_port_inheritance_events.1
+			popup = yes
+		}
+	}
+}
+
+# Root = Country
+# scope:law = Law
+# scope:amendment = Amendment
+on_amendment_timeout = {
+	effect = {
+		scope:amendment.type = {
+			save_scope_as = timed_out_amendment_type
+		}
+		scope:law = {
+			post_notification = amendment_timed_out
+		}
+	}
+}
