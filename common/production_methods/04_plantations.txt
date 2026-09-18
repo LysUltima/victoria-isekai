@@ -1,4 +1,4 @@
-﻿coffee_plantation_dry_process = {
+coffee_plantation_dry_process = {
 	texture = "gfx/interface/icons/production_method_icons/coffee_plantation_dry_process.dds"
 
 	unlocking_technologies = {
@@ -1487,4 +1487,131 @@ pm_greater_growth_potions_building_silk_plantation = {
 		}
 	}
 }
+
+### ISEKAI TC: Opium Plantation Methods
+
+pm_sparse_planting_building_opium_plantation = {
+	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# output goods
+			goods_output_opium_add = 10
+		}
+
+		level_scaled = {
+			# profit
+			building_employment_laborers_add = 4000
+			building_employment_farmers_add = 1000
+		}
+	}
+}
+
+default_building_opium_plantation = {
+	texture = "gfx/interface/icons/production_method_icons/plantation_production.dds"
+
+	unlocking_technologies = {
+		spirit_field_cultivation
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_fertilizer_add = 5
+			# output goods
+			goods_output_opium_add = 20
+		}
+
+		level_scaled = {
+			# profit
+			building_employment_laborers_add = 5000
+			building_employment_farmers_add = 1000
+		}
+	}
+}
+
+pm_spirit_fertilized_building_opium_plantation = {
+	texture = "gfx/interface/icons/production_method_icons/fertilization.dds"
+
+	unlocking_technologies = {
+		spirit_fertilizer_refinement
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_fertilizer_add = 10
+
+			# output goods
+			goods_output_opium_add = 45
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 3000
+			building_employment_farmers_add = 2000
+		}
+	}
+}
+
+pm_transcendent_cultivation_building_opium_plantation = {
+	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
+
+	unlocking_technologies = {
+		transcendent_fertilizer
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_fertilizer_add = 20
+			goods_input_electricity_add = 5
+
+			# output goods
+			goods_output_opium_add = 75
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 2000
+			building_employment_farmers_add = 3000
+		}
+	}
+
+	required_input_goods = electricity
+}
+
+pm_growth_potions_building_opium_plantation = {
+	texture = "gfx/interface/icons/production_method_icons/synthetic_dyes.dds"
+
+	unlocking_technologies = {
+		fractionating_alembics
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_dye_add = 3
+
+			# output goods
+			goods_output_opium_add = 8
+		}
+	}
+}
+
+pm_greater_growth_potions_building_opium_plantation = {
+	texture = "gfx/interface/icons/production_method_icons/synthetic_dyes.dds"
+
+	unlocking_technologies = {
+		potion_synthesis
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_dye_add = 6
+
+			# output goods
+			goods_output_opium_add = 16
+		}
+	}
+}
+
 

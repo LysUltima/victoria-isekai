@@ -1,4 +1,4 @@
-﻿japan_city_01 = {
+japan_city_01 = {
 	city_graphics_type = japan_city
 	grid_size = { 2 2 }
 	attach = { variant = { entity = japan_city_centerpiece_01_entity } }
@@ -30,13 +30,13 @@ japan_farm_01 = {
 }
 
 japan_mine_01 = {
-	city_graphics_type = japan_mine
+	city_graphics_type = asian_mine
 	grid_size = { 3 3 }
 	attach = { variant = { entity = japan_mining_centerpiece_01_entity } }
 }
 
 japan_wood_01 = {
-	city_graphics_type = japan_wood
+	city_graphics_type = asian_wood
 	grid_size = { 4 4 }
 	should_update_on_pm_change = yes
 

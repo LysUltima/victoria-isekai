@@ -1,4 +1,4 @@
-﻿l_english:
+l_english:
   ### ---------------------------------------------------------------
   ### TECH TREE CATEGORIES
   ### ---------------------------------------------------------------
@@ -564,6 +564,7 @@
   pm_sparse_planting_building_sugar_plantation: "Sparse Planting"
   pm_sparse_planting_building_banana_plantation: "Sparse Planting"
   pm_sparse_planting_building_silk_plantation: "Sparse Husbandry"
+  pm_sparse_planting_building_opium_plantation: "Sparse Planting"
   pm_spirit_fertilized_building_coffee_plantation: "Spirit-Fertilized Fields"
   pm_spirit_fertilized_building_cotton_plantation: "Spirit-Fertilized Fields"
   pm_spirit_fertilized_building_tea_plantation: "Spirit-Fertilized Fields"
@@ -571,6 +572,7 @@
   pm_spirit_fertilized_building_sugar_plantation: "Spirit-Fertilized Fields"
   pm_spirit_fertilized_building_banana_plantation: "Spirit-Fertilized Groves"
   pm_spirit_fertilized_building_silk_plantation: "Spirit-Fertilized Pastures"
+  pm_spirit_fertilized_building_opium_plantation: "Spirit-Fertilized Fields"
   pm_transcendent_cultivation_building_coffee_plantation: "Transcendent Cultivation"
   pm_transcendent_cultivation_building_cotton_plantation: "Transcendent Cultivation"
   pm_transcendent_cultivation_building_tea_plantation: "Transcendent Cultivation"
@@ -578,6 +580,7 @@
   pm_transcendent_cultivation_building_sugar_plantation: "Transcendent Cultivation"
   pm_transcendent_cultivation_building_banana_plantation: "Transcendent Cultivation"
   pm_transcendent_cultivation_building_silk_plantation: "Transcendent Husbandry"
+  pm_transcendent_cultivation_building_opium_plantation: "Transcendent Cultivation"
 
   ### Potion Enhancement lines
   pmg_potion_enhancement_farm: "Potion Enhancement"
@@ -590,6 +593,7 @@
   pmg_potion_enhancement_building_sugar_plantation: "Potion Enhancement"
   pmg_potion_enhancement_building_banana_plantation: "Potion Enhancement"
   pmg_potion_enhancement_building_silk_plantation: "Potion Enhancement"
+  pmg_potion_enhancement_building_opium_plantation: "Potion Enhancement"
   pmg_potion_enhancement_building_logging_camp: "Potion Enhancement"
   pmg_potion_enhancement_building_fishing_wharf: "Potion Enhancement"
   pm_no_potion_enhancement: "No Potion Enhancement"
@@ -613,6 +617,8 @@
   pm_greater_growth_potions_building_banana_plantation: "Greater Growth Potions"
   pm_growth_potions_building_silk_plantation: "Vigor Potions"
   pm_greater_growth_potions_building_silk_plantation: "Greater Vigor Potions"
+  pm_growth_potions_building_opium_plantation: "Growth Potions"
+  pm_greater_growth_potions_building_opium_plantation: "Greater Growth Potions"
   pm_vigor_potions_building_logging_camp: "Vigor Potions"
   pm_greater_vigor_potions_building_logging_camp: "Greater Vigor Potions"
   pm_vigor_potions_building_fishing_wharf: "Vigor Potions"
