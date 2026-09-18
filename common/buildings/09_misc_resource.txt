@@ -1,4 +1,4 @@
-﻿building_logging_camp = {
+building_logging_camp = {
 	building_group = bg_logging
 	icon = "gfx/interface/icons/building_icons/logging_camp.dds"
 	city_type = wood
@@ -88,7 +88,7 @@ building_forests_of_the_departed = {
 
 building_spirit_beast_hunting = {
 	building_group = bg_spirit_beast_hunting
-	icon = "gfx/interface/icons/building_icons/cattle_ranch.dds"
+	icon = "gfx/interface/icons/building_icons/spirit_beast_hunting.dds"
 	city_type = none
 	levels_per_mesh = 50
 	required_construction = construction_cost_low
