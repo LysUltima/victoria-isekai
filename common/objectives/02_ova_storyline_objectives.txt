@@ -12,7 +12,7 @@
 # ------------------------------------------------------------------------
 
 objective_ova_isekai = {
-	enabled_background = "gfx/interface/icons/objectives/hegemon_illu.dds"
+	enabled_background = "gfx/interface/icons/objectives/isekai.dds"
 	icon = "gfx/interface/icons/objectives/hegemon.dds"
 
 	recommended_tags = { LYS DEM LUX REY }
@@ -26,7 +26,7 @@ objective_ova_isekai = {
 }
 
 objective_ova_murim = {
-	enabled_background = "gfx/interface/icons/objectives/great_game_illu.dds"
+	enabled_background = "gfx/interface/icons/objectives/murim.dds"
 	icon = "gfx/interface/icons/objectives/great_game.dds"
 
 	recommended_tags = { HWA CHE NAM PAE }
@@ -40,7 +40,7 @@ objective_ova_murim = {
 }
 
 objective_ova_xianxia = {
-	enabled_background = "gfx/interface/icons/objectives/egalitarian_society_illu.dds"
+	enabled_background = "gfx/interface/icons/objectives/xianxia.dds"
 	icon = "gfx/interface/icons/objectives/egalitarian_society.dds"
 
 	recommended_tags = { HEA FLO BLO NIN }
