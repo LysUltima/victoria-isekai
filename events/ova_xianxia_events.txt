@@ -39,7 +39,7 @@ ova_xianxia.1 = { # A Destined One Appears
 	duration = 3
 
 	event_image = {
-		video = "unspecific_world_fair"
+		texture = "gfx/event_pictures/xianxia_destined_one.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -125,7 +125,7 @@ ova_xianxia.3 = { # The Blood Lotus Blooms
 	duration = 3
 
 	event_image = {
-		video = "unspecific_fire"
+		texture = "gfx/event_pictures/xianxia_blood_lotus.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -253,7 +253,7 @@ ova_xianxia.11 = { # The Cauldron Wakes
 	duration = 3
 
 	event_image = {
-		video = "unspecific_fire"
+		texture = "gfx/event_pictures/xianxia_cauldron_wakes.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -378,7 +378,7 @@ ova_xianxia.15 = { # The Arrogant Young Master (chapter 2 beat)
 	duration = 3
 
 	event_image = {
-		video = "unspecific_politicians_arguing"
+		texture = "gfx/event_pictures/xianxia_sect_duel.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -2824,7 +2824,7 @@ ova_xianxia.107 = { # The Heavens Take Notice (chapter 5 opener)
 	duration = 3
 
 	event_image = {
-		video = "unspecific_world_fair"
+		texture = "gfx/event_pictures/xianxia_heavenly_tribulation.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
