@@ -1,43 +1,4 @@
-﻿### Murim storyline - narrative events (Kang Jin-woo, the strange disciple)
-# NB (2026-07-18 second rework): the Returner NEVER says he lived before or came back in
-# time. Every player-facing line frames him only as eerily perceptive and impossibly
-# well-informed - he reads people and events as though he has already seen them, and no
-# one can explain how. All time-travel/second-life/first-life text was scrubbed from the
-# localization; the internal key "returner" is kept only because it is wired through the
-# whole storyline.
-#
-# ova_murim.1        A Beggar at the Gate (player-sect offer, from the dispatcher)
-# ova_murim.2        The Boy at the Gates of Hwasan (HWA fallback/default)
-# ova_murim.3        The Boy Who Knows Too Much (host intro, chapter 1 beat 1)
-# ova_murim.4        The Heavenly Demon Rises (CHE intro)
-# ova_murim.5        The Banner of the Alliance (HWA intro)
-# ova_murim.10-.16   chapter 1 - the strange disciple's rise (tick-ladder driven)
-# ova_murim.30-.35   the war council (bad-ending je_ova_murim_war_conference beats)
-# ova_murim.39       the Reckoning epilogue (je_ova_murim_reckoning on_complete)
-# ova_murim.50-.54   the Cult side (je_ova_murim_heavenly_demon pulse)
-# ova_murim.55-.56   alliance-shared banner flavor
-# ova_murim.60-.61,.64-.65 outing/decision outcomes (.62/.63 removed with the
-#                    disabled Duel-a-Rival-Master decision)
-# ova_murim.70-.73   war-layer + fail endings
-# ova_murim.80-.84   good ending: the road north, the ascent, the final battle
-# ova_murim.90/.93/.94 hidden chapter-tick relays
-# ova_murim.100-.131 the Eight Banners arc - per banner (SOR PAE TAN NAM JEG MUD SAM HWA):
-#                    intro (creates the companion) -> trial -> trial -> pledge
-# ova_murim.140-.143 the home banner (his own house, courted first)
-# ova_murim.144-.147 objective-decision outcomes (saber trials / fire formulas /
-#                    shrine endowment / Sama ledger)
-# ova_murim.150-.156 the succession endgame (assassination, the two coronations, the
-#                    seizure by force, the Reckoning declared)
-#
-# Story beats set an ova_murim_seen_NN flag in their immediate and refuse to fire twice.
-# Every trial beat offers a SELFLESS option (effect_ova_murim_good_choice, +1 to the
-# hero ledger; lifts the banner's companion, costs the Returner growth or a wound) and a
-# SELFISH option (effect_ova_murim_bad_choice, -3; makes him hugely stronger but
-# alienates that banner forever via ova_murim_ally_failed_X). Special "he simply knew"
-# beats (.12 the manual, .15 the cache) are intentionally overpowered. All champion
-# XP/level/injury effects are called from the foundation (ova_champion_*).
-
-namespace = ova_murim
+﻿namespace = ova_murim
 
 # ------------------------------------------------------- .1-.2 the offer
 ova_murim.1 = { # A Beggar at the Gate

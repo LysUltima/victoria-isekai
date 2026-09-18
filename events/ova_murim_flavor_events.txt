@@ -1,35 +1,4 @@
-﻿### Murim gangho (jianghu) flavor events (Agent C, sole owner of this file)
-# Namespace ova_murim_flavor. Not storyline-specific, so it no longer depends on a journal
-# entry: fired directly from the regular on_action murim_flavor_monthly_events
-# (common/on_actions/ova_flavor_on_actions.txt), hooked into the engine's on_monthly_pulse_country
-# (common/on_actions/00_code_on_actions.txt) - do not renumber these fixed ids, the on_action's
-# weights are wired against them. This used to also roll (subsets, or in je_ova_murim_gangho's
-# case entirely) from the on_monthly_pulse random_events of je_ova_murim_gangho (now deleted - it
-# was a pure flavor carrier with no victory condition of its own) and je_ova_murim_heavenly_demon /
-# je_ova_murim_alliance_banner / je_ova_murim_sect_banner (still extant storyline JEs, whose pulse
-# no longer touches flavor); every event's own trigger (ova_murim_is_sect_or_cult_trigger, the
-# same gate gangho used) already covers the full eligible population. These are lived-in color
-# for every murim sect or the Heavenly Demon Cult
-# while the sect/cult war is undecided - not the Returner's own chain (that is Agent B's
-# ova_murim namespace) and not champion XP/renown bookkeeping (the universal champion JE owns
-# that). Uses only verified vanilla effects/triggers, Agent-A-owned ova_murim_* triggers/
-# variables, champion-foundation ova_champion_* effects/triggers, and the ova_murim_flavor_*
-# modifiers defined in common/static_modifiers/ova_murim_flavor_modifiers.txt.
-#
-#  .1  the teahouse storyteller           (renown/prestige trifle)
-#  .2  a wandering swordsman asks for a bout   (champion duel flavor)
-#  .3  the escort agency boom             (gangho economy: escort fees)
-#  .4  the night market of forbidden manuals   (gangho economy: manual forgeries)
-#  .5  the beggars union knows everything (intel flavor; small XP)
-#  .6  a masked vigilante in the market town
-#  .7  disciples brawl over seating precedence
-#  .8  the physician who refuses no one
-#  .9  a Cult preacher at the crossroads  (works for CHE too - conversion flavor)
-#  .10 the salt road bandit king          (gangho economy: sect tolls)
-#  .11 pilgrims at the ancestral shrines  (gangho economy: shrine tolls)
-#  .12 rumors of the Returner
-
-namespace = ova_murim_flavor
+﻿namespace = ova_murim_flavor
 
 ova_murim_flavor.1 = { # the teahouse storyteller
 	type = country_event
@@ -348,7 +317,7 @@ ova_murim_flavor.10 = { # the salt road bandit king
 	option = { # pay the bandit king's toll
 		name = ova_murim_flavor.10.a
 		default_option = yes
-		add_treasury = { value = money_amount_multiplier_small multiply = -1 }
+		add_treasury = { value = money_amount_multiplier_small multiply = -12 }
 	}
 	option = { # send blades to clear the road
 		name = ova_murim_flavor.10.b
@@ -382,7 +351,7 @@ ova_murim_flavor.11 = { # pilgrims at the ancestral shrines
 	option = { # host them freely
 		name = ova_murim_flavor.11.a
 		default_option = yes
-		add_loyalists = { value = small_radicals }
+		add_loyalists = { value = very_small_radicals }
 	}
 	option = { # sell blessed tokens at the gate
 		name = ova_murim_flavor.11.b

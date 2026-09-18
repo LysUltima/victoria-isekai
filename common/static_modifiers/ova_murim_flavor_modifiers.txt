@@ -29,7 +29,7 @@ ova_murim_flavor_physician_fees = {
 # Blessed tokens sold at the shrine gate to every pilgrim who climbs the mountain
 ova_murim_flavor_shrine_tokens = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
-	country_expenses_add = -1
+	country_expenses_add = -3
 }
 
 # Forged and half-true martial manuals bought up wholesale still teach somebody something
