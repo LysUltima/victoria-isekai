@@ -987,7 +987,7 @@ ova_hero.60 = { # The Warlord's Peace
 	duration = 3
 
 	event_image = {
-		video = "unspecific_ruler_speaking_to_people"
+		texture = "gfx/event_pictures/demon_warlord_throne.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -1024,7 +1024,7 @@ ova_hero.61 = { # The Envoy Returns Empty-Handed
 	duration = 3
 
 	event_image = {
-		video = "unspecific_politicians_arguing"
+		texture = "gfx/event_pictures/demon_warlord_throne.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -1062,7 +1062,7 @@ ova_hero.62 = { # Speeches at the Scarred Border
 	duration = 3
 
 	event_image = {
-		video = "unspecific_military_parade"
+		texture = "gfx/event_pictures/demon_border_fortress.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -1106,7 +1106,7 @@ ova_hero.63 = { # We Pray to Her Too
 	duration = 3
 
 	event_image = {
-		video = "unspecific_ruler_speaking_to_people"
+		texture = "gfx/event_pictures/demon_prayer_moon.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -1143,7 +1143,7 @@ ova_hero.64 = { # Shadows of the Hero
 	duration = 3
 
 	event_image = {
-		video = "unspecific_devastation"
+		texture = "gfx/event_pictures/demon_border_fortress.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -1183,7 +1183,7 @@ ova_hero.65 = { # Human Faces
 	duration = 3
 
 	event_image = {
-		video = "unspecific_fire"
+		texture = "gfx/event_pictures/demon_border_fortress.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -1225,7 +1225,7 @@ ova_hero.66 = { # The Spared and the Changed
 	duration = 3
 
 	event_image = {
-		video = "unspecific_politicians_arguing"
+		texture = "gfx/event_pictures/demon_warlord_throne.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -1263,7 +1263,7 @@ ova_hero.67 = { # Tribute of the Dusk Forests
 	duration = 3
 
 	event_image = {
-		video = "unspecific_politicians_arguing"
+		texture = "gfx/event_pictures/demon_warlord_throne.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -1310,7 +1310,7 @@ ova_hero.68 = { # The Altan Regiments
 	duration = 3
 
 	event_image = {
-		video = "unspecific_military_parade"
+		texture = "gfx/event_pictures/demon_border_fortress.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -1352,7 +1352,7 @@ ova_hero.69 = { # Ash on Someone Else's Doorstep
 	duration = 3
 
 	event_image = {
-		video = "unspecific_devastation"
+		texture = "gfx/event_pictures/demon_border_fortress.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"

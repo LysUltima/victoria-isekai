@@ -1347,7 +1347,7 @@ ova_murim.81 = { # The Ten Thousand Steps (the ascent, from the final-battle pul
 	duration = 3
 
 	event_image = {
-		video = "unspecific_military_parade"
+		texture = "gfx/event_pictures/murim_ten_thousand_steps.dds"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
