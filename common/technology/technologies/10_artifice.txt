@@ -1,4 +1,4 @@
-﻿# ARTIFICE TREE (internal category: production)
+# ARTIFICE TREE (internal category: production)
 # Magic-industry / arcanepunk. Spirit Stones -> Magic Cores -> Automata.
 # War Automata replace Artillery. Labor-saving automation PMs.
 # All prerequisites are within this tree.
@@ -55,7 +55,7 @@ democracy = {
 spirit_stone_mining = {
 	# Unlocks Spirit Stone Mine, Iron Mine, Mythril Mine, Sulfur Mine
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/shaft_mining.dds"
+	texture = "gfx/interface/icons/invention_icons/spirit_stone_mining.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -113,7 +113,7 @@ lathe = {
 sawmills = {
 	# Unlocks Saw Mills PM in Logging Camps (split from core_founding)
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	texture = "gfx/interface/icons/invention_icons/sawmills.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -138,7 +138,7 @@ sawmills = {
 clockwork_mechanisms = {
 	# Precision escapements and gear-trains for manufacturing
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/lathe.dds"
+	texture = "gfx/interface/icons/invention_icons/clockwork_mechanisms.dds"
 	category = production
 
 	modifier = {
@@ -158,7 +158,7 @@ clockwork_mechanisms = {
 arcane_surveying = {
 	# Dowsing engines and leyline theodolites
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/prospecting_tech.dds"
+	texture = "gfx/interface/icons/invention_icons/arcane_surveying.dds"
 	category = production
 
 	modifier = {
@@ -177,7 +177,7 @@ arcane_surveying = {
 mana_lamps = {
 	# Spirit stone street lighting
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/crystal_glass.dds"
+	texture = "gfx/interface/icons/invention_icons/mana_lamps.dds"
 	category = production
 
 	modifier = {
@@ -197,7 +197,7 @@ mana_lamps = {
 core_founding = {
 	# Unlocks Core Foundries (Magic Cores) - moved to Era 2, split from sawmills
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/steelworking.dds"
+	texture = "gfx/interface/icons/invention_icons/core_founding.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -294,7 +294,7 @@ mana_core_engine = {
 	# Unlocks Automata Industries
 	# Unlocks Core-Engine Pump PM in Spirit Stone Mine, Iron Mine, Mythril Mine, Sulfur Mine
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/atmospheric_engine.dds"
+	texture = "gfx/interface/icons/invention_icons/mana_core_engine.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -327,7 +327,7 @@ mana_conduit_boilers = {
 	# Unlocks Mana Conduit PMs in Furniture Manufacturies, Tooling Workshops, Paper Mills, Core Foundries, Automata Industries
 	# Unlocks Condensing Core Pump in Spirit Stone, Iron, Mythril, Sulfur Mines
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/watertube_boiler.dds"
+	texture = "gfx/interface/icons/invention_icons/mana_conduit_boilers.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -439,7 +439,7 @@ resonance_forging = {
 	# Unlocks Magic Core Tools PM in Tooling Workshops
 	# Unlocks Core-Infused Consumables secondary PM in Consumables Workshops
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/bessemer_process.dds"
+	texture = "gfx/interface/icons/invention_icons/resonance_forging.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -462,7 +462,7 @@ resonance_forging = {
 merchant_airships = {
 	# Merchant Airships - Era 2: unlocks the Core-Lifted Airships PM
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/zeppelins.dds"
+	texture = "gfx/interface/icons/invention_icons/merchant_airships.dds"
 	category = production
 
 	modifier = {
@@ -543,7 +543,7 @@ egalitarianism = {
 mobile_automata_doctrine = {
 	# Unlocks Mobile War Automata PM in Barracks
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/napoleonic_warfare.dds"
+	texture = "gfx/interface/icons/invention_icons/mobile_automata_doctrine.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -558,7 +558,7 @@ mobile_automata_doctrine = {
 bursting_cores = {
 	# Unlocks Bursting Core War Automata Production PM in War Automata Foundries
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/shell_gun.dds"
+	texture = "gfx/interface/icons/invention_icons/bursting_cores.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -570,13 +570,11 @@ bursting_cores = {
 	}
 }
 
-### ERA 3
-
 hauler_automata = {
 	# Unlocks Hauler Automata PM in Logging Camps
 	# Unlocks Hauler Automata PM in Spirit Stone, Iron, Mythril, Sulfur Mines
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/steam_donkey.dds"
+	texture = "gfx/interface/icons/invention_icons/hauler_automata.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -598,10 +596,12 @@ hauler_automata = {
 	}
 }
 
+### ERA 3
+
 reaper_automata = {
 	# Unlocks Reaper Automata PM on Rye, Wheat, Rice, Maize, Millet Farms
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/threshing_machine.dds"
+	texture = "gfx/interface/icons/invention_icons/reaper_automata.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -626,7 +626,7 @@ reaper_automata = {
 rotary_core_engines = {
 	# Unlocks Rotary Core Engine PM in Furniture Manufacturies, Tooling Workshops, Paper Mills, Core Foundries, Automata Industries
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/rotary_valve_engine.dds"
+	texture = "gfx/interface/icons/invention_icons/rotary_core_engines.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -642,7 +642,7 @@ core_railway_cars = {
 	# Unlocks Magic Core Passenger Carriages PM and Armored Cars PM in Railways
 	# Increases Railway max level by 1
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/steel_railway_cars.dds"
+	texture = "gfx/interface/icons/invention_icons/core_railway_cars.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -657,7 +657,7 @@ core_railway_cars = {
 mythril_frame_buildings = {
 	# Unlocks Covered Markets PM in Urban Centers
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/steel_frame_buildings.dds"
+	texture = "gfx/interface/icons/invention_icons/mythril_frame_buildings.dds"
 	category = production
 	modifier = {
 		state_infrastructure_from_population_add = 1
@@ -681,7 +681,7 @@ sealed_crucible_forging = {
 	# Unlocks Open Hearth Process PM in Core Foundries
 	# Unlocks Resonant Core Consumables secondary PM in Consumables Workshops
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/open_hearth_process.dds"
+	texture = "gfx/interface/icons/invention_icons/sealed_crucible_forging.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -855,7 +855,7 @@ greater_war_automata = {
 	# Unlocks Greater War Automata PM in Barracks
 	# Unlocks Railway Guns PM in Railways
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/breech_loading_artillery.dds"
+	texture = "gfx/interface/icons/invention_icons/greater_war_automata.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -870,7 +870,7 @@ greater_war_automata = {
 
 calculation_engines = {
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/military_statistics.dds"
+	texture = "gfx/interface/icons/invention_icons/calculation_engines.dds"
 	category = production
 
 	modifier = {
@@ -908,7 +908,7 @@ conveyors = {
 field_automata = {
 	# Unlocks Field Automata PM in Rye Farms, Wheat Farms, Millet Farms
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/mechanized_farming.dds"
+	texture = "gfx/interface/icons/invention_icons/field_automata.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -1058,7 +1058,7 @@ feminism = {
 siege_automata_doctrine = {
 	# Unlocks Siege War Automata PM in Barracks
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/wargaming.dds"
+	texture = "gfx/interface/icons/invention_icons/siege_automata_doctrine.dds"
 	category = production
 
 	modifier = {
@@ -1186,7 +1186,7 @@ nco_training = {
 warded_bastions = {
 	# Increases defense
 	era = era_5
-	texture = "gfx/interface/icons/invention_icons/concrete_fortifications.dds"
+	texture = "gfx/interface/icons/invention_icons/warded_bastions.dds"
 	category = production
 
 	modifier = {
@@ -1208,7 +1208,7 @@ colossal_war_automata = {
 	# Unlocks Colossal Automata PM in Airship Works
 	# Unlocks Automata Legion PMs in Barracks
 	era = era_5
-	texture = "gfx/interface/icons/invention_icons/mobile_armor.dds"
+	texture = "gfx/interface/icons/invention_icons/colossal_war_automata.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -1227,7 +1227,7 @@ airship_flight = {
 	# Unlocks Airship Works
 	# Unlocks Airship Recon PM in Barracks
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/military_aviation.dds"
+	texture = "gfx/interface/icons/invention_icons/airship_flight.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -1279,7 +1279,7 @@ joint_stock_companies = {
 core_miniaturization = {
 	# Pocket-sized magic cores; heavy industry precision
 	era = era_5
-	texture = "gfx/interface/icons/invention_icons/electric_arc_process.dds"
+	texture = "gfx/interface/icons/invention_icons/core_miniaturization.dds"
 	category = production
 
 	modifier = {
@@ -1299,7 +1299,7 @@ core_miniaturization = {
 
 servitor_automata = {
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/conveyers.dds"
+	texture = "gfx/interface/icons/invention_icons/servitor_automata.dds"
 	category = production
 
 	modifier = {
@@ -1324,7 +1324,7 @@ auto_cycling_war_cores = {
 	# Unlocks Auto-Casting Arrays PM in Enchanted Arms Ateliers
 	# Unlocks Array Casters PMs in Barracks and Conscription Centers
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/machine_gun.dds"
+	texture = "gfx/interface/icons/invention_icons/auto_cycling_war_cores.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -1365,7 +1365,7 @@ mutual_funds = {
 anima_drilling = {
 	# Unlocks the Automata Deep Siphons PM in Anima Rigs
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/pumpjacks.dds"
+	texture = "gfx/interface/icons/invention_icons/anima_drilling.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -1387,7 +1387,7 @@ anima_drilling = {
 core_lathing = {
 	# Unlocks the Precision Core Assembly PM in Automata Industries and the Lathed Arc-Core PM in Consumables Workshops
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/lathe.dds"
+	texture = "gfx/interface/icons/invention_icons/core_lathing.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -1403,7 +1403,7 @@ core_lathing = {
 pressure_lift_cells = {
 	# Unlocks the Pressure-Cell Airships PM in Airship Works
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/zeppelins.dds"
+	texture = "gfx/interface/icons/invention_icons/pressure_lift_cells.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -1418,7 +1418,7 @@ pressure_lift_cells = {
 autonomous_workforces = {
 	# Unlocks the Sentient Automata Crews automation PM in most industries, mines and logging camps
 	era = era_5
-	texture = "gfx/interface/icons/invention_icons/conveyers.dds"
+	texture = "gfx/interface/icons/invention_icons/autonomous_workforces.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -1440,7 +1440,7 @@ autonomous_workforces = {
 awakened_cores = {
 	# Unlocks the Awakened Automata PM in Sentient Automata Works
 	era = era_5
-	texture = "gfx/interface/icons/invention_icons/combustion_engine.dds"
+	texture = "gfx/interface/icons/invention_icons/awakened_cores.dds"
 	category = production
 
 	unlocking_technologies = {
@@ -1455,7 +1455,7 @@ awakened_cores = {
 automated_agriculture = {
 	# Unlocks the Sentient Field Automata PMs on farms and ranches
 	era = era_5
-	texture = "gfx/interface/icons/invention_icons/mechanized_farming.dds"
+	texture = "gfx/interface/icons/invention_icons/automated_agriculture.dds"
 	category = production
 
 	unlocking_technologies = {

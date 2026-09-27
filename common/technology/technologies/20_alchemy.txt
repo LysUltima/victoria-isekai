@@ -10,7 +10,7 @@ alembics = {
 	# Unlocks Sweeteners PM in Food Industry
 	# Unlocks Fish Press PM in Fishing Wharfs
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/distillation.dds"
+	texture = "gfx/interface/icons/invention_icons/alembics.dds"
 	category = military
 
 	ai_weight = {
@@ -22,7 +22,7 @@ battle_consumables = {
 	# Battle Consumables: talismans, scrolls and battle pills
 	# Unlocks Consumables Workshop building
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/percussion_cap.dds"
+	texture = "gfx/interface/icons/invention_icons/battle_consumables.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -37,7 +37,7 @@ battle_consumables = {
 transmutation_standards = {
 	# Unlocks Payroll Tax - Income Taxation Law
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/currency_standards.dds"
+	texture = "gfx/interface/icons/invention_icons/transmutation_standards.dds"
 	category = military
 
 	ai_weight = {
@@ -233,7 +233,7 @@ admiralty = {
 
 alchemical_boilers = {
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/paddle_steamer.dds"
+	texture = "gfx/interface/icons/invention_icons/alchemical_boilers.dds"
 	category = military
 
 	modifier = {
@@ -283,7 +283,7 @@ fractionating_alembics = {
 	# Unlocks Cod Liver Oil PM in Fishing Wharfs
     # Unlocks Potion Factories
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/fractional_distillation.dds"
+	texture = "gfx/interface/icons/invention_icons/fractionating_alembics.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -299,7 +299,7 @@ alchemical_bleaching = {
 	# Unlocks Bone China PM in Glassworks
 	# Unlocks Sulfite Pulping PM in Paper Mills
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/chemical_bleaching.dds"
+	texture = "gfx/interface/icons/invention_icons/alchemical_bleaching.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -316,7 +316,7 @@ volatile_reagents = {
 	# Unlocks Blasting Potions PM in Spirit Stone, Iron, Mythril, Sulfur, Gold Mines
 	# Countries get a +25% chance of discovering new resources
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/nitroglycerin.dds"
+	texture = "gfx/interface/icons/invention_icons/volatile_reagents.dds"
 	category = military
 
 	modifier = {
@@ -335,7 +335,7 @@ volatile_reagents = {
 apothecaries = {
 	# Increases the ratio of pop casualties that survive a battle
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/pharmaceuticals.dds"
+	texture = "gfx/interface/icons/invention_icons/apothecaries.dds"
 	category = military
 
 	modifier = {
@@ -356,7 +356,7 @@ apothecaries = {
 fever_tonics = {
 	# Permits colonization of state regions with the Malaria trait
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/quinine.dds"
+	texture = "gfx/interface/icons/invention_icons/fever_tonics.dds"
 	category = military
 
 	modifier = {
@@ -383,7 +383,7 @@ fever_tonics = {
 homunculus_creation = {
 	# NEW TECH: Unlocks the Homunculus Factory government building
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/pharmaceuticals.dds"
+	texture = "gfx/interface/icons/invention_icons/homunculus_creation.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -438,7 +438,7 @@ logistics = {
 battlefield_draughts = {
 	# Unlocks Health Potion Kits PM in Barracks
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/triage.dds"
+	texture = "gfx/interface/icons/invention_icons/battlefield_draughts.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -469,7 +469,7 @@ general_staff = {
 alchemical_propulsion = {
 	# Unlocks Complex Shipbuilding PM in Shipyards
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/screw_frigate.dds"
+	texture = "gfx/interface/icons/invention_icons/alchemical_propulsion.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -514,7 +514,7 @@ stabilized_reagents = {
 	# Unlocks Stabilized Catalysis PM in Potion Factories
 	# Unlocks Refined Blasting Potions PM in Spirit Stone, Iron, Mythril, Sulfur, Gold Mines
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	texture = "gfx/interface/icons/invention_icons/stabilized_reagents.dds"
 	category = military
 
 	modifier = {
@@ -532,7 +532,7 @@ stabilized_reagents = {
 
 potion_synthesis = {
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/aniline.dds"
+	texture = "gfx/interface/icons/invention_icons/potion_synthesis.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -549,7 +549,7 @@ alchemical_concrete = {
 	# Alchemical Concrete: +15% construction throughput
 	# Unlocks Alchemical Concrete PM in Construction Sectors
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/reinforced_concrete.dds"
+	texture = "gfx/interface/icons/invention_icons/alchemical_concrete.dds"
 	category = military
 
 	modifier = {
@@ -632,7 +632,7 @@ warded_hulls = {
 	# Unlocks Ironclads PM in Naval Base
 	# Unlocks Steam Trawlers PM in Fishing Wharves
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/ironclad_tech.dds"
+	texture = "gfx/interface/icons/invention_icons/warded_hulls.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -674,7 +674,7 @@ coastal_warships = {
 reagent_torpedoes = {
 	# Unlocks Torpedo Boat PM in Naval Base
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/self_propelled_torpedoes.dds"
+	texture = "gfx/interface/icons/invention_icons/reagent_torpedoes.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -711,7 +711,7 @@ alchemical_thread = {
 	# Unlocks the Alchemical Thread PM in Potion Factories
 	# Unlocks the Bleached Paper PM in Paper Mills
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/art_silk.dds"
+	texture = "gfx/interface/icons/invention_icons/alchemical_thread.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -726,7 +726,7 @@ alchemical_thread = {
 automated_vialworks = {
 	# Unlocks the Automatic Vialworks PM in Glassworks
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/automatic_bottle_blowers.dds"
+	texture = "gfx/interface/icons/invention_icons/automated_vialworks.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -743,7 +743,7 @@ automated_vialworks = {
 monster_wards = {
 	# Permits colonization of state regions with severe malaria
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/malaria_prevention.dds"
+	texture = "gfx/interface/icons/invention_icons/monster_wards.dds"
 	category = military
 
 	modifier = {
@@ -906,7 +906,7 @@ grand_warships = {
 panacea_cultures = {
 	# Unlocks the Battle Potions mobilization option (4th supplements tier)
 	era = era_5
-	texture = "gfx/interface/icons/invention_icons/antibiotics.dds"
+	texture = "gfx/interface/icons/invention_icons/panacea_cultures.dds"
 	category = military
 
 	modifier = {
@@ -967,7 +967,7 @@ macroeconomics = {
 miasmic_reagents = {
 	# Unlocks Miasmic Reagent War Automata PM in Barracks
 	era = era_5
-	texture = "gfx/interface/icons/invention_icons/chemical_warfare.dds"
+	texture = "gfx/interface/icons/invention_icons/miasmic_reagents.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -1019,7 +1019,7 @@ titan_warships = {
 airship_carriers = {
 	# Unlocks Carriers PM in Naval Bases
 	era = era_5
-	texture = "gfx/interface/icons/invention_icons/carrier_tech.dds"
+	texture = "gfx/interface/icons/invention_icons/airship_carriers.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -1062,7 +1062,7 @@ alchemical_dockyards = {
 	# Unlocks Modern Port PM in Ports
 	# Increases Max Port Level by 4
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/concrete_dockyards.dds"
+	texture = "gfx/interface/icons/invention_icons/alchemical_dockyards.dds"
 	category = military
 
 	modifier = {
@@ -1088,7 +1088,7 @@ alchemical_dockyards = {
 magic_carpets = {
 	# Unlocks Magic Carpets PM in Airship Works
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
+	texture = "gfx/interface/icons/invention_icons/magic_carpets.dds"
 	category = military
 
     modifier = {
@@ -1109,7 +1109,7 @@ magic_carpets = {
 reagent_synthesis = {
 	# Unlocks Reagents Factory (split from Spirit Fertilizer Works / spirit_field_cultivation)
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/nitroglycerin.dds"
+	texture = "gfx/interface/icons/invention_icons/reagent_synthesis.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -1127,7 +1127,7 @@ reagent_synthesis = {
 alchemical_cranes = {
 	# Unlocks Hydraulic Cranes PM in Ports
 	era = era_2
-	texture = "gfx/interface/icons/invention_icons/hydraulic_cranes.dds"
+	texture = "gfx/interface/icons/invention_icons/alchemical_cranes.dds"
 	category = military
 
 	unlocking_technologies = {
@@ -1207,7 +1207,7 @@ crystal_glass = {
 alchemical_architecture = {
 	# Unlocks Spirit Thread Lattice PM in Construction Sectors
 	era = era_5
-	texture = "gfx/interface/icons/invention_icons/arc_welding.dds"
+	texture = "gfx/interface/icons/invention_icons/alchemical_architecture.dds"
 	category = military
 
 	unlocking_technologies = {
