@@ -1,4 +1,4 @@
-﻿# SPIRITUALISM TREE (internal category: society)
+# SPIRITUALISM TREE (internal category: society)
 # Xianxia-themed. Spirit Fertilizer and spirit agriculture, Communication Orbs,
 # Enchanted Arms / Consumables, infantry efficacy, Mages (cavalry).
 # All prerequisites are within this tree.
@@ -182,7 +182,7 @@ centralization = {
 
 geomantic_planning = {
 	era = era_1
-	texture = "gfx/interface/icons/invention_icons/urban_planning.dds"
+	texture = "gfx/interface/icons/invention_icons/geomantic_planning.dds"
 	category = society
 
 	modifier = {
@@ -438,7 +438,7 @@ anarchism = {
 
 sect_endowments = {
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/investment_banks.dds"
+	texture = "gfx/interface/icons/invention_icons/sect_endowments.dds"
 	category = society
 
 	modifier = {
@@ -480,7 +480,7 @@ chain_enchanted_arms = {
 	# Unlocks Chain-Enchanted Arms PM in Enchanted Arms Ateliers
 	# Global Unlock for Chain-Enchanted Arms PM in Barracks
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/repeaters.dds"
+	texture = "gfx/interface/icons/invention_icons/chain_enchanted_arms.dds"
 	category = society
 
 	unlocking_technologies = {
@@ -647,7 +647,7 @@ entrenched_formations = {
 	# Unlocks Officer Training PM in Barracks
 	# Unlocks Entrenched Formation Infantry
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/trench_works.dds"
+	texture = "gfx/interface/icons/invention_icons/entrenched_formations.dds"
 	category = society
 
 	unlocking_technologies = {
@@ -663,7 +663,7 @@ perfected_enchanted_arms = {
 	# Unlocks Perfected Enchanted Arms PM in Enchanted Arms Ateliers
 	# Global Unlock for Perfected Enchanted Arms PM in Barracks
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/bolt_action_rifles.dds"
+	texture = "gfx/interface/icons/invention_icons/perfected_enchanted_arms.dds"
 	category = society
 
 	unlocking_technologies = {
@@ -678,7 +678,7 @@ perfected_enchanted_arms = {
 layered_formation_arrays = {
 	# Layered Formation Arrays - increases defense
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/formation_arrays.dds"
+	texture = "gfx/interface/icons/invention_icons/layered_formation_arrays.dds"
 	category = society
 
 	modifier = {
@@ -1231,7 +1231,7 @@ martial_ascension = {
 seal_script_engraving = {
 	# Unlocks Sealed Talisman Consumables secondary PM in Consumables Workshops
 	era = era_3
-	texture = "gfx/interface/icons/invention_icons/central_archives.dds"
+	texture = "gfx/interface/icons/invention_icons/seal_script_engraving.dds"
 	category = society
 
 	unlocking_technologies = {
@@ -1246,7 +1246,7 @@ seal_script_engraving = {
 grand_talisman_arrays = {
 	# Unlocks Grand Talisman Consumables secondary PM in Consumables Workshops
 	era = era_4
-	texture = "gfx/interface/icons/invention_icons/mass_communication.dds"
+	texture = "gfx/interface/icons/invention_icons/grand_talisman_arrays.dds"
 	category = society
 
     modifier = {
