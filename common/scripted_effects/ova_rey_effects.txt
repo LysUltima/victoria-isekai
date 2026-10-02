@@ -520,7 +520,10 @@ effect_ova_rey_take_presidency = {
 	set_variable = ova_rey_ascended
 	if = {
 		limit = { has_variable = ova_rey_john_char exists = var:ova_rey_john_char }
-		var:ova_rey_john_char ?= { set_character_as_ruler = yes }
+		var:ova_rey_john_char ?= { 
+            set_as_interest_group_leader = yes
+            set_character_as_ruler = yes
+        }
 	}
 	if = {
 		limit = { NOT = { has_law = law_type:law_presidential_republic } }

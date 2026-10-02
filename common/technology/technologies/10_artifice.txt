@@ -1,4 +1,4 @@
-# ARTIFICE TREE (internal category: production)
+﻿# ARTIFICE TREE (internal category: production)
 # Magic-industry / arcanepunk. Spirit Stones -> Magic Cores -> Automata.
 # War Automata replace Artillery. Labor-saving automation PMs.
 # All prerequisites are within this tree.

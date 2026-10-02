@@ -1,4 +1,4 @@
-# SPIRITUALISM TREE (internal category: society)
+﻿# SPIRITUALISM TREE (internal category: society)
 # Xianxia-themed. Spirit Fertilizer and spirit agriculture, Communication Orbs,
 # Enchanted Arms / Consumables, infantry efficacy, Mages (cavalry).
 # All prerequisites are within this tree.
