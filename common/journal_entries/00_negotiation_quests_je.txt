@@ -502,6 +502,12 @@ je_negotiate_building_group = {
             #IG already has var:promise_quest_degree
             #IG already has var:building_group_level_increase
             #IG already has var:promised_building_group
+            if = {
+                limit = {
+                    NOT = { has_variable = promised_building_group }
+                }
+                set_promised_building_group = yes
+            }
         }
         scope:ig = {
             set_variable = {
