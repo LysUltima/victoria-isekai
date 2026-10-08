@@ -2438,3 +2438,66 @@ ova_rey.91 = { # The Paradox Republic
 		add_modifier = { name = ova_rey_paradox_republic days = -1 }
 	}
 }
+
+# Choose John's ideology
+
+ova_rey.100 = {
+    type = country_event
+	placement = root
+
+	title = ova_rey.100.t
+	desc = ova_rey.100.d
+	flavor = ova_rey.100.f
+
+	duration = 3
+
+	event_image = { video = "unspecific_world_fair" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+
+	trigger = { always = yes }
+
+	option = {
+		name = ova_rey.100.a
+
+        if = {
+		    limit = { has_variable = ova_rey_john_char exists = var:ova_rey_john_char }
+		    var:ova_rey_john_char ?= { 
+                set_interest_group = PREV.ig:ig_intelligentsia
+            }
+        }
+	}
+
+    option = {
+		name = ova_rey.100.b
+
+        if = {
+		    limit = { has_variable = ova_rey_john_char exists = var:ova_rey_john_char }
+		    var:ova_rey_john_char ?= { 
+                set_interest_group = PREV.ig:ig_trade_unions
+            }
+        }
+	}
+
+    option = {
+		name = ova_rey.100.c
+
+        if = {
+		    limit = { has_variable = ova_rey_john_char exists = var:ova_rey_john_char }
+		    var:ova_rey_john_char ?= { 
+                set_interest_group = PREV.ig:ig_armed_forces
+            }
+        }
+	}
+
+    option = {
+		name = ova_rey.100.d
+        default_option = yes
+        if = {
+		    limit = { has_variable = ova_rey_john_char exists = var:ova_rey_john_char }
+		    var:ova_rey_john_char ?= { 
+                set_interest_group = PREV.ig:ig_rural_folk
+            }
+        }
+	}
+}

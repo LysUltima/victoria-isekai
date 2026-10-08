@@ -163,3 +163,23 @@ ova_hero_war_brokerage_decision = {
 		}
 	}
 }
+
+rey_john_politics_decision = {
+    is_shown = {
+		c:REY ?= THIS
+        has_variable = ova_rey_john_char 
+        exists = var:ova_rey_john_char
+	}
+
+    possible = {
+        always = yes
+    }
+
+    when_taken = {
+        trigger_event = { id = ova_rey.100 }
+    }
+
+    ai_chance = {
+		value = 0
+	}
+}

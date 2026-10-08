@@ -150,3 +150,7 @@
   # template_ova_rey_fox - Fenna Rotwald (cu:forest_foxkin)
   Fenna: "Fenna"
   Rotwald: "Rotwald"
+
+  # Decision
+  rey_john_politics_decision: "John Politics"
+  rey_john_politics_decision_desc: "Change John Paradox's interest group."
