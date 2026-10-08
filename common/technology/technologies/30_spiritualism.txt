@@ -1132,7 +1132,7 @@ golden_core = {
 	category = society
 
 	modifier = {
-		country_prestige_mult = 0.05
+		country_max_companies_add = 1
 	}
 
 	unlocking_technologies = {
