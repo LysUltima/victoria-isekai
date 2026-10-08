@@ -606,14 +606,6 @@ mobilization_option_flamethrowers = {
 mobilization_option_balloon_recon = {
 	texture = "gfx/interface/icons/mobilization_options/balloon_recon.dds"
 
-	possible = {
-		market ?= {
-			mg:fabric ?= {
-				has_potential_supply = yes
-			}
-		}
-	}
-
 	on_activate_while_mobilized = {
 		custom_tooltip = {
 			text = mobilization_option_it_hurts_organization_when_you_adjust_equipment_tt
@@ -655,14 +647,6 @@ mobilization_option_balloon_recon = {
 
 mobilization_option_aerial_recon = {
 	texture = "gfx/interface/icons/mobilization_options/aerial_reconaissance.dds"
-
-	possible = {
-		market ?= {
-			mg:aeroplanes ?= {
-				has_potential_supply = yes
-			}
-		}
-	}
 
 	on_activate_while_mobilized = {
 		custom_tooltip = {

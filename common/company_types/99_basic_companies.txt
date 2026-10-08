@@ -32,7 +32,7 @@
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_grain_complete_tt
-			always = no
+			has_variable = prestige_good_generic_grain_var
 		}
 	}
 
@@ -100,7 +100,7 @@ company_basic_agriculture_2 = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_grain_complete_tt
-			always = no
+			has_variable = prestige_good_generic_grain_var
 		}
 	}
 
@@ -171,7 +171,7 @@ company_basic_fabrics = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_meat_complete_tt
-			always = no
+			has_variable = prestige_good_generic_meat_var
 		}
 	}
 
@@ -237,7 +237,7 @@ company_basic_colonial_plantations_1 = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_opium_complete_tt
-			always = no
+			has_variable = prestige_good_generic_opium_var
 		}
 	}
 
@@ -305,7 +305,7 @@ company_basic_colonial_plantations_2 = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_coffee_complete_tt
-			always = no
+			has_variable = prestige_good_generic_coffee_var
 		}
 	}
 
@@ -487,7 +487,7 @@ company_basic_fishing = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_fish_complete_tt
-			always = no
+			has_variable = prestige_good_generic_fish_var
 		}
 	}
 
@@ -776,7 +776,7 @@ company_basic_food = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_groceries_complete_tt
-			always = no
+			has_variable = prestige_good_generic_groceries_var
 		}
 	}
 
@@ -837,7 +837,7 @@ company_basic_paper = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_paper_complete_tt
-			always = no
+			has_variable = prestige_good_generic_paper_var
 		}
 	}
 
@@ -900,7 +900,7 @@ company_basic_home_goods = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_furniture_complete_tt
-			always = no
+			has_variable = prestige_good_generic_furniture_var
 		}
 	}
 
@@ -968,7 +968,7 @@ company_basic_textiles = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_clothes_complete_tt
-			always = no
+			has_variable = prestige_good_generic_clothes_var
 		}
 	}
 
@@ -1025,7 +1025,7 @@ company_basic_steel = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_steel_complete_tt
-			always = no
+			has_variable = prestige_good_generic_steel_var
 		}
 	}
 
@@ -1091,7 +1091,7 @@ company_basic_metalworks = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_tools_complete_tt
-			always = no
+			has_variable = prestige_good_generic_tools_var
 		}
 	}
 
@@ -1207,7 +1207,7 @@ company_basic_chemicals = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_fertilizer_complete_tt
-			always = no
+			has_variable = prestige_good_generic_fertilizer_var
 		}
 	}
 
@@ -1335,7 +1335,7 @@ company_basic_munitions = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_explosives_complete_tt
-			always = no
+			has_variable = prestige_good_generic_explosives_var
 		}
 	}
 
@@ -1453,7 +1453,7 @@ company_basic_weapons = {
 	prestige_goods_trigger = {
 		custom_tooltip = {
 			text = je_prestige_goods_small_arms_complete_tt
-			always = no
+			has_variable = prestige_good_generic_small_arms_var
 		}
 	}
 
