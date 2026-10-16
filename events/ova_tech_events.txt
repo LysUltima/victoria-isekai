@@ -1,0 +1,65 @@
+﻿
+namespace = ova_tech
+
+ova_tech.1 = {
+    type = country_event
+    placement = ROOT
+    title = ova_tech.1.t
+
+    event_image = {
+		texture = "gfx/event_pictures/arcane_airship_fleet.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
+
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = { has_technology_researched = tradition_artifice }
+                desc = ova_tech.1.d_artifice
+            }
+            triggered_desc = {
+                trigger = { has_technology_researched = tradition_alchemy }
+                desc = ova_tech.1.d_alchemy
+            }
+            triggered_desc = {
+                trigger = { has_technology_researched = tradition_spiritualism }
+                desc = ova_tech.1.d_spiritualism
+            }
+            triggered_desc = {
+                trigger = { has_technology_researched = tradition_artifice_alchemy }
+                desc = ova_tech.1.d_artifice_alchemy
+            }
+            triggered_desc = {
+                trigger = { has_technology_researched = tradition_spiritualism_artifice }
+                desc = ova_tech.1.d_spiritualism_artifice
+            }
+            triggered_desc = {
+                trigger = { has_technology_researched = tradition_spiritualism_alchemy }
+                desc = ova_tech.1.d_spiritualism_alchemy
+            }
+            triggered_desc = {
+                trigger = { always = yes }
+                desc = ova_tech.1.d
+            }
+        }
+    }
+
+    flavor = ova_tech.1.f
+    duration = 3
+
+    trigger = {
+        NOT = { has_variable = ova_tech_intro_seen }
+    }
+
+    immediate = {
+        set_variable = ova_tech_intro_seen
+    }
+
+    option = {
+        name = ova_tech.1.a
+        default_option = yes
+    }
+}

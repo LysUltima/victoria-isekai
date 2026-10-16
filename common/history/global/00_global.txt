@@ -144,10 +144,10 @@ GLOBAL = {
 		value = 0
 	}
 
-	# Restored: vanilla history/global/00_global.txt initializes num_coups/failed_coups here;
-	# without it the change_global_variable = add calls in journal_entries/01_coup.txt and
-	# events/ip4_coup_events.txt (both kept, generic engine content) were incrementing a variable
-	# that was never set.
 	set_global_variable = { name = num_coups value = 0 }
 	set_global_variable = { name = failed_coups value = 0 }
+
+    every_country = {
+        trigger_event = { id = ova_tech.1 days = 1 }
+    }
 }

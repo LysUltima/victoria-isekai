@@ -915,3 +915,25 @@
   pm_fine_porcelain: "Fine Porcelain"
   pm_swarm_fleet_doctrine: "Swarm Fleet Doctrine"
   pm_retainer_discipline: "Retainer Discipline"
+
+
+  ### Tradition event
+  ova_tech.1.t: "Our Inherited Tradition"
+
+  ova_tech.1.d: "Our country has no recognized starting tradition. None of the six regional tradition technologies has been granted to us, so no tradition-specific research or technology-spread modifiers apply."
+
+  ova_tech.1.d_artifice: "Our nation follows the #b Tradition of Artifice#!. Generations of artisans, builders, and engineers have taught us to understand the world through invention and craft.\n\n#v Production#!: +25% research speed and +100% technology spread.\n#v Military and Society#!: -25% research speed and -200% technology spread each."
+
+  ova_tech.1.d_alchemy: "Our nation follows the #b Tradition of Alchemy#!. The study of transformation, substances, and experimental warfare shapes how we pursue knowledge.\n\n#v Military#!: +25% research speed and +100% technology spread.\n#v Production and Society#!: -25% research speed and -200% technology spread each."
+
+  ova_tech.1.d_spiritualism: "Our nation follows the #b Tradition of Spiritualism#!. Through philosophy, ritual, and contemplation, our scholars seek to understand the bonds between people and the unseen world.\n\n#v Society#!: +25% research speed and +100% technology spread.\n#v Production and Military#!: -25% research speed and -200% technology spread each."
+
+  ova_tech.1.d_artifice_alchemy: "Our nation follows the #b Tradition of Artifice and Alchemy#!. Workshops and laboratories stand side by side, blending practical machinery with the arts of transformation.\n\n#v Production and Military#!: no tradition-specific research or technology-spread modifiers.\n#v Society#!: -25% research speed and -200% technology spread."
+
+  ova_tech.1.d_spiritualism_artifice: "Our nation follows the #b Tradition of Spiritualism and Artifice#!. Faith and philosophy guide the hands of our builders, while invention gives material form to our ideals.\n\n#v Society and Production#!: no tradition-specific research or technology-spread modifiers.\n#v Military#!: -25% research speed and -200% technology spread."
+
+  ova_tech.1.d_spiritualism_alchemy: "Our nation follows the #b Tradition of Spiritualism and Alchemy#!. Mystics and alchemists share their search for hidden truths, joining contemplation to transformation.\n\n#v Society and Military#!: no tradition-specific research or technology-spread modifiers.\n#v Production#!: -25% research speed and -200% technology spread."
+
+  ova_tech.1.f: "The tradition can be seen in the tech tree."
+
+  ova_tech.1.a: "We shall build upon this legacy."
