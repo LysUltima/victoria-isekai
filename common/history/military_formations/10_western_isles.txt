@@ -32,7 +32,7 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_PALIANUENUE
-				count = 15
+				count = 5
 			}
 		}
 		create_character = {
