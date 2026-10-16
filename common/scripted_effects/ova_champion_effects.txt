@@ -1128,7 +1128,7 @@ ova_expedition_roll = {
 			limit = { scope:ova_adventure_target = { is_country_type = decentralized } }
 			random_list = {
 				# --- territory (grows with Level)
-				16 = {
+				24 = {
 					modifier = {
 						if = { limit = { var:ova_champion_level >= 5 } add = 4 }
 						if = { limit = { var:ova_champion_level >= 15 } add = 8 }
@@ -1139,7 +1139,7 @@ ova_expedition_roll = {
 					}
 					trigger_event = { id = ova_champion.20 }
 				}
-				4 = { # two valleys fall at once (Level 10+)
+				8 = { # two valleys fall at once (Level 10+)
 					trigger = { var:ova_champion_level >= 10 }
 					modifier = {
 						if = { limit = { var:ova_champion_level >= 20 } add = 4 }
