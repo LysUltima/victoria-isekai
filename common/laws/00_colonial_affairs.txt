@@ -92,6 +92,8 @@ law_frontier_colonization = {
 
 	unlocking_technologies = {
 		colonization
+        merchant_airships
+        nascent_soul
 	}
 
 	modifier = {
@@ -176,6 +178,8 @@ law_colonial_resettlement = {
 
 	unlocking_technologies = {
 		colonization
+        corporate_charters
+        nascent_soul
 	}
 
 	modifier = {
@@ -270,6 +274,8 @@ law_colonial_exploitation = {
 
 	unlocking_technologies = {
 		colonization
+        corporate_charters
+        nascent_soul
 	}
 
 	modifier = {
