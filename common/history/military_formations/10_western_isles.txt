@@ -32,7 +32,7 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_PALIANUENUE
-				count = 5
+				count = 15
 			}
 		}
 		create_character = {
@@ -51,7 +51,7 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_MOTU_HUMARIE
-				count = 11
+				count = 2
 			}
 		}
 		create_character = {
@@ -89,7 +89,7 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_TAHATIKA_TAPARA
-				count = 12
+				count = 25
 			}
 		}
 		create_character = {
@@ -165,7 +165,7 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_AINAONE
-				count = 12
+				count = 20
 			}
 		}
 		create_character = {
@@ -260,7 +260,7 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_PAPAKU_O_TE_RA
-				count = 12
+				count = 2
 			}
 		}
 		create_character = {
@@ -393,7 +393,7 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_MANIA_KOWHAI
-				count = 12
+				count = 2
 			}
 		}
 		create_character = {

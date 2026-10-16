@@ -23,6 +23,20 @@
         effect_starting_pop_wealth_low = yes
         effect_starting_pop_literacy_low = yes
     }
+    c:MER = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:LAY = {effect_starting_pop_wealth_low = yes
+		effect_starting_pop_literacy_low = yes }
+    c:RIM = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:SHM = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
     c:HAT = {
         effect_starting_pop_wealth_low = yes
         effect_starting_pop_literacy_low = yes

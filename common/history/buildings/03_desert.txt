@@ -2432,4 +2432,179 @@
             }
         }
     }
+    s:STATE_JABAL_AL_BALIGH = {
+        region_state:LAY = {
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:LAY"
+                        levels = 3
+                        region = "STATE_JABAL_AL_BALIGH"
+                    }
+                }
+                reserves = 1
+            }
+            create_building = {
+                building = "building_airship_dock"
+                add_ownership = {
+                    country = {
+                        country = "c:LAY"
+                        levels = 3
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sky_harbor"
+                }
+            }
+            create_building = {
+				building = "building_automotive_industry"
+				add_ownership = {
+				    building = {
+				        type = "building_financial_district"
+				        country = "c:LAY"
+				        levels = 1
+				        region = "STATE_JABAL_AL_BALIGH"
+				    }
+				}
+				reserves = 1
+				activate_production_methods = {
+                    "pm_aeroplane_production"
+				}
+			}
+            create_building = {
+                building = "building_spirit_beast_hunting"
+                add_ownership = {
+                    building = {
+                        type = "building_spirit_beast_hunting"
+                        country = "c:LAY"
+                        levels = 2
+                        region = "STATE_JABAL_AL_BALIGH"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_spirit_beast_hunting"
+                    "pm_no_hunting_equipment"
+                    "pm_unrefrigerated"
+                }
+            }
+            create_building = {
+                building = "building_enchanted_palm_orchard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:LAY"
+                        levels = 4
+                        region = "STATE_JABAL_AL_BALIGH"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_palm_saw_mills"
+                    "pm_stone_fed_groves"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_gold_mine"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:LAY"
+                        levels = 3
+                        region = "STATE_JABAL_AL_BALIGH"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_picks_and_shovels_building_gold_mine"
+                    "pm_no_explosives"
+                    "pm_no_steam_automation"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_tooling_workshop"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:LAY"
+                        levels = 1
+                        region = "STATE_JABAL_AL_BALIGH"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_iron_tools"
+                    "pm_automation_disabled"
+                }
+            }
+        }
+    }
+    s:STATE_WADI_AL_AZHAR = { 
+        region_state:SHM = {
+            create_building = {
+                building = "building_enchanted_palm_orchard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SHM"
+                        levels = 6
+                        region = "STATE_WADI_AL_AZHAR"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:SHM"
+                        levels = 3
+                        region = "STATE_WADI_AL_AZHAR"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                }
+            }
+        }
+        region_state:RIM = {
+            create_building = {
+                building = "building_enchanted_palm_orchard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:RIM"
+                        levels = 1
+                        region = "STATE_WADI_AL_AZHAR"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_fishing_wharf"
+                        country = "c:RIM"
+                        levels = 1
+                        region = "STATE_WADI_AL_AZHAR"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                }
+            }
+        }
+    }
 }

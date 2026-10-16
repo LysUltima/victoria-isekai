@@ -58,8 +58,14 @@
     s:STATE_HARUNYA = {
         create_state = {
             country = c:HAR
-            owned_provinces = { "x6E5763" "x6E6243" "x706053" "x715D5F" "x725756" "x736149" "x736467" "x736A5A" "x785E48" "x7D5867" "x7E6349" "x7F5D48" "x806B5B" "x836644" "x874F49" "x8B5046" "x8B5364" "x8F5F54" "x904541" "x93493F" "x935567" "x944E60" "x945646" "x955740" }
+            owned_provinces = { "x6E5763" "x6E6243" "x706053" "x715D5F" "x725756" "x736149" "x736467" "x736A5A" "x7D5867" "x7E6349" "x7F5D48" "x806B5B" "x836644" "x874F49" "x8B5046" "x8B5364" "x904541" "x93493F" "x935567" "x944E60" "x945646" "x955740" }
         }
+
+        create_state = {
+            country = c:MER
+            owned_provinces = { x785e48 x8f5f54 }
+        }
+
 
         add_homeland = cu:island_catkin
     }
@@ -228,9 +234,23 @@
     s:STATE_TEPYON = {
         create_state = {
             country = c:ANE
-            owned_provinces = { "x9C683B" "x9C7C37" "x9E7F37" "x9F6B37" "x9F712B" "xA06E3E" "xA2762E" "xA37828" "xA37A2D" "xA37C2B" "xA66928" "xA66D29" "xA77F34" "xA86845" "xAC6D39" "xAC7F38" "xAC852A" "xAF6E35" "xB15F2F" "xB45E2A" "xB46447" "xB47021" "xB5772C" "xB66E39" "xB6823B" "xB87340" "xB87939" "xBA7133" "xBA7E38" "xBE7E27" "xC06D24" "xC06F3D" "xC17C34" "xC2752F" "xC36144" "xC37E45" "xC4672C" }
+            owned_provinces = { xa37828 xa37c2b xa66928 xa86845 xac852a xb6823b xbe7e27 xc06f3d }
         }
 
+        create_state = {
+            country = c:UAN
+            owned_provinces = {
+                "x9C683B" "x9C7C37" "x9E7F37" "x9F6B37"
+                "x9F712B" "xA06E3E" "xA2762E" "xA37A2D"
+                "xA66D29" "xA77F34" "xAC6D39" "xAC7F38"
+                "xAF6E35" "xB15F2F" "xB45E2A" "xB46447"
+                "xB47021" "xB5772C" "xB66E39" "xB87340"
+                "xB87939" "xBA7133" "xBA7E38" "xC06D24"
+                "xC17C34" "xC2752F" "xC36144" "xC37E45"
+                "xC4672C"
+            }
+        }
+        add_claim = c:ANE
         add_homeland = cu:eastern_rabbitkin
     }
     s:STATE_MIRAPYON = {

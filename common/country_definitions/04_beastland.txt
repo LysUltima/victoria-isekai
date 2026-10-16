@@ -46,6 +46,40 @@ HAR = {
     capital = STATE_HARUNYA
 }
 
+MER = {
+	color = { 31 203 52 }
+	country_type = unrecognized
+	tier = principality
+	cultures = { island_catkin }
+	religion = aneneco
+	capital = STATE_HARUNYA
+}
+LAY = {
+	color = { 149 133 195 }
+	country_type = unrecognized
+	tier = principality
+	cultures = { desert_catkin }
+	religion = aneneco
+	capital = STATE_JABAL_AL_BALIGH
+}
+RIM = {
+	color = { 160 143 73 }
+	country_type = unrecognized
+	tier = principality
+	cultures = { desert_catkin }
+	religion = aneneco
+	capital = STATE_WADI_AL_AZHAR
+}
+SHM = {
+	color = { 179 71 55 }
+	country_type = unrecognized
+	tier = principality
+	cultures = { desert_catkin }
+	religion = aneneco
+	capital = STATE_WADI_AL_AZHAR
+}
+
+
 URR = {
     color = { 110 88 63 }
 

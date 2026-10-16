@@ -35,19 +35,17 @@
         region_state:SUN = {
             create_pop = {
                 culture = zaharin
-                size = 300000
+                size = 180000
             }
             create_pop = {
                 culture = nadirene
                 size = 25600
             }
+        }
+        region_state:SCO = {
             create_pop = {
-                culture = qadirin
-                size = 23300
-            }
-            create_pop = {
-                culture = ghazalin
-                size = 27300
+                culture = zaharin
+                size = 120500
             }
         }
     }
@@ -356,14 +354,14 @@
         }
     }
     s:STATE_JABAL_AL_BALIGH = {
-        region_state:DES = {
+        region_state:LAY = {
             create_pop = {
                 culture = zaharin
                 size = 200000
             }
             create_pop = {
                 culture = desert_catkin
-                size = 85100
+                size = 1185100
             }
         }
     }
@@ -384,6 +382,26 @@
             create_pop = {
                 culture = desert_catkin
                 size = 70100
+            }
+        }
+        region_state:RIM = {
+            create_pop = {
+                culture = zaharin
+                size = 45000
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 390100
+            }
+        }
+        region_state:SHM = {
+            create_pop = {
+                culture = zaharin
+                size = 245000
+            }
+            create_pop = {
+                culture = desert_catkin
+                size = 790100
             }
         }
     }

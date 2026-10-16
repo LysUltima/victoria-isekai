@@ -134,4 +134,14 @@
 			type = tributary
 		}
 	}
+    c:AGR = {
+		create_diplomatic_pact = {
+			country = c:SEL
+			type = vassal
+		}
+        create_diplomatic_pact = {
+			country = c:BRU
+			type = tributary
+		}
+	}
 }

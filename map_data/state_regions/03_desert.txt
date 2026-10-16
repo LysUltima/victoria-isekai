@@ -73,7 +73,7 @@ STATE_NAJD_AS_SALASIL = {
     farm = "xA9CC35"
     mine = "xA2D44A"
     wood = "x8BD945"
-    arable_land = 37
+    arable_land = 47
     arable_resources = { "building_livestock_ranch" }
     capped_resources = {
         building_spirit_beast_hunting = 22
@@ -554,6 +554,12 @@ STATE_JABAL_AL_BALIGH = {
         building_fishing_wharf = 24
         building_enchanted_palm_orchard = 12
         building_spirit_beast_hunting = 7
+        building_gold_mine = 3
+    }
+    resource = {
+        type = "building_gold_field"
+        depleted_type = "building_gold_mine"
+        undiscovered_amount = 8
     }
     naval_exit_id = 3040
 }
@@ -589,18 +595,20 @@ STATE_AL_SHURUB_AL_GHAMIRAH = {
 STATE_WADI_AL_AZHAR = {
     id = 171
     subsistence_building = "building_subsistence_fishing_village"
-    traits = { "state_trait_desert" }
     provinces = { "x1D941E" "x1EAA15" "x1FA329" "x209018" "x20982A" "x20A815" "x249518" "x249F2A" "x24A033" "x25AA2E" "x278D34" "x298F29" "x2FA129" "x33912D" "x348B10" "x34A534" "x358F19" "x35A922" "x36A528" "x37B011" "x398B1B" "x3C911D" "x3EA036" "x409117" "x44A312" "x459131" }
+    prime_land = {
+        x1fa329 x209018 x20982a x249f2a x33912d x348b10 x398b1b x24a033 x36a528 x3ea036
+    }
     city = "x1EAA15"
     port = "x1FA329"
     farm = "x20982A"
     mine = "x1D941E"
     wood = "x35A922"
-    arable_land = 37
+    arable_land = 97
     arable_resources = { "building_livestock_ranch" }
     capped_resources = {
         building_fishing_wharf = 21
-        building_enchanted_palm_orchard = 6
+        building_enchanted_palm_orchard = 16
         building_spirit_beast_hunting = 7
     }
     naval_exit_id = 3040

@@ -25,8 +25,39 @@
     }
     s:STATE_NAJD_AS_SALASIL = {
         create_state = {
+            country = c:SCO
+            owned_provinces = {
+                "x8AC93F" "x8ACB4A" "x8ACD3C" "x8AD12D"
+                "x8AD63D" "x8ADA39" "x8BCC33" "x8BD329"
+                "x8BDA4C" "x8CCF2F" "x8CDA31" "x8CE93E"
+                "x8DCD40" "x8DF02E" "x8ED63F" "x8FDA2F"
+                "x90D247" "x90E537" "x90EB2C" "x90EE26"
+                "x91D534" "x92CE47" "x92D027" "x92D843"
+                "x93D64C" "x94D13E" "x94D63A" "x95D74B"
+                "x95DA3A" "x96C92A" "x96C936" "x96D32B"
+                "x96D72F" "x96EC2D" "x98ED49" "x99D43F"
+                "x99DB49" "x99E12C" "x99E540" "x99EB33"
+                "x99EC3A" "x9AEC34" "x9AEF29" "x9BC832"
+                "x9BCD3D" "x9BE946" "x9BEB39" "x9BF03A"
+                "x9CE24A" "x9CE444" "x9CE533" "x9CE934"
+                "x9DE13A" "x9DE84A" "x9DED34" "x9ECB44"
+                "x9EE248" "x9EE92B" "x9FD33D" "x9FE327"
+                "x9FED35" "xA0DF44" "xA0E134" "xA0EC4C"
+                "xA1CF3A" "xA1D535" "xA2D44A" "xA3E042"
+                "xA3E528" "xA3E925" "xA3E942" "xA4E74B"
+                "xA5CC45" "xA6C93F" "xA6CD39" "xA6D848"
+                "xA6E72F" "xA6EA32" "xA7D82B" "xA7DD39"
+                "xA7DE40" "xA7E133" "xA7E142" "xA7E637"
+                "xA9CC35" "xABD633" "xABDA32" "xABE22A"
+                "xABE22B" "xACDC2F" "xACED41" "xADE426"
+                "xADE82C" "xAFD329" "xAFDD36" "xB0C83F"
+                "xB0E445" "xB1D128" "xB1E13B" "xB2E432"
+            }
+        }
+
+        create_state = {
             country = c:SUN
-            owned_provinces = { "x8AC93F" "x8ACB4A" "x8ACD3C" "x8AD12D" "x8AD63D" "x8ADA39" "x8AE033" "x8BCC33" "x8BD329" "x8BD945" "x8BDA4C" "x8BEF3A" "x8CCF2F" "x8CDA31" "x8CE93E" "x8DCD40" "x8DD949" "x8DF02E" "x8ECF32" "x8ED63F" "x8FDA2F" "x90D247" "x90E537" "x90EB2C" "x90EE26" "x91D534" "x91E327" "x92CE47" "x92D027" "x92D843" "x93D64C" "x94D13E" "x94D63A" "x94E534" "x95D74B" "x95DA3A" "x96C92A" "x96C936" "x96D32B" "x96D72F" "x96EC2D" "x98ED49" "x99D144" "x99D43F" "x99DB49" "x99E12C" "x99E540" "x99EB33" "x99EC3A" "x9AD92D" "x9AE539" "x9AEC34" "x9AEF29" "x9BC832" "x9BCD3D" "x9BE946" "x9BEB39" "x9BF03A" "x9CCF3B" "x9CE24A" "x9CE444" "x9CE533" "x9CE934" "x9DE13A" "x9DE84A" "x9DED34" "x9ECB44" "x9ED927" "x9EDE2A" "x9EE248" "x9EE92B" "x9FCE2D" "x9FD33D" "x9FE327" "x9FED35" "xA0CF2E" "xA0DF44" "xA0E134" "xA0EC4C" "xA1CF3A" "xA1D535" "xA1EB2B" "xA2D44A" "xA3DD3B" "xA3E042" "xA3E528" "xA3E925" "xA3E942" "xA4D348" "xA4E74B" "xA5CC45" "xA6C93F" "xA6CD39" "xA6D848" "xA6E72F" "xA6EA32" "xA7D74B" "xA7D82B" "xA7DD39" "xA7DE40" "xA7E133" "xA7E142" "xA7E62E" "xA7E637" "xA7E92B" "xA7EB2C" "xA9CC35" "xAACE2E" "xABD633" "xABDA32" "xABDB43" "xABE22A" "xABE22B" "xACDC2F" "xACED41" "xADD345" "xADE134" "xADE426" "xADE82C" "xAFD329" "xAFDD36" "xB0C83F" "xB0E445" "xB1D128" "xB1E13B" "xB2E432" }
+            owned_provinces = { x8ae033 x8bd945 x8bef3a x8dd949 x8ecf32 x91e327 x94e534 x99d144 x9ad92d x9ae539 x9ccf3b x9ed927 x9ede2a x9fce2d xa0cf2e xa1eb2b xa3dd3b xa4d348 xa7d74b xa7e62e xa7e92b xa7eb2c xaace2e xabdb43 xadd345 xade134 }
         }
 
         add_homeland = cu:zaharin
@@ -207,7 +238,7 @@
     }
     s:STATE_JABAL_AL_BALIGH = {
         create_state = {
-            country = c:DES
+            country = c:LAY
             owned_provinces = { "x283A39" "x2C2E29" "x2C3C2B" "x2D1B44" "x2D3920" "x32363C" "x3C2829" "x3D332A" "x40383D" "x483A47" "x491D34" "x4A2A32" "x4E2E39" }
         }
 
@@ -225,8 +256,25 @@
     s:STATE_WADI_AL_AZHAR = {
         create_state = {
             country = c:DES
-            owned_provinces = { "x1D941E" "x1EAA15" "x1FA329" "x209018" "x20982A" "x20A815" "x249518" "x249F2A" "x24A033" "x25AA2E" "x278D34" "x298F29" "x2FA129" "x33912D" "x348B10" "x34A534" "x358F19" "x35A922" "x36A528" "x37B011" "x398B1B" "x3C911D" "x3EA036" "x409117" "x44A312" "x459131" }
+            owned_provinces = {
+                "x1D941E" "x1EAA15" "x20A815" "x249518"
+                "x25AA2E" "x278D34" "x298F29" "x2FA129"
+                "x34A534" "x358F19" "x35A922" "x37B011"
+                "x3C911D" "x409117" "x44A312" "x459131"
+            }
         }
+
+        create_state = {
+            country = c:SHM
+            owned_provinces = { x1fa329 x209018 x20982a x249f2a x33912d x348b10 x398b1b }
+        }
+
+        create_state = {
+            country = c:RIM
+            owned_provinces = { x24a033 x36a528 x3ea036 }
+        }
+
+
 
         add_homeland = cu:zaharin
         add_homeland = cu:desert_catkin

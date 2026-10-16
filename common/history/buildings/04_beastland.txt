@@ -6,7 +6,7 @@
                 add_ownership = {
                     country = {
                         country = "c:CAT"
-                        levels = 3
+                        levels = 4
                     }
                 }
                 reserves = 1
@@ -869,6 +869,63 @@
                 reserves = 1
             }
         }
+        region_state:MER = {
+            create_building = {
+                building = "building_wheat_farm"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:MER"
+                        levels = 7
+                        region = "STATE_HARUNYA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_farming"
+                    "pm_no_secondary"
+                    "pm_tools_disabled"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:MER"
+                        levels = 6
+                        region = "STATE_HARUNYA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_sheep_farms"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_tobacco_plantation"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:MER"
+                        levels = 2
+                        region = "STATE_HARUNYA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_sparse_planting_building_tobacco_plantation"
+                    "worker_exploitation_tobacco"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+        }
     }
     s:STATE_URRUMA = {
         region_state:URR = {
@@ -959,7 +1016,7 @@
                 add_ownership = {
                     country = {
                         country = "c:WAP"
-                        levels = 2
+                        levels = 4
                     }
                 }
                 reserves = 1
@@ -1333,6 +1390,19 @@
     s:STATE_HATEEHO = {
         region_state:HAT = {
             create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:HAT"
+                        levels = 1
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_horizontal_drawer_cabinets"
+                }
+            }
+            create_building = {
                 building = "building_tooling_workshop"
                 add_ownership = {
                     building = {
@@ -1641,7 +1711,7 @@
                 add_ownership = {
                     country = {
                         country = "c:UAN"
-                        levels = 7
+                        levels = 12
                     }
                 }
                 reserves = 1
@@ -1803,6 +1873,19 @@
     s:STATE_EE_NOO = {
         region_state:UAN = {
             create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:UAN"
+                        levels = 6
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_organization"
+                }
+            }
+            create_building = {
                 building = "building_millet_farm"
                 add_ownership = {
                     building = {
@@ -1865,6 +1948,19 @@
     }
     s:STATE_SEE_BA = {
         region_state:UAN = {
+            create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:UAN"
+                        levels = 8
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_organization"
+                }
+            }
             create_building = {
                 building = "building_livestock_ranch"
                 add_ownership = {
@@ -1930,6 +2026,19 @@
     }
     s:STATE_KOE_NOO = {
         region_state:UAN = {
+            create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:UAN"
+                        levels = 3
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_organization"
+                }
+            }
             create_building = {
                 building = "building_millet_farm"
                 add_ownership = {
@@ -2037,7 +2146,7 @@
                 add_ownership = {
                     country = {
                         country = "c:ANE"
-                        levels = 2
+                        levels = 8
                     }
                 }
                 reserves = 1
@@ -2290,7 +2399,7 @@
                 add_ownership = {
                     country = {
                         country = "c:MIR"
-                        levels = 1
+                        levels = 8
                     }
                 }
                 reserves = 1

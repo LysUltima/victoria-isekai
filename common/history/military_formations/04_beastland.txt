@@ -137,6 +137,54 @@ MILITARY_FORMATIONS = {
 		}
 		scope:HAR_general_1 = { transfer_to_formation = scope:HAR_army_1 }
 	}
+    c:MER ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_desert_inner
+			save_scope_as = HAR_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_HARUNYA
+				count = 10
+			}
+		}
+	}
+    c:LAY ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_desert_inner
+			save_scope_as = HAR_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_JABAL_AL_BALIGH
+				count = 10
+			}
+		}
+	}
+    c:SHM ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_desert_inner
+			save_scope_as = HAR_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_WADI_AL_AZHAR
+				count = 10
+			}
+		}
+	}
+    c:RIM ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_desert_inner
+			save_scope_as = HAR_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_WADI_AL_AZHAR
+				count = 10
+			}
+		}
+	}
 	c:HAT ?= {
 		create_military_formation = {
 			type = army

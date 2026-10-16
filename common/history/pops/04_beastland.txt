@@ -3,7 +3,7 @@
         region_state:CAT = {
             create_pop = {
                 culture = plains_catkin
-                size = 2002500
+                size = 2202500
             }
             create_pop = {
                 culture = forest_foxkin
@@ -15,7 +15,7 @@
         region_state:CAT = {
             create_pop = {
                 culture = plains_catkin
-                size = 1575000
+                size = 1775000
             }
             create_pop = {
                 culture = forest_foxkin
@@ -71,7 +71,7 @@
         region_state:TUC = {
             create_pop = {
                 culture = island_catkin
-                size = 1515000
+                size = 1715000
             }
         }
     }
@@ -79,7 +79,7 @@
         region_state:AIL = {
             create_pop = {
                 culture = island_catkin
-                size = 1882500
+                size = 2182500
             }
         }
     }
@@ -90,12 +90,18 @@
                 size = 2645000
             }
         }
+        region_state:MER = {
+            create_pop = {
+                culture = island_catkin
+                size = 720000
+            }
+        }
     }
     s:STATE_URRUMA = {
         region_state:URR = {
             create_pop = {
                 culture = horsekin
-                size = 1095000
+                size = 1495000
             }
             create_pop = {
                 culture = plains_catkin
@@ -115,7 +121,7 @@
         region_state:URR = {
             create_pop = {
                 culture = horsekin
-                size = 840000
+                size = 1240000
             }
             create_pop = {
                 culture = forest_foxkin
@@ -127,7 +133,7 @@
         region_state:WAP = {
             create_pop = {
                 culture = forest_foxkin
-                size = 2347500
+                size = 2547500
             }
             create_pop = {
                 culture = horsekin
@@ -139,7 +145,7 @@
         region_state:WAP = {
             create_pop = {
                 culture = forest_foxkin
-                size = 1312500
+                size = 1712500
             }
             create_pop = {
                 culture = plains_catkin
@@ -155,7 +161,7 @@
         region_state:WAP = {
             create_pop = {
                 culture = forest_foxkin
-                size = 1470000
+                size = 1670000
             }
             create_pop = {
                 culture = snow_foxkin
@@ -171,7 +177,7 @@
         region_state:WAP = {
             create_pop = {
                 culture = snow_foxkin
-                size = 885000
+                size = 1085000
             }
         }
     }
@@ -179,7 +185,7 @@
         region_state:HAT = {
             create_pop = {
                 culture = snow_foxkin
-                size = 1260000
+                size = 1460000
             }
         }
     }
@@ -187,7 +193,7 @@
         region_state:HAT = {
             create_pop = {
                 culture = snow_foxkin
-                size = 817500
+                size = 917500
             }
             create_pop = {
                 culture = forest_foxkin
@@ -199,7 +205,7 @@
         region_state:AHE = {
             create_pop = {
                 culture = snow_foxkin
-                size = 390000
+                size = 490000
             }
         }
     }
@@ -207,11 +213,11 @@
         region_state:UAN = {
             create_pop = {
                 culture = dogkin
-                size = 1837500
+                size = 2237500
             }
             create_pop = {
                 culture = wolfkin
-                size = 180700
+                size = 480700
             }
         }
     }
@@ -219,11 +225,11 @@
         region_state:UAN = {
             create_pop = {
                 culture = dogkin
-                size = 510000
+                size = 1510000
             }
             create_pop = {
                 culture = wolfkin
-                size = 21400
+                size = 421400
             }
         }
     }
@@ -235,7 +241,7 @@
             }
             create_pop = {
                 culture = wolfkin
-                size = 250300
+                size = 850300
             }
         }
     }
@@ -247,7 +253,7 @@
             }
             create_pop = {
                 culture = wolfkin
-                size = 66600
+                size = 866600
             }
         }
     }
@@ -255,7 +261,7 @@
         region_state:UAN = {
             create_pop = {
                 culture = dogkin
-                size = 480000
+                size = 1480000
             }
         }
     }
@@ -263,15 +269,15 @@
         region_state:UAN = {
             create_pop = {
                 culture = dogkin
-                size = 555000
+                size = 1555000
             }
             create_pop = {
                 culture = faryan
-                size = 31300
+                size = 301300
             }
             create_pop = {
                 culture = desert_catkin
-                size = 32400
+                size = 240000
             }
         }
     }
@@ -279,7 +285,7 @@
         region_state:UAN = {
             create_pop = {
                 culture = dogkin
-                size = 236700
+                size = 836700
             }
             create_pop = {
                 culture = wolfkin
@@ -295,7 +301,7 @@
         region_state:ANE = {
             create_pop = {
                 culture = eastern_rabbitkin
-                size = 615000
+                size = 1615000
             }
             create_pop = {
                 culture = western_rabbitkin
@@ -307,7 +313,7 @@
         region_state:ANE = {
             create_pop = {
                 culture = eastern_rabbitkin
-                size = 337500
+                size = 1137500
             }
             create_pop = {
                 culture = western_rabbitkin
@@ -319,7 +325,7 @@
         region_state:ANE = {
             create_pop = {
                 culture = eastern_rabbitkin
-                size = 457500
+                size = 857500
             }
         }
     }
@@ -327,7 +333,7 @@
         region_state:ANE = {
             create_pop = {
                 culture = eastern_rabbitkin
-                size = 607500
+                size = 1207500
             }
         }
     }
@@ -335,11 +341,21 @@
         region_state:ANE = {
             create_pop = {
                 culture = eastern_rabbitkin
-                size = 420000
+                size = 270000
             }
             create_pop = {
                 culture = wolfkin
                 size = 16300
+            }
+        }
+        region_state:UAN = {
+            create_pop = {
+                culture = eastern_rabbitkin
+                size = 620000
+            }
+            create_pop = {
+                culture = wolfkin
+                size = 216300
             }
         }
     }
@@ -347,7 +363,7 @@
         region_state:MIR = {
             create_pop = {
                 culture = western_rabbitkin
-                size = 637500
+                size = 1637500
             }
             create_pop = {
                 culture = eastern_rabbitkin
@@ -359,7 +375,7 @@
         region_state:MIR = {
             create_pop = {
                 culture = western_rabbitkin
-                size = 352500
+                size = 1352500
             }
             create_pop = {
                 culture = solenne
@@ -375,7 +391,7 @@
         region_state:MIR = {
             create_pop = {
                 culture = western_rabbitkin
-                size = 232500
+                size = 1232500
             }
             create_pop = {
                 culture = eastern_rabbitkin
@@ -387,7 +403,7 @@
         region_state:MIR = {
             create_pop = {
                 culture = western_rabbitkin
-                size = 427500
+                size = 1427500
             }
         }
     }
@@ -395,7 +411,7 @@
         region_state:SIR = {
             create_pop = {
                 culture = bearkin
-                size = 622500
+                size = 822500
             }
             create_pop = {
                 culture = mae
