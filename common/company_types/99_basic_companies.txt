@@ -224,6 +224,7 @@ company_basic_colonial_plantations_1 = {
 	building_types = {
 		building_banana_plantation
 		building_tea_plantation
+        building_enchanted_palm_orchard
 	}
 
 	extension_building_types = {
@@ -1411,8 +1412,7 @@ company_basic_potions = {
 	}
 
 	prosperity_modifier = {
-		building_group_bg_manufacturing_throughput_add = 0.025
-        state_birth_rate_mult = 0.025
+		building_group_bg_extraction_throughput_add = 0.05
 	}
 
 	ai_will_do = {
