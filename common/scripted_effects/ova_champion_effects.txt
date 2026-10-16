@@ -1131,7 +1131,7 @@ ova_expedition_roll = {
 				16 = {
 					modifier = {
 						if = { limit = { var:ova_champion_level >= 5 } add = 4 }
-						if = { limit = { var:ova_champion_level >= 15 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 15 } add = 8 }
 						if = { limit = { var:ova_champion_level >= 25 } add = 8 }
 						if = { limit = { var:ova_champion_level >= 35 } add = 8 }
 						if = { limit = { var:ova_champion_level >= 45 } add = 8 }
@@ -1142,11 +1142,11 @@ ova_expedition_roll = {
 				4 = { # two valleys fall at once (Level 10+)
 					trigger = { var:ova_champion_level >= 10 }
 					modifier = {
-						if = { limit = { var:ova_champion_level >= 20 } add = 2 }
-						if = { limit = { var:ova_champion_level >= 30 } add = 2 }
-						if = { limit = { var:ova_champion_level >= 40 } add = 2 }
-						if = { limit = { var:ova_champion_level >= 50 } add = 4 }
-						if = { limit = { var:ova_champion_level >= 60 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 20 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 30 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 40 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 50 } add = 8 }
+						if = { limit = { var:ova_champion_level >= 60 } add = 16 }
 					}
 					trigger_event = { id = ova_champion.48 }
 				}
