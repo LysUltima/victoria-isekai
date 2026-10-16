@@ -1433,8 +1433,8 @@ pm_crude_reagent_synthesis = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add = 20
-			goods_input_coal_add = 20
+			goods_input_sulfur_add = 10
+			goods_input_coal_add = 10 
 
 			# output goods
 			goods_output_explosives_add = 50
@@ -1465,8 +1465,8 @@ pm_catalyzed_reagent_synthesis = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add = 30
-			goods_input_coal_add = 30
+			goods_input_sulfur_add = 15
+			goods_input_coal_add = 15
 			goods_input_paper_add = 10
 
 			# output goods
@@ -1498,12 +1498,12 @@ pm_vacuum_evaporation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add = 40
-			goods_input_coal_add = 40
+			goods_input_sulfur_add = 20
+			goods_input_coal_add = 20
 			goods_input_paper_add = 20
 
 			# output goods
-			goods_output_explosives_add = 110
+			goods_output_explosives_add = 115
 		}
 
 		level_scaled = {
@@ -1531,13 +1531,13 @@ pm_arc_reagent_synthesis = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add = 40
-			goods_input_coal_add = 50
-			goods_input_paper_add = 30
+			goods_input_sulfur_add = 25
+			goods_input_coal_add = 30
+			goods_input_paper_add = 20
 			goods_input_electricity_add = 20
 
 			# output goods
-			goods_output_explosives_add = 150
+			goods_output_explosives_add = 155
 		}
 
 		level_scaled = {
@@ -1598,10 +1598,10 @@ pm_reagent_catalyzed_brewing = {
 		workforce_scaled = {
 			# input goods
 			goods_input_tobacco_add = 20		# x40 =  800
-			goods_input_explosives_add = 5		# x50 =  250
+			goods_input_explosives_add = 10		# x50 =  500
 
 			# output goods
-			goods_output_dye_add = 45			# x50 = 2250
+			goods_output_dye_add = 50			# x50 = 2500
 		}
 
 		level_scaled = {
@@ -1630,11 +1630,11 @@ pm_stabilized_catalysis = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tobacco_add = 30		# x40 = 1200
-			goods_input_explosives_add = 10	# x50 =  500
+			goods_input_tobacco_add = 25		# x40 =  1000
+			goods_input_explosives_add = 30	# x50 =  1500
 
 			# output goods
-			goods_output_dye_add = 65			# x50 = 3250
+			goods_output_dye_add = 80			# x50 = 4000
 		}
 
 		level_scaled = {
@@ -1664,12 +1664,12 @@ pm_grand_alchemical_vats = {
 		workforce_scaled = {
 			# input goods
 			goods_input_tobacco_add = 30		# x40 = 1200
-			goods_input_explosives_add = 15	# x50 =  750
+			goods_input_explosives_add = 50	# x50 =  2500
 			goods_input_glass_add = 10		# x40 =  400
 			goods_input_oil_add = 10		# x40 =  400 (anima)
 
 			# output goods
-			goods_output_dye_add = 90			# x50 = 4500
+			goods_output_dye_add = 130			# x50 = 6500
 		}
 
 		level_scaled = {
@@ -1695,13 +1695,35 @@ pm_health_potion_brewing = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_tobacco_add = 10 # 400
+			goods_input_tobacco_add = 5 # 400
 			# output goods
-			goods_output_opium_add = 25 # 1250
+			goods_output_opium_add = 10 # 1250
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = 1000
+			building_employment_engineers_add = 250
+		}
+	}
+}
+
+pm_mass_health_potions = {
+    texture = "gfx/interface/icons/production_method_icons/bessemer_process.dds"
+
+	unlocking_technologies = {
+		stabilized_reagents
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# input goods
+			goods_input_tobacco_add = 5
+            goods_input_explosives_add = 15
+            goods_input_glass_add = 5
+			# output goods
+			goods_output_opium_add = 40
+		}
+
+		level_scaled = {
 			building_employment_engineers_add = 500
 		}
 	}

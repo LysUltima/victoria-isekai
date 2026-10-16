@@ -193,6 +193,7 @@ pmg_health_potions = {
 	production_methods = {
 		pm_no_health_potions
 		pm_health_potion_brewing
+        pm_mass_health_potions
 	}
 }
 

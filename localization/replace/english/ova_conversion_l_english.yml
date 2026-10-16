@@ -387,6 +387,7 @@
   pm_grand_alchemical_vats: "Grand Alchemical Vats"
   pm_no_health_potions: "No Health Potion Line"
   pm_health_potion_brewing: "Health Potion Brewing"
+  pm_mass_health_potions: "Mass Health Potions"
   pm_rayon: "Alchemical Thread"
   pm_telephones: "Communication Orb Crafting"
   pm_aeroplane_production: "Airship Assembly"
@@ -508,11 +509,26 @@
   company_basic_colonial_plantations_1: "Spirit Orchard Estates"
   company_basic_silk_and_dye: "Spirit Thread and Herb Combine"
   company_basic_motors: "Automata Works"
-  company_basic_electrics: "Orb Ateliers"
+  company_basic_electrics: "Ley Line Inc."
   company_basic_steel: "Core Foundry Trust"
-  company_basic_chemicals: "Fertilizer and Reagent Works"
+  company_basic_chemicals: "Fertilizer Works"
   company_basic_munitions: "Consumables Combine"
   company_basic_wine_and_fruit: "Spirit Wine and Fruit Combine"
+  company_basic_potions: "Potion Works"
+
+  company_basic_oil_dynamic_name_tag_singular: "Anima"
+  company_basic_oil_dynamic_name_tag_plural: "Anima"
+  company_basic_chemicals_dynamic_name_tag_singular: "Spirit Garden"
+  company_basic_chemicals_dynamic_name_tag_plural: "Spirit Garden"
+  company_basic_motors_dynamic_name_tag_singular: "Automata"
+  company_basic_motors_dynamic_name_tag_plural: "Automata"
+  company_basic_steel_dynamic_name_tag_singular: "Core"
+  company_basic_steel_dynamic_name_tag_plural: "Core"
+  company_basic_electrics_dynamic_name_tag_singular: "Ley Line"
+  company_basic_electrics_dynamic_name_tag_plural: "Ley Lines"
+  company_basic_potions_dynamic_name_tag_singular: "Potion"
+  company_basic_potions_dynamic_name_tag_plural: "Potions"
+ 
 
   ### ---------------------------------------------------------------
   ### ROUND 4: PM & tech revamp (potions everywhere, plantations,

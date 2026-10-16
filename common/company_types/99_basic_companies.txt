@@ -230,17 +230,6 @@ company_basic_colonial_plantations_1 = {
 		building_tobacco_plantation
 	}
 
-	possible_prestige_goods = {
-		prestige_good_generic_opium
-	}
-
-	prestige_goods_trigger = {
-		custom_tooltip = {
-			text = je_prestige_goods_opium_complete_tt
-			has_variable = prestige_good_generic_opium_var
-		}
-	}
-
 	possible = {
 		any_scope_state = {
 			any_scope_building = {
@@ -543,6 +532,8 @@ company_basic_forestry = {
 
 	building_types = {
 		building_logging_camp
+        building_forests_of_the_departed
+        building_enchanted_palm_orchard
 	}
 
 	extension_building_types = {
@@ -554,7 +545,8 @@ company_basic_forestry = {
 			any_scope_building = {
 				OR = {
 					is_building_type = building_logging_camp
-					is_building_type = building_logging_camp
+					is_building_type = building_forests_of_the_departed
+                    is_building_type = building_enchanted_palm_orchard
 				}
 				level >= 5
 			}
@@ -571,7 +563,8 @@ company_basic_forestry = {
 			any_scope_building = {
 				OR = {
 					is_building_type = building_logging_camp
-					is_building_type = building_logging_camp
+					is_building_type = building_forests_of_the_departed
+                    is_building_type = building_enchanted_palm_orchard
 				}
 				level >= 3
 			}
@@ -1193,11 +1186,11 @@ company_basic_chemicals = {
 
 	building_types = {
 		building_chemical_plant
-		building_synthetics_plant
 	}
 
 	extension_building_types = {
 		building_sulfur_mine
+        building_coal_mine
 	}
 
 	possible_prestige_goods = {
@@ -1217,7 +1210,6 @@ company_basic_chemicals = {
 			any_scope_building = {
 				OR = {
 					is_building_type = building_chemical_plant
-					is_building_type = building_synthetics_plant
 				}
 				level >= 5
 			}
@@ -1235,7 +1227,6 @@ company_basic_chemicals = {
 			any_scope_building = {
 				OR = {
 					is_building_type = building_chemical_plant
-					is_building_type = building_synthetics_plant
 				}
 				level >= 5
 			}
@@ -1325,7 +1316,7 @@ company_basic_munitions = {
 
 	extension_building_types = {
 		building_sulfur_mine
-		building_steel_mill
+		building_tobacco_plantation
 	}
 
 	possible_prestige_goods = {
@@ -1369,6 +1360,75 @@ company_basic_munitions = {
 		}
 	}
 }
+
+company_basic_potions = {
+	icon = "gfx/interface/icons/company_icons/rainbowbottle4.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	flavored_company = no
+
+	uses_dynamic_naming = yes
+
+	dynamic_company_type_names = {
+		"dynamic_company_type_company"
+		"dynamic_company_type_consortium"
+		"dynamic_company_type_corporation"
+		"dynamic_company_type_conglomerate"
+		"dynamic_company_type_syndicate"
+		"dynamic_company_type_combine"
+	}
+
+	building_types = {
+		building_synthetics_plant
+	}
+
+	extension_building_types = {
+		building_explosives_factory
+		building_tobacco_plantation
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_opium
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_opium_complete_tt
+			has_variable = prestige_good_generic_opium_var
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_synthetics_plant
+				}
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_group_bg_manufacturing_throughput_add = 0.025
+        state_birth_rate_mult = 0.025
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_synthetics_plant
+				}
+				level >= 5
+			}
+		}
+	}
+}
+
+
 
 company_basic_electrics = {
 	icon = "gfx/interface/icons/company_icons/basic_electrics.dds"
@@ -1444,6 +1504,7 @@ company_basic_weapons = {
 	extension_building_types = {
 		building_automotive_industry
 		building_steel_mill
+        building_spirit_beast_hunting
 	}
 
 	possible_prestige_goods = {
@@ -1484,6 +1545,55 @@ company_basic_weapons = {
 					is_building_type = building_artillery_foundry
 				}
 				level >= 5
+			}
+		}
+	}
+}
+
+company_basic_oil = {
+	icon = "gfx/interface/icons/company_icons/basic_oil.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_oil_drills.dds"
+
+	flavored_company = no
+
+	uses_dynamic_naming = yes
+
+	dynamic_company_type_names = {
+		"dynamic_company_type_company"
+		"dynamic_company_type_consortium"
+		"dynamic_company_type_corporation"
+		"dynamic_company_type_conglomerate"
+		"dynamic_company_type_syndicate"
+		"dynamic_company_type_combine"
+	}
+
+	building_types = {
+		building_oil_rig
+        building_forests_of_the_departed
+	}
+
+	extension_building_types = {
+		building_coal_mine
+	}
+
+	possible = {
+		any_scope_state = {
+			any_scope_building = {
+				is_building_type = building_oil_rig
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_migration_pull_mult = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			any_scope_building = {
+				is_building_type = building_oil_rig
+				level >= 3
 			}
 		}
 	}
