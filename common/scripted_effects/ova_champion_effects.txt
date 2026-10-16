@@ -1130,12 +1130,12 @@ ova_expedition_roll = {
 				# --- territory (grows with Level)
 				16 = {
 					modifier = {
-						if = { limit = { var:ova_champion_level >= 5 } add = 2 }
-						if = { limit = { var:ova_champion_level >= 15 } add = 2 }
-						if = { limit = { var:ova_champion_level >= 25 } add = 2 }
-						if = { limit = { var:ova_champion_level >= 35 } add = 4 }
-						if = { limit = { var:ova_champion_level >= 45 } add = 4 }
-						if = { limit = { var:ova_champion_level >= 55 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 5 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 15 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 25 } add = 8 }
+						if = { limit = { var:ova_champion_level >= 35 } add = 8 }
+						if = { limit = { var:ova_champion_level >= 45 } add = 8 }
+						if = { limit = { var:ova_champion_level >= 55 } add = 12 }
 					}
 					trigger_event = { id = ova_champion.20 }
 				}
