@@ -1211,25 +1211,25 @@ ova_expedition_roll = {
 		else = {
 			random_list = {
 				# --- territory (grows with Level)
-				8 = {
+				12 = {
 					modifier = {
 						if = { limit = { var:ova_champion_level >= 5 } add = 2 }
 						if = { limit = { var:ova_champion_level >= 15 } add = 2 }
-						if = { limit = { var:ova_champion_level >= 25 } add = 2 }
-						if = { limit = { var:ova_champion_level >= 35 } add = 4 }
-						if = { limit = { var:ova_champion_level >= 45 } add = 4 }
-						if = { limit = { var:ova_champion_level >= 55 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 25 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 35 } add = 6 }
+						if = { limit = { var:ova_champion_level >= 45 } add = 6 }
+						if = { limit = { var:ova_champion_level >= 55 } add = 8 }
 					}
 					trigger_event = { id = ova_champion.30 }
 				}
-				1 = { # two marches overrun at once (Level 10+)
+				2 = { # two marches overrun at once (Level 10+)
 					trigger = { var:ova_champion_level >= 10 }
 					modifier = {
-						if = { limit = { var:ova_champion_level >= 10 } add = 1 }
+						if = { limit = { var:ova_champion_level >= 10 } add = 2 }
 						if = { limit = { var:ova_champion_level >= 20 } add = 2 }
 						if = { limit = { var:ova_champion_level >= 30 } add = 2 }
-						if = { limit = { var:ova_champion_level >= 40 } add = 2 }
-						if = { limit = { var:ova_champion_level >= 50 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 40 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 50 } add = 4 }
 						if = { limit = { var:ova_champion_level >= 60 } add = 4 }
 					}
 					trigger_event = { id = ova_champion.58 }
