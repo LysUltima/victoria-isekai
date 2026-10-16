@@ -401,7 +401,7 @@ effect_ova_rey_objectives_check = {
 			has_journal_entry = je_ova_rey_court_rabbit
 			NOT = { has_variable = ova_rey_obj1_rabbit }
 			s:STATE_HASENHAFEN.region_state:REY ?= {
-				any_scope_building = { is_building_type = building_wheat_farm level >= 20 }
+				any_scope_building = { is_building_type = building_rye_farm level >= 20 }
 			}
 		}
 		set_variable = ova_rey_obj1_rabbit

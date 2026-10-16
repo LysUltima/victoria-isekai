@@ -58,9 +58,9 @@
   # Chapter 4: Hasenhafen - Lieselotte, the rabbitkin harvest maiden
   # ===================================================================
   je_ova_rey_court_rabbit: "The Maiden of Hasenhafen"
-  je_ova_rey_court_rabbit_reason: "The fourth stop is Hasenhafen, and this time the target is Lieselotte Klee. She is a rabbitkin harvest maiden, gentle enough to worry about everyone and timid enough to startle at almost anything. Her smile alone is enough to make John decide the entire trip was worth it. Take her on eight dates and fill the Affection bar, then confess from the journal button once it is full. Three optional deeds can win a large amount of affection: raise Wheat Farms to level 20 in Hasenhafen, reach Renown Level 9, and reach Champion Level 18. A full barn, a famous name, and enough strength to protect the people around her. Those are the kinds of things that make Lieselotte feel safe. If the eighth date ends before her heart is won, or time runs out, she will wave goodbye with tears she refuses to explain. John will have to keep walking."
+  je_ova_rey_court_rabbit_reason: "The fourth stop is Hasenhafen, and this time the target is Lieselotte Klee. She is a rabbitkin harvest maiden, gentle enough to worry about everyone and timid enough to startle at almost anything. Her smile alone is enough to make John decide the entire trip was worth it. Take her on eight dates and fill the Affection bar, then confess from the journal button once it is full. Three optional deeds can win a large amount of affection: raise Rye Farms to level 20 in Hasenhafen, reach Renown Level 9, and reach Champion Level 18. A full barn, a famous name, and enough strength to protect the people around her. Those are the kinds of things that make Lieselotte feel safe. If the eighth date ends before her heart is won, or time runs out, she will wave goodbye with tears she refuses to explain. John will have to keep walking."
   je_ova_rey_rabbit_heart_tt: "Her heart is won (the Affection bar is full)"
-  je_ova_rey_rabbit_obj1_tt: "A harvest overflows in Hasenhafen (Wheat Farm at level 20)"
+  je_ova_rey_rabbit_obj1_tt: "A harvest overflows in Hasenhafen (Rye Farm at level 20)"
   je_ova_rey_rabbit_obj2_tt: "John Paradox has reached Renown Level 9"
   je_ova_rey_rabbit_obj3_tt: "John Paradox has reached Champion Level 18"
 
