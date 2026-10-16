@@ -1128,7 +1128,7 @@ ova_expedition_roll = {
 			limit = { scope:ova_adventure_target = { is_country_type = decentralized } }
 			random_list = {
 				# --- territory (grows with Level)
-				8 = {
+				16 = {
 					modifier = {
 						if = { limit = { var:ova_champion_level >= 5 } add = 2 }
 						if = { limit = { var:ova_champion_level >= 15 } add = 2 }
@@ -1139,10 +1139,9 @@ ova_expedition_roll = {
 					}
 					trigger_event = { id = ova_champion.20 }
 				}
-				1 = { # two valleys fall at once (Level 10+)
+				4 = { # two valleys fall at once (Level 10+)
 					trigger = { var:ova_champion_level >= 10 }
 					modifier = {
-						if = { limit = { var:ova_champion_level >= 10 } add = 1 }
 						if = { limit = { var:ova_champion_level >= 20 } add = 2 }
 						if = { limit = { var:ova_champion_level >= 30 } add = 2 }
 						if = { limit = { var:ova_champion_level >= 40 } add = 2 }
@@ -1185,17 +1184,17 @@ ova_expedition_roll = {
 				# --- setbacks (recede with Level)
 				12 = {
 					modifier = {
-						if = { limit = { var:ova_champion_level >= 20 } add = -3 }
-						if = { limit = { var:ova_champion_level >= 40 } add = -3 }
+						if = { limit = { var:ova_champion_level >= 20 } add = -5 }
+						if = { limit = { var:ova_champion_level >= 40 } add = -5 }
 					}
 					trigger_event = { id = ova_champion.23 }
 				}
 				8 = {
-					modifier = { if = { limit = { var:ova_champion_level >= 30 } add = -2 } }
+					modifier = { if = { limit = { var:ova_champion_level >= 30 } add = -6 } }
 					trigger_event = { id = ova_champion.47 }
 				}
 				6 = {
-					modifier = { if = { limit = { var:ova_champion_level >= 35 } add = -2 } }
+					modifier = { if = { limit = { var:ova_champion_level >= 35 } add = -4 } }
 					trigger_event = { id = ova_champion.49 }
 				}
 				8 = {
@@ -1215,21 +1214,20 @@ ova_expedition_roll = {
 					modifier = {
 						if = { limit = { var:ova_champion_level >= 5 } add = 2 }
 						if = { limit = { var:ova_champion_level >= 15 } add = 2 }
-						if = { limit = { var:ova_champion_level >= 25 } add = 4 }
-						if = { limit = { var:ova_champion_level >= 35 } add = 6 }
-						if = { limit = { var:ova_champion_level >= 45 } add = 6 }
-						if = { limit = { var:ova_champion_level >= 55 } add = 8 }
+						if = { limit = { var:ova_champion_level >= 25 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 35 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 45 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 55 } add = 4 }
 					}
 					trigger_event = { id = ova_champion.30 }
 				}
 				2 = { # two marches overrun at once (Level 10+)
 					trigger = { var:ova_champion_level >= 10 }
 					modifier = {
-						if = { limit = { var:ova_champion_level >= 10 } add = 2 }
 						if = { limit = { var:ova_champion_level >= 20 } add = 2 }
 						if = { limit = { var:ova_champion_level >= 30 } add = 2 }
-						if = { limit = { var:ova_champion_level >= 40 } add = 4 }
-						if = { limit = { var:ova_champion_level >= 50 } add = 4 }
+						if = { limit = { var:ova_champion_level >= 40 } add = 2 }
+						if = { limit = { var:ova_champion_level >= 50 } add = 2 }
 						if = { limit = { var:ova_champion_level >= 60 } add = 4 }
 					}
 					trigger_event = { id = ova_champion.58 }
@@ -1265,17 +1263,17 @@ ova_expedition_roll = {
 				# --- setbacks (recede with Level)
 				12 = {
 					modifier = {
-						if = { limit = { var:ova_champion_level >= 20 } add = -3 }
-						if = { limit = { var:ova_champion_level >= 40 } add = -3 }
+						if = { limit = { var:ova_champion_level >= 20 } add = -5 }
+						if = { limit = { var:ova_champion_level >= 40 } add = -5 }
 					}
 					trigger_event = { id = ova_champion.33 }
 				}
 				8 = {
-					modifier = { if = { limit = { var:ova_champion_level >= 30 } add = -2 } }
+					modifier = { if = { limit = { var:ova_champion_level >= 30 } add = -6 } }
 					trigger_event = { id = ova_champion.57 }
 				}
 				6 = {
-					modifier = { if = { limit = { var:ova_champion_level >= 35 } add = -2 } }
+					modifier = { if = { limit = { var:ova_champion_level >= 35 } add = -4 } }
 					trigger_event = { id = ova_champion.59 }
 				}
 				8 = {
