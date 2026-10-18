@@ -15,7 +15,7 @@
 
 	building_modifiers = {
         workforce_scaled = {
-            goods_output_services_add = 10
+            goods_input_services_add = 2
         }
 		level_scaled = {
 			building_employment_clerks_add = 500
@@ -44,7 +44,7 @@ pm_horizontal_drawer_cabinets = {
 
 	building_modifiers = {
 		workforce_scaled = {
-            goods_output_services_add = 10
+            goods_input_services_add = 10
 			goods_input_paper_add = 10
 		}
 
@@ -74,7 +74,7 @@ pm_vertical_filing_cabinets = {
 
 	building_modifiers = {
 		workforce_scaled = {
-            goods_output_services_add = 15
+            goods_input_services_add = 15
 			goods_input_paper_add = 20
 		}
 
@@ -104,7 +104,7 @@ pm_switch_boards = {
 
 	building_modifiers = {
 		workforce_scaled = {
-            goods_output_services_add = 20
+            goods_input_services_add = 20
 			goods_input_paper_add = 20
 			goods_input_telephones_add = 5
 		}
@@ -187,7 +187,7 @@ pm_scholastic_education = {
 
 	building_modifiers = {
 		workforce_scaled = {
-            goods_output_services_add = 5
+            goods_input_services_add = 5
 			goods_input_paper_add = 5
 		}
 
@@ -219,7 +219,7 @@ pm_philosophy_department = {
 
 	building_modifiers = {
 		workforce_scaled = {
-            goods_output_services_add = 10
+            goods_input_services_add = 10
 			goods_input_paper_add = 10
 		}
 
@@ -251,7 +251,7 @@ pm_analytical_philosophy_department = {
 
 	building_modifiers = {
 		workforce_scaled = {
-            goods_output_services_add = 20
+            goods_input_services_add = 20
 			goods_input_paper_add = 15
 		}
 
@@ -372,7 +372,7 @@ pm_basic_vat_growth = {
 			goods_input_dye_add = 10 # potions
 			goods_input_grain_add = 20
 			goods_input_oil_add = 5 # anima
-            goods_output_services_add = 20
+            goods_output_services_add = 40
 		}
 
 		level_scaled = {
@@ -383,7 +383,7 @@ pm_basic_vat_growth = {
 
     country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 0.01
+			country_weekly_innovation_add = 0.05
 		}
 	}
 
@@ -407,7 +407,7 @@ pm_alchemical_wombs = {
 			goods_input_opium_add = 10 # health potions
 			goods_input_grain_add = 20
 			goods_input_oil_add = 10 # anima
-            goods_output_services_add = 30
+            goods_output_services_add = 60
 		}
 
 		level_scaled = {
@@ -418,7 +418,7 @@ pm_alchemical_wombs = {
 
     country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 0.025
+			country_weekly_innovation_add = 0.10
 		}
 	}
 
@@ -443,7 +443,7 @@ pm_soul_seeded_batches = {
 			goods_input_explosives_add = 10 # reagents
 			goods_input_grain_add = 30
 			goods_input_oil_add = 15 # anima
-            goods_output_services_add = 40
+            goods_output_services_add = 80
 		}
 
 		level_scaled = {
@@ -454,7 +454,7 @@ pm_soul_seeded_batches = {
 
     country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 0.05
+			country_weekly_innovation_add = 0.20
 		}
 	}
 
