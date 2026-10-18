@@ -12,6 +12,7 @@
     "replace_paths": [
       "common/achievements",
       "common/coat_of_arms/coat_of_arms",
+      "common/company_types",
       "common/country_creation",
       "common/country_definitions",
       "common/country_formation",
