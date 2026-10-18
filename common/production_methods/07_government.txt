@@ -14,6 +14,9 @@
 	}
 
 	building_modifiers = {
+        workforce_scaled = {
+            goods_output_services_add = 10
+        }
 		level_scaled = {
 			building_employment_clerks_add = 500
 		}
@@ -41,6 +44,7 @@ pm_horizontal_drawer_cabinets = {
 
 	building_modifiers = {
 		workforce_scaled = {
+            goods_output_services_add = 10
 			goods_input_paper_add = 10
 		}
 
@@ -70,6 +74,7 @@ pm_vertical_filing_cabinets = {
 
 	building_modifiers = {
 		workforce_scaled = {
+            goods_output_services_add = 15
 			goods_input_paper_add = 20
 		}
 
@@ -99,6 +104,7 @@ pm_switch_boards = {
 
 	building_modifiers = {
 		workforce_scaled = {
+            goods_output_services_add = 20
 			goods_input_paper_add = 20
 			goods_input_telephones_add = 5
 		}
@@ -181,6 +187,7 @@ pm_scholastic_education = {
 
 	building_modifiers = {
 		workforce_scaled = {
+            goods_output_services_add = 5
 			goods_input_paper_add = 5
 		}
 
@@ -212,6 +219,7 @@ pm_philosophy_department = {
 
 	building_modifiers = {
 		workforce_scaled = {
+            goods_output_services_add = 10
 			goods_input_paper_add = 10
 		}
 
@@ -243,6 +251,7 @@ pm_analytical_philosophy_department = {
 
 	building_modifiers = {
 		workforce_scaled = {
+            goods_output_services_add = 20
 			goods_input_paper_add = 15
 		}
 
@@ -363,6 +372,7 @@ pm_basic_vat_growth = {
 			goods_input_dye_add = 10 # potions
 			goods_input_grain_add = 20
 			goods_input_oil_add = 5 # anima
+            goods_output_services_add = 20
 		}
 
 		level_scaled = {
@@ -397,6 +407,7 @@ pm_alchemical_wombs = {
 			goods_input_opium_add = 10 # health potions
 			goods_input_grain_add = 20
 			goods_input_oil_add = 10 # anima
+            goods_output_services_add = 30
 		}
 
 		level_scaled = {
@@ -432,6 +443,7 @@ pm_soul_seeded_batches = {
 			goods_input_explosives_add = 10 # reagents
 			goods_input_grain_add = 30
 			goods_input_oil_add = 15 # anima
+            goods_output_services_add = 40
 		}
 
 		level_scaled = {
@@ -463,6 +475,7 @@ pm_qi_gathering_halls = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_coal_add = 5 # spirit stones
+            goods_output_services_add = 10
 		}
 
 		level_scaled = {
@@ -495,6 +508,7 @@ pm_golden_core_pavilions = {
 		workforce_scaled = {
 			goods_input_coal_add = 10 # spirit stones
 			goods_input_ammunition_add = 5 # consumables: talismans and pills
+            goods_output_services_add = 30
 		}
 
 		level_scaled = {
@@ -531,6 +545,7 @@ pm_nascent_soul_sanctums = {
 			goods_input_coal_add = 15 # spirit stones
 			goods_input_ammunition_add = 10 # consumables
 			goods_input_fertilizer_add = 10 # spirit fertilizer
+            goods_output_services_add = 60
 		}
 
 		level_scaled = {
@@ -568,6 +583,7 @@ pm_soul_formation_retreats = {
 			goods_input_ammunition_add = 15 # consumables
 			goods_input_fertilizer_add = 15 # spirit fertilizer
 			goods_input_electricity_add = 10 # mana
+            goods_output_services_add = 110
 		}
 
 		level_scaled = {
@@ -608,6 +624,7 @@ pm_void_return_temples = {
 			goods_input_ammunition_add = 20 # consumables
 			goods_input_fertilizer_add = 20 # spirit fertilizer
 			goods_input_electricity_add = 15 # mana
+            goods_output_services_add = 165
 		}
 
 		level_scaled = {
@@ -658,8 +675,8 @@ pm_blood_sacrifice_altars = {
 	building_modifiers = {
 		workforce_scaled = {
             goods_input_oil_add = 5 # souls
-			goods_output_coal_add = 20 # spirit stones
-			goods_output_meat_add = 10 # harvested flesh
+			goods_output_coal_add = 30 # spirit stones
+			goods_output_meat_add = 15 # harvested flesh
 		}
 
 		level_scaled = {

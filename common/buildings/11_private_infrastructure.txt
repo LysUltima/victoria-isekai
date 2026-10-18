@@ -47,6 +47,30 @@ building_airship_dock = {
 	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+    ai_value = {
+		value = 3000 # Railways are important
+	}
+
+    should_auto_expand = {
+		occupancy >= 0.8
+		OR = {
+			cash_reserves_ratio > 0.5
+			is_subsidized = yes
+		}
+		OR = {
+			state = {
+				sg:transportation = {
+					state_goods_pricier > 0.5
+				}
+			}
+			state = {
+				infrastructure_delta <= -20
+			}
+		}
+		NOT = { is_under_construction = yes }
+
+	}
 }
 
 building_railway = {
@@ -68,164 +92,6 @@ building_railway = {
 
 	ai_value = {
 		value = 2000 # Railways are important
-
-		if = { # Trans-Siberian Railway
-			limit = {
-				owner = {
-					always = no
-				}
-				OR = {
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-				}
-				NOR = {
-					has_building = building_railway
-					any_scope_building = {
-						is_building_type = building_railway
-						is_under_construction = yes
-					}
-				}
-			}
-			add = 10000
-		}
-		else_if = { # Shinkansen, my beloved
-			limit = {
-				owner = {
-					always = no
-				}
-				is_incorporated = yes # Japan proper
-				NOR = {
-					has_building = building_railway
-					any_scope_building = {
-						is_building_type = building_railway
-						is_under_construction = yes
-					}
-				}
-			}
-			add = 10000
-		}
-		else_if = { # Trans-Continental Railways
-			limit = {
-				owner = {
-					always = no
-				}
-				OR = {
-always = no
-always = no
-always = no
-always = no
-always = no
-				}
-				NOR = {
-					has_building = building_railway
-					any_scope_building = {
-						is_building_type = building_railway
-						is_under_construction = yes
-					}
-				}
-			}
-			add = 10000
-		}
-		else_if = { # Canadian Pacific Highway
-			limit = {
-				owner = {
-					always = no
-				}
-				OR = {
-always = no
-always = no
-always = no
-always = no
-always = no
-always = no
-				}
-				NOR = {
-					has_building = building_railway
-					any_scope_building = {
-						is_building_type = building_railway
-						is_under_construction = yes
-					}
-				}
-			}
-			add = 10000
-		}
-		else_if = { # AI Metternich wants railways
-			limit = {
-				owner ?= {
-					always = no
-					always = no
-				}
-				is_incorporated = yes
-				NOR = {
-					has_building = building_railway
-					any_scope_building = {
-						is_building_type = building_railway
-						is_under_construction = yes
-					}
-				}
-			}
-            add = 10000
-		}
-		else_if = { # Portugal - Regeneration
-			limit = {
-				owner = {
-					always = no
-				}
-				is_incorporated = yes
-				NOR = {
-					has_building = building_railway
-					any_scope_building = {
-						is_building_type = building_railway
-						is_under_construction = yes
-					}
-				}
-			}
-			add = 10000
-		}
-
-		if = { # Manchurian Railway
-			limit = {
-				always = no
-				always = no
-				always = no
-				any_scope_building = {
-					is_building_type = building_railway
-					always = no # blanked: levels_owned_by_country target not present in this mod
-				}
-			}
-			add = 10000
-		}
-
-		if = { # Colonisation of Korea
-			limit = {
-				owner ?= {
-					always = no
-					always = no
-				}
-				always = no
-				any_scope_building = {
-					is_building_type = building_railway
-					level < 10
-				}
-			}
-			add = 10000
-		}
 	}
 
 	should_auto_expand = {
@@ -250,6 +116,60 @@ always = no
 	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_railways.dds"
+}
+
+building_cultivation_grounds = {
+	building_group = bg_private_infrastructure
+	city_type = city
+
+	levels_per_mesh = 25
+
+	unlocking_technologies = {
+		qi_gathering
+	}
+
+	production_method_groups = {
+		pmg_base_building_cultivation_grounds
+		pmg_demonic_rites_cultivation_grounds
+	}
+
+	icon = "gfx/interface/icons/building_icons/cultivation_grounds.dds"
+
+	required_construction = construction_cost_medium
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+    ai_value = {
+		value = 1000
+
+        if = {
+            limit = { 
+                owner = {
+                    any_primary_culture = {
+                        has_discrimination_trait_group = heritage_group_xianxia_human
+                    }
+                }
+            }
+            add = 5000
+        }
+    }
+
+    should_auto_expand = {
+		occupancy >= 0.8
+		OR = {
+			cash_reserves_ratio > 0.5
+			is_subsidized = yes
+		}
+		OR = {
+			state = {
+				sg:services = {
+					state_goods_pricier > 0.5
+				}
+			}
+		}
+		NOT = { is_under_construction = yes }
+
+	}
 }
 
 building_trade_center = {

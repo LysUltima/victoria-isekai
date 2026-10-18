@@ -121,46 +121,6 @@ building_homunculus_factory = {
 	}
 }
 
-building_cultivation_grounds = {
-	building_group = bg_technology
-	city_type = city
-
-	levels_per_mesh = 25
-
-	# see building_homunculus_factory - keeps the AI from deleting it
-	downsizeable = no
-
-	unlocking_technologies = {
-		qi_gathering
-	}
-
-	production_method_groups = {
-		pmg_base_building_cultivation_grounds
-		pmg_demonic_rites_cultivation_grounds
-	}
-
-	icon = "gfx/interface/icons/building_icons/cultivation_grounds.dds"
-
-	required_construction = construction_cost_medium
-
-	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
-
-    ai_value = {
-		value = 1000
-
-        if = {
-            limit = { 
-                owner = {
-                    any_primary_culture = {
-                        has_discrimination_trait_group = heritage_group_xianxia_human
-                    }
-                }
-            }
-            add = 5000
-        }
-    }
-}
-
 building_champion_hall = {
 	building_group = bg_technology
 	city_type = city
