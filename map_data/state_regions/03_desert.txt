@@ -599,6 +599,7 @@ STATE_WADI_AL_AZHAR = {
     prime_land = {
         x1fa329 x209018 x20982a x249f2a x33912d x348b10 x398b1b x24a033 x36a528 x3ea036
     }
+    traits = { "state_trait_desert" }
     city = "x1EAA15"
     port = "x1FA329"
     farm = "x20982A"
