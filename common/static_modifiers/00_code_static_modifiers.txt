@@ -794,7 +794,7 @@ government_owned_debt = {
 # Capped at COUNTRY_GDP_MODIFIER_MAX_MULTIPLIER
 country_gdp = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
-	country_minting_add = 1
+	country_minting_add = 2
 }
 
 # Scales with country GDP / COUNTRY_GDP_CONSTRUCTION_MODIFIER_DIVISOR / COUNTRY_GDP_CONSTRUCTION_MODIFIER_SCALED_MULTIPLIER
