@@ -10,7 +10,7 @@ COUNTRIES = {
 		# Foundation: inferred; Old sect endowment consistent with the centuries-old institutions and eight-hundred-year archives of the shared cultivation story. This particular hall has no exact dated foundation. Month and day are authored flavor.
 		add_company = company_type:company_ova_story_heavenly_note_resonance
 		company:company_ova_story_heavenly_note_resonance = {
-			set_company_establishment_date = 900.9.15
+			set_company_establishment_date = 64.9.15
 			set_company_state_region = s:STATE_TIANYIN
 		}
 		# END OVA STORY COMPANY

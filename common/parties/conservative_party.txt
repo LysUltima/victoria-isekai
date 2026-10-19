@@ -194,7 +194,7 @@ conservative_party = {
 					country_has_primary_culture = cu:farshore
 					has_law = law_type:law_monarchy
 					OR = {
-						game_date <= 1837.1.1
+						game_date <= 1001.1.1
 						has_gov_regency = yes
 					}
 				}

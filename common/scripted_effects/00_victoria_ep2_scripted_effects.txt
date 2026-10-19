@@ -316,7 +316,7 @@ on_remove_ruler_effects = {
 	if = {
 		limit = {
 			always = no
-			game_date >= 1852.11.3
+			game_date >= 1016.11.3
 		}
 		owner = {
 			if = {
@@ -330,7 +330,7 @@ on_remove_ruler_effects = {
 	else_if = {
 		limit = {
 			always = no
-			game_date >= 1879.8.31
+			game_date >= 1043.8.31
 		}
 		owner = {
 			if = {
@@ -344,7 +344,7 @@ on_remove_ruler_effects = {
 	else_if = {
 		limit = {
 			always = no
-			game_date >= 1901.4.29
+			game_date >= 1065.4.29
 		}
 		owner = {
 			if = {

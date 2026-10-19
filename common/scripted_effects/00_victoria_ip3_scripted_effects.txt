@@ -1001,7 +1001,7 @@ ser_save_contender_of_rival_dynasty_as_scope = {
 ser_generate_obrenovic_ruler = {
 	if = {
 		limit = {
-			game_date >= 1876.8.14
+			game_date >= 1040.8.14
 		}
 		create_character = {
 			template = SER_alexander_obrenovic
@@ -1012,7 +1012,7 @@ ser_generate_obrenovic_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date >= 1854.8.22
+			game_date >= 1018.8.22
 		}
 		create_character = {
 			template = SER_milan_iv_obrenovic
@@ -1034,7 +1034,7 @@ ser_generate_obrenovic_ruler = {
 ser_generate_karadordevic_ruler = {
 	if = {
 		limit = {
-			game_date >= 1923.9.6
+			game_date >= 1087.9.6
 		}
 		create_character = {
 			template = SER_petar_ii_karadordevic
@@ -1045,7 +1045,7 @@ ser_generate_karadordevic_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date >= 1888.12.16
+			game_date >= 1052.12.16
 		}
 		create_character = {
 			template = SER_alexander_i_karadordevic
@@ -1056,7 +1056,7 @@ ser_generate_karadordevic_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date >= 1887.9.8
+			game_date >= 1051.9.8
 		}
 		create_character = {
 			template = SER_george_karadordevic
@@ -1067,7 +1067,7 @@ ser_generate_karadordevic_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date >= 1844.8.14
+			game_date >= 1008.8.14
 		}
 		create_character = {
 			template = SER_petar_i_karadordevic

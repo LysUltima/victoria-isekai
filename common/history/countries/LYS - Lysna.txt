@@ -12,7 +12,7 @@ COUNTRIES = {
 		# Foundation: inferred; Permanent court patronage charter assigned to the first year after the 1802 Radiant Crusade compact; earlier Heroes and summoning institutions predate this office. Exact office date is unspecified in original lore. Month and day are authored flavor.
 		add_company = company_type:company_ova_hero_patronage_office
 		company:company_ova_hero_patronage_office = {
-			set_company_establishment_date = 1803.6.14
+			set_company_establishment_date = 967.6.14
 			set_company_state_region = s:STATE_IMPERIAL_CAPITAL
 		}
 		# END OVA STORY COMPANY

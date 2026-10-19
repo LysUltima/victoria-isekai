@@ -10,7 +10,7 @@ COUNTRIES = {
 		# Foundation: inferred; Established commercial branch of the ancestral Imperial Sword Clan, predating the Orthodox Alliance. Original lore supplies no calendar date; this is a new inferred guild foundation. Month and day are authored flavor.
 		add_company = company_type:company_ova_namgung_merchant_guild
 		company:company_ova_namgung_merchant_guild = {
-			set_company_establishment_date = 1700.5.27
+			set_company_establishment_date = 864.5.27
 			set_company_state_region = s:STATE_NAMWON
 		}
 		# END OVA STORY COMPANY

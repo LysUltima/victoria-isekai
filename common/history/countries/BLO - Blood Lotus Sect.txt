@@ -17,7 +17,7 @@ COUNTRIES = {
 		# Foundation: inferred; Formal Covenant altar charter aligned to the explicitly dated Blood Lotus Covenant. Blood Lotus cultivation and its forbidden lineage predate this charter.
 		add_company = company_type:company_ova_story_blood_lotus_covenant_altar
 		company:company_ova_story_blood_lotus_covenant_altar = {
-			set_company_establishment_date = 1820.10.31
+			set_company_establishment_date = 984.10.31
 			set_company_state_region = s:STATE_XIELIAN
 		}
 		# END OVA STORY COMPANY

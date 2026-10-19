@@ -16,7 +16,7 @@ COUNTRIES = {
 		# Foundation: inferred; Charter of the surviving chapters across all eight Orthodox banners aligned to the explicitly dated Alliance. The destroyed Gaebang lineage is older; this date represents its present network, not the original sect.
 		add_company = company_type:company_ova_beggar_sect
 		company:company_ova_beggar_sect = {
-			set_company_establishment_date = 1791.9.9
+			set_company_establishment_date = 955.9.9
 			set_company_state_region = s:STATE_HWASAN
 		}
 		# END OVA STORY COMPANY

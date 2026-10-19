@@ -98,7 +98,7 @@
 create_taiping_characters = {
 	if = {
 		limit = {
-			game_date < 1880.1.1
+			game_date < 1044.1.1
 			NOT = { #If you exiled Hong and he got recruited somewhere else, he doesn't get to be here.
 				any_country = {
 					NOT = {
@@ -123,7 +123,7 @@ create_taiping_characters = {
 		}
 		if = {
 			limit = {
-				game_date > 1847.1.1
+				game_date > 1011.1.1
 			}
 			create_character = {
 				template = TPG_hong_tianguifu
@@ -159,8 +159,8 @@ create_taiping_characters = {
 
 	if = {
 		limit = {
-			game_date > 1841.1.1
-			game_date < 1880.1.1
+			game_date > 1005.1.1
+			game_date < 1044.1.1
 		}
 		create_character = {
 			template = TPG_xiuqing_yang
@@ -168,8 +168,8 @@ create_taiping_characters = {
 	}
 	if = {
 		limit = {
-			game_date > 1840.1.1
-			game_date < 1880.1.1
+			game_date > 1004.1.1
+			game_date < 1044.1.1
 		}
 		create_character = {
 			template = TPG_chaogui_xiao
@@ -177,8 +177,8 @@ create_taiping_characters = {
 	}
 	if = {
 		limit = {
-			game_date > 1842.1.1
-			game_date < 1880.1.1
+			game_date > 1006.1.1
+			game_date < 1044.1.1
 		}
 		create_character = {
 			template = TPG_hong_rengan
@@ -1797,8 +1797,8 @@ free_trade_agitator_election_scope_effect = {
 create_paris_commune_characters = {
 	if = {
 		limit = {
-			game_date > 1866.1.1
-			game_date < 1900.1.1
+			game_date > 1030.1.1
+			game_date < 1064.1.1
 		}
 		if = {
 			limit = {
@@ -1841,7 +1841,7 @@ create_paris_commune_characters = {
 	}
 	if = {
 		limit = {
-			game_date < 1890.1.1
+			game_date < 1054.1.1
 		}
 		if = {
 			limit = {
@@ -1882,8 +1882,8 @@ create_paris_commune_characters = {
 	}
 	if = {
 		limit = {
-			game_date > 1860.1.1
-			game_date < 1900.1.1
+			game_date > 1024.1.1
+			game_date < 1064.1.1
 		}
 		if = {
 			limit = {
@@ -1919,8 +1919,8 @@ create_paris_commune_characters = {
 	}
 	if = {
 		limit = {
-			game_date > 1860.1.1
-			game_date < 1900.1.1
+			game_date > 1024.1.1
+			game_date < 1064.1.1
 		}
 		create_character = {
 			template = PRC_gustave_cluseret
@@ -1928,8 +1928,8 @@ create_paris_commune_characters = {
 	}
 	if = {
 		limit = {
-			game_date > 1865.1.1
-			game_date < 1910.1.1
+			game_date > 1029.1.1
+			game_date < 1074.1.1
 		}
 		create_character = {
 			template = PRC_eugene_varlin
@@ -3776,7 +3776,7 @@ generate_fascist_agitator = {
 	if = {
 		limit = {
 			has_dlc_feature = voice_of_the_people_content
-			game_date >= 1917.1.1
+			game_date >= 1081.1.1
 			OR = {
 				always = no # vanilla ref 'c:BAV' not present in this mod
 				always = no # vanilla ref 'c:SGF' not present in this mod
@@ -3791,7 +3791,7 @@ generate_fascist_agitator = {
 	else_if = {
 		limit = {
 			has_dlc_feature = voice_of_the_people_content
-			game_date >= 1916.1.1
+			game_date >= 1080.1.1
 			OR = {
 				always = no # vanilla ref 'c:HAN' not present in this mod
 				always = no # vanilla ref 'c:NGF' not present in this mod
@@ -3805,7 +3805,7 @@ generate_fascist_agitator = {
 	else_if = {
 		limit = {
 			has_dlc_feature = voice_of_the_people_content
-			game_date >= 1922.1.1
+			game_date >= 1086.1.1
 			OR = {
 				always = no # vanilla ref 'c:ITA' not present in this mod
 				AND = {
@@ -3821,7 +3821,7 @@ generate_fascist_agitator = {
 	else_if = {
 		limit = {
 			has_dlc_feature = voice_of_the_people_content
-			game_date >= 1899.1.1
+			game_date >= 1063.1.1
 			OR = {
 				always = no # vanilla ref 'c:ITA' not present in this mod
 				AND = {
@@ -3837,7 +3837,7 @@ generate_fascist_agitator = {
 	else_if = {
 		limit = {
 			has_dlc_feature = voice_of_the_people_content
-			game_date >= 1910.1.1
+			game_date >= 1074.1.1
 			always = no # vanilla ref 'c:POR' not present in this mod
 		}
 		create_character = {
@@ -3847,7 +3847,7 @@ generate_fascist_agitator = {
 	else_if = {
 		limit = {
 			has_dlc_feature = voice_of_the_people_content
-			game_date >= 1907.1.1
+			game_date >= 1071.1.1
 			always = no # vanilla ref 'c:GRE' not present in this mod
 		}
 		create_character = {
@@ -3857,7 +3857,7 @@ generate_fascist_agitator = {
 	else_if = {
 		limit = {
 			has_dlc_feature = ep1_content
-			game_date >= 1923.1.1
+			game_date >= 1087.1.1
 			always = no # vanilla ref 'c:GBR' not present in this mod
 		}
 		create_character = {
@@ -3867,7 +3867,7 @@ generate_fascist_agitator = {
 	else_if = {
 		limit = {
 			has_dlc_feature = rp1_content
-			game_date >= 1918.1.1
+			game_date >= 1082.1.1
 			OR = {
 				always = no # vanilla ref 'c:CHL' not present in this mod
 				AND = {

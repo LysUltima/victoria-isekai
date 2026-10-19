@@ -4,7 +4,7 @@
 		second_country = c:EST
 
 		is_draft = no
-		entered_into_force_on = 1764.10.26
+		entered_into_force_on = 928.10.26
 		binding_period = { years = 100 }
 
 		articles_to_create = {
@@ -28,7 +28,7 @@
 		second_country = c:DWA
 
 		is_draft = no
-		entered_into_force_on = 1764.10.26
+		entered_into_force_on = 928.10.26
 		binding_period = { years = 100 }
 
 		articles_to_create = {
@@ -52,7 +52,7 @@
 		second_country = c:EST
 
 		is_draft = no
-		entered_into_force_on = 1764.10.26
+		entered_into_force_on = 928.10.26
 		binding_period = { years = 100 }
 
 		articles_to_create = {
@@ -78,7 +78,7 @@
 		second_country = c:ACA
 
 		is_draft = no
-		entered_into_force_on = 1625.7.18
+		entered_into_force_on = 789.7.18
 		binding_period = { years = 400 }
 
 		articles_to_create = {
@@ -96,7 +96,7 @@
 		second_country = c:ACA
 
 		is_draft = no
-		entered_into_force_on = 1625.7.18
+		entered_into_force_on = 789.7.18
 		binding_period = { years = 400 }
 
 		articles_to_create = {

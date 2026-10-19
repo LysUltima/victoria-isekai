@@ -5615,7 +5615,7 @@ ideology_market_liberal = { # Average Progressiveness - 4
 		has_technology_researched = stock_exchange
 		trigger_if = {
 			limit = {
-				game_date > 1836.1.1
+				game_date > 1000.1.1
 			}
 			exists = ig:ig_industrialists
 			ig:ig_industrialists ?= {
@@ -6520,7 +6520,7 @@ ideology_protectionist = { # Average Progressiveness - 37.5
 		has_technology_researched = international_trade
 		trigger_if = {
 			limit = {
-				game_date > 1836.1.1
+				game_date > 1000.1.1
 			}
 			exists = ig:ig_industrialists
 			ig:ig_industrialists ?= {

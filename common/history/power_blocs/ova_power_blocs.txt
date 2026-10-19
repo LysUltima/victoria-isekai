@@ -20,7 +20,7 @@ POWER_BLOCS = {
 
 			map_color = { 0 127 255 }
 
-			founding_date = 1063.03.04
+			founding_date = 227.3.4
 			identity = identity_sovereign_empire
 			principle = principle_vassalization_2
 		}
@@ -42,7 +42,7 @@ POWER_BLOCS = {
 
 			map_color = { 120 20 30 }
 
-			founding_date = 1820.10.31
+			founding_date = 984.10.31
 			identity = identity_demonic_covenant
 			principle = principle_defensive_cooperation_3
 
@@ -72,7 +72,7 @@ POWER_BLOCS = {
 
 			map_color = { 90 110 140 }
 
-			founding_date = 1791.9.9
+			founding_date = 955.9.9
 			identity = identity_martial_alliance
 			principle = principle_defensive_cooperation_3
 
@@ -104,7 +104,7 @@ POWER_BLOCS = {
 
 			map_color = { 230 210 150 }
 
-			founding_date = 1802.3.21
+			founding_date = 966.3.21
 			identity = identity_radiant_crusade
 			principle = principle_defensive_cooperation_3
 
@@ -181,7 +181,7 @@ POWER_BLOCS = {
 
 			map_color = { 255 255 190 }
 
-			founding_date = 1674.5.13
+			founding_date = 838.5.13
 			identity = identity_sovereign_empire
 			principle = principle_vassalization_1
 		}

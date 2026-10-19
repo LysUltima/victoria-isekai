@@ -113,84 +113,84 @@ getDecadeName = {
 	type = country
 	text = {
 		trigger = {
-			game_date >= 1830.1.1
-			game_date < 1840.1.1
+			game_date >= 994.1.1
+			game_date < 1004.1.1
 		}
 		localization_key = decade_thirties
 	}
 	text = {
 		trigger = {
-			game_date >= 1840.1.1
-			game_date < 1850.1.1
+			game_date >= 1004.1.1
+			game_date < 1014.1.1
 		}
 		localization_key = decade_forties
 	}
 	text = {
 		trigger = {
-			game_date >= 1850.1.1
-			game_date < 1860.1.1
+			game_date >= 1014.1.1
+			game_date < 1024.1.1
 		}
 		localization_key = decade_fifties
 	}
 	text = {
 		trigger = {
-			game_date >= 1860.1.1
-			game_date < 1870.1.1
+			game_date >= 1024.1.1
+			game_date < 1034.1.1
 		}
 		localization_key = decade_sixties
 	}
 	text = {
 		trigger = {
-			game_date >= 1870.1.1
-			game_date < 1880.1.1
+			game_date >= 1034.1.1
+			game_date < 1044.1.1
 		}
 		localization_key = decade_seventies
 	}
 	text = {
 		trigger = {
-			game_date >= 1880.1.1
-			game_date < 1890.1.1
+			game_date >= 1044.1.1
+			game_date < 1054.1.1
 		}
 		localization_key = decade_eighties
 	}
 	text = {
 		trigger = {
-			game_date >= 1890.1.1
-			game_date < 1900.1.1
+			game_date >= 1054.1.1
+			game_date < 1064.1.1
 		}
 		localization_key = decade_nineties
 	}
 	text = {
 		trigger = {
-			game_date >= 1900.1.1
-			game_date < 1910.1.1
+			game_date >= 1064.1.1
+			game_date < 1074.1.1
 		}
 		localization_key = decade_centennial
 	}
 	text = {
 		trigger = {
-			game_date >= 1910.1.1
-			game_date < 1920.1.1
+			game_date >= 1074.1.1
+			game_date < 1084.1.1
 		}
 		localization_key = decade_tens
 	}
 	text = {
 		trigger = {
-			game_date >= 1920.1.1
-			game_date < 1930.1.1
+			game_date >= 1084.1.1
+			game_date < 1094.1.1
 		}
 		localization_key = decade_twenties
 	}
 	text = {
 		trigger = {
-			game_date >= 1930.1.1
-			game_date < 1940.1.1
+			game_date >= 1094.1.1
+			game_date < 1104.1.1
 		}
 		localization_key = decade_thirties
 	}
 	text = {
 		trigger = {
-			game_date >= 1940.1.1
+			game_date >= 1104.1.1
 		}
 		localization_key = decade_new_age
 	}

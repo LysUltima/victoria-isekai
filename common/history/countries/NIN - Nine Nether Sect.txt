@@ -11,7 +11,7 @@ COUNTRIES = {
 		# Foundation: inferred; Inherited archive established centuries before the recent Covenant, consistent with the long record and ancestral manuals of the sect story. Exact foundation is inferred. Month and day are authored flavor.
 		add_company = company_type:company_ova_story_nine_nether_archive
 		company:company_ova_story_nine_nether_archive = {
-			set_company_establishment_date = 1000.7.19
+			set_company_establishment_date = 164.7.19
 			set_company_state_region = s:STATE_JIUYOU
 		}
 		# END OVA STORY COMPANY

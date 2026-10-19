@@ -474,21 +474,21 @@ getCurrentPeripheralBraganza = {
 	type = country
 	text = {
 		trigger = {
-			game_date < 1853.1.1
+			game_date < 1017.1.1
 		}
 		localization_key = ana_de_jesus_maria_de_braganca_loc
 	}
 	text = {
 		trigger = {
-			game_date >= 1853.1.1
-			game_date < 1872.1.1
+			game_date >= 1017.1.1
+			game_date < 1036.1.1
 		}
 		localization_key = fernando_de_saxe_coburg_gotha_loc
 	}
 	text = {
 		trigger = {
-			game_date >= 1872.1.1
-			game_date < 1920.1.1
+			game_date >= 1036.1.1
+			game_date < 1084.1.1
 		}
 		localization_key = afonso_de_braganca_loc
 	}

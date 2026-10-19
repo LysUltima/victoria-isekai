@@ -1037,7 +1037,7 @@ country_generate_carlist_spain_ruler = {
 	}
 	if = {
 		limit = {
-			game_date < 1861.1.13
+			game_date < 1025.1.13
 		}
 		custom_tooltip = {
 			text = carlos_vi_tt
@@ -1051,7 +1051,7 @@ country_generate_carlist_spain_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date < 1887.11.18
+			game_date < 1051.11.18
 		}
 		custom_tooltip = juan_iii_tt
 		country_summon_character_effect = {
@@ -1061,8 +1061,8 @@ country_generate_carlist_spain_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date < 1909.8.15
-			game_date > 1848.4.3
+			game_date < 1073.8.15
+			game_date > 1012.4.3
 		}
 		custom_tooltip = carlos_vii_tt
 		country_summon_character_effect = {
@@ -1072,8 +1072,8 @@ country_generate_carlist_spain_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date < 1931.10.2
-			game_date > 1870.6.7
+			game_date < 1095.10.2
+			game_date > 1034.6.7
 		}
 		custom_tooltip = jaime_iii_tt
 		country_summon_character_effect = {
@@ -1083,7 +1083,7 @@ country_generate_carlist_spain_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date > 1849.9.12
+			game_date > 1013.9.12
 		}
 		custom_tooltip = alfonso_i_tt
 		country_summon_character_effect = {
@@ -1102,8 +1102,8 @@ country_generate_constitutional_spain_ruler = {
 	}
 	if = {
 		limit = {
-			game_date <= 1851.12.20
-			game_date > 1832.1.30
+			game_date <= 1015.12.20
+			game_date > 996.1.30
 		}
 		custom_tooltip = {
 			text = maria_luisa_i_tt
@@ -1117,8 +1117,8 @@ country_generate_constitutional_spain_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date <= 1857.11.28
-			game_date > 1851.12.20
+			game_date <= 1021.11.28
+			game_date > 1015.12.20
 		}
 		custom_tooltip = {
 			text = isabel_iii_tt
@@ -1132,8 +1132,8 @@ country_generate_constitutional_spain_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date < 1885.11.25
-			game_date > 1857.11.28
+			game_date < 1049.11.25
+			game_date > 1021.11.28
 		}
 		custom_tooltip = {
 			text = alfonso_xii_tt
@@ -1147,7 +1147,7 @@ country_generate_constitutional_spain_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date > 1886.5.17
+			game_date > 1050.5.17
 		}
 		custom_tooltip = {
 			text = alfonso_xiii_tt
@@ -1267,21 +1267,21 @@ character_execute_immediate_coup = { # Must be executed in an "owner" scope when
 country_generate_peripheral_braganza_ruler_display = {
 	if = {
 		limit = {
-			game_date < 1853.1.1
+			game_date < 1017.1.1
 		}
 		custom_tooltip = ana_de_jesus_maria_de_braganca_spa_tt
 	}
 	else_if = {
 		limit = {
-			game_date >= 1853.1.1
-			game_date < 1872.1.1
+			game_date >= 1017.1.1
+			game_date < 1036.1.1
 		}
 		custom_tooltip = fernando_de_saxe_coburg_gotha_spa_tt
 	}
 	else_if = {
 		limit = {
-			game_date >= 1872.1.1
-			game_date < 1920.1.1
+			game_date >= 1036.1.1
+			game_date < 1084.1.1
 		}
 		custom_tooltip = afonso_de_braganca_spa_tt
 	}
@@ -1296,7 +1296,7 @@ country_generate_peripheral_braganza_ruler = {
 	}
 	if = {
 		limit = {
-			game_date < 1853.1.1
+			game_date < 1017.1.1
 		}
 		custom_tooltip = {
 			text = ana_de_jesus_maria_de_braganca_tt
@@ -1310,8 +1310,8 @@ country_generate_peripheral_braganza_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date >= 1853.1.1
-			game_date < 1872.1.1
+			game_date >= 1017.1.1
+			game_date < 1036.1.1
 		}
 		custom_tooltip = {
 			text = fernando_de_saxe_coburg_gotha_tt
@@ -1325,8 +1325,8 @@ country_generate_peripheral_braganza_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date >= 1872.1.1
-			game_date < 1920.1.1
+			game_date >= 1036.1.1
+			game_date < 1084.1.1
 		}
 		custom_tooltip = {
 			text = afonso_de_braganca_tt
@@ -1349,8 +1349,8 @@ country_generate_orleanist_france_ruler = {
 	}
 	if = {
 		limit = {
-			game_date > 1838.8.24
-			game_date < 1894.1.1
+			game_date > 1002.8.24
+			game_date < 1058.1.1
 		}
 		custom_tooltip = {
 			text = philippe_de_orleans_of_paris_tt
@@ -1362,8 +1362,8 @@ country_generate_orleanist_france_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date > 1869.2.6
-			game_date < 1926.1.1
+			game_date > 1033.2.6
+			game_date < 1090.1.1
 		}
 		custom_tooltip = {
 			text = philippe_de_orleans_of_orleans_tt
@@ -1375,8 +1375,8 @@ country_generate_orleanist_france_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date > 1874.9.4
-			game_date < 1940.1.1
+			game_date > 1038.9.4
+			game_date < 1104.1.1
 		}
 		custom_tooltip = {
 			text = jean_de_orleans_tt
@@ -1388,8 +1388,8 @@ country_generate_orleanist_france_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date > 1908.7.5
-			game_date < 1999.1.1
+			game_date > 1072.7.5
+			game_date < 1163.1.1
 		}
 		custom_tooltip = {
 			text = henri_de_orleans_tt
@@ -1410,13 +1410,13 @@ country_generate_bonapartist_france_ruler = {
 	}
 	if = {
 		limit = {
-			game_date <= 1873.1.9
+			game_date <= 1037.1.9
 		}
 		summon_napoleon_the_woat = yes
 	}
 	if = {
 		limit = {
-			game_date > 1873.1.9
+			game_date > 1037.1.9
 		}
 		custom_tooltip = {
 			text = napoleon_eugene_louis_bonaparte_tt
@@ -1428,7 +1428,7 @@ country_generate_bonapartist_france_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date > 1879.6.1
+			game_date > 1043.6.1
 		}
 		custom_tooltip = {
 			text = victor_bonaparte_tt
@@ -1440,7 +1440,7 @@ country_generate_bonapartist_france_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date > 1914.1.23
+			game_date > 1078.1.23
 		}
 		custom_tooltip = {
 			text = louis_bonaparte_tt
@@ -1461,7 +1461,7 @@ country_generate_legitimist_france_ruler = {
 	}
 	if = {
 		limit = {
-			game_date < 1883.1.1
+			game_date < 1047.1.1
 		}
 		custom_tooltip = {
 			text = henri_de_bourbon_tt
@@ -1473,7 +1473,7 @@ country_generate_legitimist_france_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date < 1887.11.18
+			game_date < 1051.11.18
 		}
 		custom_tooltip = juan_iii_tt
 		country_summon_character_effect = {
@@ -1483,8 +1483,8 @@ country_generate_legitimist_france_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date < 1909.8.15
-			game_date > 1848.4.3
+			game_date < 1073.8.15
+			game_date > 1012.4.3
 		}
 		custom_tooltip = carlos_vii_tt
 		country_summon_character_effect = {
@@ -1494,8 +1494,8 @@ country_generate_legitimist_france_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date < 1931.10.2
-			game_date > 1870.6.7
+			game_date < 1095.10.2
+			game_date > 1034.6.7
 		}
 		custom_tooltip = jaime_iii_tt
 		country_summon_character_effect = {
@@ -1505,7 +1505,7 @@ country_generate_legitimist_france_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date > 1849.9.12
+			game_date > 1013.9.12
 		}
 		custom_tooltip = alfonso_i_tt
 		country_summon_character_effect = {
@@ -1525,8 +1525,8 @@ country_generate_miguelist_portugal_ruler = {
 	### Miguelist Portuguese Monarchs
 	if = {
 		limit = {
-			game_date >= 1836.1.1
-			game_date < 1866.11.14
+			game_date >= 1000.1.1
+			game_date < 1030.11.14
 		}
 		country_summon_character_effect = {
 			TEMPLATE = POR_miguel_i_de_braganca_template
@@ -1535,8 +1535,8 @@ country_generate_miguelist_portugal_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date >= 1852.8.5
-			game_date < 1853.9.19
+			game_date >= 1016.8.5
+			game_date < 1017.9.19
 		}
 		custom_tooltip = {
 			text = maria_das_neves_de_braganca_tt
@@ -1550,8 +1550,8 @@ country_generate_miguelist_portugal_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date >= 1853.9.19
-			game_date < 1920.7.31
+			game_date >= 1017.9.19
+			game_date < 1084.7.31
 		}
 		custom_tooltip = {
 			text = miguel_januario_de_braganca_tt
@@ -1565,7 +1565,7 @@ country_generate_miguelist_portugal_ruler = {
 	}
 	else_if = {
 		limit = {
-			game_date >= 1920.7.31
+			game_date >= 1084.7.31
 		}
 		custom_tooltip = {
 			text = duarte_nuno_de_braganca_tt
@@ -1589,7 +1589,7 @@ country_generate_constitutional_portugal_ruler = {
 	#### Portuguese Monarchs
 	if = {
 		limit = {
-			game_date <= 1837.9.16
+			game_date <= 1001.9.16
 		}
 		custom_tooltip = {
 			text = ana_de_jesus_maria_de_braganca_tt
@@ -1603,8 +1603,8 @@ country_generate_constitutional_portugal_ruler = {
 	}
 	if = { # if Maria II dies naturally, make Pedro V the ruler
 		limit = {
-			game_date < 1861.11.11
-			game_date > 1837.9.16
+			game_date < 1025.11.11
+			game_date > 1001.9.16
 		}
 		custom_tooltip = {
 			text = pedro_v_de_braganca_tt
@@ -1618,8 +1618,8 @@ country_generate_constitutional_portugal_ruler = {
 	}
 	else_if = { # if Pedro V dies naturally, make Luis I the ruler
 		limit = {
-			game_date < 1889.10.19
-			game_date > 1838.10.3
+			game_date < 1053.10.19
+			game_date > 1002.10.3
 		}
 		custom_tooltip = {
 			text = luis_i_de_braganca_tt
@@ -1633,8 +1633,8 @@ country_generate_constitutional_portugal_ruler = {
 	}
 	else_if = { # if Luis I dies naturally, make Carlos I the ruler
 		limit = {
-			game_date < 1908.2.1
-			game_date > 1863.9.28
+			game_date < 1072.2.1
+			game_date > 1027.9.28
 		}
 		custom_tooltip = {
 			text = carlos_i_de_braganca_tt
@@ -1648,7 +1648,7 @@ country_generate_constitutional_portugal_ruler = {
 	}
 	else_if = { # if Carlos I dies naturally, make Manuel II the ruler
 		limit = {
-			game_date > 1889.7.2
+			game_date > 1053.7.2
 		}
 		custom_tooltip = {
 			text = manuel_ii_de_braganca_tt
@@ -2440,7 +2440,7 @@ initialize_electoral_confidence = {
 	}
 	if = {
 		limit = {
-			game_date > 1836.1.1
+			game_date > 1000.1.1
 			country_has_voting_franchise = yes
 			eagle_burger_freedom_index < 0.8
 		}

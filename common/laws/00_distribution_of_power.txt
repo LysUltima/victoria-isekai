@@ -136,7 +136,7 @@ law_bakufu = {
 		if = {
 			limit = {
 				country_has_monarchy_law = yes
-				game_date > 1836.1.1
+				game_date > 1000.1.1
 				always = no
 				NOR = { # Revolter tags are handled a different way
 					is_revolutionary = yes 
@@ -649,7 +649,7 @@ law_landed_voting = {
 	on_activate = {
 		if = {
 			limit = {
-				game_date > 1836.1.1
+				game_date > 1000.1.1
 				country_has_voting_franchise = yes
 			}
 			initialize_electoral_confidence = yes
@@ -786,7 +786,7 @@ law_wealth_voting = {
 	on_activate = {
 		if = {
 			limit = {
-				game_date > 1836.1.1
+				game_date > 1000.1.1
 				country_has_voting_franchise = yes
 			}
 			initialize_electoral_confidence = yes
@@ -927,7 +927,7 @@ law_census_voting = {
 	on_activate = {
 		if = {
 			limit = {
-				game_date > 1836.1.1
+				game_date > 1000.1.1
 				country_has_voting_franchise = yes
 			}
 			initialize_electoral_confidence = yes
@@ -1054,7 +1054,7 @@ law_universal_suffrage = {
 	on_activate = {
 		if = {
 			limit = {
-				game_date > 1836.1.1
+				game_date > 1000.1.1
 				country_has_voting_franchise = yes
 			}
 			initialize_electoral_confidence = yes
@@ -1342,7 +1342,7 @@ law_single_party_state = {
 		}
 		if = {
 			limit = {
-				game_date > 1836.1.1
+				game_date > 1000.1.1
 				country_has_voting_franchise = yes
 			}
 			initialize_electoral_confidence = yes

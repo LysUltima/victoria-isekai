@@ -18,7 +18,7 @@ COUNTRIES = {
 		# Foundation: inferred; Academy charter placed at the start of the three hundred years of Orthodox condemnation described by the Cult story. The relative age dates the conflict; the academy connection and month/day are authored flavor.
 		add_company = company_type:company_ova_demon_academy
 		company:company_ova_demon_academy = {
-			set_company_establishment_date = 1536.10.3
+			set_company_establishment_date = 700.10.3
 			set_company_state_region = s:STATE_MAGYEONG
 		}
 		# END OVA STORY COMPANY
