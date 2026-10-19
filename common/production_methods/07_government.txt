@@ -9,7 +9,7 @@
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_tax_capacity_add = 2
+			state_tax_capacity_add = 5
 		}
 	}
 
@@ -38,7 +38,7 @@ pm_horizontal_drawer_cabinets = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_tax_capacity_add = 10
+			state_tax_capacity_add = 25
 		}
 	}
 
@@ -68,7 +68,7 @@ pm_vertical_filing_cabinets = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_tax_capacity_add = 15
+			state_tax_capacity_add = 35
 		}
 	}
 
@@ -98,7 +98,7 @@ pm_switch_boards = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_tax_capacity_add = 30
+			state_tax_capacity_add = 60
 		}
 	}
 
