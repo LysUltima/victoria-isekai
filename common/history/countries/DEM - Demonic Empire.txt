@@ -19,5 +19,15 @@ COUNTRIES = {
 		# shields is the heir created above, and its immediate's daughter capture
 		# retries on the monthly pulse until that deferred character resolves.
 		add_journal_entry = { type = je_ova_demonic_dawn }
+
+		# BEGIN OVA STORY COMPANY
+		# Existing story institution; no capacity or technology grants.
+		# Foundation: inferred; Foundation assigned to the inherited cantorial lineage before the Goddess War (approximately year 36) and the modern Church. The ancient hymns predate imperial recognition; this approximate lineage date is inferred, not the later Demonic Empire charter of 1063. Month and day are authored flavor.
+		add_company = company_type:company_ova_unbroken_hymn
+		company:company_ova_unbroken_hymn = {
+			set_company_establishment_date = 20.11.7
+			set_company_state_region = s:STATE_EX_TENEBRIS
+		}
+		# END OVA STORY COMPANY
 	}
 }

@@ -6,5 +6,15 @@ COUNTRIES = {
 		effect_starting_politics_traditional = yes
 
         activate_law = law_type:law_professional_army
+
+		# BEGIN OVA STORY COMPANY
+		# Existing story institution; no capacity or technology grants.
+		# Foundation: inferred; Rice-estate and scripture endowment aligned to the explicitly dated Yao dynastic foundation. This is the internal Verdant Grove Sect, not the separate Verdant Water country; its foundation is inferred.
+		add_company = company_type:company_ova_story_verdant_grove
+		company:company_ova_story_verdant_grove = {
+			set_company_establishment_date = 801.12.12
+			set_company_state_region = s:STATE_MINGJING
+		}
+		# END OVA STORY COMPANY
 	}
 }

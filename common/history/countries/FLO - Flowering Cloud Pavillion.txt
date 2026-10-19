@@ -4,5 +4,15 @@ COUNTRIES = {
 		effect_starting_technology_spiritualism_tier_1 = yes
 		create_character = { template = template_ruler_flo role = ruler }
 		effect_starting_politics_sect = yes
+
+		# BEGIN OVA STORY COMPANY
+		# Existing story institution; no capacity or technology grants.
+		# Foundation: inferred; Ancient peak and medicinal garden endowment, consistent with the inherited cultivation institutions and centuries-old plants in the sect story. Exact foundation is inferred. Month and day are authored flavor.
+		add_company = company_type:company_ova_story_flowering_cloud_alchemy
+		company:company_ova_story_flowering_cloud_alchemy = {
+			set_company_establishment_date = 960.4.8
+			set_company_state_region = s:STATE_HUAYUN
+		}
+		# END OVA STORY COMPANY
 	}
 }

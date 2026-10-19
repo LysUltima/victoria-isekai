@@ -181,7 +181,12 @@
                 add_ownership = {
                     country = {
                         country = "c:HWA"
-                        levels = 3
+                        levels = 2
+                    }
+                    company = {
+                        type = company_ova_beggar_sect
+                        country = "c:HWA"
+                        levels = 1
                     }
                 }
                 reserves = 1
@@ -208,8 +213,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:HWA"
-                        levels = 2
+                        levels = 1
                         region = "STATE_HWASAN"
+                    }
+                    company = {
+                        type = company_ova_beggar_sect
+                        country = "c:HWA"
+                        levels = 1
                     }
                 }
                 reserves = 1
@@ -382,8 +392,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:SOR"
-                        levels = 2
+                        levels = 1
                         region = "STATE_SUNGSAN"
+                    }
+                    company = {
+                        type = company_ova_beggar_sect
+                        country = "c:HWA"
+                        levels = 1
                     }
                 }
                 reserves = 1
@@ -436,11 +451,10 @@
             create_building = {
                 building = "building_livestock_ranch"
                 add_ownership = {
-                    building = {
-                        type = "building_manor_house"
+                    company = {
+                        type = company_ova_paeng_ancestral_saber_hall
                         country = "c:PAE"
                         levels = 2
-                        region = "STATE_HOBUK"
                     }
                 }
                 reserves = 1
@@ -511,8 +525,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:PAE"
-                        levels = 3
+                        levels = 1
                         region = "STATE_HOBUK"
+                    }
+                    company = {
+                        type = company_ova_paeng_ancestral_saber_hall
+                        country = "c:PAE"
+                        levels = 2
                     }
                 }
                 reserves = 1
@@ -527,11 +546,10 @@
             create_building = {
                 building = "building_tooling_workshop"
                 add_ownership = {
-                    building = {
-                        type = "building_financial_district"
+                    company = {
+                        type = company_ova_paeng_ancestral_saber_hall
                         country = "c:PAE"
                         levels = 1
-                        region = "STATE_HOBUK"
                     }
                 }
                 reserves = 1
@@ -591,8 +609,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:PAE"
-                        levels = 2
+                        levels = 1
                         region = "STATE_HOBUK"
+                    }
+                    company = {
+                        type = company_ova_beggar_sect
+                        country = "c:HWA"
+                        levels = 1
                     }
                 }
                 reserves = 1
@@ -770,8 +793,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:SAM"
-                        levels = 2
+                        levels = 1
                         region = "STATE_HONAM"
+                    }
+                    company = {
+                        type = company_ova_beggar_sect
+                        country = "c:HWA"
+                        levels = 1
                     }
                 }
                 reserves = 1
@@ -890,8 +918,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:MUD"
-                        levels = 2
+                        levels = 1
                         region = "STATE_MUDANGSAN"
+                    }
+                    company = {
+                        type = company_ova_beggar_sect
+                        country = "c:HWA"
+                        levels = 1
                     }
                 }
                 reserves = 1
@@ -1079,8 +1112,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:JEG"
-                        levels = 2
+                        levels = 1
                         region = "STATE_YANGJU"
+                    }
+                    company = {
+                        type = company_ova_beggar_sect
+                        country = "c:HWA"
+                        levels = 1
                     }
                 }
                 reserves = 1
@@ -1270,8 +1308,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:TAN"
-                        levels = 2
+                        levels = 1
                         region = "STATE_SACHEON"
+                    }
+                    company = {
+                        type = company_ova_beggar_sect
+                        country = "c:HWA"
+                        levels = 1
                     }
                 }
                 reserves = 1
@@ -1404,8 +1447,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:NAM"
-                        levels = 3
+                        levels = 1
                         region = "STATE_NAMWON"
+                    }
+                    company = {
+                        type = company_ova_namgung_merchant_guild
+                        country = "c:NAM"
+                        levels = 2
                     }
                 }
                 reserves = 1
@@ -1463,11 +1511,15 @@
             create_building = {
                 building = "building_trade_center"
                 add_ownership = {
-                    building = {
-                        type = "building_financial_district"
+                    company = {
+                        type = company_ova_beggar_sect
+                        country = "c:HWA"
+                        levels = 1
+                    }
+                    company = {
+                        type = company_ova_namgung_merchant_guild
                         country = "c:NAM"
-                        levels = 2
-                        region = "STATE_NAMWON"
+                        levels = 1
                     }
                 }
                 reserves = 1
@@ -1479,11 +1531,10 @@
             create_building = {
                 building = "building_silk_plantation"
                 add_ownership = {
-                    building = {
-                        type = "building_manor_house"
+                    company = {
+                        type = company_ova_namgung_merchant_guild
                         country = "c:NAM"
                         levels = 2
-                        region = "STATE_NAMWON"
                     }
                 }
                 reserves = 1
@@ -1674,11 +1725,10 @@
             create_building = {
                 building = "building_paper_mill"
                 add_ownership = {
-                    building = {
-                        type = "building_financial_district"
+                    company = {
+                        type = company_ova_demon_academy
                         country = "c:CHE"
                         levels = 2
-                        region = "STATE_MAGYEONG"
                     }
                 }
                 reserves = 1
@@ -1727,7 +1777,12 @@
                 add_ownership = {
                     country = {
                         country = "c:CHE"
-                        levels = 3
+                        levels = 1
+                    }
+                    company = {
+                        type = company_ova_demon_academy
+                        country = "c:CHE"
+                        levels = 2
                     }
                 }
                 reserves = 1
@@ -1770,8 +1825,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:CHE"
-                        levels = 3
+                        levels = 2
                         region = "STATE_MAGYEONG"
+                    }
+                    company = {
+                        type = company_ova_demon_academy
+                        country = "c:CHE"
+                        levels = 1
                     }
                 }
                 reserves = 1

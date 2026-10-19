@@ -1,0 +1,459 @@
+﻿# Demonland companies.
+
+# Ash Throne Arsenal
+company_ova_ash_throne_arsenal = {
+	icon = "gfx/interface/icons/company_icons/artdecovolcano.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_EX_TENEBRIS }
+
+	building_types = { building_arms_industry building_munition_plant }
+
+	extension_building_types = { building_spirit_beast_hunting building_iron_mine }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_demonland
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_EX_TENEBRIS }
+		}
+	}
+
+	possible = {
+		has_technology_researched = chain_enchanted_arms
+		has_technology_researched = stabilized_reagents
+		any_scope_state = {
+			state_region = s:STATE_EX_TENEBRIS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_arms_industry
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_uniters_oathblades }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_ash_throne_arsenal_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_arms_industry
+						has_active_production_method = pm_repeaters
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		unit_offense_mult = 0.05
+		unit_defense_mult = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = chain_enchanted_arms
+		has_technology_researched = stabilized_reagents
+		any_scope_state = {
+			state_region = s:STATE_EX_TENEBRIS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_arms_industry
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_arms_industry = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_EX_TENEBRIS
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Broken Moon Illuminators
+company_ova_broken_moon_scriptorium = {
+	icon = "gfx/interface/icons/company_icons/quill4.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	category = academic_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_EX_TENEBRIS }
+
+	building_types = { building_art_academy building_cultivation_grounds }
+
+	extension_building_types = { building_tooling_workshop building_power_plant }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_demonland
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_EX_TENEBRIS }
+		}
+	}
+
+	possible = {
+		has_technology_researched = memory_crystals
+		has_technology_researched = golden_core
+		any_scope_state = {
+			state_region = s:STATE_EX_TENEBRIS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_art_academy
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_refined_fine_art }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_broken_moon_scriptorium_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_art_academy
+						has_active_production_method = pm_photographic_art
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_weekly_innovation_mult = 0.1
+		state_education_access_wealth_add = 0.005
+	}
+
+	ai_will_do = {
+		has_technology_researched = memory_crystals
+		has_technology_researched = golden_core
+		any_scope_state = {
+			state_region = s:STATE_EX_TENEBRIS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_art_academy
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_art_academy = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_EX_TENEBRIS
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Yolteni Duskweavers
+company_ova_yolteni_duskweavers = {
+	icon = "gfx/interface/icons/company_icons/elf_silk_dye.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	category = shopkeeper_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_YOLTENI }
+
+	building_types = { building_textile_mill building_synthetics_plant }
+
+	extension_building_types = { building_cotton_plantation building_tobacco_plantation building_spirit_beast_hunting }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_demonland
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_YOLTENI }
+		}
+	}
+
+	possible = {
+		has_technology_researched = alchemical_thread
+		any_scope_state = {
+			state_region = s:STATE_YOLTENI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_refined_luxury_clothes }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_yolteni_duskweavers_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_textile_mill
+						has_active_production_method = pm_craftsman_sewing
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_textile_mill_throughput_add = 0.15
+		building_cotton_plantation_throughput_add = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = alchemical_thread
+		any_scope_state = {
+			state_region = s:STATE_YOLTENI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_YOLTENI
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Moonlit Harvest Charter
+company_ova_moonlit_harvest_charter = {
+	icon = "gfx/interface/icons/company_icons/rainbowtree4.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_CEU_ARDENT }
+
+	building_types = { building_maize_farm building_banana_plantation building_sugar_plantation }
+
+	extension_building_types = { building_wine_distillery building_chemical_plant }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_demonland
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_CEU_ARDENT }
+		}
+	}
+
+	possible = {
+		has_technology_researched = transcendent_fertilizer
+		any_scope_state = {
+			state_region = s:STATE_CEU_ARDENT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_banana_plantation
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_marches_moonfruit }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_moonlit_harvest_charter_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_banana_plantation
+						has_active_production_method = pm_transcendent_cultivation_building_banana_plantation
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_maize_farm_throughput_add = 0.1
+		interest_group_ig_landowners_approval_add = 3
+	}
+
+	ai_will_do = {
+		has_technology_researched = transcendent_fertilizer
+		any_scope_state = {
+			state_region = s:STATE_CEU_ARDENT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_banana_plantation
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_banana_plantation = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_CEU_ARDENT
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Cantors of the Unbroken Hymn
+company_ova_unbroken_hymn = {
+	icon = "gfx/interface/icons/company_icons/owl_2.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_EX_TENEBRIS }
+
+	building_types = { building_paper_mill building_textile_mill }
+
+	extension_building_types = { building_logging_camp building_tobacco_plantation }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_demonland
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_EX_TENEBRIS }
+		}
+	}
+
+	possible = {
+		has_technology_researched = academia
+		any_scope_state = {
+			state_region = s:STATE_EX_TENEBRIS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_EX_TENEBRIS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 3
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_unbroken_hymn_paper }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_unbroken_hymn_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_paper_mill
+						has_active_production_method = pm_pulp_pressing
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_prestige_mult = 0.05
+		country_society_tech_spread_mult = 0.1
+		state_loyalists_from_political_movements_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = academia
+		any_scope_state = {
+			state_region = s:STATE_EX_TENEBRIS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_EX_TENEBRIS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 3
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_EX_TENEBRIS
+			}
+		}
+		building_textile_mill = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_EX_TENEBRIS
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}

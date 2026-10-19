@@ -10,5 +10,15 @@ COUNTRIES = {
 		# Self-contained, so it needs no global-last ordering.
 		add_journal_entry = { type = je_ova_murim_alliance_banner }
 		trigger_event = { id = ova_murim.5 days = 5 }
+
+		# BEGIN OVA STORY COMPANY
+		# Existing story institution; no capacity or technology grants.
+		# Foundation: inferred; Charter of the surviving chapters across all eight Orthodox banners aligned to the explicitly dated Alliance. The destroyed Gaebang lineage is older; this date represents its present network, not the original sect.
+		add_company = company_type:company_ova_beggar_sect
+		company:company_ova_beggar_sect = {
+			set_company_establishment_date = 1791.9.9
+			set_company_state_region = s:STATE_HWASAN
+		}
+		# END OVA STORY COMPANY
 	}
 }

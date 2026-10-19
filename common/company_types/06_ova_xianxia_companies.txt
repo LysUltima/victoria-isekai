@@ -1,0 +1,1664 @@
+﻿# Xianxia companies.
+
+# Jade Throne Sword Pavilion
+company_ova_jade_throne_arsenal = {
+	icon = "gfx/interface/icons/company_icons/jade_throne_arsenal.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_YONGAN }
+
+	building_types = { building_arms_industry building_cultivation_grounds }
+
+	extension_building_types = { building_iron_mine building_spirit_beast_hunting }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_YONGAN }
+		}
+	}
+
+	possible = {
+		has_technology_researched = rune_etched_arms
+		has_technology_researched = qi_gathering
+		any_scope_state = {
+			state_region = s:STATE_YONGAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_arms_industry
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_YONGAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_cultivation_grounds
+				level >= 3
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_generic_small_arms }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_jade_throne_arsenal_prestige_tt
+			owner = {
+				OR = {
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_arms_industry
+							has_active_production_method = pm_rifles
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_arms_industry
+							has_active_production_method = pm_repeaters
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_arms_industry
+							has_active_production_method = pm_bolt_action_rifles
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_prestige_goods_small_arms_complete_tt
+			has_variable = prestige_good_generic_small_arms_var
+		}
+	}
+
+	prosperity_modifier = {
+		building_arms_industry_throughput_add = 0.1
+		unit_army_offense_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = rune_etched_arms
+		has_technology_researched = qi_gathering
+		any_scope_state = {
+			state_region = s:STATE_YONGAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_arms_industry
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_YONGAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_cultivation_grounds
+				level >= 3
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_arms_industry = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_YONGAN
+			}
+		}
+		building_cultivation_grounds = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_YONGAN
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Imperial Five Harvests Hall
+company_ova_feng_alchemy = {
+	icon = "gfx/interface/icons/company_icons/rice_logo.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_ANDU }
+
+	building_types = { building_chemical_plant building_wine_distillery }
+
+	extension_building_types = { building_banana_plantation building_sulfur_mine }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_ANDU }
+		}
+	}
+
+	possible = {
+		has_technology_researched = spirit_field_cultivation
+		has_technology_researched = spirit_fertilizer_refinement
+		has_technology_researched = spirit_wine_fermentation
+		any_scope_state = {
+			state_region = s:STATE_ANDU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_chemical_plant
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_ANDU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_wine_distillery
+				level >= 3
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_five_harvest_spirit_powder }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_feng_alchemy_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_chemical_plant
+						has_active_production_method = pm_improved_fertilizer
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_group_bg_agriculture_throughput_add = 0.1
+		building_sulfur_mine_throughput_add = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = spirit_field_cultivation
+		has_technology_researched = spirit_fertilizer_refinement
+		has_technology_researched = spirit_wine_fermentation
+		any_scope_state = {
+			state_region = s:STATE_ANDU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_chemical_plant
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_ANDU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_wine_distillery
+				level >= 3
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_chemical_plant = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_ANDU
+			}
+		}
+		building_wine_distillery = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_ANDU
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Mingjing Seal-Script Forge
+company_ova_yao_armorers = {
+	icon = "gfx/interface/icons/company_icons/yao_armorers.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_MINGJING }
+
+	building_types = { building_arms_industry building_tooling_workshop building_iron_mine }
+
+	extension_building_types = { building_lead_mine building_spirit_beast_hunting }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia_yao
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_MINGJING }
+		}
+	}
+
+	possible = {
+		has_technology_researched = manufacturies
+		has_technology_researched = lathe
+		has_technology_researched = rune_etched_arms
+		has_technology_researched = seal_script_engraving
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_arms_industry
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_generic_small_arms }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_yao_armorers_prestige_tt
+			owner = {
+				OR = {
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_arms_industry
+							has_active_production_method = pm_rifles
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_arms_industry
+							has_active_production_method = pm_repeaters
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_arms_industry
+							has_active_production_method = pm_bolt_action_rifles
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_prestige_goods_small_arms_complete_tt
+			has_variable = prestige_good_generic_small_arms_var
+		}
+	}
+
+	prosperity_modifier = {
+		country_weekly_innovation_mult = 0.05
+		country_weekly_innovation_max_add = 15
+	}
+
+	ai_will_do = {
+		has_technology_researched = manufacturies
+		has_technology_researched = lathe
+		has_technology_researched = rune_etched_arms
+		has_technology_researched = seal_script_engraving
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_arms_industry
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_arms_industry = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_MINGJING
+			}
+		}
+		building_tooling_workshop = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_MINGJING
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Celestial Spirit-Thread Pavilion
+company_ova_yao_silk_pavilion = {
+	icon = "gfx/interface/icons/company_icons/yao_silk_pavilion.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_BIAN }
+
+	building_types = { building_textile_mill building_silk_plantation }
+
+	extension_building_types = { building_livestock_ranch building_trade_center }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia_yao
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_BIAN }
+		}
+	}
+
+	possible = {
+		has_technology_researched = spirit_silkworms
+		has_technology_researched = spirit_field_cultivation
+		has_technology_researched = spirit_fertilizer_refinement
+		any_scope_state = {
+			state_region = s:STATE_BIAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_BIAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_silk_plantation
+				level >= 3
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_refined_luxury_clothes }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_yao_silk_pavilion_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_textile_mill
+						has_active_production_method = pm_craftsman_sewing
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_weekly_innovation_mult = 0.1
+		building_textile_mill_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = spirit_silkworms
+		has_technology_researched = spirit_field_cultivation
+		has_technology_researched = spirit_fertilizer_refinement
+		any_scope_state = {
+			state_region = s:STATE_BIAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_BIAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_silk_plantation
+				level >= 3
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_BIAN
+			}
+		}
+		building_silk_plantation = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_BIAN
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Crimson Petal Pill and Sword Hall
+company_ova_crimson_petal_forge = {
+	icon = "gfx/interface/icons/company_icons/crimson_petal_forge.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_XIELIAN }
+
+	building_types = { building_arms_industry building_munition_plant building_tobacco_plantation }
+
+	extension_building_types = { building_iron_mine building_paper_mill }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia_diabolic
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_XIELIAN }
+		}
+	}
+
+	possible = {
+		has_technology_researched = arms_enchanting
+		has_technology_researched = rune_etched_arms
+		has_technology_researched = talisman_printing
+		has_technology_researched = battle_consumables
+		any_scope_state = {
+			state_region = s:STATE_XIELIAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_arms_industry
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_XIELIAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_munition_plant
+				level >= 1
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_refined_ammunition }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_crimson_petal_forge_prestige_tt
+			owner = {
+				OR = {
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_munition_plant
+							has_active_production_method = pm_bound_talismans
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_munition_plant
+							has_active_production_method = pm_printed_talisman_consumables
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_munition_plant
+							has_active_production_method = pm_sealed_talisman_consumables
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_munition_plant
+							has_active_production_method = pm_grand_talisman_consumables
+						}
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_munition_plant_throughput_add = 0.1
+		unit_defense_mult = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = arms_enchanting
+		has_technology_researched = rune_etched_arms
+		has_technology_researched = talisman_printing
+		has_technology_researched = battle_consumables
+		any_scope_state = {
+			state_region = s:STATE_XIELIAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_arms_industry
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_XIELIAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_munition_plant
+				level >= 1
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_arms_industry = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_XIELIAN
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Celestial Relay Bureau
+company_ova_feng_celestial_relay = {
+	icon = "gfx/interface/icons/company_icons/birdscroll.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_CANGMU }
+
+	building_types = { building_electrics_industry building_oil_rig }
+
+	extension_building_types = { building_lead_mine building_coal_mine }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_CANGMU }
+		}
+	}
+
+	possible = {
+		has_technology_researched = communication_orbs
+		has_technology_researched = romanticism
+		any_scope_state = {
+			state_region = s:STATE_CANGMU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_electrics_industry
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_CANGMU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_oil_rig
+				level >= 3
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_jade_court_message_orbs }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_feng_celestial_relay_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_electrics_industry
+						has_active_production_method = pm_telephones
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_electrics_industry_throughput_add = 0.1
+		building_urban_center_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = communication_orbs
+		has_technology_researched = romanticism
+		any_scope_state = {
+			state_region = s:STATE_CANGMU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_electrics_industry
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_CANGMU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_oil_rig
+				level >= 3
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_electrics_industry = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_CANGMU
+			}
+		}
+		building_oil_rig = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_CANGMU
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Mingjing Thousand Visions Pavilion
+company_ova_yao_phantasm_house = {
+	icon = "gfx/interface/icons/company_icons/rainbow1.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_MINGJING }
+
+	building_types = { building_art_academy building_glassworks }
+
+	extension_building_types = { building_furniture_manufactory building_wine_distillery }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia_yao
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_MINGJING }
+		}
+	}
+
+	possible = {
+		has_technology_researched = phantasm_projection
+		has_technology_researched = romanticism
+		has_technology_researched = mana_reactors
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_art_academy
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 3
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_mingjing_phantasm_scrolls }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_yao_phantasm_house_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_art_academy
+						has_active_production_method = pm_film_art
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_influence_mult = 0.05
+		building_art_academy_throughput_add = 0.05
+		country_leverage_generation_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = phantasm_projection
+		has_technology_researched = romanticism
+		has_technology_researched = mana_reactors
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_art_academy
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 3
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_art_academy = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_MINGJING
+			}
+		}
+		building_glassworks = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_MINGJING
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Heaven-Earth Confluence Court
+company_ova_yao_heaven_earth_confluence = {
+	icon = "gfx/interface/icons/company_icons/rainbow2.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	category = academic_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_MINGJING }
+
+	building_types = { building_power_plant building_chemical_plant building_cultivation_grounds }
+
+	extension_building_types = { building_coal_mine building_sulfur_mine }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia_yao
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_MINGJING }
+		}
+	}
+
+	possible = {
+		has_technology_researched = return_to_the_void
+		has_technology_researched = mana_reactors
+		has_technology_researched = spirit_fertilizer_refinement
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_power_plant
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_chemical_plant
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_cultivation_grounds
+				level >= 3
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_confluence_spirit_fertilizer }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_yao_heaven_earth_confluence_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_chemical_plant
+						has_active_production_method = pm_improved_fertilizer
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_weekly_innovation_mult = 0.15
+	}
+
+	ai_will_do = {
+		has_technology_researched = return_to_the_void
+		has_technology_researched = mana_reactors
+		has_technology_researched = spirit_fertilizer_refinement
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_power_plant
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_chemical_plant
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_cultivation_grounds
+				level >= 3
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_power_plant = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_MINGJING
+			}
+		}
+		building_chemical_plant = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_MINGJING
+			}
+		}
+		building_cultivation_grounds = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_MINGJING
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Heavenly Note Resonance Hall
+company_ova_story_heavenly_note_resonance = {
+	icon = "gfx/interface/icons/company_icons/birdscroll.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	category = academic_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_TIANYIN }
+
+	building_types = { building_cultivation_grounds building_tea_plantation }
+
+	extension_building_types = { building_paper_mill building_wine_distillery building_chemical_plant }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia
+		country_has_state_religion = rel:celestial_order
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_TIANYIN }
+		}
+	}
+
+	possible = {
+		has_technology_researched = qi_gathering
+		has_technology_researched = golden_core
+		has_technology_researched = enclosure
+		has_technology_researched = spirit_field_cultivation
+		any_scope_state = {
+			state_region = s:STATE_TIANYIN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_cultivation_grounds
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_TIANYIN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tea_plantation
+				level >= 1
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_resonance_tea }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_story_heavenly_note_resonance_prestige_tt
+			owner = {
+				OR = {
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_tea_plantation
+							has_active_production_method = default_building_tea_plantation
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_tea_plantation
+							has_active_production_method = pm_sparse_planting_building_tea_plantation
+						}
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_prestige_mult = 0.15
+		state_loyalists_from_political_movements_mult = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = qi_gathering
+		has_technology_researched = golden_core
+		has_technology_researched = enclosure
+		has_technology_researched = spirit_field_cultivation
+		any_scope_state = {
+			state_region = s:STATE_TIANYIN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_cultivation_grounds
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_TIANYIN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tea_plantation
+				level >= 1
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_cultivation_grounds = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_TIANYIN
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Flowering Cloud Alchemy Peak
+company_ova_story_flowering_cloud_alchemy = {
+	icon = "gfx/interface/icons/company_icons/story_flowering_cloud_alchemy.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_HUAYUN }
+
+	building_types = { building_munition_plant building_tobacco_plantation }
+
+	extension_building_types = { building_cultivation_grounds building_wine_distillery building_paper_mill }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia
+		country_has_state_religion = rel:celestial_order
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_HUAYUN }
+		}
+	}
+
+	possible = {
+		has_technology_researched = battle_consumables
+		has_technology_researched = enclosure
+		has_technology_researched = spirit_field_cultivation
+		has_technology_researched = qi_gathering
+		has_technology_researched = golden_core
+		any_scope_state = {
+			state_region = s:STATE_HUAYUN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_munition_plant
+				level >= 1
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_HUAYUN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 1
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_cultivation_pills }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_story_flowering_cloud_alchemy_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_munition_plant
+						has_active_production_method = pm_bound_talismans
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_mortality_mult = -0.05
+		state_conversion_mult = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = battle_consumables
+		has_technology_researched = enclosure
+		has_technology_researched = spirit_field_cultivation
+		has_technology_researched = qi_gathering
+		has_technology_researched = golden_core
+		any_scope_state = {
+			state_region = s:STATE_HUAYUN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_munition_plant
+				level >= 1
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_HUAYUN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 1
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_munition_plant = {
+			level = 1
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_HUAYUN
+			}
+		}
+		building_tobacco_plantation = {
+			level = 1
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_HUAYUN
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Blood Lotus Covenant Altar
+company_ova_story_blood_lotus_covenant_altar = {
+	icon = "gfx/interface/icons/company_icons/story_blood_lotus_covenant_altar.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	category = academic_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_XIELIAN }
+
+	building_types = { building_cultivation_grounds building_forests_of_the_departed building_spirit_beast_hunting }
+
+	extension_building_types = { building_livestock_ranch building_coal_mine }
+
+	potential = {
+		c:BLO ?= THIS
+		has_interest_marker_in_region = sr:region_xianxia_diabolic
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_XIELIAN }
+		}
+	}
+
+	possible = {
+		has_technology_researched = demonic_scriptures
+		has_technology_researched = qi_gathering
+		has_technology_researched = golden_core
+		has_technology_researched = romanticism
+		any_scope_state = {
+			state_region = s:STATE_XIELIAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_cultivation_grounds
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_XIELIAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_forests_of_the_departed
+				level >= 3
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_blood_stones }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_story_blood_lotus_covenant_altar_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_cultivation_grounds
+						has_active_production_method = pm_blood_sacrifice_altars
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_radicals_from_political_movements_mult = -0.1
+		unit_morale_recovery_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = demonic_scriptures
+		has_technology_researched = qi_gathering
+		has_technology_researched = golden_core
+		has_technology_researched = romanticism
+		any_scope_state = {
+			state_region = s:STATE_XIELIAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_cultivation_grounds
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_XIELIAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_forests_of_the_departed
+				level >= 3
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_cultivation_grounds = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_XIELIAN
+			}
+		}
+		building_forests_of_the_departed = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_XIELIAN
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Nine Nether Ancestral Archive
+company_ova_story_nine_nether_archive = {
+	icon = "gfx/interface/icons/company_icons/quill4.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_JIUYOU }
+
+	building_types = { building_forests_of_the_departed building_paper_mill }
+
+	extension_building_types = { building_cultivation_grounds building_livestock_ranch building_tooling_workshop }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia_diabolic
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_JIUYOU }
+		}
+	}
+
+	possible = {
+		has_technology_researched = romanticism
+		has_technology_researched = manufacturies
+		has_technology_researched = sawmills
+		has_technology_researched = demonic_scriptures
+		any_scope_state = {
+			state_region = s:STATE_JIUYOU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_forests_of_the_departed
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_JIUYOU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 1
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_generic_paper }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_story_nine_nether_archive_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_paper_mill
+						has_active_production_method = pm_pulp_pressing
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_prestige_goods_paper_complete_tt
+			has_variable = prestige_good_generic_paper_var
+		}
+	}
+
+	prosperity_modifier = {
+		country_tech_spread_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = romanticism
+		has_technology_researched = manufacturies
+		has_technology_researched = sawmills
+		has_technology_researched = demonic_scriptures
+		any_scope_state = {
+			state_region = s:STATE_JIUYOU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_forests_of_the_departed
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_JIUYOU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 1
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_forests_of_the_departed = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_JIUYOU
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Heavenly Treasure Pavilion
+company_ova_story_heavenly_treasure = {
+	icon = "gfx/interface/icons/company_icons/gate.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_YONGAN }
+
+	building_types = { building_glassworks building_tooling_workshop }
+
+	extension_building_types = { building_paper_mill building_tea_plantation }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_YONGAN }
+		}
+	}
+
+	possible = {
+		has_technology_researched = manufacturies
+		has_technology_researched = lathe
+		any_scope_state = {
+			state_region = s:STATE_YONGAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 1
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_heavenly_treasure_porcelain }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_story_heavenly_treasure_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_glassworks
+						has_active_production_method = pm_ceramics
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_authority_mult = 0.1
+		country_influence_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = manufacturies
+		has_technology_researched = lathe
+		any_scope_state = {
+			state_region = s:STATE_YONGAN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 1
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_YONGAN
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Verdant Grove Sect
+company_ova_story_verdant_grove = {
+	icon = "gfx/interface/icons/company_icons/treelogo.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_MINGJING }
+
+	building_types = { building_rice_farm building_paper_mill }
+
+	extension_building_types = { building_logging_camp building_tea_plantation }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_xianxia_yao
+		country_has_state_religion = rel:celestial_order
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_MINGJING }
+		}
+	}
+
+	possible = {
+		has_technology_researched = enclosure
+		has_technology_researched = manufacturies
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_rice_farm
+				level >= 1
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_generic_grain }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_story_verdant_grove_prestige_tt
+			owner = {
+				OR = {
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_rice_farm
+							has_active_production_method = pm_simple_farming_building_rice_farm
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_rice_farm
+							has_active_production_method = pm_herring_meal_farming_building_rice_farm
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_rice_farm
+							has_active_production_method = pm_chemical_fertilizer_building_rice_farm
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_prestige_goods_grain_complete_tt
+			has_variable = prestige_good_generic_grain_var
+		}
+	}
+
+	prosperity_modifier = {
+		country_bureaucracy_mult = 0.05
+		country_loyalists_from_legitimacy_mult = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = enclosure
+		has_technology_researched = manufacturies
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_MINGJING
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_rice_farm
+				level >= 1
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_MINGJING
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}

@@ -11,5 +11,15 @@ COUNTRIES = {
 		# Self-contained, so it needs no global-last ordering.
 		add_journal_entry = { type = je_ova_xianxia_blood_lotus }
 		trigger_event = { id = ova_xianxia.3 days = 5 }
+
+		# BEGIN OVA STORY COMPANY
+		# Existing story institution; no capacity or technology grants.
+		# Foundation: inferred; Formal Covenant altar charter aligned to the explicitly dated Blood Lotus Covenant. Blood Lotus cultivation and its forbidden lineage predate this charter.
+		add_company = company_type:company_ova_story_blood_lotus_covenant_altar
+		company:company_ova_story_blood_lotus_covenant_altar = {
+			set_company_establishment_date = 1820.10.31
+			set_company_state_region = s:STATE_XIELIAN
+		}
+		# END OVA STORY COMPANY
 	}
 }

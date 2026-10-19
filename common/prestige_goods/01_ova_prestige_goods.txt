@@ -1,0 +1,330 @@
+﻿# Fantasy registry: maximum three variants per base good.
+
+# Grand Regalia
+prestige_good_ova_refined_luxury_clothes = {
+	base_good = luxury_clothes
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/refined_luxury_clothes.dds"
+}
+
+# Guardian's Respite
+prestige_good_ova_refined_ammunition = {
+	base_good = ammunition
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/refined_ammunition.dds"
+}
+
+# Golden Marrow
+prestige_good_ova_refined_coal = {
+	base_good = coal
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/refined_coal.dds"
+}
+
+# The Living Chronicle
+prestige_good_ova_refined_fine_art = {
+	base_good = fine_art
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/refined_fine_art.dds"
+}
+
+# Oathkeepers
+prestige_good_ova_consecrated_radiant_arms = {
+	base_good = small_arms
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/consecrated_radiant_arms.dds"
+}
+
+# Blood Stones
+prestige_good_ova_blood_stones = {
+	base_good = coal
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/blood_stones.dds"
+}
+
+# Heavenly Treasure Ware
+prestige_good_ova_heavenly_treasure_porcelain = {
+	base_good = porcelain
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/heavenly_treasure_porcelain.dds"
+}
+
+# Namgung Court Attire
+prestige_good_ova_namgung_court_attire = {
+	base_good = luxury_clothes
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/namgung_court_attire.dds"
+}
+
+# Academy Blackseal
+prestige_good_ova_demon_academy_sutras = {
+	base_good = paper
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/demon_academy_sutras.dds"
+}
+
+# Unbroken Hymn
+prestige_good_ova_unbroken_hymn_paper = {
+	base_good = paper
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/unbroken_hymn_paper.dds"
+}
+
+# Blitt Awakened Stewards
+prestige_good_ova_imperial_awakened_stewards = {
+	base_good = automobiles
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/imperial_awakened_stewards.dds"
+}
+
+# Earthbreath Powder
+prestige_good_ova_confluence_spirit_fertilizer = {
+	base_good = fertilizer
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/confluence_spirit_fertilizer.dds"
+}
+
+# Vyelle Court Dress
+prestige_good_ova_vyelle_court_dress = {
+	base_good = luxury_clothes
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/vyelle_court_dress.dds"
+}
+
+# Hero's Study
+prestige_good_ova_practicum_desks = {
+	base_good = furniture
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/practicum_desks.dds"
+}
+
+# Katzenburg Courting Dress
+prestige_good_ova_katzenburg_courting_dress = {
+	base_good = clothes
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/katzenburg_courting_dress.dds"
+}
+
+# Heavenly Resonance
+prestige_good_ova_resonance_tea = {
+	base_good = tea
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/resonance_tea.dds"
+}
+
+# Flowering Cloud Charms
+prestige_good_ova_cultivation_pills = {
+	base_good = ammunition
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/cultivation_pills.dds"
+}
+
+# Whispers of the Eight Banners
+prestige_good_ova_beggar_road_reports = {
+	base_good = services
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/beggar_road_reports.dds"
+}
+
+# Hobuk Master's Implements
+prestige_good_ova_hobuk_training_implements = {
+	base_good = tools
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/hobuk_training_implements.dds"
+}
+
+# Acley Sentinels
+prestige_good_ova_imperial_sentinel_automata = {
+	base_good = artillery
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/imperial_sentinel_automata.dds"
+}
+
+# Capital Skycouriers
+prestige_good_ova_lysna_skycouriers = {
+	base_good = aeroplanes
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/lysna_skycouriers.dds"
+}
+
+# Masterwright's Standard
+prestige_good_ova_havenstry_masterwright_tools = {
+	base_good = tools
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/havenstry_masterwright_tools.dds"
+}
+
+# Mayport Blue
+prestige_good_ova_dreaming_isles_silverfish = {
+	base_good = fish
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/dreaming_isles_silverfish.dds"
+}
+
+# Aleveran Trail Conserves
+prestige_good_ova_aleveran_trail_conserves = {
+	base_good = groceries
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/aleveran_trail_conserves.dds"
+}
+
+# Moonmane
+prestige_good_ova_barenberg_moonmane_thread = {
+	base_good = silk
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/barenberg_moonmane_thread.dds"
+}
+
+# Raeteni Heartwood
+prestige_good_ova_groveheart_hardwood = {
+	base_good = hardwood
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/groveheart_hardwood.dds"
+}
+
+# Melkkalunde Forgehearts
+prestige_good_ova_melkkalunde_resonant_cores = {
+	base_good = steel
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/melkkalunde_resonant_cores.dds"
+}
+
+# Katzenburg Skyway Charters
+prestige_good_ova_reyorn_skyway_charters = {
+	base_good = merchant_marine
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/reyorn_skyway_charters.dds"
+}
+
+# Lucent Assay
+prestige_good_ova_insular_assay_mythril = {
+	base_good = lead
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/insular_assay_mythril.dds"
+}
+
+# The Uniter's Oathblades
+prestige_good_ova_uniters_oathblades = {
+	base_good = small_arms
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/uniters_oathblades.dds"
+}
+
+# Dawnfast Vigil
+prestige_good_ova_dawnfast_coffee = {
+	base_good = coffee
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/dawnfast_coffee.dds"
+}
+
+# Furat Dawnrunners
+prestige_good_ova_furat_dawnrunners = {
+	base_good = clippers
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/furat_dawnrunners.dds"
+}
+
+# Nasr Restoratives
+prestige_good_ova_nasr_restoratives = {
+	base_good = opium
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/nasr_restoratives.dds"
+}
+
+# Catpital Feast Baskets
+prestige_good_ova_catpital_feast_baskets = {
+	base_good = groceries
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/catpital_feast_baskets.dds"
+}
+
+# Embersea Inlay
+prestige_good_ova_embersea_inlaid_cabinets = {
+	base_good = luxury_furniture
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/embersea_inlaid_cabinets.dds"
+}
+
+# Wayfarer's Bounty
+prestige_good_ova_uang_ko_prize_herds = {
+	base_good = meat
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/uang_ko_prize_herds.dds"
+}
+
+# Moonfall Harvest
+prestige_good_ova_marches_moonfruit = {
+	base_good = fruit
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/marches_moonfruit.dds"
+}
+
+# Dawnsea Safe Passage
+prestige_good_ova_dawnsea_marine_service = {
+	base_good = merchant_marine
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/dawnsea_marine_service.dds"
+}
+
+# Nasr Clearfire
+prestige_good_ova_nasr_clarified_stones = {
+	base_good = coal
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/nasr_clarified_stones.dds"
+}
+
+# Five-Harvest Essence
+prestige_good_ova_five_harvest_spirit_powder = {
+	base_good = fertilizer
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/five_harvest_spirit_powder.dds"
+}
+
+# Vermilion Vintage
+prestige_good_ova_charnam_vermilion_wine = {
+	base_good = wine
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/charnam_vermilion_wine.dds"
+}
+
+# Meridian Leaves
+prestige_good_ova_refined_spirit_herbs = {
+	base_good = tobacco
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/refined_spirit_herbs.dds"
+}
+
+# Dawnhearts
+prestige_good_ova_dawnforged_cores = {
+	base_good = steel
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/dawnforged_cores.dds"
+}
+
+# Guildmaster's Choice
+prestige_good_ova_guild_spirit_beast_meat = {
+	base_good = meat
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/guild_spirit_beast_meat.dds"
+}
+
+# Jade Dispatch
+prestige_good_ova_jade_court_message_orbs = {
+	base_good = telephones
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/jade_court_message_orbs.dds"
+}
+
+# Thousand Visions Scrolls
+prestige_good_ova_mingjing_phantasm_scrolls = {
+	base_good = fine_art
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/mingjing_phantasm_scrolls.dds"
+}
+
+# Cloudwake
+prestige_good_ova_asahi_cloudwake_airships = {
+	base_good = aeroplanes
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/asahi_cloudwake_airships.dds"
+}

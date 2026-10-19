@@ -832,8 +832,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:DEM"
-                        levels = 4
+                        levels = 1
                         region = "STATE_EX_TENEBRIS"
+                    }
+                    company = {
+                        type = company_ova_unbroken_hymn
+                        country = "c:DEM"
+                        levels = 3
                     }
                 }
                 reserves = 1
@@ -849,8 +854,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:DEM"
-                        levels = 3
+                        levels = 1
                         region = "STATE_EX_TENEBRIS"
+                    }
+                    company = {
+                        type = company_ova_unbroken_hymn
+                        country = "c:DEM"
+                        levels = 2
                     }
                 }
                 reserves = 1

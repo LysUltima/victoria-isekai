@@ -136,6 +136,7 @@ building_cultivation_grounds = {
 	icon = "gfx/interface/icons/building_icons/cultivation_grounds.dds"
 
 	required_construction = construction_cost_medium
+	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 

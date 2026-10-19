@@ -206,12 +206,17 @@
 				    building = {
 				        type = "building_financial_district"
 				        country = "c:LYS"
-				        levels = 4
+				        levels = 2
 				        region = "STATE_IMPERIAL_CAPITAL"
 				    }
 				    country = {
 				        country = "c:LUX"
 				        levels = 1
+				    }
+				    company = {
+				        type = company_ova_hero_patronage_office
+				        country = "c:LYS"
+				        levels = 2
 				    }
 				}
 				reserves = 1
@@ -227,12 +232,17 @@
 				    building = {
 				        type = "building_financial_district"
 				        country = "c:LYS"
-				        levels = 4
+				        levels = 1
 				        region = "STATE_IMPERIAL_CAPITAL"
 				    }
 				    country = {
 				        country = "c:LUX"
 				        levels = 1
+				    }
+				    company = {
+				        type = company_ova_hero_patronage_office
+				        country = "c:LYS"
+				        levels = 3
 				    }
 				}
 				reserves = 1
@@ -3272,7 +3282,12 @@
                 add_ownership = {
                     country = {
                         country = "c:LUX"
-                        levels = 4
+                        levels = 2
+                    }
+                    company = {
+                        type = company_ova_order_eternal_light
+                        country = "c:LUX"
+                        levels = 2
                     }
                 }
                 reserves = 1
@@ -3374,7 +3389,12 @@
                 add_ownership = {
                     country = {
                         country = "c:LUX"
-                        levels = 5
+                        levels = 2
+                    }
+                    company = {
+                        type = company_ova_order_eternal_light
+                        country = "c:LUX"
+                        levels = 3
                     }
                 }
                 reserves = 1
@@ -4436,8 +4456,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:REY"
-                        levels = 8
+                        levels = 6
                         region = "STATE_KATZENBURG"
+                    }
+                    company = {
+                        type = company_ova_nasira_merchant_house
+                        country = "c:REY"
+                        levels = 2
                     }
                 }
                 reserves = 1
@@ -4522,12 +4547,17 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:REY"
-                        levels = 4
+                        levels = 2
                         region = "STATE_KATZENBURG"
                     }
                     country = {
                         country = "c:LUX"
                         levels = 1
+                    }
+                    company = {
+                        type = company_ova_nasira_merchant_house
+                        country = "c:REY"
+                        levels = 2
                     }
                 }
                 reserves = 1
@@ -4543,11 +4573,16 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:REY"
-                        levels = 2
+                        levels = 1
                         region = "STATE_KATZENBURG"
                     }
                     country = {
                         country = "c:LUX"
+                        levels = 1
+                    }
+                    company = {
+                        type = company_ova_nasira_merchant_house
+                        country = "c:REY"
                         levels = 1
                     }
                 }

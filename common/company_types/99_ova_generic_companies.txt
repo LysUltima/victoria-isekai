@@ -1,0 +1,447 @@
+﻿# Generic companies.
+
+# Adventurer's Guild
+company_ova_adventurers_guild = {
+	icon = "gfx/interface/icons/company_icons/stag_3.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = shopkeeper_owned
+
+	flavored_company = no
+
+	uses_dynamic_naming = yes
+
+	dynamic_company_type_names = {
+		"dynamic_company_type_guild"
+		"dynamic_company_type_society"
+		"dynamic_company_type_fellowship"
+	}
+
+	building_types = { building_spirit_beast_hunting building_arms_industry }
+
+	extension_building_types = { building_food_industry building_tooling_workshop building_paper_mill }
+
+	potential = {
+		always = yes
+	}
+
+	possible = {
+		has_technology_researched = arms_enchanting
+		OR = {
+			any_scope_state = {
+				is_incorporated = yes
+				any_scope_building = {
+					is_building_type = building_spirit_beast_hunting
+					level >= 3
+				}
+			}
+			any_scope_state = {
+				is_incorporated = yes
+				any_scope_building = {
+					is_building_type = building_arms_industry
+					level >= 3
+				}
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_guild_spirit_beast_meat }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_adventurers_guild_prestige_tt
+			owner = {
+				OR = {
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_spirit_beast_hunting
+							has_active_production_method = pm_spirit_beast_hunting
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_spirit_beast_hunting
+							has_active_production_method = pm_warded_hunting_parties
+						}
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		unit_defense_mult = 0.05
+		unit_recovery_rate_add = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = arms_enchanting
+		OR = {
+			any_scope_state = {
+				is_incorporated = yes
+				any_scope_building = {
+					is_building_type = building_spirit_beast_hunting
+					level >= 3
+				}
+			}
+			any_scope_state = {
+				is_incorporated = yes
+				any_scope_building = {
+					is_building_type = building_arms_industry
+					level >= 3
+				}
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_spirit_beast_hunting = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+			}
+		}
+		building_arms_industry = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = { value = 1 }
+}
+
+# Mage Association
+company_ova_mage_association = {
+	icon = "gfx/interface/icons/company_icons/custom_anb_damestear.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = academic_owned
+
+	flavored_company = no
+
+	uses_dynamic_naming = yes
+
+	dynamic_company_type_names = {
+		"dynamic_company_type_guild"
+		"dynamic_company_type_society"
+		"dynamic_company_type_fellowship"
+	}
+
+	building_types = { building_paper_mill building_steel_mill }
+
+	extension_building_types = { building_glassworks building_coal_mine building_logging_camp }
+
+	potential = {
+		any_primary_culture = { has_discrimination_trait_group = heritage_group_isekai_human }
+	}
+
+	possible = {
+		has_technology_researched = manufacturies
+		has_technology_researched = core_founding
+		has_technology_researched = mechanical_tools
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_steel_mill
+				level >= 3
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_generic_paper }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_mage_association_prestige_tt
+			owner = {
+				OR = {
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_paper_mill
+							has_active_production_method = pm_pulp_pressing
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_paper_mill
+							has_active_production_method = pm_sulfite_pulping
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_prestige_goods_paper_complete_tt
+			has_variable = prestige_good_generic_paper_var
+		}
+	}
+
+	prosperity_modifier = {
+		country_weekly_innovation_mult = 0.1
+		state_education_access_wealth_add = 0.005
+	}
+
+	ai_will_do = {
+		has_technology_researched = manufacturies
+		has_technology_researched = core_founding
+		has_technology_researched = mechanical_tools
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_steel_mill
+				level >= 3
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+			}
+		}
+		building_steel_mill = {
+			level = 3
+			state_trigger = {
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = { value = 1 }
+}
+
+# Blood Stone Hall
+company_ova_blood_pool_hall = {
+	icon = "gfx/interface/icons/company_icons/blood_pool_hall.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = academic_owned
+
+	flavored_company = no
+
+	uses_dynamic_naming = yes
+
+	dynamic_company_type_names = {
+		"dynamic_company_type_guild"
+		"dynamic_company_type_society"
+		"dynamic_company_type_fellowship"
+	}
+
+	building_types = { building_cultivation_grounds building_forests_of_the_departed }
+
+	extension_building_types = { building_spirit_beast_hunting building_livestock_ranch }
+
+	potential = {
+		has_technology_researched = demonic_scriptures
+	}
+
+	possible = {
+		has_technology_researched = demonic_scriptures
+		has_technology_researched = qi_gathering
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_cultivation_grounds
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_blood_stones }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_blood_pool_hall_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_cultivation_grounds
+						has_active_production_method = pm_blood_sacrifice_altars
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_mortality_mult = 0.1
+		unit_offense_mult = 0.15
+		unit_defense_mult = 0.1
+		unit_kill_rate_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = demonic_scriptures
+		has_technology_researched = qi_gathering
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_cultivation_grounds
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_cultivation_grounds = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = { value = 1 }
+}
+
+# Explorer's Guild
+company_ova_norse_explorers = {
+	icon = "gfx/interface/icons/company_icons/lighthouse_1.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = no
+
+	uses_dynamic_naming = yes
+
+	dynamic_company_type_names = {
+		"dynamic_company_type_guild"
+		"dynamic_company_type_society"
+		"dynamic_company_type_fellowship"
+	}
+
+	building_types = { building_whaling_station building_shipyard building_fishing_wharf }
+
+	extension_building_types = { building_logging_camp building_food_industry building_tooling_workshop }
+
+	potential = {
+		OR = {
+			country_has_primary_culture = cu:skarholt
+			country_has_primary_culture = cu:fjordic
+			country_has_primary_culture = cu:frostholm
+		}
+	}
+
+	possible = {
+		has_technology_researched = navigation
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_whaling_station
+				level >= 5
+			}
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 5
+			}
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_fishing_wharf
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_generic_fish }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_norse_explorers_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_fishing_wharf
+						has_active_production_method = pm_fishing_trawlers
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_prestige_goods_fish_complete_tt
+			has_variable = prestige_good_generic_fish_var
+		}
+	}
+
+	prosperity_modifier = {
+		state_colony_growth_speed_mult = 0.1
+		country_ship_group_supply_ships_construction_efficiency_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = navigation
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_whaling_station
+				level >= 5
+			}
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 5
+			}
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_fishing_wharf
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_whaling_station = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+			}
+		}
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+			}
+		}
+		building_fishing_wharf = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = { value = 1 }
+}

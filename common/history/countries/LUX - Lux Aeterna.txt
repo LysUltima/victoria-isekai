@@ -12,5 +12,15 @@ COUNTRIES = {
 		add_modifier = { name = ova_lux_voice_of_the_goddess days = -1 }
         set_variable = { name = ova_lux_hero_count value = 0 }
         add_journal_entry = { type = je_ova_eternal_crusade }
+
+		# BEGIN OVA STORY COMPANY
+		# Existing story institution; no capacity or technology grants.
+		# Foundation: inferred; Ancient holy order established centuries after the Goddess War (approximately year 36), long before the Radiant Crusade of 1802. Exact foundation year is new flavor; The month and day are authored flavor.
+		add_company = company_type:company_ova_order_eternal_light
+		company:company_ova_order_eternal_light = {
+			set_company_establishment_date = 600.3.21
+			set_company_state_region = s:STATE_INSULA_LUCE
+		}
+		# END OVA STORY COMPANY
 	}
 }

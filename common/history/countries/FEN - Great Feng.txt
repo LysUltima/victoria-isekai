@@ -12,5 +12,15 @@ COUNTRIES = {
 		# Self-contained, so it needs no global-last ordering.
 		add_journal_entry = { type = je_ova_xianxia_jade_mandate }
 		trigger_event = { id = ova_xianxia.4 days = 5 }
+
+		# BEGIN OVA STORY COMPANY
+		# Existing story institution; no capacity or technology grants.
+		# Foundation: inferred; Court-facing pavilion charter aligned to the explicitly dated Feng dynastic foundation. The connection between that political date and the pavilion is an inference.
+		add_company = company_type:company_ova_story_heavenly_treasure
+		company:company_ova_story_heavenly_treasure = {
+			set_company_establishment_date = 163.8.6
+			set_company_state_region = s:STATE_YONGAN
+		}
+		# END OVA STORY COMPANY
 	}
 }

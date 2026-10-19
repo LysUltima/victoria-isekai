@@ -1,0 +1,275 @@
+﻿# Beastland companies.
+
+# Catpital Granary Guild
+company_ova_catfood_guild = {
+	icon = "gfx/interface/icons/company_icons/cat2.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+
+	category = aristocrat_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_CATPITAL }
+
+	building_types = { building_wheat_farm building_food_industry }
+
+	extension_building_types = { building_livestock_ranch building_fishing_wharf building_chemical_plant }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_beastland_central
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_CATPITAL }
+		}
+	}
+
+	possible = {
+		has_technology_researched = spirit_fertilizer_refinement
+		has_technology_researched = canneries
+		any_scope_state = {
+			state_region = s:STATE_CATPITAL
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_wheat_farm
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_catpital_feast_baskets }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_catfood_guild_prestige_tt
+			owner = {
+				OR = {
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_food_industry
+							has_active_production_method = pm_bakery
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_food_industry
+							has_active_production_method = pm_cannery
+						}
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_food_industry_throughput_add = 0.1
+		state_radicalism_increases_violent_hostility_mult = -0.05
+		state_radicalism_increases_cultural_erasure_mult = -0.05
+		state_radicalism_increases_open_prejudice_mult = -0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = spirit_fertilizer_refinement
+		has_technology_researched = canneries
+		any_scope_state = {
+			state_region = s:STATE_CATPITAL
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_wheat_farm
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_wheat_farm = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_CATPITAL
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Embersea Loomkeepers
+company_ova_embersea_loomkeepers = {
+	icon = "gfx/interface/icons/company_icons/embersea_loomkeepers.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	category = shopkeeper_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_WAPAPOW }
+
+	building_types = { building_textile_mill building_furniture_manufactory }
+
+	extension_building_types = { building_logging_camp building_livestock_ranch building_spirit_beast_hunting }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_beastland_central
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_WAPAPOW }
+		}
+	}
+
+	possible = {
+		has_technology_researched = mechanical_tools
+		has_technology_researched = mechanized_workshops
+		any_scope_state = {
+			state_region = s:STATE_WAPAPOW
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_furniture_manufactory
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_embersea_inlaid_cabinets }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_embersea_loomkeepers_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_furniture_manufactory
+						has_active_production_method = pm_precision_tools
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_prestige_mult = 0.15
+		building_furniture_manufactory_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = mechanical_tools
+		has_technology_researched = mechanized_workshops
+		any_scope_state = {
+			state_region = s:STATE_WAPAPOW
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_furniture_manufactory
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_furniture_manufactory = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_WAPAPOW
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Pack-Road Provisioners
+company_ova_uang_herders = {
+	icon = "gfx/interface/icons/company_icons/uang_herders.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+
+	category = aristocrat_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_UANG_KO }
+
+	building_types = { building_millet_farm building_livestock_ranch }
+
+	extension_building_types = { building_food_industry building_fishing_wharf building_chemical_plant }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_beastland
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_UANG_KO }
+		}
+	}
+
+	possible = {
+		has_technology_researched = spirit_field_cultivation
+		has_technology_researched = mechanical_tools
+		any_scope_state = {
+			state_region = s:STATE_UANG_KO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_livestock_ranch
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_uang_ko_prize_herds }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_uang_herders_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_livestock_ranch
+						has_active_production_method = pm_slaughterhouses
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_infrastructure_from_population_mult = 0.1
+		building_livestock_ranch_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = spirit_field_cultivation
+		has_technology_researched = mechanical_tools
+		any_scope_state = {
+			state_region = s:STATE_UANG_KO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_livestock_ranch
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_livestock_ranch = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_UANG_KO
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}

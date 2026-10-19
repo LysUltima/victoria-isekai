@@ -4,5 +4,15 @@ COUNTRIES = {
 		effect_starting_technology_spiritualism_tier_1 = yes
 		create_character = { template = template_ruler_hea role = ruler }
 		effect_starting_politics_sect = yes
+
+		# BEGIN OVA STORY COMPANY
+		# Existing story institution; no capacity or technology grants.
+		# Foundation: inferred; Old sect endowment consistent with the centuries-old institutions and eight-hundred-year archives of the shared cultivation story. This particular hall has no exact dated foundation. Month and day are authored flavor.
+		add_company = company_type:company_ova_story_heavenly_note_resonance
+		company:company_ova_story_heavenly_note_resonance = {
+			set_company_establishment_date = 900.9.15
+			set_company_state_region = s:STATE_TIANYIN
+		}
+		# END OVA STORY COMPANY
 	}
 }

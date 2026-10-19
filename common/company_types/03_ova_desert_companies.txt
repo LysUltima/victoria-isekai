@@ -1,0 +1,726 @@
+﻿# Desert companies.
+
+# Dawn Oasis Charter
+company_ova_dawn_oasis_charter = {
+	icon = "gfx/interface/icons/company_icons/decotree.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	category = aristocrat_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_AYN_ASH_SHAMS }
+
+	building_types = { building_coffee_plantation building_enchanted_palm_orchard building_cotton_plantation }
+
+	extension_building_types = { building_livestock_ranch building_fishing_wharf }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_desert
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_AYN_ASH_SHAMS }
+		}
+	}
+
+	possible = {
+		has_technology_researched = magic_carpets
+		has_technology_researched = fractionating_alembics
+		any_scope_state = {
+			state_region = s:STATE_AYN_ASH_SHAMS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_coffee_plantation
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_dawnfast_coffee }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_dawn_oasis_charter_prestige_tt
+			owner = {
+				OR = {
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_coffee_plantation
+							has_active_production_method = pm_sparse_planting_building_coffee_plantation
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_coffee_plantation
+							has_active_production_method = coffee_plantation_patio_drying
+						}
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_coffee_plantation_throughput_add = 0.15
+		state_trade_capacity_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = magic_carpets
+		has_technology_researched = fractionating_alembics
+		any_scope_state = {
+			state_region = s:STATE_AYN_ASH_SHAMS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_coffee_plantation
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_coffee_plantation = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_AYN_ASH_SHAMS
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Dawnfire Apothecaries
+company_ova_dawnfire_arsenal = {
+	icon = "gfx/interface/icons/company_icons/dawnfire_arsenal.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_BAHR_AL_SHURUQ }
+
+	building_types = { building_munition_plant building_synthetics_plant }
+
+	extension_building_types = { building_explosives_factory building_glassworks }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_desert
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_BAHR_AL_SHURUQ }
+		}
+	}
+
+	possible = {
+		has_technology_researched = stabilized_reagents
+		has_technology_researched = apothecaries
+		any_scope_state = {
+			state_region = s:STATE_BAHR_AL_SHURUQ
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_munition_plant
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_refined_ammunition }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_dawnfire_arsenal_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_munition_plant
+						has_active_production_method = pm_explosive_shells
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		unit_morale_loss_mult = -0.1
+		unit_morale_recovery_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = stabilized_reagents
+		has_technology_researched = apothecaries
+		any_scope_state = {
+			state_region = s:STATE_BAHR_AL_SHURUQ
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_munition_plant
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_munition_plant = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_BAHR_AL_SHURUQ
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Furat Coffee Exchange
+company_ova_furat_coffee_exchange = {
+	icon = "gfx/interface/icons/company_icons/coffee_cup_2.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	category = aristocrat_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_RAWDAT_AL_FURAT }
+
+	building_types = { building_coffee_plantation building_shipyard }
+
+	extension_building_types = { building_enchanted_palm_orchard building_fishing_wharf building_synthetics_plant }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_desert
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_RAWDAT_AL_FURAT }
+		}
+	}
+
+	possible = {
+		has_technology_researched = alchemical_propulsion
+		any_scope_state = {
+			state_region = s:STATE_RAWDAT_AL_FURAT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_coffee_plantation
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_furat_dawnrunners }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_furat_coffee_exchange_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_shipyard
+						has_active_production_method = pm_complex_shipbuilding
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_ship_group_supply_ships_construction_efficiency_add = 0.2
+	}
+
+	ai_will_do = {
+		has_technology_researched = alchemical_propulsion
+		any_scope_state = {
+			state_region = s:STATE_RAWDAT_AL_FURAT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_coffee_plantation
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_coffee_plantation = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_RAWDAT_AL_FURAT
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Nasr Alchemical Collegium
+company_ova_nasr_alchemical_collegium = {
+	icon = "gfx/interface/icons/company_icons/nasr_alchemical_collegium.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = academic_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_QALCAT_AL_NASR }
+
+	building_types = { building_synthetics_plant building_glassworks }
+
+	extension_building_types = { building_enchanted_palm_orchard building_paper_mill }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_desert_inner
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_QALCAT_AL_NASR }
+		}
+	}
+
+	possible = {
+		has_technology_researched = apothecaries
+		has_technology_researched = crystal_glass
+		has_technology_researched = volatile_reagents
+		any_scope_state = {
+			state_region = s:STATE_QALCAT_AL_NASR
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_synthetics_plant
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_nasr_restoratives }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_nasr_alchemical_collegium_prestige_tt
+			owner = {
+				OR = {
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							has_active_production_method = pm_health_potion_brewing
+						}
+					}
+					any_scope_state = {
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							has_active_production_method = pm_mass_health_potions
+						}
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_weekly_innovation_mult = 0.1
+		building_synthetics_plant_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = apothecaries
+		has_technology_researched = crystal_glass
+		has_technology_researched = volatile_reagents
+		any_scope_state = {
+			state_region = s:STATE_QALCAT_AL_NASR
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_synthetics_plant
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_synthetics_plant = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_QALCAT_AL_NASR
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Wafa Forge Covenant
+company_ova_wafa_forge_covenant = {
+	icon = "gfx/interface/icons/company_icons/hammer.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = shopkeeper_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_AYN_AL_WAFA }
+
+	building_types = { building_iron_mine building_tooling_workshop }
+
+	extension_building_types = { building_synthetics_plant building_arms_industry }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_desert_inner
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_AYN_AL_WAFA }
+		}
+	}
+
+	possible = {
+		has_technology_researched = stabilized_reagents
+		any_scope_state = {
+			state_region = s:STATE_AYN_AL_WAFA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_generic_tools }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_wafa_forge_covenant_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_tooling_workshop
+						has_active_production_method = pm_iron_tools
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_prestige_goods_tools_complete_tt
+			has_variable = prestige_good_generic_tools_var
+		}
+	}
+
+	prosperity_modifier = {
+		building_construction_sector_throughput_add = 0.05
+		country_max_weekly_construction_progress_add = 10
+	}
+
+	ai_will_do = {
+		has_technology_researched = stabilized_reagents
+		any_scope_state = {
+			state_region = s:STATE_AYN_AL_WAFA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_AYN_AL_WAFA
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Dawnsea Maritime Exchange
+company_ova_dawnsea_maritime_exchange = {
+	icon = "gfx/interface/icons/company_icons/lillyanchor.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_SAHIL_AL_SHUAC }
+
+	building_types = { building_port building_trade_center }
+
+	extension_building_types = { building_shipyard building_automotive_industry }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_desert
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_SAHIL_AL_SHUAC }
+		}
+	}
+
+	possible = {
+		has_technology_researched = floating_harbor
+		has_technology_researched = macroeconomics
+		has_technology_researched = alchemical_dockyards
+		any_scope_state = {
+			state_region = s:STATE_SAHIL_AL_SHUAC
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_port
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_dawnsea_marine_service }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_dawnsea_maritime_exchange_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_port
+						has_active_production_method = pm_modern_port
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_migration_pull_mult = 0.1
+		state_trade_advantage_mult = 0.15
+	}
+
+	ai_will_do = {
+		has_technology_researched = floating_harbor
+		has_technology_researched = macroeconomics
+		has_technology_researched = alchemical_dockyards
+		any_scope_state = {
+			state_region = s:STATE_SAHIL_AL_SHUAC
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_port
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_port = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_SAHIL_AL_SHUAC
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Nasr Sky-Caravan Exchange
+company_ova_grandsky_central = {
+	icon = "gfx/interface/icons/company_icons/grandsky_central.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_QALCAT_AL_NASR }
+
+	building_types = { building_automotive_industry building_airship_dock }
+
+	extension_building_types = { building_shipyard building_trade_center }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_desert_inner
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_QALCAT_AL_NASR }
+		}
+	}
+
+	possible = {
+		has_technology_researched = international_exchange_standards
+		has_technology_researched = alchemical_thread
+		any_scope_state = {
+			state_region = s:STATE_QALCAT_AL_NASR
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_automotive_industry
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_generic_merchant_marine }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_grandsky_central_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_airship_dock
+						has_active_production_method = pm_airship_moorings
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_prestige_goods_merchant_marine_complete_tt
+			has_variable = prestige_good_generic_merchant_marine_var
+		}
+	}
+
+	prosperity_modifier = {
+		state_infrastructure_mult = 0.05
+		state_trade_capacity_mult = 0.15
+	}
+
+	ai_will_do = {
+		has_technology_researched = international_exchange_standards
+		has_technology_researched = alchemical_thread
+		any_scope_state = {
+			state_region = s:STATE_QALCAT_AL_NASR
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_automotive_industry
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_automotive_industry = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_QALCAT_AL_NASR
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}
+
+# Nasr Reagent Syndicate
+company_ova_nasr_reagent_syndicate = {
+	icon = "gfx/interface/icons/company_icons/nasr_reagent_syndicate.dds"
+
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	uses_dynamic_naming = no
+
+	preferred_headquarters = { STATE_SAHAT_AL_JUD }
+
+	building_types = { building_coal_mine building_sulfur_mine building_explosives_factory }
+
+	extension_building_types = { building_iron_mine building_tooling_workshop }
+
+	potential = {
+		has_interest_marker_in_region = sr:region_desert_inner
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = { state_region = s:STATE_SAHAT_AL_JUD }
+		}
+	}
+
+	possible = {
+		has_technology_researched = stabilized_reagents
+		any_scope_state = {
+			state_region = s:STATE_SAHAT_AL_JUD
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_sulfur_mine
+				level >= 5
+			}
+		}
+	}
+
+	possible_prestige_goods = { prestige_good_ova_nasr_clarified_stones }
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = company_ova_nasr_reagent_syndicate_prestige_tt
+			owner = {
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_coal_mine
+						has_active_production_method = pm_dynamite_building_coal_mine
+					}
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_coal_mine_throughput_add = 0.1
+		country_bureaucracy_mult = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = stabilized_reagents
+		any_scope_state = {
+			state_region = s:STATE_SAHAT_AL_JUD
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_sulfur_mine
+				level >= 5
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_sulfur_mine = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+				state_region = s:STATE_SAHAT_AL_JUD
+			}
+		}
+	}
+
+	ai_weight = { value = 3 }
+}

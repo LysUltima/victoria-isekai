@@ -4,5 +4,15 @@ COUNTRIES = {
 		effect_starting_technology_spiritualism_tier_3 = yes
 		create_character = { template = template_ruler_pae role = ruler }
 		effect_starting_politics_traditional = yes
+
+		# BEGIN OVA STORY COMPANY
+		# Existing story institution; no capacity or technology grants.
+		# Foundation: inferred; Multigenerational endowment of the ancestral shrine and affiliated saber schools, supported by the old sabers and ancestor traditions in the Paeng story. Exact foundation year is inferred. Month and day are authored flavor.
+		add_company = company_type:company_ova_paeng_ancestral_saber_hall
+		company:company_ova_paeng_ancestral_saber_hall = {
+			set_company_establishment_date = 1580.8.16
+			set_company_state_region = s:STATE_HOBUK
+		}
+		# END OVA STORY COMPANY
 	}
 }

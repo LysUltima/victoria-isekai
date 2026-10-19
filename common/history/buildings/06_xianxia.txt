@@ -117,8 +117,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:FEN"
-                        levels = 7
+                        levels = 5
                         region = "STATE_YONGAN"
+                    }
+                    company = {
+                        type = company_ova_story_heavenly_treasure
+                        country = "c:FEN"
+                        levels = 2
                     }
                 }
                 reserves = 1
@@ -362,8 +367,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:FEN"
-                        levels = 8
+                        levels = 5
                         region = "STATE_FENGSHAN"
+                    }
+                    company = {
+                        type = company_ova_story_heavenly_treasure
+                        country = "c:FEN"
+                        levels = 3
                     }
                 }
                 reserves = 1
@@ -2411,7 +2421,8 @@
             create_building = {
                 building = "building_cultivation_grounds"
                 add_ownership = {
-                    country = {
+                    company = {
+                        type = company_ova_story_heavenly_note_resonance
                         country = "c:HEA"
                         levels = 3
                     }
@@ -2568,7 +2579,8 @@
             create_building = {
                 building = "building_cultivation_grounds"
                 add_ownership = {
-                    country = {
+                    company = {
+                        type = company_ova_story_heavenly_note_resonance
                         country = "c:HEA"
                         levels = 1
                     }
@@ -2673,11 +2685,10 @@
             create_building = {
                 building = "building_tea_plantation"
                 add_ownership = {
-                    building = {
-                        type = "building_manor_house"
+                    company = {
+                        type = company_ova_story_heavenly_note_resonance
                         country = "c:HEA"
                         levels = 1
-                        region = "STATE_ZHUSHI"
                     }
                 }
                 reserves = 1
@@ -2880,11 +2891,10 @@
             create_building = {
                 building = "building_tobacco_plantation"
                 add_ownership = {
-                    building = {
-                        type = "building_manor_house"
+                    company = {
+                        type = company_ova_story_flowering_cloud_alchemy
                         country = "c:FLO"
-                        levels = 1
-                        region = "STATE_HUAYUN"
+                        levels = 2
                     }
                 }
                 reserves = 1
@@ -3058,11 +3068,10 @@
             create_building = {
                 building = "building_munition_plant"
                 add_ownership = {
-                    building = {
-                        type = "building_financial_district"
+                    company = {
+                        type = company_ova_story_flowering_cloud_alchemy
                         country = "c:FLO"
-                        levels = 1
-                        region = "STATE_HUAYUN"
+                        levels = 2
                     }
                 }
                 reserves = 1
@@ -3215,11 +3224,10 @@
             create_building = {
                 building = "building_tobacco_plantation"
                 add_ownership = {
-                    building = {
-                        type = "building_manor_house"
+                    company = {
+                        type = company_ova_story_flowering_cloud_alchemy
                         country = "c:FLO"
                         levels = 1
-                        region = "STATE_KAIHUA"
                     }
                 }
                 reserves = 1
@@ -4594,11 +4602,10 @@
             create_building = {
                 building = "building_rice_farm"
                 add_ownership = {
-                    building = {
-                        type = "building_manor_house"
+                    company = {
+                        type = company_ova_story_verdant_grove
                         country = "c:YAO"
                         levels = 1
-                        region = "STATE_MINGJING"
                     }
                 }
                 reserves = 1
@@ -4671,8 +4678,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:YAO"
-                        levels = 7
+                        levels = 3
                         region = "STATE_MINGJING"
+                    }
+                    company = {
+                        type = company_ova_story_verdant_grove
+                        country = "c:YAO"
+                        levels = 4
                     }
                 }
                 reserves = 1
@@ -7134,8 +7146,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:BLO"
-                        levels = 7
+                        levels = 5
                         region = "STATE_XIELIAN"
+                    }
+                    company = {
+                        type = company_ova_story_blood_lotus_covenant_altar
+                        country = "c:BLO"
+                        levels = 2
                     }
                 }
                 reserves = 1
@@ -7253,7 +7270,12 @@
                 add_ownership = {
                     country = {
                         country = "c:BLO"
-                        levels = 3
+                        levels = 1
+                    }
+                    company = {
+                        type = company_ova_story_blood_lotus_covenant_altar
+                        country = "c:BLO"
+                        levels = 2
                     }
                 }
                 reserves = 1
@@ -7429,8 +7451,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:BLO"
-                        levels = 7
+                        levels = 6
                         region = "STATE_LANSHAN"
+                    }
+                    company = {
+                        type = company_ova_story_blood_lotus_covenant_altar
+                        country = "c:BLO"
+                        levels = 1
                     }
                 }
                 reserves = 1
@@ -8865,8 +8892,13 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:NIN"
-                        levels = 6
+                        levels = 3
                         region = "STATE_JIUYOU"
+                    }
+                    company = {
+                        type = company_ova_story_nine_nether_archive
+                        country = "c:NIN"
+                        levels = 3
                     }
                 }
                 reserves = 1
@@ -8915,11 +8947,10 @@
             create_building = {
                 building = "building_paper_mill"
                 add_ownership = {
-                    building = {
-                        type = "building_financial_district"
+                    company = {
+                        type = company_ova_story_nine_nether_archive
                         country = "c:NIN"
                         levels = 2
-                        region = "STATE_JIUYOU"
                     }
                 }
                 reserves = 1

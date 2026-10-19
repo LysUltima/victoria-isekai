@@ -5,5 +5,15 @@ COUNTRIES = {
 		create_character = { template = template_ruler_nin role = ruler }
 		effect_starting_politics_sect = yes
 		add_technology_researched = demonic_scriptures # Diabolist: unlocks Demonic Rites in Cultivation Grounds
+
+		# BEGIN OVA STORY COMPANY
+		# Existing story institution; no capacity or technology grants.
+		# Foundation: inferred; Inherited archive established centuries before the recent Covenant, consistent with the long record and ancestral manuals of the sect story. Exact foundation is inferred. Month and day are authored flavor.
+		add_company = company_type:company_ova_story_nine_nether_archive
+		company:company_ova_story_nine_nether_archive = {
+			set_company_establishment_date = 1000.7.19
+			set_company_state_region = s:STATE_JIUYOU
+		}
+		# END OVA STORY COMPANY
 	}
 }
