@@ -149,7 +149,7 @@ neg_universal_law_checks = { #error free way to check these are not in same law 
     trigger_if = {
         limit = {
             scope:ig.owner = {
-                always = no
+                has_journal_entry = je_government_petition_negotiation_version
             }
         }
         NOT = {
@@ -208,10 +208,10 @@ neg_option_3_trigger = {
     }
     trigger_if = {
         limit = {
-            always = no
+            has_journal_entry = je_negotiate_army_quest
         }
         any_interest_group = {
-            always = no
+            var:promise_quest_type ?= 1
         }
     }
 }
@@ -228,7 +228,7 @@ neg_option_4_trigger = {
         }
         owner = {
             NOT = { #max 2 law promises
-                always = no
+                has_journal_entry = je_government_petition_negotiation_version_b
             }
         }
     }
@@ -243,13 +243,13 @@ neg_option_5_trigger = { #checks if a valid promise building_type was set.
     }
     NOT = { #Other building quest is not too severe
         any_interest_group = {
-            always = no
-            always = no  #buildings
-            always = no
+            has_variable = promise_quest_type
+            var:promise_quest_type = 3 #buildings
+            var:promise_quest_degree != 4
         }
     }
     NOR = {
-        always = no
+        has_journal_entry = je_negotiate_buildings
     }
 }
 
@@ -262,13 +262,13 @@ neg_option_6_trigger = { #checks if a valid promise building_group was set. Arab
     }
     NOT = {  #Other building quest is not too severe
         any_interest_group = {
-            always = no
-            always = no  #buildings
-            always = no
+            has_variable = promise_quest_type
+            var:promise_quest_type = 3 #buildings
+            var:promise_quest_degree != 4
         }
     }
     NOR = {
-        always = no
+        has_journal_entry = je_negotiate_building_group
     }
 }
 
@@ -279,7 +279,7 @@ neg_option_7_trigger = { #checks taxes are not already low and no other similar 
         }
     }
     NOT = {
-        always = no
+        has_journal_entry = je_negotiate_taxes
     }
     root = {
         tax_level > low
@@ -308,11 +308,11 @@ neg_option_9_trigger = { #cannot be easy promise, too easy.
     NOT = {
         scope:ig = {
             has_modifier = active_ig_promise
-            always = no
+            var:promise_quest_degree != 1
         }
     }
     NOT = {
-        always = no
+        has_journal_entry = je_negotiate_sol
     }
 }
 
@@ -323,7 +323,7 @@ amendment_is_valid_for_promise_quest_degree = { # Inside an any_possible_amendme
     }
     trigger_if = {
         limit = {
-            always = no
+            scope:ig.var:promise_quest_degree = 1
         }
         NOR = { # Enables any amendment for easy negotiations
             this = amendment_type:amendment_generic_sponsor_polstr_increase_negotiation_2
@@ -332,7 +332,7 @@ amendment_is_valid_for_promise_quest_degree = { # Inside an any_possible_amendme
     }
     trigger_else_if = {
         limit = {
-            always = no
+            scope:ig.var:promise_quest_degree = 2
         }
         OR = {
             this = amendment_type:amendment_redemption_payments
@@ -342,7 +342,7 @@ amendment_is_valid_for_promise_quest_degree = { # Inside an any_possible_amendme
     }
     trigger_else_if = {
         limit = {
-            always = no
+            scope:ig.var:promise_quest_degree >= 3
         }
         OR = {
             this = amendment_type:amendment_redemption_payments

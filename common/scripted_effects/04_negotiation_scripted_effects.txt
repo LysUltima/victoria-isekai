@@ -44,7 +44,7 @@ negotiation_end = {
 	    	if = { #remove saved law if not doing quest
 	    		limit = {
 	    			NOT = {
-	    				always = no
+	    				var:promise_quest_type ?= 2
 	    			}
 	    		}
 	    		remove_variable = desired_law_var
@@ -52,7 +52,7 @@ negotiation_end = {
 	    	if = { #remove saved building if not doing quest
 	    		limit = {
 	    			NOT = {
-	    				always = no
+	    				var:promise_quest_type ?= 3
 	    			}
 	    		}
 	    		remove_variable = promised_building_type
@@ -345,7 +345,7 @@ set_promised_building_group = { #Note: ig_scope
 construction_balance_effects = {
 	if = {
 		limit = {
-			0 <= 1
+			scope:ig.var:promise_quest_degree <= 1
 		}
 		root = {
 			add_modifier = {
@@ -356,7 +356,7 @@ construction_balance_effects = {
 	}
 	else_if = {
 		limit = {
-			0 = 2
+			scope:ig.var:promise_quest_degree = 2
 		}
 		root = {
 			add_modifier = {
@@ -367,7 +367,7 @@ construction_balance_effects = {
 	}
 	else_if = {
 		limit = {
-			0 > 2
+			scope:ig.var:promise_quest_degree > 2
 		}
 		root = {
 			add_modifier = {
@@ -712,14 +712,14 @@ promise_quest_completed = { #Requires scope:ig
     scope:ig ?= {
 	    add_modifier = {
 			name = negotiation_completed_quest
-			multiplier = 0
+			multiplier = scope:ig.var:promise_quest_degree
 			days = long_modifier_time
 		}
 	}
     add_loyalists = {
 	    value = {
 			add = medium_radicals
-			multiply = 0
+			multiply = scope:ig.var:promise_quest_degree
 		}
         interest_group = scope:ig
     }
@@ -729,7 +729,7 @@ promise_quest_completed = { #Requires scope:ig
 promise_quest_failed = { #requires scope:ig
 	if = {
 		limit = {
-			0 = 2 #law promise
+			scope:ig.var:promise_quest_type = 2 #law promise
 		}
 		custom_tooltip = law_two_years_tt
 	}
@@ -763,15 +763,15 @@ promise_quest_failed = { #requires scope:ig
 quest_cleanup = { #requires scope:ig
     hidden_effect = {
 	    scope:ig = { #remove all variables
-	    	# remove_variable = promise_quest_degree  # removed: dead variable, never set elsewhere
-	    	# remove_variable = promise_quest_type #crucial to remove  # removed: dead variable, never set elsewhere
+	    	remove_variable = promise_quest_degree
+	    	remove_variable = promise_quest_type #crucial to remove
 	    	remove_variable = desired_army_size
 	    	remove_variable = desired_law_var
 	    	remove_variable = promised_building_type
 	    	remove_variable = promised_building_group
 	    	remove_variable = current_building_amount
 	    	remove_variable = starting_building_amount
-	    	# remove_variable = law_attempt_months  # removed: dead variable, never set elsewhere
+	    	remove_variable = law_attempt_months
 	    	remove_variable = starting_army_amount
 	    	remove_variable = current_army_amount
 	    	remove_variable = promised_sol_level

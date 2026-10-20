@@ -1,14 +1,4 @@
-﻿# Isekai TC: migrated from vanilla events/iberia_events/negotiation_events.txt (2026-07-11).
-# Fully generic single "master negotiation" event (interest-group law-negotiation minigame),
-# no hardcoded countries/cultures despite living in the iberia_events folder. Event-image video
-# assets are region-named (middleeast_*/asia_*/africa_*/southamerica_*/europenorthamerica_*) but
-# are just background art picked from a mood-based pool - kept per established precedent of
-# leaving asset paths alone. Restored the on_negotiate_with hook in
-# common/on_actions/00_code_on_actions.txt. 7 flavor-text quotes attributed to real historical
-# statesmen were reattributed to unnamed in-world speakers - see
-# ova_migrated_events_l_english.yml.
-
-namespace = negotiation
+﻿namespace = negotiation
 
 ###Negotiation Documentation
 
@@ -481,9 +471,9 @@ negotiation.1 = {
 					scope:ig.var:desired_law_var.type = {
 						law_is_valid_for_ig_petition = yes #AI would want this law
 						law_estimated_enactment_chance > {
-			                add = law_estimated_stall_chance
-			                add = -10
-			            }
+				            add = law_estimated_stall_chance
+				            add = -10
+				        }
 					}
 				}
 				add = 25

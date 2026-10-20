@@ -62,7 +62,9 @@ law_approval_including_negative_hit = { #IG scope. Uses scope:law_type_to_test. 
 		else_if = {
 			limit = {
 				scope:law_type_to_test = {
-					is_same_law_group_as = law_type:law_serfdom
+					OR = {
+						is_same_law_group_as = law_type:law_serfdom
+					}
 				}
 			}
 			multiply = 1.5
@@ -599,7 +601,7 @@ neg_promised_sol_level = {
 	multiply = 0.1
 	min = 0.5
 	max = 2 #late game SOL peaks
-	multiply = 0
+	multiply = var:promise_quest_degree
 	max = 8 #maximum possible plausible amount
 	add = owner.average_sol
 	round = yes
@@ -645,7 +647,7 @@ building_levels_to_increase_value = { #uses IG scope
 				add = 1
 				multiply = building_scaler
 				min = 1
-				multiply = 0
+				multiply = scope:ig_for_calc.var:promise_quest_degree
 				round = 1
 			}
 			else_if = { #trade centers and gov admin get a discount.
@@ -660,7 +662,7 @@ building_levels_to_increase_value = { #uses IG scope
 				add = 4
 				multiply = building_scaler
 				min = 1
-				multiply = 0
+				multiply = scope:ig_for_calc.var:promise_quest_degree
 				round = 1
 			}
 			else_if = {
@@ -686,7 +688,7 @@ building_levels_to_increase_value = { #uses IG scope
 						multiply = 0.80 #Being a bit nicer since we are asking for specific building types, as opposed to groups. '
 					}
 					min = 1
-					multiply = 0
+					multiply = scope:ig_for_calc.var:promise_quest_degree
 					round = 1
 				}
 			}
@@ -738,7 +740,9 @@ building_group_levels_to_increase_value = { #requires scope:ig, building group s
 			else_if = { #things that cost 600
 				limit = {
 					var:promised_building_group = {
-						this = bg:bg_light_industry
+						OR = {
+							this = bg:bg_light_industry
+						}
 					}
 				}
 				add = 1.35
@@ -787,7 +791,7 @@ building_group_levels_to_increase_value = { #requires scope:ig, building group s
 		}
 		multiply = building_scaler
 		min = 1
-		multiply = 0
+		multiply = scope:ig_for_calc.var:promise_quest_degree
 		round = 1
 		add = "owner.country_has_building_group_levels(scope:ig_for_calc.var:promised_building_group)"
 	}

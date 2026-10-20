@@ -1,8 +1,4 @@
-﻿# Isekai TC: migrated from vanilla (2026-07-11). Fully generic IG-promise/quest mechanic, no
-# real-world references. Verbatim copy. Hooks common/scripted_buttons/06_negotiation_buttons.txt
-# (migrated alongside).
-
-je_negotiate_army_quest = {
+﻿je_negotiate_army_quest = {
     icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_internal_affairs
@@ -502,12 +498,6 @@ je_negotiate_building_group = {
             #IG already has var:promise_quest_degree
             #IG already has var:building_group_level_increase
             #IG already has var:promised_building_group
-            if = {
-                limit = {
-                    NOT = { has_variable = promised_building_group }
-                }
-                set_promised_building_group = yes
-            }
         }
         scope:ig = {
             set_variable = {
