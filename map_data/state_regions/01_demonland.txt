@@ -635,7 +635,6 @@ STATE_BOMEGGUD = {
     traits = { "state_trait_severe_malaria" }
     subsistence_building = "building_subsistence_farm"
     provinces = { "x9CEF26" "x9ED70C" "x9EDF1E" "xA0CC28" "xA0D71C" "xA0E200" "xA1D804" "xA5DB0D" "xA6E027" "xA9E70A" "xAAE01C" "xAAE51F" "xAEDC1C" "xAFDD0A" "xAFE107" "xB0E409" "xB0EE08" "xB1EE11" "xB2EB24" "xB8CE19" "xB9CC00" "xB9D225" "xBCCE04" "xBDE516" "xBDEC28" "xBEDE1E" "xC2DB0C" "xC2E527" "xC4D819" "xC4E81C" }
-    impassable = { "xA0D71C" "xAAE51F" "xB0E409" }
     city = "xC4E81C"
     farm = "xB2EB24"
     mine = "x9ED70C"

@@ -141,7 +141,7 @@
         region_state:TAM = {
             create_pop = {
                 culture = zaharin
-                size = 195000
+                size = 295000
             }
             create_pop = {
                 culture = faryan

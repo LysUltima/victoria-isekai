@@ -491,8 +491,9 @@ pm_qi_gathering_halls = {
 	}
 
 	state_modifiers = {
-		level_scaled = {
+		workforce_scaled = {
 			state_mortality_wealth_mult = -0.001
+            state_infrastructure_add = 5
 		}
 	}
 }
@@ -524,11 +525,9 @@ pm_golden_core_pavilions = {
 	}
 
 	state_modifiers = {
-		level_scaled = {
+		workforce_scaled = {
 			state_mortality_wealth_mult = -0.002
-			building_group_bg_agriculture_throughput_add = 0.02
-            building_group_bg_plantations_throughput_add = 0.02
-            building_group_bg_ranching_throughput_add = 0.02
+            state_infrastructure_add = 10
 		}
 	}
 }
@@ -561,11 +560,12 @@ pm_nascent_soul_sanctums = {
 	}
 
 	state_modifiers = {
-		level_scaled = {
+		workforce_scaled = {
 			state_mortality_wealth_mult = -0.003
-			building_group_bg_agriculture_throughput_add = 0.05
-            building_group_bg_plantations_throughput_add = 0.05
-            building_group_bg_ranching_throughput_add = 0.05
+			building_group_bg_agriculture_throughput_add = 0.01
+            building_group_bg_plantations_throughput_add = 0.01
+            building_group_bg_ranching_throughput_add = 0.01
+            state_infrastructure_add = 10
 		}
 	}
 }
@@ -599,12 +599,12 @@ pm_soul_formation_retreats = {
 	}
 
 	state_modifiers = {
-		level_scaled = {
+		workforce_scaled = {
 			state_mortality_wealth_mult = -0.004
-            building_group_bg_agriculture_throughput_add = 0.05
-            building_group_bg_plantations_throughput_add = 0.05
-            building_group_bg_ranching_throughput_add = 0.05
-			building_group_bg_manufacturing_throughput_add = 0.02
+            building_group_bg_agriculture_throughput_add = 0.02
+            building_group_bg_plantations_throughput_add = 0.02
+            building_group_bg_ranching_throughput_add = 0.02
+            state_infrastructure_add = 10
 		}
 	}
 
@@ -640,12 +640,13 @@ pm_void_return_temples = {
 	}
 
 	state_modifiers = {
-		level_scaled = {
+		workforce_scaled = {
 			state_mortality_wealth_mult = -0.005
-            building_group_bg_agriculture_throughput_add = 0.05
-            building_group_bg_plantations_throughput_add = 0.05
-            building_group_bg_ranching_throughput_add = 0.05
-			building_group_bg_manufacturing_throughput_add = 0.05
+            building_group_bg_agriculture_throughput_add = 0.02
+            building_group_bg_plantations_throughput_add = 0.02
+            building_group_bg_ranching_throughput_add = 0.02
+			building_group_bg_manufacturing_throughput_add = 0.01
+            state_infrastructure_add = 10
 		}
 	}
 
@@ -678,20 +679,12 @@ pm_blood_sacrifice_altars = {
 			goods_output_coal_add = 30 # spirit stones
 			goods_output_meat_add = 15 # harvested flesh
 		}
-
-		level_scaled = {
-			building_employment_clergymen_add = 750
-			building_employment_academics_add = 1250
-		}
 	}
 
 	state_modifiers = {
-		level_scaled = {
-			state_mortality_mult = 0.05
-			building_group_bg_agriculture_throughput_add = 0.05
-			building_group_bg_plantations_throughput_add = 0.05
-			building_group_bg_ranching_throughput_add = 0.05
-			building_group_bg_manufacturing_throughput_add = 0.02
+		workforce_scaled = {
+            state_mortality_wealth_mult = 0.002
+			state_mortality_mult = 0.02
 		}
 	}
 }

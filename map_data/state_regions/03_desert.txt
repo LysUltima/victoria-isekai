@@ -596,9 +596,7 @@ STATE_WADI_AL_AZHAR = {
     id = 171
     subsistence_building = "building_subsistence_fishing_village"
     provinces = { "x1D941E" "x1EAA15" "x1FA329" "x209018" "x20982A" "x20A815" "x249518" "x249F2A" "x24A033" "x25AA2E" "x278D34" "x298F29" "x2FA129" "x33912D" "x348B10" "x34A534" "x358F19" "x35A922" "x36A528" "x37B011" "x398B1B" "x3C911D" "x3EA036" "x409117" "x44A312" "x459131" }
-    prime_land = {
-        x1fa329 x209018 x20982a x249f2a x33912d x348b10 x398b1b x24a033 x36a528 x3ea036
-    }
+    prime_land = { x1fa329 x209018 x20982a x249f2a x33912d x348b10 x398b1b x24a033 x36a528 x3ea036 }
     traits = { "state_trait_desert" }
     city = "x1EAA15"
     port = "x1FA329"

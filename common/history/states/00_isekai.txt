@@ -123,7 +123,7 @@
             country = c:VAL
             owned_provinces = { "xB13A1C" "xB2320B" "xB24409" "xB44A05" "xB53E0B" "xB54319" "xB54D12" "xB73512" "xB73819" "xBB460D" "xBD421E" "xC5300C" "xCA320D" "xCD4F0B" "xCD4F14" "xCE312C" "xCE342C" "xD03D2A" "xD33E1F" "xD7482A" "xD84D21" "xD8512B" }
         }
-
+        add_claim = c:ELV
         add_homeland = cu:aldrican
         add_homeland = cu:wood_elf
     }
@@ -132,7 +132,7 @@
             country = c:VAL
             owned_provinces = { "x59758A" "x5C6684" "x5D796F" "x617C8E" "x626374" "x635F78" "x646D8E" "x64746A" "x65766D" "x6C6490" "x6C726A" "x6E5971" "x6E7E81" "x6F7574" "x716073" "x717788" "x717D75" "x735D74" "x745B6D" "x767B72" "x777F6D" "x786A82" "x797774" "x7A6A6B" "x7A778D" "x7D6A75" "x806A77" "x816273" }
         }
-
+        add_claim = c:ELV
         add_homeland = cu:aldrican
         add_homeland = cu:wood_elf
     }
@@ -141,7 +141,7 @@
             country = c:VAL
             owned_provinces = { "x00DA49" "x00DC4A" "x00DE37" "x00E12E" "x00E432" "x00E935" "x00ED2B" "x00EF2B" "x00F02E" "x00F53B" "x00F725" "x00F831" "x00F94C" "x00FB25" "x00FC24" "x00FE42" "x02E941" "x05FD38" "x06FA26" "x07E33C" "x07F036" "x08DA33" "x0AEB24" "x0EDB3B" "x0FFF30" "x10DE34" "x14F431" }
         }
-
+        add_claim = c:EST
         add_homeland = cu:aldrican
         add_homeland = cu:steel_dwarf
     }
@@ -150,7 +150,7 @@
             country = c:VAL
             owned_provinces = { "xD1AA1E" "xD1AF00" "xD49517" "xD59D11" "xD6AB00" "xD79E04" "xD89C1A" "xDA8E22" "xDB920B" "xDCA013" "xDD9023" "xDDA110" "xDDA111" "xE19D1F" "xE1A714" "xE2B418" "xE4B01A" "xE8A80D" "xE8B01A" "xEAAB1E" "xEB920F" "xECAE1D" "xEDAC1C" "xEEAD03" "xF09807" "xF09D0F" "xF5981D" "xF69625" "xF8B615" }
         }
-
+        add_claim = c:ELV
         add_homeland = cu:aldrican
         add_homeland = cu:wood_elf
     }
@@ -159,7 +159,7 @@
             country = c:VAL
             owned_provinces = { "x596809" "x5A702B" "x5E6031" "x636424" "x6A5917" "x6B6311" "x6B6F2E" "x6B792B" "x6C580F" "x6C692B" "x70560A" "x71660C" "x726325" "x72750A" "x737413" "x745724" "x767218" "x777B2E" "x785A26" "x7B5F23" "x7C6B0D" "x7D6313" "x7F6525" "x80542B" "x807731" }
         }
-
+        add_claim = c:EST
         add_homeland = cu:aldrican
     }
     s:STATE_ESTLAND = {
@@ -199,7 +199,7 @@
             country = c:LUX
             owned_provinces = { "xAA6922" "xAB7629" "xAC742D" "xAF5D2E" "xB1691B" "xB4651B" "xB77E33" "xB78338" "xBB6422" "xC06E2F" "xC36B24" "xC46422" "xC4813B" "xC5712D" "xC58041" "xC87D42" "xC9842F" "xCB7F31" "xCF7821" "xD06634" "xD16331" }
         }
-
+        add_claim = c:NIS
         add_homeland = cu:solenne
     }
     s:STATE_VYELLE = {

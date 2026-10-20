@@ -1,8 +1,8 @@
 ﻿strait_swords_wake = {
 	type = natural
 
-	total_block_requires_full_control = no
-	military_block_requires_full_control = no
+	total_block_requires_full_control = yes
+	military_block_requires_full_control = yes
 
 	first_land_endpoint = xE4154A
 	second_land_endpoint = xCBC4CD
@@ -27,8 +27,8 @@ strait_mare_nostrum = {
 strait_great_sea = {
 	type = natural
 
-	total_block_requires_full_control = no
-	military_block_requires_full_control = no
+	total_block_requires_full_control = yes
+	military_block_requires_full_control = yes
 
 	first_land_endpoint = x1E7A41
 	second_land_endpoint = x9C5820
@@ -40,8 +40,8 @@ strait_great_sea = {
 strait_zhonghai = {
 	type = natural
 
-	total_block_requires_full_control = no
-	military_block_requires_full_control = no
+	total_block_requires_full_control = yes
+	military_block_requires_full_control = yes
 
 	first_land_endpoint = xEF0025
 	second_land_endpoint = xC02B1C
@@ -61,4 +61,30 @@ strait_al_fidda = {
 
 	first_sea_endpoint = x6459FF
 	second_sea_endpoint = x612BFF
+}
+
+strait_waitaha = {
+	type = natural
+
+	total_block_requires_full_control = no
+	military_block_requires_full_control = no
+
+	first_land_endpoint = x4D5721
+	second_land_endpoint = x92B328
+
+	first_sea_endpoint = x4800FF
+	second_sea_endpoint = x6B5DFF
+}
+
+strait_salttemme = {
+    type = natural
+
+	total_block_requires_full_control = yes
+	military_block_requires_full_control = yes
+
+	first_land_endpoint = xAFD826
+	second_land_endpoint = xDA3735
+
+	first_sea_endpoint = x005CFF
+	second_sea_endpoint = x3F70FF
 }

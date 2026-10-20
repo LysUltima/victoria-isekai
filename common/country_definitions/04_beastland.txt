@@ -47,7 +47,7 @@ HAR = {
 }
 
 MER = {
-	color = { 31 203 52 }
+	color = { 70 60 52 }
 	country_type = unrecognized
 	tier = principality
 	cultures = { island_catkin }

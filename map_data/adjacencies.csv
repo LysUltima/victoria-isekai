@@ -1,5 +1,11 @@
 From;To;Type;Through;start_x;start_y;stop_x;stop_y;adjacency_rule_name;Comment
 x1E5F00,xA04E00,sea,-1,3331,1838,3305,1826,,demonland-isekai strait
 x272714,xBD4E38,sea,-1,6908,2280,6913,2282,,iroka-hanamuke
+xBA9610,x868D30,sea,-1,7123,2371,7151,2380,,asahi-konoha
+x9F4D40,xFFE523,sea,-1,7172,2520,7188,2524,,shirogane
+xE60D19,x40BD23,sea,-1,7320,2593,7341,2600,,yukiboshi-yuuzora
 x98801A,x4F5A3F,sea,-1,2634,866,2630,881,,lanakila-makani
-xE27C12,xD02812,sea,-1,2095,1036,2100,1033,big moana island 1
+xAA6F2C,x323D00,sea,-1,2470,815,2464,799,,lanakila-kalahehe
+x222D08,x73AA0E,sea,-1,2491,769,2492,740,,kalahele-pomaikai
+xE27C12,xD02812,sea,-1,2095,1036,2100,1033,,big moana island 1
+x64931F,xF1BF10,sea,-1,2055,899,2059,883,,big moana island 2
