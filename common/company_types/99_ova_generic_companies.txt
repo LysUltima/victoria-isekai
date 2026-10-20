@@ -18,16 +18,15 @@ company_ova_adventurers_guild = {
 		"dynamic_company_type_fellowship"
 	}
 
-	building_types = { building_spirit_beast_hunting building_arms_industry }
+	building_types = { building_spirit_beast_hunting building_whaling_station }
 
-	extension_building_types = { building_food_industry building_tooling_workshop building_paper_mill }
+	extension_building_types = { building_arms_industry }
 
 	potential = {
 		always = yes
 	}
 
 	possible = {
-		has_technology_researched = arms_enchanting
 		OR = {
 			any_scope_state = {
 				is_incorporated = yes
@@ -39,7 +38,7 @@ company_ova_adventurers_guild = {
 			any_scope_state = {
 				is_incorporated = yes
 				any_scope_building = {
-					is_building_type = building_arms_industry
+					is_building_type = building_whaling_station
 					level >= 3
 				}
 			}
@@ -76,7 +75,6 @@ company_ova_adventurers_guild = {
 	}
 
 	ai_will_do = {
-		has_technology_researched = arms_enchanting
 		OR = {
 			any_scope_state = {
 				is_incorporated = yes
@@ -88,7 +86,7 @@ company_ova_adventurers_guild = {
 			any_scope_state = {
 				is_incorporated = yes
 				any_scope_building = {
-					is_building_type = building_arms_industry
+					is_building_type = building_whaling_station
 					level >= 3
 				}
 			}
@@ -102,7 +100,7 @@ company_ova_adventurers_guild = {
 				is_incorporated = yes
 			}
 		}
-		building_arms_industry = {
+		building_whaling_station = {
 			level = 3
 			state_trigger = {
 				is_incorporated = yes
@@ -133,7 +131,7 @@ company_ova_mage_association = {
 
 	building_types = { building_paper_mill building_steel_mill }
 
-	extension_building_types = { building_glassworks building_coal_mine building_logging_camp }
+	extension_building_types = { building_glassworks building_coal_mine }
 
 	potential = {
 		any_primary_culture = { has_discrimination_trait_group = heritage_group_isekai_human }

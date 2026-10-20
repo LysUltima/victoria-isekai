@@ -9,3 +9,12 @@ NGame = {
 NTravelNetwork = {
 	PAVED_ROAD_TECH = "spirit_roads"		# vanilla tech paved_roads was renamed to spirit_roads
 }
+
+NTechnology = {
+	TECH_AHEAD_OF_TIME_PENALTY_FACTOR = 0.40
+}
+
+NPops = {
+	QUALIFICATIONS_UPDATE_FACTOR = 0.0002
+	QUALIFICATIONS_NUM_MONTHS_AT_START = 30
+}

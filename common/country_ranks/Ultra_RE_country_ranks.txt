@@ -1,0 +1,49 @@
+﻿
+################
+## RECOGNIZED ##
+################
+
+INJECT:great_power = {
+	modifier = {
+		state_education_access_wealth_add = 0.0025 #was none
+	}
+}
+
+INJECT:major_power = {
+	modifier = {
+		state_education_access_wealth_add = 0.001 #was none
+	}
+}
+
+INJECT:minor_power = {
+	modifier = {
+		state_education_access_wealth_add = 0.0005 #was none
+	}
+}
+
+##################
+## UNRECOGNIZED ##
+##################
+
+INJECT:unrecognized_major_power = {
+	modifier = {
+		country_tech_spread_mult = 0.075 #was -0.15
+		state_education_access_wealth_add = -0.001 #was none
+	}
+}
+
+INJECT:unrecognized_regional_power = {
+	modifier = {
+		country_tech_spread_mult = 0.10 #was -0.20
+		state_education_access_wealth_add = -0.0015 #was none
+	}
+}
+
+
+INJECT:unrecognized_power = {
+	modifier = {
+		country_tech_spread_mult = 0.125 #was -0.25
+		state_education_access_wealth_add = -0.005 #was none
+	}
+
+}

@@ -30,7 +30,7 @@ silkworm_diseases.1 = {
 	dlc = dlc004
 
 	trigger = {
-		has_dlc_feature = voice_of_the_people_content
+		always = no # I hate this event and region locked tech make this worse
 		any_scope_state = {
 			is_incorporated = yes
 			any_scope_building = {
