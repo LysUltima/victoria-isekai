@@ -185,9 +185,13 @@
     s:STATE_KOE_NOO = {
         create_state = {
             country = c:UAN
-            owned_provinces = { "xB09D13" "xB0A52A" "xB2A21F" "xB38219" "xB3870F" "xB38D10" "xB48C10" "xB5A40D" "xB68328" "xB68E19" "xB6970E" "xB87E10" "xB89B0C" "xB99711" "xBB8B11" "xBB8F1A" "xBD930D" "xC08408" "xC08E19" "xC0990C" "xC29C0C" "xC29E05" "xC29E07" "xC38D0C" "xC39228" "xC3A40D" "xC59927" "xC6842C" "xC89823" "xC9952C" "xCA931D" "xCB7F2B" "xCCA207" "xCEA009" "xCF8705" "xD07E25" "xD08A21" "xD0A221" "xD4840C" "xD4961F" "xD5A217" "xD67E15" "xD6802C" "xD68A07" }
+            owned_provinces = { "xB09D13" "xB0A52A" "xB38219" "xB48C10" "xB5A40D" "xB6970E" "xB89B0C" "xB99711" "xBB8F1A" "xBD930D" "xC08408" "xC0990C" "xC29E05" "xC29E07" "xC59927" "xC6842C" "xC89823" "xCA931D" "xCB7F2B" "xCEA009" "xD08A21" "xD0A221" "xD4840C" "xD68A07" }
         }
-
+        create_state = {
+            country = c:IKH
+            owned_provinces = { xb2a21f xb3870f xb38d10 xb68328 xb68e19 xb87e10 xbb8b11 xc08e19 xc29c0c xc38d0c xc39228 xc3a40d xc9952c xcca207 xcf8705 xd07e25 xd4961f xd5a217 xd67e15 xd6802c }
+        }
+        add_claim = c:UAN
         add_homeland = cu:dogkin
     }
     s:STATE_KO_LEE = {

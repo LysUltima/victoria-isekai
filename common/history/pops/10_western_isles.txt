@@ -91,7 +91,13 @@
         region_state:AHU = {
             create_pop = {
                 culture = kanaka
-                size = 1456761
+                size = 956761
+            }
+        }
+        region_state:KAM = {
+            create_pop = {
+                culture = kanaka
+                size = 693761
             }
         }
     }
@@ -107,7 +113,13 @@
         region_state:MAL = {
             create_pop = {
                 culture = kanaka
-                size = 1136783
+                size = 836783
+            }
+        }
+        region_state:KAM = {
+            create_pop = {
+                culture = kanaka
+                size = 357941
             }
         }
     }

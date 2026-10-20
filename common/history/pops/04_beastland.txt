@@ -269,7 +269,17 @@
         region_state:UAN = {
             create_pop = {
                 culture = dogkin
-                size = 1555000
+                size = 1055000
+            }
+            create_pop = {
+                culture = faryan
+                size = 11300
+            }
+        }
+        region_state:IKH = {
+            create_pop = {
+                culture = dogkin
+                size = 567000
             }
             create_pop = {
                 culture = faryan

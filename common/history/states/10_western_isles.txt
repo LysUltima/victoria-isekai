@@ -90,9 +90,15 @@
     s:STATE_PALIANUENUE = {
         create_state = {
             country = c:AHU
-            owned_provinces = { "xBE9700" "xBF8F04" "xBF9000" "xC07814" "xC08200" "xC09E03" "xC39403" "xC47E09" "xC69200" "xC88200" "xCA7600" "xCB7C06" "xCB8F0D" "xCB9407" "xCC7A07" "xCC8E04" "xCE9B00" "xCF9C00" "xD08207" "xD17700" "xD18800" "xD19213" "xD19E00" "xD28100" "xD28E00" "xD58811" "xD78F15" "xD87A00" "xD88400" "xDA8B00" "xDB9110" "xDC9600" "xDE8A00" "xDF8F00" "xDF9E00" "xE07F00" "xE27C12" "xE58B0A" "xE68700" }
+            owned_provinces = { "xBE9700" "xBF9000" "xC07814" "xC08200" "xC39403" "xC47E09" "xC88200" "xCA7600" "xCB7C06" "xCB9407" "xCC7A07" "xCC8E04" "xCE9B00" "xCF9C00" "xD17700" "xD18800" "xD19213" "xD28100" "xD28E00" "xD58811" "xD87A00" "xDB9110" "xDE8A00" "xDF8F00" "xE07F00" "xE58B0A" }
         }
-
+        create_state = {
+            country = c:KAM
+            owned_provinces = { xbf8f04 xc09e03 xc69200 xcb8f0d xd08207 xd19e00 xd78f15 xd88400 xda8b00 xdc9600 xdf9e00 xe27c12 xe68700 }
+        }
+        add_claim = c:KAM
+        add_claim = c:AHU
+        add_claim = c:MAL
         add_homeland = cu:kanaka
     }
     s:STATE_ONELOA = {
@@ -100,15 +106,22 @@
             country = c:KAM
             owned_provinces = { "x61903E" "x648B36" "x64931F" "x70A823" "x738833" "x779F2B" "x7DAD22" "x848C3B" "x84921B" "x88AD26" }
         }
-
+        add_claim = c:AHU
+        add_claim = c:MAL
         add_homeland = cu:kanaka
     }
     s:STATE_KAULUWELA = {
         create_state = {
             country = c:MAL
-            owned_provinces = { "xC04920" "xD02812" "xD84933" "xE32F24" "xE73B1F" }
+            owned_provinces = { "xC04920" "xD84933" "xE73B1F" }
         }
-
+        create_state = {
+            country = c:KAM
+            owned_provinces = { xd02812 xe32f24 }
+        }
+        add_claim = c:AHU
+        add_claim = c:KAM
+        add_claim = c:MAL
         add_homeland = cu:kanaka
     }
     s:STATE_PAEMUKU = {
