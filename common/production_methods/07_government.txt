@@ -389,7 +389,7 @@ pm_basic_vat_growth = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_homunculus_created_add = 150
+			state_homunculus_created_add = 250
 		}
 	}
 }
@@ -424,7 +424,7 @@ pm_alchemical_wombs = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_homunculus_created_add = 350
+			state_homunculus_created_add = 650
 		}
 	}
 }
@@ -460,7 +460,7 @@ pm_soul_seeded_batches = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_homunculus_created_add = 600
+			state_homunculus_created_add = 1500
 		}
 	}
 }
@@ -685,6 +685,7 @@ pm_blood_sacrifice_altars = {
 		workforce_scaled = {
             state_mortality_wealth_mult = 0.002
 			state_mortality_mult = 0.02
+            state_migration_pull_mult = -0.01
 		}
 	}
 }

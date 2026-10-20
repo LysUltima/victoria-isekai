@@ -1134,8 +1134,6 @@ ova_expedition_roll = {
 						if = { limit = { var:ova_champion_level >= 15 } add = 8 }
 						if = { limit = { var:ova_champion_level >= 25 } add = 16 }
 						if = { limit = { var:ova_champion_level >= 35 } add = 24 }
-						if = { limit = { var:ova_champion_level >= 45 } add = 32 }
-						if = { limit = { var:ova_champion_level >= 55 } add = 32 }
 					}
 					trigger_event = { id = ova_champion.20 }
 				}
@@ -1151,53 +1149,53 @@ ova_expedition_roll = {
 					trigger_event = { id = ova_champion.48 }
 				}
 				# --- spoils and glory
-				18 = {
+				6 = {
 					modifier = {
 						if = { limit = { var:ova_champion_level >= 20 } add = 2 }
 						if = { limit = { var:ova_champion_level >= 40 } add = 2 }
 					}
 					trigger_event = { id = ova_champion.21 }
 				}
-				8 = {
+				2 = {
 					modifier = { if = { limit = { var:ova_champion_level >= 30 } add = 2 } }
 					trigger_event = { id = ova_champion.40 }
 				}
-				5 = { trigger_event = { id = ova_champion.41 } }
-				8 = {
+				4 = { trigger_event = { id = ova_champion.41 } }
+				2 = {
 					modifier = {
 						if = { limit = { var:ova_champion_level >= 25 } add = 2 }
 						if = { limit = { var:ova_champion_level >= 45 } add = 2 }
 					}
 					trigger_event = { id = ova_champion.42 }
 				}
-				7 = { trigger_event = { id = ova_champion.43 } }
-				6 = {
+				6 = { trigger_event = { id = ova_champion.43 } }
+				4 = {
 					modifier = { if = { limit = { var:ova_champion_level >= 35 } add = 2 } }
 					trigger_event = { id = ova_champion.44 }
 				}
-				12 = { trigger_event = { id = ova_champion.22 } }
+				6 = { trigger_event = { id = ova_champion.22 } }
 				# --- neutral / logistics
-				20 = { trigger_event = { id = ova_champion.45 } }
-				12 = { trigger_event = { id = ova_champion.46 } }
-				20 = { trigger_event = { id = ova_champion.25 } }
-				18 = { trigger_event = { id = ova_champion.26 } }
+				8 = { trigger_event = { id = ova_champion.45 } }
+				4 = { trigger_event = { id = ova_champion.46 } }
+				8 = { trigger_event = { id = ova_champion.25 } }
+				6 = { trigger_event = { id = ova_champion.26 } }
 				# --- setbacks (recede with Level)
-				12 = {
+				10 = {
 					modifier = {
 						if = { limit = { var:ova_champion_level >= 20 } add = -5 }
 						if = { limit = { var:ova_champion_level >= 40 } add = -5 }
 					}
 					trigger_event = { id = ova_champion.23 }
 				}
-				8 = {
+				6 = {
 					modifier = { if = { limit = { var:ova_champion_level >= 30 } add = -6 } }
 					trigger_event = { id = ova_champion.47 }
 				}
-				6 = {
+				4 = {
 					modifier = { if = { limit = { var:ova_champion_level >= 35 } add = -4 } }
 					trigger_event = { id = ova_champion.49 }
 				}
-				8 = {
+				6 = {
 					modifier = {
 						if = { limit = { var:ova_champion_level >= 15 } add = -2 }
 						if = { limit = { var:ova_champion_level >= 30 } add = -2 }

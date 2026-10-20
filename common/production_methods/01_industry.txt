@@ -1433,8 +1433,8 @@ pm_crude_reagent_synthesis = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add = 10
-			goods_input_coal_add = 10 
+			goods_input_sulfur_add = 20
+			goods_input_coal_add = 20 
 
 			# output goods
 			goods_output_explosives_add = 50
@@ -1465,8 +1465,8 @@ pm_catalyzed_reagent_synthesis = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add = 15
-			goods_input_coal_add = 15
+			goods_input_sulfur_add = 30
+			goods_input_coal_add = 30
 			goods_input_paper_add = 10
 
 			# output goods
@@ -1498,8 +1498,8 @@ pm_vacuum_evaporation = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add = 20
-			goods_input_coal_add = 20
+			goods_input_sulfur_add = 40
+			goods_input_coal_add = 40
 			goods_input_paper_add = 20
 
 			# output goods
@@ -1531,9 +1531,9 @@ pm_arc_reagent_synthesis = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_sulfur_add = 25
-			goods_input_coal_add = 30
-			goods_input_paper_add = 20
+			goods_input_sulfur_add = 40
+			goods_input_coal_add = 50
+			goods_input_paper_add = 30
 			goods_input_electricity_add = 20
 
 			# output goods
