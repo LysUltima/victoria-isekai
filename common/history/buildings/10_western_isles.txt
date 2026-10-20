@@ -25,7 +25,7 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:TID"
-                        levels = 2
+                        levels = 3
                         region = "STATE_NIRAI_KANAI"
                     }
                 }
@@ -79,7 +79,7 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:TID"
-                        levels = 1
+                        levels = 2
                         region = "STATE_NIRAI_KANAI"
                     }
                 }
@@ -107,6 +107,81 @@
                     "pm_handsewn_clothes"
                     "pm_craftsman_sewing"
                     "pm_traditional_looms"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:TID"
+                        levels = 1
+                        region = "STATE_NIRAI_KANAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:TID" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:TID"
+                        levels = 1
+                        region = "STATE_NIRAI_KANAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:TID"
+                        levels = 2
+                        region = "STATE_NIRAI_KANAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:TID"
+                        levels = 1
+                        region = "STATE_NIRAI_KANAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
                 }
             }
         }
@@ -137,7 +212,7 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:URU"
-                        levels = 2
+                        levels = 3
                         region = "STATE_URUMA"
                     }
                 }
@@ -192,7 +267,7 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:URU"
-                        levels = 1
+                        levels = 2
                         region = "STATE_URUMA"
                     }
                 }
@@ -220,6 +295,81 @@
                     "pm_handcrafted_furniture"
                     "pm_luxury_furniture"
                     "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:URU"
+                        levels = 1
+                        region = "STATE_URUMA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:URU" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:URU"
+                        levels = 1
+                        region = "STATE_URUMA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:URU"
+                        levels = 2
+                        region = "STATE_URUMA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:URU"
+                        levels = 1
+                        region = "STATE_URUMA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
                 }
             }
         }
@@ -250,7 +400,7 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:UTA"
-                        levels = 2
+                        levels = 3
                         region = "STATE_UTAKI"
                     }
                 }
@@ -304,7 +454,7 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:UTA"
-                        levels = 1
+                        levels = 2
                         region = "STATE_UTAKI"
                     }
                 }
@@ -332,6 +482,81 @@
                     "pm_handsewn_clothes"
                     "pm_craftsman_sewing"
                     "pm_traditional_looms"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:UTA"
+                        levels = 1
+                        region = "STATE_UTAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:UTA" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:UTA"
+                        levels = 1
+                        region = "STATE_UTAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:UTA"
+                        levels = 2
+                        region = "STATE_UTAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:UTA"
+                        levels = 1
+                        region = "STATE_UTAKI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
                 }
             }
         }
@@ -362,7 +587,7 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:UFU"
-                        levels = 2
+                        levels = 3
                         region = "STATE_UFUMI"
                     }
                 }
@@ -418,7 +643,7 @@
                     building = {
                         type = "building_financial_district"
                         country = "c:UFU"
-                        levels = 1
+                        levels = 2
                         region = "STATE_UFUMI"
                     }
                 }
@@ -446,6 +671,81 @@
                     "pm_handcrafted_furniture"
                     "pm_luxury_furniture"
                     "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:UFU"
+                        levels = 1
+                        region = "STATE_UFUMI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:UFU" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:UFU"
+                        levels = 1
+                        region = "STATE_UFUMI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:UFU"
+                        levels = 2
+                        region = "STATE_UFUMI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:UFU"
+                        levels = 1
+                        region = "STATE_UFUMI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
                 }
             }
         }
@@ -488,6 +788,102 @@
                     "pm_no_potion_enhancement"
                 }
             }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:WHA"
+                        levels = 1
+                        region = "STATE_MANIA_KOWHAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:WHA"
+                        levels = 1
+                        region = "STATE_MANIA_KOWHAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:WHA"
+                        levels = 1
+                        region = "STATE_MANIA_KOWHAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:WHA" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:WHA"
+                        levels = 1
+                        region = "STATE_MANIA_KOWHAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:WHA"
+                        levels = 2
+                        region = "STATE_MANIA_KOWHAI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
         }
     }
     s:STATE_TAHATIKA_TAPARA = {
@@ -526,6 +922,102 @@
                     "worker_exploitation_cotton"
                     "pm_road_carts"
                     "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KAI"
+                        levels = 1
+                        region = "STATE_TAHATIKA_TAPARA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KAI"
+                        levels = 1
+                        region = "STATE_TAHATIKA_TAPARA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KAI"
+                        levels = 1
+                        region = "STATE_TAHATIKA_TAPARA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:KAI" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KAI"
+                        levels = 1
+                        region = "STATE_TAHATIKA_TAPARA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KAI"
+                        levels = 2
+                        region = "STATE_TAHATIKA_TAPARA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
                 }
             }
         }
@@ -569,6 +1061,102 @@
                     "pm_no_potion_enhancement"
                 }
             }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:RAN"
+                        levels = 1
+                        region = "STATE_PAPAKU_O_TE_RA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:RAN"
+                        levels = 1
+                        region = "STATE_PAPAKU_O_TE_RA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:RAN"
+                        levels = 1
+                        region = "STATE_PAPAKU_O_TE_RA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:RAN" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:RAN"
+                        levels = 1
+                        region = "STATE_PAPAKU_O_TE_RA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:RAN"
+                        levels = 2
+                        region = "STATE_PAPAKU_O_TE_RA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
         }
     }
     s:STATE_RAUPO_MOANA = {
@@ -608,6 +1196,102 @@
                     "lectors_tobacco"
                     "pm_road_carts"
                     "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:TAR"
+                        levels = 1
+                        region = "STATE_RAUPO_MOANA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:TAR"
+                        levels = 1
+                        region = "STATE_RAUPO_MOANA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:TAR"
+                        levels = 1
+                        region = "STATE_RAUPO_MOANA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:TAR" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:TAR"
+                        levels = 1
+                        region = "STATE_RAUPO_MOANA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:TAR"
+                        levels = 2
+                        region = "STATE_RAUPO_MOANA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
                 }
             }
         }
@@ -669,6 +1353,102 @@
                     "pm_no_potion_enhancement"
                 }
             }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:WAI"
+                        levels = 1
+                        region = "STATE_KAINGA_MAROKE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:WAI"
+                        levels = 1
+                        region = "STATE_KAINGA_MAROKE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:WAI"
+                        levels = 1
+                        region = "STATE_KAINGA_MAROKE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:WAI" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:WAI"
+                        levels = 1
+                        region = "STATE_KAINGA_MAROKE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:WAI"
+                        levels = 2
+                        region = "STATE_KAINGA_MAROKE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
         }
     }
     s:STATE_MOTU_HUMARIE = {
@@ -707,6 +1487,102 @@
                     "worker_exploitation_cotton"
                     "pm_road_carts"
                     "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAW"
+                        levels = 1
+                        region = "STATE_MOTU_HUMARIE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HAW"
+                        levels = 1
+                        region = "STATE_MOTU_HUMARIE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAW"
+                        levels = 1
+                        region = "STATE_MOTU_HUMARIE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:HAW" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAW"
+                        levels = 1
+                        region = "STATE_MOTU_HUMARIE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HAW"
+                        levels = 2
+                        region = "STATE_MOTU_HUMARIE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
                 }
             }
         }
@@ -748,6 +1624,102 @@
                     "lectors_tobacco"
                     "pm_road_carts"
                     "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:WHN"
+                        levels = 1
+                        region = "STATE_MOUTERE_TARAPIROPIRO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:WHN"
+                        levels = 1
+                        region = "STATE_MOUTERE_TARAPIROPIRO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:WHN"
+                        levels = 1
+                        region = "STATE_MOUTERE_TARAPIROPIRO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:WHN" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:WHN"
+                        levels = 1
+                        region = "STATE_MOUTERE_TARAPIROPIRO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:WHN"
+                        levels = 2
+                        region = "STATE_MOUTERE_TARAPIROPIRO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
                 }
             }
         }
@@ -808,6 +1780,102 @@
                     "pm_no_potion_enhancement"
                 }
             }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:AHU"
+                        levels = 1
+                        region = "STATE_PALIANUENUE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:AHU"
+                        levels = 1
+                        region = "STATE_PALIANUENUE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:AHU"
+                        levels = 1
+                        region = "STATE_PALIANUENUE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:AHU" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:AHU"
+                        levels = 1
+                        region = "STATE_PALIANUENUE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:AHU"
+                        levels = 2
+                        region = "STATE_PALIANUENUE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
         }
     }
     s:STATE_ONELOA = {
@@ -865,6 +1933,102 @@
                     "pm_no_potion_enhancement"
                 }
             }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KAM"
+                        levels = 1
+                        region = "STATE_ONELOA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KAM"
+                        levels = 1
+                        region = "STATE_ONELOA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KAM"
+                        levels = 1
+                        region = "STATE_ONELOA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:KAM" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KAM"
+                        levels = 1
+                        region = "STATE_ONELOA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KAM"
+                        levels = 2
+                        region = "STATE_ONELOA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
         }
     }
     s:STATE_KAULUWELA = {
@@ -906,6 +2070,102 @@
                     "pm_no_potion_enhancement"
                 }
             }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:MAL"
+                        levels = 1
+                        region = "STATE_KAULUWELA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:MAL"
+                        levels = 1
+                        region = "STATE_KAULUWELA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:MAL"
+                        levels = 1
+                        region = "STATE_KAULUWELA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:MAL" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:MAL"
+                        levels = 1
+                        region = "STATE_KAULUWELA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:MAL"
+                        levels = 2
+                        region = "STATE_KAULUWELA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
         }
     }
     s:STATE_PAEMUKU = {
@@ -944,6 +2204,102 @@
                     "worker_exploitation_banana"
                     "pm_road_carts"
                     "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HOK"
+                        levels = 1
+                        region = "STATE_PAEMUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:HOK"
+                        levels = 1
+                        region = "STATE_PAEMUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HOK"
+                        levels = 1
+                        region = "STATE_PAEMUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:HOK" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HOK"
+                        levels = 1
+                        region = "STATE_PAEMUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HOK"
+                        levels = 2
+                        region = "STATE_PAEMUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
                 }
             }
         }
@@ -1006,6 +2362,102 @@
                     "pm_no_potion_enhancement"
                 }
             }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KAN"
+                        levels = 1
+                        region = "STATE_KAIULI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KAN"
+                        levels = 1
+                        region = "STATE_KAIULI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KAN"
+                        levels = 1
+                        region = "STATE_KAIULI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:KAN" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KAN"
+                        levels = 1
+                        region = "STATE_KAIULI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KAN"
+                        levels = 2
+                        region = "STATE_KAIULI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
         }
     }
     s:STATE_UAHIWERA = {
@@ -1064,6 +2516,102 @@
                     "pm_no_potion_enhancement"
                 }
             }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:POL"
+                        levels = 1
+                        region = "STATE_UAHIWERA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:POL"
+                        levels = 1
+                        region = "STATE_UAHIWERA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:POL"
+                        levels = 1
+                        region = "STATE_UAHIWERA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:POL" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:POL"
+                        levels = 1
+                        region = "STATE_UAHIWERA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:POL"
+                        levels = 2
+                        region = "STATE_UAHIWERA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
         }
     }
     s:STATE_AINAONE = {
@@ -1101,6 +2649,102 @@
                     "pm_sparse_planting_building_silk_plantation"
                     "pm_road_carts"
                     "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:LAA"
+                        levels = 1
+                        region = "STATE_AINAONE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:LAA"
+                        levels = 1
+                        region = "STATE_AINAONE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:LAA"
+                        levels = 1
+                        region = "STATE_AINAONE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:LAA" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:LAA"
+                        levels = 1
+                        region = "STATE_AINAONE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:LAA"
+                        levels = 2
+                        region = "STATE_AINAONE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
                 }
             }
         }
@@ -1144,6 +2788,102 @@
                     "pm_no_potion_enhancement"
                 }
             }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:MAK"
+                        levels = 1
+                        region = "STATE_WAILUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:MAK"
+                        levels = 1
+                        region = "STATE_WAILUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:MAK"
+                        levels = 1
+                        region = "STATE_WAILUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:MAK" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:MAK"
+                        levels = 1
+                        region = "STATE_WAILUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:MAK"
+                        levels = 2
+                        region = "STATE_WAILUKU"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
         }
     }
     s:STATE_ULUWEHI = {
@@ -1183,6 +2923,102 @@
                     "pm_no_potion_enhancement"
                 }
             }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KLA"
+                        levels = 1
+                        region = "STATE_ULUWEHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:KLA"
+                        levels = 1
+                        region = "STATE_ULUWEHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KLA"
+                        levels = 1
+                        region = "STATE_ULUWEHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:KLA" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KLA"
+                        levels = 1
+                        region = "STATE_ULUWEHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:KLA"
+                        levels = 2
+                        region = "STATE_ULUWEHI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
         }
     }
     s:STATE_MOKUMANO = {
@@ -1203,6 +3039,102 @@
                     "pm_no_secondary"
                     "pm_tools_disabled"
                     "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:AHI"
+                        levels = 1
+                        region = "STATE_MOKUMANO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:AHI"
+                        levels = 1
+                        region = "STATE_MOKUMANO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:AHI"
+                        levels = 1
+                        region = "STATE_MOKUMANO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:AHI" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:AHI"
+                        levels = 1
+                        region = "STATE_MOKUMANO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:AHI"
+                        levels = 2
+                        region = "STATE_MOKUMANO"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
                 }
             }
         }
@@ -1242,6 +3174,102 @@
                     "pm_sparse_planting_building_silk_plantation"
                     "pm_road_carts"
                     "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_logging_camp"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:POM"
+                        levels = 1
+                        region = "STATE_AOLANI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_forestry"
+                    "pm_increased_hardwood"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:POM"
+                        levels = 1
+                        region = "STATE_AOLANI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:POM"
+                        levels = 1
+                        region = "STATE_AOLANI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:POM" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:POM"
+                        levels = 1
+                        region = "STATE_AOLANI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:POM"
+                        levels = 2
+                        region = "STATE_AOLANI"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
                 }
             }
         }

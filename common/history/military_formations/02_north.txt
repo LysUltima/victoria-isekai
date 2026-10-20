@@ -80,6 +80,22 @@ MILITARY_FORMATIONS = {
 			save_scope_as = ELD_general_1
 		}
 		scope:ELD_general_1 = { transfer_to_formation = scope:ELD_army_1 }
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_isles
+			save_scope_as = ELD_fleet_1
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 6
+			}
+		}
+		create_character = {
+			is_admiral = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = ELD_admiral_1
+		}
+		scope:ELD_admiral_1 = { transfer_to_formation = scope:ELD_fleet_1 }
 	}
 	c:GRA ?= {
 		create_military_formation = {
@@ -99,6 +115,22 @@ MILITARY_FORMATIONS = {
 			save_scope_as = GRA_general_1
 		}
 		scope:GRA_general_1 = { transfer_to_formation = scope:GRA_army_1 }
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_isles
+			save_scope_as = GRA_fleet_1
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 6
+			}
+		}
+		create_character = {
+			is_admiral = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = GRA_admiral_1
+		}
+		scope:GRA_admiral_1 = { transfer_to_formation = scope:GRA_fleet_1 }
 	}
 	c:HRG ?= {
 		create_military_formation = {
@@ -118,6 +150,22 @@ MILITARY_FORMATIONS = {
 			save_scope_as = HRG_general_1
 		}
 		scope:HRG_general_1 = { transfer_to_formation = scope:HRG_army_1 }
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_isles
+			save_scope_as = HRG_fleet_1
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 6
+			}
+		}
+		create_character = {
+			is_admiral = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = HRG_admiral_1
+		}
+		scope:HRG_admiral_1 = { transfer_to_formation = scope:HRG_fleet_1 }
 	}
 	c:IIV ?= {
 		create_military_formation = {
@@ -194,6 +242,22 @@ MILITARY_FORMATIONS = {
 			save_scope_as = NYL_general_1
 		}
 		scope:NYL_general_1 = { transfer_to_formation = scope:NYL_army_1 }
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_isles
+			save_scope_as = NYL_fleet_1
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 6
+			}
+		}
+		create_character = {
+			is_admiral = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = NYL_admiral_1
+		}
+		scope:NYL_admiral_1 = { transfer_to_formation = scope:NYL_fleet_1 }
 	}
 	c:SEL ?= {
 		create_military_formation = {
@@ -232,6 +296,22 @@ MILITARY_FORMATIONS = {
 			save_scope_as = SKL_general_1
 		}
 		scope:SKL_general_1 = { transfer_to_formation = scope:SKL_army_1 }
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_isles
+			save_scope_as = SKL_fleet_1
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 6
+			}
+		}
+		create_character = {
+			is_admiral = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = SKL_admiral_1
+		}
+		scope:SKL_admiral_1 = { transfer_to_formation = scope:SKL_fleet_1 }
 	}
 	c:SOL ?= {
 		create_military_formation = {
@@ -251,6 +331,22 @@ MILITARY_FORMATIONS = {
 			save_scope_as = SOL_general_1
 		}
 		scope:SOL_general_1 = { transfer_to_formation = scope:SOL_army_1 }
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_isles
+			save_scope_as = SOL_fleet_1
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 8
+			}
+		}
+		create_character = {
+			is_admiral = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = SOL_admiral_1
+		}
+		scope:SOL_admiral_1 = { transfer_to_formation = scope:SOL_fleet_1 }
 	}
 	c:STO ?= {
 		create_military_formation = {
@@ -270,6 +366,22 @@ MILITARY_FORMATIONS = {
 			save_scope_as = STO_general_1
 		}
 		scope:STO_general_1 = { transfer_to_formation = scope:STO_army_1 }
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_isles
+			save_scope_as = STO_fleet_1
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 6
+			}
+		}
+		create_character = {
+			is_admiral = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = STO_admiral_1
+		}
+		scope:STO_admiral_1 = { transfer_to_formation = scope:STO_fleet_1 }
 	}
 	c:SVA ?= {
 		create_military_formation = {
@@ -289,6 +401,22 @@ MILITARY_FORMATIONS = {
 			save_scope_as = SVA_general_1
 		}
 		scope:SVA_general_1 = { transfer_to_formation = scope:SVA_army_1 }
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_isles
+			save_scope_as = SVA_fleet_1
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 6
+			}
+		}
+		create_character = {
+			is_admiral = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = SVA_admiral_1
+		}
+		scope:SVA_admiral_1 = { transfer_to_formation = scope:SVA_fleet_1 }
 	}
 	c:SYA ?= {
 		create_military_formation = {
@@ -327,5 +455,21 @@ MILITARY_FORMATIONS = {
 			save_scope_as = VAT_general_1
 		}
 		scope:VAT_general_1 = { transfer_to_formation = scope:VAT_army_1 }
-	}
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_north_isles
+			save_scope_as = VAT_fleet_1
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 6
+			}
+		}
+		create_character = {
+			is_admiral = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = VAT_admiral_1
+		}
+		scope:VAT_admiral_1 = { transfer_to_formation = scope:VAT_fleet_1 }
+}
 }

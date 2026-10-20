@@ -129,7 +129,7 @@
             country = c:HOK
             owned_provinces = { "xE9D612" "xEFC618" "xF1BF10" "xF6C014" "xFDC22D" "xFFCE0C" }
         }
-
+        add_claim = c:KAM
         add_homeland = cu:kanaka
     }
     s:STATE_KAIULI = {
@@ -137,7 +137,7 @@
             country = c:KAN
             owned_provinces = { "x9EF931" "xABE91E" "xB2F826" "xB6FF24" "xBAE92A" "xBDFC24" "xC2F22A" "xC4FF0F" }
         }
-
+        add_claim = c:KAM
         add_homeland = cu:kanaka
     }
     s:STATE_UAHIWERA = {

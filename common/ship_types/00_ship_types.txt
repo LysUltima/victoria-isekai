@@ -877,6 +877,9 @@ ship_type_frigate = {
 
     default_modifications = {
         ship_mod_slot_propulsion = ship_mod_frigate_propulsion_light
+        ship_mod_slot_range = ship_mod_frigate_range_high
+        ship_mod_slot_guns = ship_mod_frigate_guns_weak
+        ship_mod_slot_armor = ship_mod_frigate_armor_light
     }
 }
 

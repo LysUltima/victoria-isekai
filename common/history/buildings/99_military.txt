@@ -1035,4 +1035,314 @@ BUILDINGS = {
 			}
 		}
 	}
+	s:STATE_NIRAI_KANAI = {
+		region_state:TID = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:TID" levels = 5 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_URUMA = {
+		region_state:URU = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:URU" levels = 4 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_UTAKI = {
+		region_state:UTA = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:UTA" levels = 4 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_UFUMI = {
+		region_state:UFU = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:UFU" levels = 4 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_MANIA_KOWHAI = {
+		region_state:WHA = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:WHA" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_TAHATIKA_TAPARA = {
+		region_state:KAI = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:KAI" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_PAPAKU_O_TE_RA = {
+		region_state:RAN = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:RAN" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_RAUPO_MOANA = {
+		region_state:TAR = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:TAR" levels = 4 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_KAINGA_MAROKE = {
+		region_state:WAI = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:WAI" levels = 4 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_MOTU_HUMARIE = {
+		region_state:HAW = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:HAW" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_MOUTERE_TARAPIROPIRO = {
+		region_state:WHN = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:WHN" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_PALIANUENUE = {
+		region_state:AHU = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:AHU" levels = 5 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_ONELOA = {
+		region_state:KAM = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:KAM" levels = 4 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_KAULUWELA = {
+		region_state:MAL = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:MAL" levels = 4 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_PAEMUKU = {
+		region_state:HOK = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:HOK" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_KAIULI = {
+		region_state:KAN = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:KAN" levels = 4 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_UAHIWERA = {
+		region_state:POL = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:POL" levels = 4 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_AINAONE = {
+		region_state:LAA = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:LAA" levels = 4 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_WAILUKU = {
+		region_state:MAK = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:MAK" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_ULUWEHI = {
+		region_state:KLA = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:KLA" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_MOKUMANO = {
+		region_state:AHI = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:AHI" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_AOLANI = {
+		region_state:POM = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:POM" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_VESTROYENE = {
+		region_state:SVA = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:SVA" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_NORDREYJAR = {
+		region_state:HRG = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:HRG" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_FJALLSOGN = {
+		region_state:SKL = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:SKL" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_HAMRABYGD = {
+		region_state:STO = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:STO" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_SLETTALAND = {
+		region_state:GRA = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:GRA" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_VATNAFJALL = {
+		region_state:VAT = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:VAT" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_SUDRELD = {
+		region_state:ELD = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:ELD" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_BLIDEY = {
+		region_state:NYL = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:NYL" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
+	s:STATE_BRENNANDIGJA = {
+		region_state:SOL = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:SOL" levels = 4 } }
+				reserves = 1
+				activate_production_methods = { "pm_simple_sailor_recruitment" }
+			}
+		}
+	}
 }

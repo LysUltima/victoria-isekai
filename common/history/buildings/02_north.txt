@@ -25,7 +25,8 @@
                 }
                 reserves = 1
             }
-        }
+
+}
     }
     s:STATE_SELMME = {
         region_state:SEL = {
@@ -41,7 +42,8 @@
                 }
                 reserves = 1
             }
-        }
+
+}
     }
     s:STATE_BRULMME = {
         region_state:BRU = {
@@ -69,7 +71,8 @@
                 }
                 reserves = 1
             }
-        }
+
+}
     }
     s:STATE_IIVA_KAARENA = {
         region_state:IIV = {
@@ -97,11 +100,13 @@
                 }
                 reserves = 1
             }
-        }
+
+}
     }
     s:STATE_SYAA_SEE = {
         region_state:SYA = {
-        }
+
+}
     }
     s:STATE_AMII_TENII = {
         region_state:AMI = {
@@ -129,7 +134,8 @@
                 }
                 reserves = 1
             }
-        }
+
+}
     }
     s:STATE_MIRAA_MITAA = {
         region_state:MIA = {
@@ -145,7 +151,8 @@
                 }
                 reserves = 1
             }
-        }
+
+}
     }
     s:STATE_MAAMA_VAA = {
         region_state:MAA = {
@@ -173,7 +180,8 @@
                 }
                 reserves = 1
             }
-        }
+
+}
     }
     s:STATE_VESTROYENE = {
         region_state:SVA = {
@@ -183,11 +191,113 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:SVA"
+                        levels = 3
+                        region = "STATE_VESTROYENE"
+                    }
+                }
+                reserves = 1
+
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_forests_of_the_departed"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SVA"
+                        levels = 1
+                        region = "STATE_VESTROYENE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_grave_saw_mills"
+                    "pm_stone_anchored_gleaning"
+                    "pm_no_potion_enhancement"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SVA"
+                        levels = 1
+                        region = "STATE_VESTROYENE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:SVA" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SVA"
+                        levels = 1
+                        region = "STATE_VESTROYENE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SVA"
                         levels = 2
                         region = "STATE_VESTROYENE"
                     }
                 }
                 reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SVA"
+                        levels = 1
+                        region = "STATE_VESTROYENE"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
+                }
             }
         }
     }
@@ -199,11 +309,19 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:HRG"
-                        levels = 2
+                        levels = 3
                         region = "STATE_NORDREYJAR"
                     }
                 }
                 reserves = 1
+
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
             }
             create_building = {
                 building = "building_fishing_wharf"
@@ -211,11 +329,94 @@
                     building = {
                         type = "building_fishing_wharf"
                         country = "c:HRG"
+                        levels = 3
+                        region = "STATE_NORDREYJAR"
+                    }
+                }
+                reserves = 1
+
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_forests_of_the_departed"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HRG"
+                        levels = 1
+                        region = "STATE_NORDREYJAR"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_grave_saw_mills"
+                    "pm_stone_anchored_gleaning"
+                    "pm_no_potion_enhancement"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HRG"
+                        levels = 1
+                        region = "STATE_NORDREYJAR"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:HRG" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HRG"
                         levels = 2
                         region = "STATE_NORDREYJAR"
                     }
                 }
                 reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:HRG"
+                        levels = 1
+                        region = "STATE_NORDREYJAR"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
+                }
             }
         }
     }
@@ -227,14 +428,59 @@
                     building = {
                         type = "building_fishing_wharf"
                         country = "c:SKL"
+                        levels = 3
+                        region = "STATE_FJALLSOGN"
+                    }
+                }
+                reserves = 1
+
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_forests_of_the_departed"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SKL"
                         levels = 2
                         region = "STATE_FJALLSOGN"
                     }
                 }
                 reserves = 1
+
+                activate_production_methods = {
+                    "pm_grave_saw_mills"
+                    "pm_stone_anchored_gleaning"
+                    "pm_no_potion_enhancement"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                }
             }
             create_building = {
-                building = "building_forests_of_the_departed"
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:SKL"
+                        levels = 1
+                        region = "STATE_FJALLSOGN"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
                 add_ownership = {
                     building = {
                         type = "building_financial_district"
@@ -244,6 +490,52 @@
                     }
                 }
                 reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:SKL" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SKL"
+                        levels = 2
+                        region = "STATE_FJALLSOGN"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SKL"
+                        levels = 1
+                        region = "STATE_FJALLSOGN"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
+                }
             }
         }
     }
@@ -255,11 +547,113 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:STO"
+                        levels = 3
+                        region = "STATE_HAMRABYGD"
+                    }
+                }
+                reserves = 1
+
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_forests_of_the_departed"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:STO"
+                        levels = 1
+                        region = "STATE_HAMRABYGD"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_grave_saw_mills"
+                    "pm_stone_anchored_gleaning"
+                    "pm_no_potion_enhancement"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:STO"
+                        levels = 1
+                        region = "STATE_HAMRABYGD"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:STO" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:STO"
+                        levels = 1
+                        region = "STATE_HAMRABYGD"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:STO"
                         levels = 2
                         region = "STATE_HAMRABYGD"
                     }
                 }
                 reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:STO"
+                        levels = 1
+                        region = "STATE_HAMRABYGD"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
+                }
             }
         }
     }
@@ -271,11 +665,19 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:GRA"
-                        levels = 2
+                        levels = 3
                         region = "STATE_SLETTALAND"
                     }
                 }
                 reserves = 1
+
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
             }
             create_building = {
                 building = "building_fishing_wharf"
@@ -283,14 +685,40 @@
                     building = {
                         type = "building_fishing_wharf"
                         country = "c:GRA"
-                        levels = 1
+                        levels = 2
                         region = "STATE_SLETTALAND"
                     }
                 }
                 reserves = 1
+
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
             }
             create_building = {
                 building = "building_forests_of_the_departed"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:GRA"
+                        levels = 2
+                        region = "STATE_SLETTALAND"
+                    }
+                }
+                reserves = 1
+
+                activate_production_methods = {
+                    "pm_grave_saw_mills"
+                    "pm_stone_anchored_gleaning"
+                    "pm_no_potion_enhancement"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
                 add_ownership = {
                     building = {
                         type = "building_financial_district"
@@ -300,6 +728,52 @@
                     }
                 }
                 reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:GRA" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:GRA"
+                        levels = 2
+                        region = "STATE_SLETTALAND"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:GRA"
+                        levels = 1
+                        region = "STATE_SLETTALAND"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
+                }
             }
         }
     }
@@ -311,11 +785,113 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:VAT"
+                        levels = 3
+                        region = "STATE_VATNAFJALL"
+                    }
+                }
+                reserves = 1
+
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_forests_of_the_departed"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:VAT"
+                        levels = 1
+                        region = "STATE_VATNAFJALL"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_grave_saw_mills"
+                    "pm_stone_anchored_gleaning"
+                    "pm_no_potion_enhancement"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:VAT"
+                        levels = 1
+                        region = "STATE_VATNAFJALL"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:VAT" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_fishing_wharf"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:VAT"
+                        levels = 1
+                        region = "STATE_VATNAFJALL"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:VAT"
                         levels = 2
                         region = "STATE_VATNAFJALL"
                     }
                 }
                 reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:VAT"
+                        levels = 1
+                        region = "STATE_VATNAFJALL"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
+                }
             }
         }
     }
@@ -327,11 +903,113 @@
                     building = {
                         type = "building_fishing_wharf"
                         country = "c:ELD"
+                        levels = 3
+                        region = "STATE_SUDRELD"
+                    }
+                }
+                reserves = 1
+
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_forests_of_the_departed"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ELD"
+                        levels = 1
+                        region = "STATE_SUDRELD"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_grave_saw_mills"
+                    "pm_stone_anchored_gleaning"
+                    "pm_no_potion_enhancement"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_livestock_ranch"
+                add_ownership = {
+                    building = {
+                        type = "building_manor_house"
+                        country = "c:ELD"
+                        levels = 1
+                        region = "STATE_SUDRELD"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ELD"
+                        levels = 1
+                        region = "STATE_SUDRELD"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:ELD" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ELD"
                         levels = 2
                         region = "STATE_SUDRELD"
                     }
                 }
                 reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:ELD"
+                        levels = 1
+                        region = "STATE_SUDRELD"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
+                }
             }
         }
     }
@@ -343,11 +1021,19 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:NYL"
-                        levels = 1
+                        levels = 2
                         region = "STATE_BLIDEY"
                     }
                 }
                 reserves = 1
+
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
             }
             create_building = {
                 building = "building_fishing_wharf"
@@ -355,11 +1041,94 @@
                     building = {
                         type = "building_fishing_wharf"
                         country = "c:NYL"
-                        levels = 3
+                        levels = 4
                         region = "STATE_BLIDEY"
                     }
                 }
                 reserves = 1
+
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_forests_of_the_departed"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:NYL"
+                        levels = 1
+                        region = "STATE_BLIDEY"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_grave_saw_mills"
+                    "pm_stone_anchored_gleaning"
+                    "pm_no_potion_enhancement"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:NYL"
+                        levels = 1
+                        region = "STATE_BLIDEY"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:NYL" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:NYL"
+                        levels = 2
+                        region = "STATE_BLIDEY"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:NYL"
+                        levels = 1
+                        region = "STATE_BLIDEY"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
+                }
             }
         }
     }
@@ -371,11 +1140,19 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:SOL"
-                        levels = 3
+                        levels = 4
                         region = "STATE_BRENNANDIGJA"
                     }
                 }
                 reserves = 1
+
+                activate_production_methods = {
+                    "pm_open_air_stockyards"
+                    "pm_simple_ranch"
+                    "pm_standard_fences"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
             }
             create_building = {
                 building = "building_fishing_wharf"
@@ -383,11 +1160,94 @@
                     building = {
                         type = "building_fishing_wharf"
                         country = "c:SOL"
+                        levels = 2
+                        region = "STATE_BRENNANDIGJA"
+                    }
+                }
+                reserves = 1
+
+                activate_production_methods = {
+                    "pm_fishing_trawlers"
+                    "pm_unrefrigerated"
+                    "pm_no_potion_enhancement"
+                }
+            }
+            create_building = {
+                building = "building_forests_of_the_departed"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SOL"
                         levels = 1
                         region = "STATE_BRENNANDIGJA"
                     }
                 }
                 reserves = 1
+                activate_production_methods = {
+                    "pm_grave_saw_mills"
+                    "pm_stone_anchored_gleaning"
+                    "pm_no_potion_enhancement"
+                    "pm_no_equipment"
+                    "pm_road_carts"
+                }
+            }
+            create_building = {
+                building = "building_shipyard"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SOL"
+                        levels = 1
+                        region = "STATE_BRENNANDIGJA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_shipbuilding"
+                }
+            }
+            create_building = {
+                building = "building_port"
+                add_ownership = {
+                    country = { country = "c:SOL" levels = 1 }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_basic_port"
+                }
+            }
+            create_building = {
+                building = "building_trade_center"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SOL"
+                        levels = 2
+                        region = "STATE_BRENNANDIGJA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_trade_center_principle_external_trade_2"
+                    "pm_trade_center_trade_quantity_normal"
+                }
+            }
+            create_building = {
+                building = "building_whaling_station"
+                add_ownership = {
+                    building = {
+                        type = "building_financial_district"
+                        country = "c:SOL"
+                        levels = 1
+                        region = "STATE_BRENNANDIGJA"
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_wooden_whaling_ships"
+                    "pm_unrefrigerated"
+                    "pm_no_hunting_equipment_building_whaling_station"
+                }
             }
         }
     }
