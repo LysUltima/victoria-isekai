@@ -46,7 +46,7 @@ building_oil_rig = {
 
 building_enchanted_palm_orchard = {
 	building_group = bg_enchanted_grove
-	icon = "gfx/interface/icons/building_icons/dreamwood.dds"
+	icon = "gfx/interface/icons/building_icons/palm_grove.dds"
 	city_type = wood
 	required_construction = construction_cost_low
 	terrain_manipulator = forestry
@@ -68,7 +68,7 @@ building_enchanted_palm_orchard = {
 
 building_forests_of_the_departed = {
 	building_group = bg_departed_forest
-	icon = "gfx/interface/icons/building_icons/mushroom_logging.dds"
+	icon = "gfx/interface/icons/building_icons/forest_of_the_departed.dds"
 	city_type = wood
 	required_construction = construction_cost_low
 	terrain_manipulator = forestry
