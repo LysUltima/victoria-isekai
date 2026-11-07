@@ -1,4 +1,4 @@
-﻿northern_orc = {
+northern_orc = {
 	color= rgb{ 194 109 46 }
 	religion = animist
 	heritage = heritage_orc
@@ -10,90 +10,69 @@
 
 	traditions = { tradition_monsteric }
 	male_common_first_names = {
-		Aniceto
-		Antonio
-		Bartolome
-		Camilo
-		Carlos
-		Claudio
-		David
-		Emiliano
-		Eugenio_2
-		Felipe
-		Fernando
-		Felix
-		Gregorio
-		Jacinto
-		Jesus
-		JosE_
-		Juan
-		Julio
-		Luis
-		Manuel
-		Marcos
-		Maximo
-		Narciso
-		Pablo
-		Pedro
-		Rodrigo
-		Roque
-		Simon_2
-		Teodoro
-		VI_ctor
+		Gorak
+		Urgan
+		Drogan
+		Kharzug
+		Morgash
+		Thrag
+		Boruk
+		Zulgar
+		Rugath
+		Grimtok
+		Mazruk
+		Varkun
+		Drazhul
+		Korvash
+		Ogrun
+		Torgal
+		Brakka
+		Grom
+		Krugor
+		Ashnak
 	}
 	female_common_first_names = {
-		Adela
-		Blanca
-		Carola
-		Celsa
-		Eliza
-		Ermelina
-		Hercilia
-		Lindaura
-		Maria
-		Modesta
-		Sara
-		Ubalda
-		Veronica
+		Urga
+		Morga
+		Zarka
+		Bruga
+		Khazra
+		Droka
+		Vasha
+		Thorga
+		Grusha
+		Rakka
+		Mazga
+		Ogara
 	}
 	noble_last_names = {
-		Anzoategui
-		Campero
-		Santa_Cruz
-		Tiaraju
-		Tumpa
+		Ironmaw
+		Bloodtusk
+		Ashfist
+		Skullbreaker
+		Stormscar
 	}
 	common_last_names = {
-		Abjaisu
-		Ayegua
-		Camba
-		Chuaie
-		Correa
-		Cunhagatu
-		Diaz_2
-		Fernandez
-		Galeano
-		Gonzalez
-		Guaracay
-		Guarani
-		Guerrero
-		Gomez
-		Jopara
-		Lopez
-		Mongelos
-		Morla
-		Ortiz
-		Parave
-		Picagua
-		Rodas
-		Riquelme
-		Rivarola
-		Tarayu
-		Torga
-		Velazquez
-		Yaguarete
-		Yrahi
-		Alvarez
+		Doomhowl
+		Grimaxe
+		Wargrin
+		Redhand
+		Blackfang
+		Deathhowl
+		Bonecrush
+		Skulltaker
+		Wolfbane
+		Gorebrand
+		Razorfang
+		Hellscar
+		Ironhide
+		Rageborn
+		Bloodaxe
+		Stonefist
+		Woundmaker
+		Dreadmaw
+		Warcaller
+		Thunderjaw
 	}
 	ethnicities = {
 		1 = gray_orc
@@ -111,87 +90,69 @@ southern_orc = {
 		meat
 	}
 	male_common_first_names = {
-		Anibal
-		Augusto
-		Bento
-		Bernardo
-		CE_sar
-		Daniel
-		David
-		Donato
-		Duarte
-		Ernesto
-		Estevao_2
-		Fernando
-		Francisco
-		Gabriel
-		Graciano
-		Hugo
-		JoA_o
-		Julio
-		Kananoe
-		Leopoldo
-		Lucas
-		Miguel
-		Nuno
-		Paulinho
-		Raoni
-		Rafael_2
-		Roberto
-		Sebastiao
-		Sergio
-		Simao
-		Vasco
-		Zeferino
-		Oscar_2
+		Gorak
+		Urgan
+		Drogan
+		Kharzug
+		Morgash
+		Thrag
+		Boruk
+		Zulgar
+		Rugath
+		Grimtok
+		Mazruk
+		Varkun
+		Drazhul
+		Korvash
+		Ogrun
+		Torgal
+		Brakka
+		Grom
+		Krugor
+		Ashnak
 	}
 	female_common_first_names = {
-		Catarina
-		Clara
-		Cristina
-		Maria
-		Teresa
+		Urga
+		Morga
+		Zarka
+		Bruga
+		Khazra
+		Droka
+		Vasha
+		Thorga
+		Grusha
+		Rakka
+		Mazga
+		Ogara
 	}
 	noble_last_names = {
-		Aikana
-		Amahuaca
-		Apetina
-		Baniwa
-		Bororo
-		Canela
-		Guaycuru
-		Hupda
-		Jecupe
-		Metuktire
-		Minuane
-		Nambikwara
-		Paiakan
-		Parintintin
-		Umutina
-		Wayana
-		Yanomami
+		Ironmaw
+		Bloodtusk
+		Ashfist
+		Skullbreaker
+		Stormscar
 	}
 	common_last_names = {
-		Arawak
-		Arawa
-		Bororo
-		Garifuna
-		Guayana
-		Ge
-		Jeiko
-		Kaingang
-		Kalinago
-		Kamakan
-		Karaja
-		Kayapo
-		Matses
-		Maxakali
-		Puri
-		Timbira
-		Xavante
-		Xerente
-		Xokieng
-		Yanomamo
+		Doomhowl
+		Grimaxe
+		Wargrin
+		Redhand
+		Blackfang
+		Deathhowl
+		Bonecrush
+		Skulltaker
+		Wolfbane
+		Gorebrand
+		Razorfang
+		Hellscar
+		Ironhide
+		Rageborn
+		Bloodaxe
+		Stonefist
+		Woundmaker
+		Dreadmaw
+		Warcaller
+		Thunderjaw
 	}
 	ethnicities = {
 		1 = green_orc
@@ -209,41 +170,68 @@ goblin = {
 		meat
 	}
 	male_common_first_names = {
-		Amare
-		Amha
-		Bekele
-		Berhanu
-		Berihun
-		Demissie
-		Desta
-		Geteye
-		Girma
-		Haile
-		Kelile
-		Negasi
-		Saleh
+		Derrag
+		Asgeb
+		Gorreb
+		Bomeg
+		Bromar
+		Gobbeg
+		Werraz
+		Zabbag
+		Damoz
+		Gebbag
+		Megged
+		Zogg_Deg
+		Ger_Drub
+		Grub_Der
+		Hor_Gob
+		Hep_Trok
 	}
 	female_common_first_names = {
-		Menen_Asfaw
-		Belaynesh
-		Sehin_Mikael
-		Tsehai
-		Zenebework
+		Gubmuck
+		Zargrag
+		Bogslopp
+		Gebzog
+		Gorrgrub
+		Rebzog
+		Meggfeed
+		Gudzog
 	}
 	noble_last_names = {
-		Ali_Aba_Deyas
-		Cherecha
-		Makonnen
-		Selassie
-		Solomon
+		Derragob
+		Asgebog
+		Gorrebo
+		Bomeggud
+		Bromarob
+		Gobbegob
+		Werrazub
+		Zabbagob
+		Damozog
+		Gebbaggog
+		Meggedob
+		Zogg_Deg
+		Ger_Drub
+		Grub_Der
+		Hor_Gob
+		Hep_Trok
 	}
 	common_last_names = {
-		Mariam
-		Melekot
-		Mikael
-		Petros
-		Seged
-		Wossen
+		Derrag
+		Asgeb
+		Gorreb
+		Bomeg
+		Bromar
+		Gobbeg
+		Werraz
+		Zabbag
+		Damoz
+		Gebbag
+		Megged
+		Zogg_Deg
+		Ger_Drub
+		Grub_Der
+		Hor_Gob
+		Hep_Trok
 	}
 	ethnicities = {
 		1 = forest_goblin
@@ -262,31 +250,50 @@ sand_goblin = {
 		meat
 	}
 	male_common_first_names = {
-		Alimirah
-		Amda
-		Baeda
-		Hanfere
-		Kadhafo
-		Kedafu
-		Mahammad
-		Sabraddin
-		Umar
+		Ssume
+		Tasso
+		Koppo
+		Pressok
+		Hoppo
+		Mossop
+		Gesso
+		Kassema
+		Renossa
+		Ressa
 	}
 	female_common_first_names = {
-		Fatimah
-		Medina
+		Nakos
+		Mennak
+		Pomma
+		Tassok
+		Upsa
+		Koppos
+		Ressak
+		Sokko
 	}
 	noble_last_names = {
-		Jasa
-		Kadafo
-		Yayyo
+		Ssume_Nako
+		Tasso_Pome
+		Ups_Kop
+		Pressok
+		Tasso_Hop
+		Mossopok
+		Gesso_Pan
+		Kassema
+		Renossa
+		Ressa_Nako
 	}
 	common_last_names = {
-		Aydahis
-		Hanfadhe
-		Maryam
-		Seyon
-		Yayyo
+		Ssume
+		Tasso
+		Koppo
+		Pressok
+		Hoppo
+		Mossop
+		Gesso
+		Kassema
+		Renossa
+		Ressa
 	}
 	ethnicities = {
 		1 = common_goblin
