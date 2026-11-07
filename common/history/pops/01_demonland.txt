@@ -334,10 +334,10 @@
         }
     }
     s:STATE_BOMEGGUD = {
-        region_state:GOB = {
+        region_state:BFG = {
             create_pop = {
                 culture = goblin
-                size = 165000
+                size = 1815000
             }
         }
     }
@@ -462,26 +462,26 @@
         }
     }
     s:STATE_GESSO_PAN = {
-        region_state:SAN = {
+        region_state:GSP = {
             create_pop = {
                 culture = sand_goblin
-                size = 75000
+                size = 855000
             }
         }
     }
     s:STATE_KASSEMA = {
-        region_state:SAN = {
+        region_state:KAS = {
             create_pop = {
                 culture = sand_goblin
-                size = 75000
+                size = 825000
             }
         }
     }
     s:STATE_MOSSOPOK = {
-        region_state:SAN = {
+        region_state:MSP = {
             create_pop = {
                 culture = sand_goblin
-                size = 60000
+                size = 690000
             }
         }
     }
@@ -502,10 +502,10 @@
         }
     }
     s:STATE_RESSA_NAKO = {
-        region_state:SAN = {
+        region_state:RSN = {
             create_pop = {
                 culture = sand_goblin
-                size = 115000
+                size = 1290000
             }
         }
     }
@@ -518,10 +518,10 @@
         }
     }
     s:STATE_TASSO_HOP = {
-        region_state:SAN = {
+        region_state:TSH = {
             create_pop = {
                 culture = sand_goblin
-                size = 60000
+                size = 645000
             }
         }
     }
@@ -551,10 +551,16 @@
     }
     s:STATE_BURNING_DREAM = {
         region_state:SDE = {
-            create_pop = {
-                culture = southern_orc
-                size = 35000
-            }
+            create_pop = { culture = southern_orc size = 25764 }
+        }
+        region_state:THT = {
+            create_pop = { culture = ixioran size = 1664000 }
+        }
+        region_state:CAP = {
+            create_pop = { culture = ixioran size = 1462000 }
+        }
+        region_state:BRD = {
+            create_pop = { culture = ixioran size = 891780 }
         }
     }
     s:STATE_BURROWING_HAVEN = {
@@ -591,10 +597,13 @@
     }
     s:STATE_SCORCHING_HAZE = {
         region_state:SDE = {
-            create_pop = {
-                culture = southern_orc
-                size = 15000
-            }
+            create_pop = { culture = southern_orc size = 12073 }
+        }
+        region_state:CEP = {
+            create_pop = { culture = ixioran size = 1130000 }
+        }
+        region_state:ATE = {
+            create_pop = { culture = ixioran size = 1260000 }
         }
     }
     s:STATE_SINGING_MIRAGE = {

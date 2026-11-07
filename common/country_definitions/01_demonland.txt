@@ -174,5 +174,92 @@ SDE = {
 
     cultures = { southern_orc }
 
+    capital = STATE_DESPAIRING_DUNES
+}
+THT = { # Thetis -- centralized duchy
+    color = { 115 153 160 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { ixioran }
     capital = STATE_BURNING_DREAM
+}
+
+CAP = { # Capella -- centralized duchy
+    color = { 194 143 156 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { ixioran }
+    capital = STATE_BURNING_DREAM
+}
+
+BRD = { # Birdy -- centralized duchy
+    color = { 165 164 119 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { ixioran }
+    capital = STATE_BURNING_DREAM
+}
+
+CEP = { # Cephon -- centralized duchy
+    color = { 137 149 181 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { ixioran }
+    capital = STATE_SCORCHING_HAZE
+}
+
+ATE = { # Altera -- centralized duchy
+    color = { 179 154 181 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { ixioran }
+    capital = STATE_SCORCHING_HAZE
+}
+
+TSH = { # Tasso Hop -- centralized duchy
+    color = { 160 121 104 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { sand_goblin }
+    capital = STATE_TASSO_HOP
+}
+
+MSP = { # Mossopok -- centralized duchy
+    color = { 123 107 134 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { sand_goblin }
+    capital = STATE_MOSSOPOK
+}
+
+GSP = { # Gesso Pan -- centralized duchy
+    color = { 100 143 128 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { sand_goblin }
+    capital = STATE_GESSO_PAN
+}
+
+KAS = { # Kassema -- centralized duchy
+    color = { 180 143 93 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { sand_goblin }
+    capital = STATE_KASSEMA
+}
+
+RSN = { # Ressa Nako -- centralized duchy
+    color = { 170 105 91 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { sand_goblin }
+    capital = STATE_RESSA_NAKO
+}
+
+BFG = { # Bomeggud -- centralized duchy
+    color = { 103 124 88 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { goblin }
+    capital = STATE_BOMEGGUD
 }

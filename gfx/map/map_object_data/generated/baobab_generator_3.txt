@@ -5,6 +5,7 @@
 	generated_content=yes
 	layer="semidynamic_high"
 	pdxmesh="tree_baobab_01_mesh"
+	transform_bin_file="gfx/map/map_object_data/baobab_generator_3_0.bin"
 }
 object={
 	name="baobab_generator_3_1"
@@ -13,6 +14,7 @@ object={
 	generated_content=yes
 	layer="semidynamic_high"
 	pdxmesh="tree_baobab_02_mesh"
+	transform_bin_file="gfx/map/map_object_data/baobab_generator_3_1.bin"
 }
 object={
 	name="baobab_generator_3_2"
@@ -21,6 +23,7 @@ object={
 	generated_content=yes
 	layer="semidynamic_high"
 	pdxmesh="tree_baobab_03_mesh"
+	transform_bin_file="gfx/map/map_object_data/baobab_generator_3_2.bin"
 }
 object={
 	name="baobab_generator_3_3"
@@ -29,4 +32,5 @@ object={
 	generated_content=yes
 	layer="semidynamic_high"
 	pdxmesh="tree_baobab_04_mesh"
+	transform_bin_file="gfx/map/map_object_data/baobab_generator_3_3.bin"
 }

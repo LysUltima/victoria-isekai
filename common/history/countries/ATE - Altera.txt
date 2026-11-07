@@ -1,0 +1,7 @@
+﻿# Altera (demonland: artifice_tier_3)
+COUNTRIES = {
+	c:ATE ?= {
+		effect_starting_technology_artifice_tier_3 = yes
+		effect_starting_politics_traditional = yes
+	}
+}

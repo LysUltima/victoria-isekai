@@ -1,4 +1,4 @@
-northern_orc = {
+﻿northern_orc = {
 	color= rgb{ 194 109 46 }
 	religion = animist
 	heritage = heritage_orc

@@ -27,4 +27,48 @@
         effect_starting_pop_wealth_high = yes
         effect_starting_pop_literacy_high = yes
     }
+    c:THT = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:CAP = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:BRD = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:CEP = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:ATE = {
+        effect_starting_pop_wealth_high = yes
+        effect_starting_pop_literacy_high = yes
+    }
+    c:TSH = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:MSP = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:GSP = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:KAS = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:RSN = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:BFG = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
 }

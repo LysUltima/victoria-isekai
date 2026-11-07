@@ -5,6 +5,7 @@
 	generated_content=yes
 	layer="semidynamic_high"
 	pdxmesh="tree_bush_05_mesh"
+	transform_bin_file="gfx/map/map_object_data/bush_dry_02_generator_2_0.bin"
 }
 object={
 	name="bush_dry_02_generator_2_1"
@@ -13,4 +14,5 @@ object={
 	generated_content=yes
 	layer="semidynamic_high"
 	pdxmesh="tree_bush_06_mesh"
+	transform_bin_file="gfx/map/map_object_data/bush_dry_02_generator_2_1.bin"
 }

@@ -261,7 +261,7 @@
     }
     s:STATE_BOMEGGUD = {
         create_state = {
-            country = c:GOB
+            country = c:BFG
             owned_provinces = { "x9CEF26" "x9ED70C" "x9EDF1E" "xA0CC28" "xA0D71C" "xA0E200" "xA1D804" "xA5DB0D" "xA6E027" "xA9E70A" "xAAE01C" "xAAE51F" "xAEDC1C" "xAFDD0A" "xAFE107" "xB0E409" "xB0EE08" "xB1EE11" "xB2EB24" "xB8CE19" "xB9CC00" "xB9D225" "xBCCE04" "xBDE516" "xBDEC28" "xBEDE1E" "xC2DB0C" "xC2E527" "xC4D819" "xC4E81C" }
         }
 
@@ -397,7 +397,7 @@
     }
     s:STATE_TASSO_HOP = {
         create_state = {
-            country = c:SAN
+            country = c:TSH
             owned_provinces = { "xB4491D" "xB46119" "xB54C18" "xB75D1C" "xB96310" "xB96914" "xBB4E21" "xBC4B0B" "xBC6803" "xBD6803" "xBD6A00" "xC15F00" "xC3681C" "xC4641C" "xC54612" "xC76112" "xC95B04" "xC95D08" "xC96111" "xCA5507" "xCB5109" "xCC5A11" "xCD4806" "xD35617" "xD45810" "xD45F05" "xD46617" "xD54505" "xD55A00" "xD5660B" "xD6470F" "xD8521C" "xD8550B" "xD85900" }
         }
 
@@ -405,7 +405,7 @@
     }
     s:STATE_MOSSOPOK = {
         create_state = {
-            country = c:SAN
+            country = c:MSP
             owned_provinces = { "x01D62E" "x01E716" "x02F008" "x05D50C" "x06F421" "x07E70A" "x07F50D" "x08DA13" "x09E811" "x09F11C" "x0CD80C" "x0EDC0C" "x10F809" "x11E610" "x13E72D" "x14D70B" "x15FC11" "x18E230" "x1AD529" "x1AE013" "x1BE30B" "x1DDD19" "x20F215" "x21DD09" "x21F52D" "x22DA0E" "x22E029" "x24DC0B" "x24DC0E" "x25E32D" "x27D60E" "x27F628" }
         }
 
@@ -413,7 +413,7 @@
     }
     s:STATE_GESSO_PAN = {
         create_state = {
-            country = c:SAN
+            country = c:GSP
             owned_provinces = { "xE92237" "xEA3817" "xEE3522" "xEF3414" "xF2201A" "xF33626" "xF53B36" "xF61520" "xF61831" "xF72F21" "xF91519" "xF91E20" "xF93A22" "xFD2011" "xFE1618" "xFF151B" "xFF1735" "xFF1821" "xFF1C2A" "xFF2113" "xFF2136" "xFF2434" "xFF291F" "xFF2A37" "xFF2C11" "xFF2C28" "xFF2C2B" "xFF2C31" "xFF2D12" "xFF2F2E" "xFF3016" "xFF3611" "xFF3816" "xFF3D13" }
         }
 
@@ -421,7 +421,7 @@
     }
     s:STATE_KASSEMA = {
         create_state = {
-            country = c:SAN
+            country = c:KAS
             owned_provinces = { "xDB583B" "xE55726" "xE55B31" "xE6432E" "xE65146" "xE65837" "xE7342F" "xE9433B" "xEB5426" "xEB5525" "xED4426" "xF0563A" "xF23546" "xF33C41" "xF34344" "xF34431" "xF43B37" "xF43D26" "xFB3837" "xFB5340" "xFE3E3F" "xFE4427" }
         }
 
@@ -437,7 +437,7 @@
     }
     s:STATE_RESSA_NAKO = {
         create_state = {
-            country = c:SAN
+            country = c:RSN
             owned_provinces = { "x6F5E1B" "x725619" "x744512" "x74551C" "x754C00" "x755317" "x756711" "x775D11" "x784B09" "x784E07" "x786600" "x78660C" "x796500" "x7A5804" "x7A5815" "x7A6215" "x7A661B" "x7B5B12" "x7D6A00" "x7F5A00" "x804E00" "x80511E" "x824900" "x834C08" "x84511A" "x874E0D" "x886A11" "x8A4409" "x8B4901" "x8C6202" "x8D5D10" "x92690D" "x934916" "x935302" "x93690E" "x956903" }
         }
 
@@ -445,19 +445,43 @@
     }
     s:STATE_BURNING_DREAM = {
         create_state = {
+            country = c:THT
+            owned_provinces = { "x09e728" "x09ff2c" "x09ff35" "x0cec33" "x0eee15" "x0ff71c" "x10f228" "x12ff20" "x15ea13" "x17fd18" "x1ae815" "x1afc0f" "x1dea19" "x21f618" "x25e833" "x28f133" "x2af728" "x2bef16" "x2df82a" "x2dff32" }
+        }
+        create_state = {
+            country = c:CAP
+            owned_provinces = { "x07ff0f" "x07ff2c" "x09ff22" "x0cff11" "x0dff0e" "x0ef91a" "x10ff27" "x1beb24" "x1dfe1c" "x1fff33" "x21ff1b" "x23fc19" "x26fb19" "x28e92a" "x2aeb17" "x2aff12" }
+        }
+        create_state = {
+            country = c:BRD
+            owned_provinces = { "x0eff29" "x12f520" "x1cf61b" "x26ee2f" "x13e633" "x19ff11" "x28f326" "x2aee34" "x2de527" }
+        }
+        create_state = {
             country = c:SDE
-            owned_provinces = { "x06FF2F" "x07FF0F" "x07FF2C" "x08E920" "x09E728" "x09F221" "x09F333" "x09FF22" "x09FF2C" "x09FF35" "x0AE711" "x0CEC33" "x0CF233" "x0CFF11" "x0DFF0E" "x0DFF16" "x0EEE15" "x0EF91A" "x0EFF29" "x0FF71C" "x10F228" "x10FF27" "x11FF2A" "x12F520" "x12FF20" "x12FF27" "x12FF2D" "x13E633" "x14E620" "x15EA13" "x16F80E" "x17FD18" "x19FF11" "x1AE815" "x1AFC0F" "x1BEB24" "x1BFF24" "x1CF61B" "x1DEA19" "x1DFE1C" "x1EE624" "x1EFF25" "x1FFB17" "x1FFF33" "x21EA23" "x21F618" "x21FF1B" "x22EF19" "x23FC19" "x23FF13" "x24ED2A" "x24F021" "x24F032" "x25E61C" "x25E833" "x26EE2F" "x26FB19" "x26FF1E" "x28E92A" "x28F133" "x28F326" "x29E92F" "x2AEB17" "x2AEE34" "x2AF728" "x2AFF12" "x2BEF16" "x2DE527" "x2DF82A" "x2DFF32" "x2EFC22" "x2EFF1D" }
+            owned_provinces = { "x06FF2F" "x08E920" "x09F221" "x09F333" "x0AE711" "x0CF233" "x0DFF16" "x11FF2A" "x12FF27" "x12FF2D" "x14E620" "x16F80E" "x1BFF24" "x1EE624" "x1EFF25" "x1FFB17" "x21EA23" "x22EF19" "x23FF13" "x24ED2A" "x24F021" "x24F032" "x25E61C" "x26FF1E" "x29E92F" "x2EFC22" "x2EFF1D" }
         }
 
+
         add_homeland = cu:southern_orc
+        add_homeland = cu:ixioran
     }
     s:STATE_SCORCHING_HAZE = {
         create_state = {
+            country = c:ATE
+            owned_provinces = { "x2c5454" "x2f3947" "x344238" "x355d49" "x374546" "x393f47" "x3b3e40" "x484c50" "x4e4f54" "x504643" "x505e36" "x513d39" }
+        }
+        create_state = {
+            country = c:CEP
+            owned_provinces = { "x2e4c47" "x2f413b" "x31443a" "x335947" "x404445" "x444e57" "x454d45" "x485c3a" "x493d49" "x4e3842" "x4f5142" }
+        }
+        create_state = {
             country = c:SDE
-            owned_provinces = { "x2C5454" "x2D5255" "x2E4C47" "x2F3947" "x2F413B" "x304C38" "x31443A" "x323B34" "x32453B" "x324E3E" "x335947" "x344238" "x345955" "x35434E" "x355D49" "x36464E" "x374546" "x383A59" "x393F47" "x394E58" "x3A4658" "x3A5D3D" "x3B3E40" "x404445" "x443E4A" "x444E57" "x454D45" "x484C50" "x484F32" "x485C3A" "x493D49" "x495049" "x4A5B34" "x4E3842" "x4E4F54" "x4F5142" "x503F31" "x504643" "x505E36" "x513D39" "x525F58" }
+            owned_provinces = { "x2D5255" "x304C38" "x323B34" "x32453B" "x324E3E" "x345955" "x35434E" "x36464E" "x383A59" "x394E58" "x3A4658" "x3A5D3D" "x443E4A" "x484F32" "x495049" "x4A5B34" "x503F31" "x525F58" }
         }
 
+
         add_homeland = cu:southern_orc
+        add_homeland = cu:ixioran
     }
     s:STATE_TREMBLING_PEAKS = {
         create_state = {

@@ -293,14 +293,14 @@
   HUB_NAME_STATE_RESSA_NAKO_wood: "Nassok"
 
   # Southern Desert (SDE)
-  HUB_NAME_STATE_BURNING_DREAM_city: "Dreamscorch"
-  HUB_NAME_STATE_BURNING_DREAM_farm: "Burned Till"
-  HUB_NAME_STATE_BURNING_DREAM_mine: "Ember Shaft"
-  HUB_NAME_STATE_BURNING_DREAM_wood: "Cinderwood"
+  HUB_NAME_STATE_BURNING_DREAM_city: "Thetis"
+  HUB_NAME_STATE_BURNING_DREAM_farm: "Birdy"
+  HUB_NAME_STATE_BURNING_DREAM_mine: "Capella"
+  HUB_NAME_STATE_BURNING_DREAM_wood: "Irma"
   
-  HUB_NAME_STATE_SCORCHING_HAZE_city: "Scorched Haze"
-  HUB_NAME_STATE_SCORCHING_HAZE_farm: "Sunbaked Acres"
-  HUB_NAME_STATE_SCORCHING_HAZE_mine: "Heatstroke Mine"
+  HUB_NAME_STATE_SCORCHING_HAZE_city: "Altera"
+  HUB_NAME_STATE_SCORCHING_HAZE_farm: "Cephon"
+  HUB_NAME_STATE_SCORCHING_HAZE_mine: "Tuto"
   HUB_NAME_STATE_SCORCHING_HAZE_wood: "Witherwood"
   HUB_NAME_STATE_SCORCHING_HAZE_port: "Drydock Haze"
   

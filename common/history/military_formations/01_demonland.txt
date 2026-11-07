@@ -316,4 +316,224 @@ MILITARY_FORMATIONS = {
 		}
 		scope:YOL_general_2 = { transfer_to_formation = scope:YOL_army_2 }
 	}
+
+    c:THT ?= {
+        create_military_formation = {
+            type = army
+            hq_region = sr:region_demonland_desert
+            save_scope_as = THT_army_1
+            combat_unit = {
+                type = unit_type:combat_unit_type_irregular_infantry
+                state_region = s:STATE_BURNING_DREAM
+                count = 16
+            }
+        }
+        create_character = {
+            is_general = yes
+            interest_group = ig_armed_forces
+            commander_rank = commander_rank_1
+            save_scope_as = THT_general_1
+        }
+        scope:THT_general_1 = { transfer_to_formation = scope:THT_army_1 }
+    }
+
+    c:CAP ?= {
+        create_military_formation = {
+            type = army
+            hq_region = sr:region_demonland_desert
+            save_scope_as = CAP_army_1
+            combat_unit = {
+                type = unit_type:combat_unit_type_irregular_infantry
+                state_region = s:STATE_BURNING_DREAM
+                count = 14
+            }
+        }
+        create_character = {
+            is_general = yes
+            interest_group = ig_armed_forces
+            commander_rank = commander_rank_1
+            save_scope_as = CAP_general_1
+        }
+        scope:CAP_general_1 = { transfer_to_formation = scope:CAP_army_1 }
+    }
+
+    c:BRD ?= {
+        create_military_formation = {
+            type = army
+            hq_region = sr:region_demonland_desert
+            save_scope_as = BRD_army_1
+            combat_unit = {
+                type = unit_type:combat_unit_type_irregular_infantry
+                state_region = s:STATE_BURNING_DREAM
+                count = 10
+            }
+        }
+        create_character = {
+            is_general = yes
+            interest_group = ig_armed_forces
+            commander_rank = commander_rank_1
+            save_scope_as = BRD_general_1
+        }
+        scope:BRD_general_1 = { transfer_to_formation = scope:BRD_army_1 }
+    }
+
+    c:CEP ?= {
+        create_military_formation = {
+            type = army
+            hq_region = sr:region_demonland_desert
+            save_scope_as = CEP_army_1
+            combat_unit = {
+                type = unit_type:combat_unit_type_irregular_infantry
+                state_region = s:STATE_SCORCHING_HAZE
+                count = 10
+            }
+        }
+        create_character = {
+            is_general = yes
+            interest_group = ig_armed_forces
+            commander_rank = commander_rank_1
+            save_scope_as = CEP_general_1
+        }
+        scope:CEP_general_1 = { transfer_to_formation = scope:CEP_army_1 }
+    }
+
+    c:ATE ?= {
+        create_military_formation = {
+            type = army
+            hq_region = sr:region_demonland_desert
+            save_scope_as = ATE_army_1
+            combat_unit = {
+                type = unit_type:combat_unit_type_irregular_infantry
+                state_region = s:STATE_SCORCHING_HAZE
+                count = 10
+            }
+        }
+        create_character = {
+            is_general = yes
+            interest_group = ig_armed_forces
+            commander_rank = commander_rank_1
+            save_scope_as = ATE_general_1
+        }
+        scope:ATE_general_1 = { transfer_to_formation = scope:ATE_army_1 }
+    }
+
+    c:TSH ?= {
+        create_military_formation = {
+            type = army
+            hq_region = sr:region_demonland_desert
+            save_scope_as = TSH_army_1
+            combat_unit = {
+                type = unit_type:combat_unit_type_irregular_infantry
+                state_region = s:STATE_TASSO_HOP
+                count = 10
+            }
+        }
+        create_character = {
+            is_general = yes
+            interest_group = ig_armed_forces
+            commander_rank = commander_rank_1
+            save_scope_as = TSH_general_1
+        }
+        scope:TSH_general_1 = { transfer_to_formation = scope:TSH_army_1 }
+    }
+
+    c:MSP ?= {
+        create_military_formation = {
+            type = army
+            hq_region = sr:region_demonland_desert
+            save_scope_as = MSP_army_1
+            combat_unit = {
+                type = unit_type:combat_unit_type_irregular_infantry
+                state_region = s:STATE_MOSSOPOK
+                count = 10
+            }
+        }
+        create_character = {
+            is_general = yes
+            interest_group = ig_armed_forces
+            commander_rank = commander_rank_1
+            save_scope_as = MSP_general_1
+        }
+        scope:MSP_general_1 = { transfer_to_formation = scope:MSP_army_1 }
+    }
+
+    c:GSP ?= {
+        create_military_formation = {
+            type = army
+            hq_region = sr:region_demonland_desert
+            save_scope_as = GSP_army_1
+            combat_unit = {
+                type = unit_type:combat_unit_type_irregular_infantry
+                state_region = s:STATE_GESSO_PAN
+                count = 10
+            }
+        }
+        create_character = {
+            is_general = yes
+            interest_group = ig_armed_forces
+            commander_rank = commander_rank_1
+            save_scope_as = GSP_general_1
+        }
+        scope:GSP_general_1 = { transfer_to_formation = scope:GSP_army_1 }
+    }
+
+    c:KAS ?= {
+        create_military_formation = {
+            type = army
+            hq_region = sr:region_demonland_desert
+            save_scope_as = KAS_army_1
+            combat_unit = {
+                type = unit_type:combat_unit_type_irregular_infantry
+                state_region = s:STATE_KASSEMA
+                count = 10
+            }
+        }
+        create_character = {
+            is_general = yes
+            interest_group = ig_armed_forces
+            commander_rank = commander_rank_1
+            save_scope_as = KAS_general_1
+        }
+        scope:KAS_general_1 = { transfer_to_formation = scope:KAS_army_1 }
+    }
+
+    c:RSN ?= {
+        create_military_formation = {
+            type = army
+            hq_region = sr:region_demonland_desert
+            save_scope_as = RSN_army_1
+            combat_unit = {
+                type = unit_type:combat_unit_type_irregular_infantry
+                state_region = s:STATE_RESSA_NAKO
+                count = 13
+            }
+        }
+        create_character = {
+            is_general = yes
+            interest_group = ig_armed_forces
+            commander_rank = commander_rank_1
+            save_scope_as = RSN_general_1
+        }
+        scope:RSN_general_1 = { transfer_to_formation = scope:RSN_army_1 }
+    }
+
+    c:BFG ?= {
+        create_military_formation = {
+            type = army
+            hq_region = sr:region_demonland_south
+            save_scope_as = BFG_army_1
+            combat_unit = {
+                type = unit_type:combat_unit_type_irregular_infantry
+                state_region = s:STATE_BOMEGGUD
+                count = 18
+            }
+        }
+        create_character = {
+            is_general = yes
+            interest_group = ig_armed_forces
+            commander_rank = commander_rank_1
+            save_scope_as = BFG_general_1
+        }
+        scope:BFG_general_1 = { transfer_to_formation = scope:BFG_army_1 }
+    }
 }

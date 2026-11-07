@@ -1,0 +1,7 @@
+﻿# Capella (demonland: artifice_tier_3)
+COUNTRIES = {
+	c:CAP ?= {
+		effect_starting_technology_artifice_tier_3 = yes
+		effect_starting_politics_traditional = yes
+	}
+}

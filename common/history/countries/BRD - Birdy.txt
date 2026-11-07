@@ -1,0 +1,13 @@
+﻿# Birdy (demonland: artifice_tier_2)
+COUNTRIES = {
+	c:BRD ?= {
+		effect_starting_technology_artifice_tier_2 = yes
+		effect_starting_politics_traditional = yes
+        activate_law = law_type:law_theocracy
+        activate_law = law_type:law_oligarchy
+        activate_law = law_type:law_freedom_of_conscience
+        activate_law = law_type:law_private_schools
+        activate_law = law_type:law_peasant_proprietorship
+        activate_law = law_type:law_per_capita_based_taxation
+	}
+}
