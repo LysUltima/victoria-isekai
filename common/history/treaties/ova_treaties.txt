@@ -108,4 +108,84 @@
 
 		}
 	}
+    create_treaty = {
+		first_country = c:ATE
+		second_country = c:THT
+
+		is_draft = no
+		entered_into_force_on = 999.1.18
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{
+				article = goods_transfer
+				source_country = c:ATE
+				target_country = c:THT
+				inputs = {
+					{ goods = g:clothes }
+					{ quantity = 75 }
+				}
+			}
+		}
+	}
+    create_treaty = {
+		first_country = c:ATE
+		second_country = c:CEP
+
+		is_draft = no
+		entered_into_force_on = 999.1.18
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{
+				article = goods_transfer
+				source_country = c:ATE
+				target_country = c:CEP
+				inputs = {
+					{ goods = g:clothes }
+					{ quantity = 75 }
+				}
+			}
+		}
+	}
+    create_treaty = {
+		first_country = c:CAP
+		second_country = c:THT
+
+		is_draft = no
+		entered_into_force_on = 999.1.18
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{
+				article = goods_transfer
+				source_country = c:CAP
+				target_country = c:THT
+				inputs = {
+					{ goods = g:furniture }
+					{ quantity = 75 }
+				}
+			}
+		}
+	}
+    create_treaty = {
+		first_country = c:CAP
+		second_country = c:CEP
+
+		is_draft = no
+		entered_into_force_on = 999.1.18
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{
+				article = goods_transfer
+				source_country = c:CAP
+				target_country = c:CEP
+				inputs = {
+					{ goods = g:furniture }
+					{ quantity = 75 }
+				}
+			}
+		}
+	}
 }

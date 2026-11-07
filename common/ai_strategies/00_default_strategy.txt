@@ -354,6 +354,9 @@ ai_strategy_default = {
 		if = { # PUT STATE SCORES INSIDE THE BELOW IF STATEMENT TO PREVENT AI FROM TAKING UNREACHABLE STATES
 
 			limit = {
+				# Skip country-dependent scoring when the country or state owner is unavailable.
+				exists = root
+				exists = scope:target_state.owner
 				OR = {
 					scope:target_state = { owner = root }
 					can_reach_target_state = yes
@@ -606,7 +609,10 @@ ai_strategy_default = {
 
 		min = 0
 		if = {
-			limit = { scope:target_state = { owner = root } }
+			limit = {
+				exists = root
+				scope:target_state ?= { owner ?= root }
+			}
 			max = 1000
 		}
 		else = {

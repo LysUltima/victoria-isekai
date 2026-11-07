@@ -41,7 +41,7 @@ Code
 	static const float SEASONS_SPRING_HOLD_END			= 0.416;	// Holds there until 1 June
 	static const float SEASONS_SPRING_DECAY_LENGTH		= 0.200;	// Then eases into summer over ten weeks
 	static const float SEASONS_TERRAIN_SPRING_TINT		= 0.25;
-	static const float SEASONS_EQUATOR					= 0.035;
+	static const float SEASONS_EQUATOR					= 0.0;
 	static const float SEASONS_TEMPERATE_NEAR			= 0.06;
 	static const float SEASONS_TEMPERATE_FAR			= 0.16;
 
@@ -82,7 +82,8 @@ Code
 	float SeasonLuminance( float3 Color ) { return dot( Color, float3( 0.299, 0.587, 0.114 ) ); }
 	float SeasonBlendHemispheres( float NorthSouth01, float SouthValue, float NorthValue )
 	{
-		return lerp( SouthValue, NorthValue, smoothstep( SEASONS_EQUATOR - 0.05, SEASONS_EQUATOR + 0.05, NorthSouth01 ) );
+		// The map runs from the equator to the north; even its southern edge uses northern seasons.
+		return NorthValue;
 	}
 	float SeasonFallAt( float NorthSouth01 ) { return SeasonBlendHemispheres( NorthSouth01, SeasonGetFallAmount( frac( _SeasonPhase + 0.5 ) ), SeasonGetFallAmount( _SeasonPhase ) ); }
 	float SeasonFallCycleAt( float NorthSouth01 ) { return SeasonBlendHemispheres( NorthSouth01, SeasonGetFallCycle( frac( _SeasonPhase + 0.5 ) ), SeasonGetFallCycle( _SeasonPhase ) ); }
@@ -355,10 +356,11 @@ PixelShader =
 			}
 
 			Field._Noise = 0.0;
-			Field._Latitude = MapCoords.y; // 1 = north pole, 0 = south pole
+			Field._Latitude = MapCoords.y; // 1 = north pole, 0 = equator on this map
 
 			Field._FadeNorth = smoothstep( 0.0, SEASONS_SNOW_MELT_FADE_END, WinterNorth );
-			Field._FadeSouth = smoothstep( 0.0, SEASONS_SNOW_MELT_FADE_END, WinterSouth );
+			// No southern hemisphere: disable its snow, frost and sea ice regardless of curve settings or winter preview.
+			Field._FadeSouth = 0.0;
 
 			return Field;
 		}

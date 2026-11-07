@@ -3839,6 +3839,16 @@
                     "pm_manual_glassblowing"
                 }
             }
+            create_building = {
+                building = "building_tobacco_plantation"
+                level = 3
+                reserves = 1
+                activate_production_methods = {
+                    "default_building_tobacco_plantation"
+                    "molds"
+                    "worker_exploitation_tobacco"
+                }
+            }
         }
         region_state:CAP = {
             # CAP initial establishments
@@ -3962,6 +3972,16 @@
                     "pm_lathe"
                     "pm_no_luxuries"
                     "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_tobacco_plantation"
+                level = 3
+                reserves = 1
+                activate_production_methods = {
+                    "default_building_tobacco_plantation"
+                    "molds"
+                    "worker_exploitation_tobacco"
                 }
             }
         }
@@ -4096,6 +4116,16 @@
                 activate_production_methods = {
                     "pm_pulp_pressing"
                     "pm_automation_disabled"
+                }
+            }
+            create_building = {
+                building = "building_tobacco_plantation"
+                level = 3
+                reserves = 1
+                activate_production_methods = {
+                    "default_building_tobacco_plantation"
+                    "molds"
+                    "lectors_tobacco"
                 }
             }
         }
@@ -4258,9 +4288,29 @@
                     "pm_simple_fishing"
                 }
             }
+            create_building = {
+                building = "building_tobacco_plantation"
+                level = 3
+                reserves = 1
+                activate_production_methods = {
+                    "default_building_tobacco_plantation"
+                    "molds"
+                    "worker_exploitation_tobacco"
+                }
+            }
         }
         region_state:CEP = {
             # CEP initial establishments
+            create_building = {
+                building = "building_tobacco_plantation"
+                level = 3
+                reserves = 1
+                activate_production_methods = {
+                    "default_building_tobacco_plantation"
+                    "molds"
+                    "worker_exploitation_tobacco"
+                }
+            }
             create_building = {
                 building = "building_livestock_ranch"
                 add_ownership = {
@@ -4394,7 +4444,6 @@
                 reserves = 1
                 activate_production_methods = {
                     "pm_bakery"
-                    "pm_cannery"
                     "pm_disabled_distillery"
                     "pm_manual_dough_processing"
                 }

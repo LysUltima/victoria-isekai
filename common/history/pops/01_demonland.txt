@@ -554,13 +554,13 @@
             create_pop = { culture = southern_orc size = 25764 }
         }
         region_state:THT = {
-            create_pop = { culture = ixioran size = 1664000 }
+            create_pop = { culture = ixioran size = 3264000 }
         }
         region_state:CAP = {
-            create_pop = { culture = ixioran size = 1462000 }
+            create_pop = { culture = ixioran size = 2562000 }
         }
         region_state:BRD = {
-            create_pop = { culture = ixioran size = 891780 }
+            create_pop = { culture = ixioran size = 1891780 }
         }
     }
     s:STATE_BURROWING_HAVEN = {
@@ -600,10 +600,10 @@
             create_pop = { culture = southern_orc size = 12073 }
         }
         region_state:CEP = {
-            create_pop = { culture = ixioran size = 1130000 }
+            create_pop = { culture = ixioran size = 2130000 }
         }
         region_state:ATE = {
-            create_pop = { culture = ixioran size = 1260000 }
+            create_pop = { culture = ixioran size = 2860000 }
         }
     }
     s:STATE_SINGING_MIRAGE = {

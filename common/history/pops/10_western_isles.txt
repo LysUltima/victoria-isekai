@@ -3,7 +3,7 @@
         region_state:TID = {
             create_pop = {
                 culture = deigo
-                size = 1537523
+                size = 2537523
             }
         }
     }

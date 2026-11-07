@@ -4,7 +4,9 @@
             country = c:TID
             owned_provinces = { "x67103E" "x682333" "x712D2A" "x741B38" "x763332" "x782F3A" "x791A38" "x7C1045" "x7C1A27" "x7D1A2D" "x7E1827" "x7E1926" "x812648" "x822D37" "x841342" "x86102A" "x871F25" }
         }
-
+        add_claim = c:URU
+        add_claim = c:UTA
+        add_claim = c:UFU
         add_homeland = cu:deigo
     }
     s:STATE_URUMA = {
@@ -12,7 +14,9 @@
             country = c:URU
             owned_provinces = { "x361D34" "x492C31" }
         }
-
+        add_claim = c:TID
+        add_claim = c:UTA
+        add_claim = c:UFU
         add_homeland = cu:deigo
     }
     s:STATE_UTAKI = {
@@ -20,7 +24,9 @@
             country = c:UTA
             owned_provinces = { "x4FAA31" "x50AB37" "x56AB2C" "x5BB422" "x62B229" }
         }
-
+        add_claim = c:TID
+        add_claim = c:URU
+        add_claim = c:UFU
         add_homeland = cu:deigo
     }
     s:STATE_UFUMI = {
@@ -28,7 +34,9 @@
             country = c:UFU
             owned_provinces = { "x14D32F" "x1ED847" "x22D733" "x2AC041" }
         }
-
+        add_claim = c:TID
+        add_claim = c:URU
+        add_claim = c:UTA
         add_homeland = cu:deigo
     }
     s:STATE_MANIA_KOWHAI = {

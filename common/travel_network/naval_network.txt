@@ -25188,7 +25188,7 @@ province=xA25B2A x=2555 y=901 type=harbor	} {
 province=xA27331 x=6311 y=2866 type=harbor	} {
 province=xA2782D x=5624 y=809 type=harbor	} {
 province=xA27A10 x=5321 y=2774 type=harbor	} {
-province=xA2924B x=7281 y=2397 type=harbor	} {
+province=xA2924B x=7282 y=2397 type=harbor	} {
 province=xA29441 x=2126 y=2156 type=harbor	} {
 province=xA2CB12 x=6345 y=2522 type=harbor	} {
 province=xA2DE24 x=7388 y=1200 type=harbor	} {
