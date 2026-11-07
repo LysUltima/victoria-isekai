@@ -278,13 +278,7 @@ decree_promote_social_mobility = {
 			}
 			add = 1000
 		}
-		if = {
-			limit = {
-				always = no
-				literacy_rate < 0.5
-			}
-			add = 500
-		}
+
 	}
 }
 
@@ -321,7 +315,7 @@ decree_promote_national_values = {
 						has_law_or_variant = law_type:law_subjecthood
 					}
 				}
-				primary_cultures_percent_state <= 0.9
+				primary_cultures_percent_state = { target_country = scope:country value <= 0.9 }
 			}
 
 			if = { # Colonies
@@ -360,22 +354,21 @@ decree_promote_national_values = {
 				add = 200
 			}
 
-
 			if = {
 				limit = {
-					primary_cultures_percent_state <= 0.1
+					primary_cultures_percent_state = { target_country = scope:country value <= 0.1 }
 				}
 				multiply = 5.0
 			}
 			else_if = {
 				limit = {
-					primary_cultures_percent_state <= 0.3
+					primary_cultures_percent_state = { target_country = scope:country value <= 0.3 }
 				}
 				multiply = 3.0
 			}
 			else_if = {
 				limit = {
-					primary_cultures_percent_state <= 0.5
+					primary_cultures_percent_state = { target_country = scope:country value <= 0.5 }
 				}
 				multiply = 2.0
 			}
@@ -514,15 +507,6 @@ decree_promote_national_values = {
 			}
 			add = 1000
 		}
-		if = {
-			limit = {
-				scope:country = {
-					always = no
-				}
-				always = no
-			}
-			add = 500
-		}
 
 		# For Japanese religion Journal Entry
 		# If Shinbutsu Bunri is active and the Taikyo Proclamation has been made
@@ -543,7 +527,7 @@ decree_promote_national_values = {
 
 		if = {
 			limit = {
-				primary_cultures_percent_state > 0.9
+				primary_cultures_percent_state = { target_country = scope:country value > 0.9 }
 				religion_percent_state = {
 					target = scope:country.religion
 					value > 0.9
@@ -553,7 +537,7 @@ decree_promote_national_values = {
 		}
 		else_if = {
 			limit = {
-				primary_cultures_percent_state > 0.5
+				primary_cultures_percent_state = { target_country = scope:country value > 0.5 }
 				religion_percent_state = {
 					target = scope:country.religion
 					value > 0.5
@@ -891,15 +875,7 @@ always = no
 			}
 			add = 500
 		}
-		if = {
-			limit = {
-				scope:country = {
-					always = no
-				}
-				always = no
-			}
-			add = 500
-		}
+
 		if = {
 			limit = {
 				is_incorporated = no
@@ -1073,23 +1049,6 @@ decree_establish_missions = {
 
 			if = {
 				limit = {
-					scope:country = {
-						always = no
-					}
-					always = no
-				}
-				add = 150
-
-				if = {
-					limit = {
-						is_under_colonization = yes
-					}
-					add = 150
-				}
-			}
-
-			if = {
-				limit = {
 					religion_percent_state = {
 						target = scope:country.religion
 						value <= 0.1
@@ -1147,14 +1106,5 @@ decree_establish_missions = {
 			multiply = 0.1
 		}
 
-		if = {
-			limit = {
-				scope:country = {
-					always = no
-				}
-				always = no
-			}
-			add = 500
-		}
 	}
 }

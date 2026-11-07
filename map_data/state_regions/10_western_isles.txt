@@ -17,6 +17,8 @@ STATE_NIRAI_KANAI = {
         building_whaling_station = 13
     }
     naval_exit_id = 3028
+    max_cold_effect = 0.205
+    min_cold_effect = 0.000
 }
 # URU Uruma
 STATE_URUMA = {
@@ -37,6 +39,8 @@ STATE_URUMA = {
         building_whaling_station = 5
     }
     naval_exit_id = 3028
+    max_cold_effect = 0.061
+    min_cold_effect = 0.000
 }
 # UTA Utaki
 STATE_UTAKI = {
@@ -56,6 +60,8 @@ STATE_UTAKI = {
         building_whaling_station = 8
     }
     naval_exit_id = 3028
+    max_cold_effect = 0.053
+    min_cold_effect = 0.000
 }
 # UFU Ufumi
 STATE_UFUMI = {
@@ -79,6 +85,8 @@ STATE_UFUMI = {
         type = "building_oil_rig"
         undiscovered_amount = 14
     }
+    max_cold_effect = 0.110
+    min_cold_effect = 0.000
 }
 # WHA Whakatāne
 STATE_MANIA_KOWHAI = {
@@ -98,6 +106,8 @@ STATE_MANIA_KOWHAI = {
         building_logging_camp = 7
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.036
+    min_cold_effect = 0.000
 }
 # KAI Kaitangata
 STATE_TAHATIKA_TAPARA = {
@@ -117,6 +127,8 @@ STATE_TAHATIKA_TAPARA = {
         building_logging_camp = 7
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.006
+    min_cold_effect = 0.000
 }
 # RAN Rangitoto
 STATE_PAPAKU_O_TE_RA = {
@@ -140,6 +152,8 @@ STATE_PAPAKU_O_TE_RA = {
         type = "building_oil_rig"
         undiscovered_amount = 14
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # TAR Taranaki
 STATE_RAUPO_MOANA = {
@@ -163,6 +177,8 @@ STATE_RAUPO_MOANA = {
         type = "building_oil_rig"
         undiscovered_amount = 25
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # WAI Waitaha
 STATE_KAINGA_MAROKE = {
@@ -183,6 +199,8 @@ STATE_KAINGA_MAROKE = {
         building_logging_camp = 10
     }
     naval_exit_id = 3041
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # HAW Hawaiki
 STATE_MOTU_HUMARIE = {
@@ -203,6 +221,8 @@ STATE_MOTU_HUMARIE = {
         building_sulfur_mine = 47
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.055
+    min_cold_effect = 0.000
 }
 # WHN Whangārei
 STATE_MOUTERE_TARAPIROPIRO = {
@@ -226,6 +246,8 @@ STATE_MOUTERE_TARAPIROPIRO = {
         type = "building_oil_rig"
         undiscovered_amount = 11
     }
+    max_cold_effect = 0.002
+    min_cold_effect = 0.000
 }
 # AHU Ahuena
 STATE_PALIANUENUE = {
@@ -246,6 +268,8 @@ STATE_PALIANUENUE = {
         building_logging_camp = 13
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.020
+    min_cold_effect = 0.000
 }
 # KAM Kamaka
 STATE_ONELOA = {
@@ -266,6 +290,8 @@ STATE_ONELOA = {
         building_sulfur_mine = 45
     }
     naval_exit_id = 3011
+    max_cold_effect = 0.012
+    min_cold_effect = 0.000
 }
 # MAL Mālamalama
 STATE_KAULUWELA = {
@@ -286,6 +312,8 @@ STATE_KAULUWELA = {
         building_sulfur_mine = 37
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.015
+    min_cold_effect = 0.000
 }
 # HOK Hōkūlele
 STATE_PAEMUKU = {
@@ -306,6 +334,8 @@ STATE_PAEMUKU = {
         building_logging_camp = 10
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.011
+    min_cold_effect = 0.000
 }
 # KAN Kanaloa
 STATE_KAIULI = {
@@ -325,6 +355,8 @@ STATE_KAIULI = {
         building_logging_camp = 12
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.015
+    min_cold_effect = 0.000
 }
 # POL Poliahu
 STATE_UAHIWERA = {
@@ -345,6 +377,8 @@ STATE_UAHIWERA = {
         building_sulfur_mine = 25
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.014
+    min_cold_effect = 0.000
 }
 # LAA Lanakila
 STATE_AINAONE = {
@@ -366,6 +400,8 @@ STATE_AINAONE = {
         building_sulfur_mine = 67
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.006
+    min_cold_effect = 0.001
 }
 # MAK Makani
 STATE_WAILUKU = {
@@ -387,6 +423,8 @@ STATE_WAILUKU = {
         building_sulfur_mine = 68
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.005
+    min_cold_effect = 0.001
 }
 # KLA Kalahele
 STATE_ULUWEHI = {
@@ -407,6 +445,8 @@ STATE_ULUWEHI = {
         building_logging_camp = 10
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.004
+    min_cold_effect = 0.000
 }
 # AHI Ahiuka
 STATE_MOKUMANO = {
@@ -427,6 +467,8 @@ STATE_MOKUMANO = {
         building_logging_camp = 7
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.006
+    min_cold_effect = 0.000
 }
 # POM Pōmaikaʻi
 STATE_AOLANI = {
@@ -448,6 +490,8 @@ STATE_AOLANI = {
         building_sulfur_mine = 40
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # TUA Tuatolu
 STATE_NIUMATA = {
@@ -474,6 +518,8 @@ STATE_NIUMATA = {
         type = "building_oil_rig"
         undiscovered_amount = 19
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_GATAVAI = {
@@ -497,6 +543,8 @@ STATE_GATAVAI = {
         building_sulfur_mine = 55
     }
     naval_exit_id = 3011
+    max_cold_effect = 0.015
+    min_cold_effect = 0.002
 }
 
 STATE_MATAFAGA = {
@@ -523,6 +571,8 @@ STATE_MATAFAGA = {
         type = "building_oil_rig"
         undiscovered_amount = 11
     }
+    max_cold_effect = 0.001
+    min_cold_effect = 0.000
 }
 
 STATE_ALOFI = {
@@ -545,6 +595,8 @@ STATE_ALOFI = {
         building_whaling_station = 14
     }
     naval_exit_id = 3011
+    max_cold_effect = 0.004
+    min_cold_effect = 0.000
 }
 # TRO Tarona
 STATE_MURIVAI = {
@@ -568,6 +620,8 @@ STATE_MURIVAI = {
         building_sulfur_mine = 66
     }
     naval_exit_id = 3011
+    max_cold_effect = 0.005
+    min_cold_effect = 0.001
 }
 
 STATE_ARORANGI = {
@@ -590,6 +644,8 @@ STATE_ARORANGI = {
         building_whaling_station = 12
     }
     naval_exit_id = 3011
+    max_cold_effect = 0.020
+    min_cold_effect = 0.003
 }
 
 STATE_ONEURA = {
@@ -613,6 +669,8 @@ STATE_ONEURA = {
         building_sulfur_mine = 61
     }
     naval_exit_id = 3011
+    max_cold_effect = 0.005
+    min_cold_effect = 0.001
 }
 # NUK Nukutere
 STATE_MATAEIA = {
@@ -638,6 +696,8 @@ STATE_MATAEIA = {
         type = "building_oil_rig"
         undiscovered_amount = 29
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_VAIARI = {
@@ -660,6 +720,8 @@ STATE_VAIARI = {
         building_sulfur_mine = 28
     }
     naval_exit_id = 3011
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # TAO Tanoa
 STATE_HIHIFO = {
@@ -682,6 +744,8 @@ STATE_HIHIFO = {
         building_whaling_station = 17
     }
     naval_exit_id = 3007
+    max_cold_effect = 0.001
+    min_cold_effect = 0.000
 }
 
 STATE_MATAMOANA = {
@@ -708,6 +772,8 @@ STATE_MATAMOANA = {
         type = "building_oil_rig"
         undiscovered_amount = 16
     }
+    max_cold_effect = 0.002
+    min_cold_effect = 0.000
 }
 # VAE Vaerua
 STATE_ASAU = {
@@ -730,6 +796,8 @@ STATE_ASAU = {
         building_sulfur_mine = 34
     }
     naval_exit_id = 3007
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_FEKEI = {
@@ -752,4 +820,6 @@ STATE_FEKEI = {
         building_sulfur_mine = 40
     }
     naval_exit_id = 3007
+    max_cold_effect = 0.001
+    min_cold_effect = 0.000
 }

@@ -13,7 +13,7 @@ military_tech_events.401 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	event_image = {
 		video = "unspecific_gears_pistons"
@@ -43,13 +43,13 @@ military_tech_events.401 = {
 			limit = {
 				any_scope_building = {
 					is_building_type = building_arms_industry
-            		level >= 3
-            		occupancy >= 0.75
-           		    OR = {
-              			has_active_production_method = pm_rifles
-                		has_active_production_method = pm_repeaters
-                		has_active_production_method = pm_bolt_action_rifles
-            		}
+					level >= 3
+					occupancy >= 0.75
+					OR = {
+						has_active_production_method = pm_rifles
+						has_active_production_method = pm_repeaters
+						has_active_production_method = pm_bolt_action_rifles
+					}
 				}
 			}
 			save_scope_as = rifle_state
@@ -58,11 +58,11 @@ military_tech_events.401 = {
 					is_building_type = building_arms_industry
 					level >= 3
 					occupancy >= 0.75
-		            OR = {
-              			has_active_production_method = pm_rifles
-                		has_active_production_method = pm_repeaters
-                		has_active_production_method = pm_bolt_action_rifles
-            		}
+					OR = {
+						has_active_production_method = pm_rifles
+						has_active_production_method = pm_repeaters
+						has_active_production_method = pm_bolt_action_rifles
+					}
 				}
 				save_scope_as = rifle_factory
 			}
@@ -94,6 +94,8 @@ military_tech_events.401 = {
 			}
 		}
 	}
+
+	fire_only_once = yes
 }
 
 military_tech_events.402 = {
@@ -106,7 +108,7 @@ military_tech_events.402 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	event_image = {
 		video = "europenorthamerica_before_the_battle"
@@ -162,7 +164,9 @@ military_tech_events.402 = {
 						}
 					}
 					save_scope_as = machine_gun_general
-				}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			}
 			random_country = {
 				limit = {
@@ -238,6 +242,11 @@ military_tech_events.402 = {
 			}
 		}
 	}
+
+	fire_only_once = yes
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:machine_gun_general }
+	}
 }
 
 # Ironclads
@@ -251,7 +260,7 @@ military_tech_events.403 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	event_image = {
 		video = "unspecific_naval_battle"
@@ -288,7 +297,9 @@ military_tech_events.403 = {
 			}
 			commander ?= {
 				save_scope_as = ironclad_admiral
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -314,6 +325,11 @@ military_tech_events.403 = {
 			days = long_modifier_time
 		}
 	}
+
+	fire_only_once = yes
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:ironclad_admiral }
+	}
 }
 
 # Monitors
@@ -327,7 +343,7 @@ military_tech_events.404 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	event_image = {
 		video = "unspecific_naval_battle"
@@ -364,7 +380,9 @@ military_tech_events.404 = {
 			}
 			commander ?= {
 				save_scope_as = monitor_admiral
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 	option = { #
@@ -388,5 +406,10 @@ military_tech_events.404 = {
 			name = quantity_over_quality
 			days = long_modifier_time
 		}
+	}
+
+	fire_only_once = yes
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:monitor_admiral }
 	}
 }

@@ -1,2 +1,10 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Generated terrain bakes exceed ordinary Git hosting file limits.
+gfx/map/terrain/detail_index.tga filter=lfs diff=lfs merge=lfs -text
+gfx/map/terrain/detail_intensity.tga filter=lfs diff=lfs merge=lfs -text
+
+# Local development settings do not belong in source distribution archives.
+/.gitignore export-ignore
+/.gitattributes export-ignore

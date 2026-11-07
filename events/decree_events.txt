@@ -135,6 +135,8 @@ decree_events.1 = {
 			}
 		}
 	}
+
+	fire_only_once = yes
 }
 
 # More traffic increases pollution so people protest
@@ -259,7 +261,7 @@ decree_events.3 = {
 
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	trigger = {
 		any_scope_state = {
@@ -292,7 +294,9 @@ decree_events.3 = {
 			}
 			save_scope_as = david_copperfield_scope
 		}
-	}
+
+		scope:david_copperfield_scope ?= { set_temporary_event_immortality = { DURATION = 3 } }
+}
 
 	option = { #support him to IG leader
 		name = decree_events.3.a
@@ -313,6 +317,12 @@ decree_events.3 = {
 		scope:david_copperfield_scope ?= {
 			replace_character_roles = { add = { agitator } remove_all = yes }
 		}
+	}
+
+	fire_only_once = yes
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:david_copperfield_scope }
 	}
 }
 
@@ -403,7 +413,9 @@ decree_events.4 = {
 				}
 			}
 			save_scope_as = noble_character
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		set_variable = social_mobility_var
 	}
 
@@ -451,6 +463,11 @@ decree_events.4 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	fire_only_once = yes
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:noble_character }
 	}
 }
 
@@ -633,4 +650,6 @@ decree_events.6 = {
 			days = normal_modifier_time
 		}
 	}
+
+	fire_only_once = yes
 }

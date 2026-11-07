@@ -74,7 +74,9 @@ election_conservative_events.1 = {
 					is_party_type = liberal_party
 				}
 			}
-			leader = { save_scope_as = atheist_leader }
+			leader = { save_scope_as = atheist_leader
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			party = { save_scope_as = liberal_party }
 		}
 	}
@@ -110,6 +112,10 @@ election_conservative_events.1 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:atheist_leader }
 	}
 }
 

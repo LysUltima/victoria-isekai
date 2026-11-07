@@ -1,0 +1,15 @@
+﻿# The engine caches NCountry.COSSACK_HOST_BUILDING during startup, even when
+# its historical mechanics are excluded. Keep an inert compatibility type.
+# No history, resource potential, or event creates this building in the mod.
+building_cossack_host = {
+    building_group = bg_ranching
+    icon = "gfx/interface/icons/building_icons/cattle_ranch.dds"
+    production_method_groups = { pmg_base_building_livestock_ranch }
+    potential = { always = no }
+    buildable = no
+    expandable = no
+    downsizeable = no
+    can_switch_owner = no
+    ownership_type = self
+    background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+}

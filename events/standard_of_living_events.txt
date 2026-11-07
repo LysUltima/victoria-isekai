@@ -246,7 +246,7 @@ sol_events.2 = { #people are less poor
 						OR = {
 							has_ideology = ideology:ideology_radical
 							has_ideology = ideology:ideology_reformer
-							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_communist_leader
 							has_ideology = ideology:ideology_social_democrat
 						}
 					}
@@ -258,7 +258,7 @@ sol_events.2 = { #people are less poor
 						OR = {
 							has_ideology = ideology:ideology_radical
 							has_ideology = ideology:ideology_reformer
-							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_communist_leader
 							has_ideology = ideology:ideology_social_democrat
 						}
 					}

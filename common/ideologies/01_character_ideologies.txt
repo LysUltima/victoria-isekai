@@ -916,46 +916,10 @@ ideology_republican_leader = { # Average Progressiveness - 75
 		# liberal and/or radical leaders have a higher spawn chance if the Hungarian Revolution was successful.
 
 		# Pedro JE victory
-		if = {
-			limit = {
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = -50
-				desc = "BRZ_ENDURING_EMPIRE"
-			}
-		}
+
 
 		# 1848
-		if = {
-			limit = {
-				owner = {
-					always = no
-					capital = {
-					 	OR = {
-							always = no # vanilla ref 'geographic_region_north_germany_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_south_germany_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_england_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_iberia_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_france_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_occitania_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_rhine_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_italy_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_poland_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_danubia_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_balkans_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_baltic_old' not present in this mod
-						}
-					}
-				}
-			}
-			multiply = {
-				value = 2
-				desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
-			}
-		}
+
 		if = {
 			limit = {
 				owner = { has_modifier = post_revolutionary_fervor }
@@ -1031,44 +995,10 @@ ideology_republican_leader = { # Average Progressiveness - 75
 		}
 
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals and choose to have woke commanders.
-		if = {
-			limit = {
-				OR = {
-					has_role_of_type = general
-					has_role_of_type = admiral
-				}
-				always = no
-			}
-			add = 50
-		}
+
 
 		# 1848
-		if = {
-			limit = {
-				owner = {
-					always = no
-					capital = {
-					 	OR = {
-							always = no # vanilla ref 'geographic_region_north_germany_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_south_germany_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_england_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_iberia_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_france_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_occitania_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_rhine_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_italy_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_poland_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_danubia_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_balkans_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_baltic_old' not present in this mod
-						}
-					}
-				}
-			}
-			multiply = {
-				value = 2
-			}
-		}
+
 		if = {
 			limit = {
 				owner = { has_modifier = post_revolutionary_fervor }
@@ -1318,46 +1248,10 @@ ideology_radical = { # Average Progressiveness - 62.5
 		# liberal and/or radical leaders have a higher spawn chance if you succeed in Portugal's Second Liberalism.
 		# liberal and/or radical leaders have a higher spawn chance if the Hungarian Revolution was successful.
 		# Pedro JE victory
-		if = {
-			limit = {
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = -25
-				desc = "BRZ_ENDURING_EMPIRE"
-			}
-		}
+
 
 		# 1848
-		if = {
-			limit = {
-				owner = {
-					always = no
-					capital = {
-					 	OR = {
-							always = no # vanilla ref 'geographic_region_north_germany_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_south_germany_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_england_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_iberia_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_france_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_occitania_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_rhine_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_italy_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_poland_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_danubia_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_balkans_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_baltic_old' not present in this mod
-						}
-					}
-				}
-			}
-			multiply = {
-				value = 2
-				desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
-			}
-		}
+
 		if = {
 			limit = {
 				owner = { has_modifier = post_revolutionary_fervor }
@@ -1446,16 +1340,7 @@ ideology_radical = { # Average Progressiveness - 62.5
 			}
 		}
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals and choose to have woke commanders.
-		if = {
-			limit = {
-				OR = {
-					has_role_of_type = general
-					has_role_of_type = admiral
-				}
-				always = no
-			}
-			add = 50
-		}
+
 		# Labour Association Laws
 		if = {
 			limit = {
@@ -1505,32 +1390,7 @@ ideology_radical = { # Average Progressiveness - 62.5
 				add = -50
 			}
 		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-					capital = {
-					 	OR = {
-							always = no # vanilla ref 'geographic_region_north_germany_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_south_germany_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_england_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_iberia_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_france_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_occitania_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_rhine_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_italy_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_poland_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_danubia_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_balkans_old' not present in this mod
-							always = no # vanilla ref 'geographic_region_baltic_old' not present in this mod
-						}
-					}
-				}
-			}
-			multiply = {
-				value = 2
-			}
-		}
+
 		if = {
 			limit = {
 				owner = { has_modifier = post_revolutionary_fervor }
@@ -1694,17 +1554,7 @@ ideology_reformer = { # Average Progressiveness - 10
 		# liberal and/or radical leaders have a higher spawn chance if you succeed in Portugal's Second Liberalism.
 		# liberal and/or radical leaders have a higher spawn chance if the Hungarian Revolution was successful.
 		# Pedro JE victory
-		if = {
-			limit = {
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = 50
-				desc = "BRZ_ENDURING_EMPIRE"
-			}
-		}
+
 		if = {
 			limit = {
 				OR = {
@@ -1749,16 +1599,7 @@ ideology_reformer = { # Average Progressiveness - 10
 		}
 
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals and choose to have woke commanders.
-		if = {
-			limit = {
-				OR = {
-					has_role_of_type = general
-					has_role_of_type = admiral
-				}
-				always = no
-			}
-			add = 50
-		}
+
 
 		# less likely among more progressive IG's if they're angry and socialism is researched
 		if = {
@@ -1886,17 +1727,7 @@ ideology_feminist = { # Average Progressiveness - 50
 		# liberal and/or radical leaders have a higher spawn chance if you succeed in Portugal's Second Liberalism.
 		# liberal and/or radical leaders have a higher spawn chance if the Hungarian Revolution was successful.
 		# Pedro JE victory
-		if = {
-			limit = {
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = 50
-				desc = "BRZ_ENDURING_EMPIRE"
-			}
-		}
+
 		# more likely if character is a woman after mass propaganda
 		if = {
 			limit = {
@@ -1973,16 +1804,7 @@ ideology_feminist = { # Average Progressiveness - 50
 			add = -25
 		}
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals and choose to have woke commanders.
-		if = {
-			limit = {
-				OR = {
-					has_role_of_type = general
-					has_role_of_type = admiral
-				}
-				always = no
-			}
-			add = 50
-		}
+
 		# more likely if character is a woman after mass propaganda
 		if = {
 			limit = {
@@ -2093,15 +1915,7 @@ ideology_abolitionist = { # Average Progressiveness - 75
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals.
 		# liberal and/or radical leaders have a higher spawn chance if you succeed in Portugal's Second Liberalism.
 		# liberal and/or radical leaders have a higher spawn chance if the Hungarian Revolution was successful.
-		if = {
-			limit = {
-				owner = { always = no } # vanilla ref 'je_acw_countdown' not present in this mod 
-			}
-			add = {
-				value = 100
-				desc = "ACW_COUNTDOWN"
-			}
-		}
+
 		if = {
 			limit = {
 				OR = {
@@ -2150,12 +1964,7 @@ ideology_abolitionist = { # Average Progressiveness - 75
 			}
 			add = 25
 		}
-		if = {
-			limit = {
-				owner = { always = no } # vanilla ref 'je_acw_countdown' not present in this mod 
-			}
-			add = 100
-		}
+
 		if = {
 			limit = {
 				interest_group ?= {
@@ -2230,25 +2039,8 @@ ideology_slaver = { # Average Progressiveness - -50
 			}
 		}
 		# conservative and/or reactionary leaders have a higher spawn chance if you win the Two Spains as the conservatives.
-		if = {
-			limit = {
-				owner = { always = no } # vanilla ref 'je_acw_countdown' not present in this mod 
-			}
-			add = {
-				value = 100
-				desc = "ACW_COUNTDOWN"
-			}
-		}
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:HAI' not present in this mod
-				owner = { always = no } # vanilla ref 'c:HAI' not present in this mod 
-			}
-			multiply = {
-				value = 0
-				desc = "HAI"
-			}
-		}
+
+
 		if = {
 			limit = {
 				OR = {
@@ -2293,19 +2085,8 @@ ideology_slaver = { # Average Progressiveness - -50
 			add = 50
 		}
 
-		if = {
-			limit = {
-				owner = { always = no } # vanilla ref 'je_acw_countdown' not present in this mod 
-			}
-			add = 100
-		}
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:HAI' not present in this mod
-				owner = { always = no } # vanilla ref 'c:HAI' not present in this mod 
-			}
-			multiply = 0
-		}
+
+
 		if = {
 			limit = {
 				OR = {
@@ -2508,16 +2289,7 @@ ideology_pacifist = { # Average Progressiveness - 0
 			add = 50
 		}
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals and choose to have woke commanders.
-		if = {
-			limit = {
-				OR = {
-					has_role_of_type = general
-					has_role_of_type = admiral
-				}
-				always = no
-			}
-			add = 50
-		}
+
 		if = { # Fewer pacifist generals/admirals
 			limit = {
 				OR = {
@@ -2652,24 +2424,7 @@ ideology_jingoist_leader = { # Average Progressiveness - 12.5
 			}
 		}
 		# less likely for conservative French IG's
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'je_divided_monarchists' not present in this mod
-				}
-				OR = {
-					is_interest_group_type = ig_landowners
-					is_interest_group_type = ig_petty_bourgeoisie
-					is_interest_group_type = ig_devout
-				}
-			}
-			add = {
-				value = -50
-				desc = "CONSERVATIVE_IG"
-			}
-		}
+
 		# conservative and/or reactionary leaders have a higher spawn chance if the Anti-Dreyfusards won.
 		# conservative and/or reactionary leaders have a higher spawn chance if you win the Two Spains as the conservatives.
 		# More likely under Alexei II
@@ -2753,21 +2508,7 @@ ideology_jingoist_leader = { # Average Progressiveness - 12.5
 			add = 25
 		}
 		# less likely for conservative French IG's
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'je_divided_monarchists' not present in this mod
-				}
-				OR = {
-					is_interest_group_type = ig_landowners
-					is_interest_group_type = ig_petty_bourgeoisie
-					is_interest_group_type = ig_devout
-				}
-			}
-			add = -50
-		}
+
 		# More likely under Alexei II
 		if = {
 			limit = {
@@ -2892,17 +2633,7 @@ ideology_royalist = { # Average Progressiveness - 0
 			}
 		}
 		# Pedro JE victory
-		if = {
-			limit = {
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = 50
-				desc = "BRZ_ENDURING_EMPIRE"
-			}
-		}
+
 		# conservative and/or reactionary leaders have a higher spawn chance if the Anti-Dreyfusards won.
 		# conservative and/or reactionary leaders have a higher spawn chance if you win the Two Spains as the conservatives.
 		if = {
@@ -3121,17 +2852,7 @@ ideology_social_democrat = { # Average Progressiveness - 67.85
 		# liberal and/or radical leaders have a higher spawn chance if you succeed in Portugal's Second Liberalism.
 		# liberal and/or radical leaders have a higher spawn chance if the Hungarian Revolution was successful.
 		# Pedro JE victory
-		if = {
-			limit = {
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = 50
-				desc = "BRZ_ENDURING_EMPIRE"
-			}
-		}
+
 		# extremely unlikely for trade unions in council republic
 		if = {
 			limit = {
@@ -3146,18 +2867,7 @@ ideology_social_democrat = { # Average Progressiveness - 67.85
 			}
 		}
 		# National Liberation Alliance
-		if = {
-			limit = {
-				owner = {
-					always = no
-					always = no # vanilla ref 'je_new_republic' not present in this mod
-				}
-			}
-			multiply = {
-				value = 1.20
-				desc = "NATIONAL_LIBERATION_ALLIANCE"
-			}
-		}
+
 		if = {
 			limit = {
 				OR = {
@@ -3222,16 +2932,7 @@ ideology_social_democrat = { # Average Progressiveness - 67.85
 			add = 75
 		}
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals and choose to have woke commanders.
-		if = {
-			limit = {
-				OR = {
-					has_role_of_type = general
-					has_role_of_type = admiral
-				}
-				always = no
-			}
-			add = 50
-		}
+
 		# extremely unlikely for trade unions in council republic
 		if = {
 			limit = {
@@ -3261,7 +2962,7 @@ ideology_social_democrat = { # Average Progressiveness - 67.85
 	}
 }
 
-ideology_communist = { # Average Progressiveness - 112.5
+ideology_communist_leader = { # Average Progressiveness - 112.5
 	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_communist.dds"
 
 	character_ideology = yes
@@ -3366,10 +3067,10 @@ ideology_communist = { # Average Progressiveness - 112.5
 		# More likely if issues are relevant
 		if = {
 			limit = {
-				owner.ideology_communist_disfavoured_laws > 0
+				owner.ideology_communist_leader_disfavoured_laws > 0
 			}
 			add = {
-				value = owner.ideology_communist_disfavoured_laws
+				value = owner.ideology_communist_leader_disfavoured_laws
 				multiply = 8
 				desc = "DISFAVORED_LAWS"
 			}
@@ -3378,10 +3079,10 @@ ideology_communist = { # Average Progressiveness - 112.5
 		# Less likely if issues are not relevant
 		if = {
 			limit = {
-				owner.ideology_communist_favoured_laws > 0
+				owner.ideology_communist_leader_favoured_laws > 0
 			}
 			subtract = {
-				value = owner.ideology_communist_favoured_laws
+				value = owner.ideology_communist_leader_favoured_laws
 				multiply = 8
 				desc = "FAVORED_LAWS"
 			}
@@ -3503,18 +3204,7 @@ ideology_communist = { # Average Progressiveness - 112.5
 			}
 		}
 		# National Liberation Alliance
-		if = {
-			limit = {
-				owner = {
-					always = no
-					always = no # vanilla ref 'je_new_republic' not present in this mod
-				}
-			}
-			multiply = {
-				value = 1.25
-				desc = "NATIONAL_LIBERATION_ALLIANCE"
-			}
-		}
+
 		if = {
 			limit = {
 				OR = {
@@ -3544,10 +3234,10 @@ ideology_communist = { # Average Progressiveness - 112.5
 		# More likely if issues are relevant
 		if = {
 			limit = {
-				owner.ideology_communist_disfavoured_laws > 0
+				owner.ideology_communist_leader_disfavoured_laws > 0
 			}
 			add = {
-				value = owner.ideology_communist_disfavoured_laws
+				value = owner.ideology_communist_leader_disfavoured_laws
 				multiply = 8
 			}
 		}
@@ -3555,10 +3245,10 @@ ideology_communist = { # Average Progressiveness - 112.5
 		# Less likely if issues are not relevant
 		if = {
 			limit = {
-				owner.ideology_communist_favoured_laws > 0
+				owner.ideology_communist_leader_favoured_laws > 0
 			}
 			subtract = {
-				value = owner.ideology_communist_favoured_laws
+				value = owner.ideology_communist_leader_favoured_laws
 				multiply = 8
 			}
 		}
@@ -3983,18 +3673,7 @@ ideology_vanguardist = { # Average Progressiveness - 83.33
 			}
 		}
 		# National Liberation Alliance
-		if = {
-			limit = {
-				owner = {
-					always = no
-					always = no # vanilla ref 'je_new_republic' not present in this mod
-				}
-			}
-			multiply = {
-				value = 1.25
-				desc = "NATIONAL_LIBERATION_ALLIANCE"
-			}
-		}
+
 		if = {
 			limit = {
 				OR = {
@@ -4498,20 +4177,7 @@ ideology_fascist = { # Average Progressiveness - 4.17
 			}
 		}
 		# Fascism JE causes an uptick in fascism
-		if = {
-			limit = {
-				owner = {
-					OR = {
-						always = no # vanilla ref 'je_fascism_1' not present in this mod
-						always = no
-					}
-				}
-			}
-			multiply = {
-				value = 1.25
-				desc = "FASCISM_JE"
-			}
-		}
+
 		if = {
 			limit = {
 				OR = {
@@ -4691,25 +4357,7 @@ ideology_fascist = { # Average Progressiveness - 4.17
 			multiply = 1.5
 		}
 		# Fascism JE causes an uptick in fascism
-		if = {
-			limit = {
-				owner = {
-					OR = {
-						always = no # vanilla ref 'je_fascism_1' not present in this mod
-						always = no
-					}
-				}
-			}
-			multiply = 1.25
-		}
-		if = { #Brazil has Integralists instead
-			limit = {
-				owner = {
-					always = no # vanilla ref 'c:BRZ' not present in this mod
-				}
-			}
-			multiply = 0
-		}
+
 		if = {
 			limit = {
 				OR = {
@@ -4981,18 +4629,7 @@ ideology_anarchist = { # Average Progressiveness - 110.71
 			}
 		}
 		# National Liberation Alliance
-		if = {
-			limit = {
-				owner = {
-					always = no
-					always = no # vanilla ref 'je_new_republic' not present in this mod
-				}
-			}
-			multiply = {
-				value = 1.1
-				desc = "NATIONAL_LIBERATION_ALLIANCE"
-			}
-		}
+
 		if = {
 			limit = {
 				OR = {
@@ -5764,23 +5401,7 @@ ideology_market_liberal = { # Average Progressiveness - 4
 			}
 		}
 		# less likely for conservative French IG's
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'je_divided_monarchists' not present in this mod
-				}
-				OR = {
-					is_interest_group_type = ig_industrialists
-					is_interest_group_type = ig_petty_bourgeoisie
-				}
-			}
-			add = {
-				value = -100
-				desc = "CONSERVATIVE_IG"
-			}
-		}
+
 		# More likely under Alexander II
 		if = {
 			limit = {
@@ -5900,16 +5521,7 @@ ideology_market_liberal = { # Average Progressiveness - 4
 			add = -50
 		}
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals and choose to have woke commanders.
-		if = {
-			limit = {
-				OR = {
-					has_role_of_type = general
-					has_role_of_type = admiral
-				}
-				always = no
-			}
-			add = 50
-		}
+
 		# Less likely for unrecognized countries
 		if = {
 			limit = {
@@ -5929,20 +5541,7 @@ ideology_market_liberal = { # Average Progressiveness - 4
 			add = 25
 		}
 		# less likely for conservative French IG's
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'je_divided_monarchists' not present in this mod
-				}
-				OR = {
-					is_interest_group_type = ig_industrialists
-					is_interest_group_type = ig_petty_bourgeoisie
-				}
-			}
-			add = -100
-		}
+
 		# More likely under Alexander II
 		if = {
 			limit = {
@@ -6338,24 +5937,7 @@ ideology_authoritarian = { # Average Progressiveness - -27.77
 			}
 		}
 		# less likely for conservative French IG's
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'je_divided_monarchists' not present in this mod
-				}
-				OR = {
-					is_interest_group_type = ig_landowners
-					is_interest_group_type = ig_petty_bourgeoisie
-					is_interest_group_type = ig_devout
-				}
-			}
-			add = {
-				value = -100
-				desc = "CONSERVATIVE_IG"
-			}
-		}
+
 		# conservative and/or reactionary leaders have a higher spawn chance if the Anti-Dreyfusards won.
 		# conservative and/or reactionary leaders have a higher spawn chance if you win the Two Spains as the conservatives.
 		if = {
@@ -6459,21 +6041,7 @@ ideology_authoritarian = { # Average Progressiveness - -27.77
 			}
 		}
 		# less likely for conservative French IG's
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'je_divided_monarchists' not present in this mod
-				}
-				OR = {
-					is_interest_group_type = ig_landowners
-					is_interest_group_type = ig_petty_bourgeoisie
-					is_interest_group_type = ig_devout
-				}
-			}
-			add = -100
-		}
+
 		if = {
 			limit = {
 				interest_group ?= {
@@ -6642,23 +6210,7 @@ ideology_protectionist = { # Average Progressiveness - 37.5
 			}
 		}
 		# less likely for conservative French IG's
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'je_divided_monarchists' not present in this mod
-				}
-				OR = {
-					is_interest_group_type = ig_industrialists
-					is_interest_group_type = ig_petty_bourgeoisie
-				}
-			}
-			add = {
-				value = -100
-				desc = "CONSERVATIVE_IG"
-			}
-		}
+
 		if = {
 			limit = {
 				OR = {
@@ -6754,20 +6306,7 @@ ideology_protectionist = { # Average Progressiveness - 37.5
 			add = -50
 		}
 		# less likely for conservative French IG's
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'c:FRA' not present in this mod
-					always = no # vanilla ref 'je_divided_monarchists' not present in this mod
-				}
-				OR = {
-					is_interest_group_type = ig_industrialists
-					is_interest_group_type = ig_petty_bourgeoisie
-				}
-			}
-			add = -100
-		}
+
 		if = {
 			limit = {
 				interest_group ?= {
@@ -6918,17 +6457,6 @@ ideology_humanitarian = { # Average Progressiveness - 66.66
 		}
 
 		# Pedro JE victory
-		if = {
-			limit = {
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = 25
-				desc = "BRZ_ENDURING_EMPIRE"
-			}
-		}
 
 		# liberal and/or radical leaders have a higher spawn chance if the Dreyfusards won.
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals.
@@ -6977,16 +6505,6 @@ ideology_humanitarian = { # Average Progressiveness - 66.66
 		}
 
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals and choose to have woke commanders.
-		if = {
-			limit = {
-				OR = {
-					has_role_of_type = general
-					has_role_of_type = admiral
-				}
-				always = no
-			}
-			add = 50
-		}
 
 		# Less likely if issues are not relevant
 		if = {
@@ -7326,29 +6844,6 @@ ideology_positivist = { # Average Progressiveness - 37.5
 
 		if = {
 			limit = {
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = 50
-				desc = "PRACTISING_POSITIVISTS"
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = 100
-				desc = "PRACTISING_POSITIVISTS"
-			}
-		}
-
-		if = {
-			limit = {
 				OR = {
 					always = no
 					has_variable = chose_vanguardism
@@ -7595,17 +7090,6 @@ ideology_land_reformer = { # Average Progressiveness - 43.75
 		}
 
 		# Pedro JE victory
-		if = {
-			limit = {
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = 50
-				desc = "BRZ_ENDURING_EMPIRE"
-			}
-		}
 
 		# will not happen if land reform is essentially done
 		if = {
@@ -8002,17 +7486,7 @@ ideology_integralist = { # Average Progressiveness - -41.66
 		}
 
 		# Vargas fosters fascism
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'je_new_republic' not present in this mod
-				}
-			}
-			add = {
-				value = 50
-				desc = "NEW_REPUBLIC_JE"
-			}
-		}
+
 		# conservative and/or reactionary leaders have a higher spawn chance if the Anti-Dreyfusards won.
 		# conservative and/or reactionary leaders have a higher spawn chance if you win the Two Spains as the conservatives.
 		# red scare can make you more fascist
@@ -8027,20 +7501,6 @@ ideology_integralist = { # Average Progressiveness - -41.66
 		}
 
 		# Fascism JE causes an uptick in fascism
-		if = {
-			limit = {
-				owner = {
-					OR = {
-						always = no # vanilla ref 'je_fascism_1' not present in this mod
-						always = no
-					}
-				}
-			}
-			multiply = {
-				value = 1.25
-				desc = "FASCISM_JE"
-			}
-		}
 
 		if = {
 			limit = {
@@ -8198,14 +7658,6 @@ ideology_integralist = { # Average Progressiveness - -41.66
 		}
 
 		# Vargas fosters fascism
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'je_new_republic' not present in this mod
-				}
-			}
-			add = 50
-		}
 
 		# red scare can make you more fascist
 		if = {
@@ -8216,17 +7668,6 @@ ideology_integralist = { # Average Progressiveness - -41.66
 		}
 
 		# Fascism JE causes an uptick in fascism
-		if = {
-			limit = {
-				owner = {
-					OR = {
-						always = no # vanilla ref 'je_fascism_1' not present in this mod
-						always = no
-					}
-				}
-			}
-			multiply = 1.25
-		}
 
 		if = {
 			limit = {
@@ -8453,16 +7894,6 @@ ideology_liberal_leader = { # Average Progressiveness - 64.06
 		}
 
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals and choose to have woke commanders.
-		if = {
-			limit = {
-				OR = {
-					has_role_of_type = general
-					has_role_of_type = admiral
-				}
-				always = no
-			}
-			add = 50
-		}
 
 		# More common in republics
 		if = {
@@ -8649,14 +8080,7 @@ ideology_corporatist_leader = { # Average Progressiveness - 37.5
 			add = 50
 		}
 		# Ständestaat JE
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'je_standestaat' not present in this mod
-				}
-			}
-			add = 100
-		}
+
 		# conservative and/or reactionary leaders have a higher spawn chance if the Anti-Dreyfusards won.
 		# conservative and/or reactionary leaders have a higher spawn chance if you win the Two Spains as the conservatives.
 		if = {
@@ -8756,14 +8180,7 @@ ideology_corporatist_leader = { # Average Progressiveness - 37.5
 			add = 50
 		}
 		# Ständestaat JE
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'je_standestaat' not present in this mod
-				}
-			}
-			add = 100
-		}
+
 		if = {
 			limit = {
 				interest_group ?= {
@@ -8930,17 +8347,6 @@ ideology_humanitarian_royalist = { # Average Progressiveness - 55
 		}
 
 		# Pedro JE victory
-		if = {
-			limit = {
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = 100
-				desc = "BRZ_ENDURING_EMPIRE"
-			}
-		}
 
 		# liberal and/or radical leaders have a higher spawn chance if the Dreyfusards won.
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals.
@@ -9013,16 +8419,6 @@ ideology_humanitarian_royalist = { # Average Progressiveness - 55
 		}
 
 		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals and choose to have woke commanders.
-		if = {
-			limit = {
-				OR = {
-					has_role_of_type = general
-					has_role_of_type = admiral
-				}
-				always = no
-			}
-			add = 50
-		}
 
 		# less likely for angry trade unions outside of Council Republic, they should go communist instead
 		if = {
@@ -9141,7 +8537,6 @@ ideology_despotic_utopian = { # Average Progressiveness - 7.5
 			value = 50
 			desc = "base_value"
 		}
-	
 
 		if = { # High-loyalism End of History for Paraguay
 			limit = {
@@ -9214,7 +8609,6 @@ ideology_despotic_utopian = { # Average Progressiveness - 7.5
 
 	non_interest_group_leader_weight = {
 				value = 50 # Less likely in puppets
-	
 
 		if = { # High-loyalism End of History for Paraguay
 			limit = {
@@ -10990,21 +10384,9 @@ ideology_ilustrado_leader = { 	# Flavoured variant of Liberal and Anti-Clerical 
 	non_interest_group_leader_weight = {
 		value = 100
 		# More likely if je_philippines_main is completed
-		if = {
-			limit = {
-				owner = {
-					OR = {
-						always = no # vanilla ref 'je_philippines_main_complete_happened' not present in this mod
-						always = no # vanilla ref 'je_philippines_main_reliance_happened' not present in this mod
 
-					}
-				}
-			}
-			add = 25
-		}
 	}
 }
-
 
 ideology_mitogaku = { # Average Progressiveness - 20.83
 	icon = "gfx/interface/icons/ideology_icons/ideology_leader/mitogaku.dds"
@@ -11307,6 +10689,289 @@ ideology_shojoi = { # Average Progressiveness - -16.66
 				}
 			}
 			add = 25
+		}
+	}
+}
+
+ideology_state_socialist = { # Average Progressiveness - 65.62
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_socialist.dds"
+
+	character_ideology = yes
+
+	lawgroup_distribution_of_power = {
+		law_universal_suffrage = approve
+		law_census_voting = neutral
+		law_wealth_voting = disapprove
+		law_landed_voting = disapprove
+		law_anarchy = disapprove
+		law_technocracy = disapprove
+		law_oligarchy = strongly_disapprove
+		law_autocracy = strongly_disapprove
+		law_single_party_state = neutral
+		law_labour_suffrage = strongly_disapprove
+	}
+
+	lawgroup_caste_hegemony = {
+		law_hindu_caste_enforced = strongly_disapprove
+		law_hindu_caste_codified = disapprove
+		law_hindu_caste_not_enforced = neutral
+		law_affirmative_action = approve
+	}
+
+	lawgroup_edo_social_system = {
+		law_strict_edo_system = strongly_disapprove
+		law_intermediate_edo_system = disapprove
+		law_lax_edo_system = approve
+	}
+
+	lawgroup_economic_system = {
+		law_command_economy = strongly_approve
+		law_cooperative_ownership = approve
+		law_interventionism = neutral
+		law_agrarianism = disapprove
+		law_traditionalism = disapprove
+		law_laissez_faire = strongly_disapprove
+		law_industry_banned = strongly_disapprove
+		law_extraction_economy = strongly_disapprove
+	}
+
+	lawgroup_taxation = {
+		law_consumption_based_taxation = disapprove
+		law_land_based_taxation = disapprove
+		law_per_capita_based_taxation = neutral
+		law_proportional_taxation = approve
+		law_graduated_taxation = strongly_approve
+	}
+
+	lawgroup_labor_rights = {
+		law_worker_protections = strongly_approve
+		law_regulatory_bodies = approve
+		law_no_workers_rights = disapprove
+	}
+
+	lawgroup_welfare = {
+		law_poor_laws = disapprove
+		law_no_social_security = strongly_disapprove
+		law_wage_subsidies = approve
+		law_old_age_pension = strongly_approve
+	}
+
+	lawgroup_labour_associations = {
+		law_combination_acts = strongly_disapprove
+		law_guild_system = disapprove
+		law_anti_strike_laws = neutral
+		law_corporatized_unions = neutral
+		law_right_to_associate = approve
+		law_factory_councils = strongly_disapprove
+	}
+
+	country_trigger = {
+		has_technology_researched = socialism
+	}
+
+	interest_group_leader_trigger = {
+		ideology_state_socialist_valid_trigger = yes
+	}
+
+	non_interest_group_leader_trigger = {
+		# Agitator ideologies should disapprove of a current law
+		NAND = {
+			has_role_of_type = agitator
+			owner ?= {
+				has_law_or_variant = law_type:law_universal_suffrage
+				has_law_or_variant = law_type:law_graduated_taxation
+				has_law_or_variant = law_type:law_old_age_pension
+				has_law_or_variant = law_type:law_worker_protections
+			}
+		}
+		interest_group ?= {
+			ideology_state_socialist_valid_trigger = yes
+		}
+	}
+
+	interest_group_leader_weight = {
+		value = {
+			add = 100
+			desc = "base_value"
+		}
+
+		# More likely if issues are relevant
+		if = {
+			limit = {
+				owner.ideology_state_socialist_disfavoured_laws > 0
+			}
+			add = {
+				value = owner.ideology_state_socialist_disfavoured_laws
+				multiply = 9 # Caste laws don't count by default
+				desc = "DISFAVORED_LAWS"
+			}
+		}
+
+		# very angry IG's more likely to turn to more radical socialism
+		if = {
+			limit = {
+				NOT = { is_interest_group_type = ig_devout } # can't be radical socialists
+				ig_approval <= define:NPolitics|APPROVAL_THRESHOLD_UNHAPPY
+			}
+			add = {
+				value = -75
+				desc = "IG_APPROVAL_BELOW_UNHAPPY"
+			}
+		}
+		# more likely for content devout in council republic
+		if = {
+			limit = {
+				is_interest_group_type = ig_devout
+				ig_approval > 0
+				owner ?= {
+					has_law_or_variant = law_type:law_council_republic
+				}
+			}
+			add = {
+				value = 75
+				desc = "CONTENT_IN_CR"
+			}
+		}
+		# more likely for content Trade Unions outside of council republic
+		if = {
+			limit = {
+				is_interest_group_type = ig_trade_unions
+				ig_approval > 0
+				owner ?= {
+					NOT = { has_law_or_variant = law_type:law_council_republic }
+				}
+			}
+			add = {
+				value = 75
+				desc = "CONTENT_TU"
+			}
+		}
+
+		# liberal and/or radical leaders have a higher spawn chance if the Dreyfusards won.
+		
+		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals.
+		
+		# liberal and/or radical leaders have a higher spawn chance if you succeed in Portugal's Second Liberalism.
+		
+		# liberal and/or radical leaders have a higher spawn chance if the Hungarian Revolution was successful.
+		
+		# Pedro JE victory
+		
+		# extremely unlikely for Trade Unions in council republic
+		if = {
+			limit = {
+				is_interest_group_type = ig_trade_unions
+				owner ?= {
+					has_law_or_variant = law_type:law_council_republic
+				}
+			}
+			multiply = {
+				value = 0.01
+				desc = "COUNCIL_REPUBLIC_LAW"
+			}
+		}
+		# National Liberation Alliance
+
+		if = {
+			limit = {
+				OR = {
+					has_variable = communist_ig_var
+					has_variable = chose_vanguardism
+					has_variable = chose_anarchism
+					has_variable = chose_communism
+					has_variable = chose_ethno_nationalism
+					has_variable = chose_conservatism
+					has_variable = chose_fascism
+				}
+			}
+			multiply = {
+				value = 0.1
+				desc = "CHOSE_A_DIFFERENT_PATH"
+			}
+		}
+		multiply = {
+			value = 1
+			add = modifier:interest_group_ideology_state_socialist_leader_chance_mult
+			desc = "EVENTS_AND_OTHER_EFFECTS"
+		}
+	}
+
+	non_interest_group_leader_weight = {
+		value = 100
+
+		# More likely if issues are relevant
+		if = {
+			limit = {
+				owner.ideology_state_socialist_disfavoured_laws > 0
+			}
+			add = {
+				value = owner.ideology_state_socialist_disfavoured_laws
+				multiply = 9 # Caste laws don't count by default
+			}
+		}
+
+		# very angry IG's more likely to turn to more radical socialism
+		if = {
+			limit = {
+				NOT = { is_interest_group_type = ig_devout } # can't be radical socialists
+				interest_group.ig_approval <= define:NPolitics|APPROVAL_THRESHOLD_UNHAPPY
+			}
+			add = -75
+		}
+		# more likely for content devout in council republic
+		if = {
+			limit = {
+				is_interest_group_type = ig_devout
+				interest_group.ig_approval > 0
+				owner ?= {
+					has_law_or_variant = law_type:law_council_republic
+				}
+			}
+			add = 75
+		}
+		# more likely for content Trade Unions outside of council republic
+		if = {
+			limit = {
+				is_interest_group_type = ig_trade_unions
+				interest_group.ig_approval > 0
+				owner ?= {
+					NOT = { has_law_or_variant = law_type:law_council_republic }
+				}
+			}
+			add = 75
+		}
+		# liberal and/or radical leaders have a higher spawn chance if you win the Two Spains as the liberals and choose to have woke commanders.
+		
+		# extremely unlikely for Trade Unions in council republic
+		if = {
+			limit = {
+				is_interest_group_type = ig_trade_unions
+				owner ?= {
+					has_law_or_variant = law_type:law_council_republic
+				}
+			}
+			multiply = 0.01
+		}
+		if = {
+			limit = {
+				interest_group ?= {
+					OR = {
+						has_variable = communist_ig_var
+						has_variable = chose_vanguardism
+						has_variable = chose_anarchism
+						has_variable = chose_communism
+						has_variable = chose_ethno_nationalism
+						has_variable = chose_conservatism
+						has_variable = chose_fascism
+					}
+				}
+			}
+			multiply = 0.1
+		}
+		multiply = {
+			value = 1
+			add = interest_group.modifier:interest_group_ideology_state_socialist_leader_chance_mult
+			desc = "EVENTS_AND_OTHER_EFFECTS"
 		}
 	}
 }

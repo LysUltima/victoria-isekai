@@ -20,6 +20,8 @@ STATE_CATPITAL = {
         type = "building_oil_rig"
         undiscovered_amount = 44
     }
+    max_cold_effect = 0.270
+    min_cold_effect = 0.000
 }
 
 STATE_MEOWNTAINS = {
@@ -39,6 +41,8 @@ STATE_MEOWNTAINS = {
         building_iron_mine = 91
         building_sulfur_mine = 78
     }
+    max_cold_effect = 0.227
+    min_cold_effect = 0.007
 }
 
 STATE_ANYA = {
@@ -54,6 +58,8 @@ STATE_ANYA = {
     capped_resources = {
         building_logging_camp = 25
     }
+    max_cold_effect = 0.226
+    min_cold_effect = 0.005
 }
 
 STATE_ERENYA = {
@@ -69,6 +75,8 @@ STATE_ERENYA = {
     capped_resources = {
         building_logging_camp = 25
     }
+    max_cold_effect = 0.269
+    min_cold_effect = 0.000
 }
 
 STATE_ISLANYA = {
@@ -91,6 +99,8 @@ STATE_ISLANYA = {
         building_sulfur_mine = 63
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.239
+    min_cold_effect = 0.000
 }
 # TUC Tuconya
 STATE_TUCONYA = {
@@ -111,6 +121,8 @@ STATE_TUCONYA = {
         building_spirit_beast_hunting = 16
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.236
+    min_cold_effect = 0.005
 }
 # AIL Ailenya
 STATE_AILENYA = {
@@ -131,6 +143,8 @@ STATE_AILENYA = {
         building_sulfur_mine = 77
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.327
+    min_cold_effect = 0.000
 }
 # HAR Harunya
 STATE_HARUNYA = {
@@ -154,6 +168,8 @@ STATE_HARUNYA = {
         building_coal_mine = 55
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.339
+    min_cold_effect = 0.001
 }
 # URR Urruma
 STATE_URRUMA = {
@@ -176,6 +192,8 @@ STATE_URRUMA = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 11
     }
+    max_cold_effect = 0.292
+    min_cold_effect = 0.005
 }
 
 STATE_RAUMA = {
@@ -193,6 +211,8 @@ STATE_RAUMA = {
     capped_resources = {
         building_logging_camp = 5
     }
+    max_cold_effect = 0.322
+    min_cold_effect = 0.000
 }
 # WAP Wapapow
 STATE_WAPAPOW = {
@@ -212,6 +232,8 @@ STATE_WAPAPOW = {
         building_fishing_wharf = 14
     }
     naval_exit_id = 3009
+    max_cold_effect = 0.343
+    min_cold_effect = 0.000
 }
 
 STATE_JACHACHOW = {
@@ -234,6 +256,8 @@ STATE_JACHACHOW = {
         building_sulfur_mine = 85
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.302
+    min_cold_effect = 0.004
 }
 
 STATE_FRAKAKOW = {
@@ -254,6 +278,8 @@ STATE_FRAKAKOW = {
         building_spirit_beast_hunting = 13
     }
     naval_exit_id = 3009
+    max_cold_effect = 0.402
+    min_cold_effect = 0.000
 }
 
 STATE_AOWO = {
@@ -277,6 +303,8 @@ STATE_AOWO = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 6
     }
+    max_cold_effect = 0.432
+    min_cold_effect = 0.000
 }
 # HAT Hateeho
 STATE_HATEEHO = {
@@ -309,6 +337,8 @@ STATE_HATEEHO = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 11
     }
+    max_cold_effect = 0.930
+    min_cold_effect = 0.140
 }
 
 STATE_GERING = {
@@ -334,6 +364,8 @@ STATE_GERING = {
         discovered_amount = 18
         undiscovered_amount = 13
     }
+    max_cold_effect = 0.887
+    min_cold_effect = 0.116
 }
 # AHE Ahee
 STATE_AHEE = {
@@ -359,6 +391,8 @@ STATE_AHEE = {
         discovered_amount = 6
         undiscovered_amount = 12
     }
+    max_cold_effect = 0.990
+    min_cold_effect = 0.175
 }
 # UAN Uang-Ko
 STATE_UANG_KO = {
@@ -380,6 +414,8 @@ STATE_UANG_KO = {
         building_sulfur_mine = 64
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.363
+    min_cold_effect = 0.000
 }
 
 STATE_EE_NOO = {
@@ -398,6 +434,8 @@ STATE_EE_NOO = {
         building_fishing_wharf = 0
     }
     naval_exit_id = 3009
+    max_cold_effect = 0.377
+    min_cold_effect = 0.000
 }
 
 STATE_HU_SKEE = {
@@ -415,6 +453,8 @@ STATE_HU_SKEE = {
         building_logging_camp = 19
         building_spirit_beast_hunting = 18
     }
+    max_cold_effect = 0.423
+    min_cold_effect = 0.000
 }
 
 STATE_SEE_BA = {
@@ -433,6 +473,8 @@ STATE_SEE_BA = {
         building_fishing_wharf = 5
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.388
+    min_cold_effect = 0.000
 }
 
 STATE_UAN_CHAN = {
@@ -451,6 +493,8 @@ STATE_UAN_CHAN = {
         building_fishing_wharf = 0
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.415
+    min_cold_effect = 0.000
 }
 
 STATE_KOE_NOO = {
@@ -469,6 +513,8 @@ STATE_KOE_NOO = {
         building_fishing_wharf = 0
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.440
+    min_cold_effect = 0.000
 }
 
 STATE_KO_LEE = {
@@ -487,6 +533,8 @@ STATE_KO_LEE = {
         building_fishing_wharf = 0
     }
     naval_exit_id = 3009
+    max_cold_effect = 0.443
+    min_cold_effect = 0.000
 }
 # ANE Anepyon
 STATE_ANEPYON = {
@@ -506,6 +554,8 @@ STATE_ANEPYON = {
         building_whaling_station = 4
     }
     naval_exit_id = 3034
+    max_cold_effect = 0.580
+    min_cold_effect = 0.005
 }
 
 STATE_KAWEPYON = {
@@ -523,6 +573,8 @@ STATE_KAWEPYON = {
         building_logging_camp = 13
         building_spirit_beast_hunting = 16
     }
+    max_cold_effect = 0.555
+    min_cold_effect = 0.006
 }
 
 STATE_WUSAPYON = {
@@ -551,6 +603,8 @@ STATE_WUSAPYON = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 6
     }
+    max_cold_effect = 0.616
+    min_cold_effect = 0.008
 }
 
 STATE_KIPYON = {
@@ -572,6 +626,8 @@ STATE_KIPYON = {
         building_spirit_beast_hunting = 12
     }
     naval_exit_id = 3034
+    max_cold_effect = 0.659
+    min_cold_effect = 0.023
 }
 
 STATE_TEPYON = {
@@ -591,6 +647,8 @@ STATE_TEPYON = {
         building_whaling_station = 4
     }
     naval_exit_id = 3009
+    max_cold_effect = 0.551
+    min_cold_effect = 0.005
 }
 # MIR Mirapyon
 STATE_MIRAPYON = {
@@ -611,6 +669,8 @@ STATE_MIRAPYON = {
         building_whaling_station = 4
     }
     naval_exit_id = 3015
+    max_cold_effect = 0.584
+    min_cold_effect = 0.005
 }
 
 STATE_HAPYON = {
@@ -630,6 +690,8 @@ STATE_HAPYON = {
         building_whaling_station = 4
     }
     naval_exit_id = 3015
+    max_cold_effect = 0.570
+    min_cold_effect = 0.004
 }
 
 STATE_BAIPYON = {
@@ -652,6 +714,8 @@ STATE_BAIPYON = {
         type = "building_oil_rig"
         undiscovered_amount = 29
     }
+    max_cold_effect = 0.555
+    min_cold_effect = 0.002
 }
 
 STATE_SEPYON = {
@@ -676,6 +740,8 @@ STATE_SEPYON = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 2
     }
+    max_cold_effect = 0.620
+    min_cold_effect = 0.005
 }
 # SIR Sirokani
 STATE_SIROKANI = {
@@ -708,6 +774,8 @@ STATE_SIROKANI = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 7
     }
+    max_cold_effect = 0.990
+    min_cold_effect = 0.175
 }
 # BEA Bear Mosir
 STATE_PORONUPURI = {
@@ -740,6 +808,8 @@ STATE_PORONUPURI = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 12
     }
+    max_cold_effect = 0.990
+    min_cold_effect = 0.175
 }
 
 STATE_CUPKA = {
@@ -768,6 +838,8 @@ STATE_CUPKA = {
         type = "building_oil_rig"
         undiscovered_amount = 10
     }
+    max_cold_effect = 0.930
+    min_cold_effect = 0.140
 }
 
 STATE_NAMWAKKA = {
@@ -796,6 +868,8 @@ STATE_NAMWAKKA = {
         discovered_amount = 7
         undiscovered_amount = 9
     }
+    max_cold_effect = 0.990
+    min_cold_effect = 0.175
 }
 
 STATE_NISEYKOAN = {
@@ -824,6 +898,8 @@ STATE_NISEYKOAN = {
         discovered_amount = 12
         undiscovered_amount = 14
     }
+    max_cold_effect = 0.990
+    min_cold_effect = 0.175
 }
 
 STATE_HURANUI = {
@@ -848,6 +924,8 @@ STATE_HURANUI = {
         discovered_amount = 9
         undiscovered_amount = 12
     }
+    max_cold_effect = 0.930
+    min_cold_effect = 0.140
 }
 
 STATE_OTANOSKI = {
@@ -875,6 +953,8 @@ STATE_OTANOSKI = {
         discovered_amount = 10
         undiscovered_amount = 10
     }
+    max_cold_effect = 0.990
+    min_cold_effect = 0.175
 }
 
 STATE_TOMAKOMA = {
@@ -902,6 +982,8 @@ STATE_TOMAKOMA = {
         discovered_amount = 9
         undiscovered_amount = 12
     }
+    max_cold_effect = 0.990
+    min_cold_effect = 0.175
 }
 
 STATE_PEKERPET = {
@@ -932,6 +1014,8 @@ STATE_PEKERPET = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 7
     }
+    max_cold_effect = 0.990
+    min_cold_effect = 0.175
 }
 
 STATE_KAMUY = {
@@ -957,6 +1041,8 @@ STATE_KAMUY = {
         discovered_amount = 12
         undiscovered_amount = 15
     }
+    max_cold_effect = 0.930
+    min_cold_effect = 0.140
 }
 # NOR Northern Expanse
 STATE_KHOKHUMA = {
@@ -977,6 +1063,8 @@ STATE_KHOKHUMA = {
         building_logging_camp = 3
         building_spirit_beast_hunting = 12
     }
+    max_cold_effect = 0.490
+    min_cold_effect = 0.000
 }
 
 STATE_GAZARUMA = {
@@ -1003,6 +1091,8 @@ STATE_GAZARUMA = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 8
     }
+    max_cold_effect = 0.625
+    min_cold_effect = 0.024
 }
 
 STATE_ALTANUMA = {
@@ -1024,6 +1114,8 @@ STATE_ALTANUMA = {
         building_iron_mine = 88
         building_sulfur_mine = 105
     }
+    max_cold_effect = 0.643
+    min_cold_effect = 0.026
 }
 
 STATE_TSAGAANUMA = {
@@ -1041,6 +1133,8 @@ STATE_TSAGAANUMA = {
     capped_resources = {
         building_logging_camp = 4
     }
+    max_cold_effect = 0.502
+    min_cold_effect = 0.000
 }
 
 STATE_ZULZAIKHUMA = {
@@ -1066,6 +1160,8 @@ STATE_ZULZAIKHUMA = {
         type = "building_oil_rig"
         undiscovered_amount = 21
     }
+    max_cold_effect = 0.542
+    min_cold_effect = 0.003
 }
 
 STATE_KHARIINUMA = {
@@ -1087,6 +1183,8 @@ STATE_KHARIINUMA = {
         building_iron_mine = 78
         building_sulfur_mine = 98
     }
+    max_cold_effect = 0.504
+    min_cold_effect = 0.001
 }
 
 STATE_MONGONUMA = {
@@ -1107,6 +1205,8 @@ STATE_MONGONUMA = {
         building_logging_camp = 3
         building_spirit_beast_hunting = 24
     }
+    max_cold_effect = 0.456
+    min_cold_effect = 0.000
 }
 
 STATE_GOVSHIKHUMA = {
@@ -1124,6 +1224,8 @@ STATE_GOVSHIKHUMA = {
     capped_resources = {
         building_logging_camp = 3
     }
+    max_cold_effect = 0.421
+    min_cold_effect = 0.000
 }
 
 STATE_NARIINUMA = {
@@ -1142,6 +1244,8 @@ STATE_NARIINUMA = {
         building_logging_camp = 3
         building_spirit_beast_hunting = 9
     }
+    max_cold_effect = 0.391
+    min_cold_effect = 0.000
 }
 # SOU Southern Steppes
 STATE_TENGERUMA = {
@@ -1165,6 +1269,8 @@ STATE_TENGERUMA = {
         type = "building_oil_rig"
         undiscovered_amount = 45
     }
+    max_cold_effect = 0.334
+    min_cold_effect = 0.000
 }
 
 STATE_AIRAGUMA = {
@@ -1182,6 +1288,8 @@ STATE_AIRAGUMA = {
     capped_resources = {
         building_logging_camp = 5
     }
+    max_cold_effect = 0.293
+    min_cold_effect = 0.000
 }
 
 STATE_SHILDEGUMA = {
@@ -1200,6 +1308,8 @@ STATE_SHILDEGUMA = {
         building_logging_camp = 5
         building_spirit_beast_hunting = 22
     }
+    max_cold_effect = 0.335
+    min_cold_effect = 0.000
 }
 
 STATE_ULAANUMA = {
@@ -1220,6 +1330,8 @@ STATE_ULAANUMA = {
         building_sulfur_mine = 100
         building_lead_mine = 61
     }
+    max_cold_effect = 0.304
+    min_cold_effect = 0.000
 }
 
 STATE_KHADANUMA = {
@@ -1246,6 +1358,8 @@ STATE_KHADANUMA = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 12
     }
+    max_cold_effect = 0.345
+    min_cold_effect = 0.001
 }
 
 STATE_TSEREGUMA = {
@@ -1265,6 +1379,8 @@ STATE_TSEREGUMA = {
         building_logging_camp = 4
         building_spirit_beast_hunting = 22
     }
+    max_cold_effect = 0.403
+    min_cold_effect = 0.000
 }
 
 STATE_KHARUMA = {
@@ -1286,6 +1402,8 @@ STATE_KHARUMA = {
         building_lead_mine = 50
         building_iron_mine = 54
     }
+    max_cold_effect = 0.390
+    min_cold_effect = 0.001
 }
 
 STATE_ZULUMA = {
@@ -1306,6 +1424,8 @@ STATE_ZULUMA = {
         building_spirit_beast_hunting = 20
         building_sulfur_mine = 75
     }
+    max_cold_effect = 0.474
+    min_cold_effect = 0.001
 }
 
 STATE_GALTANUMA = {
@@ -1324,6 +1444,8 @@ STATE_GALTANUMA = {
     capped_resources = {
         building_logging_camp = 2
     }
+    max_cold_effect = 0.516
+    min_cold_effect = 0.000
 }
 # WOL Snow-Wolf Domain
 STATE_UO_FEE = {
@@ -1344,6 +1466,8 @@ STATE_UO_FEE = {
         building_iron_mine = 92
         building_sulfur_mine = 72
     }
+    max_cold_effect = 0.560
+    min_cold_effect = 0.008
 }
 
 STATE_DO_GEE = {
@@ -1362,6 +1486,8 @@ STATE_DO_GEE = {
         building_logging_camp = 10
         building_spirit_beast_hunting = 21
     }
+    max_cold_effect = 0.561
+    min_cold_effect = 0.006
 }
 
 STATE_BOK_SER = {
@@ -1382,4 +1508,6 @@ STATE_BOK_SER = {
         building_lead_mine = 101
         building_sulfur_mine = 87
     }
+    max_cold_effect = 0.481
+    min_cold_effect = 0.003
 }

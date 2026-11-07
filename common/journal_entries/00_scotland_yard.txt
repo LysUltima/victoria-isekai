@@ -4,6 +4,13 @@
 # scotland_yard_events.txt - not yet migrated, will resolve once those files are processed.
 
 je_scotland_yard = {
+	activation_description = {
+		institution_investment_level = {
+			institution = institution_police
+			value >= 2
+		}
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	group = je_group_internal_affairs
@@ -34,31 +41,52 @@ je_scotland_yard = {
 		}
 	}
 
-	complete = {
-		institution_investment_level = {
-			institution = institution_police
-			value = 5
-		}
-		capital = {
-			turmoil < 0.2
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = scotland_yard.1 }
-		set_variable = has_scotland_yard_var
-	}
-
-	invalid = {
-		NOT = { has_law_or_variant = law_type:law_dedicated_police }
-	}
-
 	weight = 100
 
 	timeout = 7300
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			institution_investment_level = {
+				institution = institution_police
+				value = 5
+			}
+			capital = {
+				turmoil < 0.2
+			}
+		}
+		effect = {
+			trigger_event = { id = scotland_yard.1 }
+			set_variable = has_scotland_yard_var
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NOT = { has_law_or_variant = law_type:law_dedicated_police }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+	}
 }
 
 je_serial_killer = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
 	group = je_group_crises
@@ -131,27 +159,6 @@ je_serial_killer = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = serial_killer_je_tt
-			has_variable = serial_killer_caught
-		}
-	}
-
-	on_complete = {
-		scope:target = {
-			remove_modifier = serial_killer_state_mod
-			if = {
-				limit = {
-					has_modifier = modifier_public_worried
-				}
-				remove_modifier = modifier_public_worried
-			}
-		}
-		remove_modifier = serial_killer_active_investigation
-		remove_variable = ongoing_serial_killer_je
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
@@ -200,28 +207,58 @@ je_serial_killer = {
 			}
 		}
 	}
-	invalid = {
-		OR = {
-			NOT = { exists = scope:target }
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = serial_killer_je_tt
+				has_variable = serial_killer_caught
+			}
+		}
+		effect = {
 			scope:target = {
-				OR = {
-					NOT = { owner = ROOT }
-					NOT = { has_modifier = serial_killer_state_mod }
+				remove_modifier = serial_killer_state_mod
+				if = {
+					limit = {
+						has_modifier = modifier_public_worried
+					}
+					remove_modifier = modifier_public_worried
 				}
 			}
+			remove_modifier = serial_killer_active_investigation
+			remove_variable = ongoing_serial_killer_je
 		}
 	}
 
-	on_invalid = {
-		scope:target = {
-			remove_modifier = serial_killer_state_mod
-			if = {
-				limit = {
-					has_modifier = modifier_public_worried
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				NOT = { exists = scope:target }
+				scope:target = {
+					OR = {
+						NOT = { owner = ROOT }
+						NOT = { has_modifier = serial_killer_state_mod }
+					}
 				}
-				remove_modifier = modifier_public_worried
 			}
 		}
-		remove_modifier = serial_killer_active_investigation
+		effect = {
+			scope:target = {
+				remove_modifier = serial_killer_state_mod
+				if = {
+					limit = {
+						has_modifier = modifier_public_worried
+					}
+					remove_modifier = modifier_public_worried
+				}
+			}
+			remove_modifier = serial_killer_active_investigation
+		}
 	}
 }

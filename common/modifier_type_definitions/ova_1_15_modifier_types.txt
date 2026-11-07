@@ -1,0 +1,222 @@
+﻿country_overlord_law_enactment_success_add={
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+country_ship_type_early_troop_ship_construction_efficiency_add = {
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+
+
+country_war_support_casualties_mult={
+	decimals=1
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+state_lower_strata_birth_rate_mult={
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+country_war_support_battles_increase_mult={
+	decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+country_war_support_battles_decrease_mult={
+	decimals=1
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+# Native engine-cached and live-data modifier definitions, including unscripted uses.
+state_infrastructure_from_automobiles_consumption_add={
+	decimals=2
+	color=good
+	game_data={
+		ai_value=0
+	}
+}
+
+state_middle_strata_birth_rate_mult={
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+state_upper_strata_birth_rate_mult={
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+ship_battle_against_ship_type_early_ironclad_hull_damage_mult = {
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+ship_battle_against_ship_type_monitor_hull_damage_mult = {
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+ship_battle_against_ship_type_coastal_defense_ship_hull_damage_mult = {
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+country_flagship_interest_gain_mult = {
+	percent = yes
+	decimals = 0
+	color = good
+}
+
+building_group_bg_construction_machinists_mortality_mult={
+	decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+building_group_bg_oil_extraction_tax_mult={
+	decimals=1
+	color=neutral
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+building_group_bg_oil_extraction_mortality_mult={
+	decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+building_group_bg_oil_extraction_standard_of_living_add={
+	decimals=1
+	color=good
+	game_data={
+		ai_value=0
+	}
+}
+
+building_group_bg_oil_extraction_employee_mult={
+	decimals=1
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_oil_mult={
+	decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_output_automobiles_mult={
+	decimals=1
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+goods_input_oil_mult={
+	decimals=0
+	color=bad
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+unit_combat_unit_type_hussars_offense_mult={
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+unit_combat_unit_type_dragoons_offense_mult={
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+unit_combat_unit_type_cuirassiers_offense_mult={
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+unit_combat_unit_type_lancers_offense_mult={
+	decimals=0
+	color=good
+	percent=yes
+	game_data={
+		ai_value=0
+	}
+}

@@ -643,7 +643,9 @@ agitators_law_events.6 = {
 			save_scope_as = concerned_ig
 			leader = {
 				save_scope_as = concerned_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -669,6 +671,10 @@ agitators_law_events.6 = {
 				days = short_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:concerned_ig_leader }
 	}
 }
 
@@ -832,7 +838,9 @@ agitators_law_events.8 = {
 			save_scope_as = supporting_ig
 			leader = {
 				save_scope_as = supporting_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -919,6 +927,10 @@ agitators_law_events.8 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:supporting_ig_leader }
 	}
 }
 
@@ -1530,13 +1542,7 @@ agitators_law_events.14 = {
 			}
 		}
 		scope:supporting_agitator = {
-			if = {
-				limit = {
-					NOT = {
-						has_trait = grifter
-					}
-				}
-			}
+
 			add_trait = grifter
 		}
 	}
@@ -1949,7 +1955,9 @@ agitators_law_events.19 = {
 			save_scope_as = supporting_ig
 			leader = {
 				save_scope_as = supporting_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		random_scope_state = {
 			limit = {
@@ -2014,6 +2022,10 @@ agitators_law_events.19 = {
 				multiplier = 2
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:supporting_ig_leader }
 	}
 }
 
@@ -2516,7 +2528,9 @@ agitators_law_events.24 = {
 				}
 			}
 			save_scope_as = suspected_general_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -2539,6 +2553,10 @@ agitators_law_events.24 = {
 		add_enactment_modifier = {
 			name = modifier_prominent_general_support
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:suspected_general_scope }
 	}
 }
 

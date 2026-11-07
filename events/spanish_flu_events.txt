@@ -697,7 +697,7 @@ plague.8 = {
 					leader = {
 						OR = {
 							has_ideology = ideology:ideology_vanguardist
-							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_communist_leader
 							has_ideology = ideology:ideology_social_democrat
 						}
 					}
@@ -708,7 +708,7 @@ plague.8 = {
 					leader = {
 						OR = {
 							has_ideology = ideology:ideology_vanguardist
-							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_communist_leader
 							has_ideology = ideology:ideology_social_democrat
 						}
 					}
@@ -735,7 +735,7 @@ plague.8 = {
 					leader = {
 						OR = {
 							has_ideology = ideology:ideology_vanguardist
-							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_communist_leader
 							has_ideology = ideology:ideology_social_democrat
 							has_ideology = ideology:ideology_anarchist
 						}
@@ -747,7 +747,7 @@ plague.8 = {
 					leader = {
 						OR = {
 							has_ideology = ideology:ideology_vanguardist
-							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_communist_leader
 							has_ideology = ideology:ideology_social_democrat
 							has_ideology = ideology:ideology_anarchist
 						}
@@ -820,7 +820,9 @@ plague.9 = {
 			save_scope_as = anti_mask_ig
 			leader = {
 				save_scope_as = anti_mask_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -880,6 +882,10 @@ plague.9 = {
 				months = 12
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:anti_mask_ig_leader }
 	}
 }
 

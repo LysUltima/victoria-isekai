@@ -397,7 +397,7 @@ goldrush.5 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time } #applies to state
+	 #applies to state
 
 	event_image = {
 		video = "europenorthamerica_gold_prospectors"
@@ -452,6 +452,8 @@ goldrush.5 = {
 			days = long_modifier_time
 		}
 	}
+
+	fire_only_once = yes
 }
 
 goldrush.6 = { #hidden event that does the effects if the player chooses to always exploit or always extract

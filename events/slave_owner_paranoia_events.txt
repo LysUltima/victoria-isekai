@@ -256,7 +256,9 @@ slave_owner_paranoia_events.3 = {
 					has_ideology = ideology:ideology_abolitionist
 				}
 				save_scope_as = visiting_abolitionist_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -312,5 +314,9 @@ slave_owner_paranoia_events.3 = {
 				multiplier = -1
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:visiting_abolitionist_scope }
 	}
 }

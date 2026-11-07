@@ -131,7 +131,9 @@ ip4_coup.1 = {
 				save_scope_as = golpista_ig
 			}
 			character_get_and_save_coup_reason = yes
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		if = { # Exists in case 1
 			limit = {
 				exists = currently_enacting_law
@@ -177,7 +179,9 @@ ip4_coup.1 = {
 			ip4_coup_victory_effect = yes
 		}
 		remove_variable = coup_event_active
-	}
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:golpista_general }
+}
 }
 
 ip4_coup.11 = { # Foreign-Backed Coup
@@ -329,7 +333,9 @@ ip4_coup.2 = {
 			interest_group ?= {
 				save_scope_as = golpista_ig
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		scope:golpista_general ?= { # This looks worse than it really is.
 			if = {
 				limit = {
@@ -423,7 +429,7 @@ ip4_coup.2 = {
 			}
 		}
 		scope:golpista_ig ?= {
-            ordered_preferred_law = {
+			ordered_preferred_law = {
 				limit = {
 					law_is_available = yes
 					law_is_valid_for_ig_petition = yes
@@ -434,9 +440,9 @@ ip4_coup.2 = {
 					}
 				}
 				position = 0
-                check_range_bounds = no
-                save_scope_as = coup_desired_law
-            }
+				check_range_bounds = no
+				save_scope_as = coup_desired_law
+			}
 		}
 		random_political_lobby = {
 			limit = {
@@ -488,7 +494,7 @@ ip4_coup.2 = {
 					}
 				}
 				root.country_coup_resistance >= {
- 					value = scope:golpista_general.commander_coup_strength
+					value = scope:golpista_general.commander_coup_strength
 					multiply = 0.9
 				}
 			}
@@ -616,7 +622,9 @@ ip4_coup.2 = {
 
 	after = {
 		ip4_coup_cleanup_effects = yes
-	}
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:golpista_general }
+}
 }
 
 ip4_coup.3 = {
@@ -657,7 +665,9 @@ ip4_coup.3 = {
 				has_variable = golpista_var
 			}
 			save_scope_as = golpista_general
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		capital = {
 			save_scope_as = capital_scope
 		}
@@ -782,7 +792,9 @@ ip4_coup.3 = {
 	}
 	after = {
 		ip4_coup_cleanup_effects = yes
-	}
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:golpista_general }
+}
 }
 
 # For characters realising that they're getting marginalised
@@ -848,7 +860,9 @@ ip4_coup.4 = {
 			}
 			save_scope_as = golpista_general
 			set_variable = { name = ip4_coup_4_var days = short_modifier_time }
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		capital = {
 			save_scope_as = capital_scope
 		}
@@ -895,5 +909,9 @@ ip4_coup.4 = {
 			value = large_radicals
 		}
 		clear_generated_names = yes
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:golpista_general }
 	}
 }

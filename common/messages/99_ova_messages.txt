@@ -1,0 +1,358 @@
+﻿# Script-triggered conversion notifications. Native engine messages remain in 00_messages.txt.
+
+appointed_new_governor_notification = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+
+	group = "new_ruler_notification_group"
+
+	notification_type = toast
+}
+
+arranged_accident_failed = {
+	type = country
+	group = "assassination_attempt_notification_group"
+	texture = "gfx/interface/icons/notification_icons/influence_bad.dds"
+
+	notification_type = feed
+}
+
+arranged_accident_failed_incrimination = {
+	type = country
+	group = "assassination_attempt_notification_group"
+	texture = "gfx/interface/icons/notification_icons/influence_bad.dds"
+
+	notification_type = feed
+}
+
+colonial_claim_generated = {
+	type = country
+	group = "colonial_claim_notification_group"
+
+	texture = "gfx/interface/icons/notification_icons/colonial.dds"
+
+	notification_type = toast
+}
+
+colonial_governor_cycle = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/character.dds"
+
+	group = "new_ruler_notification_group"
+
+	notification_type = toast
+}
+
+failed_coup_in_country = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/military.dds"
+
+	notification_type = toast
+}
+
+failed_orchestrated_coup_in_country = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence_bad.dds"
+
+	notification_type = toast
+}
+
+first_flight = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+	notification_type = feed
+}
+
+fizzled_orchestrated_coup_in_country = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence_bad.dds"
+
+	notification_type = toast
+}
+
+generic_coffee_prestige = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+help_from_ig = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/interest.dds"
+	notification_type = toast
+}
+
+ig_leader_assassination = {
+	type = country
+	group = "assassination_attempt_notification_group"
+	texture = "gfx/interface/icons/notification_icons/death.dds"
+	notification_type = feed
+}
+
+ig_leader_assassination_failed = {
+	type = country
+	group = "assassination_attempt_notification_group"
+	texture = "gfx/interface/icons/notification_icons/character.dds"
+	notification_type = feed
+}
+
+imposition_deferred = {
+	type = country
+	group = "on_impose_law_notification_group"
+
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+
+	notification_type = toast
+}
+
+imposition_demand_sent = {
+	type = country
+	group = "on_impose_law_notification_group"
+
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+
+	notification_type = toast
+}
+
+imposition_started = {
+	type = country
+	group = "on_impose_law_notification_group"
+
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+
+	notification_type = toast
+}
+
+napoleon_iii_leaves_country = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/military.dds"
+	notification_type = feed
+	days = 28
+}
+
+neg_failed_quest_toast = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence_bad.dds"
+	notification_type = toast
+}
+
+neighbor_events_1 = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+
+	notification_type = feed
+}
+
+obligation_events_accepted = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+	notification_type = feed
+}
+
+obligation_events_rejected = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence_bad.dds"
+	notification_type = feed
+}
+
+prestige_goods_artillery_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_clothes_unlocked = {  # One would think one could create one notification for unlocking any prestige good. Were it so easy.
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_explosives_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_fertilizer_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_fish_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_furniture_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_grain_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_groceries_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_meat_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_merchant_marine_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_opium_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_paper_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_small_arms_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_steel_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prestige_goods_tools_unlocked = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/company.dds"
+
+	notification_type = toast
+}
+
+prisoner_out_of_jail = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/character.dds"
+
+	notification_type = toast
+}
+
+requested_new_governor_notification = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+
+	notification_type = toast
+}
+
+revolution_pulse1_events13agitator_killed = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+	notification_type = feed
+	days = 28
+}
+
+revolution_pulse1_events13agitator_not_killed = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence_bad.dds"
+	notification_type = feed
+	days = 28
+}
+
+revolution_pulse1_events14agitator_belatedly_killed = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/death.dds"
+	notification_type = feed
+	days = 28
+}
+
+revolution_pulse1_events14safehaven_very_angry = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/secession.dds"
+	notification_type = feed
+	days = 28
+}
+
+rival_comdemns_slavery = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/diplomatic_play.dds"
+	notification_type = feed
+}
+
+rival_supports_trade_unions = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/interest_group.dds"
+	notification_type = feed
+}
+
+slave_revolt_1 = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/revolution.dds"
+
+	notification_type = feed
+}
+
+slave_revolt_2 = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/revolution.dds"
+
+	notification_type = feed
+}
+
+successful_coup_in_country = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/military.dds"
+
+	notification_type = feed
+}
+
+successful_orchestrated_coup_in_country = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/influence.dds"
+
+	notification_type = toast
+}
+
+summoned_character_leaves_country = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/character.dds"
+	notification_type = feed
+	days = 28
+}
+
+violate_sovereignty_third_party_joins = {
+	type = country
+	texture = "gfx/interface/icons/notification_icons/diplomatic_play.dds"
+
+	notification_type = feed
+}

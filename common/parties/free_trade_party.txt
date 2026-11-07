@@ -195,7 +195,7 @@ free_trade_party = {
 			OR = {
 				py:free_trade_party ?= {
 					any_member = {}
-				}			
+				}
 				any_interest_group = {
 					ig_counts_as_marginal = no
 					OR = {
@@ -216,59 +216,7 @@ free_trade_party = {
 			value = -5
 			desc = "base_value"
 		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-					is_subject = yes
-					OR = {
-						has_modifier = modifier_india_crown_rule
-						has_modifier = modifier_india_company_rule
-						has_modifier = modifier_india_company_rule_upgraded
-					}
-				}
-				OR = {
-					is_interest_group_type = ig_industrialists
-					is_interest_group_type = ig_armed_forces
-				}
-			}
-			add = {
-				value = -100
-				desc = "india_colonial_government"
-			}
-		}
 
-		if = {
-			limit = {
-				owner = {
-					always = no
-					any_primary_culture = {
-						has_discrimination_trait = language_hispanophone
-					}
-				}
-			}
-			add = {
-				value = -10
-				desc = "south_america_two_party_system"
-			}
-		}
-
-		if = {
-			limit = {
-				owner = {
-					always = no
-					OR = {
-						country_has_primary_culture = cu:lysian
-						country_has_primary_culture = cu:farshore
-					}
-					has_law_or_variant = law_type:law_presidential_republic
-				}
-			}
-			add = {
-				value = -10
-				desc = "usa_two_party_system"
-			}
-		}
 		# Spain and Portugal have two parties at game start
 		if = {
 			limit = {

@@ -19,6 +19,8 @@ STATE_QIONGHUA = {
         building_logging_camp = 20
     }
     naval_exit_id = 3045
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_BIYING = {
@@ -40,6 +42,8 @@ STATE_BIYING = {
         building_logging_camp = 20
     }
     naval_exit_id = 3045
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_YUXU = {
@@ -63,6 +67,8 @@ STATE_YUXU = {
         building_logging_camp = 25
     }
     naval_exit_id = 3008
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # UND Underworld Sect
 STATE_YOUMING = {
@@ -84,6 +90,8 @@ STATE_YOUMING = {
         building_logging_camp = 22
     }
     naval_exit_id = 3008
+    max_cold_effect = 0.001
+    min_cold_effect = 0.001
 }
 # SUR Surging Waves
 STATE_FUHAI_NUTAO = {
@@ -104,6 +112,8 @@ STATE_FUHAI_NUTAO = {
         building_logging_camp = 25
     }
     naval_exit_id = 3045
+    max_cold_effect = 0.011
+    min_cold_effect = 0.001
 }
 # XIL Xila Wulada
 STATE_XILA_WULADA = {
@@ -126,6 +136,8 @@ STATE_XILA_WULADA = {
         building_logging_camp = 24
     }
     naval_exit_id = 3008
+    max_cold_effect = 0.002
+    min_cold_effect = 0.000
 }
 # PUL Pulao Wuya
 STATE_PULAO_WUYA = {
@@ -147,6 +159,8 @@ STATE_PULAO_WUYA = {
         building_logging_camp = 22
     }
     naval_exit_id = 3008
+    max_cold_effect = 0.014
+    min_cold_effect = 0.000
 }
 # HAD Hada Silu
 STATE_HADA_SILU = {
@@ -167,6 +181,8 @@ STATE_HADA_SILU = {
         building_logging_camp = 16
     }
     naval_exit_id = 3008
+    max_cold_effect = 0.001
+    min_cold_effect = 0.000
 }
 # LAN White Pearl Sect
 STATE_LANGGAN = {
@@ -187,6 +203,8 @@ STATE_LANGGAN = {
         building_logging_camp = 19
     }
     naval_exit_id = 3000
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # KUI Kuilei
 STATE_WULAI = {
@@ -207,6 +225,8 @@ STATE_WULAI = {
         building_logging_camp = 21
     }
     naval_exit_id = 3000
+    max_cold_effect = 0.001
+    min_cold_effect = 0.000
 }
 
 STATE_DUOLUOMAN = {
@@ -227,6 +247,8 @@ STATE_DUOLUOMAN = {
         building_logging_camp = 18
     }
     naval_exit_id = 3000
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # JAD Jade Sea Peoples
 STATE_JIAYING_PO = {
@@ -247,6 +269,8 @@ STATE_JIAYING_PO = {
         building_logging_camp = 22
     }
     naval_exit_id = 3045
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_WUJI_DINGYI = {
@@ -268,6 +292,8 @@ STATE_WUJI_DINGYI = {
         building_logging_camp = 28
     }
     naval_exit_id = 3045
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_GUALA_WULAO = {
@@ -288,6 +314,8 @@ STATE_GUALA_WULAO = {
         building_logging_camp = 18
     }
     naval_exit_id = 3045
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_DANA_WUSHA = {
@@ -306,6 +334,8 @@ STATE_DANA_WUSHA = {
     capped_resources = {
         building_logging_camp = 25
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_DANRONG_MASI = {
@@ -326,6 +356,8 @@ STATE_DANRONG_MASI = {
         building_logging_camp = 26
     }
     naval_exit_id = 3045
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_SHUANGXI_LIWU = {
@@ -348,6 +380,8 @@ STATE_SHUANGXI_LIWU = {
         building_logging_camp = 21
     }
     naval_exit_id = 3008
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_BADI_LU = {
@@ -368,6 +402,8 @@ STATE_BADI_LU = {
         building_logging_camp = 27
     }
     naval_exit_id = 3045
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_BULAO_JILABA = {
@@ -389,6 +425,8 @@ STATE_BULAO_JILABA = {
         building_logging_camp = 21
     }
     naval_exit_id = 3008
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_SILI_YALAN = {
@@ -410,6 +448,8 @@ STATE_SILI_YALAN = {
         building_logging_camp = 18
     }
     naval_exit_id = 3008
+    max_cold_effect = 0.002
+    min_cold_effect = 0.000
 }
 
 STATE_LAWU_BILU = {
@@ -430,6 +470,8 @@ STATE_LAWU_BILU = {
         building_logging_camp = 20
     }
     naval_exit_id = 3008
+    max_cold_effect = 0.003
+    min_cold_effect = 0.000
 }
 
 STATE_BULAO_KAJIANG = {
@@ -451,6 +493,8 @@ STATE_BULAO_KAJIANG = {
         building_logging_camp = 20
     }
     naval_exit_id = 3035
+    max_cold_effect = 0.008
+    min_cold_effect = 0.000
 }
 
 STATE_WULU_XIANDANG = {
@@ -472,6 +516,8 @@ STATE_WULU_XIANDANG = {
         building_logging_camp = 22
     }
     naval_exit_id = 3035
+    max_cold_effect = 0.003
+    min_cold_effect = 0.001
 }
 
 STATE_BULAO_JIALANG = {
@@ -492,4 +538,6 @@ STATE_BULAO_JIALANG = {
         building_logging_camp = 20
     }
     naval_exit_id = 3035
+    max_cold_effect = 0.001
+    min_cold_effect = 0.000
 }

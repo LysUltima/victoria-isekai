@@ -162,6 +162,30 @@
 			multiply = 0
 		}
 	}
+
+	become_subject_value = {
+		value = -100
+	}
+
+	diplomatic_play_support = {
+		value = 0
+
+		if = { # Enemies of our overlord
+			limit = {
+				scope:enemy_country = { root.overlord ?= this }
+			}
+			add = {
+				value = 50
+				desc = "AI_STRATEGY_SUPPORT_BREAK_FREE_ENEMY_OF_OVERLORD"
+			}
+		}
+	}
+
+	treaty_category_scores = {
+		military_defense = {
+			value = 5
+		}
+	}
 }
 
 ai_strategy_subject_strengthen_self = {
@@ -326,6 +350,34 @@ ai_strategy_subject_strengthen_self = {
 			multiply = 0.25
 		}
 	}
+
+	become_subject_value = {
+		value = -50
+	}
+
+	diplomatic_play_support = {
+		value = 0
+
+		if = { # More opportunistic
+			limit = {
+				scope:enemy_country = { root.overlord ?= this }
+			}
+			add = {
+				value = 20
+				desc = "AI_STRATEGY_SUPPORT_STRENGTHEN_SELF_OVERLORD_DISTRACTED"
+			}
+		}
+	}
+
+	treaty_category_scores = {
+		military_defense = {
+			value = 4
+		}
+
+		economy = {
+			value = 3
+		}
+	}
 }
 
 ai_strategy_subject_maintain_autonomy = {
@@ -427,6 +479,20 @@ ai_strategy_subject_maintain_autonomy = {
 		value = 100
 		subtract = liberty_desire
 	}
+
+	become_subject_value = {
+		value = -25
+	}
+
+	treaty_category_scores = {
+		military_defense = {
+			value = 3
+		}
+
+		expansion = {
+			value = -3
+		}
+	}
 }
 
 ai_strategy_subject_overlord_compliance = {
@@ -515,6 +581,34 @@ ai_strategy_subject_overlord_compliance = {
 				is_princely_state = yes
 			}
 			add = 10
+		}
+	}
+
+	become_subject_value = {
+		value = 50
+	}
+
+	diplomatic_play_support = {
+		value = 0
+
+		if = {
+			limit = {
+				scope:country = { root.overlord ?= this }
+			}
+			add = {
+				value = 25
+				desc = "AI_STRATEGY_SUPPORT_COMPLIANCE_FOLLOW_OVERLORD"
+			}
+		}
+	}
+
+	treaty_category_scores = {
+		military_defense = {
+			value = 3
+		}
+
+		power_bloc = {
+			value = 2
 		}
 	}
 }

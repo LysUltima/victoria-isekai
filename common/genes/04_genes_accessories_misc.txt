@@ -19,8 +19,8 @@
 
 
 
- 	props = {
- 		inheritable = no
+	props = {
+		inheritable = no
 
 		no_prop = {
 				index = 0
@@ -373,7 +373,7 @@
 			index = 33
 			male = {
 				1 = "prop_japanese_gunbai"
-				
+
 			}
 
 			female = {}
@@ -467,7 +467,7 @@
 #####################################
 
 	#ANB:
-	eye_L_accessory = {	
+	eye_L_accessory = {
 
 		inheritable = no
 		normal_eye = {
@@ -481,7 +481,7 @@
 
 	}
 
-	eye_R_accessory = {	
+	eye_R_accessory = {
 
 		inheritable = no
 		normal_eye = {
@@ -499,8 +499,8 @@
 
 		normal_eyelashes = {
 			index = 0
-			male = {	1 = "male_eyelashes"		}
-			female = {	1 = "female_eyelashes"	}
+			male = {}
+			female = {}
 			boy = male
 			girl = female
 		}
@@ -517,8 +517,8 @@
 
 
 
- 	teeth_accessory = {
- 		inheritable = no
+	teeth_accessory = {
+		inheritable = no
 
 		normal_teeth = {
 			index = 0

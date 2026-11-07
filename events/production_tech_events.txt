@@ -45,7 +45,7 @@ production_tech_events.102 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	placement = ROOT
 
@@ -83,61 +83,17 @@ production_tech_events.102 = {
 			days = normal_modifier_time
 		}
 	}
+
+	fire_only_once = yes
 }
 
-production_tech_events.103 = {
-	type = country_event
 
-	trigger = {
-		# removed: PMs 'pm_public_motor_carriages'/'pm_automobile_production' and building
-		# 'building_motor_industry' don't exist in this mod (automobiles industry rethemed)
-		always = no
-	}
-
-	event_image = {
-		video = "southamerica_factory_opening"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_industry.dds"
-
-	duration = 3
-
-	cooldown = { days = never_fire_again_modifier_time }
-
-	placement = ROOT
-
-	title = production_tech_events.103.t
-	desc = production_tech_events.103.d
-	flavor = production_tech_events.103.f
-
-	immediate = {
-	}
-
-	option = {
-		name = production_tech_events.103.a
-		default_option = yes
-		add_modifier = {
-			name = motor_industry_production_modifier
-			days = normal_modifier_time
-		}
-	}
-
-	option = {
-		name = production_tech_events.103.b
-		add_modifier = {
-			name = public_trasportation_modifier
-			days = normal_modifier_time
-		}
-	}
-}
 
 production_tech_events.301 = { #whaling
 	type = country_event
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 	placement = scope:whaling_state
 
 	event_image = {
@@ -199,7 +155,9 @@ production_tech_events.301 = { #whaling
 				character_is_valid_for_events = yes
 			}
 			save_scope_as = whaling_admiral_character
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = { #ensure the safety of the workers
@@ -228,6 +186,11 @@ production_tech_events.301 = { #whaling
 			}
 		}
 	}
+
+	fire_only_once = yes
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:whaling_admiral_character }
+	}
 }
 
 production_tech_events.402 = {
@@ -244,7 +207,7 @@ production_tech_events.402 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	title = production_tech_events.402.t
 	desc = production_tech_events.402.d
@@ -326,6 +289,8 @@ production_tech_events.402 = {
 		}
 		add_technology_progress = { progress = 4150 technology = shift_work }
 	}
+
+	fire_only_once = yes
 }
 
 # ALL ABOARD THE RAILROAD TECHS
@@ -342,7 +307,7 @@ production_tech_events.501 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	placement = scope:railway_state
 
@@ -383,9 +348,9 @@ production_tech_events.501 = {
 				}
 				percent > 0.2
 				OR = {
-				    has_active_production_method = pm_rail_transport_mine
-				    has_active_production_method = pm_rail_transport_building_logging_camp
-                }
+					has_active_production_method = pm_rail_transport_mine
+					has_active_production_method = pm_rail_transport_building_logging_camp
+				}
 				occupancy >= 0.75
 			}
 		}
@@ -481,6 +446,8 @@ production_tech_events.501 = {
 		}
 		add_technology_progress = { progress = 4150 technology = core_railway_cars }
 	}
+
+	fire_only_once = yes
 }
 
 production_tech_events.600 = {
@@ -515,7 +482,7 @@ production_tech_events.600 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 	placement = root
 
 	title = production_tech_events.600.t
@@ -541,6 +508,8 @@ production_tech_events.600 = {
 			days = normal_modifier_time
 		}
 	}
+
+	fire_only_once = yes
 }
 
 production_tech_events.601 = {
@@ -575,7 +544,7 @@ production_tech_events.601 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	immediate = {
 		random_scope_state = {
@@ -616,10 +585,12 @@ production_tech_events.601 = {
 		name = production_tech_events.601.c
 		trigger = {
 			NOT = { has_technology_researched = mana_conduit_boilers }
-            has_technology_researched = merchant_airships
+			has_technology_researched = merchant_airships
 		}
 		add_technology_progress = { progress = 3500 technology = mana_conduit_boilers }
 	}
+
+	fire_only_once = yes
 }
 
 # Steam Engines
@@ -668,7 +639,7 @@ production_tech_events.700 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	immediate = {
 		random_scope_state = {
@@ -738,4 +709,6 @@ production_tech_events.700 = {
 		}
 		add_technology_progress = { progress = 4150 technology = core_railway_cars }
 	}
+
+	fire_only_once = yes
 }

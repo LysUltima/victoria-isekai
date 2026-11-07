@@ -1,9 +1,9 @@
 ﻿treaty_port = {
-    kind = directed
-    cost = 50
+	kind = directed
+	cost = 50
 
-    relations_progress_per_day = -0.5
-    relations_improvement_min = 0
+	relations_progress_per_day = -0.5
+	relations_improvement_min = 0
 
 	max_target_involvement = 3000
 	target_involvement_applies_to = source_country
@@ -22,13 +22,13 @@
 
 	maintenance_paid_by = target_country
 
-    required_inputs = {
-        state
-    }
+	required_inputs = {
+		state
+	}
 
-    unlocked_by_technologies = {
-        colonization
-    }
+	unlocked_by_technologies = {
+		colonization
+	}
 
 	visible = {
 		is_revolutionary = no
@@ -117,11 +117,11 @@
 		}
 	}
 
-    can_ratify = {
-        scope:source_country = {
+	can_ratify = {
+		scope:source_country = {
 			country_rank <= scope:target_country.country_rank
-        }
-    }
+		}
+	}
 
 	can_withdraw = {
 		trigger_if = {
@@ -154,7 +154,7 @@
 		}
 	}
 
-    on_entry_into_force = {
+	on_entry_into_force = {
 		scope:article_options = {
 			target_country = {
 				save_scope_as = state_taker
@@ -193,7 +193,6 @@
 				}
 			}
 		}
-
 
 		scope:state_giver ?= {
 			if = {
@@ -270,8 +269,8 @@
 		}
 
 		article_ai_usage = {
-            request
-        }
+			request
+		}
 
 		inherent_accept_score = {
 			value = 0
@@ -334,18 +333,6 @@
 						}
 					}
 
-					if = {
-						limit = {
-							always = no # vanilla ref 'c:JAP' not present in this mod
-							scope:source_country ?= {
-								always = no # vanilla ref 'je_meiji_imperial_marriage' not present in this mod
-							}
-						}
-						add = {
-							desc = "0"
-							value = -500
-						}
-					}
 				}
 				else = {
 					if = {
@@ -381,19 +368,7 @@
 			value = 1
 
 			# Britain should go for Hong Kong when starting Opium Wars play against Qing
-			if = {
-				limit = {
-					always = no # vanilla ref 'je_opium_wars' not present in this mod
-					NOT = { is_diplomatic_play_enemy_of = scope:source_country }
-					scope:source_country = {
-						always = no
-					}
-					scope:article.input_state = {
-						always = no # vanilla ref 's:STATE_SHAOZHOU' not present in this mod
-					}
-				}
-				add = 100
-			}
+
 		}
 	}
 
@@ -415,7 +390,7 @@
 					value = total_population
 					divide = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_FACTOR
 					multiply = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER
-                    max = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER_MAX_PER_STATE
+					max = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER_MAX_PER_STATE
 				}
 			}
 		}

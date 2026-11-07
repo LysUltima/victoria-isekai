@@ -38,7 +38,9 @@ liberalism.1 = {
 			}
 			leader = {
 				save_scope_as = liberal_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -178,6 +180,10 @@ liberalism.1 = {
 				type = je_liberalism_3
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:liberal_leader }
 	}
 }
 

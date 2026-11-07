@@ -21,9 +21,7 @@ female_eye_R = {
 	entity = { required_tags = ""  					shared_pose_entity = head entity = female_eye_R_human_entity }
 }
 
-female_eyelashes = {
-	entity = { entity = "female_eyelashes_entity"		shared_pose_entity = head }
-}
+
 female_teeth = {
 	entity = { entity = "female_teeth_entity"		shared_pose_entity = head }
 }
@@ -52,10 +50,7 @@ male_eye_R = {
 	entity = { required_tags = ""  					shared_pose_entity = head entity = male_eye_R_human_entity }
 }
 
-male_eyelashes = {
-	entity = { entity = "male_eyelashes_entity"		shared_pose_entity = head }
-}
+
 male_teeth = {
 	entity = { entity = "male_teeth_entity"		shared_pose_entity = head }
 }
-

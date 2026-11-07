@@ -174,20 +174,8 @@ conservative_party = {
 					always = no
 				}
 			}
-			triggered_desc = {
-				desc = party_resistance_party
-				trigger = {
-					always = no
-					has_variable = orleanist_restoration_var
-				}
-			}
-			triggered_desc = {
-				desc = party_party_of_order
-				trigger = {
-					always = no
-					NOT = { has_variable = orleanist_restoration_var }
-				}
-			}
+			
+			
 			triggered_desc = {
 				desc = party_moderate_party
 				trigger = {
@@ -486,7 +474,7 @@ always = no
 			OR = {
 				py:conservative_party ?= {
 					any_member = {}
-				}			
+				}
 				ig:ig_landowners ?= {
 					ig_counts_as_marginal = no
 				}
@@ -509,32 +497,12 @@ always = no
 			value = -5
 			desc = "base_value"
 		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-					is_subject = yes
-					OR = {
-						has_modifier = modifier_india_crown_rule
-						has_modifier = modifier_india_company_rule
-						has_modifier = modifier_india_company_rule_upgraded
-					}
-				}
-				OR = {
-					is_interest_group_type = ig_industrialists
-					is_interest_group_type = ig_armed_forces
-				}
-			}
-			add = {
-				value = -100
-				desc = "india_colonial_government"
-			}
-		}
+
 		if = { # socialists and radicals won't join conservative parties
 			limit = {
 				leader ?= {
 					OR = {
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_vanguardist
 						has_ideology = ideology:ideology_anarchist
 						has_ideology = ideology:ideology_social_democrat
@@ -899,36 +867,6 @@ always = no
 			}
 		}
 		# Austria
-		if = { # Austrian Devout want to be part of the CSU
-			limit = {
-				always = no
-				is_interest_group_type = ig_devout
-				NOR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
-					interest_group_has_socialist_ideology = yes
-				}
-			}
-			add = {
-				value = 5
-				desc = "from_austrian_devout"
-			}
-		}
-		if = { # Corporatism
-			limit = {
-				OR = {
-					has_ideology = ideology:ideology_corporatist
-					leader ?= {
-						has_ideology = ideology:ideology_corporatist_leader
-					}
-				}
-				always = no
-			}
-			add = {
-				value = 10
-				desc = "from_corporatism"
-			}
-		}
 
 		# His Highness Marshal Baldomero Espartero, Viceroy of Navarre, Prince of Vergara, Duke of la Victoria, Duke of Morella, Count of Luchana, and Viscount of Banderas will never, ever join the Moderate Party.
 		if = {
@@ -955,33 +893,7 @@ always = no
 		}
 
 		# Special weights for ACW
-		if = {
-			limit = {
-				owner = {
-					OR = {
-						always = no
-						AND = { # JE not active yet at initialization
-							always = no
-							year < 1837
-						}
-					}
-				}
-			}
-			if = {
-				limit = { leader ?= { has_ideology = ideology:ideology_slaver } }
-				add = {
-					value = 100
-					desc = "from_slaver_leader"
-				}
-			}
-			else_if = {
-				limit = { leader ?= { has_ideology = ideology:ideology_abolitionist } }
-				add = {
-					value = -100
-					desc = "from_abolitionist_leader"
-				}
-			}
-		}
+
 		if = { # Carlists and Miguelists were against participating in electoral politics for a good while
 			limit = {
 				NOT = { owner = { has_technology_researched = corporatism } }
@@ -1115,28 +1027,7 @@ always = no
 				desc = "from_french_monarchist_rival"
 			}
 		}
-		if = {
-			limit = {
-				is_interest_group_type = ig_armed_forces
-				leader ?= {
-					NOR = {
-						has_ideology = ideology:ideology_liberal_leader
-						has_ideology = ideology:ideology_republican_leader
-						has_ideology = ideology:ideology_radical
-						has_ideology = ideology:ideology_communist
-						has_ideology = ideology:ideology_vanguardist
-					}
-				}
-				owner = {
-					always = no
-					has_law = law_type:law_monarchy
-				}
-			}
-			add = {
-				value = 10
-				desc = "from_monarchist_leanings"
-			}
-		}
+
 		if = {
 			limit = {
 				leader ?= {
@@ -1148,39 +1039,7 @@ always = no
 				desc = "from_jacksonian_democrat"
 			}
 		}
-		if = { # Brazil
-			limit = {
-				is_interest_group_type = ig_landowners
-				owner = {
-					OR = {
-						always = no
-						always = no
-					}
-				}
-			}
-			add = {
-				value = 10
-				desc = "from_milk_coffee"
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-					any_primary_culture = {
-						has_discrimination_trait = language_hispanophone
-					}
-				}
-				OR = {
-					is_interest_group_type = ig_landowners
-					is_interest_group_type = ig_devout
-				}
-			}
-			add = {
-				value = 10
-				desc = "south_america_two_party_system"
-			}
-		}
+
 		if = {
 			limit = {
 				leader ?= {
@@ -1249,17 +1108,6 @@ always = no
 				desc = "from_jacksonian_democrat"
 			}
 		}
-		if = { # Also Brazil
-			limit = {
-				is_interest_group_type = ig_petty_bourgeoisie
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = -1000
-				desc = "from_populist_discontent"
-			}
-		}
+
 	}
 }

@@ -168,19 +168,6 @@ law_per_capita_based_taxation = {
 			add = 1000
 		}
 
-		if = {
-			limit = {
-				OR = {
-					always = no
-					always = no
-					always = no
-					always = no
-					always = no
-				}
-				has_law_or_variant = law_type:law_land_based_taxation
-			}
-			add = 5000
-		}
 	}
 }
 
@@ -237,19 +224,6 @@ law_proportional_taxation = {
 			add = 750
 		}
 
-		if = {
-			limit = {
-				OR = {
-					always = no
-					always = no
-					always = no
-					always = no
-					always = no
-				}
-				has_law_or_variant = law_type:law_land_based_taxation
-			}
-			add = 5000
-		}
 	}
 }
 

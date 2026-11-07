@@ -1,58 +1,58 @@
 ﻿amend_succession = {
-    kind = directed
-    cost = 25
+	kind = directed
+	cost = 25
 
 	relations_progress_per_day = 0.5
 	relations_improvement_max = 25
 
 	icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/law_commitment_treaties.dds"
 
-    flags = {
+	flags = {
 		can_be_renegotiated
-        can_be_enforced
-    }
+		can_be_enforced
+	}
 
 	usage_limit = once_per_side
 
 	maintenance_paid_by = target_country
 
 	visible = {
-        has_dlc_feature = ip4_content
+		has_dlc_feature = ip4_content
 		# removed effect line: vanilla ref 'c:BRZ' not present in this mod
-        scope:other_country = {
-            # removed effect line: vanilla ref 'c:POR' not present in this mod
-        	# removed effect line: vanilla ref 'je_portugal_united_kingdom' not present in this mod
+		scope:other_country = {
+			# removed effect line: vanilla ref 'c:POR' not present in this mod
+			# removed effect line: vanilla ref 'je_portugal_united_kingdom' not present in this mod
 		}
 		is_revolutionary = no
 	}
 
-    possible = {
-        has_law = law_type:law_monarchy # Brazil must be a monarchy and not have Regency
+	possible = {
+		has_law = law_type:law_monarchy # Brazil must be a monarchy and not have Regency
 		NOT = {
 			has_gov_regency = yes
 		}
-        scope:other_country = {
-            # removed effect line: vanilla ref 'c:POR' not present in this mod
-            has_law = law_type:law_monarchy
+		scope:other_country = {
+			# removed effect line: vanilla ref 'c:POR' not present in this mod
+			has_law = law_type:law_monarchy
 		}
 	}
 
 	requirement_to_maintain = {
 		trigger = {
 			scope:target_country ?= {
-                always = no # vanilla ref 'je_portugal_united_kingdom' not present in this mod
-                has_law = law_type:law_monarchy
-            }
+				always = no # vanilla ref 'je_portugal_united_kingdom' not present in this mod
+				has_law = law_type:law_monarchy
+			}
 			scope:source_country ?= { has_law = law_type:law_monarchy }
 		}
 	}
 
-    can_ratify = {
-        scope:target_country = {
-            has_law = law_type:law_monarchy
-        }
-        custom_tooltip = {
-            text = DUPLICATE_ARTICLE_SAME_INPUTS_TREATY
+	can_ratify = {
+		scope:target_country = {
+			has_law = law_type:law_monarchy
+		}
+		custom_tooltip = {
+			text = DUPLICATE_ARTICLE_SAME_INPUTS_TREATY
 			NOT = {
 				scope:source_country = {
 					any_scope_treaty = {
@@ -71,15 +71,15 @@
 					}
 				}
 			}
-        }
-    }
+		}
+	}
 
-    on_entry_into_force = {
+	on_entry_into_force = {
 		# removed effect block: vanilla ref 'c:POR' not present in this mod
 	}
 
 	on_withdrawal = {
-    }
+	}
 	on_break = {
 		scope:withdrawing_country = {
 			change_relations = { country = scope:non_withdrawing_country value = -10 }
@@ -87,7 +87,7 @@
 	}
 
 	ai = {
-        treaty_categories = {
+		treaty_categories = {
 			ideology
 		}
 
@@ -101,8 +101,8 @@
 		}
 
 		article_ai_usage = {
-            request
-        }
+			request
+		}
 
 		inherent_accept_score = {
 			value = 0
@@ -218,7 +218,7 @@
 					value = total_population
 					divide = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_FACTOR
 					multiply = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER
-                    max = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL
+					max = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL
 				}
 			}
 		}
@@ -231,7 +231,6 @@
 					value = total_population
 					divide = define:NDiplomacy|WAR_GOAL_INFAMY_POPULATION_SCALING_FACTOR
 					multiply = define:NDiplomacy|WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER
-                    max = define:NDiplomacy|WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL
 				}
 			}
 		}

@@ -64,7 +64,6 @@ tech_monthly_events = {
 		10 = war_crimes.1
 		10 = war_crimes.2
 		10 = production_tech_events.102
-		10 = production_tech_events.103
 		10 = production_tech_events.301
 		10 = production_tech_events.402
 		10 = production_tech_events.501

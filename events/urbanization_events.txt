@@ -153,6 +153,8 @@ urbanization_events.2 = {
 			}
 		}
 	}
+
+	fire_only_once = yes
 }
 
 # Other IGs aren't happy that you're favouring the Industrialists

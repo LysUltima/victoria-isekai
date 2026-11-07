@@ -60,9 +60,9 @@ ova_champion_create = {
 			# champion now starts at 0 renown.
 			save_scope_as = ova_new_champion
 			add_trait = trait_champion
-            add_career_length = {
-                years = 100
-            }
+			add_career_length = {
+				years = 100
+			}
 			owner = {
 				set_variable = { name = ova_champion_char value = scope:ova_new_champion }
 				set_variable = { name = ova_champion_level value = $LEVEL$ }
@@ -92,9 +92,9 @@ ova_champion_create_from_template = {
 		on_created = {
 			save_scope_as = ova_new_champion
 			add_trait = trait_champion
-            add_career_length = {
-                years = 100
-            }
+			add_career_length = {
+				years = 100
+			}
 			owner = {
 				set_variable = { name = ova_champion_char value = scope:ova_new_champion }
 				set_variable = { name = ova_champion_level value = $LEVEL$ }
@@ -129,9 +129,9 @@ ova_champion_create_named_by_culture = {
 			# champion needs must happen here, not after create_character.
 			save_scope_as = ova_new_champion
 			add_trait = trait_champion
-            add_career_length = {
-                years = 100
-            }
+			add_career_length = {
+				years = 100
+			}
 			owner = {
 				set_variable = { name = ova_champion_char value = scope:ova_new_champion }
 				set_variable = { name = ova_champion_level value = $LEVEL$ }
@@ -183,9 +183,9 @@ ova_champion_create_local_gendered = {
 		female = $FEMALE$
 		on_created = {
 			save_scope_as = ova_champion_candidate
-            add_career_length = {
-                years = 100
-            }
+			add_career_length = {
+				years = 100
+			}
 			owner = {
 				# a rare local prodigy already carries a cultivation realm, which
 				# the adopt effect below reads to set their starting Level (Qi
@@ -317,10 +317,10 @@ ova_champion_add_xp = {
 			exists = var:ova_champion_char
 			var:ova_champion_level < 60
 		}
-        set_local_variable = {
-            name = added_xp
-            value = $AMOUNT$
-        }
+		set_local_variable = {
+			name = added_xp
+			value = $AMOUNT$
+		}
 		# Otherworldly Heroes (trait_otherworlder) gain DOUBLE experience from
 		# every source - this entry point is the single funnel for all XP, so
 		# doubling here covers both the monthly tick and every event/effect.
@@ -352,22 +352,18 @@ ova_champion_add_xp = {
 		}
 		ova_champion_sync_traits = yes
 		ova_champion_sync_bars = yes
-        # get rid of variable unused error (only used in localization)
-        if = {
-            limit = {
-                has_variable = added_xp
-            }
-        }
+		# get rid of variable unused error (only used in localization)
+
 	}
 }
 
 # DIRECT level jumps (bypasses XP - storyline realm rewards). The XP counter
 # resets: a fresh level starts empty. Usage: ova_champion_gain_levels = { LEVELS = 2 }
 ova_champion_gain_levels = {
-    set_local_variable = {
-        name = added_levels
-        value = $LEVELS$
-    }
+	set_local_variable = {
+		name = added_levels
+		value = $LEVELS$
+	}
 	change_variable = { name = ova_champion_level add = $LEVELS$ }
 	if = {
 		limit = { var:ova_champion_level > 60 }
@@ -378,12 +374,8 @@ ova_champion_gain_levels = {
 	ova_champion_sync_traits = yes
 	ova_champion_sync_bars = yes
 	custom_tooltip = ova_champion_gain_levels_tt
-    # get rid of variable unused error (only used in localization)
-    if = {
-        limit = {
-            has_variable = added_levels
-        }
-    }
+	# get rid of variable unused error (only used in localization)
+
 }
 
 # Renown POINT change (may be negative). Points fill the renown bar; each
@@ -393,10 +385,10 @@ ova_champion_gain_levels = {
 ova_champion_add_popularity = {
 	if = {
 		limit = { exists = var:ova_champion_char }
-        set_local_variable = {
-            name = added_renown
-            value = $AMOUNT$
-        }
+		set_local_variable = {
+			name = added_renown
+			value = $AMOUNT$
+		}
 		# Otherworldly Heroes (trait_otherworlder) earn DOUBLE renown from every
 		# source - this entry point is the single funnel for all renown, so
 		# doubling here covers both the monthly tick and every event/effect.
@@ -441,12 +433,8 @@ ova_champion_add_popularity = {
 			set_variable = { name = ova_champion_renown_points value = 0 }
 		}
 		ova_champion_sync_bars = yes
-        # get rid of variable unused error (only used in localization)
-        if = {
-            limit = {
-                has_variable = added_renown
-            }
-        }
+		# get rid of variable unused error (only used in localization)
+
 	}
 }
 
@@ -463,11 +451,7 @@ ova_champion_injure = {
 	set_variable = { name = ova_champion_injured_months value = $MONTHS$ }
 	custom_tooltip = ova_champion_injure_tt
 	# get rid of variable unused error (only used in localization)
-	if = {
-		limit = {
-			has_local_variable = injured_months
-		}
-	}
+
 }
 
 ova_champion_heal = {
@@ -514,7 +498,7 @@ ova_champion_cleanup = {
 	remove_variable = ova_adventure_cooldown
 	remove_variable = ova_expedition_return
 	remove_variable = ova_pending_otherworlder
-    remove_variable = ova_hero_academy_graduated
+	remove_variable = ova_hero_academy_graduated
 	remove_variable = ova_academy_term
 	# the two upkeep programs (modifiers) end with the champion
 	if = {

@@ -44,8 +44,8 @@ free_speech_laws.1 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 	}
 
 	cancellation_trigger = {
@@ -139,9 +139,9 @@ free_speech_laws.2 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
-    	random_interest_group = {
+			save_scope_as = current_law_scope
+		}
+		random_interest_group = {
 			limit = {
 				ig_counts_as_marginal = no
 				law_stance = {
@@ -150,7 +150,7 @@ free_speech_laws.2 = {
 				}
 			}
 			save_scope_as = book_burning_ig
-    	}
+		}
 	}
 
 	cancellation_trigger = {
@@ -222,9 +222,9 @@ free_speech_laws.3 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
-    	random_interest_group = {
+			save_scope_as = current_law_scope
+		}
+		random_interest_group = {
 			limit = {
 				ig_counts_as_marginal = no
 				law_stance = {
@@ -233,7 +233,7 @@ free_speech_laws.3 = {
 				}
 			}
 			save_scope_as = book_burning_ig
-    	}
+		}
 	}
 
 	cancellation_trigger = {
@@ -311,9 +311,9 @@ free_speech_laws.4 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
-    	random_interest_group = {
+			save_scope_as = current_law_scope
+		}
+		random_interest_group = {
 			limit = {
 				ig_counts_as_marginal = no
 				law_stance = {
@@ -322,7 +322,7 @@ free_speech_laws.4 = {
 				}
 			}
 			save_scope_as = free_speech_ig
-    	}
+		}
 	}
 
 	cancellation_trigger = {
@@ -407,11 +407,13 @@ free_speech_laws.5 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
-    	ruler = {
-			save_scope_as = ruler_scope
+			save_scope_as = current_law_scope
 		}
+		ruler = {
+			save_scope_as = ruler_scope
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_neighbouring_state = {
 			limit = { NOT = { owner = ROOT } }
 			owner = {
@@ -437,6 +439,10 @@ free_speech_laws.5 = {
 		add_enactment_modifier = {
 			name = free_speech_lewd_book_fail
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:ruler_scope }
 	}
 }
 
@@ -494,9 +500,9 @@ free_speech_laws.6 = { #Insulting drawing
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
-    	random_interest_group = {
+			save_scope_as = current_law_scope
+		}
+		random_interest_group = {
 			limit = {
 				ig_counts_as_marginal = no
 				law_stance = {
@@ -505,13 +511,15 @@ free_speech_laws.6 = { #Insulting drawing
 				}
 			}
 			save_scope_as = free_speech_ig
-    	}
-    	scope:free_speech_ig = {
-    		leader = {
-    			save_scope_as = ig_leader_scope
-    		}
-    	}
-    	ruler = {
+		}
+		scope:free_speech_ig = {
+			leader = {
+				save_scope_as = ig_leader_scope
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
+		}
+		ruler = {
 			save_scope_as = ruler_scope
 		}
 	}
@@ -539,5 +547,9 @@ free_speech_laws.6 = { #Insulting drawing
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:ig_leader_scope }
 	}
 }

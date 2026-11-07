@@ -452,7 +452,9 @@ oil_rush.5 = {
 			}
 			leader = {
 				save_scope_as = bribed_politician
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -461,7 +463,9 @@ oil_rush.5 = {
 		name = oil_rush.5.a
 		hidden_effect = {
 			scope:bribed_politician = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:bribed_politician }
+retire_character = yes
 			}
 		}
 		custom_tooltip = oil_rush.5.tt
@@ -478,7 +482,9 @@ oil_rush.5 = {
 		name = oil_rush.5.b
 		hidden_effect = {
 			scope:bribed_politician = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:bribed_politician }
+retire_character = yes
 			}
 		}
 		custom_tooltip = oil_rush.5.tt
@@ -525,6 +531,10 @@ oil_rush.5 = {
 		NOT = {
 			exists = scope:oil_state
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:bribed_politician }
 	}
 }
 

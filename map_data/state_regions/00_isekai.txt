@@ -17,6 +17,8 @@ STATE_IMPERIAL_CAPITAL = {
         building_coal_mine = 130
     }
     naval_exit_id = 3031
+    max_cold_effect = 0.371
+    min_cold_effect = 0.000
 }
 
 STATE_VERCESTIA = {
@@ -35,6 +37,8 @@ STATE_VERCESTIA = {
         building_logging_camp = 21
     }
     naval_exit_id = 3031
+    max_cold_effect = 0.415
+    min_cold_effect = 0.000
 }
 
 STATE_SWORDS_MOUTH = {
@@ -55,6 +59,8 @@ STATE_SWORDS_MOUTH = {
         building_logging_camp = 7
     }
     naval_exit_id = 3042
+    max_cold_effect = 0.227
+    min_cold_effect = 0.001
 }
 
 STATE_DWARVEN_HINTERLANDS = {
@@ -75,6 +81,8 @@ STATE_DWARVEN_HINTERLANDS = {
         building_logging_camp = 12
         building_spirit_beast_hunting = 21
     }
+    max_cold_effect = 0.338
+    min_cold_effect = 0.004
 }
 
 STATE_ACLEY = {
@@ -95,6 +103,8 @@ STATE_ACLEY = {
         building_coal_mine = 94
         building_spirit_beast_hunting = 8
     }
+    max_cold_effect = 0.383
+    min_cold_effect = 0.000
 }
 
 STATE_FENISTON = {
@@ -113,6 +123,8 @@ STATE_FENISTON = {
         building_logging_camp = 19
     }
     naval_exit_id = 3042
+    max_cold_effect = 0.303
+    min_cold_effect = 0.000
 }
 
 STATE_BLITT = {
@@ -132,6 +144,8 @@ STATE_BLITT = {
         building_logging_camp = 12
         building_sulfur_mine = 149
     }
+    max_cold_effect = 0.429
+    min_cold_effect = 0.001
 }
 
 STATE_SEYLAND = {
@@ -150,6 +164,8 @@ STATE_SEYLAND = {
         building_logging_camp = 18
     }
     naval_exit_id = 3031
+    max_cold_effect = 0.452
+    min_cold_effect = 0.000
 }
 
 STATE_CEPHISPORT = {
@@ -168,6 +184,8 @@ STATE_CEPHISPORT = {
         building_logging_camp = 25
     }
     naval_exit_id = 3031
+    max_cold_effect = 0.428
+    min_cold_effect = 0.000
 }
 
 STATE_BLADEWASTE = {
@@ -176,7 +194,7 @@ STATE_BLADEWASTE = {
     provinces = { "x983100" "x9C2C05" "xA0320D" "xA04A01" "xA04E00" "xA33611" "xA65100" "xAA3301" "xAB5100" "xAD3600" "xB33510" "xB52E06" "xB63E00" "xB93100" "xBA4400" "xBA4C00" "xBA4D12" }
     traits = { "state_trait_mountain_range" "state_trait_severe_malaria" }
     city = "x9C2C05"
-    port = "xBA4C00"
+    port = "xA04E00"
     farm = "xA33611"
     mine = "xB93100"
     wood = "xAA3301"
@@ -188,6 +206,8 @@ STATE_BLADEWASTE = {
         building_logging_camp = 7
     }
     naval_exit_id = 3042
+    max_cold_effect = 0.203
+    min_cold_effect = 0.001
 }
 
 STATE_GARLEHOLD = {
@@ -206,6 +226,8 @@ STATE_GARLEHOLD = {
         building_logging_camp = 15
     }
     naval_exit_id = 3042
+    max_cold_effect = 0.234
+    min_cold_effect = 0.000
 }
 
 STATE_CONNELAND = {
@@ -224,6 +246,8 @@ STATE_CONNELAND = {
         building_logging_camp = 23
     }
     naval_exit_id = 3042
+    max_cold_effect = 0.243
+    min_cold_effect = 0.000
 }
 # ACA Saint Christine Academy
 STATE_ACADEMY_DISTRICT = {
@@ -242,6 +266,8 @@ STATE_ACADEMY_DISTRICT = {
         building_logging_camp = 20
     }
     naval_exit_id = 3031
+    max_cold_effect = 0.498
+    min_cold_effect = 0.002
 }
 # VAL Valestria
 STATE_VALESTINE = {
@@ -259,6 +285,8 @@ STATE_VALESTINE = {
         building_logging_camp = 36
         building_coal_mine = 97
     }
+    max_cold_effect = 0.361
+    min_cold_effect = 0.000
 }
 
 STATE_TREST = {
@@ -275,6 +303,8 @@ STATE_TREST = {
         building_logging_camp = 45
         building_spirit_beast_hunting = 12
     }
+    max_cold_effect = 0.339
+    min_cold_effect = 0.009
 }
 
 STATE_DRAKE_MOUNTAIN = {
@@ -297,6 +327,8 @@ STATE_DRAKE_MOUNTAIN = {
         building_logging_camp = 18
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.391
+    min_cold_effect = 0.000
 }
 
 STATE_HAVENSTRY = {
@@ -314,6 +346,8 @@ STATE_HAVENSTRY = {
         building_coal_mine = 98
         building_logging_camp = 34
     }
+    max_cold_effect = 0.382
+    min_cold_effect = 0.000
 }
 
 STATE_LORRLAND = {
@@ -333,6 +367,8 @@ STATE_LORRLAND = {
         building_logging_camp = 16
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.415
+    min_cold_effect = 0.000
 }
 # EST Estria
 STATE_ESTLAND = {
@@ -352,6 +388,8 @@ STATE_ESTLAND = {
         building_logging_camp = 17
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.364
+    min_cold_effect = 0.000
 }
 
 STATE_MAYPORT = {
@@ -370,6 +408,8 @@ STATE_MAYPORT = {
         building_logging_camp = 11
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.329
+    min_cold_effect = 0.003
 }
 
 STATE_DREAMING_ISLANDS = {
@@ -390,6 +430,8 @@ STATE_DREAMING_ISLANDS = {
         building_logging_camp = 7
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.369
+    min_cold_effect = 0.000
 }
 # LUX Lux Aeterna
 STATE_INSULA_LUCE = {
@@ -423,6 +465,8 @@ STATE_INSULA_LUCE = {
         undiscovered_amount = 19
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.435
+    min_cold_effect = 0.025
 }
 
 STATE_GRACE = {
@@ -441,6 +485,8 @@ STATE_GRACE = {
         building_logging_camp = 15
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.379
+    min_cold_effect = 0.000
 }
 # NIS Nisenie
 STATE_VYELLE = {
@@ -459,6 +505,8 @@ STATE_VYELLE = {
         building_logging_camp = 13
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.431
+    min_cold_effect = 0.000
 }
 
 STATE_REANNE = {
@@ -480,6 +528,8 @@ STATE_REANNE = {
         building_lead_mine = 57
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.474
+    min_cold_effect = 0.000
 }
 
 STATE_CHOUX = {
@@ -499,6 +549,8 @@ STATE_CHOUX = {
         building_iron_mine = 125
         building_coal_mine = 94
     }
+    max_cold_effect = 0.530
+    min_cold_effect = 0.005
 }
 
 STATE_LAVOGNE = {
@@ -519,6 +571,8 @@ STATE_LAVOGNE = {
         building_logging_camp = 25
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.488
+    min_cold_effect = 0.002
 }
 # ALE Alestina
 STATE_SEVONA = {
@@ -538,6 +592,8 @@ STATE_SEVONA = {
         building_logging_camp = 21
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.493
+    min_cold_effect = 0.002
 }
 
 STATE_CASABELLA = {
@@ -556,6 +612,8 @@ STATE_CASABELLA = {
         building_sulfur_mine = 71
         building_logging_camp = 16
     }
+    max_cold_effect = 0.536
+    min_cold_effect = 0.000
 }
 
 STATE_QUENA = {
@@ -576,6 +634,8 @@ STATE_QUENA = {
         building_logging_camp = 13
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.526
+    min_cold_effect = 0.000
 }
 # REY Reyorn
 STATE_KATZENBURG = {
@@ -594,6 +654,8 @@ STATE_KATZENBURG = {
         building_logging_camp = 24
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.479
+    min_cold_effect = 0.000
 }
 
 STATE_WELPENSTADT = {
@@ -613,6 +675,8 @@ STATE_WELPENSTADT = {
         building_logging_camp = 16
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.473
+    min_cold_effect = 0.000
 }
 
 STATE_BARENBERG = {
@@ -634,6 +698,8 @@ STATE_BARENBERG = {
         building_lead_mine = 91
         building_spirit_beast_hunting = 25
     }
+    max_cold_effect = 0.530
+    min_cold_effect = 0.004
 }
 
 STATE_HASENHAFEN = {
@@ -652,6 +718,8 @@ STATE_HASENHAFEN = {
         building_logging_camp = 32
     }
     naval_exit_id = 3025
+    max_cold_effect = 0.475
+    min_cold_effect = 0.000
 }
 
 STATE_FUSCHTAL = {
@@ -671,6 +739,8 @@ STATE_FUSCHTAL = {
         building_logging_camp = 45
         building_spirit_beast_hunting = 32
     }
+    max_cold_effect = 0.555
+    min_cold_effect = 0.003
 }
 # SKA Skaldergard
 STATE_DALBY = {
@@ -689,6 +759,8 @@ STATE_DALBY = {
         building_spirit_beast_hunting = 24
         building_iron_mine = 67
     }
+    max_cold_effect = 0.543
+    min_cold_effect = 0.001
 }
 # VIN Vindheim
 STATE_STJERNVIK = {
@@ -710,6 +782,8 @@ STATE_STJERNVIK = {
         building_logging_camp = 11
     }
     naval_exit_id = 3031
+    max_cold_effect = 0.553
+    min_cold_effect = 0.006
 }
 # SIN Sinner's Refuge
 STATE_SIN_CITY = {
@@ -731,6 +805,8 @@ STATE_SIN_CITY = {
         building_spirit_beast_hunting = 28
     }
     naval_exit_id = 3046
+    max_cold_effect = 0.144
+    min_cold_effect = 0.002
 }
 
 STATE_NEWHOLD = {
@@ -759,6 +835,8 @@ STATE_NEWHOLD = {
         undiscovered_amount = 7
     }
     naval_exit_id = 3046
+    max_cold_effect = 0.116
+    min_cold_effect = 0.001
 }
 # ELV Elvsae
 STATE_RAETENI = {
@@ -781,6 +859,8 @@ STATE_RAETENI = {
         type = "building_oil_rig"
         undiscovered_amount = 23
     }
+    max_cold_effect = 0.336
+    min_cold_effect = 0.000
 }
 
 STATE_CARENADUS = {
@@ -803,6 +883,8 @@ STATE_CARENADUS = {
         type = "building_oil_rig"
         undiscovered_amount = 29
     }
+    max_cold_effect = 0.295
+    min_cold_effect = 0.002
 }
 
 STATE_ELISAE = {
@@ -822,6 +904,8 @@ STATE_ELISAE = {
         building_sulfur_mine = 118
         building_logging_camp = 34
     }
+    max_cold_effect = 0.271
+    min_cold_effect = 0.007
 }
 # DWA Dwarvelunde
 STATE_DULLEDAL = {
@@ -843,6 +927,8 @@ STATE_DULLEDAL = {
         building_spirit_beast_hunting = 31
 
     }
+    max_cold_effect = 0.208
+    min_cold_effect = 0.003
 }
 
 STATE_MELKKALUNDE = {
@@ -863,6 +949,8 @@ STATE_MELKKALUNDE = {
         building_spirit_beast_hunting = 36
         building_gold_mine = 7
     }
+    max_cold_effect = 0.218
+    min_cold_effect = 0.009
 }
 
 STATE_ZIDDEVE = {
@@ -887,6 +975,8 @@ STATE_ZIDDEVE = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 12
     }
+    max_cold_effect = 0.286
+    min_cold_effect = 0.004
 }
 # EAS Eastern Borderland
 STATE_POISONWASTE = {
@@ -906,6 +996,8 @@ STATE_POISONWASTE = {
         building_logging_camp = 12
         building_spirit_beast_hunting = 42
     }
+    max_cold_effect = 0.246
+    min_cold_effect = 0.000
 }
 
 STATE_BLEAKPLAIN = {
@@ -925,6 +1017,8 @@ STATE_BLEAKPLAIN = {
         building_logging_camp = 7
         building_spirit_beast_hunting = 32
     }
+    max_cold_effect = 0.410
+    min_cold_effect = 0.000
 }
 
 STATE_BARRENFIELD = {
@@ -942,6 +1036,8 @@ STATE_BARRENFIELD = {
         building_logging_camp = 12
         building_spirit_beast_hunting = 43
     }
+    max_cold_effect = 0.338
+    min_cold_effect = 0.000
 }
 
 STATE_DARKLURK = {
@@ -960,6 +1056,8 @@ STATE_DARKLURK = {
         building_logging_camp = 14
         building_spirit_beast_hunting = 37
     }
+    max_cold_effect = 0.518
+    min_cold_effect = 0.000
 }
 # HEL Hellborne Mountains
 STATE_HELLBORNE_MOUNTAINS = {
@@ -984,4 +1082,6 @@ STATE_HELLBORNE_MOUNTAINS = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 5
     }
+    max_cold_effect = 0.105
+    min_cold_effect = 0.002
 }

@@ -170,7 +170,9 @@ prohibition.2 = { #government IG illegal distillery
 			save_scope_as = alcoholic_ig
 			leader = {
 				save_scope_as = alcoholic_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -227,6 +229,10 @@ prohibition.2 = { #government IG illegal distillery
 			add = -3
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:alcoholic_leader }
+	}
 }
 
 prohibition.3 = { #Industrialists dont like losing money
@@ -277,7 +283,9 @@ prohibition.3 = { #Industrialists dont like losing money
 			save_scope_as = industrialists_ig
 			leader = {
 				save_scope_as = industrialist_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -317,6 +325,10 @@ prohibition.3 = { #Industrialists dont like losing money
 			name = prohibition_laws_var
 			add = -2
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:industrialist_leader }
 	}
 }
 

@@ -92,7 +92,7 @@ cholera.1 = {
 		default_option = yes
 		trigger = {
 			has_technology_researched = medical_degrees
-            has_technology_researched = fractionating_alembics
+			has_technology_researched = fractionating_alembics
 		}
 		if = {
 			limit = {
@@ -130,4 +130,6 @@ cholera.1 = {
 			}
 		}
 	}
+
+	fire_only_once = yes
 }

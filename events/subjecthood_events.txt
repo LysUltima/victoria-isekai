@@ -130,8 +130,8 @@ subjecthood_events.1 = { # Stall - Minorities are cross
 			save_scope_as = relevant_minority_culture
 		}
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 	}
 
 	option = {
@@ -255,8 +255,8 @@ subjecthood_events.2 = { # Debate - What is a citizen?
 			save_scope_as = relevant_state
 		}
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		generate_2_common_name = {
 			CULTURE_1 = primary_culture
 			CULTURE_2 = primary_culture
@@ -369,7 +369,9 @@ subjecthood_events.3 = { # Advance - Emperor of the [X]
 	immediate = {
 		ruler = {
 			save_scope_as = ruler_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_primary_culture = {
 			limit = {
 				shares_heritage_trait_group_with_culture = scope:ruler_scope.culture
@@ -400,8 +402,8 @@ subjecthood_events.3 = { # Advance - Emperor of the [X]
 			save_scope_as = petty_bourgeoisie_ig
 		}
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 	}
 
 	option = {
@@ -443,6 +445,10 @@ subjecthood_events.3 = { # Advance - Emperor of the [X]
 			pop_type = aristocrats
 			value = large_radicals
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:ruler_scope }
 	}
 }
 
@@ -523,8 +529,8 @@ subjecthood_events.4 = { # Debate - Incorporation of nationalist curricula into 
 			}
 		}
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		random_neighbouring_state = {
 			limit = {
 				NOT = {
@@ -679,8 +685,8 @@ subjecthood_events.5 = { # Stall - Aristocrats get really mad about the reform
 			}
 		}
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		generate_1_noble_name = {
 			CULTURE_1 = primary_culture
 		}

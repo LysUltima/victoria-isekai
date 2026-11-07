@@ -1228,7 +1228,7 @@ ai_strategy_default = {
 			}
 		}
 
-        multiply = 2
+		multiply = 2
 	}
 
 	# How likely is the AI to start a diplomatic play against another country if their attitude allows for it
@@ -1332,7 +1332,7 @@ ai_strategy_default = {
 			add = 1
 		}
 
-        # Great Powers with slavery banned should be more aggressive against an openly slave trading Brazil
+		# Great Powers with slavery banned should be more aggressive against an openly slave trading Brazil
 		if = {
 			limit = {
 				has_law_or_variant = law_type:law_slavery_banned
@@ -1372,7 +1372,7 @@ ai_strategy_default = {
 			}
 		}
 
-        multiply = 2
+		multiply = 2
 
 	}
 
@@ -1812,56 +1812,7 @@ ai_strategy_default = {
 	# Set the weights for ship groups, this determines the ratio that the AI aims to have of each, and thus what ship classes it adds to fleets
 	# Using this value in other strategies will function additively
 	# root = country
-	ship_group_weights = {
-		ship_group_capital_ships = {
-			value = 30
 
-			if = {
-				limit = { has_law_or_variant = law_type:law_professional_navy }
-				add = 10
-			}
-			else_if = {
-				limit = { has_law_or_variant = law_type:law_merchant_navy }
-				subtract = 15
-			}
-			else_if = {
-				limit = { has_law_or_variant = law_type:law_jeune_ecole }
-				subtract = 10
-			}
-		}
-		ship_group_cruisers = {
-			value = 60
-			if = {
-				limit = { has_technology_researched = reagent_torpedoes }
-				subtract = 20
-			}
-
-			if = {
-				limit = { has_law_or_variant = law_type:law_professional_navy }
-				subtract = 10
-			}
-			else_if = {
-				limit = { has_law_or_variant = law_type:law_merchant_navy }
-				add = 15
-			}
-			else_if = {
-				limit = { has_law_or_variant = law_type:law_jeune_ecole }
-				add = 10
-			}
-		}
-		ship_group_torpedo_craft = {
-			value = 0
-			if = {
-				limit = { has_technology_researched = reagent_torpedoes }
-				add = 30
-			}
-
-			if = {
-				limit = { has_law_or_variant = law_type:law_jeune_ecole }
-				add = 20
-			}
-		}
-	}
 
 	# Maximum total modification levels the AI will use when designing ships
 	# Higher values mean the AI is willing to bear more expensive, complex ship designs
@@ -2087,7 +2038,7 @@ ai_strategy_default = {
 		building_railway = must_have
 		building_port = must_have
 		building_airship_dock = must_have
-        building_cultivation_grounds = must_have
+		building_cultivation_grounds = must_have
 	}
 
 	# Specifying values here will override subsidy priorities while at war
@@ -3747,14 +3698,14 @@ ai_strategy_default = {
 			max = 100
 		}
 
-		make_protectorate = {
+		make_subject = {
 
 			if = {
 				limit = {
-					has_secret_goal = {
+					OR = { has_secret_goal = {
 						who = scope:target_country
 						secret_goal = dominate
-					}
+					} ai_is_regional_objective_subjugate_target = { TARGET = scope:target_country } }
 				}
 
 				add = scope:target_country.ai_subject_value:root
@@ -3764,21 +3715,7 @@ ai_strategy_default = {
 			max = 100
 		}
 
-		make_tributary = {
-			if = {
-				limit = {
-					has_secret_goal = {
-						who = scope:target_country
-						secret_goal = dominate
-					}
-				}
-
-				add = scope:target_country.ai_subject_value:root
-			}
-
-			min = 0
-			max = 100
-		}
+		
 
 		increase_autonomy = {
 			value = 100
@@ -4258,13 +4195,13 @@ ai_strategy_default = {
 				multiply = 0.0
 			}
 
-            if = {
+			if = {
 				limit = {
 					scope:target_country = {
-                        power_bloc ?= {
-                            has_modifier = ova_unbreakable_covenant
-                        }
-                    }
+						power_bloc ?= {
+							has_modifier = ova_unbreakable_covenant
+						}
+					}
 				}
 				multiply = -1.0
 			}
@@ -4431,15 +4368,17 @@ ai_strategy_default = {
 	#   default role (e.g. a custom raid_fleet with replace_key = raid_fleet swaps out the one
 	#   defined here). Without a replace_key the composition is added alongside the existing set.
 	fleet_compositions = {
-		main_battle_fleet = {
-			ship_group_weights = {
-				ship_group_capital_ships = 200.0
-				ship_group_cruisers = 200.0
-				ship_group_torpedo_craft = 200.0
+		main_battle_fleet = { # A single main battle fleet that can concentrate the AI's fleet power in one place
+			ai_ship_category_weights = {
+				ai_ship_category_battle_line = 100.0
+				ai_ship_category_screens = 100.0
+				ai_ship_category_torpedo_craft = 100.0
+				ai_ship_category_carriers = 100.0
+				ai_ship_category_transports = 100.0
 			}
 			mission_type_weights = {
 				intercept = 1.0
-				project_power = 1.0
+				project_power = 0.0
 				blockade = 1.0
 				raid_supply = 0.0
 				protect_supply = 0.0
@@ -4451,41 +4390,26 @@ ai_strategy_default = {
 
 			min_ships_wanted = 30 # This is a soft limit
 			num_fleets_wanted = {
-				value = 0
-
-				# At least 1 if matching law
-				if = {
-					limit = {
-						has_law_or_variant = law_type:law_professional_navy
-					}
-
-					add = 1
-				}
-
-				# 1 per 30 capital ships
-				add = {
-					value = "num_ships_of_group(ship_group:ship_group_capital_ships)"
-					divide = 30
-				}
-
-				max = 2 # No more than 2
+				value = 1
 			}
 
 			potential = { # No main battle fleet if you don't even have capital ships!
 				any_scope_ship = {
-					ship_group = ship_group:ship_group_capital_ships
+					is_ai_ship_category = ai_ship_category_battle_line
 				}
 			}
 		}
-		secondary_fleet = {
-			ship_group_weights = {
-				ship_group_capital_ships = 25.0
-				ship_group_cruisers = 100.0
-				ship_group_torpedo_craft = 50.0
+		secondary_fleet = { # A secondary battle fleet for large AI navies so they can cover more of the world
+			ai_ship_category_weights = { # Intended to be around half the size of the main fleet
+				ai_ship_category_battle_line = 50.0
+				ai_ship_category_screens = 50.0
+				ai_ship_category_torpedo_craft = 50.0
+				ai_ship_category_carriers = 50.0
+				ai_ship_category_transports = 50.0
 			}
 			mission_type_weights = {
 				intercept = 0.5
-				project_power = 1.0
+				project_power = 0.0
 				blockade = 0.25
 				raid_supply = 0.5
 				protect_supply = 1.0
@@ -4496,74 +4420,88 @@ ai_strategy_default = {
 			}
 
 			min_ships_wanted = 10 # This is a soft limit
-			num_fleets_wanted = {
-				value = 0
-
-				# At least 1 if matching law
-				if = {
-					limit = {
-						OR = {
-							has_law_or_variant = law_type:law_jeune_ecole
-							has_law_or_variant = law_type:law_diplomatic_navy
-							has_law_or_variant = law_type:law_professional_navy
-						}
-					}
-
-					add = 1
-				}
-
-				# 1 per 50 capital & cruiser ships
-				add = {
-					value = "num_ships_of_group(ship_group:ship_group_capital_ships)"
-					add = "num_ships_of_group(ship_group:ship_group_cruisers)"
-					divide = 50
-				}
-
-				max = 4 # No more than 4
+			num_fleets_wanted = { # Only if we have a large navy
+				value = navy_size_adjusted_by_tech
+				divide = 100
+				max = 1
 			}
 		}
-		raid_fleet = {
-			ship_group_weights = {
-				ship_group_capital_ships = 0.0
-				ship_group_cruisers = 50.0
-				ship_group_torpedo_craft = 100.0
+		light_ship_fleet = { # Small fleets for raiding and projecting power, cruisers & torpedo only
+			ai_ship_category_weights = {
+				ai_ship_category_screens = 30.0
+				ai_ship_category_torpedo_craft = 20.0
 			}
 			mission_type_weights = {
-				intercept = 0.25
-				project_power = 0.25
+				intercept = 0.0
+				project_power = 1.0
 				blockade = 0.0
 				raid_supply = 1.0
-				protect_supply = 1.0
+				protect_supply = 0.25
 				port_bombardment = 0.0
 				piracy = 1.0
 				privateer = 1.0
 				hunt_pirates = 1.0
 			}
 
-			min_ships_wanted = 10 # This is a soft limit
+			min_ships_wanted = 5 # This is a soft limit
 			num_fleets_wanted = {
-				value = 0
+				value = navy_size_adjusted_by_tech
+				divide = 30
+				max = 5
+			}
+		}
+		submarine_raiding_fleet = { # Small all-submarine fleets that only raid enemy supply
+			ai_ship_category_weights = {
+				ai_ship_category_submarines = 100.0
+			}
+			mission_type_weights = {
+				raid_supply = 1.0
+			}
 
-				# At least 1 if matching law
-				if = {
-					limit = {
-						OR = {
-							has_law_or_variant = law_type:law_jeune_ecole
-							has_law_or_variant = law_type:law_merchant_navy
-						}
-					}
-
-					add = 1
+			min_ships_wanted = 8 # This is a soft limit
+			num_fleets_wanted = { # Around 10 submarines per fleet, but only split off another fleet once every fleet would have at least 6
+				value = ai_num_submarines
+				divide = 10
+				ceiling = yes
+				max = {
+					value = ai_num_submarines
+					divide = 6
+					floor = yes
 				}
+				min = 1
+				max = 8
+			}
 
-				# 1 raid fleet per 50 torpedo ships & cruisers
-				add = {
-					value = "num_ships_of_group(ship_group:ship_group_torpedo_craft)"
-					add = "num_ships_of_group(ship_group:ship_group_cruisers)"
-					divide = 50
+			potential = {
+				any_scope_ship = {
+					is_ai_ship_category = ai_ship_category_submarines
 				}
+			}
+		}
+		coastal_defense_fleet = { # A single fleet for the AI's coastal defense ships that only does intercept orders
+			ai_ship_category_weights = {
+				ai_ship_category_coastal_defense = 100.0
+			}
+			mission_type_weights = {
+				intercept = 1.0
+				project_power = 0.0
+				blockade = 0.0
+				raid_supply = 0.0
+				protect_supply = 0.0
+				port_bombardment = 0.0
+				piracy = 0.0
+				privateer = 0.0
+				hunt_pirates = 0.0
+			}
 
-				max = 2 # No more than 2
+			num_fleets_wanted = {
+				value = 1
+			}
+
+			potential = {
+				any_scope_ship = {
+					is_ai_ship_category = ai_ship_category_coastal_defense
+				}
 			}
 		}
 	}
@@ -4576,5 +4514,169 @@ ai_strategy_default = {
 	# Chance that this strategy will be randomly allocated to a country
 	weight = {
 		value = 0
+	}
+
+	ai_ship_category_weights = {
+		ai_ship_category_battle_line = {
+			value = 30
+
+			if = {
+				limit = { has_technology_researched = reagent_torpedoes }
+				subtract = 10
+			}
+
+			if = {
+				limit = { has_law_or_variant = law_type:law_professional_navy }
+				add = 10
+			}
+			else_if = {
+				limit = { has_law_or_variant = law_type:law_jeune_ecole }
+				subtract = 10
+			}
+			else_if = {
+				limit = { has_law_or_variant = law_type:law_merchant_navy }
+				subtract = 10
+			}
+
+			if = { # Are we in the coastal defense ship era? Swap some capital ships for coastal defense ones under some laws
+				limit = {
+					 has_technology_researched = warded_hulls
+					 NOT = { has_technology_researched = armored_warships }
+				}
+
+				if = {
+					limit =  {
+						OR = {
+							has_law_or_variant = law_type:law_merchant_navy
+							has_law_or_variant = law_type:law_jeune_ecole
+						}
+					}
+					subtract = 10
+				}
+			}
+		}
+		ai_ship_category_coastal_defense = {
+			value = 0
+
+			if = { # Are we in the coastal defense ship era?
+				limit = {
+					NOT = { has_technology_researched = armored_warships }
+				}
+
+				if = {
+					limit =  { has_law_or_variant = law_type:law_merchant_navy }
+					add = 20
+				}
+				else_if = {
+					limit = { has_law_or_variant = law_type:law_jeune_ecole }
+					add = 10
+				}
+			}
+		}
+		ai_ship_category_screens = {
+			value = 30
+			if = {
+				limit = { has_technology_researched = reagent_torpedoes }
+				subtract = 10
+			}
+
+			if = { # Submarines take some of the cruisers' raiding role
+				limit = {
+					has_technology_researched = submersible_hulls
+					OR = {
+						has_law_or_variant = law_type:law_jeune_ecole
+						has_law_or_variant = law_type:law_merchant_navy
+					}
+				}
+				subtract = 10
+			}
+
+			if = {
+				limit = {
+					OR = {
+						has_law_or_variant = law_type:law_merchant_navy
+						has_law_or_variant = law_type:law_diplomatic_navy
+						has_law_or_variant = law_type:law_jeune_ecole
+					}
+				}
+				add = 10
+			}
+		}
+		ai_ship_category_torpedo_craft = {
+			value = 20
+
+			if = {
+				limit = {
+					has_law_or_variant = law_type:law_jeune_ecole
+				}
+				add = 20
+			}
+			else_if = {
+				limit = {
+					has_law_or_variant = law_type:law_merchant_navy
+				}
+				add = 10
+			}
+
+			if = { # Submarines take some of the torpedo craft weight
+				limit = {
+					has_technology_researched = submersible_hulls
+					OR = {
+						has_law_or_variant = law_type:law_jeune_ecole
+						has_law_or_variant = law_type:law_merchant_navy
+					}
+				}
+				subtract = 10
+			}
+		}
+		ai_ship_category_submarines = { # Only navies built around commerce raiding or defense use submarines
+			value = 0
+			if = {
+				limit = {
+					has_technology_researched = submersible_hulls
+					OR = {
+						has_law_or_variant = law_type:law_jeune_ecole
+						has_law_or_variant = law_type:law_merchant_navy
+					}
+				}
+				add = 20
+			}
+		}
+		ai_ship_category_carriers = {
+			value = 0
+
+			if = { # Seaplane Tenders
+				limit = {
+					OR = {
+						has_law_or_variant = law_type:law_professional_navy
+						has_law_or_variant = law_type:law_jeune_ecole
+					}
+				}
+
+				add = 5
+			}
+
+			if = { # Carriers
+				limit = {
+					has_technology_researched = airship_carriers
+					has_law_or_variant = law_type:law_professional_navy
+				}
+
+				add = 5
+			}
+		}
+		ai_ship_category_transports = {
+			value = 20
+		}
+	}
+
+	will_incorporate_state = {
+		trigger_if = {
+			limit = { country_is_colonial_or_company = yes }
+			scope:target_state = { ai_colony_will_incorporate_state = yes }
+		}
+		trigger_else = {
+			scope:target_state = { ai_will_incorporate_state = yes }
+		}
 	}
 }

@@ -9,6 +9,10 @@
 # progress toward the NEXT level and visibly resets when a level is gained.
 
 je_ova_champion = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs

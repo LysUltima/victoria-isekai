@@ -1,0 +1,9 @@
+﻿# Equator slightly north of the lower edge; crops calibrate fictional climates.
+NSeasons = {
+	EQUATOR_WORLD_Z = 126.56
+	TROPIC_OF_CANCER_WORLD_Z = 1219.92
+	TROPIC_OF_CAPRICORN_WORLD_Z = 0
+}
+NGraphics = {
+	FLATMAP_EQUATOR_POSITION = 0.965
+}

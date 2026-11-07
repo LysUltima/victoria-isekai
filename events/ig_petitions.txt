@@ -42,8 +42,8 @@ ig_petitions.1 = {
 	immediate = {
 		ig:ig_landowners ?= { save_scope_as = landowners_ig }
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		set_variable = {
 			name = landowners_petition_var
 			days = normal_modifier_time
@@ -116,8 +116,8 @@ ig_petitions.4 = {
 	immediate = {
 		ig:ig_devout ?= { save_scope_as = devout_ig }
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		set_variable = {
 			name = devout_petition_var
 			days = normal_modifier_time
@@ -184,11 +184,13 @@ ig_petitions.7 = {
 			save_scope_as = intelligentsia_ig
 			leader = {
 				save_scope_as = intelligentsia_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		set_variable = {
 			name = intelligentsia_petition_var
 			days = normal_modifier_time
@@ -217,6 +219,10 @@ ig_petitions.7 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:intelligentsia_leader }
 	}
 }
 
@@ -256,8 +262,8 @@ ig_petitions.10 = {
 	immediate = {
 		ig:ig_rural_folk ?= { save_scope_as = rural_folk_ig }
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		random_scope_state = {
 			limit = { is_incorporated = yes }
 			save_scope_as = conscription_state
@@ -335,8 +341,8 @@ ig_petitions.13 = {
 	immediate = {
 		ig:ig_trade_unions ?= { save_scope_as = trade_unions_ig }
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		set_variable = {
 			name = trade_unions_petititon_var
 			days = normal_modifier_time
@@ -404,8 +410,8 @@ ig_petitions.16 = {
 	immediate = {
 		ig:ig_industrialists ?= { save_scope_as = industrialists_ig }
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		set_variable = {
 			name = industrialists_petition_var
 			days = normal_modifier_time
@@ -471,8 +477,8 @@ ig_petitions.19 = {
 	immediate = {
 		ig:ig_armed_forces ?= { save_scope_as = armed_forces_ig }
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		random_scope_state = {
 			limit = { is_incorporated = yes }
 			save_scope_as = conscription_state
@@ -546,8 +552,8 @@ ig_petitions.22 = {
 	immediate = {
 		ig:ig_petty_bourgeoisie ?= { save_scope_as = petty_bourgeoisie_ig }
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		set_variable = {
 			name = petite_petition_var
 			days = normal_modifier_time

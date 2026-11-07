@@ -88,31 +88,10 @@ law_religious_schools = {
 			}
 			add = 500
 
-			if = {
-				limit = {
-					OR = {
-						always = no
-						always = no
-					}
-				}
-				add = 500
-			}
 		}
 
 		# For Japanese religion Journal Entries
-		if = {
-			limit = {
-				OR = {
-					always = no
-					AND = {
-						# If Shinbutsu Bunri is active and the Taikyo Proclamation has been made
-						always = no
-						country_has_state_religion = rel:yaoyorozu
-					}
-				}
-			}
-			add = 1000
-		}
+
 	}
 
 	ai_impose_chance = {
@@ -212,15 +191,6 @@ law_private_schools = {
 			}
 			add = 500
 
-			if = {
-				limit = {
-					OR = {
-						always = no
-						always = no
-					}
-				}
-				add = 500
-			}
 		}
 	}
 
@@ -347,15 +317,6 @@ law_public_schools = {
 			}
 			add = 500
 
-			if = {
-				limit = {
-					OR = {
-						always = no
-						always = no
-					}
-				}
-				add = 500
-			}
 		}
 	}
 

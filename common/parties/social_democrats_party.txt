@@ -256,7 +256,7 @@ social_democrat_party = {
 	}
 
 	icon = {
-		default = "/gfx/interface/icons/political_parties/social_democrats.dds"
+		default = "gfx/interface/icons/political_parties/socialist.dds"
 	}
 	unlocking_technologies = {
 		labor_movement
@@ -310,27 +310,7 @@ social_democrat_party = {
 			value = -5
 			desc = "base_value"
 		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-					is_subject = yes
-					OR = {
-						has_modifier = modifier_india_crown_rule
-						has_modifier = modifier_india_company_rule
-						has_modifier = modifier_india_company_rule_upgraded
-					}
-				}
-				OR = {
-					is_interest_group_type = ig_industrialists
-					is_interest_group_type = ig_armed_forces
-				}
-			}
-			add = {
-				value = -100
-				desc = "india_colonial_government"
-			}
-		}
+
 		if = { # social democrats love social democracy
 			limit = {
 				leader ?= {
@@ -365,7 +345,7 @@ social_democrat_party = {
 						is_powerful = yes
 						leader ?= {
 							OR = {
-								has_ideology = ideology:ideology_communist
+								has_ideology = ideology:ideology_communist_leader
 								has_ideology = ideology:ideology_vanguardist
 								has_ideology = ideology:ideology_anarchist
 							}
@@ -383,7 +363,7 @@ social_democrat_party = {
 				is_powerful = no
 				leader ?= {
 					OR = {
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_vanguardist
 						has_ideology = ideology:ideology_anarchist
 					}
@@ -462,7 +442,7 @@ social_democrat_party = {
 				is_powerful = yes
 				leader ?= {
 					NOR = {
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_vanguardist
 						has_ideology = ideology:ideology_anarchist
 					}
@@ -660,7 +640,7 @@ social_democrat_party = {
 						OR = {
 						has_ideology = ideology:ideology_abolitionist
 						has_ideology = ideology:ideology_social_democrat
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 								has_ideology = ideology:ideology_vanguardist
 						}
 					}
@@ -697,7 +677,7 @@ social_democrat_party = {
 				is_interest_group_type = ig_trade_unions
 				is_powerful = no
 				NOT = {
-					has_ideology = ideology:ideology_socialist
+					has_ideology = ideology:ideology_communist
 				}
 			}
 			add = {
@@ -711,7 +691,7 @@ social_democrat_party = {
 					has_law_or_variant = law_type:law_free_trade
 				}
 				OR = {
-					has_ideology = ideology:ideology_socialist
+					has_ideology = ideology:ideology_communist
 					has_ideology = ideology:ideology_isolationist
 				}
 			}
@@ -727,7 +707,7 @@ social_democrat_party = {
 				}
 				OR = {
 					has_ideology = ideology:ideology_agrarian
-					has_ideology = ideology:ideology_socialist
+					has_ideology = ideology:ideology_communist
 					leader ?= {
 						OR = {
 							has_ideology = ideology:ideology_vanguardist

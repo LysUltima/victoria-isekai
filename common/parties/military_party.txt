@@ -145,7 +145,7 @@ military_party = {
 			OR = {
 				py:military_party ?= {
 					any_member = {}
-				}			
+				}
 				ig:ig_armed_forces ?= {
 					ig_counts_as_marginal = no
 				}
@@ -160,58 +160,7 @@ military_party = {
 			value = -5
 			desc = "base_value"
 		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-					is_subject = yes
-					OR = {
-						has_modifier = modifier_india_crown_rule
-						has_modifier = modifier_india_company_rule
-						has_modifier = modifier_india_company_rule_upgraded
-					}
-				}
-				OR = {
-					is_interest_group_type = ig_industrialists
-					is_interest_group_type = ig_armed_forces
-				}
-			}
-			add = {
-				value = -100
-				desc = "india_colonial_government"
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-					any_primary_culture = {
-						has_discrimination_trait = language_hispanophone
-					}
-				}
-			}
-			add = {
-				value = -10
-				desc = "south_america_two_party_system"
-			}
-		}
 
-		if = {
-			limit = {
-				owner = {
-					always = no
-					OR = {
-						country_has_primary_culture = cu:lysian
-						country_has_primary_culture = cu:farshore
-					}
-					has_law_or_variant = law_type:law_presidential_republic
-				}
-			}
-			add = {
-				value = -10
-				desc = "usa_two_party_system"
-			}
-		}
 		if = { # nobody will join if the armed forces don't join
 			limit = {
 				NOT = { is_interest_group_type = ig_armed_forces }
@@ -519,26 +468,6 @@ military_party = {
 				desc = "from_french_monarchist_rival"
 			}
 		}
-		if = {
-			limit = {
-				leader ?= {
-					NOR = {
-						has_ideology = ideology:ideology_liberal_leader
-						has_ideology = ideology:ideology_republican_leader
-						has_ideology = ideology:ideology_radical
-						has_ideology = ideology:ideology_communist
-						has_ideology = ideology:ideology_vanguardist
-					}
-				}
-				owner = {
-					always = no
-					has_law = law_type:law_monarchy
-				}
-			}
-			add = {
-				value = -10
-				desc = "from_monarchist_leanings"
-			}
-		}
+
 	}
 }

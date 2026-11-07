@@ -58,7 +58,9 @@ slavery_law_events.1 = { # Advancing the cause of slavery
 			save_scope_as = slaver_ig_scope
 			leader = {
 				save_scope_as = slaver_ig_leader_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -68,7 +70,7 @@ slavery_law_events.1 = { # Advancing the cause of slavery
 
 	option = {
 		name = slavery_law_events.1.a
-        default_option = yes
+		default_option = yes
 
 		add_enactment_modifier = {
 			name = natural_state_of_man
@@ -93,6 +95,10 @@ slavery_law_events.1 = { # Advancing the cause of slavery
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:slaver_ig_leader_scope }
 	}
 }
 
@@ -153,7 +159,9 @@ slavery_law_events.2 = { # debating slavery
 			save_scope_as = slaver_ig_scope
 			leader = {
 				save_scope_as = slaver_ig_leader_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		set_variable = {
 			name = slave_law_debate_timer
@@ -186,6 +194,10 @@ slavery_law_events.2 = { # debating slavery
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:slaver_ig_leader_scope }
 	}
 }
 
@@ -234,10 +246,10 @@ slavery_law_events.3 = { # Stall event
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 
-    	random_interest_group = {
+		random_interest_group = {
 			limit = {
 				ig_counts_as_marginal = no
 				law_stance = {
@@ -246,7 +258,7 @@ slavery_law_events.3 = { # Stall event
 				}
 			}
 			save_scope_as = book_burning_ig
-    	}
+		}
 
 		set_variable = {
 			name = slave_law_stall_timer
@@ -328,7 +340,9 @@ slavery_law_events.4 = { # Advancing the cause of Abolition
 			save_scope_as = abolitionist_ig_scope
 			leader = {
 				save_scope_as = abolitionist_ig_leader_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
@@ -341,7 +355,7 @@ slavery_law_events.4 = { # Advancing the cause of Abolition
 
 	option = {
 		name = slavery_law_events.4.a
-        default_option = yes
+		default_option = yes
 
 		add_enactment_modifier = {
 			name = life_among_the_lowly_well_received
@@ -366,6 +380,10 @@ slavery_law_events.4 = { # Advancing the cause of Abolition
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:abolitionist_ig_leader_scope }
 	}
 }
 
@@ -427,7 +445,9 @@ slavery_law_events.5 = { # debating abolition
 			save_scope_as = slaver_ig_scope
 			leader = {
 				save_scope_as = slaver_ig_leader_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		set_variable = {
 			name = law_debate_timer
@@ -460,6 +480,10 @@ slavery_law_events.5 = { # debating abolition
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:slaver_ig_leader_scope }
 	}
 }
 

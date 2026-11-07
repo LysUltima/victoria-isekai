@@ -417,7 +417,9 @@ red_scare.5 = {
 					}
 				}
 				save_scope_as = anticommunist_person
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		random_interest_group = {
 			limit = {
@@ -453,6 +455,10 @@ red_scare.5 = {
 			value = medium_radicals
 			interest_group = scope:anticommunist_ig
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:anticommunist_person }
 	}
 }
 
@@ -621,7 +627,9 @@ red_scare.7 = {
 			}
 			save_scope_as = fascist_agitator
 		}
-	}
+
+		scope:fascist_agitator ?= { set_temporary_event_immortality = { DURATION = 3 } }
+}
 
 	option = {
 		name = red_scare.7.a
@@ -656,6 +664,10 @@ red_scare.7 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:fascist_agitator }
 	}
 }
 
@@ -692,7 +704,7 @@ red_scare.8 = {
 				NOR = {
 					has_ideology = ideology:ideology_pacifist
 					has_ideology = ideology:ideology_anarchist
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 					has_ideology = ideology:ideology_vanguardist
 				}
 				is_ruler_of_own_country = no
@@ -713,7 +725,7 @@ red_scare.8 = {
 					NOR = {
 						has_ideology = ideology:ideology_pacifist
 						has_ideology = ideology:ideology_anarchist
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_vanguardist
 					}
 					is_ruler_of_own_country = no
@@ -727,7 +739,7 @@ red_scare.8 = {
 					NOR = {
 						has_ideology = ideology:ideology_pacifist
 						has_ideology = ideology:ideology_anarchist
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_vanguardist
 					}
 					is_ruler_of_own_country = no
@@ -735,7 +747,9 @@ red_scare.8 = {
 					is_heir_of_own_country = no
 				}
 				save_scope_as = anticommunist_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		capital = {
 			save_scope_as = capital_scope
@@ -771,6 +785,10 @@ red_scare.8 = {
 				strata = upper
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:anticommunist_leader }
 	}
 }
 
@@ -1301,8 +1319,8 @@ red_scare.14 = {
 		default_option = yes
 		scope:deported_pop = {
 			move_partial_pop = { # moves 10% of scope:deported_pop
-			 	state = scope:deportation_target
-			 	population_ratio = 0.1
+				state = scope:deportation_target
+				population_ratio = 0.1
 			}
 		}
 		scope:deportation_state = {

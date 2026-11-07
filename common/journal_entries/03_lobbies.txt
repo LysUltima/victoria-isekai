@@ -3,6 +3,12 @@
 # events in soi_events/00_lobbies_events_*.txt (deferred-large, not yet migrated).
 
 je_pro_lobby_opportunity = {
+	activation_description = {
+		always = yes
+	}
+
+	dlc = dlc010
+
 
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	icon = "gfx/interface/icons/relations_icons/friendly.dds"
@@ -27,100 +33,122 @@ je_pro_lobby_opportunity = {
 		}
 	}
 
-	complete = {
-		trigger_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_defensive_pact
-			}
-			any_scope_treaty = {
-				binds = scope:target
-				any_scope_article = {
-					has_type = defensive_pact
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_alliance
-			}
-			any_scope_treaty = {
-				binds = scope:target
-				any_scope_article = {
-					has_type = alliance
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_trade_privilege
-			}
-			any_scope_treaty = {
-				binds = scope:target
-				any_scope_article = {
-					has_type = trade_privilege
-					source_country = scope:target
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_power_bloc
-			}
-			scope:target = {
-				is_power_bloc_leader = yes
-			}
-			is_in_same_power_bloc = scope:target
-		}
-		trigger_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_power_bloc_invite
-			}
-			is_power_bloc_leader = yes
-			is_in_same_power_bloc = scope:target
-		}
-		trigger_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_investment_agreement
-			}
-			any_scope_treaty = {
-				binds = scope:target
-				any_scope_article = {
-					has_type = foreign_investment_rights
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_military_assistance
-			}
-			any_scope_treaty = {
-				binds = scope:target
-				any_scope_article = {
-					has_type = military_assistance
-					source_country = root
-				}
-			}
-		}
-	}
-
-	invalid = {
-		NOT = {
-			exists = scope:target
-		}
-	}
-
-	on_complete = {
-		clear_pro_lobby_vars = yes
-	}
-
-	on_timeout = {
-		clear_pro_lobby_vars = yes
-	}
-
 	weight = 1000
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			trigger_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_defensive_pact
+				}
+				any_scope_treaty = {
+					binds = scope:target
+					any_scope_article = {
+						has_type = defensive_pact
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_alliance
+				}
+				any_scope_treaty = {
+					binds = scope:target
+					any_scope_article = {
+						has_type = alliance
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_trade_privilege
+				}
+				any_scope_treaty = {
+					binds = scope:target
+					any_scope_article = {
+						has_type = trade_privilege
+						source_country = scope:target
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_power_bloc
+				}
+				scope:target = {
+					is_power_bloc_leader = yes
+				}
+				is_in_same_power_bloc = scope:target
+			}
+			trigger_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_power_bloc_invite
+				}
+				is_power_bloc_leader = yes
+				is_in_same_power_bloc = scope:target
+			}
+			trigger_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_investment_agreement
+				}
+				any_scope_treaty = {
+					binds = scope:target
+					any_scope_article = {
+						has_type = foreign_investment_rights
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_military_assistance
+				}
+				any_scope_treaty = {
+					binds = scope:target
+					any_scope_article = {
+						has_type = military_assistance
+						source_country = root
+					}
+				}
+			}
+		}
+		effect = {
+			clear_pro_lobby_vars = yes
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NOT = {
+				exists = scope:target
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			clear_pro_lobby_vars = yes
+		}
+	}
 }
 
 je_anti_lobby_opportunity = {
+	activation_description = {
+		always = yes
+	}
+
+	dlc = dlc010
+
 
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	icon = "gfx/interface/icons/relations_icons/friendly.dds"
@@ -148,100 +176,122 @@ je_anti_lobby_opportunity = {
 		}
 	}
 
-	complete = {
-		trigger_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_defensive_pact
-			}
-			any_scope_treaty = {
-				binds = scope:third_party_country
-				any_scope_article = {
-					has_type = defensive_pact
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_alliance
-			}
-			any_scope_treaty = {
-				binds = scope:third_party_country
-				any_scope_article = {
-					has_type = alliance
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_trade_privilege
-			}
-			any_scope_treaty = {
-				binds = scope:third_party_country
-				any_scope_article = {
-					has_type = trade_privilege
-					source_country = scope:third_party_country
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_power_bloc
-			}
-			scope:third_party_country = {
-				is_power_bloc_leader = yes
-			}
-			is_in_same_power_bloc = scope:third_party_country
-		}
-		trigger_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_power_bloc_invite
-			}
-			is_power_bloc_leader = yes
-			is_in_same_power_bloc = scope:third_party_country
-		}
-		trigger_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_investment_agreement
-			}
-			any_scope_treaty = {
-				binds = scope:third_party_country
-				any_scope_article = {
-					has_type = foreign_investment_rights
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_military_assistance
-			}
-			any_scope_treaty = {
-				binds = scope:third_party_country
-				any_scope_article = {
-					has_type = military_assistance
-					source_country = root
-				}
-			}
-		}
-	}
-
-	invalid = {
-		NOT = {
-			exists = scope:third_party_country
-		}
-	}
-
-	on_complete = {
-		clear_anti_lobby_vars = yes
-	}
-
-	on_timeout = {
-		clear_anti_lobby_vars = yes
-	}
-
 	weight = 1000
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			trigger_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_defensive_pact
+				}
+				any_scope_treaty = {
+					binds = scope:third_party_country
+					any_scope_article = {
+						has_type = defensive_pact
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_alliance
+				}
+				any_scope_treaty = {
+					binds = scope:third_party_country
+					any_scope_article = {
+						has_type = alliance
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_trade_privilege
+				}
+				any_scope_treaty = {
+					binds = scope:third_party_country
+					any_scope_article = {
+						has_type = trade_privilege
+						source_country = scope:third_party_country
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_power_bloc
+				}
+				scope:third_party_country = {
+					is_power_bloc_leader = yes
+				}
+				is_in_same_power_bloc = scope:third_party_country
+			}
+			trigger_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_power_bloc_invite
+				}
+				is_power_bloc_leader = yes
+				is_in_same_power_bloc = scope:third_party_country
+			}
+			trigger_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_investment_agreement
+				}
+				any_scope_treaty = {
+					binds = scope:third_party_country
+					any_scope_article = {
+						has_type = foreign_investment_rights
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_military_assistance
+				}
+				any_scope_treaty = {
+					binds = scope:third_party_country
+					any_scope_article = {
+						has_type = military_assistance
+						source_country = root
+					}
+				}
+			}
+		}
+		effect = {
+			clear_anti_lobby_vars = yes
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NOT = {
+				exists = scope:third_party_country
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			clear_anti_lobby_vars = yes
+		}
+	}
 }
 
 je_pro_lobby_demand = {
+	activation_description = {
+		always = yes
+	}
+
+	dlc = dlc010
+
 
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	icon = "gfx/interface/icons/relations_icons/hostile.dds"
@@ -269,119 +319,141 @@ je_pro_lobby_demand = {
 		}
 	}
 
-	complete = {
-		trigger_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_break_alliance
-			}
-			NOT = {
-				any_scope_treaty = {
-					binds = scope:third_party_country
-					any_scope_article = {
-						has_type = alliance
-					}
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_break_defensive_pact
-			}
-			NOT = {
-				any_scope_treaty = {
-					binds = scope:third_party_country
-					any_scope_article = {
-						has_type = defensive_pact
-					}
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_revoke_trade_privilege
-			}
-			NOT = {
-				any_scope_treaty = {
-					binds = scope:third_party_country
-					any_scope_article = {
-						has_type = trade_privilege
-						source_country = root
-					}
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_embargo
-			}
-			has_diplomatic_pact = {
-				who = scope:third_party_country
-				type = embargo
-				is_initiator = yes
-			}
-		}
-		trigger_else_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_rivalry
-			}
-			has_diplomatic_pact = {
-				who = scope:third_party_country
-				type = rivalry
-				is_initiator = yes
-			}
-		}
-		trigger_else_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_war
-			}
-			OR = {
-				has_war_with = scope:third_party_country
-				custom_tooltip = {
-					text = enforced_wargoal_on_rival_2_tt
-					has_variable = enforced_wargoal_on_enemy
-				}
-			}
-		}
-		trigger_else_if = {
-			limit = {
-				has_variable = pro_lobby_proposal_leave_power_bloc
-			}
-			NOT = {
-				is_in_same_power_bloc = scope:third_party_country
-			}
-		}
-	}
-
-	invalid = {
-		NOT = {
-			exists = scope:third_party_country
-		}
-	}
-
-	on_complete = {
-		scope:relevant_lobby = {
-			change_appeasement = {
-				amount = 3
-				factor = appeasement_lobby_request_accepted
-			}
-		}
-		clear_pro_lobby_vars = yes
-	}
-
-	on_timeout = {
-		scope:relevant_lobby = {
-			change_appeasement = {
-				amount = -5
-				factor = appeasement_lobby_request_ignored
-			}
-		}
-		clear_pro_lobby_vars = yes
-	}
-
 	weight = 1000
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			trigger_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_break_alliance
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:third_party_country
+						any_scope_article = {
+							has_type = alliance
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_break_defensive_pact
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:third_party_country
+						any_scope_article = {
+							has_type = defensive_pact
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_revoke_trade_privilege
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:third_party_country
+						any_scope_article = {
+							has_type = trade_privilege
+							source_country = root
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_embargo
+				}
+				has_diplomatic_pact = {
+					who = scope:third_party_country
+					type = embargo
+					is_initiator = yes
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_rivalry
+				}
+				has_diplomatic_pact = {
+					who = scope:third_party_country
+					type = rivalry
+					is_initiator = yes
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_war
+				}
+				OR = {
+					has_war_with = scope:third_party_country
+					custom_tooltip = {
+						text = enforced_wargoal_on_rival_2_tt
+						has_variable = enforced_wargoal_on_enemy
+					}
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					has_variable = pro_lobby_proposal_leave_power_bloc
+				}
+				NOT = {
+					is_in_same_power_bloc = scope:third_party_country
+				}
+			}
+		}
+		effect = {
+			scope:relevant_lobby = {
+				change_appeasement = {
+					amount = 3
+					factor = appeasement_lobby_request_accepted
+				}
+			}
+			clear_pro_lobby_vars = yes
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NOT = {
+				exists = scope:third_party_country
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			scope:relevant_lobby = {
+				change_appeasement = {
+					amount = -5
+					factor = appeasement_lobby_request_ignored
+				}
+			}
+			clear_pro_lobby_vars = yes
+		}
+	}
 }
 
 je_anti_lobby_demand = {
+	activation_description = {
+		always = yes
+	}
+
+	dlc = dlc010
+
 
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	icon = "gfx/interface/icons/relations_icons/hostile.dds"
@@ -406,115 +478,131 @@ je_anti_lobby_demand = {
 		}
 	}
 
-	complete = {
-		trigger_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_break_alliance
-			}
-			NOT = {
-				any_scope_treaty = {
-					binds = scope:target
-					any_scope_article = {
-						has_type = alliance
-					}
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_break_defensive_pact
-			}
-			NOT = {
-				any_scope_treaty = {
-					binds = scope:target
-					any_scope_article = {
-						has_type = defensive_pact
-					}
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_revoke_trade_privilege
-			}
-			NOT = {
-				any_scope_treaty = {
-					binds = scope:target
-					any_scope_article = {
-						has_type = trade_privilege
-						source_country = root
-					}
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_embargo
-			}
-			has_diplomatic_pact = {
-				who = scope:target
-				type = embargo
-				is_initiator = yes
-			}
-		}
-		trigger_else_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_rivalry
-			}
-			has_diplomatic_pact = {
-				who = scope:target
-				type = rivalry
-				is_initiator = yes
-			}
-		}
-		trigger_else_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_war
-			}
-			OR = {
-				has_war_with = scope:target
-				custom_tooltip = {
-					text = enforced_wargoal_on_rival_tt
-					has_variable = enforced_wargoal_on_enemy
-				}
-			}
-		}
-		trigger_else_if = {
-			limit = {
-				has_variable = anti_lobby_proposal_leave_power_bloc
-			}
-			NOT = {
-				is_in_same_power_bloc = scope:target
-			}
-		}
-	}
-
-	invalid = {
-		NAND = {
-			exists = scope:target
-			exists = scope:relevant_lobby
-		}
-	}
-
-	on_complete = {
-		scope:relevant_lobby = {
-			change_appeasement = {
-				amount = 3
-				factor = appeasement_lobby_request_accepted
-			}
-		}
-		clear_anti_lobby_vars = yes
-	}
-
-	on_timeout = {
-		scope:relevant_lobby = {
-			change_appeasement = {
-				amount = -5
-				factor = appeasement_lobby_request_ignored
-			}
-		}
-		clear_anti_lobby_vars = yes
-	}
-
 	weight = 1000
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			trigger_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_break_alliance
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:target
+						any_scope_article = {
+							has_type = alliance
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_break_defensive_pact
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:target
+						any_scope_article = {
+							has_type = defensive_pact
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_revoke_trade_privilege
+				}
+				NOT = {
+					any_scope_treaty = {
+						binds = scope:target
+						any_scope_article = {
+							has_type = trade_privilege
+							source_country = root
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_embargo
+				}
+				has_diplomatic_pact = {
+					who = scope:target
+					type = embargo
+					is_initiator = yes
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_rivalry
+				}
+				has_diplomatic_pact = {
+					who = scope:target
+					type = rivalry
+					is_initiator = yes
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_war
+				}
+				OR = {
+					has_war_with = scope:target
+					custom_tooltip = {
+						text = enforced_wargoal_on_rival_tt
+						has_variable = enforced_wargoal_on_enemy
+					}
+				}
+			}
+			trigger_else_if = {
+				limit = {
+					has_variable = anti_lobby_proposal_leave_power_bloc
+				}
+				NOT = {
+					is_in_same_power_bloc = scope:target
+				}
+			}
+		}
+		effect = {
+			scope:relevant_lobby = {
+				change_appeasement = {
+					amount = 3
+					factor = appeasement_lobby_request_accepted
+				}
+			}
+			clear_anti_lobby_vars = yes
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NAND = {
+				exists = scope:target
+				exists = scope:relevant_lobby
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			scope:relevant_lobby = {
+				change_appeasement = {
+					amount = -5
+					factor = appeasement_lobby_request_ignored
+				}
+			}
+			clear_anti_lobby_vars = yes
+		}
+	}
 }

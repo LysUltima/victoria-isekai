@@ -9,7 +9,7 @@ SAK = { # Sakuragoku -- sakura empire (rising sun, imperial chrysanthemum)
 	pattern = "pattern_solid.tga"
 	color1 = oc_pearl_white
 	color2 = oc_blood_red
-    colored_emblem = {
+	colored_emblem = {
 		texture = "ce_circle_mask.dds"
 		color1 = col_HAN
 		instance = { position = { 0.5 0.5 } scale = { 0.9 0.9 } }
@@ -19,7 +19,7 @@ SAK = { # Sakuragoku -- sakura empire (rising sun, imperial chrysanthemum)
 		color1 = oc_pearl_white
 		instance = { position = { 0.5 0.5 } scale = { 0.6 0.6 } }
 	}
-    colored_emblem = {
+	colored_emblem = {
 		texture = "ce_kamon_frame_snowflake.dds"
 		color1 = oc_pearl_white
 		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
@@ -37,7 +37,7 @@ MAE = { # Prunhwa -- mae empire (crowned tiger, plum blossom)
 	pattern = "pattern_gironny_16.dds"
 	color1 = col_HWA
 	color2 = oc_bone
-    colored_emblem = {
+	colored_emblem = {
 		texture = "ce_circle_mask.dds"
 		color1 = oc_bone
 		color2 = col_SHA
@@ -50,15 +50,15 @@ MAE = { # Prunhwa -- mae empire (crowned tiger, plum blossom)
 		color2 = col_HWA
 		color3 = oc_pearl_white
 		instance = { position = { 0.35 0.35 } scale = { .35 .35 } }
-        instance = { position = { 0.65 0.65 } scale = { .35 .35 } }
-        instance = { position = { 0.5 0.5 } scale = { .35 .35 } }
-        instance = { position = { 0.35 0.65 } scale = { .35 .35 } }
-        instance = { position = { 0.65 0.35 } scale = { .35 .35 } }
+		instance = { position = { 0.65 0.65 } scale = { .35 .35 } }
+		instance = { position = { 0.5 0.5 } scale = { .35 .35 } }
+		instance = { position = { 0.35 0.65 } scale = { .35 .35 } }
+		instance = { position = { 0.65 0.35 } scale = { .35 .35 } }
 
-        instance = { position = { 0.5 0.75 } scale = { .2 .2 } }
-        instance = { position = { 0.5 0.25 } scale = { .2 .2 } }
-        instance = { position = { 0.25 0.5 } scale = { .2 .2 } }
-        instance = { position = { 0.75 0.5 } scale = { .2 .2 } }
+		instance = { position = { 0.5 0.75 } scale = { .2 .2 } }
+		instance = { position = { 0.5 0.25 } scale = { .2 .2 } }
+		instance = { position = { 0.25 0.5 } scale = { .2 .2 } }
+		instance = { position = { 0.75 0.5 } scale = { .2 .2 } }
 	}
 }
 
@@ -104,7 +104,7 @@ RAB = { # Warrenmark -- rabbitkin kingdom (leaping rabbit)
 	pattern = "pattern_solid.tga"
 	color1 = oc_moss_green
 	color2 = oc_pearl_white
-    colored_emblem = {
+	colored_emblem = {
 		texture = "ce_rubh_el_hizb_arch.dds"
 		color1 = oc_jade_green
 		color2 = oc_pearl_white
@@ -115,7 +115,7 @@ RAB = { # Warrenmark -- rabbitkin kingdom (leaping rabbit)
 		color1 = oc_pearl_white
 		color2 = oc_pearl_white
 		instance = { position = { 0.65 0.5 } scale = { 0.8 0.8 } }
-        instance = { position = { 0.35 0.5 } scale = { 0.8 0.8 } }
+		instance = { position = { 0.35 0.5 } scale = { 0.8 0.8 } }
 	}
 }
 
@@ -135,7 +135,7 @@ SNE = { # Frostreach -- snow elf kingdom (silver star)
 	pattern = "pattern_solid.tga"
 	color1 = oc_frost_white
 	color2 = oc_frost_white
-    colored_emblem = {
+	colored_emblem = {
 		texture = "ce_circle_mask.dds"
 		color1 = oc_blood_red
 		instance = { position = { 0.5 0.5 } scale = { 0.7 0.8 } }
@@ -161,7 +161,7 @@ DEI = { # Deigo
 		color1 = oc_pearl_white
 		instance = { position = { 0.5 0.5 } scale = { 0.6 0.6 } }
 	}
-    colored_emblem = {
+	colored_emblem = {
 		texture = "ce_kamon_frame_thick_circle.dds"
 		color1 = oc_pearl_white
 		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
@@ -180,8 +180,7 @@ FRM = { # Frostmark -- fjordic + frostholm kingdom (norse longship on frost/tund
 	colored_emblem = {
 		texture = "ce_norse_fenrir_tullstorp.dds"
 		color1 = oc_frost_white
-		color2 = oc_iron
-        color2 = oc_deep_blue
+		color2 = oc_deep_blue
 		instance = { position = { 0.5 0.5 } scale = { 1.1 1.1 } }
 	}
 }
@@ -221,14 +220,14 @@ NEK = { # Neconya -- cat empire
 		color3 = oc_pearl_white
 		instance = { position = { 0.2 0.5 } scale = { 0.7 0.7 } }
 	}
-    colored_emblem = {
+	colored_emblem = {
 		texture = "ce_seal_pictorial_vertical_tiger.dds"
 		color1 = sc_CAT_1
 		color2 = sc_CAT_2
 		color3 = oc_pearl_white
 		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
 	}
-    colored_emblem = {
+	colored_emblem = {
 		texture = "ce_seal_pictorial_vertical_tiger.dds"
 		color1 = sc_CAT_1
 		color2 = sc_CAT_2
@@ -241,12 +240,12 @@ KIT = { # Wahee -- fox empire
 	pattern = "pattern_gironny_16.dds"
 	color1 = col_AHE
 	color2 = col_WAP
-    colored_emblem = {
+	colored_emblem = {
 		texture = "ce_kamon_hole.dds"
 		color1 = col_WAP
 		instance = { position = { 0.5 0.5 } scale = { 1 1 } }
 	}
-    colored_emblem = {
+	colored_emblem = {
 		texture = "ce_kamon_frame_snowflake.dds"
 		color1 = col_AHE
 		instance = { position = { 0.5 0.5 } scale = { .9 .9 } }
@@ -342,4 +341,3 @@ VOI = { # Voidmarch -- demon splinter clan
 	color1 = col_DEM
 	color2 = oc_soul_violet
 }
-

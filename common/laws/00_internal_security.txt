@@ -143,14 +143,6 @@ law_shinsengumi = {
 			add = 750
 		}
 
-		if = {
-			limit = { 
-				always = no
-				always = no
-			}
-			add = 5000
-		}
-
 	}
 }
 
@@ -178,6 +170,56 @@ law_guaranteed_liberties = {
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
+		}
+	}
+}
+
+law_extraordinary_commission = {
+	group = lawgroup_internal_security
+	icon = "gfx/interface/icons/law_icons/extraordinary_commission.dds"
+
+	progressiveness = 50
+
+	unlocking_technologies = {
+		political_agitation
+	}
+
+	modifier = {
+		country_soldiers_pol_str_mult = 0.15
+	}
+
+	institution = institution_home_affairs
+	institution_modifier = {
+		country_suppression_attraction_factor = -0.05
+		state_political_strength_from_wealth_mult = -0.10
+		state_mortality_wealth_mult = 0.001
+		political_movement_radicalism_add = -0.05
+		country_support_separatism_resistance_mult = 0.05
+		country_support_separatism_strength_mult = 0.05
+		country_amenability_add = 3
+		country_coup_resistance_add = 0.75
+	}
+
+	on_enact = {
+		custom_tooltip = unlock_arrange_accident_tt
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+
+		if = {
+			limit = {
+				OR = {
+					any_revolution_ongoing = yes
+					any_secession_ongoing = yes
+				}
+			}
+			add = 500
 		}
 	}
 }

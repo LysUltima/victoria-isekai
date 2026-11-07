@@ -55,7 +55,7 @@ spirit_silkworms = {
 	texture = "gfx/interface/icons/invention_icons/spirit_silkworms.dds"
 	category = society
 
-    unlocking_technologies = {
+	unlocking_technologies = {
 		enclosure
 	}
 
@@ -75,7 +75,7 @@ arms_enchanting = {
 	texture = "gfx/interface/icons/invention_icons/arms_enchanting.dds"
 	category = society
 
-    unlocking_technologies = {
+	unlocking_technologies = {
 		martial_cultivation
 	}
 
@@ -233,7 +233,7 @@ spirit_field_cultivation = {
 
 	unlocking_technologies = {
 		foundation_establishment
-        spirit_silkworms
+		spirit_silkworms
 	}
 
 	ai_weight = {
@@ -263,7 +263,7 @@ dialectics = {
 
 	unlocking_technologies = {
 		empiricism
-        foundation_establishment
+		foundation_establishment
 	}
 
 	ai_weight = {
@@ -284,7 +284,7 @@ psychiatry = {
 
 	unlocking_technologies = {
 		empiricism
-        meridian_theory
+		meridian_theory
 	}
 
 	ai_weight = {
@@ -349,7 +349,7 @@ talisman_post = {
 
 	unlocking_technologies = {
 		mass_communication
-        talisman_printing
+		talisman_printing
 	}
 
 	ai_weight = {
@@ -369,7 +369,7 @@ formation_arrays = {
 
 	unlocking_technologies = {
 		foundation_establishment
-        talisman_printing
+		talisman_printing
 	}
 
 	ai_weight = {
@@ -412,7 +412,7 @@ philosophical_pragmatism = {
 
 	unlocking_technologies = {
 		psychiatry
-        dialectics
+		dialectics
 	}
 
 	ai_weight = {
@@ -449,7 +449,7 @@ sect_endowments = {
 
 	unlocking_technologies = {
 		talisman_post
-        central_archives
+		central_archives
 	}
 
 	ai_weight = {
@@ -464,7 +464,7 @@ relay_orbs = {
 	category = society
 
 	modifier = {
-		country_war_exhaustion_casualties_mult = -0.25
+		country_war_support_casualties_mult = -0.25
 	}
 
 	unlocking_technologies = {
@@ -485,7 +485,7 @@ chain_enchanted_arms = {
 
 	unlocking_technologies = {
 		rune_etched_arms
-        sect_tournaments
+		sect_tournaments
 	}
 
 	ai_weight = {
@@ -544,7 +544,7 @@ transcendent_fertilizer = {
 
 	unlocking_technologies = {
 		spirit_fertilizer_refinement
-        nascent_soul
+		nascent_soul
 	}
 
 	ai_weight = {
@@ -730,8 +730,8 @@ spirit_roads = {
 
 	unlocking_technologies = {
 		communication_orbs
-        transcendent_fertilizer
-        layered_formation_arrays
+		transcendent_fertilizer
+		layered_formation_arrays
 	}
 
 	ai_weight = {
@@ -1042,7 +1042,7 @@ spirit_vein_geomancy = {
 
 	unlocking_technologies = {
 		modern_sewerage
-        formation_arrays
+		formation_arrays
 	}
 
 	ai_weight = {
@@ -1078,7 +1078,7 @@ qi_gathering = {
 	texture = "gfx/interface/icons/invention_icons/qi_gathering.dds"
 	category = society
 
-    modifier = {
+	modifier = {
 		country_prestige_mult = 0.05
 	}
 
@@ -1152,7 +1152,7 @@ nascent_soul = {
 	texture = "gfx/interface/icons/invention_icons/nascent_soul.dds"
 	category = society
 
-    modifier = {
+	modifier = {
 		country_prestige_mult = 0.05
 	}
 
@@ -1249,9 +1249,9 @@ grand_talisman_arrays = {
 	texture = "gfx/interface/icons/invention_icons/grand_talisman_arrays.dds"
 	category = society
 
-    modifier = {
-        country_max_companies_add = 1
-    }
+	modifier = {
+		country_max_companies_add = 1
+	}
 
 	unlocking_technologies = {
 		seal_script_engraving

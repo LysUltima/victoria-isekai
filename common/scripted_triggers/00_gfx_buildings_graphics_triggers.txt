@@ -20,8 +20,12 @@ balkan_buildings_trigger = {
 }
 
 japanese_buildings_trigger = {
-    OR = {
-        is_in_geographic_region = geographic_region_eastern_isles
-        is_homeland = cu:deigo
-    }
+	OR = {
+		is_in_geographic_region = geographic_region_eastern_isles
+		is_homeland = cu:deigo
+	}
+}
+
+russian_buildings_trigger = {
+	is_in_geographic_region = geographic_region_north
 }

@@ -406,8 +406,8 @@ ip4_coup_victory_government_effects = {
 				has_law = law_type:law_colonial_administration
 				has_gov_regency = yes
 			}
-			glorious_revolution_coup_trigger = no
-			dynastic_coup_trigger = no
+			always = yes
+			always = yes
 		}
 		hidden_effect = {
 			if = {
@@ -493,6 +493,7 @@ ip4_coup_victory_government_effects = {
 }
 
 ip4_coup_victory_law_effects = {
+	remove_variable = ova_coup_aftermath_law
 	if = {
 		limit = {
 			exists = currently_enacting_law
@@ -534,6 +535,7 @@ ip4_coup_victory_law_effects = {
 				check_range_bounds = no
 				ROOT = {
 					activate_law = prev.type
+					set_variable = { name = ova_coup_aftermath_law value = prev.type years = 1 }
 				}
 			}
 		}
@@ -541,42 +543,8 @@ ip4_coup_victory_law_effects = {
 }
 
 ip4_coup_victory_special_effects = {
-	if = {
-		limit = {
-			glorious_revolution_coup_trigger = yes
-		}
-		custom_tooltip = spain_current_ruler_abdicates_tt
-		add_modifier = modifier_regency
-		hidden_effect = {
-			heir ?= {
-				# removed: deposed_spanish_heir was only read by a deleted event
-				place_character_in_void = 500
-			}
-			ruler = {
-				# removed: deposed_spanish_monarch was only read by a deleted event
-				place_character_in_void = 500
-			}
-		}
-		scope:golpista_ig.leader ?= {
-			set_character_as_ruler = yes
-		}
-		# removed: glorious_revolution_coup_var was only read by a deleted event
-		# removed: trigger_event = { id = two_spains.4 days = 3 popup = yes }
-	}
-	else_if = {
-		limit = {
-			dynastic_coup_trigger = yes
-		}
-		ip4_coup_victory_dynastic_effects = yes
-	}
 
-	if = {
-		limit = {
-			always = no # vanilla ref 'je_warlord_china' not present in this mod
-			always = no
-		}
-		chi_remove_1_fragile_unity = yes
-	}
+
 
 	if = {
 		limit = {
@@ -617,14 +585,7 @@ ip4_coup_victory_technical_effects = {
 		}
 		post_notification = successful_orchestrated_coup_in_country
 	}
-	if = {
-		limit = {
-			scope:golpista_ig ?= {
-				is_interest_group_type = ig_armed_forces
-			}
-		}
-		# removed: achievement_military_junta_var was only read by a deleted event
-	}
+
 	if = {
 		limit = {
 			has_variable = coup_sponsor
@@ -657,82 +618,7 @@ ip4_coup_victory_technical_effects = {
 	set_variable = { name = coup_aftermath_var years = 1 }
 }
 
-ip4_coup_victory_dynastic_effects = {
-	if = {
-		limit = {
-			has_gov_regency = yes
-		}
-		remove_regency_modifier = yes
-	}
-	if = {
-		limit = {
-			exists = heir
-		}
-		heir ?= {
-			exile_character_with_martyrdom = yes
-		}
-	}
-	if = {
-		limit = {
-			carlist_coup_trigger = yes
-		}
-		country_generate_carlist_spain_ruler = yes
-		if = {
-			limit = {
-				country_has_voting_franchise = yes
-			}
-			activate_law = law_type:law_autocracy
-		}
-	}
-	else_if = {
-		limit = {
-			isabelline_coup_trigger = yes
-		}
-		country_generate_constitutional_spain_ruler = yes
-	}
-	else_if = {
-		limit = {
-			miguelist_coup_trigger = yes
-		}
-		country_generate_miguelist_portugal_ruler = yes
-		if = {
-			limit = {
-				country_has_voting_franchise = yes
-			}
-			activate_law = law_type:law_autocracy
-		}
-	}
-	else_if = {
-		limit = {
-			constitutional_portugal_coup_trigger = yes
-		}
-		country_generate_constitutional_portugal_ruler = yes
-	}
-	else_if = {
-		limit = {
-			orleanist_coup_trigger = yes
-		}
-		country_generate_orleanist_france_ruler = yes
-	}
-	else_if = {
-		limit = {
-			bonapartist_coup_trigger = yes
-		}
-		country_generate_bonapartist_france_ruler = yes
-	}
-	else_if = {
-		limit = {
-			legitimist_coup_trigger = yes
-		}
-		country_generate_legitimist_france_ruler = yes
-		if = {
-			limit = {
-				country_has_voting_franchise = yes
-			}
-			activate_law = law_type:law_autocracy
-		}
-	}
-}
+
 
 ip4_coup_victory_effect_interaction_display = {
 	if = {
@@ -800,34 +686,8 @@ ip4_coup_victory_effect_interaction_display = {
 			}
 		}
 	}
+
 	if = {
-		limit = {
-			AND = { # To mirror the conditions of Isabella II's dethroning
-				always = no # vanilla ref 'je_the_two_spains' not present in this mod
-				has_law = law_type:law_monarchy
-				always = no
-				ruler ?= { popularity <= define:NCharacters|POPULARITY_LIKED_THRESHOLD }
-				has_gov_regency = no
-			}
-		}
-		custom_tooltip = spain_current_ruler_abdicates_owner_scope_tt
-		add_modifier = modifier_regency
-		hidden_effect = {
-			heir ?= {
-				# removed: deposed_spanish_heir was only read by a deleted event
-				place_character_in_void = 500
-			}
-			ruler = {
-				# removed: deposed_spanish_monarch was only read by a deleted event
-				place_character_in_void = 500
-			}
-		}
-		scope:golpista_ig.leader ?= {
-			set_character_as_ruler = yes
-		}
-		# removed: trigger_event = { id = two_spains.4 days = 3 popup = yes }
-	}
-	else_if = {
 		limit = {
 			OR = {
 				has_law = law_type:law_parliamentary_republic
@@ -1028,151 +888,9 @@ create_coup_event_from_character = { # Takes scope golpista_character
 	}
 }
 
-country_generate_carlist_spain_ruler = {
-	if = {
-		limit = {
-			has_gov_regency = yes
-		}
-		remove_regency_modifier = yes
-	}
-	if = {
-		limit = {
-			game_date < 1025.1.13
-		}
-		custom_tooltip = {
-			text = carlos_vi_tt
-			create_character = {
-				template = SPC_carlos_vi_de_borbon_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date < 1051.11.18
-		}
-		custom_tooltip = juan_iii_tt
-		country_summon_character_effect = {
-			TEMPLATE = SPC_juan_iii_de_borbon_template
-			ON_CREATED_EFFECT = summon_legitimist_carlist_effect
-		}
-	}
-	else_if = {
-		limit = {
-			game_date < 1073.8.15
-			game_date > 1012.4.3
-		}
-		custom_tooltip = carlos_vii_tt
-		country_summon_character_effect = {
-			TEMPLATE = SPC_carlos_vii_de_borbon_template
-			ON_CREATED_EFFECT = summon_legitimist_carlist_effect
-		}
-	}
-	else_if = {
-		limit = {
-			game_date < 1095.10.2
-			game_date > 1034.6.7
-		}
-		custom_tooltip = jaime_iii_tt
-		country_summon_character_effect = {
-			TEMPLATE = SPC_jaime_iii_de_borbon_template
-			ON_CREATED_EFFECT = summon_legitimist_carlist_effect
-		}
-	}
-	else_if = {
-		limit = {
-			game_date > 1013.9.12
-		}
-		custom_tooltip = alfonso_i_tt
-		country_summon_character_effect = {
-			TEMPLATE = SPC_alfonso_i_de_borbon_template
-			ON_CREATED_EFFECT = summon_legitimist_carlist_effect
-		}
-	}
-}
 
-country_generate_constitutional_spain_ruler = {
-	if = {
-		limit = {
-			has_gov_regency = yes
-		}
-		remove_regency_modifier = yes
-	}
-	if = {
-		limit = {
-			game_date <= 1015.12.20
-			game_date > 996.1.30
-		}
-		custom_tooltip = {
-			text = maria_luisa_i_tt
-			create_character = {
-				template = spa_luisa_fernanda_de_borbon_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date <= 1021.11.28
-			game_date > 1015.12.20
-		}
-		custom_tooltip = {
-			text = isabel_iii_tt
-			create_character = {
-				template = spa_isabel_francisca_de_borbon_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date < 1049.11.25
-			game_date > 1021.11.28
-		}
-		custom_tooltip = {
-			text = alfonso_xii_tt
-			create_character = {
-				template = spa_alfonso_xii_de_borbon_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date > 1050.5.17
-		}
-		custom_tooltip = {
-			text = alfonso_xiii_tt
-			create_character = {
-				template = spa_alfonso_xiii_de_borbon_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	else = {
-		custom_tooltip = {
-			text = juan_de_borbon_tt
-			create_character = {
-				first_name = "Juan"
-				last_name = "de_Borbon"
-				culture = primary_culture
-				interest_group = ig_armed_forces
-				ruler = yes
-				ideology = ideology_moderate
-			}
-		}
-	}
-}
+
+
 
 after_revolution_technical_effect = {
 	# removed (trigger_event: Event not found! EventID: after_revolution_technical.1)
@@ -1264,403 +982,19 @@ character_execute_immediate_coup = { # Must be executed in an "owner" scope when
 	}
 }
 
-country_generate_peripheral_braganza_ruler_display = {
-	if = {
-		limit = {
-			game_date < 1017.1.1
-		}
-		custom_tooltip = ana_de_jesus_maria_de_braganca_spa_tt
-	}
-	else_if = {
-		limit = {
-			game_date >= 1017.1.1
-			game_date < 1036.1.1
-		}
-		custom_tooltip = fernando_de_saxe_coburg_gotha_spa_tt
-	}
-	else_if = {
-		limit = {
-			game_date >= 1036.1.1
-			game_date < 1084.1.1
-		}
-		custom_tooltip = afonso_de_braganca_spa_tt
-	}
-}
 
-country_generate_peripheral_braganza_ruler = {
-	if = {
-		limit = {
-			has_gov_regency = yes
-		}
-		remove_regency_modifier = yes
-	}
-	if = {
-		limit = {
-			game_date < 1017.1.1
-		}
-		custom_tooltip = {
-			text = ana_de_jesus_maria_de_braganca_tt
-			create_character = {
-				template = POR_ana_de_jesus_maria_de_braganca_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date >= 1017.1.1
-			game_date < 1036.1.1
-		}
-		custom_tooltip = {
-			text = fernando_de_saxe_coburg_gotha_tt
-			create_character = {
-				template = POR_fernando_de_saxe_coburg_gotha_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date >= 1036.1.1
-			game_date < 1084.1.1
-		}
-		custom_tooltip = {
-			text = afonso_de_braganca_tt
-			create_character = {
-				template = POR_afonso_de_braganca_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-}
 
-country_generate_orleanist_france_ruler = {
-	if = {
-		limit = {
-			has_gov_regency = yes
-		}
-		remove_regency_modifier = yes
-	}
-	if = {
-		limit = {
-			game_date > 1002.8.24
-			game_date < 1058.1.1
-		}
-		custom_tooltip = {
-			text = philippe_de_orleans_of_paris_tt
-			country_summon_character_effect = {
-				TEMPLATE = FRA_philippe_de_orleans_of_paris
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date > 1033.2.6
-			game_date < 1090.1.1
-		}
-		custom_tooltip = {
-			text = philippe_de_orleans_of_orleans_tt
-			country_summon_character_effect = {
-				TEMPLATE = FRA_philippe_de_orleans_of_orleans
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date > 1038.9.4
-			game_date < 1104.1.1
-		}
-		custom_tooltip = {
-			text = jean_de_orleans_tt
-			country_summon_character_effect = {
-				TEMPLATE = FRA_jean_de_orleans
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date > 1072.7.5
-			game_date < 1163.1.1
-		}
-		custom_tooltip = {
-			text = henri_de_orleans_tt
-			country_summon_character_effect = {
-				TEMPLATE = FRA_henri_de_orleans
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-		}
-	}
-}
 
-country_generate_bonapartist_france_ruler = {
-	if = {
-		limit = {
-			has_gov_regency = yes
-		}
-		remove_regency_modifier = yes
-	}
-	if = {
-		limit = {
-			game_date <= 1037.1.9
-		}
-		summon_napoleon_the_woat = yes
-	}
-	if = {
-		limit = {
-			game_date > 1037.1.9
-		}
-		custom_tooltip = {
-			text = napoleon_eugene_louis_bonaparte_tt
-			country_summon_character_effect = {
-				TEMPLATE = FRA_napoleon_eugene_louis_bonaparte
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date > 1043.6.1
-		}
-		custom_tooltip = {
-			text = victor_bonaparte_tt
-			country_summon_character_effect = {
-				TEMPLATE = FRA_victor_bonaparte
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date > 1078.1.23
-		}
-		custom_tooltip = {
-			text = louis_bonaparte_tt
-			country_summon_character_effect = {
-				TEMPLATE = FRA_louis_bonaparte
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-		}
-	}
-}
 
-country_generate_legitimist_france_ruler = {
-	if = {
-		limit = {
-			has_gov_regency = yes
-		}
-		remove_regency_modifier = yes
-	}
-	if = {
-		limit = {
-			game_date < 1047.1.1
-		}
-		custom_tooltip = {
-			text = henri_de_bourbon_tt
-			country_summon_character_effect = {
-				TEMPLATE = FRA_henri_de_bourbon
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date < 1051.11.18
-		}
-		custom_tooltip = juan_iii_tt
-		country_summon_character_effect = {
-			TEMPLATE = SPC_juan_iii_de_borbon_template
-			ON_CREATED_EFFECT = summon_legitimist_carlist_effect
-		}
-	}
-	else_if = {
-		limit = {
-			game_date < 1073.8.15
-			game_date > 1012.4.3
-		}
-		custom_tooltip = carlos_vii_tt
-		country_summon_character_effect = {
-			TEMPLATE = SPC_carlos_vii_de_borbon_template
-			ON_CREATED_EFFECT = summon_legitimist_carlist_effect
-		}
-	}
-	else_if = {
-		limit = {
-			game_date < 1095.10.2
-			game_date > 1034.6.7
-		}
-		custom_tooltip = jaime_iii_tt
-		country_summon_character_effect = {
-			TEMPLATE = SPC_jaime_iii_de_borbon_template
-			ON_CREATED_EFFECT = summon_legitimist_carlist_effect
-		}
-	}
-	else_if = {
-		limit = {
-			game_date > 1013.9.12
-		}
-		custom_tooltip = alfonso_i_tt
-		country_summon_character_effect = {
-			TEMPLATE = SPC_alfonso_i_de_borbon_template
-			ON_CREATED_EFFECT = summon_legitimist_carlist_effect
-		}
-	}
-}
 
-country_generate_miguelist_portugal_ruler = {
-	if = {
-		limit = {
-			has_gov_regency = yes
-		}
-		remove_regency_modifier = yes
-	}
-	### Miguelist Portuguese Monarchs
-	if = {
-		limit = {
-			game_date >= 1000.1.1
-			game_date < 1030.11.14
-		}
-		country_summon_character_effect = {
-			TEMPLATE = POR_miguel_i_de_braganca_template
-			ON_CREATED_EFFECT = summon_miguel_effect
-		}
-	}
-	else_if = {
-		limit = {
-			game_date >= 1016.8.5
-			game_date < 1017.9.19
-		}
-		custom_tooltip = {
-			text = maria_das_neves_de_braganca_tt
-			create_character = {
-				template = POR_maria_das_neves_de_braganca_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date >= 1017.9.19
-			game_date < 1084.7.31
-		}
-		custom_tooltip = {
-			text = miguel_januario_de_braganca_tt
-			create_character = {
-				template = POR_miguel_januario_de_braganca_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			game_date >= 1084.7.31
-		}
-		custom_tooltip = {
-			text = duarte_nuno_de_braganca_tt
-			create_character = {
-				template = POR_duarte_nuno_de_braganca_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-}
 
-country_generate_constitutional_portugal_ruler = {
-	if = {
-		limit = {
-			has_gov_regency = yes
-		}
-		remove_regency_modifier = yes
-	}
-	#### Portuguese Monarchs
-	if = {
-		limit = {
-			game_date <= 1001.9.16
-		}
-		custom_tooltip = {
-			text = ana_de_jesus_maria_de_braganca_tt
-			create_character = {
-				template = POR_ana_de_jesus_maria_de_braganca_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	if = { # if Maria II dies naturally, make Pedro V the ruler
-		limit = {
-			game_date < 1025.11.11
-			game_date > 1001.9.16
-		}
-		custom_tooltip = {
-			text = pedro_v_de_braganca_tt
-			create_character = {
-				template = POR_pedro_v_de_braganca_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	else_if = { # if Pedro V dies naturally, make Luis I the ruler
-		limit = {
-			game_date < 1053.10.19
-			game_date > 1002.10.3
-		}
-		custom_tooltip = {
-			text = luis_i_de_braganca_tt
-			create_character = {
-				template = POR_luis_i_de_braganca_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	else_if = { # if Luis I dies naturally, make Carlos I the ruler
-		limit = {
-			game_date < 1072.2.1
-			game_date > 1027.9.28
-		}
-		custom_tooltip = {
-			text = carlos_i_de_braganca_tt
-			create_character = {
-				template = POR_carlos_i_de_braganca_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	else_if = { # if Carlos I dies naturally, make Manuel II the ruler
-		limit = {
-			game_date > 1053.7.2
-		}
-		custom_tooltip = {
-			text = manuel_ii_de_braganca_tt
-			create_character = {
-				template = POR_manuel_ii_de_braganca_template
-				on_created = {
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-}
+
+
+
+
+
+
+
 
 second_amendment_add_obsessions_effect = {
 	if = { # Second Amendment - add obsessions
@@ -1897,335 +1231,21 @@ remove_electoral_fraud_effect = {
 	}
 }
 
-summon_napoleon_the_woat = { # Special case
-	save_scope_as = summoning_country
-	if = {
-		limit = {
-			any_character = {
-				always = no
-			}
-		}
-		random_character =  {
-			limit = {
-				always = no
-			}
-			save_scope_as = summoned_character_scope
-			transfer_character_of_unknown_status_to_country_and_make_ruler_effects = yes
-		}
-		if = {
-			limit = {
-				year >= 1857
-				year < 1873
-			}
-			country_summon_heir_effect = {
-				TEMPLATE = FRA_napoleon_eugene_louis_bonaparte
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			NOT = {
-				always = no
-			}
-		}
-		create_character = {
-			template = fra_napoleon_iii_character_template
-			on_created = {
-				cleanup_ruler_character_roles = yes
-				set_character_as_ruler = yes
-			}
-		}
-		if = {
-			limit = {
-				year >= 1857
-				year < 1873
-			}
-			country_summon_heir_effect = {
-				TEMPLATE = FRA_napoleon_eugene_louis_bonaparte
-			}
-		}
-	}
-	else = {
-		create_character = { # El Generico
-			first_name = "NapoleO_n"
-			last_name = "Bonaparte"
-			culture = cu:solenne
-			interest_group = ig_petty_bourgeoisie
-			ruler = yes
-			ideology = ideology_bonapartist
-			on_created = {
-				set_variable = house_bonaparte
-			}
-		}
-	}
-}
+
 
  # AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
  # AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
  # AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
- country_summon_character_effect = {
-	save_scope_as = summoning_country
-	if = {
-		limit = {
-			any_character = {
-				always = no
-			}
-		}
-		random_character =  {
-			limit = {
-				always = no
-			}
-			save_scope_as = summoned_character_scope
-			transfer_character_of_unknown_status_to_country_and_make_ruler_effects = yes
-		}
-	}
-	else = {
-		hidden_effect = {
-			create_character = {
-				template = $TEMPLATE$
-				on_created = {
-					$ON_CREATED_EFFECT$ = yes # I heard you like scripted effects, so I put scripted effects in your scripted effects so you can call scripted effects whilst you call scripted effects.
-				}
-			}
-		}
-	}
-}
+ 
 
-country_summon_heir_effect = {
-	save_scope_as = summoning_country
-	if = {
-		limit = {
-			any_character = {
-				always = no
-			}
-		}
-		random_character =  {
-			limit = {
-				always = no
-			}
-			save_scope_as = new_heir_scope
-			scope:summoning_country ?= {
-				set_character_of_unknown_status_as_heir = yes
-			}
-		}
-	}
-	else = {
-		hidden_effect = {
-			create_character = {
-				template = $TEMPLATE$
-				save_scope_as = new_heir_scope
-			}
-			scope:summoning_country ?= {
-				set_heir = scope:new_heir_scope
-			}
-		}
-	}
-}
 
-transfer_character_of_unknown_status_to_country_effects = {
-	if = {
-		limit = {
-			is_in_void = yes
-		}
-		hidden_effect = {
-			free_character_from_void = yes
-		}
-	}
-	if = {
-		limit = {
-			is_in_exile_pool = yes
-		}
-		transfer_character = scope:summoning_country
-		# removed: exile_to_ruler_var was only read by a deleted event
-		add_career_length = {
-			months = 60
-			random_range = { 1.0 1.5 } # 60-90 months
-		}
-		hidden_effect = {
-			free_from_exile_effect = yes
-		}
-	}
-	if = {
-		limit = {
-			NOT = { owner ?= scope:summoning_country }
-		}
-		if = {
-			limit = {
-				scope:summoned_character_scope ?= {
-					always = no
-				}
-			}
-			owner = {
-				post_notification = napoleon_iii_leaves_country
-			}
-		}
-		else = {
-			owner = {
-				post_notification = summoned_character_leaves_country
-			}
-		}
-		transfer_character = scope:summoning_country
-	}
-}
 
-transfer_character_of_unknown_status_to_country_and_make_ruler_effects = { # Requires summoned_character_scope, occurs within this scope, scope:summoning_country is the summoning country
-	if = {
-		limit = {
-			is_in_void = yes
-		}
-		hidden_effect = {
-			free_character_from_void = yes
-		}
-	}
-	if = {
-		limit = {
-			is_in_exile_pool = yes
-		}
-		transfer_character = scope:summoning_country
-		# removed: exile_to_ruler_var was only read by a deleted event
-		add_career_length = {
-			months = 60
-			random_range = { 1.0 1.5 } # 60-90 months
-		}
-		hidden_effect = {
-			free_from_exile_effect = yes
-		}
-	}
-	if = {
-		limit = {
-			NOT = { owner ?= scope:summoning_country }
-		}
-		owner = {
-			save_scope_as = yoink_country
-		}
-		if = { # Surely this won't cause any utterly insane Personal Unions
-			limit = {
-				AND = {
-					scope:summoning_country ?= {
-						has_law = law_type:law_monarchy
-					}
-					scope:summoned_character_scope ?= {
-						is_ruler_of_own_country = yes
-						owner ?= {
-							has_law = law_type:law_monarchy
-							has_gov_regency = no
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					scope:summoning_country.prestige >= scope:yoink_country.prestige
-				}
-				custom_tooltip = {
-					text = summoning_country_becomes_senior_in_personal_union_with_owner_tt
-					scope:summoned_character_scope ?= {
-						transfer_character = scope:summoning_country
-						set_character_as_ruler = yes
-					}
-					scope:summoning_country ?= {
-						create_diplomatic_pact = {
-							country = scope:yoink_country
-							type = personal_union
-						}
-					}
-				}
-			}
-			else = {
-				custom_tooltip = {
-					text = summoning_country_becomes_junior_in_personal_union_with_owner_tt
-					scope:yoink_country ?= {
-						create_diplomatic_pact = {
-							country = scope:summoning_country
-							type = personal_union
-						}
-					}
-				}
-			}
-		}
-		else = {
-			if = {
-				limit = {
-					scope:summoned_character_scope ?= {
-						always = no
-					}
-				}
-				owner = {
-					post_notification = napoleon_iii_leaves_country
-				}
-			}
-			else = {
-				owner = {
-					post_notification = summoned_character_leaves_country
-				}
-			}
-			transfer_character = scope:summoning_country
-			scope:summoning_country ?= {
-				# Make monarch
-				if = {
-					limit = {
-						owner = scope:summoning_country
-						is_ruler_of_own_country = yes
-					}
-					custom_tooltip = summoned_character_becomes_monarch_tt
-				}
-				else = {
-					hidden_effect = {
-						cleanup_ruler_character_roles = yes
-					}
-					set_character_as_ruler = yes
-				}
-			}
-		}
-	}
-	if = {
-		limit = {
-			owner ?= scope:summoning_country
-		}
-		scope:summoned_character_scope ?= {
-			hidden_effect = {
-				cleanup_ruler_character_roles = yes
-			}
-			set_character_as_ruler = yes
-		}
-	}
-}
 
-set_character_of_unknown_status_as_heir = { # Fired in a country scope, requires new_heir_scope
-	set_heir = scope:new_heir_scope
-	if = {
-		limit = {
-			scope:new_heir_scope ?= {
-				is_in_void = yes
-			}
-		}
-		hidden_effect = {
-			scope:new_heir_scope ?= {
-				free_character_from_void = yes
-				transfer_character = prev
-			}
-		}
-	}
-	if = {
-		limit = {
-			scope:new_heir_scope ?= {
-				is_in_exile_pool = yes
-			}
-		}
-		scope:new_heir_scope ?= {
-			transfer_character = scope:summoning_country
-			# removed: exile_to_ruler_var was only read by a deleted event
-			add_career_length = {
-				months = 60
-				random_range = { 1.0 1.5 } # 60-90 months
-			}
-			hidden_effect = {
-				free_from_exile_effect = yes
-			}
-		}
-	}
-}
+
+
+
+
 
 summon_miguel_effect = {
 	set_character_as_ruler = yes
@@ -2415,23 +1435,13 @@ generate_governor_of_same_type = { # Run in country scope
 				set_variable = { name = colonial_governor_term value = 0 }
 			}
 		}
-	
+
 	}
 }
 
 evaluate_portuguese_pink_map_connection = {
-	if = {
-		limit = {
-			always = no # blanked: vanilla ref 's:STATE_ZAMBEZIA' not present in this mod
-			always = no # blanked: vanilla ref 's:STATE_EAST_ANGOLA' not present in this mod
-			# removed: scope:zambezia_scope/angola_scope check, dead (scopes never set elsewhere)
-		}
-		# removed effect block: vanilla ref 'c:POR' not present in this mod
-	}
-	else = {
-	}
-}
 
+}
 
 initialize_electoral_confidence = {
 	set_electoral_confidence = {

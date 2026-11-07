@@ -91,7 +91,9 @@ election_neutral.1 = {
 				save_scope_as = mulligan_letters_ig
 				leader = {
 					save_scope_as = mulligan_letters_leader
-				}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			}
 			save_scope_as = mulligan_letters_party
 		}
@@ -141,6 +143,10 @@ election_neutral.1 = {
 		scope:mulligan_letters_party = {
 			add_momentum = momentum_small_decrease
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:mulligan_letters_leader }
 	}
 }
 
@@ -207,7 +213,9 @@ election_neutral.2 = {
 					save_scope_as = electioneering_commander_party
 				}
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -244,6 +252,10 @@ election_neutral.2 = {
 		scope:electioneering_commander = {
 			set_as_interest_group_leader = yes
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:electioneering_commander }
 	}
 }
 
@@ -291,7 +303,9 @@ election_neutral.3 = {
 			save_scope_as = whistle_stop_ig
 			leader = {
 				save_scope_as = whistle_stop_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			party = {
 				save_scope_as = whistle_stop_party
 			}
@@ -376,6 +390,10 @@ election_neutral.3 = {
 				days = short_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:whistle_stop_leader }
 	}
 }
 

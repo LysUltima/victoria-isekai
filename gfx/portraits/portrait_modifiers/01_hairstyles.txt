@@ -40,7 +40,7 @@
     european_hair_styles = {
         dna_modifiers = {
            accessory = {
-                mode = add
+                mode = replace
                 gene = hairstyles
                 template = european_hairstyles
                 range = { 0 1 } # For the randomness to work correctly

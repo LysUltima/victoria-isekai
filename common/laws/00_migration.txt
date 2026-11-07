@@ -37,28 +37,7 @@ law_migration_controls = {
 	}
 
 	on_enact = {
-		if = {
-			limit = {
-				always = no
-				always = no
-			}
-			every_scope_state = {
-				limit = {
-					NOT = {
-						any_neighbouring_state = {
-							is_treaty_port = yes
-							owner = {
-								religion = {
-									has_discrimination_trait = heritage_light
-								}
-							}
-						}
-					}
-					always = no
-				}
-				# remove_variable = open_to_missionaries_state  # removed: dead variable, never set elsewhere
-			}
-		}
+
 	}
 
 	ai_enact_weight_modifier = { #Petitions
@@ -69,13 +48,6 @@ law_migration_controls = {
 			add = 750
 		}
 
-		if = {
-			limit = {
-				always = no
-				has_law_or_variant = law_type:law_closed_borders
-			}
-			add = 1000
-		}
 	}
 }
 
@@ -92,28 +64,7 @@ law_closed_borders = {
 	progressiveness = -50
 
 	on_enact = {
-		if = {
-			limit = {
-				always = no
-				always = no
-			}
-			every_scope_state = {
-				limit = {
-					NOT = {
-						any_neighbouring_state = {
-							is_treaty_port = yes
-							owner = {
-								religion = {
-									has_discrimination_trait = heritage_light
-								}
-							}
-						}
-					}
-					always = no
-				}
-				# remove_variable = open_to_missionaries_state  # removed: dead variable, never set elsewhere
-			}
-		}
+
 		remove_variable = years_since_opening_of_japan_var
 	}
 

@@ -25,7 +25,7 @@
 	}
 
 	ai_weight = {
-        value = 10
+		value = 10
 
 		if = {
 			limit = {
@@ -36,38 +36,7 @@
 			multiply = 1.25
 		}
 
-		if = {
-			limit = {
-				owner ?= {
-					always = no
-					always = no
-				}
-				OR = {
-					always = no # was company_type:company_mitsui (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_mitsubishi (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_sumitomo (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_yasuda (Japan-flavor company not present in this mod)
-				}
-			}
-			add = -20
-		}
-
-		if = {
-			limit = {
-				owner ?= {
-					always = no
-					always = no
-				}
-				OR = {
-					always = no # was company_type:company_mitsui (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_mitsubishi (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_sumitomo (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_yasuda (Japan-flavor company not present in this mod)
-				}
-			}
-			add = 10
-		}
-    }
+	}
 }
 
 monopoly_charter = {
@@ -83,39 +52,9 @@ monopoly_charter = {
 	}
 
 	ai_weight = {
-        value = 50
-		if = {
-			limit = {
-				owner ?= {
-					always = no
-					always = no
-				}
-				OR = {
-					always = no # was company_type:company_mitsui (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_mitsubishi (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_sumitomo (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_yasuda (Japan-flavor company not present in this mod)
-				}
-			}
-			add = -1000
-		}
+		value = 50
 
-		if = {
-			limit = {
-				owner ?= {
-					always = no
-					always = no
-				}
-				OR = {
-					always = no # was company_type:company_mitsui (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_mitsubishi (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_sumitomo (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_yasuda (Japan-flavor company not present in this mod)
-				}
-			}
-			add = 25
-		}
-    }
+	}
 }
 
 industry_charter = {
@@ -132,9 +71,9 @@ industry_charter = {
 	}
 
 	ai_weight = {
-        value = 10
+		value = 10
 
-        if = {
+		if = {
 			limit = {
 				owner = {
 					has_strategy = ai_strategy_industrial_expansion
@@ -143,38 +82,7 @@ industry_charter = {
 			add = 10
 		}
 
-		if = {
-			limit = {
-				owner ?= {
-					always = no
-					always = no
-				}
-				OR = {
-					always = no # was company_type:company_mitsui (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_mitsubishi (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_sumitomo (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_yasuda (Japan-flavor company not present in this mod)
-				}
-			}
-			add = -20
-		}
-
-		if = {
-			limit = {
-				owner ?= {
-					always = no
-					always = no
-				}
-				OR = {
-					always = no # was company_type:company_mitsui (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_mitsubishi (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_sumitomo (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_yasuda (Japan-flavor company not present in this mod)
-				}
-			}
-			add = 20
-		}
-    }
+	}
 }
 
 trade_charter = {
@@ -194,9 +102,9 @@ trade_charter = {
 	}
 
 	ai_weight = {
-        value = 10
+		value = 10
 
-        if = {
+		if = {
 			limit = {
 				owner = {
 					has_strategy = ai_strategy_armed_isolationism
@@ -205,38 +113,7 @@ trade_charter = {
 			add = -5
 		}
 
-		if = {
-			limit = {
-				owner ?= {
-					always = no
-					always = no
-				}
-				OR = {
-					always = no # was company_type:company_mitsui (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_mitsubishi (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_sumitomo (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_yasuda (Japan-flavor company not present in this mod)
-				}
-			}
-			add = -5
-		}
-
-		if = {
-			limit = {
-				owner ?= {
-					always = no
-					always = no
-				}
-				OR = {
-					always = no # was company_type:company_mitsui (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_mitsubishi (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_sumitomo (Japan-flavor company not present in this mod)
-					always = no # was company_type:company_yasuda (Japan-flavor company not present in this mod)
-				}
-			}
-			add = 10
-		}
-    }
+	}
 }
 
 colonization_charter = {
@@ -254,21 +131,8 @@ colonization_charter = {
 
 	ai_possible = {
 		company_prosperity >= 50
-		OR = {
-			always = no
-			always = no
-			always = no
-			always = no
-			always = no
-			always = no
-			always = no
-			always = no
-			always = no
-			always = no
-			always = no
-			always = no
-			always = no
-		}
+		# Fictional companies use the generic prosperity, strategy, and target rules.
+
 		scope:target = {
 			NOT = {
 				any_scope_state = {
@@ -290,9 +154,9 @@ colonization_charter = {
 	}
 
 	ai_weight = {
-        value = 0
+		value = 0
 
-        if = {
+		if = {
 			limit = {
 				owner = {
 					OR = {
@@ -304,5 +168,5 @@ colonization_charter = {
 			add = 10
 		}
 
-    }
+	}
 }

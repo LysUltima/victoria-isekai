@@ -956,25 +956,7 @@ co_prosperity_sphere = {
 	}
 }
 
-continental_system = {
-	trigger = {
-		OR = {
-			scope:selected_identity = identity:identity_sovereign_empire
-			scope:selected_identity = identity:identity_military_treaty_organization
-			scope:selected_identity = identity:identity_trade_league
-		}
-		always = no # vanilla ref 'c:FRA' not present in this mod
-		OR = {
-			ruler = {
-				has_ideology = ideology:ideology_bonapartist
-			}
-			has_variable = bonapartist_restoration_var
-		}
-		any_rival_country = {
-			always = no # vanilla ref 'c:GBR' not present in this mod
-		}
-	}
-}
+
 
 lone_star_league = {
 	trigger = {
@@ -1729,26 +1711,11 @@ cross_channel_alliance = {
 	}
 }
 
-league_of_orleans = {
-	trigger = {
-		always = no # vanilla ref 'c:FRA' not present in this mod
-		has_variable = orleanist_restoration_var
-	}
-}
 
-bourbon_pact = {
-	trigger = {
-		always = no # vanilla ref 'c:FRA' not present in this mod
-		has_variable = legitimist_restoration_var
-	}
-}
 
-bonaparte_alliance = {
-	trigger = {
-		always = no # vanilla ref 'c:FRA' not present in this mod
-		has_variable = bonapartist_restoration_var
-	}
-}
+
+
+
 
 communard_league = {
 	trigger = {

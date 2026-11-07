@@ -21,6 +21,8 @@ STATE_EX_TENEBRIS = {
         type = "building_oil_rig"
         undiscovered_amount = 27
     }
+    max_cold_effect = 0.225
+    min_cold_effect = 0.001
 }
 
 STATE_LUCENT_UMBRAE = {
@@ -38,6 +40,8 @@ STATE_LUCENT_UMBRAE = {
         building_logging_camp = 44
         building_spirit_beast_hunting = 35
     }
+    max_cold_effect = 0.282
+    min_cold_effect = 0.000
 }
 
 STATE_SOMNIA_NOCTIS = {
@@ -57,6 +61,8 @@ STATE_SOMNIA_NOCTIS = {
         building_logging_camp = 14
         building_spirit_beast_hunting = 25
     }
+    max_cold_effect = 0.241
+    min_cold_effect = 0.003
 }
 
 STATE_CEU_ARDENT = {
@@ -78,6 +84,8 @@ STATE_CEU_ARDENT = {
         type = "building_oil_rig"
         undiscovered_amount = 52
     }
+    max_cold_effect = 0.289
+    min_cold_effect = 0.000
 }
 
 STATE_NE_PEREANT = {
@@ -94,6 +102,8 @@ STATE_NE_PEREANT = {
         building_logging_camp = 45
         building_spirit_beast_hunting = 32
     }
+    max_cold_effect = 0.254
+    min_cold_effect = 0.008
 }
 
 STATE_ADHUC_CANTAVI = {
@@ -110,6 +120,8 @@ STATE_ADHUC_CANTAVI = {
         building_logging_camp = 25
         building_spirit_beast_hunting = 43
     }
+    max_cold_effect = 0.159
+    min_cold_effect = 0.000
 }
 
 STATE_RESTAT_VOX = {
@@ -128,6 +140,8 @@ STATE_RESTAT_VOX = {
         building_spirit_beast_hunting = 21
         building_iron_mine = 71
     }
+    max_cold_effect = 0.143
+    min_cold_effect = 0.005
 }
 
 STATE_QUAE_AMAVI = {
@@ -148,6 +162,8 @@ STATE_QUAE_AMAVI = {
         building_logging_camp = 29
         building_spirit_beast_hunting = 24
     }
+    max_cold_effect = 0.167
+    min_cold_effect = 0.005
 }
 
 STATE_RUIT_SPES = {
@@ -173,6 +189,8 @@ STATE_RUIT_SPES = {
         undiscovered_amount = 32
     }
     naval_exit_id = 3042
+    max_cold_effect = 0.226
+    min_cold_effect = 0.011
 }
 
 STATE_CADUNT_STELLAE = {
@@ -192,6 +210,8 @@ STATE_CADUNT_STELLAE = {
         building_spirit_beast_hunting = 6
     }
     naval_exit_id = 3013
+    max_cold_effect = 0.264
+    min_cold_effect = 0.000
 }
 
 STATE_ASTRORUM = {
@@ -209,6 +229,8 @@ STATE_ASTRORUM = {
         building_spirit_beast_hunting = 17
         building_sulfur_mine = 35
     }
+    max_cold_effect = 0.209
+    min_cold_effect = 0.000
 }
 
 STATE_EX_CAELO = {
@@ -228,6 +250,8 @@ STATE_EX_CAELO = {
         building_logging_camp = 15
     }
     naval_exit_id = 3013
+    max_cold_effect = 0.274
+    min_cold_effect = 0.000
 }
 
 STATE_RUINA = {
@@ -252,6 +276,8 @@ STATE_RUINA = {
         undiscovered_amount = 12
     }
     naval_exit_id = 3013
+    max_cold_effect = 0.306
+    min_cold_effect = 0.004
 }
 
 STATE_LUMINA_FRACTA = {
@@ -271,6 +297,8 @@ STATE_LUMINA_FRACTA = {
         building_logging_camp = 21
     }
     naval_exit_id = 3013
+    max_cold_effect = 0.331
+    min_cold_effect = 0.005
 }
 
 STATE_IN_SPECULA = {
@@ -289,6 +317,8 @@ STATE_IN_SPECULA = {
         building_logging_camp = 23
     }
     naval_exit_id = 3013
+    max_cold_effect = 0.334
+    min_cold_effect = 0.002
 }
 
 STATE_TREMIT_LUMEN = {
@@ -308,6 +338,8 @@ STATE_TREMIT_LUMEN = {
         building_lead_mine = 112
     }
     naval_exit_id = 3023
+    max_cold_effect = 0.320
+    min_cold_effect = 0.001
 }
 
 STATE_LATENT_VIAE = {
@@ -326,6 +358,8 @@ STATE_LATENT_VIAE = {
         building_logging_camp = 10
         building_spirit_beast_hunting = 21
     }
+    max_cold_effect = 0.278
+    min_cold_effect = 0.015
 }
 
 STATE_IN_SILENTIO = {
@@ -354,6 +388,8 @@ STATE_IN_SILENTIO = {
         undiscovered_amount = 5
     }
     naval_exit_id = 3023
+    max_cold_effect = 0.277
+    min_cold_effect = 0.013
 }
 
 STATE_FUGIT_TEMPUS = {
@@ -373,6 +409,8 @@ STATE_FUGIT_TEMPUS = {
         building_spirit_beast_hunting = 34
     }
     naval_exit_id = 3023
+    max_cold_effect = 0.271
+    min_cold_effect = 0.015
 }
 
 STATE_SICUT_LACRIMAE = {
@@ -392,6 +430,8 @@ STATE_SICUT_LACRIMAE = {
         building_spirit_beast_hunting = 36
     }
     naval_exit_id = 3023
+    max_cold_effect = 0.237
+    min_cold_effect = 0.001
 }
 # YOL Yoliselv
 STATE_YOLTENI = {
@@ -415,6 +455,8 @@ STATE_YOLTENI = {
         type = "building_oil_rig"
         undiscovered_amount = 25
     }
+    max_cold_effect = 0.105
+    min_cold_effect = 0.000
 }
 
 STATE_NAIRENTHOYU = {
@@ -438,6 +480,8 @@ STATE_NAIRENTHOYU = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 7
     }
+    max_cold_effect = 0.143
+    min_cold_effect = 0.003
 }
 
 STATE_ASYNOSA = {
@@ -454,6 +498,8 @@ STATE_ASYNOSA = {
         building_spirit_beast_hunting = 16
         building_logging_camp = 6
     }
+    max_cold_effect = 0.032
+    min_cold_effect = 0.000
 }
 
 STATE_RAIEIN = {
@@ -477,6 +523,8 @@ STATE_RAIEIN = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 2
     }
+    max_cold_effect = 0.060
+    min_cold_effect = 0.000
 }
 # PAL Palnia
 STATE_PALNIA = {
@@ -503,6 +551,8 @@ STATE_PALNIA = {
         undiscovered_amount = 4
     }
     naval_exit_id = 3024
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # GIG Gigantine Mountains
 STATE_NO_RETURN = {
@@ -527,6 +577,8 @@ STATE_NO_RETURN = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 2
     }
+    max_cold_effect = 0.219
+    min_cold_effect = 0.003
 }
 
 STATE_DEATH_PEAK = {
@@ -546,6 +598,8 @@ STATE_DEATH_PEAK = {
         building_logging_camp = 9
         building_spirit_beast_hunting = 18
     }
+    max_cold_effect = 0.198
+    min_cold_effect = 0.007
 }
 
 STATE_LAST_BREATH = {
@@ -570,6 +624,8 @@ STATE_LAST_BREATH = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 4
     }
+    max_cold_effect = 0.094
+    min_cold_effect = 0.003
 }
 # GOB Goblinland
 STATE_DERRAGOB = {
@@ -588,6 +644,8 @@ STATE_DERRAGOB = {
         building_logging_camp = 30
         building_spirit_beast_hunting = 20
     }
+    max_cold_effect = 0.193
+    min_cold_effect = 0.000
 }
 
 STATE_ASGEBOG = {
@@ -611,6 +669,8 @@ STATE_ASGEBOG = {
         type = "building_oil_rig"
         undiscovered_amount = 55
     }
+    max_cold_effect = 0.211
+    min_cold_effect = 0.000
 }
 
 STATE_GORREBO = {
@@ -628,6 +688,8 @@ STATE_GORREBO = {
         building_logging_camp = 32
         building_spirit_beast_hunting = 23
     }
+    max_cold_effect = 0.159
+    min_cold_effect = 0.000
 }
 
 STATE_BOMEGGUD = {
@@ -646,6 +708,8 @@ STATE_BOMEGGUD = {
         building_logging_camp = 30
         building_spirit_beast_hunting = 20
     }
+    max_cold_effect = 0.132
+    min_cold_effect = 0.002
 }
 
 STATE_BROMAROB = {
@@ -668,6 +732,8 @@ STATE_BROMAROB = {
         type = "building_oil_rig"
         undiscovered_amount = 39
     }
+    max_cold_effect = 0.139
+    min_cold_effect = 0.003
 }
 
 STATE_GOBBEGOB = {
@@ -685,6 +751,8 @@ STATE_GOBBEGOB = {
         building_logging_camp = 9
         building_spirit_beast_hunting = 20
     }
+    max_cold_effect = 0.081
+    min_cold_effect = 0.000
 }
 
 STATE_WERRAZUB = {
@@ -702,6 +770,8 @@ STATE_WERRAZUB = {
         building_logging_camp = 11
         building_spirit_beast_hunting = 22
     }
+    max_cold_effect = 0.095
+    min_cold_effect = 0.000
 }
 
 STATE_ZABBAGOB = {
@@ -722,6 +792,8 @@ STATE_ZABBAGOB = {
         building_spirit_beast_hunting = 26
     }
     naval_exit_id = 3023
+    max_cold_effect = 0.091
+    min_cold_effect = 0.000
 }
 
 STATE_DAMOZOG = {
@@ -744,6 +816,8 @@ STATE_DAMOZOG = {
         type = "building_oil_rig"
         undiscovered_amount = 45
     }
+    max_cold_effect = 0.134
+    min_cold_effect = 0.005
 }
 
 STATE_GEBBAGGOG = {
@@ -769,6 +843,8 @@ STATE_GEBBAGGOG = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 5
     }
+    max_cold_effect = 0.127
+    min_cold_effect = 0.003
 }
 
 STATE_MEGGEDOB = {
@@ -787,6 +863,8 @@ STATE_MEGGEDOB = {
         building_logging_camp = 33
         building_spirit_beast_hunting = 25
     }
+    max_cold_effect = 0.172
+    min_cold_effect = 0.000
 }
 
 STATE_ZOGG_DEG = {
@@ -811,6 +889,8 @@ STATE_ZOGG_DEG = {
         undiscovered_amount = 18
     }
     naval_exit_id = 3023
+    max_cold_effect = 0.094
+    min_cold_effect = 0.001
 }
 
 STATE_GER_DRUB = {
@@ -831,6 +911,8 @@ STATE_GER_DRUB = {
         building_spirit_beast_hunting = 32
     }
     naval_exit_id = 3023
+    max_cold_effect = 0.125
+    min_cold_effect = 0.006
 }
 
 STATE_GRUB_DER = {
@@ -839,7 +921,7 @@ STATE_GRUB_DER = {
     subsistence_building = "building_subsistence_orchard"
     provinces = { "x240329" "x24194E" "x250048" "x250C46" "x26032B" "x270028" "x270532" "x270D32" "x27113E" "x28003F" "x291037" "x2A004C" "x2A0050" "x2A0232" "x2B0041" "x2B063D" "x2B1429" "x2B192A" "x2C1343" "x2D0036" "x2D0A4D" "x2D1A42" "x2D1A4B" "x2E0036" "x2E003E" "x2E0B31" "x2F0049" "x2F0F44" "x301432" "x320030" "x321028" "x321536" "x32182C" "x321943" "x321A4C" "x330046" "x330D29" "x331246" "x33152B" "x33183B" "x34004D" "x341542" "x35003C" "x36003D" "x36004B" "x36153B" "x370047" "x370231" "x38184E" "x390040" "x391545" "x3A002E" "x3A0D34" "x3B0049" "x3C0039" "x3D0137" "x3E0842" "x3E0B34" "x3E1D4E" "x40004C" "x40154D" "x401A4E" "x401C3A" "x41003E" "x410044" "x42042C" "x420D2D" "x421028" "x430046" "x440633" "x441546" "x441A4E" "x45003C" "x45054D" "x460033" "x460630" "x461D29" "x470041" "x47004F" "x471C2E" "x471C4C" "x48062B" "x48142F" "x490528" "x4A004D" "x4C112B" "x4C172C" "x4C172E" }
     city = "x321536"
-    port = "x460033"
+    port = "x2A0050"
     farm = "x321028"
     mine = "x36004B"
     wood = "x270D32"
@@ -857,6 +939,8 @@ STATE_GRUB_DER = {
         undiscovered_amount = 9
     }
     naval_exit_id = 3023
+    max_cold_effect = 0.105
+    min_cold_effect = 0.001
 }
 
 STATE_HOR_GOB = {
@@ -878,6 +962,8 @@ STATE_HOR_GOB = {
         building_spirit_beast_hunting = 17
     }
     naval_exit_id = 3023
+    max_cold_effect = 0.075
+    min_cold_effect = 0.000
 }
 
 STATE_HEP_TROK = {
@@ -898,6 +984,8 @@ STATE_HEP_TROK = {
         building_spirit_beast_hunting = 14
     }
     naval_exit_id = 3032
+    max_cold_effect = 0.043
+    min_cold_effect = 0.000
 }
 # SAN Sand Goblin Domain
 STATE_SSUME_NAKO = {
@@ -920,6 +1008,8 @@ STATE_SSUME_NAKO = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 6
     }
+    max_cold_effect = 0.004
+    min_cold_effect = 0.000
 }
 
 STATE_TASSO_POME = {
@@ -936,6 +1026,8 @@ STATE_TASSO_POME = {
     capped_resources = {
         building_spirit_beast_hunting = 21
     }
+    max_cold_effect = 0.003
+    min_cold_effect = 0.000
 }
 
 STATE_UPS_KOP = {
@@ -952,6 +1044,8 @@ STATE_UPS_KOP = {
     capped_resources = {
         building_spirit_beast_hunting = 13
     }
+    max_cold_effect = 0.013
+    min_cold_effect = 0.000
 }
 
 STATE_PRESSOK = {
@@ -968,6 +1062,8 @@ STATE_PRESSOK = {
     capped_resources = {
         building_spirit_beast_hunting = 14
     }
+    max_cold_effect = 0.047
+    min_cold_effect = 0.000
 }
 
 STATE_TASSO_HOP = {
@@ -985,6 +1081,8 @@ STATE_TASSO_HOP = {
         building_logging_camp = 8
         building_spirit_beast_hunting = 17
     }
+    max_cold_effect = 0.074
+    min_cold_effect = 0.001
 }
 
 STATE_MOSSOPOK = {
@@ -1002,6 +1100,8 @@ STATE_MOSSOPOK = {
         building_logging_camp = 8
         building_spirit_beast_hunting = 16
     }
+    max_cold_effect = 0.091
+    min_cold_effect = 0.002
 }
 
 STATE_GESSO_PAN = {
@@ -1020,6 +1120,8 @@ STATE_GESSO_PAN = {
         building_logging_camp = 9
         building_spirit_beast_hunting = 17
     }
+    max_cold_effect = 0.084
+    min_cold_effect = 0.000
 }
 
 STATE_KASSEMA = {
@@ -1037,6 +1139,8 @@ STATE_KASSEMA = {
         building_logging_camp = 7
         building_spirit_beast_hunting = 15
     }
+    max_cold_effect = 0.048
+    min_cold_effect = 0.000
 }
 
 STATE_RENOSSA = {
@@ -1053,6 +1157,8 @@ STATE_RENOSSA = {
     capped_resources = {
         building_spirit_beast_hunting = 19
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_RESSA_NAKO = {
@@ -1073,6 +1179,8 @@ STATE_RESSA_NAKO = {
         building_logging_camp = 29
         building_spirit_beast_hunting = 18
     }
+    max_cold_effect = 0.099
+    min_cold_effect = 0.001
 }
 # SDE Southern Desert
 STATE_BURNING_DREAM = {
@@ -1094,6 +1202,8 @@ STATE_BURNING_DREAM = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 6
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_SCORCHING_HAZE = {
@@ -1118,6 +1228,8 @@ STATE_SCORCHING_HAZE = {
         undiscovered_amount = 2
     }
     naval_exit_id = 3024
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_TREMBLING_PEAKS = {
@@ -1143,6 +1255,8 @@ STATE_TREMBLING_PEAKS = {
         undiscovered_amount = 6
     }
     naval_exit_id = 3024
+    max_cold_effect = 0.010
+    min_cold_effect = 0.001
 }
 
 STATE_BURROWING_HAVEN = {
@@ -1160,6 +1274,8 @@ STATE_BURROWING_HAVEN = {
     capped_resources = {
         building_spirit_beast_hunting = 26
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_SINGING_MIRAGE = {
@@ -1180,6 +1296,8 @@ STATE_SINGING_MIRAGE = {
         building_spirit_beast_hunting = 17
     }
     naval_exit_id = 3024
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_LACHRYMATE_VALLEY = {
@@ -1206,6 +1324,8 @@ STATE_LACHRYMATE_VALLEY = {
         undiscovered_amount = 3
     }
     naval_exit_id = 3024
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_DESPAIRING_DUNES = {
@@ -1222,6 +1342,8 @@ STATE_DESPAIRING_DUNES = {
     capped_resources = {
         building_spirit_beast_hunting = 15
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_ARDENT_FLAME = {
@@ -1242,6 +1364,8 @@ STATE_ARDENT_FLAME = {
         building_spirit_beast_hunting = 16
     }
     naval_exit_id = 3041
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_RUINING_TEARS = {
@@ -1260,6 +1384,8 @@ STATE_RUINING_TEARS = {
         building_lead_mine = 101
         building_spirit_beast_hunting = 13
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_SPLITTING_SANDS = {
@@ -1276,4 +1402,6 @@ STATE_SPLITTING_SANDS = {
     capped_resources = {
         building_spirit_beast_hunting = 21
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }

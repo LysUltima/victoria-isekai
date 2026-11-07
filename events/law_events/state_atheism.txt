@@ -484,7 +484,7 @@ state_atheism.5 = {
 				OR = {
 					has_ideology = ideology:ideology_radical
 					has_ideology = ideology:ideology_nihilist
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 					has_ideology = ideology:ideology_vanguardist
 					has_ideology = ideology:ideology_anarchist
 				}

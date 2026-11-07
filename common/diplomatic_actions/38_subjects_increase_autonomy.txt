@@ -336,31 +336,12 @@ da_increase_autonomy_of_self = {
 			add = {
 				desc = "0"
 
-				if = {
-					limit = {
-						always = no # vanilla ref 'je_peru_bolivia' not present in this mod
-						scope:target_country = {
-							always = no # vanilla ref 'c:BOL' not present in this mod
-							always = no # vanilla ref 'je_peru_bolivia' not present in this mod
-						}
-					}
-					add = -300
-				}
 			}
 		}
 
 		propose_score = {
 			value = 100
 
-			if = { # Hungary should want independence
-				limit = {
-					always = no # vanilla ref 'je_hungarian_revolution' not present in this mod
-					scope:target_country = {
-						always = no # vanilla ref 'je_matter_of_hungary' not present in this mod
-					}
-				}
-				multiply = 3
-			}
 		}
 
 		will_propose = {

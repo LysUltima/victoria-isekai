@@ -447,7 +447,9 @@ citizenship_laws.4 = {
 			ideology = ideology_sovereignist_leader
 			save_scope_as = minority_politician_scope
 		}
-	}
+
+		scope:minority_politician_scope ?= { set_temporary_event_immortality = { DURATION = 3 } }
+}
 
 	cancellation_trigger = {
 		NOT = { currently_enacting_law = scope:current_law_scope }
@@ -472,6 +474,10 @@ citizenship_laws.4 = {
 		scope:minority_politician_scope ?= {
 			replace_character_roles = { add = { agitator } remove_all = yes }
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:minority_politician_scope }
 	}
 }
 

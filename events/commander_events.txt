@@ -54,7 +54,9 @@ commander_events.2 = { #Commanders habit is getting out of control
 				}
 			}
 			save_scope_as = commander_with_addiction
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -68,7 +70,9 @@ commander_events.2 = { #Commanders habit is getting out of control
 		custom_tooltip = commander_events.2.a.tt
 		hidden_effect = {
 			scope:commander_with_addiction = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:commander_with_addiction }
+retire_character = yes
 			}
 		}
 	}
@@ -83,17 +87,21 @@ commander_events.2 = { #Commanders habit is getting out of control
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:commander_with_addiction }
+	}
 }
 
 commander_events.4 = {
 	type = country_event
-    placement = ROOT
+	placement = ROOT
 
-    title = commander_events.4.t
-    desc = commander_events.4.d
-    flavor = commander_events.4.f
+	title = commander_events.4.t
+	desc = commander_events.4.d
+	flavor = commander_events.4.f
 
-    gui_window = event_window_2char
+	gui_window = event_window_2char
 
 	left_icon = scope:arguing_commander_one
 	right_icon = scope:arguing_commander_two
@@ -103,9 +111,9 @@ commander_events.4 = {
 
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
-    duration = 3
+	duration = 3
 
-    cooldown = { days = stupidly_long_modifier_time }
+	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
 		any_scope_character = {
@@ -165,7 +173,9 @@ commander_events.4 = {
 			interest_group ?= {
 				save_scope_as = arguing_commander_one_IG
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 
 		random_scope_character = {
 			limit = {
@@ -192,7 +202,9 @@ commander_events.4 = {
 				NOT = { this = scope:arguing_commander_one }
 			}
 			save_scope_as = arguing_commander_two
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -210,7 +222,7 @@ commander_events.4 = {
 				days = short_modifier_time
 			}
 		}
-        default_option = yes
+		default_option = yes
 	}
 
 	option = {
@@ -218,7 +230,10 @@ commander_events.4 = {
 		custom_tooltip = commander_events.4.b.tt
 		hidden_effect = {
 			scope:arguing_commander_two = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:arguing_commander_one }
+		revoke_temporary_event_immortality = { CHARACTER = scope:arguing_commander_two }
+retire_character = yes
 			}
 		}
 		scope:arguing_commander_one = {
@@ -228,18 +243,23 @@ commander_events.4 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:arguing_commander_one }
+		revoke_temporary_event_immortality = { CHARACTER = scope:arguing_commander_two }
+	}
 }
 
 # War of Progress
 commander_events.5 = {
 	type = country_event
-    placement = ROOT
+	placement = ROOT
 
-    title = commander_events.5.t
-    desc = commander_events.5.d
-    flavor = commander_events.5.f
+	title = commander_events.5.t
+	desc = commander_events.5.d
+	flavor = commander_events.5.f
 
-    gui_window = event_window_1char_tabloid
+	gui_window = event_window_1char_tabloid
 
 	left_icon = scope:commander_invention
 
@@ -248,9 +268,9 @@ commander_events.5 = {
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
-    duration = 3
+	duration = 3
 
-    cooldown = { days = stupidly_long_modifier_time }
+	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
 		any_scope_character = {
@@ -270,7 +290,9 @@ commander_events.5 = {
 				has_trait = meticulous
 			}
 			save_scope_as = commander_invention
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -298,6 +320,10 @@ commander_events.5 = {
 			technology = perfected_enchanted_arms
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:commander_invention }
+	}
 }
 
 # Psychological Warfare
@@ -305,13 +331,13 @@ commander_events.5 = {
 
 commander_events.6 = {
 	type = country_event
-    placement = ROOT
+	placement = ROOT
 
-    title = commander_events.6.t
-    desc = commander_events.6.d
-    flavor = commander_events.6.f
+	title = commander_events.6.t
+	desc = commander_events.6.d
+	flavor = commander_events.6.f
 
-    event_image = {
+	event_image = {
 		video = "europenorthamerica_before_the_battle"
 	}
 
@@ -319,9 +345,9 @@ commander_events.6 = {
 
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
-    duration = 3
+	duration = 3
 
-    cooldown = { days = stupidly_long_modifier_time }
+	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
 		NOT = { has_variable = psychological_warfare_var }
@@ -385,7 +411,9 @@ commander_events.6 = {
 			}
 			set_variable = seducer_commander_var
 			save_scope_as = seducer_commander
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_interest_group = {
 			limit = {
 				ig_counts_as_marginal = no
@@ -400,7 +428,9 @@ commander_events.6 = {
 			save_scope_as = cheated_ig
 			leader = {
 				save_scope_as = cheated_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -448,7 +478,10 @@ commander_events.6 = {
 		custom_tooltip = commander_events.6.b.tt
 		hidden_effect = {
 			scope:seducer_commander = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:cheated_leader }
+		revoke_temporary_event_immortality = { CHARACTER = scope:seducer_commander }
+retire_character = yes
 				remove_variable = seducer_commander_var
 			}
 		}
@@ -488,5 +521,10 @@ commander_events.6 = {
 				add_trait = syphilis
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:cheated_leader }
+		revoke_temporary_event_immortality = { CHARACTER = scope:seducer_commander }
 	}
 }

@@ -12,6 +12,21 @@
 # variable names (also updates that file and its restored on_action guards).
 
 je_colonial_administration = {
+	activation_description = {
+		NOT = { is_country_type = unrecognized }
+		is_subject = no
+		any_scope_state = {
+			OR = {
+				is_in_geographic_region = geographic_region_demonland_south
+				is_in_geographic_region = geographic_region_beastland_wild
+				is_in_geographic_region = geographic_region_western_isles
+				is_in_geographic_region = geographic_region_western_isles_south
+				is_in_geographic_region = geographic_region_southern_isles
+			}
+		}
+		has_technology_researched = civilizing_mission
+	}
+
 	icon = "gfx/interface/icons/invention_icons/colonization.dds"
 
 	group = je_group_foreign_affairs

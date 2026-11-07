@@ -474,7 +474,9 @@ strike.5 = {
 			save_scope_as = union_ig_scope
 			leader = {
 				save_scope_as = union_ig_leader_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 	option = {
@@ -485,6 +487,10 @@ strike.5 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:union_ig_leader_scope }
 	}
 }
 

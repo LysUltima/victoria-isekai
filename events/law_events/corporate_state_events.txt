@@ -51,7 +51,7 @@ corporate_state.1 = {
 		ig:ig_trade_unions ?= {
 			leader = {
 				NOR = {
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 					has_ideology = ideology:ideology_vanguardist
 					has_ideology = ideology:ideology_anarchist
 					has_ideology = ideology:ideology_radical
@@ -64,8 +64,8 @@ corporate_state.1 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		ig:ig_trade_unions ?= {
 			save_scope_as = trade_unions_ig
 		}
@@ -233,8 +233,8 @@ corporate_state.2 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		random_interest_group = {
 			limit = {
 				law_stance = {
@@ -392,8 +392,8 @@ corporate_state.3 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		random_scope_state = {
 			limit = {
 				is_incorporated = yes
@@ -508,8 +508,8 @@ corporate_state.4 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		random_primary_culture = {
 			save_scope_as = primary_culture_scope
 		}
@@ -590,8 +590,8 @@ corporate_state.5 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		ig:ig_trade_unions ?= {
 			save_scope_as = trade_unions_ig
 		}
@@ -747,8 +747,8 @@ corporate_state.6 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		random_interest_group = {
 			limit = {
 				OR = {

@@ -1,0 +1,146 @@
+﻿ai_ceding_state_would_isolate_states = {
+	$STATE$ = { has_port_state = yes }
+	$RECEIVER$ = {
+		NOT = { market = $CEDER$.market }
+	}
+	NOT = {
+		$CEDER$.market = {
+			any_scope_country = {
+				any_scope_state = {
+					NOT = { this = $STATE$ }
+					has_port_state = yes
+					is_in_same_market_area = $STATE$
+				}
+			}
+		}
+	}
+	OR = {
+		AND = {
+			$STATE$ = {
+				NOT = { is_in_same_market_area = $CEDER$.capital }
+				any_neighbouring_state = {
+					is_in_same_market_area = $STATE$
+				}
+			}
+		}
+		AND = {
+			$STATE$ = { is_in_same_market_area = $CEDER$.capital }
+			$CEDER$ = {
+				any_scope_state = {
+					NOT = { is_in_same_market_area = $CEDER$.capital }
+				}
+			}
+		}
+	}
+}
+
+ai_is_regional_objective_protect_target = {
+	is_regional_objective_target_country = {
+		type = aro:ai_regional_objective_protect_country
+		target = $TARGET$
+	}
+}
+
+ai_is_regional_objective_state = {
+	is_regional_objective_target_state = {
+		type = $TYPE$
+		target = $STATE$
+	}
+}
+
+ai_is_regional_objective_subjugate_target = {
+	is_regional_objective_target_country = {
+		type = aro:ai_regional_objective_subjugate_country
+		target = $TARGET$
+	}
+}
+
+aro_is_acquire_states_candidate = {
+	state_region = {
+		NOT = {
+			any_scope_state = { owner = root }
+		}
+	}
+	root = { can_reach_target_state_to_conquer = { TARGET_STATE = prev } }
+}
+
+aro_is_acquire_states_target = {
+	root = {
+		has_variable_map = aro_acquire_states_targets
+		is_key_in_variable_map = {
+			name = aro_acquire_states_targets
+			target = prev.state_region
+		}
+	}
+}
+
+aro_is_befriend_countries_target = {
+	is_local_country = $REGION$
+	country_rank < root.country_rank
+	relations:root <= relations_threshold:cordial
+	root = { can_reach_target_country_to_protect = { TARGET_COUNTRY = prev } }
+}
+
+has_any_strait_province_in_hierarchy = {
+	OR = {
+		has_any_strait_province = yes
+		any_subject_or_below = {
+			has_any_strait_province = yes
+		}
+	}
+}
+
+has_factory_councils_law_or_amendment = {
+	OR = {
+		has_law_or_variant = law_type:law_factory_councils
+		active_law:lawgroup_labour_associations ?= {
+			has_amendment = amendment_type:amendment_factory_councils
+		}
+	}
+}
+
+neighboring_country_has_insurrectionary_movement_trigger = {
+	owner ?= {
+		any_neighbouring_state = {
+			owner ?= {
+				NOT = { THIS = ROOT.owner }
+				any_political_movement = {
+					is_political_movement_type = $TYPE$
+					is_insurrectionary = yes
+				}
+			}
+		}
+	}
+}
+
+can_reach_target_state_to_conquer = {
+	$TARGET_STATE$ = { save_temporary_scope_as = military_reach_target }
+	custom_tooltip = {
+		text = can_reach_state_to_conquer_tt
+		has_diplomatic_relevance = $TARGET_STATE$.owner
+		has_military_reach = {
+			target = $TARGET_STATE$
+			min_reach = ai_military_reach_conquer
+			min_shippable_strength = ai_military_reach_conquer_min_shippable_strength
+		}
+	}
+}
+
+can_reach_target_country_to_protect = {
+	$TARGET_COUNTRY$ = { save_temporary_scope_as = military_reach_target }
+	custom_tooltip = {
+		text = can_reach_to_protect_tt
+		has_diplomatic_relevance = $TARGET_COUNTRY$
+		OR = {
+			AND = {
+				is_power_bloc_leader = yes
+				is_in_same_power_bloc = $TARGET_COUNTRY$
+			}
+			has_military_reach = {
+				target = $TARGET_COUNTRY$
+				min_reach = ai_military_reach_protect
+				min_shippable_strength = ai_military_reach_protect_min_shippable_strength
+			}
+		}
+	}
+}

@@ -3,26 +3,26 @@
 
 namespace = war_crimes
 war_crimes.1 = {
- 	type = country_event
- 	placement = ROOT
+	type = country_event
+	placement = ROOT
 
- 	title = war_crimes.1.t
- 	desc = war_crimes.1.d
- 	flavor = war_crimes.1.f
+	title = war_crimes.1.t
+	desc = war_crimes.1.d
+	flavor = war_crimes.1.f
 
- 	event_image = {
- 		video = "middleeast_battlefield_trenches"
- 	}
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
 
- 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
- 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
- 	duration = 3
+	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
 
- 	trigger = {
+
+	trigger = {
 		army_mobilization_option_fraction = {
 			target = mobilization_option:mobilization_option_chemical_weapons
 			value >= 0.2
@@ -40,11 +40,11 @@ war_crimes.1 = {
 				}
 			}
 		}
- 	}
+	}
 
- 	immediate = {
- 		random_scope_war = {
- 			limit = {
+	immediate = {
+		random_scope_war = {
+			limit = {
 				any_scope_front = {
 					any_scope_general = {
 						owner = ROOT
@@ -56,9 +56,9 @@ war_crimes.1 = {
 						NOT = { owner = ROOT }
 					}
 				}
- 			}
- 			random_scope_front = {
- 				limit = {
+			}
+			random_scope_front = {
+				limit = {
 					any_scope_general = {
 						owner = ROOT
 						this.commander_military_formation ?= {
@@ -68,56 +68,65 @@ war_crimes.1 = {
 					any_scope_state = {
 						NOT = { owner = ROOT }
 					}
- 				}
- 				random_scope_general = {
- 					limit = {
+				}
+				random_scope_general = {
+					limit = {
 						owner = ROOT
 						this.commander_military_formation ?= {
 							has_mobilization_option = mobilization_option:mobilization_option_chemical_weapons
 						}
- 					}
- 					save_scope_as = war_crimes_perpetrator
- 				}
- 				random_scope_state = {
- 					limit = {
- 						NOT = { owner = ROOT }
- 					}
- 					save_scope_as = war_crimes_state
- 				}
- 			}
- 		}
- 	}
+					}
+					save_scope_as = war_crimes_perpetrator
 
- 	option = {  #we will win by any means necessary
- 		name = war_crimes.1.a
- 		default_option = yes
- 		scope:war_crimes_perpetrator = {
- 			add_trait = war_criminal
- 		}
- 		scope:war_crimes_state = {
- 			add_modifier = {  #mortality, welfare
- 				name = mustard_gas
- 				days = normal_modifier_time
- 				multiplier = 2
- 			}
- 		}
- 	}
- 	option = {  #try the general for war crimes
- 		name = war_crimes.1.b
-		 scope:war_crimes_perpetrator = {
-			retire_character = yes
+			set_temporary_event_immortality = { DURATION = 3 }
+}
+				random_scope_state = {
+					limit = {
+						NOT = { owner = ROOT }
+					}
+					save_scope_as = war_crimes_state
+				}
+			}
 		}
- 		scope:war_crimes_state = {
- 			add_modifier = {  #mortality, welfare
- 				name = mustard_gas
- 				days = normal_modifier_time
- 			}
- 		}
- 		add_modifier = {  #reduced kill rate
- 			name = laws_against_war_crimes
- 			days = long_modifier_time
- 		}
- 	}
+	}
+
+	option = {  #we will win by any means necessary
+		name = war_crimes.1.a
+		default_option = yes
+		scope:war_crimes_perpetrator = {
+			add_trait = war_criminal
+		}
+		scope:war_crimes_state = {
+			add_modifier = {  #mortality, welfare
+				name = mustard_gas
+				days = normal_modifier_time
+				multiplier = 2
+			}
+		}
+	}
+	option = {  #try the general for war crimes
+		name = war_crimes.1.b
+		 scope:war_crimes_perpetrator = {
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:war_crimes_perpetrator }
+retire_character = yes
+		}
+		scope:war_crimes_state = {
+			add_modifier = {  #mortality, welfare
+				name = mustard_gas
+				days = normal_modifier_time
+			}
+		}
+		add_modifier = {  #reduced kill rate
+			name = laws_against_war_crimes
+			days = long_modifier_time
+		}
+	}
+
+	fire_only_once = yes
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:war_crimes_perpetrator }
+	}
 }
 
 # Munitions Plants
@@ -139,7 +148,7 @@ war_crimes.2 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	trigger = {
 		any_scope_building = {
@@ -188,4 +197,6 @@ war_crimes.2 = {
 		}
 		add_technology_progress = { progress = 3500 technology = rune_etched_arms }
 	}
+
+	fire_only_once = yes
 }

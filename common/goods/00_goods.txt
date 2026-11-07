@@ -319,6 +319,8 @@ oil = {
 	prestige_factor = 5
 	traded_quantity = 6 # 240
 	convoy_cost_multiplier = 0.5
+
+	consumption_tax_cost = 200
 }
 
 # ISEKAI TC: vanilla key reused - displays as "Sentient Automata" (automata awakened with anima)
@@ -330,6 +332,9 @@ automobiles = {
 	prestige_factor = 10
 	traded_quantity = 2.5 # 250
 	convoy_cost_multiplier = 1.0
+
+	obsession_chance = 1.0
+	pop_consumption_can_add_infrastructure = yes
 }
 
 steel = {

@@ -16,6 +16,8 @@ STATE_YONGAN = {
         building_coal_mine = 120
         building_iron_mine = 63
     }
+    max_cold_effect = 0.071
+    min_cold_effect = 0.000
 }
 
 STATE_FENGSHAN = {
@@ -37,6 +39,8 @@ STATE_FENGSHAN = {
         building_sulfur_mine = 122
         building_spirit_beast_hunting = 13
     }
+    max_cold_effect = 0.066
+    min_cold_effect = 0.002
 }
 
 STATE_FEILIN = {
@@ -58,6 +62,8 @@ STATE_FEILIN = {
         building_sulfur_mine = 56
         building_spirit_beast_hunting = 17
     }
+    max_cold_effect = 0.048
+    min_cold_effect = 0.001
 }
 
 STATE_ANDU = {
@@ -75,6 +81,8 @@ STATE_ANDU = {
     capped_resources = {
         building_logging_camp = 20
     }
+    max_cold_effect = 0.059
+    min_cold_effect = 0.000
 }
 
 STATE_CANGMU = {
@@ -98,6 +106,8 @@ STATE_CANGMU = {
         type = "building_oil_rig"
         undiscovered_amount = 11
     }
+    max_cold_effect = 0.041
+    min_cold_effect = 0.000
 }
 
 STATE_QINGHAI = {
@@ -117,6 +127,8 @@ STATE_QINGHAI = {
         building_logging_camp = 20
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.126
+    min_cold_effect = 0.000
 }
 
 STATE_JINGFENG = {
@@ -136,6 +148,8 @@ STATE_JINGFENG = {
         building_logging_camp = 21
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.118
+    min_cold_effect = 0.000
 }
 
 STATE_LIANXIAO = {
@@ -156,6 +170,8 @@ STATE_LIANXIAO = {
         building_coal_mine = 58
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.134
+    min_cold_effect = 0.000
 }
 
 STATE_BEIHAI = {
@@ -179,6 +195,8 @@ STATE_BEIHAI = {
         building_sulfur_mine = 157
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.184
+    min_cold_effect = 0.000
 }
 
 STATE_XIAMENG = {
@@ -200,6 +218,8 @@ STATE_XIAMENG = {
         building_coal_mine = 69
         building_iron_mine = 58
     }
+    max_cold_effect = 0.090
+    min_cold_effect = 0.000
 }
 
 STATE_YUANXIANG = {
@@ -217,6 +237,8 @@ STATE_YUANXIANG = {
     capped_resources = {
         building_logging_camp = 25
     }
+    max_cold_effect = 0.088
+    min_cold_effect = 0.000
 }
 
 STATE_HONGYING = {
@@ -234,6 +256,8 @@ STATE_HONGYING = {
     capped_resources = {
         building_logging_camp = 23
     }
+    max_cold_effect = 0.092
+    min_cold_effect = 0.000
 }
 
 STATE_CHENGYI = {
@@ -251,6 +275,8 @@ STATE_CHENGYI = {
     capped_resources = {
         building_logging_camp = 21
     }
+    max_cold_effect = 0.063
+    min_cold_effect = 0.000
 }
 # SWO Divine Sword Sect
 STATE_SHENJIAN = {
@@ -278,6 +304,8 @@ STATE_SHENJIAN = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 5
     }
+    max_cold_effect = 0.126
+    min_cold_effect = 0.002
 }
 
 STATE_CHUNYA = {
@@ -299,6 +327,8 @@ STATE_CHUNYA = {
         building_sulfur_mine = 59
         building_lead_mine = 92
     }
+    max_cold_effect = 0.090
+    min_cold_effect = 0.000
 }
 # HEA Heavenly Note Sect
 STATE_TIANYIN = {
@@ -321,6 +351,8 @@ STATE_TIANYIN = {
         building_coal_mine = 188
         building_spirit_beast_hunting = 10
     }
+    max_cold_effect = 0.095
+    min_cold_effect = 0.006
 }
 
 STATE_QIUGE = {
@@ -342,6 +374,8 @@ STATE_QIUGE = {
         building_sulfur_mine = 90
         building_spirit_beast_hunting = 14
     }
+    max_cold_effect = 0.112
+    min_cold_effect = 0.000
 }
 
 STATE_ZHUSHI = {
@@ -361,6 +395,8 @@ STATE_ZHUSHI = {
         building_logging_camp = 18
     }
     naval_exit_id = 3030
+    max_cold_effect = 0.149
+    min_cold_effect = 0.000
 }
 # FLO Flowering Cloud Pavillion
 STATE_HUAYUN = {
@@ -382,6 +418,8 @@ STATE_HUAYUN = {
         building_logging_camp = 17
     }
     naval_exit_id = 3006
+    max_cold_effect = 0.037
+    min_cold_effect = 0.000
 }
 
 STATE_KAIHUA = {
@@ -401,6 +439,8 @@ STATE_KAIHUA = {
         building_logging_camp = 16
     }
     naval_exit_id = 3001
+    max_cold_effect = 0.024
+    min_cold_effect = 0.000
 }
 
 STATE_GANGSHANG = {
@@ -426,6 +466,8 @@ STATE_GANGSHANG = {
         building_spirit_beast_hunting = 22
     }
     naval_exit_id = 3006
+    max_cold_effect = 0.057
+    min_cold_effect = 0.000
 }
 # PUR Purple Mist Palace
 STATE_ZIXIA = {
@@ -446,6 +488,8 @@ STATE_ZIXIA = {
         building_coal_mine = 68
         building_spirit_beast_hunting = 12
     }
+    max_cold_effect = 0.085
+    min_cold_effect = 0.003
 }
 # MYS Mystic Moon Sect
 STATE_XUANYUE = {
@@ -466,6 +510,8 @@ STATE_XUANYUE = {
         building_logging_camp = 20
         building_spirit_beast_hunting = 22
     }
+    max_cold_effect = 0.086
+    min_cold_effect = 0.000
 }
 
 STATE_HEJIN = {
@@ -485,6 +531,8 @@ STATE_HEJIN = {
         building_coal_mine = 62
         building_spirit_beast_hunting = 15
     }
+    max_cold_effect = 0.112
+    min_cold_effect = 0.000
 }
 
 STATE_LANXIU = {
@@ -505,6 +553,8 @@ STATE_LANXIU = {
         building_logging_camp = 16
         building_spirit_beast_hunting = 22
     }
+    max_cold_effect = 0.132
+    min_cold_effect = 0.002
 }
 # FEA Feather Island Estate
 STATE_YUDAO = {
@@ -528,6 +578,8 @@ STATE_YUDAO = {
         building_gold_mine = 7
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.213
+    min_cold_effect = 0.000
 }
 # YAO Great Yao
 STATE_MINGJING = {
@@ -546,6 +598,8 @@ STATE_MINGJING = {
         building_logging_camp = 21
         building_coal_mine = 126
     }
+    max_cold_effect = 0.189
+    min_cold_effect = 0.000
 }
 
 STATE_LIMING = {
@@ -564,6 +618,8 @@ STATE_LIMING = {
     capped_resources = {
         building_logging_camp = 18
     }
+    max_cold_effect = 0.156
+    min_cold_effect = 0.000
 }
 
 STATE_QIANHU = {
@@ -582,6 +638,8 @@ STATE_QIANHU = {
         building_iron_mine = 69
         building_logging_camp = 24
     }
+    max_cold_effect = 0.279
+    min_cold_effect = 0.047
 }
 
 STATE_ZHAOHAI = {
@@ -602,6 +660,8 @@ STATE_ZHAOHAI = {
         building_logging_camp = 22
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.183
+    min_cold_effect = 0.000
 }
 
 STATE_LONGYUN = {
@@ -629,6 +689,8 @@ STATE_LONGYUN = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 2
     }
+    max_cold_effect = 0.319
+    min_cold_effect = 0.053
 }
 
 STATE_ZHONGYUAN = {
@@ -649,6 +711,8 @@ STATE_ZHONGYUAN = {
         building_logging_camp = 24
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.244
+    min_cold_effect = 0.000
 }
 
 STATE_YINGHAI = {
@@ -669,6 +733,8 @@ STATE_YINGHAI = {
         building_logging_camp = 22
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.291
+    min_cold_effect = 0.000
 }
 
 STATE_JINAN = {
@@ -687,6 +753,8 @@ STATE_JINAN = {
         building_logging_camp = 18
         building_coal_mine = 57
     }
+    max_cold_effect = 0.237
+    min_cold_effect = 0.000
 }
 
 STATE_GUILIN = {
@@ -707,6 +775,8 @@ STATE_GUILIN = {
         building_iron_mine = 68
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.329
+    min_cold_effect = 0.002
 }
 
 STATE_TUYU = {
@@ -726,6 +796,8 @@ STATE_TUYU = {
         building_logging_camp = 11
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.292
+    min_cold_effect = 0.004
 }
 
 STATE_BIAN = {
@@ -747,6 +819,8 @@ STATE_BIAN = {
         building_lead_mine = 127
         building_spirit_beast_hunting = 17
     }
+    max_cold_effect = 0.223
+    min_cold_effect = 0.041
 }
 # SPI Spirit Valley Sect
 STATE_LINGGU = {
@@ -768,6 +842,8 @@ STATE_LINGGU = {
         building_logging_camp = 18
         building_spirit_beast_hunting = 11
     }
+    max_cold_effect = 0.126
+    min_cold_effect = 0.000
 }
 
 STATE_SHIYU = {
@@ -786,6 +862,8 @@ STATE_SHIYU = {
         building_iron_mine = 54
         building_logging_camp = 26
     }
+    max_cold_effect = 0.144
+    min_cold_effect = 0.000
 }
 # VER Vermillion Fate Palace
 STATE_ZHUMING = {
@@ -808,6 +886,8 @@ STATE_ZHUMING = {
         building_sulfur_mine = 48
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.349
+    min_cold_effect = 0.000
 }
 
 STATE_CHIJIANG = {
@@ -827,6 +907,8 @@ STATE_CHIJIANG = {
         building_logging_camp = 26
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.430
+    min_cold_effect = 0.000
 }
 # SNO Snow Blossom Pavillion
 STATE_XUEHUA = {
@@ -848,6 +930,8 @@ STATE_XUEHUA = {
         building_iron_mine = 83
     }
     naval_exit_id = 3019
+    max_cold_effect = 0.528
+    min_cold_effect = 0.000
 }
 # BLO Blood Lotus Sect
 STATE_XIELIAN = {
@@ -874,6 +958,8 @@ STATE_XIELIAN = {
         type = "building_oil_rig"
         undiscovered_amount = 15
     }
+    max_cold_effect = 0.036
+    min_cold_effect = 0.003
 }
 
 STATE_LANSHAN = {
@@ -896,6 +982,8 @@ STATE_LANSHAN = {
         building_lead_mine = 91
         building_spirit_beast_hunting = 15
     }
+    max_cold_effect = 0.004
+    min_cold_effect = 0.002
 }
 
 STATE_HUNJIANG = {
@@ -916,6 +1004,8 @@ STATE_HUNJIANG = {
         building_forests_of_the_departed = 25
     }
     naval_exit_id = 3030
+    max_cold_effect = 0.052
+    min_cold_effect = 0.000
 }
 
 STATE_FUQU = {
@@ -936,6 +1026,8 @@ STATE_FUQU = {
         building_forests_of_the_departed = 13
     }
     naval_exit_id = 3030
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_SHAHAI = {
@@ -956,6 +1048,8 @@ STATE_SHAHAI = {
         building_forests_of_the_departed = 16
     }
     naval_exit_id = 3030
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_HONGLIN = {
@@ -976,6 +1070,8 @@ STATE_HONGLIN = {
         building_forests_of_the_departed = 20
     }
     naval_exit_id = 3030
+    max_cold_effect = 0.105
+    min_cold_effect = 0.000
 }
 # GHO Ghost Mountain Sect
 STATE_GUISHAN = {
@@ -1003,6 +1099,8 @@ STATE_GUISHAN = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 3
     }
+    max_cold_effect = 0.024
+    min_cold_effect = 0.002
 }
 # SHA Shadow Fiend Sect
 STATE_YINGSHA = {
@@ -1026,6 +1124,8 @@ STATE_YINGSHA = {
         building_spirit_beast_hunting = 24
     }
     naval_exit_id = 3001
+    max_cold_effect = 0.001
+    min_cold_effect = 0.000
 }
 
 STATE_MOYUAN = {
@@ -1049,6 +1149,8 @@ STATE_MOYUAN = {
         building_lead_mine = 87
     }
     naval_exit_id = 3001
+    max_cold_effect = 0.001
+    min_cold_effect = 0.000
 }
 # NIN Nine Nether Sect
 STATE_JIUYOU = {
@@ -1079,6 +1181,8 @@ STATE_JIUYOU = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 4
     }
+    max_cold_effect = 0.024
+    min_cold_effect = 0.000
 }
 
 STATE_FENGDU = {
@@ -1101,6 +1205,8 @@ STATE_FENGDU = {
         building_spirit_beast_hunting = 17
     }
     naval_exit_id = 3001
+    max_cold_effect = 0.027
+    min_cold_effect = 0.002
 }
 
 STATE_HUANGQUAN = {
@@ -1125,4 +1231,6 @@ STATE_HUANGQUAN = {
         building_spirit_beast_hunting = 23
     }
     naval_exit_id = 3001
+    max_cold_effect = 0.009
+    min_cold_effect = 0.001
 }

@@ -30,7 +30,7 @@ dt_society_events.1 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	placement = scope:university_state
 
@@ -90,6 +90,8 @@ dt_society_events.1 = {
 		}
 		add_technology_progress = { progress = 4150 technology = philosophical_pragmatism }
 	}
+
+	fire_only_once = yes
 }
 
 dt_society_events.2 = {
@@ -104,7 +106,7 @@ dt_society_events.2 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	placement = scope:art_state
 
@@ -165,6 +167,8 @@ dt_society_events.2 = {
 			days = normal_modifier_time
 		}
 	}
+
+	fire_only_once = yes
 }
 
 dt_society_events.3 = {
@@ -184,7 +188,7 @@ dt_society_events.3 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	placement = scope:university_state
 
@@ -240,4 +244,6 @@ dt_society_events.3 = {
 		}
 		add_technology_progress = { progress = 2500 technology = medical_degrees }
 	}
+
+	fire_only_once = yes
 }

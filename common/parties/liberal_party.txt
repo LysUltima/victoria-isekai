@@ -418,7 +418,7 @@ liberal_party = {
 				has_ideology = ideology:ideology_fascist
 				has_ideology = ideology:ideology_integralist
 				has_ideology = ideology:ideology_ethno_nationalist
-				has_ideology = ideology:ideology_communist
+				has_ideology = ideology:ideology_communist_leader
 				has_ideology = ideology:ideology_vanguardist
 				has_ideology = ideology:ideology_anarchist
 			}
@@ -428,32 +428,12 @@ liberal_party = {
 	# Root - IG considering joining
 	# scope:number - the number of IGs that would join this party before the root IG
 	join_weight = {
-		
+
 		value = {
 			value = -5
 			desc = "base_value"
 		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-					is_subject = yes
-					OR = {
-						has_modifier = modifier_india_crown_rule
-						has_modifier = modifier_india_company_rule
-						has_modifier = modifier_india_company_rule_upgraded
-					}
-				}
-				OR = {
-					is_interest_group_type = ig_industrialists
-					is_interest_group_type = ig_armed_forces
-				}
-			}
-			add = {
-				value = -100
-				desc = "india_colonial_government"
-			}
-		}
+
 		if = { # liberals love liberalism
 			limit = {
 				leader ?= {
@@ -684,21 +664,7 @@ liberal_party = {
 				}
 			}
 		}
-		if = { # Spanish church will not be liberal
-			limit = {
-				OR = {
-					has_ideology = ideology:ideology_pious
-					has_ideology = ideology:ideology_corporatist
-				}
-				owner = {
-					always = no
-				}
-			}
-			add = {
-				value = -20
-				desc = "from_liberal_anticlericalism"
-			}
-		}
+
 		if = { # against illiteracy and religious education
 			limit = {
 				OR = {
@@ -899,7 +865,7 @@ liberal_party = {
 						OR = {
 						has_ideology = ideology:ideology_abolitionist
 						has_ideology = ideology:ideology_social_democrat
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 								has_ideology = ideology:ideology_vanguardist
 						}
 					}
@@ -925,7 +891,7 @@ liberal_party = {
 				is_powerful = no
 				owner = { has_technology_researched = labor_movement }
 				NOT = {
-					has_ideology = ideology:ideology_socialist
+					has_ideology = ideology:ideology_communist
 				}
 				NOT = {
 					always = no
@@ -958,33 +924,7 @@ liberal_party = {
 			}
 		}
 		# Special weights for ACW
-		if = {
-			limit = {
-				owner = {
-					OR = {
-						always = no
-						AND = { # JE not active yet at initialization
-							always = no
-							year < 1837
-						}
-					}
-				}
-			}
-			if = {
-				limit = { leader ?= { has_ideology = ideology:ideology_slaver } }
-				add = {
-					value = -100
-					desc = "from_slaver_leader"
-				}
-			}
-			else_if = {
-				limit = { leader ?= { has_ideology = ideology:ideology_abolitionist } }
-				add = {
-					value = 100
-					desc = "from_abolitionist_leader"
-				}
-			}
-		}
+
 		if = { # anti-orleanist
 			limit = {
 				leader ?= {
@@ -1063,74 +1003,7 @@ liberal_party = {
 				desc = "from_french_monarchist_rival"
 			}
 		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-					has_law = law_type:law_monarchy
-				}
-				OR = {
-					has_ideology = ideology:ideology_liberal
-					has_ideology = ideology:ideology_populist
-					leader ?= {
-						OR = {
-							has_ideology = ideology:ideology_republican_leader
-							has_ideology = ideology:ideology_radical
-							has_ideology = ideology:ideology_positivist
-							has_ideology = ideology:ideology_nihilist
-						}
-					}
-				}
-			}
-			add = {
-				value = 10
-				desc = "from_july_monarchy"
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-					any_primary_culture = {
-						has_discrimination_trait = language_hispanophone
-					}
-				}
-				OR = {
-					is_interest_group_type = ig_intelligentsia
-					is_interest_group_type = ig_rural_folk
-				}
-			}
-			add = {
-				value = 10
-				desc = "south_america_two_party_system"
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-					OR = {
-						country_has_primary_culture = cu:lysian
-						country_has_primary_culture = cu:farshore
-					}
-					has_law_or_variant = law_type:law_presidential_republic
-				}
-				leader ?= {
-					NOR = {
-						has_reactionary_ideology = yes
-						has_conservative_ideology = yes
-						has_socialist_ideology = yes
-					}
-				}
-				NOT = {
-					is_interest_group_type = ig_trade_unions
-				}
-			}
-			add = {
-				value = 3
-				desc = "usa_two_party_system"
-			}
-		}
+
 		if = {
 			limit = {
 				owner = {

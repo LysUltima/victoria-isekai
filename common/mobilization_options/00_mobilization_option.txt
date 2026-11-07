@@ -2,7 +2,7 @@
 	texture = "gfx/interface/icons/mobilization_options/basic_supplies.dds"
 	can_be_turned_off = {
 		custom_tooltip = {
-		    text = mobilization_option_basic_supplies_can_be_turned_off_tt
+			text = mobilization_option_basic_supplies_can_be_turned_off_tt
 			always = no
 		}
 	}
@@ -10,12 +10,12 @@
 		goods_input_grain_add = 0.75
 	}
 	upkeep_modifier_unscaled = {
-        goods_input_small_arms_mult = 0.5
-        goods_input_artillery_mult = 0.5
+		goods_input_small_arms_mult = 0.5
+		goods_input_artillery_mult = 0.5
 		goods_input_ammunition_mult = 0.5
-        goods_input_coal_mult = 0.5
-        goods_input_telephones_mult = 0.5
-        goods_input_engines_mult = 0.5
+		goods_input_coal_mult = 0.5
+		goods_input_telephones_mult = 0.5
+		goods_input_engines_mult = 0.5
 	}
 
 	unit_modifier = {
@@ -59,12 +59,12 @@ mobilization_option_extra_supplies = {
 		goods_input_groceries_add = 1.5
 	}
 	upkeep_modifier_unscaled = {
-        goods_input_small_arms_mult = 0.25
-        goods_input_artillery_mult = 0.25
+		goods_input_small_arms_mult = 0.25
+		goods_input_artillery_mult = 0.25
 		goods_input_ammunition_mult = 0.25
-        goods_input_coal_mult = 0.25
-        goods_input_telephones_mult = 0.25
-        goods_input_engines_mult = 0.25
+		goods_input_coal_mult = 0.25
+		goods_input_telephones_mult = 0.25
+		goods_input_engines_mult = 0.25
 	}
 
 	unit_modifier = {
@@ -75,27 +75,6 @@ mobilization_option_extra_supplies = {
 	ai_weight = {
 		value = 1
 
-		if = {
-			limit = {
-				always = no
-				scope:military_formation ?= {
-					any_combat_unit = {
-						building = {
-							state = {
-								state_region = {
-									OR = {
-always = no
-always = no
-									}
-								}
-							}
-						}
-						percent >= 0.2
-					}
-				}
-			}
-			add = -1000000
-		}
 	}
 
 	group = supplies
@@ -137,12 +116,12 @@ mobilization_option_luxurious_supplies = {
 		goods_input_wine_add = 1.5
 	}
 	upkeep_modifier_unscaled = {
-        goods_input_small_arms_mult = 0.25
-        goods_input_artillery_mult = 0.25
+		goods_input_small_arms_mult = 0.25
+		goods_input_artillery_mult = 0.25
 		goods_input_ammunition_mult = 0.25
-        goods_input_coal_mult = 0.25
-        goods_input_telephones_mult = 0.25
-        goods_input_engines_mult = 0.25
+		goods_input_coal_mult = 0.25
+		goods_input_telephones_mult = 0.25
+		goods_input_engines_mult = 0.25
 	}
 
 	unit_modifier = {
@@ -435,7 +414,7 @@ mobilization_option_rail_transport = {
 		value = 1
 	}
 
-    group = transport
+	group = transport
 }
 
 mobilization_option_machinegunners = {
@@ -484,7 +463,7 @@ mobilization_option_machinegunners = {
 		value = 1
 	}
 
-    group = special_weapons
+	group = special_weapons
 }
 
 mobilization_option_chemical_weapons = {
@@ -533,7 +512,7 @@ mobilization_option_chemical_weapons = {
 		value = 1
 	}
 
-    group = special_weapons
+	group = special_weapons
 }
 
 mobilization_option_flamethrowers = {
@@ -582,7 +561,7 @@ mobilization_option_flamethrowers = {
 		value = 1
 	}
 
-    group = special_weapons
+	group = special_weapons
 }
 
 # mobilization_option_landing_crafts = {
@@ -626,7 +605,7 @@ mobilization_option_balloon_recon = {
 		}
 	}
 
-    unlocking_technologies = {
+	unlocking_technologies = {
 		airship_flight
 	}
 
@@ -670,7 +649,7 @@ mobilization_option_aerial_recon = {
 
 	unlocking_technologies = {
 		merchant_airships
-        magic_carpets
+		magic_carpets
 	}
 	upkeep_modifier = {
 		goods_input_aeroplanes_add = 3
@@ -795,5 +774,5 @@ mobilization_option_field_hospitals = {
 		value = 1
 	}
 
-    group = medic_support
+	group = medic_support
 }

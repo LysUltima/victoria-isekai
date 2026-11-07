@@ -106,19 +106,6 @@ law_interventionism = {
 			add = 1000
 		}
 
-		if = {
-			limit = {
-				OR = {
-					always = no
-					always = no
-					always = no
-					always = no
-				}
-				has_law_or_variant = law_type:law_traditionalism
-			}
-			add = 10000 # Top priority for Tanzimat/Meiji AI is to get out of Traditionalism
-		}
-
 		# AI should really try to get out of Traditionalism under the right circumstances
 		if = {
 			limit = {
@@ -201,15 +188,6 @@ law_agrarianism = {
 
 			add = 1000
 		}
-
-		if = {
-			limit = {
-				always = no
-				has_law_or_variant = law_type:law_traditionalism
-			}
-			add = 10000 # Top priority for Tanzimat AI is to get out of Traditionalism
-		}
-
 
 		# AI should really try to get out of Traditionalism under the right circumstances
 		if = {
@@ -487,18 +465,6 @@ law_laissez_faire = {
 			add = 750
 		}
 
-		if = {
-			limit = {
-				OR = {
-					always = no
-					always = no
-					always = no
-				}
-				has_law_or_variant = law_type:law_traditionalism
-			}
-			add = 10000 # Top priority for Tanzimat/Meiji AI is to get out of Traditionalism
-		}
-
 		# AI should really try to get out of Traditionalism under the right circumstances
 		if = {
 			limit = {
@@ -663,7 +629,7 @@ law_command_economy = {
 				has_law_or_variant = law_type:law_council_republic
 				ruler ?= {
 					has_ideology = ideology:ideology_vanguardist
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 				}
 			}
 		}

@@ -52,7 +52,9 @@ psychology_events.1 = {
 			save_scope_as = mentally_ill_ig
 			leader = {
 				save_scope_as = mentally_ill_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -80,7 +82,9 @@ psychology_events.1 = {
 		name = psychology_events.1.b
 		custom_tooltip = psychology_events.1.tt
 		scope:mentally_ill_leader = {
-			retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:mentally_ill_leader }
+retire_character = yes
 		}
 		scope:mentally_ill_ig = {
 			add_modifier = {
@@ -112,6 +116,10 @@ psychology_events.1 = {
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:mentally_ill_leader }
 	}
 }
 
@@ -281,7 +289,9 @@ psychology_events.3 = {
 			interest_group ?= {
 				save_scope_as = mentally_ill_ig
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = { #treat them
@@ -303,7 +313,9 @@ psychology_events.3 = {
 		custom_tooltip = psychology_events.1.tt
 		hidden_effect = {
 			scope:mentally_ill_character = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:mentally_ill_character }
+retire_character = yes
 			}
 		}
 		scope:mentally_ill_ig = {
@@ -331,6 +343,10 @@ psychology_events.3 = {
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:mentally_ill_character }
 	}
 }
 
@@ -501,7 +517,9 @@ psychology_events.5 = {
 				save_scope_as = freud_scope
 			}
 		ig:ig_intelligentsia ?= { save_scope_as = intelligentsia_ig }
-	}
+
+		scope:freud_scope ?= { set_temporary_event_immortality = { DURATION = 3 } }
+}
 
 	option = { #what a cool guy
 		name = psychology_events.5.a
@@ -561,6 +579,10 @@ psychology_events.5 = {
 				multiplier = -0.5
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:freud_scope }
 	}
 }
 

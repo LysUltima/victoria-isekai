@@ -6,18 +6,28 @@
 # at game start. Not pinned, weight 0, so it stays out of the player's way.
 # ------------------------------------------------------------------------
 je_ova_storyline_note = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_storyline_note_complete_tt
-			always = yes
-		}
-	}
-
 	weight = 0
 	should_be_pinned_by_default_uninvolved_or_context = no
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_storyline_note_complete_tt
+				always = yes
+			}
+		}
+	}
 }

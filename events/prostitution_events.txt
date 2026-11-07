@@ -135,7 +135,9 @@ prostitution.1 = {
 			save_scope_as = cda_ig
 			leader = {
 				save_scope_as = cda_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -184,6 +186,10 @@ prostitution.1 = {
 			name = cda_following_the_science
 			days = normal_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:cda_ig_leader }
 	}
 }
 
@@ -242,7 +248,9 @@ prostitution.2 = {
 			save_scope_as = feminist_cda_ig
 			leader = {
 				save_scope_as = feminist_cda_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -335,6 +343,10 @@ prostitution.2 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:feminist_cda_ig_leader }
+	}
 }
 
 # Male brothel scandal
@@ -415,7 +427,9 @@ prostitution.3 = {
 			}
 			leader = {
 				save_scope_as = scandal_character
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 	option = { # Character must resign
@@ -429,7 +443,9 @@ prostitution.3 = {
 		custom_tooltip = prostitution.3.a.tt
 		hidden_effect = {
 			scope:scandal_character = {
-				retire_character = {
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:scandal_character }
+retire_character = {
 					hidden = yes
 				}
 			}
@@ -487,6 +503,10 @@ prostitution.3 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:scandal_character }
 	}
 }
 

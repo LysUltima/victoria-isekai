@@ -149,7 +149,9 @@ labor_rights.2 = {
 			save_scope_as = anti_serfdom_ig
 			leader = {
 				save_scope_as = anti_serfdom_advocate
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
@@ -194,6 +196,10 @@ labor_rights.2 = {
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:anti_serfdom_advocate }
 	}
 }
 

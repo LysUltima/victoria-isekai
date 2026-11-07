@@ -30,6 +30,8 @@ building_government_administration = {
 	required_construction = construction_cost_very_low
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+	ai_value = { value = 1000 }
 }
 
 building_university = {
@@ -58,16 +60,16 @@ building_university = {
 
 	ai_value = {
 		value = 2000 # Higher base value
-        if = {
-            limit = { 
-                owner = {
-                    any_primary_culture = {
-                        has_discrimination_trait_group = heritage_group_xianxia_human
-                    }
-                }
-            }
-            subtract = 2000
-        }
+		if = {
+			limit = {
+				owner = {
+					any_primary_culture = {
+						has_discrimination_trait_group = heritage_group_xianxia_human
+					}
+				}
+			}
+			subtract = 2000
+		}
 	}
 }
 
@@ -108,16 +110,16 @@ building_homunculus_factory = {
 			add = 4000000
 		}
 
-        if = {
-            limit = { 
-                owner = {
-                    any_primary_culture = {
-                        has_discrimination_trait_group = heritage_group_desert_human
-                    }
-                }
-            }
-            add = 5000
-        }
+		if = {
+			limit = {
+				owner = {
+					any_primary_culture = {
+						has_discrimination_trait_group = heritage_group_desert_human
+					}
+				}
+			}
+			add = 5000
+		}
 	}
 }
 

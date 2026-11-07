@@ -28,27 +28,29 @@ ig_leaders.20 = { #The Gamble set up
 
 	trigger = {
 		has_ruling_interest_group_count >= 2
-       any_interest_group = {
-    		is_in_government = yes
-            leader ?= {
-                has_trait = reckless
-            }
-        }
+	   any_interest_group = {
+			is_in_government = yes
+			leader ?= {
+				has_trait = reckless
+			}
+		}
 		NOT = { has_variable = the_gamble_var }
 	}
 
 	immediate = {
 		random_interest_group = {
 			limit = {
-    			is_in_government = yes
+				is_in_government = yes
 				leader = {
 					has_trait = reckless
 				}
-	        }
+			}
 			save_scope_as = reckless_ig
 			leader = {
 				save_scope_as = reckless_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		set_variable = {
 			name = the_gamble_var
@@ -77,6 +79,10 @@ ig_leaders.20 = { #The Gamble set up
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:reckless_leader }
 	}
 }
 
@@ -107,35 +113,37 @@ ig_leaders.1 = {
 
 	trigger = {
 		has_ruling_interest_group_count >= 2
-       any_interest_group = {
-    		is_in_government = yes
-            leader = {
-                has_trait = reckless
-            }
-            NOT = {
-            	has_modifier = ig_party_prospers
+	   any_interest_group = {
+			is_in_government = yes
+			leader = {
+				has_trait = reckless
+			}
+			NOT = {
+				has_modifier = ig_party_prospers
 				has_modifier = ig_fall_from_grace
-            }
-        }
-        NOT = {
-        	has_modifier = ig_nation_prospers
+			}
+		}
+		NOT = {
+			has_modifier = ig_nation_prospers
 			has_modifier = ig_compromised_government
-        }
+		}
 	}
 
 	immediate = {
 		random_interest_group = {
 			limit = {
-    			is_in_government = yes
-	            leader = {
-	                has_trait = reckless
-	            }
-	            NOT = {
-	            	has_modifier = ig_party_prospers
-	            }
+				is_in_government = yes
+				leader = {
+					has_trait = reckless
+				}
+				NOT = {
+					has_modifier = ig_party_prospers
+				}
 			}
 			save_scope_as = reckless_ig
-			leader = { save_scope_as = reckless_leader }
+			leader = { save_scope_as = reckless_leader
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -149,19 +157,23 @@ ig_leaders.1 = {
 		name = ig_leaders.1.a
 		default_option = yes
 		scope:reckless_ig = {
-	        add_modifier = {
-	            name = ig_party_prospers
-	            days = normal_modifier_time
-	        }
+			add_modifier = {
+				name = ig_party_prospers
+				days = normal_modifier_time
+			}
 		}
 	}
 
 	option = { #focus on the nation
 		name = ig_leaders.1.b
-	    add_modifier = {
-	        name = ig_nation_prospers
-	        days = normal_modifier_time
+		add_modifier = {
+			name = ig_nation_prospers
+			days = normal_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:reckless_leader }
 	}
 }
 
@@ -192,39 +204,41 @@ ig_leaders.2 = {
 
 	trigger = {
 		has_ruling_interest_group_count >= 2
-    	any_interest_group = {
-    		is_in_government = yes
-            leader = {
-            	is_busy = no
-                has_trait = reckless
-            }
-            NOT = {
-            	has_modifier = ig_fall_from_grace
+		any_interest_group = {
+			is_in_government = yes
+			leader = {
+				is_busy = no
+				has_trait = reckless
+			}
+			NOT = {
+				has_modifier = ig_fall_from_grace
 				has_modifier = ig_party_prospers
-            }
-        }
-        NOT = {
-        	has_modifier = ig_compromised_government
+			}
+		}
+		NOT = {
+			has_modifier = ig_compromised_government
 			has_modifier = ig_nation_prospers
-        }
+		}
 	}
 
 	immediate = {
 		random_interest_group = {
 			limit = {
-    			is_in_government = yes
-	            leader = {
-	            	is_busy = no
-	                has_trait = reckless
-	            }
-	            NOT = {
-	            	has_modifier = ig_fall_from_grace
-	            }
+				is_in_government = yes
+				leader = {
+					is_busy = no
+					has_trait = reckless
+				}
+				NOT = {
+					has_modifier = ig_fall_from_grace
+				}
 			}
 			save_scope_as = reckless_ig
 			leader = {
 				save_scope_as = reckless_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -254,7 +268,9 @@ ig_leaders.2 = {
 		custom_tooltip = ig_leaders.2.b.tt
 		hidden_effect = {
 			scope:reckless_leader = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:reckless_leader }
+retire_character = yes
 			}
 		}
 	}
@@ -262,10 +278,14 @@ ig_leaders.2 = {
 	option = { #trust them
 		name = ig_leaders.2.c
 		default_option = yes
-	    add_modifier = {
-	        name = ig_compromised_government
-	        days = normal_modifier_time
+		add_modifier = {
+			name = ig_compromised_government
+			days = normal_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:reckless_leader }
 	}
 }
 
@@ -298,14 +318,14 @@ ig_leaders.3 = {
 		in_election_campaign = yes
 		NOT = { has_variable = election_event_cooldown }
 		NOT = { has_variable = mute_election_events }
-    	any_interest_group = {
+		any_interest_group = {
 			ig_counts_as_marginal = no
-            leader = {
-                has_trait = meticulous
-            }
+			leader = {
+				has_trait = meticulous
+			}
 			has_party = yes
-        }
-        NOT = { has_variable = the_gran_plan_var }
+		}
+		NOT = { has_variable = the_gran_plan_var }
 	}
 
 	immediate = {
@@ -315,16 +335,18 @@ ig_leaders.3 = {
 		}
 		random_interest_group = {
 			limit = {
-    			ig_counts_as_marginal = no
-	            leader = {
-	                has_trait = meticulous
-	            }
-	            has_party = yes
+				ig_counts_as_marginal = no
+				leader = {
+					has_trait = meticulous
+				}
+				has_party = yes
 			}
 			save_scope_as = meticulous_ig
 			leader = {
 				save_scope_as = meticulous_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			party = { save_scope_as = gran_plan_party }
 		}
 		set_variable = {
@@ -349,10 +371,14 @@ ig_leaders.3 = {
 	option = { #nation first
 		name = ig_leaders.3.b
 		default_option = yes
-	    add_modifier = {
-	        name = ig_national_dividends
-	        days = normal_modifier_time
+		add_modifier = {
+			name = ig_national_dividends
+			days = normal_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:meticulous_leader }
 	}
 }
 
@@ -382,35 +408,37 @@ ig_leaders.4 = {
 	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
-    	any_interest_group = {
-    		is_in_government = yes
-            leader = {
-                has_trait = charismatic
-            }
-            NOT = {
-            	has_modifier = ig_popular_support
-            }
-        }
-        NOT = {
-        	has_modifier = ig_diplomatic_tour
-        }
+		any_interest_group = {
+			is_in_government = yes
+			leader = {
+				has_trait = charismatic
+			}
+			NOT = {
+				has_modifier = ig_popular_support
+			}
+		}
+		NOT = {
+			has_modifier = ig_diplomatic_tour
+		}
 	}
 
 	immediate = {
 		random_interest_group = {
 			limit = {
-    			is_in_government = yes
-	            leader = {
-	                has_trait = charismatic
-	            }
-	            NOT = {
-	            	has_modifier = ig_popular_support
-	            }
+				is_in_government = yes
+				leader = {
+					has_trait = charismatic
+				}
+				NOT = {
+					has_modifier = ig_popular_support
+				}
 			}
 			save_scope_as = charismatic_ig
 			leader = {
 				save_scope_as = charismatic_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -423,9 +451,9 @@ ig_leaders.4 = {
 	option = {
 		name = ig_leaders.4.a
 		scope:charismatic_ig = {
-		    add_modifier = {
-		        name = ig_popular_support
-		        days = normal_modifier_time
+			add_modifier = {
+				name = ig_popular_support
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -433,10 +461,14 @@ ig_leaders.4 = {
 	option = {
 		name = ig_leaders.4.b
 		default_option = yes
-	    add_modifier = {
-	        name = ig_diplomatic_tour
-	        days = normal_modifier_time
+		add_modifier = {
+			name = ig_diplomatic_tour
+			days = normal_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:charismatic_leader }
 	}
 }
 
@@ -467,32 +499,34 @@ ig_leaders.5 = {
 
 	trigger = {
 		has_ruling_interest_group_count >= 2
-    	any_interest_group = {
-    		is_in_government = yes
-            leader = {
-            	OR = {
-	                has_trait = imperious
-	                has_trait = arrogant
-	            }
-            }
-        }
+		any_interest_group = {
+			is_in_government = yes
+			leader = {
+				OR = {
+					has_trait = imperious
+					has_trait = arrogant
+				}
+			}
+		}
 	}
 
 	immediate = {
 		random_interest_group = {
 			limit = {
-    			is_in_government = yes
-	            leader = {
-	            	OR = {
-		                has_trait = imperious
-		                has_trait = arrogant
-		            }
-	            }
+				is_in_government = yes
+				leader = {
+					OR = {
+						has_trait = imperious
+						has_trait = arrogant
+					}
+				}
 			}
 			save_scope_as = smug_ig
 			leader = {
 				save_scope_as = smug_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			set_variable = {
 				name = smug_ig_flag
 			}
@@ -551,6 +585,10 @@ ig_leaders.5 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:smug_leader }
+	}
 }
 
 ### NOT IN POWER ###
@@ -581,42 +619,44 @@ ig_leaders.6 = {
 	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
-    	any_interest_group = {
-    		is_in_government = no
+		any_interest_group = {
+			is_in_government = no
 			exists = leader
-            leader = {
-            	OR = {
+			leader = {
+				OR = {
 					has_trait = reckless
 					has_trait = ambitious
 				}
-            }
-            is_insurrectionary = no
-            ig_counts_as_marginal = no
-            NOT = {
-            	has_modifier = ig_scheme_shot_down
-            }
-        }
+			}
+			is_insurrectionary = no
+			ig_counts_as_marginal = no
+			NOT = {
+				has_modifier = ig_scheme_shot_down
+			}
+		}
 	}
 
 	immediate = {
 		random_interest_group = {
 			limit = {
-    			is_in_government = no
-	            leader = {
+				is_in_government = no
+				leader = {
 					OR = {
 						has_trait = reckless
 						has_trait = ambitious
-			       }
-	            }
-            	is_insurrectionary = no
-            	ig_counts_as_marginal = no
-            	NOT = {
-            		has_modifier = ig_scheme_shot_down
-            	}
+				   }
+				}
+				is_insurrectionary = no
+				ig_counts_as_marginal = no
+				NOT = {
+					has_modifier = ig_scheme_shot_down
+				}
 			}
 			leader = {
 				save_scope_as = reckless_out_of_govt_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			save_scope_as = reckless_out_of_govt_ig
 		}
 	}
@@ -646,10 +686,14 @@ ig_leaders.6 = {
 		name = ig_leaders.6.b
 		default_option = yes
 		scope:reckless_out_of_govt_ig = {
-		    add_modifier = {
-		        name = ig_scheme_shot_down
-		        days = normal_modifier_time
+			add_modifier = {
+				name = ig_scheme_shot_down
+				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:reckless_out_of_govt_leader }
 	}
 }

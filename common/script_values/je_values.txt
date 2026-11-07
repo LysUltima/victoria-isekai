@@ -8,23 +8,12 @@ mon_unemployment_estimate = {
 	# removed effect block: vanilla ref 'c:MON' not present in this mod
 }
 
-total_trade_value_loc = { 
+total_trade_value_loc = {
 	value = root.total_trade_value
 }
 
 raiding_income = { # Used in raiding loc trigger.
-	if = {
-		limit = {
-			always = no # vanilla ref 'c:MON' not present in this mod
-			always = no # blanked: vanilla ref 'c:MON' not present in this mod
-		}
-		# removed effect line: vanilla ref 'c:MON' not present in this mod
-		# removed effect line: vanilla ref 'c:MON' not present in this mod
-		multiply = 0.17 #moved up from 0.15. Sweet spot is around .165, 1.7-1.75 is easier.
-		round = yes
-		min = 0
-		max = max_raiding_income
-	}
+
 }
 
 raiding_level = { # 1-6
@@ -40,15 +29,15 @@ raiding_level = { # 1-6
 at_strength_battalions = {
 	value = {
 		every_military_formation = {
- 			limit = {
- 				is_army = yes
- 			}
- 			every_combat_unit = {
-  				limit = {
-   					manpower >= 1000
-  				}
-  				add = 1
- 			}
+			limit = {
+				is_army = yes
+			}
+			every_combat_unit = {
+				limit = {
+					manpower >= 1000
+				}
+				add = 1
+			}
 		}
 	}
 }
@@ -199,14 +188,5 @@ balkan_war_remaining_days = { #
 }
 
 
-balkan_league_power_projection = {
-	every_in_global_list = {
-		variable = balkan_league_side_list
-		add = army_power_projection
-	}
-}
 
-ottoman_power_projection= {
-	value = 0
-	# removed: every_in_global_list on ottoman_side_list, never set elsewhere
-}
+

@@ -77,7 +77,9 @@ resignation.1 = {
 			interest_group ?= {
 				save_scope_as = resignation_ig
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = { # Support successor
@@ -154,6 +156,10 @@ resignation.1 = {
 			months = 3
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:resigning_politician }
+	}
 }
 
 # Resignation in the face of revolution
@@ -187,7 +193,9 @@ resignation.2 = {
 			interest_group ?= {
 				save_scope_as = resignation_ig
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_civil_war = {
 			limit = {
 				is_civil_war_type = revolution
@@ -273,6 +281,10 @@ resignation.2 = {
 			value = medium_radicals
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:resigning_politician }
+	}
 }
 
 # Abdication in the face of revolution
@@ -303,7 +315,9 @@ resignation.3 = {
 	immediate = {
 		ruler = {
 			save_scope_as = abdicating_monarch
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		ROOT = {
 			save_scope_as = country_scope
 		}
@@ -319,7 +333,9 @@ resignation.3 = {
 			}
 			heir ?= {
 				save_scope_as = heir_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -485,5 +501,10 @@ resignation.3 = {
 		add_radicals = {
 			value = medium_radicals
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:abdicating_monarch }
+		revoke_temporary_event_immortality = { CHARACTER = scope:heir_scope }
 	}
 }

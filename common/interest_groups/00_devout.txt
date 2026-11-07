@@ -111,24 +111,8 @@
 				set_ig_trait = ig_trait:ig_trait_sharia
 				set_ig_trait = ig_trait:ig_trait_da_wat
 			}
-			else_if = {
-				limit = {
-					owner = { always = no} # vanilla ref 'c:TUR' not present in this mod
-				}
-				set_ig_trait = ig_trait:ig_trait_pious_fiction
-				set_ig_trait = ig_trait:ig_trait_mecelle
-				set_ig_trait = ig_trait:ig_trait_da_wat
-			}
-			else_if = {
-				limit = {
-					owner = {
-						always = no # vanilla ref 'c:BIC' not present in this mod
-					}
-				}
-				set_ig_trait = ig_trait:ig_trait_pious_fiction
-				set_ig_trait = ig_trait:ig_trait_divine_right
-				set_ig_trait = ig_trait:ig_trait_asceticism
-			}
+
+
 			else = {
 				set_ig_trait = ig_trait:ig_trait_pious_fiction
 				set_ig_trait = ig_trait:ig_trait_divine_right
@@ -174,19 +158,7 @@
 			}
 		}
 		# London Missionary Society (in South Africa)
-		else_if = {
-			limit = {
-				country_has_state_religion = rel:light_reformed # was rel:protestant
-				OR = {
-					always = no # vanilla ref 'c:WBL' not present in this mod
-					always = no # vanilla ref 'c:PHL' not present in this mod
-				}
-			}
-			ig:ig_devout = {
-				set_interest_group_name = ig_london_missionary_society
-				add_ideology = ideology_laissez_faire
-			}
-		}
+
 		# Anglicans
 		else_if = {
 			limit = {
@@ -244,25 +216,9 @@
 			}
 		}
 		# Church of Finland
-		else_if = {
-			limit = {
-				country_has_state_religion = rel:light_reformed # was rel:protestant
-				always = no # was culture = cu:finnish (no mod analogue)
-			}
-			ig:ig_devout ?= {
-				set_interest_group_name = ig_church_of_finland
-			}
-		}
+
 		# Church of Sweden
-		else_if = {
-			limit = {
-				country_has_state_religion = rel:light_reformed # was rel:protestant
-				always = no # was culture = cu:swedish (no mod analogue)
-			}
-			ig:ig_devout ?= {
-				set_interest_group_name = ig_church_of_sweden
-			}
-		}
+
 		# Confucian Scholars
 		else_if = {
 			limit = {
@@ -291,7 +247,6 @@
 			}
 		}
 		# Roman Curia
-
 
 		### Generic
 
@@ -373,44 +328,9 @@
 				add_ideology = ideology_orthodox_patriarch
 			}
 		}
-		else_if = {
-			limit = {
-				always = no # vanilla ref 'c:MON' not present in this mod
-				country_has_state_religion = rel:light_ancient # was rel:orthodox
-			}
-			ig:ig_devout ?= {
-				set_interest_group_name = ig_orthodox_church
-				remove_ideology = ideology_patriarchal
-				add_ideology = ideology_orthodox_patriarch
-				remove_ideology = ideology_moralist
-				add_ideology = ideology_montenegrin_moralist
-			}
-		}
+
 		# Hindu Priesthood
-		else_if = {
-			limit = {
-				OR = {
-					always = no # was religion = rel:hindu (no mod analogue)
-					always = no # vanilla ref 'c:BIC' not present in this mod
-				}
-			}
-			ig:ig_devout ?= {
-				set_interest_group_name = ig_hindu_priesthood
-				if = {
-					limit = {
-						owner = {
-							always = no # vanilla ref 'c:BIC' not present in this mod
-						}
-					}
-					remove_ideology = ideology_moralist
-					add_ideology = ideology_hindu_moralist_british_india
-				}
-				else = {
-					remove_ideology = ideology_moralist
-					add_ideology = ideology_hindu_moralist
-				}
-			}
-		}
+
 		# Vajrayana Monks
 		else_if = {
 			limit = { country_has_state_religion = rel:gelug} # was rel:gelugpa
@@ -462,84 +382,17 @@
 	on_disable = {}
 
 	priority_cultures = { #Country scope
-		rule = {
-			trigger = {
-				always = no # vanilla ref 'c:BIC' not present in this mod
-				any_primary_culture = {
-					cu:aldrican = this # was cu:british
-				}
-			}
-			cultures = {}
-		}
-		rule = {
-			trigger = {
-				always = no # vanilla ref 'c:ZAN' not present in this mod
-				any_primary_culture = {
-					cu:zaharin = this # was cu:bedouin
-				}
-			}
-			cultures = {}
-		}
-		rule = {
-			trigger = {
-				always = no # vanilla ref 'c:HAW' not present in this mod
-				always = no
-			}
-			cultures = {}
-		}
-		rule = {
-			trigger = {
-				country_has_state_religion = rel:light_reformed # was rel:protestant
-				OR = {
-					always = no # vanilla ref 'c:WBL' not present in this mod
-					always = no # vanilla ref 'c:PHL' not present in this mod
-				}
-				always = no # blanked: vanilla ref 'c:GBR' not present in this mod
-			}
-			cultures = {}
-		}
-		rule = {
-			trigger = {
-				always = no # vanilla ref 'c:PHI' not present in this mod
-				NOT = { always = no} # vanilla ref 'je_philippines_main_reliance_happened' not present in this mod
-				NOT = { any_primary_culture = { cu:melati = this } }
-				NOT = { any_primary_culture = { cu:melati = this } }
-				any_primary_culture = { cu:alena = this} # was cu:spanish
-			}
-			cultures = {}
-		}
-		rule = {
-			trigger = {
-				always = no # vanilla ref 'c:PHI' not present in this mod
-				any_primary_culture = {
-					AND = {
-						cu:alena = this # was cu:spanish
-						cu:melati = this # was cu:filipino_hispanophone
-					}
-				}
-			}
-			cultures = {}
-		}
+
+
+
+
+
+
 	}
 
 	on_character_ig_membership = {
+
 		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'c:BIC' not present in this mod
-				}
-			}
-			change_character_religion = scope:interest_group.owner.religion # was religion = rel:hindu (no mod analogue)
-		}
-		else_if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'c:ZAN' not present in this mod
-				}
-			}
-			change_character_religion = rel:dawnfast # was rel:sunni
-		}
-		else_if = {
 			limit = {
 				NOT = {
 					owner = {
@@ -553,7 +406,6 @@
 			change_character_religion = scope:interest_group.owner.country_definition.religion
 		}
 	}
-
 
 	pop_potential = {
 		OR = {
@@ -815,7 +667,7 @@
 	commander_weight = {
 		value = 1.0
 	}
-	
+
 	magnate_weight = {
 		value = 1.0
 	}
@@ -824,16 +676,7 @@
 		value = 1.0
 
 		# The company owning BIC should not get non-industrialist executives
-		if = {
-			limit = {
-				exists = scope:company
-				always = no # vanilla ref 'c:BIC' not present in this mod
-				always = no # blanked: vanilla ref 'c:BIC' not present in this mod
-			}
-			multiply = {
-				value = 0
-			}
-		}
+
 	}
 
 	noble_chance = {
@@ -990,15 +833,7 @@
 	# root = interest group
 	magnate_leader_weight = {
 		value = 1.0
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:JAP' not present in this mod
-				NOT = {
-					always = no
-				}
-			}
-			add = 5
-		}
+
 	}
 
 	# Multiplier applied to the weight for an appropriate executive will be selected from the character pool to lead the IG

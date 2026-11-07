@@ -364,21 +364,6 @@
 
 		if = {
 			limit = {
-				religion = rel:light_orthodoxy
-				always = no # vanilla ref 'c:PAP' not present in this mod
-				always = no # blanked: vanilla ref 'c:PAP' not present in this mod
-				"0" < 0
-			}
-			add = {
-				desc = "POOR_RELATIONS_WITH_PAPACY"
-				value = "0"
-				divide = 100
-				multiply = -0.25
-			}
-		}
-
-		if = {
-			limit = {
 				owner = {
 					any_neighbouring_state = {
 						owner = {
@@ -649,23 +634,6 @@ movement_religious_minority = {
 
 		if = {
 			limit = {
-				owner ?= {
-					OR = {
-					always = no # vanilla ref 'c:RUS' not present in this mod
-						always = no # vanilla ref 'c:PRU' not present in this mod
-						always = no # vanilla ref 'c:AUS' not present in this mod
-					}
-				}
-				always = no # was culture = cu:polish (no mod analogue)
-			}
-			multiply = {
-				desc = "POP_POLISH_NATIONALISM"
-				value = 0.05
-			}
-		}
-
-		if = {
-			limit = {
 				state = {
 					state_religious_acceptance = {
 						target = PREV.religion
@@ -801,21 +769,6 @@ movement_religious_minority = {
 			subtract = political_movement_identity_support
 			min = 0
 			desc = "LOW_MOVEMENT_IDENTITY_SUPPORT"
-		}
-
-		if = {
-			limit = {
-				religion = rel:light_orthodoxy
-				always = no # vanilla ref 'c:PAP' not present in this mod
-				always = no # blanked: vanilla ref 'c:PAP' not present in this mod
-				"0" < 0
-			}
-			add = {
-				desc = "POOR_RELATIONS_WITH_PAPACY"
-				value = "0"
-				divide = 100
-				multiply = -0.25
-			}
 		}
 
 		if = {

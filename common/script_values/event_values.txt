@@ -110,8 +110,7 @@ money_amount_multiplier_large_state = {
 }
 
 # Russia edge case
-money_amount_multiplier_casian_bribes = {
-}
+
 
 #Revolution Progress Variables
 revolution_retreat_small = -0.05
@@ -258,7 +257,7 @@ balkan_league_conscript_multiplier = {
 # for je_vernacular_policy
 official_culture_fraction = { # for loc
 	value = 0
-	add = "primary_cultures_percent_state"
+	add = "primary_cultures_percent_state(owner)"
 }
 
 # for Carlist War

@@ -17,6 +17,8 @@ STATE_NYUGMA_DRANGBDEN = {
         building_logging_camp = 15
         building_spirit_beast_hunting = 20
     }
+    max_cold_effect = 0.118
+    min_cold_effect = 0.001
 }
 
 STATE_SERGYI_GYAMA = {
@@ -37,6 +39,8 @@ STATE_SERGYI_GYAMA = {
         building_logging_camp = 14
         building_spirit_beast_hunting = 10
     }
+    max_cold_effect = 0.095
+    min_cold_effect = 0.002
 }
 
 STATE_MINYAMS_DAMBCA = {
@@ -57,6 +61,8 @@ STATE_MINYAMS_DAMBCA = {
         building_spirit_beast_hunting = 11
         building_lead_mine = 107
     }
+    max_cold_effect = 0.120
+    min_cold_effect = 0.001
 }
 
 STATE_THAYAS_KHRIMS = {
@@ -75,6 +81,8 @@ STATE_THAYAS_KHRIMS = {
         building_logging_camp = 29
     }
     naval_exit_id = 3006
+    max_cold_effect = 0.100
+    min_cold_effect = 0.000
 }
 
 STATE_NGONTAG_DGEBA = {
@@ -94,6 +102,8 @@ STATE_NGONTAG_DGEBA = {
         building_logging_camp = 28
     }
     naval_exit_id = 3006
+    max_cold_effect = 0.079
+    min_cold_effect = 0.000
 }
 # COS Order of Cosmic Equanimity
 STATE_NYUGMA_ZHIGNAS = {
@@ -113,6 +123,8 @@ STATE_NYUGMA_ZHIGNAS = {
         building_coal_mine = 91
         building_logging_camp = 26
     }
+    max_cold_effect = 0.173
+    min_cold_effect = 0.001
 }
 
 STATE_ZIJID_THUNSIG = {
@@ -131,6 +143,8 @@ STATE_ZIJID_THUNSIG = {
         building_logging_camp = 17
     }
     naval_exit_id = 3006
+    max_cold_effect = 0.135
+    min_cold_effect = 0.000
 }
 
 STATE_RABTU_ZHIBA = {
@@ -149,6 +163,8 @@ STATE_RABTU_ZHIBA = {
         building_logging_camp = 25
     }
     naval_exit_id = 3006
+    max_cold_effect = 0.152
+    min_cold_effect = 0.000
 }
 # DRA Drakkar Sect
 STATE_TOGPA_BRAGDKAR = {
@@ -168,6 +184,8 @@ STATE_TOGPA_BRAGDKAR = {
         building_logging_camp = 14
         building_spirit_beast_hunting = 25
     }
+    max_cold_effect = 0.150
+    min_cold_effect = 0.001
 }
 # LAM Lamzang Order
 STATE_TAGTU_THARPA = {
@@ -186,6 +204,8 @@ STATE_TAGTU_THARPA = {
         building_logging_camp = 22
         building_spirit_beast_hunting = 10
     }
+    max_cold_effect = 0.162
+    min_cold_effect = 0.000
 }
 # CHA Charnam
 STATE_CHUBUR_GYATSO = {
@@ -205,6 +225,8 @@ STATE_CHUBUR_GYATSO = {
         building_logging_camp = 23
     }
     naval_exit_id = 3006
+    max_cold_effect = 0.121
+    min_cold_effect = 0.000
 }
 
 STATE_TRINPUNG_GANGRI = {
@@ -225,6 +247,8 @@ STATE_TRINPUNG_GANGRI = {
         building_logging_camp = 14
         building_spirit_beast_hunting = 13
     }
+    max_cold_effect = 0.141
+    min_cold_effect = 0.000
 }
 
 STATE_ZILPA_RIWO = {
@@ -250,6 +274,8 @@ STATE_ZILPA_RIWO = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 3
     }
+    max_cold_effect = 0.138
+    min_cold_effect = 0.001
 }
 # ANT Äntekäre
 STATE_LYAM_ALYE = {
@@ -266,6 +292,8 @@ STATE_LYAM_ALYE = {
     capped_resources = {
         building_logging_camp = 27
     }
+    max_cold_effect = 0.196
+    min_cold_effect = 0.000
 }
 
 STATE_LUNO_SPARKI = {
@@ -292,6 +320,8 @@ STATE_LUNO_SPARKI = {
         type = "building_oil_rig"
         undiscovered_amount = 25
     }
+    max_cold_effect = 0.204
+    min_cold_effect = 0.006
 }
 
 STATE_KRONSE_PLARE = {
@@ -313,6 +343,8 @@ STATE_KRONSE_PLARE = {
         building_logging_camp = 21
         building_spirit_beast_hunting = 7
     }
+    max_cold_effect = 0.257
+    min_cold_effect = 0.012
 }
 
 STATE_TSERE_PYAPYO = {
@@ -329,6 +361,8 @@ STATE_TSERE_PYAPYO = {
     capped_resources = {
         building_logging_camp = 22
     }
+    max_cold_effect = 0.257
+    min_cold_effect = 0.012
 }
 # LYK Lyksye
 STATE_SALK_WAR = {
@@ -347,4 +381,6 @@ STATE_SALK_WAR = {
         building_logging_camp = 21
         building_gold_mine = 5
     }
+    max_cold_effect = 0.162
+    min_cold_effect = 0.003
 }

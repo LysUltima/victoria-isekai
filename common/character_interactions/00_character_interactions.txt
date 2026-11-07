@@ -634,7 +634,7 @@ exile_character = {
 			}
 			if = {
 				limit = {
-					owner ?= { always = no } # vanilla ref 'je_caudillo' not present in this mod 
+					owner ?= { always = no } # vanilla ref 'je_caudillo' not present in this mod
 					interest_group ?= {
 						is_interest_group_type = ig_armed_forces
 					}
@@ -939,10 +939,10 @@ invite_exile = {
 			limit = {
 				is_interest_group_type = ig_devout
 			}
-		    custom_tooltip = {
-		        text = invite_exile_devout_tt
-		        religion = scope:actor.religion
-		    }
+			custom_tooltip = {
+				text = invite_exile_devout_tt
+				religion = scope:actor.religion
+			}
 		}
 		# If you have state religion, exiles must have your religion
 		trigger_if = {
@@ -980,22 +980,7 @@ invite_exile = {
 			free_from_exile_effect = yes
 		}
 		hidden_effect = {
-			if = {
-				limit = {
-					always = no
-					has_dlc_feature = voice_of_the_people_content
-				}
-				scope:actor ?= {
-					# removed: trigger_event = { id = historical_agitators.7 days = 3 }
-				}
-			}
-			if = {
-				limit = {
-					always = no
-					has_dlc_feature = voice_of_the_people_content
-				}
-				# removed: garibaldi_cooldown_var was only read by a deleted event
-			}
+
 			if = {
 				limit = {
 					exists = root.home_country

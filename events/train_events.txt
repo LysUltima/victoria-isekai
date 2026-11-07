@@ -52,37 +52,39 @@ trains.1 = {
 			save_scope_as = train_crash_attendee_ig
 			leader = {
 				save_scope_as = train_crash_attendee
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
 	option = {
 		name = trains.1.a
-        default_option = yes
-        scope:train_crash_attendee = {
+		default_option = yes
+		scope:train_crash_attendee = {
 			add_modifier = {
 				name = a_smashing_appearance
 				days = short_modifier_time
 			}
-        }
-        random_list = {
-        	90 = {
-        		scope:train_crashing_state = {
-		        	add_modifier = {
-		        		name = the_desire_to_smash_things_up
+		}
+		random_list = {
+			90 = {
+				scope:train_crashing_state = {
+					add_modifier = {
+						name = the_desire_to_smash_things_up
 						days = short_modifier_time
-		        	}
-	        	}
-        	}
-        	10 = {
-        		scope:train_crash_attendee = { kill_character = yes }
-		        scope:train_crashing_state = {
+					}
+				}
+			}
+			10 = {
+				scope:train_crash_attendee = { kill_character = yes }
+				scope:train_crashing_state = {
 					add_radicals_in_state = {
 						value = small_radicals # People get mad about the mishandled event
 					}
-		        }
-        	}
-        }
+				}
+			}
+		}
 	}
 	option = {
 		name = trains.1.b
@@ -92,22 +94,26 @@ trains.1 = {
 				days = short_modifier_time
 			}
 		}
-        random_list = {
-        	90 = {
-        		scope:train_crashing_state = {
-		        	add_modifier = {
-		        		name = the_desire_to_smash_things_up
+		random_list = {
+			90 = {
+				scope:train_crashing_state = {
+					add_modifier = {
+						name = the_desire_to_smash_things_up
 						days = short_modifier_time
-		        	}
-	        	}
-        	}
-        	10 = {
-		        scope:train_crashing_state = {
+					}
+				}
+			}
+			10 = {
+				scope:train_crashing_state = {
 					add_radicals_in_state = {
 						value = small_radicals # People get mad about the mishandled event
 					}
-		        }
-        	}
-        }
+				}
+			}
+		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:train_crash_attendee }
 	}
 }

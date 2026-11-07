@@ -56,17 +56,6 @@
 
 		if = {
 			limit = {
-				always = no
-				always = no
-				ruler = {
-					always = no
-				}
-			}
-			add = 20
-		}
-
-		if = {
-			limit = {
 				is_princely_state = yes
 			}
 			add = 10
@@ -137,33 +126,11 @@ ai_strategy_plantation_economy = {
 	}
 
 	possible = {
-		OR = {
-			always = no
-			always = no
-			always = no
-			always = no # geographic_region_india, no mod analogue (western_plateau is Tarim Basin/Tibet, not India)
-			always = no
-			always = no
-			always = no
-			always = no
-		}
+		country_has_building_group_levels = { type = bg_plantations value >= 1 }
 	}
 
 	weight = {
 		value = 10
-
-		if = {
-			limit = {
-				OR = {
-					always = no
-					always = no
-					always = no # geographic_region_india, no mod analogue (western_plateau is Tarim Basin/Tibet, not India)
-					always = no
-					always = no
-				}
-			}
-			add = 20
-		}
 
 		if = {
 			limit = { is_country_type = unrecognized }
@@ -185,6 +152,8 @@ ai_strategy_plantation_economy = {
 			add = 20
 		}
 
+
+		if = { limit = { has_journal_entry = je_agricultural_development } add = 45 }
 	}
 }
 
@@ -219,23 +188,12 @@ ai_strategy_resource_expansion = {
 		sulfur = { stance = wants_export }
 	}
 
-
 	possible = {
 		always = yes
 	}
 
 	weight = {
 		value = 10
-
-		if = {
-			limit = {
-				OR = {
-					always = no
-					always = no
-				}
-			}
-			add = 20
-		}
 
 		if = {
 			limit = {
@@ -336,41 +294,6 @@ ai_strategy_industrial_expansion = {
 
 		if = {
 			limit = {
-				OR = {
-					always = no
-					always = no
-				}
-			}
-			add = 20
-		}
-
-		if = {
-			limit = {
-				OR = {
-					always = no
-					always = no
-				}
-			}
-			add = 1000
-		}
-
-		if = {
-			limit = {
-				always = no
-				always = no
-				ruler = {
-					OR = {
-						always = no
-						has_variable = house_bonaparte
-					}
-				}
-			}
-			add = 20
-		}
-
-
-		if = {
-			limit = {
 				has_radical_leftist_government = yes
 				NOT = {
 					ig:ig_rural_folk ?= {
@@ -383,13 +306,6 @@ ai_strategy_industrial_expansion = {
 		}
 
 		# Metternich agenda of 1844 - inclined to industrialise
-		if = {
-			limit = {
-				always = no
-				always = no
-			}
-           add = 10
-		}
 
 		if = {
 			limit = {
@@ -529,94 +445,49 @@ ai_strategy_placate_population = {
 }
 
 ai_strategy_colonial_extraction = {
-    icon = "gfx/interface/icons/ai_strategy_icons/resource_expansion.dds"
+	icon = "gfx/interface/icons/ai_strategy_icons/resource_expansion.dds"
 
-    type = administrative
-    building_group_weights = {
-        bg_mining = 1.5
-        bg_logging = 1.5
-        bg_plantations = 1.5
-    }
-
-    subsidies = {
-        building_tooling_workshop = wants_to_have
-    }
-
-    goods_stances = {
-        explosives = {
-            stance = wants_high_supply
-            trigger = {
-                has_technology_researched = volatile_reagents
-            }
-        }
-        tools = { stance = wants_high_supply }
-        coal = { stance = wants_export }
-        iron = { stance = wants_export }
-        lead = { stance = wants_export }
-        wood = { stance = wants_export }
-        hardwood = { stance = wants_export }
-        sulfur = { stance = wants_export }
-        fruit = { stance = wants_export }
-        fabric = { stance = wants_export }
-        sugar = { stance = wants_export }
-        coffee = { stance = wants_export }
-        tea = { stance = wants_export }
-        opium = { stance = wants_export }
-        tobacco = { stance = wants_export }
-        dye = { stance = wants_export }
-        silk = { stance = wants_export }
-    }
-    possible = {
-    	is_subject = yes
-		country_is_colonial_or_company = yes
-    }
-
-    weight = {
-        value = 100
-    }
-}
-
-ai_strategy_montenegro_admin = {
-    icon = "gfx/interface/icons/ai_strategy_icons/placate_population.dds"
-
-    type = administrative
-    building_group_weights = {
-		bg_private_infrastructure = 2.0
-		bg_agriculture = 2.0
-		bg_ranching = 2.0
+	type = administrative
+	building_group_weights = {
+		bg_mining = 1.5
 		bg_logging = 1.5
-		bg_manufacturing = 0.5
-    }
-
-    subsidies = {
-        building_trade_center = must_have
-    }
-
-    goods_stances = {
-		grain = { stance = wants_high_supply }
-		meat = { stance = wants_high_supply }
-		fish = { stance = wants_high_supply }
-		fruit = { stance = wants_high_supply }
-		fabric = { stance = wants_high_supply }
-		wood = { stance = wants_high_supply }
-		liquor = { stance = wants_high_supply }
-		small_arms = { stance = wants_high_supply }
+		bg_plantations = 1.5
 	}
-    possible = {
-    	always = no
-		NOR = {
-			any_scope_state = { # Has a port
-				has_building = building_port
-			}
-			ROOT.market_capital = { # Is in another market
-				NOT = {
-					owner = ROOT
-				}
+
+	subsidies = {
+		building_tooling_workshop = wants_to_have
+	}
+
+	goods_stances = {
+		explosives = {
+			stance = wants_high_supply
+			trigger = {
+				has_technology_researched = volatile_reagents
 			}
 		}
-    }
+		tools = { stance = wants_high_supply }
+		coal = { stance = wants_export }
+		iron = { stance = wants_export }
+		lead = { stance = wants_export }
+		wood = { stance = wants_export }
+		hardwood = { stance = wants_export }
+		sulfur = { stance = wants_export }
+		fruit = { stance = wants_export }
+		fabric = { stance = wants_export }
+		sugar = { stance = wants_export }
+		coffee = { stance = wants_export }
+		tea = { stance = wants_export }
+		opium = { stance = wants_export }
+		tobacco = { stance = wants_export }
+		dye = { stance = wants_export }
+		silk = { stance = wants_export }
+	}
+	possible = {
+		is_subject = yes
+		country_is_colonial_or_company = yes
+	}
 
-    weight = {
-        value = 100
-    }
+	weight = {
+		value = 100
+	}
 }

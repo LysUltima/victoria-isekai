@@ -529,18 +529,7 @@ disease_outbreak = {
 			}
 			multiply = 25
 		}
-		if = { # The Hungry Forties - will never stack with previous
-			limit = {
-				always = no
-				any_scope_state = {
-					always = no
-				}
-				NOT = {
-					always = no # To prevent excessive spamming
-				}
-			}
-			multiply = 100
-		}
+
 	}
 
 	color = { 78 70 57 }
@@ -654,7 +643,6 @@ torrential_rains = {
 			multiply = 1.3
 		}
 	}
-
 
 	color = { 34 75 120 } # darker slate gray
 	icon = "gfx/interface/icons/harvest_condition_icons/torrential_rains.dds"
@@ -943,7 +931,7 @@ earthquake = {
 			min = 1
 			max = 2
 		}
-	
+
 	}
 
 	chance = {

@@ -19,6 +19,8 @@ STATE_AYN_ASH_SHAMS = {
         type = "building_oil_rig"
         undiscovered_amount = 20
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_BAHR_AL_GHABAS = {
@@ -40,6 +42,8 @@ STATE_BAHR_AL_GHABAS = {
         type = "building_oil_rig"
         undiscovered_amount = 30
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_BAHR_AL_SHURUQ = {
@@ -61,6 +65,8 @@ STATE_BAHR_AL_SHURUQ = {
         type = "building_oil_rig"
         undiscovered_amount = 25
     }
+    max_cold_effect = 0.005
+    min_cold_effect = 0.000
 }
 
 STATE_NAJD_AS_SALASIL = {
@@ -78,6 +84,8 @@ STATE_NAJD_AS_SALASIL = {
     capped_resources = {
         building_spirit_beast_hunting = 22
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_WADI_AL_DIYA = {
@@ -102,6 +110,8 @@ STATE_WADI_AL_DIYA = {
         building_spirit_beast_hunting = 5
     }
     naval_exit_id = 3037
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_SAHIL_AL_SHUAC = {
@@ -129,6 +139,8 @@ STATE_SAHIL_AL_SHUAC = {
         undiscovered_amount = 40
     }
     naval_exit_id = 3037
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_SABKHA_SAHILIYYA = {
@@ -154,6 +166,8 @@ STATE_SABKHA_SAHILIYYA = {
         undiscovered_amount = 3
     }
     naval_exit_id = 3037
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # ASI Al-Asil
 STATE_AL_ASIL_AL_GHARIB = {
@@ -179,6 +193,8 @@ STATE_AL_ASIL_AL_GHARIB = {
         undiscovered_amount = 7
     }
     naval_exit_id = 3046
+    max_cold_effect = 0.027
+    min_cold_effect = 0.000
 }
 # LUJ Al-Lujayn
 STATE_JAZIRAT_ATH_TIBR = {
@@ -204,6 +220,8 @@ STATE_JAZIRAT_ATH_TIBR = {
         undiscovered_amount = 6
     }
     naval_exit_id = 3043
+    max_cold_effect = 0.001
+    min_cold_effect = 0.000
 }
 
 STATE_BARZAKH_AL_FIDDA = {
@@ -230,6 +248,8 @@ STATE_BARZAKH_AL_FIDDA = {
         undiscovered_amount = 3
     }
     naval_exit_id = 3043
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # TAM Tamim Clan
 STATE_BILAD_BANI_TAMIM = {
@@ -246,6 +266,8 @@ STATE_BILAD_BANI_TAMIM = {
     capped_resources = {
         building_spirit_beast_hunting = 12
     }
+    max_cold_effect = 0.016
+    min_cold_effect = 0.000
 }
 # GHA Al-Ghayth
 STATE_RAWDAT_AL_FURAT = {
@@ -269,6 +291,8 @@ STATE_RAWDAT_AL_FURAT = {
         undiscovered_amount = 5
     }
     naval_exit_id = 3043
+    max_cold_effect = 0.001
+    min_cold_effect = 0.000
 }
 
 STATE_AL_GHAFRAH_AL_MAIYYAH = {
@@ -290,6 +314,8 @@ STATE_AL_GHAFRAH_AL_MAIYYAH = {
         building_spirit_beast_hunting = 4
     }
     naval_exit_id = 3043
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 
 STATE_THAGHR_AL_UFQ = {
@@ -312,6 +338,8 @@ STATE_THAGHR_AL_UFQ = {
         building_enchanted_palm_orchard = 9
     }
     naval_exit_id = 3043
+    max_cold_effect = 0.003
+    min_cold_effect = 0.003
 }
 # JUM Al-Juman
 STATE_SILSILAT_AL_JUMAN = {
@@ -338,6 +366,8 @@ STATE_SILSILAT_AL_JUMAN = {
         undiscovered_amount = 4
     }
     naval_exit_id = 3043
+    max_cold_effect = 0.045
+    min_cold_effect = 0.000
 }
 # ASA Asat Clan
 STATE_BILAD_BANI_ASAT = {
@@ -355,6 +385,8 @@ STATE_BILAD_BANI_ASAT = {
     capped_resources = {
         building_spirit_beast_hunting = 9
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # FAW Al-Fawz
 STATE_QALCAT_AL_NASR = {
@@ -380,6 +412,8 @@ STATE_QALCAT_AL_NASR = {
         undiscovered_amount = 5
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.040
+    min_cold_effect = 0.000
 }
 
 STATE_AL_JAFAF_AL_MUAKHKHIR = {
@@ -400,6 +434,8 @@ STATE_AL_JAFAF_AL_MUAKHKHIR = {
         building_spirit_beast_hunting = 3
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.037
+    min_cold_effect = 0.000
 }
 
 STATE_AL_JAFAF_AL_MUQADDAM = {
@@ -420,6 +456,8 @@ STATE_AL_JAFAF_AL_MUQADDAM = {
         building_spirit_beast_hunting = 7
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.057
+    min_cold_effect = 0.000
 }
 
 STATE_SAHAT_AL_JUD = {
@@ -445,6 +483,8 @@ STATE_SAHAT_AL_JUD = {
         undiscovered_amount = 4
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.082
+    min_cold_effect = 0.000
 }
 # IKH Al-Ikhlas
 STATE_AYN_AL_WAFA = {
@@ -465,6 +505,8 @@ STATE_AYN_AL_WAFA = {
         building_coal_mine = 89
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.368
+    min_cold_effect = 0.008
 }
 
 STATE_QIFAR_AL_ZUHD = {
@@ -490,6 +532,8 @@ STATE_QIFAR_AL_ZUHD = {
         undiscovered_amount = 1
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.180
+    min_cold_effect = 0.000
 }
 
 STATE_QIFAR_AL_SABR = {
@@ -516,6 +560,8 @@ STATE_QIFAR_AL_SABR = {
         undiscovered_amount = 5
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.109
+    min_cold_effect = 0.000
 }
 # DES Desert of Tears
 STATE_AL_MARAI_AL_SAHILIYYAH = {
@@ -537,6 +583,8 @@ STATE_AL_MARAI_AL_SAHILIYYAH = {
         building_spirit_beast_hunting = 7
     }
     naval_exit_id = 3043
+    max_cold_effect = 0.090
+    min_cold_effect = 0.000
 }
 
 STATE_JABAL_AL_BALIGH = {
@@ -562,6 +610,8 @@ STATE_JABAL_AL_BALIGH = {
         undiscovered_amount = 8
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.165
+    min_cold_effect = 0.000
 }
 
 STATE_AL_SHURUB_AL_GHAMIRAH = {
@@ -590,6 +640,8 @@ STATE_AL_SHURUB_AL_GHAMIRAH = {
         undiscovered_amount = 12
     }
     naval_exit_id = 3043
+    max_cold_effect = 0.011
+    min_cold_effect = 0.001
 }
 
 STATE_WADI_AL_AZHAR = {
@@ -611,6 +663,8 @@ STATE_WADI_AL_AZHAR = {
         building_spirit_beast_hunting = 7
     }
     naval_exit_id = 3040
+    max_cold_effect = 0.092
+    min_cold_effect = 0.000
 }
 
 STATE_RAWABI_AL_MILH = {
@@ -633,6 +687,8 @@ STATE_RAWABI_AL_MILH = {
         building_spirit_beast_hunting = 6
     }
     naval_exit_id = 3043
+    max_cold_effect = 0.001
+    min_cold_effect = 0.000
 }
 
 STATE_AL_TIH_AL_AKBAR = {
@@ -654,6 +710,8 @@ STATE_AL_TIH_AL_AKBAR = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 2
     }
+    max_cold_effect = 0.009
+    min_cold_effect = 0.000
 }
 
 STATE_HADBAT_AL_SIJN = {
@@ -679,6 +737,8 @@ STATE_HADBAT_AL_SIJN = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 12
     }
+    max_cold_effect = 0.008
+    min_cold_effect = 0.000
 }
 # SCO Scorching Flame Desert
 STATE_AL_BAYDA_AL_MAHLAKAH = {
@@ -696,6 +756,8 @@ STATE_AL_BAYDA_AL_MAHLAKAH = {
     capped_resources = {
         building_spirit_beast_hunting = 16
     }
+    max_cold_effect = 0.012
+    min_cold_effect = 0.000
 }
 
 STATE_SHAMMAKH_AL_KHARAB = {
@@ -713,6 +775,8 @@ STATE_SHAMMAKH_AL_KHARAB = {
         building_coal_mine = 85
         building_spirit_beast_hunting = 19
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }
 # BUR Burning Wastes
 STATE_AJAM_AL_GHULAM = {
@@ -731,6 +795,8 @@ STATE_AJAM_AL_GHULAM = {
         building_spirit_beast_hunting = 14
         building_sulfur_mine = 76
     }
+    max_cold_effect = 0.060
+    min_cold_effect = 0.001
 }
 
 STATE_MERTEBAT_AL_AFACI = {
@@ -753,6 +819,8 @@ STATE_MERTEBAT_AL_AFACI = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 3
     }
+    max_cold_effect = 0.076
+    min_cold_effect = 0.000
 }
 # DAY Dayspring Plateau
 STATE_JIBAL_AL_SUKHUR = {
@@ -777,6 +845,8 @@ STATE_JIBAL_AL_SUKHUR = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 6
     }
+    max_cold_effect = 0.001
+    min_cold_effect = 0.000
 }
 
 STATE_ATBAC_AL_ICSAR = {
@@ -799,4 +869,6 @@ STATE_ATBAC_AL_ICSAR = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 3
     }
+    max_cold_effect = 0.000
+    min_cold_effect = 0.000
 }

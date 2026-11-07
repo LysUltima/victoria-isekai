@@ -3,11 +3,15 @@
 # common/scripted_buttons/04_law_imposition_buttons.txt (migrated alongside).
 
 je_law_imposition = {
-    icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	activation_description = {
+		always = yes
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	group = je_group_foreign_affairs
 
-    immediate = {
+	immediate = {
 		save_scope_as = country_imposed_upon
 		imposed_law = {
 			save_scope_as = foreign_imposition_law
@@ -28,7 +32,7 @@ je_law_imposition = {
 	scripted_button = button_implement_law_imposition
 	scripted_button = button_refuse_law_imposition
 
-    status_desc = {
+	status_desc = {
 		first_valid = {
 			triggered_desc = {
 				desc = je_law_imposition_status_enacting
@@ -54,55 +58,63 @@ je_law_imposition = {
 		}
 	}
 
-    complete = {
-        has_law = scope:foreign_imposition_law.type
-    }
+	weight = 1000
 
-    on_complete = {
-		change_relations = {
-			country = scope:foreign_imposition_country
-			value = 20
-		}
+	should_be_pinned_by_default_uninvolved_or_context = yes
 
-		every_political_lobby = {
-			limit = { pro_foreign_imposition_country = yes }
-			change_appeasement = { amount = 1 factor = appeasement_imposed_law_enacted }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			has_law = scope:foreign_imposition_law.type
 		}
-		every_political_lobby = {
-			limit = { anti_foreign_imposition_country = yes }
-			change_appeasement = { amount = -1 factor = appeasement_imposed_law_enacted }
-		}
-        add_modifier = {
-            name = successfully_met_foreign_imposition_legitimacy
-            days = normal_modifier_time
-            is_decaying = yes
-        }
-    }
+		effect = {
+			change_relations = {
+						country = scope:foreign_imposition_country
+						value = 20
+					}
 
-    invalid = {
-		OR = {
-			scope:journal_entry = {
-				has_variable = has_been_abandoned
-			}
-			scope:foreign_imposition_country ?= {
-				NOT = {
-					has_law_imposition_rights = {
-						target_country = root
-						law_type = scope:foreign_imposition_law.type
+					every_political_lobby = {
+						limit = { pro_foreign_imposition_country = yes }
+						change_appeasement = { amount = 1 factor = appeasement_imposed_law_enacted }
+					}
+					every_political_lobby = {
+						limit = { anti_foreign_imposition_country = yes }
+						change_appeasement = { amount = -1 factor = appeasement_imposed_law_enacted }
+					}
+					add_modifier = {
+						name = successfully_met_foreign_imposition_legitimacy
+						days = normal_modifier_time
+						is_decaying = yes
+					}
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				scope:journal_entry = {
+					has_variable = has_been_abandoned
+				}
+				scope:foreign_imposition_country ?= {
+					NOT = {
+						has_law_imposition_rights = {
+							target_country = root
+							law_type = scope:foreign_imposition_law.type
+						}
 					}
 				}
 			}
 		}
-    }
-
-	on_invalid = {
-		if = {
-			limit = { currently_enacting_law ?= scope:foreign_imposition_law }
-			cancel_enactment = yes
+		effect = {
+			if = {
+				limit = { currently_enacting_law ?= scope:foreign_imposition_law }
+				cancel_enactment = yes
+			}
 		}
 	}
-
-    weight = 1000
-
-	should_be_pinned_by_default_uninvolved_or_context = yes
 }

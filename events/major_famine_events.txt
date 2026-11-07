@@ -252,4 +252,6 @@ famine_events.4 = { #donations
 			}
 		}
 	}
+
+	fire_only_once = yes
 }

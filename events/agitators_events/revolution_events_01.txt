@@ -64,7 +64,9 @@ revolution_pulse1_events.1 = {
 						has_role_of_type = agitator
 					}
 					save_scope_as = membership_list_agitator
-				}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			}
 		}
 		set_variable = { name = revolution_event_cooldown days = 30 }
@@ -129,6 +131,10 @@ revolution_pulse1_events.1 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:membership_list_agitator }
+	}
 }
 
 # Anger at the Front
@@ -155,10 +161,10 @@ revolution_pulse1_events.2 = {
 	trigger = {
 		NOT = { has_variable = revolution_event_cooldown }
 		any_scope_war = {
-		    has_war_support = {
-		        target = ROOT
-		        value < 10
-		    }
+			has_war_support = {
+				target = ROOT
+				value < 55
+			}
 		}
 		any_insurrection_ongoing = yes
 	}
@@ -175,12 +181,12 @@ revolution_pulse1_events.2 = {
 		}
 		random_scope_war = {
 			limit = {
-			    has_war_support = {
-			        target = ROOT
-			        value < 10
-			    }
-		    }
-		    save_scope_as = anger_at_front_war
+				has_war_support = {
+					target = ROOT
+					value < 55
+				}
+			}
+			save_scope_as = anger_at_front_war
 		}
 		set_variable = { name = revolution_event_cooldown days = 30 }
 	}
@@ -192,9 +198,9 @@ revolution_pulse1_events.2 = {
 		random_list = {
 			1 = {
 				scope:anger_at_front_war = {
-					add_war_exhaustion = {
+					add_war_support_change = {
 						target = ROOT
-						value = 10
+						value = -5
 					}
 				}
 			}
@@ -217,9 +223,9 @@ revolution_pulse1_events.2 = {
 
 		# Get exhaustion no matter what
 		scope:anger_at_front_war = {
-			add_war_exhaustion = {
+			add_war_support_change = {
 				target = ROOT
-				value = 10
+				value = -5
 			}
 		}
 
@@ -349,26 +355,26 @@ revolution_pulse1_events.3 = {
 		name = revolution_pulse1_events.3.c
 
 		random_list = {
-            1 = {
+			1 = {
 				scope:ongoing_revolution = {
 					add_civil_war_progress = revolution_advance_small
 				}
-            }
-            1 = {
+			}
+			1 = {
 				scope:ongoing_revolution = {
 					add_civil_war_progress = revolution_advance_medium
 				}
-            }
-            1 = {
-            	scope:publishing_committee_ig = {
+			}
+			1 = {
+				scope:publishing_committee_ig = {
 					add_modifier = {
 						name = poorly_worded_pamphlets
 						days = normal_modifier_time
 					}
 				}
-            }
-    	}
-    }
+			}
+		}
+	}
 }
 
 # The Infernal Machine
@@ -417,13 +423,17 @@ revolution_pulse1_events.4 = {
 		}
 		ruler = {
 			save_scope_as = infernal_machine_ruler
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_scope_character = {
 			limit = {
 				has_role_of_type = agitator
 			}
 			save_scope_as = infernal_agitator
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		set_variable = { name = revolution_event_cooldown days = 30 }
 	}
 
@@ -470,6 +480,11 @@ revolution_pulse1_events.4 = {
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:infernal_agitator }
+		revoke_temporary_event_immortality = { CHARACTER = scope:infernal_machine_ruler }
 	}
 }
 
@@ -720,7 +735,9 @@ revolution_pulse1_events.7 = {
 			interest_group ?= {
 				save_scope_as = guglielmo_pepe_ig
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_interest_group = {
 			limit = {
 				is_insurrectionary = no
@@ -767,7 +784,9 @@ revolution_pulse1_events.7 = {
 		random_list = {
 			1 = {
 				scope:guglielmo_pepe = {
-					retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:guglielmo_pepe }
+retire_character = yes
 				}
 			}
 			1 = {
@@ -794,7 +813,9 @@ revolution_pulse1_events.7 = {
 		random_list = {
 			2 = {
 				scope:guglielmo_pepe = {
-					retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:guglielmo_pepe }
+retire_character = yes
 				}
 			}
 			1 = {
@@ -810,6 +831,10 @@ revolution_pulse1_events.7 = {
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:guglielmo_pepe }
 	}
 }
 
@@ -1331,7 +1356,9 @@ revolution_pulse1_events.12 = {
 					is_immortal = no
 				}
 				save_scope_as = safehaven_dissident
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			save_scope_as = safehaven_for_dissidents
 		}
 		set_variable = { name = revolution_event_cooldown days = 30 }
@@ -1414,6 +1441,10 @@ revolution_pulse1_events.12 = {
 		scope:ongoing_revolution = {
 			add_civil_war_progress = revolution_advance_small
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:safehaven_dissident }
 	}
 }
 
@@ -2037,7 +2068,9 @@ revolution_pulse1_events.18 = {
 				has_role_of_type = general
 			}
 			save_scope_as = will_kill_for_peace_general
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_scope_state = {
 			limit = {
 				is_in_revolt = yes
@@ -2131,6 +2164,10 @@ revolution_pulse1_events.18 = {
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:will_kill_for_peace_general }
 	}
 }
 

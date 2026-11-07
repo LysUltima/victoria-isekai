@@ -123,10 +123,11 @@ REPLACE:ideology_republican = {
 	}
 }
 
-REPLACE:ideology_socialist = {
-	icon = "gfx/interface/icons/ideology_icons/socialist.dds"
+REPLACE:ideology_communist = {
+	icon = "gfx/interface/icons/ideology_icons/communist.dds"
 
 	lawgroup_governance_principles = {
+		law_martial_sect = strongly_disapprove
 		law_council_republic = approve
 		law_parliamentary_republic = neutral
 		law_corporate_state = disapprove
@@ -134,18 +135,44 @@ REPLACE:ideology_socialist = {
 		law_presidential_republic = neutral
 		law_theocracy = strongly_disapprove
 		law_monarchy = strongly_disapprove
-		law_martial_sect = strongly_disapprove
 	}
 
-	lawgroup_economic_system = {
-		law_command_economy = approve
-		law_cooperative_ownership = approve
-		law_interventionism = neutral
-		law_agrarianism = neutral
-		law_traditionalism = strongly_disapprove
-		law_laissez_faire = strongly_disapprove
-		law_industry_banned = strongly_disapprove
-		law_extraction_economy = strongly_disapprove
+	lawgroup_distribution_of_power = {
+		law_universal_suffrage = neutral
+		law_anarchy = approve
+		law_census_voting = disapprove
+		law_single_party_state = neutral
+		law_wealth_voting = disapprove
+		law_landed_voting = disapprove
+		law_technocracy = disapprove
+		law_oligarchy = strongly_disapprove
+		law_autocracy = strongly_disapprove
+		law_labour_suffrage = approve
+	}
+
+	lawgroup_army_model = {
+		law_national_militia = neutral
+		law_mass_conscription = neutral
+		law_peasant_levies = strongly_disapprove
+		law_professional_army = disapprove
+		law_revolutionary_guard = approve
+	}
+
+	lawgroup_internal_security = {
+		law_national_guard = neutral
+		law_guaranteed_liberties = neutral
+		law_no_home_affairs = disapprove
+		law_secret_police = strongly_disapprove
+		law_extraordinary_commission = approve
+	}
+
+	lawgroup_labour_associations = {
+		law_combination_acts = strongly_disapprove
+		law_guild_system = disapprove
+		law_anti_strike_laws = disapprove
+		law_corporatized_unions = neutral
+		law_right_to_associate = approve
+		law_factory_councils = strongly_approve
 	}
 }
 

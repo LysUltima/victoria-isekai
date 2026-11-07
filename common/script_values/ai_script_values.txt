@@ -85,15 +85,8 @@
 
 	# Prevent AI from effectively abolishing the free state of krakow
 	# We should really do this in a systemic way in the future, maybe some kind of special subject interaction that guarantees them against legal meddling?
-	if = {
-		limit = {
-			always = no # vanilla ref 'c:KRA' not present in this mod
-			scope:target_country = { always = no } # vanilla ref 'c:KRA' not present in this mod 
-		}
-		multiply = 0.0
-	}
-}
 
+}
 
 wanted_army_size_script_value = {
 	# How many levels of barracks should the AI have
@@ -182,7 +175,7 @@ wanted_army_size_script_value = {
 		limit = { has_technology_researched = colossal_war_automata }
 		multiply = 0.8
 	}
-	
+
 	# General multiplier for easy adjustment
 	multiply = 1.0
 
@@ -201,17 +194,6 @@ wanted_army_size_script_value = {
 
 	if = {
 		limit = {
-			OR = {
-				always = no # vanilla ref 'je_prussia_of_the_balkans' not present in this mod
-				always = no # vanilla ref 'ai_strategy_prussia_of_the_balkans' (Balkans/Bulgaria-specific) not present in this mod
-			}
-		}
-		multiply = 2.5
-	}
-
-
-	if = {
-		limit = {
 			capital ?= {
 				OR = {
 					always = no # vanilla ref 'geographic_region_england_old' not present in this mod
@@ -223,7 +205,6 @@ wanted_army_size_script_value = {
 		multiply = 0.75
 	}
 
-	
 	# Multiply final value by diplomatic pact expenses ratio - countries paying a lot to pacts have lower spending ambitions
 	multiply = {
 		value = 1
@@ -232,7 +213,6 @@ wanted_army_size_script_value = {
 
 	min = {
 		value = 1
-
 
 	}
 }
@@ -270,19 +250,8 @@ wanted_marines_size_script_value = {
 		}
 	}
 	# Special logic for Great Britain - this should be reworked to be less specific later
-	if = {
-		limit = {
-			country_rank = rank_value:great_power
-			capital = {
-				OR = {
-					always = no # vanilla ref 'geographic_region_england_old' not present in this mod
-					always = no # vanilla ref 'geographic_region_north_sea_coast_old' not present in this mod
-				}
-			}
-		}
-		add = 10
-	}
-	else_if = { # GPs and MPs should want to maintain some marines
+
+	if = { # GPs and MPs should want to maintain some marines
 		limit = { country_rank = rank_value:great_power }
 		add = 5
 	}
@@ -290,15 +259,15 @@ wanted_marines_size_script_value = {
 		limit = { country_rank = rank_value:major_power }
 		add = 2
 	}
-	
+
 	# General multiplier for easy adjustment
 	multiply = 0.5
-	
+
 	# Less marines before we have steel ships
 	if = {
 		limit = { NOT = { has_technology_researched = warded_hulls } }
 		multiply = 0.5
-	}	
+	}
 
 	# Factor in strategies
 	if = {
@@ -315,7 +284,7 @@ wanted_marines_size_script_value = {
 		multiply = 0.5
 	}
 	if = {
-		limit = { 
+		limit = {
 			OR = {
 				country_rank < rank_value:minor_power
 				is_country_type = unrecognized
@@ -324,13 +293,13 @@ wanted_marines_size_script_value = {
 		}
 		multiply = 0
 	}
-	
+
 	# Multiply final value by diplomatic pact expenses ratio - countries paying a lot to pacts have lower spending ambitions
 	multiply = {
 		value = 1
 		subtract = diplomatic_pact_expense_ratio
 	}
-	
+
 	max = total_marine_capacity
 }
 
@@ -367,19 +336,8 @@ wanted_navy_size_script_value = {
 		}
 	}
 	# Special logic for Great Britain - this should be reworked to be less specific later
-	if = {
-		limit = {
-			country_rank = rank_value:great_power
-			capital = {
-				OR = {
-					always = no # vanilla ref 'geographic_region_england_old' not present in this mod
-					always = no # vanilla ref 'geographic_region_north_sea_coast_old' not present in this mod
-				}
-			}
-		}
-		add = 100
-	}
-	else_if = { # GPs and MPs should want to maintain a bit of a navy
+
+	if = { # GPs and MPs should want to maintain a bit of a navy
 		limit = { country_rank = rank_value:great_power }
 		add = 25
 	}
@@ -387,10 +345,10 @@ wanted_navy_size_script_value = {
 		limit = { country_rank = rank_value:major_power }
 		add = 10
 	}
-	
+
 	# General multiplier for easy adjustment
 	multiply = 0.75
-	
+
 	# More advanced ships require more crew
 	if = {
 		limit = { has_technology_researched = warded_hulls }
@@ -429,12 +387,12 @@ wanted_navy_size_script_value = {
 		limit = { is_country_type = unrecognized }
 		multiply = 0.5
 	}
-	
+
 	# Multiply final value by diplomatic pact expenses ratio - countries paying a lot to pacts have lower spending ambitions
 	multiply = {
 		value = 1
 		subtract = diplomatic_pact_expense_ratio
-	}	
+	}
 
 	# Journal related AI behaviours, choose this if you DO care about the exact number of ships
 }
@@ -493,7 +451,6 @@ flagship_score_for_ship = {
 	}
 }
 
-
 ship_mod_ai_price_ratio_reject = { value = 1.75 } # Weighted buy/sell ratio at/above which a mod is rejected (multiplier = 0)
 ship_mod_ai_price_ratio_bonus = { value = 0.75 } # At/below which the full bonus multiplier applies
 ship_mod_ai_price_bonus_multiplier = { value = 1.5 } # Multiplier at the bonus ratio (linear interpolation in between)
@@ -538,7 +495,6 @@ ship_mod_market_multiplier = {
 		}
 	}
 }
-
 
 ship_mod_doctrine_boost = { value = 1.5 } # Multiplier applied when a bundle's doctrinal condition fires
 
@@ -603,4 +559,8 @@ ship_mod_merchant_navy_doctrine = {
 		limit = { has_law = law_type:law_merchant_navy }
 		multiply = ship_mod_doctrine_boost
 	}
+}
+
+diplomatic_play_acceptance = {
+	value = 0
 }

@@ -3,6 +3,22 @@
 # Verbatim copy. Hooks events/corn_laws_events.txt (migrated alongside).
 
 je_corn_laws = {
+	activation_description = {
+		market_capital.market = {
+			mg:grain = {
+				market_goods_pricier > 0.25
+			}
+		}
+		OR = {
+			has_law_or_variant = law_type:law_protectionism
+			has_law_or_variant = law_type:law_mercantilism
+		}
+		ig:ig_landowners ?= {
+			is_powerful = yes
+			is_in_government = yes
+		}
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -34,43 +50,6 @@ je_corn_laws = {
 		}
 	}
 
-	complete = {
-		has_law_or_variant = law_type:law_free_trade
-	}
-
-	on_complete = {
-		set_variable = corn_laws_abolished
-		trigger_event = { id = corn_laws.1 }
-		show_as_tooltip = {
-			if = {
-				limit = {
-					ig:ig_landowners ?= {
-						is_in_government = yes
-						leader = {
-							NOT = { has_ideology = ideology:ideology_market_liberal }
-						}
-					}
-				}
-				ig:ig_landowners ?= {
-					add_modifier = {
-						name = repealed_corn_laws
-						days = long_modifier_time
-					}
-				}
-			}
-			add_loyalists = {
-				value = 0.1
-				pop_type = laborers
-			}
-		}
-	}
-
-	invalid = {
-		ig:ig_landowners ?= {
-			ig_counts_as_marginal = yes
-		}
-	}
-
 	on_monthly_pulse = {
 		random_events = {
 			100 = 0
@@ -83,4 +62,50 @@ je_corn_laws = {
 	weight = 100
 
 	should_be_pinned_by_default_uninvolved_or_context = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			has_law_or_variant = law_type:law_free_trade
+		}
+		effect = {
+			set_variable = corn_laws_abolished
+			trigger_event = { id = corn_laws.1 }
+			show_as_tooltip = {
+				if = {
+					limit = {
+						ig:ig_landowners ?= {
+							is_in_government = yes
+							leader = {
+								NOT = { has_ideology = ideology:ideology_market_liberal }
+							}
+						}
+					}
+					ig:ig_landowners ?= {
+						add_modifier = {
+							name = repealed_corn_laws
+							days = long_modifier_time
+						}
+					}
+				}
+				add_loyalists = {
+					value = 0.1
+					pop_type = laborers
+				}
+			}
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			ig:ig_landowners ?= {
+				ig_counts_as_marginal = yes
+			}
+		}
+	}
 }

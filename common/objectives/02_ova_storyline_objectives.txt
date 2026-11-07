@@ -12,6 +12,8 @@
 # ------------------------------------------------------------------------
 
 objective_ova_isekai = {
+	illustration = "gfx/interface/illustrations/journal/game_obj_illu_hegemony.dds"
+
 	enabled_background = "gfx/interface/icons/objectives/isekai.dds"
 	icon = "gfx/interface/icons/objectives/hegemon.dds"
 
@@ -26,6 +28,8 @@ objective_ova_isekai = {
 }
 
 objective_ova_murim = {
+	illustration = "gfx/interface/illustrations/journal/game_obj_illu_hegemony.dds"
+
 	enabled_background = "gfx/interface/icons/objectives/murim.dds"
 	icon = "gfx/interface/icons/objectives/great_game.dds"
 
@@ -40,6 +44,8 @@ objective_ova_murim = {
 }
 
 objective_ova_xianxia = {
+	illustration = "gfx/interface/illustrations/journal/game_obj_illu_egalitarian_society.dds"
+
 	enabled_background = "gfx/interface/icons/objectives/xianxia.dds"
 	icon = "gfx/interface/icons/objectives/egalitarian_society.dds"
 

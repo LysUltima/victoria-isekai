@@ -158,7 +158,7 @@
 			}
 		}
 
-	 	requirement_to_maintain = {
+		requirement_to_maintain = {
 			trigger = {
 				custom_tooltip = {
 					text = DIPLO_ACTION_RELATIONS_POOR_OR_LESS_NOT
@@ -224,15 +224,6 @@
 		propose_score = {
 			value = 10
 
-			if = {
-				limit = {
-					always = no
-					c:HAW ?= {
-						this = scope:target_country
-					}
-				}
-				add = 100
-			}
 		}
 
 		will_propose = {
@@ -372,4 +363,3 @@
 		}
 	}
 }
-

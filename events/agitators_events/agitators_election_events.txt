@@ -338,7 +338,9 @@ agitators_election_events.2 = {
 				}
 			}
 			save_scope_as = agitator_scope_2
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		if = {
 			limit = {
 				scope:agitator_scope_2 = {
@@ -502,6 +504,10 @@ agitators_election_events.2 = {
 			add_momentum = momentum_medium_decrease
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:agitator_scope_2 }
+	}
 }
 
 
@@ -564,7 +570,9 @@ agitators_election_events.3 = {
 				}
 			}
 			save_scope_as = agitator_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		scope:agitator_scope = {
 			set_variable = { name = agitator_election_participation days = 180 }
 		}
@@ -636,6 +644,10 @@ agitators_election_events.3 = {
 			}
 			add_momentum = momentum_medium
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:agitator_scope }
 	}
 }
 
@@ -799,7 +811,9 @@ agitators_election_events.5 = {
 		scope:agitator_ig_scope = {
 			leader = {
 				save_scope_as = agitator_ig_leader_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		scope:agitator_scope = {
 			set_variable = { name = agitator_election_participation days = 180 }
@@ -855,6 +869,10 @@ agitators_election_events.5 = {
 		scope:agitator_party_scope = {
 			add_momentum = momentum_small_decrease
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:agitator_ig_leader_scope }
 	}
 }
 
@@ -962,7 +980,9 @@ agitators_election_events.6 = {
 				}
 			}
 			save_scope_as = agitator_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		save_agitator_election_scopes = yes
 		scope:agitator_scope = {
 			set_variable = { name = agitator_election_participation days = 180 }
@@ -991,6 +1011,10 @@ agitators_election_events.6 = {
 			days = long_modifier_time
 			multiplier = 2
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:agitator_scope }
 	}
 }
 
@@ -1221,7 +1245,9 @@ agitators_election_events.8 = {
 					save_scope_as = agitator_party_scope
 				}
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 
 		scope:agitator_party_scope = {
 			random_member = {
@@ -1271,6 +1297,10 @@ agitators_election_events.8 = {
 				multiplier = 1
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:agitator_scope }
 	}
 }
 
@@ -1374,7 +1404,9 @@ agitators_election_events.9 = {
 				}
 			}
 			save_scope_as = agitator_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		save_agitator_election_scopes = yes
 		scope:agitator_scope = {
 			set_variable = { name = agitator_election_participation days = 180 }
@@ -1400,6 +1432,10 @@ agitators_election_events.9 = {
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:agitator_scope }
 	}
 }
 
@@ -1537,7 +1573,7 @@ agitators_election_events.11 = {
 				has_variable = agitator_election_participation
 			}
 			OR = {
-				has_ideology = ideology:ideology_communist
+				has_ideology = ideology:ideology_communist_leader
 				has_ideology = ideology:ideology_vanguardist
 				has_ideology = ideology:ideology_anarchist
 				AND = {
@@ -1709,7 +1745,7 @@ agitators_election_events.12 = {
 				has_variable = agitator_election_participation
 			}
 			OR = {
-				has_ideology = ideology:ideology_communist
+				has_ideology = ideology:ideology_communist_leader
 				has_ideology = ideology:ideology_vanguardist
 				has_ideology = ideology:ideology_anarchist
 				AND = {
@@ -1858,7 +1894,7 @@ agitators_election_events.13 = {
 				has_variable = agitator_election_participation
 			}
 			OR = {
-				has_ideology = ideology:ideology_communist
+				has_ideology = ideology:ideology_communist_leader
 				has_ideology = ideology:ideology_vanguardist
 				has_ideology = ideology:ideology_anarchist
 				AND = {
@@ -1904,8 +1940,8 @@ agitators_election_events.13 = {
 			is_party_type = communist_party
 		}
 		pop_type_percent_country = {
-			pop_type = peasants
-			percent >= 0.35
+			target = pop_type:peasants
+			value >= 0.35
 		}
 	}
 
@@ -2003,7 +2039,7 @@ agitators_election_events.14 = {
 				has_variable = agitator_election_participation
 			}
 			OR = {
-				has_ideology = ideology:ideology_communist
+				has_ideology = ideology:ideology_communist_leader
 				has_ideology = ideology:ideology_vanguardist
 				has_ideology = ideology:ideology_anarchist
 				AND = {
@@ -2205,7 +2241,7 @@ agitators_election_events.15 = {
 				has_variable = agitator_election_participation
 			}
 			OR = {
-				has_ideology = ideology:ideology_communist
+				has_ideology = ideology:ideology_communist_leader
 				has_ideology = ideology:ideology_vanguardist
 				has_ideology = ideology:ideology_anarchist
 				AND = {
@@ -2477,7 +2513,7 @@ agitators_election_events.16 = {
 		random_scope_character = {
 			limit = {
 				OR = {
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 					has_ideology = ideology:ideology_anarchist
 					has_ideology = ideology:ideology_vanguardist
 				}
@@ -3435,7 +3471,9 @@ agitators_election_events.23 = {
 			save_scope_as = armed_forces_scope
 			leader = {
 				save_scope_as = armed_forces_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			party = {
 				save_scope_as = armed_forces_party_scope
 			}
@@ -3470,6 +3508,10 @@ agitators_election_events.23 = {
 		scope:agitator_party_scope = {
 			add_momentum = momentum_small_decrease
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:armed_forces_leader }
 	}
 }
 
@@ -5051,7 +5093,7 @@ agitators_election_events.37 = {
 					is_powerful = yes
 					leader = {
 						OR = {
-							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_communist_leader
 							has_ideology = ideology:ideology_anarchist
 							has_ideology = ideology:ideology_vanguardist
 						}
@@ -5087,7 +5129,7 @@ agitators_election_events.37 = {
 						is_powerful = yes
 						leader = {
 							OR = {
-								has_ideology = ideology:ideology_communist
+								has_ideology = ideology:ideology_communist_leader
 								has_ideology = ideology:ideology_anarchist
 								has_ideology = ideology:ideology_vanguardist
 								has_ideology = ideology:ideology_radical
@@ -5435,7 +5477,7 @@ agitators_election_events.39 = {
 		ig:ig_rural_folk ?= {
 			leader = {
 				NOR = {
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 					has_ideology = ideology:ideology_vanguardist
 					has_ideology = ideology:ideology_anarchist
 				}
@@ -5461,7 +5503,9 @@ agitators_election_events.39 = {
 			save_scope_as = rf_scope
 			leader = {
 				save_scope_as = rf_leader_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		scope:agitator_scope = {
 			set_variable = { name = agitator_election_participation days = 180 }
@@ -5503,6 +5547,10 @@ agitators_election_events.39 = {
 			}
 			add_momentum = momentum_medium
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:rf_leader_scope }
 	}
 }
 
@@ -5563,8 +5611,8 @@ agitators_election_events.40 = {
 			}
 			root = {
 				culture_percent_country = {
-				    target = prev
-				    value >= 0.05
+					target = prev
+					value >= 0.05
 				  }
 			}
 		}
@@ -5599,8 +5647,8 @@ agitators_election_events.40 = {
 				ROOT = {
 					country_average_culture_pop_acceptance = { culture = prev value < acceptance_status_5 }
 					culture_percent_country = {
-					    target = prev
-					    value >= 0.05
+						target = prev
+						value >= 0.05
 					}
 				}
 			}
@@ -5851,7 +5899,9 @@ agitators_election_events.42 = {
 		radical_agitator_election_scope_effect = yes
 		ruler = {
 			save_scope_as = monarch_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		ig:ig_intelligentsia ?= {
 			save_scope_as = intelligentsia_ig
 		}
@@ -5904,6 +5954,10 @@ agitators_election_events.42 = {
 			name = modifier_agitator_hates_the_monarchy_enlightened
 			days = normal_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:monarch_scope }
 	}
 }
 
@@ -6199,7 +6253,9 @@ agitators_election_events.44 = {
 				}
 			}
 			save_scope_as = anti_democratic_character
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		save_scope_as = self_referential_reference
 		scope:agitator_scope = {
 			set_variable = { name = agitator_election_participation days = 180 }
@@ -6254,6 +6310,10 @@ agitators_election_events.44 = {
 			value = small_radicals
 			strata = upper
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:anti_democratic_character }
 	}
 }
 
@@ -6322,7 +6382,9 @@ agitators_election_events.45 = {
 		radical_agitator_election_scope_effect = yes
 		ruler = {
 			save_scope_as = monarch_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		capital = {
 			save_scope_as = capital_scope
 		}
@@ -6381,6 +6443,10 @@ agitators_election_events.45 = {
 			value = small_radicals
 			strata = upper
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:monarch_scope }
 	}
 }
 
@@ -6850,7 +6916,9 @@ agitators_election_events.49 = {
 			save_scope_as = trade_unions_ig
 			leader = {
 				save_scope_as = trade_union_leader_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		scope:agitator_scope = {
 			set_variable = { name = agitator_election_participation days = 180 }
@@ -6894,6 +6962,10 @@ agitators_election_events.49 = {
 			name = modifier_support_for_immigrant_schools
 			days = short_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:trade_union_leader_scope }
 	}
 }
 
@@ -6963,7 +7035,9 @@ agitators_election_events.50 = {
 			save_scope_as = trade_unions_ig
 			leader = {
 				save_scope_as = trade_union_leader_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		scope:agitator_scope = {
 			set_variable = { name = agitator_election_participation days = 180 }
@@ -7011,5 +7085,9 @@ agitators_election_events.50 = {
 
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:trade_union_leader_scope }
 	}
 }

@@ -318,31 +318,31 @@ movement_cultural_majority = {
 				limit = {
 					is_capital = no
 					is_homeland_of_country_cultures = owner
-					primary_cultures_percent_state >= 0.05
+					primary_cultures_percent_state = { target_country = owner value >= 0.05 }
 				}
 				add = 10
 
 				if = {
 					limit = {
-						primary_cultures_percent_state >= 0.75
+						primary_cultures_percent_state = { target_country = owner value >= 0.75 }
 					}
 					add = 1000
 				}
 				else_if = {
 					limit = {
-						primary_cultures_percent_state >= 0.5
+						primary_cultures_percent_state = { target_country = owner value >= 0.5 }
 					}
 					add = 500
 				}
 				else_if = {
 					limit = {
-						primary_cultures_percent_state >= 0.25
+						primary_cultures_percent_state = { target_country = owner value >= 0.25 }
 					}
 					add = 100
 				}
 				else_if = {
 					limit = {
-						primary_cultures_percent_state >= 0.1
+						primary_cultures_percent_state = { target_country = owner value >= 0.1 }
 					}
 					add = 50
 				}
@@ -367,11 +367,11 @@ movement_cultural_majority = {
 				limit = {
 					is_capital = no
 					is_homeland_of_country_cultures = owner
-					primary_cultures_percent_state >= 0.05
+					primary_cultures_percent_state = { target_country = owner value >= 0.05 }
 				}
 				add = { # These three values must add up to more than 1 - 5 x Obstinance, 1/2 Turmoil, percent of pops of primary cultures
 					value = -1
-					add = "this.primary_cultures_percent_state"
+					add = "this.primary_cultures_percent_state(owner)"
 					add = {
 						value = this.turmoil
 						multiply = 0.5
@@ -769,39 +769,12 @@ movement_cultural_minority = {
 				limit = {
 					is_pop_type = aristocrats
 				}
-				if = {
-					limit = {
-						always = no # was culture = cu:polish (no mod analogue)
-						state ?= {
-							OR = {
-								always = no
-								always = no
-							}
-						}
-					}
-					add = {
-						value = 50
-						desc = "POP_POLISH_ARISTOCRATS"
-					}
-				}
-				else_if = {
-					limit = {
-						always = no # was culture = cu:hungarian (no mod analogue)
-						owner ?= {
-							always = no # vanilla ref 'je_matter_of_hungary' not present in this mod
-						}
-					}
-					add = {
-						value = 50
-						desc = "0"
-					}
-				}
-				else = {
+
 					add = {
 						value = 12
 						desc = "POP_ARISTOCRATS"
 					}
-				}
+
 			}
 			else = {
 				add = {
@@ -1010,19 +983,6 @@ movement_cultural_minority = {
 			multiply = {
 				value = 1.25
 				desc = "FAILED_TANZIMAT_REFORMS"
-			}
-		}
-
-		if = {
-			limit = {
-				owner ?= {
-					always = no # vanilla ref 'je_matter_of_hungary' not present in this mod
-				}
-				always = no # was culture = cu:hungarian (no mod analogue)
-			}
-			multiply = {
-				value = 1.25
-				desc = "0"
 			}
 		}
 
@@ -1587,20 +1547,7 @@ movement_minority_rights = {
 
 		if = {
 			limit = {
-				owner ?= {
-					always = no # vanilla ref 'je_matter_of_hungary' not present in this mod
-				}
-				always = no # was culture = cu:hungarian (no mod analogue)
-			}
-			multiply = {
-				value = 0.1
-				desc = "0"
-			}
-		}
-
-		if = {
-			limit = {
-				owner ?= { always = no } # vanilla ref 'je_springtime_of_the_peoples' not present in this mod 
+				owner ?= { always = no } # vanilla ref 'je_springtime_of_the_peoples' not present in this mod
 				culture = { has_discrimination_trait_group = heritage_group_european }
 			}
 			multiply = {

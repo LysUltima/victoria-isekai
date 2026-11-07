@@ -1631,10 +1631,10 @@ lobby_events.5 = {
 	}
 
 	cancellation_trigger = {
-		NOR = {
-			exists = scope:relevant_country
-			exists = scope:relevant_ig
-			exists = scope:relevant_goods
+		OR = {
+			NOT = { exists = scope:relevant_ig }
+			NOT = { exists = scope:relevant_country }
+			NOR = { exists = scope:relevant_goods exists = scope:relevant_lobby }
 		}
 	}
 
@@ -1715,14 +1715,7 @@ lobby_events.5 = {
 		}
 	}
 
-	cancellation_trigger = {
-		NOR = {
-			exists = scope:relevant_goods
-			exists = scope:relevant_lobby
-			exists = scope:relevant_ig
-			exists = scope:relevant_country
-		}
-	}
+
 
 	option = {
 		name = lobby_events.5.a
@@ -2007,9 +2000,9 @@ lobby_events.7 = {
 			}
 			else_if = {
 				limit = {
-					has_ideology = ideology:ideology_socialist
+					has_ideology = ideology:ideology_communist
 				}
-				ideology:ideology_socialist = {
+				ideology:ideology_communist = {
 					save_scope_as = relevant_ideology
 				}
 			}
@@ -3549,9 +3542,9 @@ lobby_events.13 = {
 				}
 				NAND = {
 					OR = {
-						has_ideology = ideology:ideology_socialist
+						has_ideology = ideology:ideology_communist
 						leader = {
-							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_communist_leader
 							has_ideology = ideology:ideology_anarchist
 							has_ideology = ideology:ideology_vanguardist
 						}
@@ -3582,9 +3575,9 @@ lobby_events.13 = {
 					}
 					NAND = {
 						OR = {
-							has_ideology = ideology:ideology_socialist
+							has_ideology = ideology:ideology_communist
 							leader = {
-								has_ideology = ideology:ideology_communist
+								has_ideology = ideology:ideology_communist_leader
 								has_ideology = ideology:ideology_anarchist
 								has_ideology = ideology:ideology_vanguardist
 							}
@@ -3604,9 +3597,9 @@ lobby_events.13 = {
 					}
 					NAND = {
 						OR = {
-							has_ideology = ideology:ideology_socialist
+							has_ideology = ideology:ideology_communist
 							leader = {
-								has_ideology = ideology:ideology_communist
+								has_ideology = ideology:ideology_communist_leader
 								has_ideology = ideology:ideology_anarchist
 								has_ideology = ideology:ideology_vanguardist
 							}
@@ -5431,7 +5424,9 @@ fund_lobbies_events.4 = { # Politician implicated in improperly spending foreign
 						}
 					}
 					save_scope_as = relevant_character
-				}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			}
 		}
 	}
@@ -5457,7 +5452,9 @@ fund_lobbies_events.4 = { # Politician implicated in improperly spending foreign
 				custom_tooltip = {
 					text = character_sent_to_jail_tt
 					scope:relevant_character = {
-						retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:relevant_character }
+retire_character = yes
 					}
 				}
 			}
@@ -5514,6 +5511,10 @@ fund_lobbies_events.4 = { # Politician implicated in improperly spending foreign
 				add_trait = grifter
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:relevant_character }
 	}
 }
 

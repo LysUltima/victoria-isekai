@@ -62,7 +62,9 @@ yeet_agitator_events.1 = {
 				}
 				save_scope_as = yeeted_agitator_scope_1
 				set_variable = { name = temp_event_target_in_use }
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			save_scope_as = yeeted_agitator_ig_scope_1
 		}
 	}
@@ -76,7 +78,9 @@ yeet_agitator_events.1 = {
 				hidden_effect = {
 					remove_variable = temp_event_target_in_use
 				}
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:yeeted_agitator_scope_1 }
+retire_character = yes
 			}
 		}
 		scope:yeeted_agitator_ig_scope_1 = {
@@ -122,6 +126,10 @@ yeet_agitator_events.1 = {
 			days = normal_modifier_time
 			multiplier = money_amount_multiplier_small
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:yeeted_agitator_scope_1 }
 	}
 }
 
@@ -188,7 +196,9 @@ yeet_agitator_events.2 = {
 				}
 				save_scope_as = yeeted_agitator_scope_2
 				set_variable = { name = temp_event_target_in_use }
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			save_scope_as = yeeted_agitator_ig_scope_2
 		}
 	}
@@ -222,6 +232,10 @@ yeet_agitator_events.2 = {
 	#		}
 	#	}
 	#}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:yeeted_agitator_scope_2 }
+	}
 }
 
 # The Fruits of Thy Labor - Agitator is old or not too popular
@@ -286,7 +300,9 @@ yeet_agitator_events.3 = {
 			interest_group ?= {
 				save_scope_as = yeeted_agitator_ig_scope_3
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_scope_state = {
 			limit = {
 				is_incorporated = yes
@@ -303,7 +319,9 @@ yeet_agitator_events.3 = {
 			}
 			save_scope_as = walter_scope
 			set_variable = retirement_random_name_var
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_scope_character = {
 			limit = {
 				NOR = {
@@ -314,7 +332,9 @@ yeet_agitator_events.3 = {
 				}
 			}
 			save_scope_as = donny_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -324,7 +344,11 @@ yeet_agitator_events.3 = {
 			hidden_effect = {
 				scope:yeeted_agitator_scope_3 = {
 					hidden_effect = { remove_variable = temp_event_target_in_use }
-					retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:donny_scope }
+		revoke_temporary_event_immortality = { CHARACTER = scope:walter_scope }
+		revoke_temporary_event_immortality = { CHARACTER = scope:yeeted_agitator_scope_3 }
+retire_character = yes
 				}
 			}
 	#	}
@@ -344,7 +368,11 @@ yeet_agitator_events.3 = {
 			hidden_effect = {
 				scope:yeeted_agitator_scope_3 = {
 					hidden_effect = { remove_variable = temp_event_target_in_use }
-					retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:donny_scope }
+		revoke_temporary_event_immortality = { CHARACTER = scope:walter_scope }
+		revoke_temporary_event_immortality = { CHARACTER = scope:yeeted_agitator_scope_3 }
+retire_character = yes
 				}
 			}
 	#	}
@@ -354,5 +382,11 @@ yeet_agitator_events.3 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:donny_scope }
+		revoke_temporary_event_immortality = { CHARACTER = scope:walter_scope }
+		revoke_temporary_event_immortality = { CHARACTER = scope:yeeted_agitator_scope_3 }
 	}
 }

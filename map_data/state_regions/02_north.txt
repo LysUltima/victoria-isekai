@@ -28,6 +28,8 @@ STATE_AGRALEKKE = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 5
     }
+    max_cold_effect = 0.980
+    min_cold_effect = 0.170
 }
 # SEL Selmme
 STATE_SELMME = {
@@ -58,6 +60,8 @@ STATE_SELMME = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 7
     }
+    max_cold_effect = 0.981
+    min_cold_effect = 0.170
 }
 # BRU Brulmme
 STATE_BRULMME = {
@@ -89,6 +93,8 @@ STATE_BRULMME = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 2
     }
+    max_cold_effect = 0.990
+    min_cold_effect = 0.175
 }
 # IIV Iivakaarena
 STATE_IIVA_KAARENA = {
@@ -112,6 +118,8 @@ STATE_IIVA_KAARENA = {
         discovered_amount = 13
         undiscovered_amount = 12
     }
+    max_cold_effect = 0.840
+    min_cold_effect = 0.170
 }
 # SYA Syaasee
 STATE_SYAA_SEE = {
@@ -143,6 +151,8 @@ STATE_SYAA_SEE = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 3
     }
+    max_cold_effect = 0.980
+    min_cold_effect = 0.170
 }
 # AMI Amiitenii
 STATE_AMII_TENII = {
@@ -169,6 +179,8 @@ STATE_AMII_TENII = {
         discovered_amount = 7
         undiscovered_amount = 9
     }
+    max_cold_effect = 0.980
+    min_cold_effect = 0.170
 }
 # MIA Miraamitaa
 STATE_MIRAA_MITAA = {
@@ -194,6 +206,8 @@ STATE_MIRAA_MITAA = {
         discovered_amount = 7
         undiscovered_amount = 14
     }
+    max_cold_effect = 0.980
+    min_cold_effect = 0.170
 }
 # MAA Maamavaa
 STATE_MAAMA_VAA = {
@@ -225,6 +239,8 @@ STATE_MAAMA_VAA = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 4
     }
+    max_cold_effect = 0.980
+    min_cold_effect = 0.170
 }
 # SVA Svalbarð
 STATE_VESTROYENE = {
@@ -251,6 +267,8 @@ STATE_VESTROYENE = {
         discovered_amount = 6
         undiscovered_amount = 15
     }
+    max_cold_effect = 0.986
+    min_cold_effect = 0.173
 }
 # HRG Hrímgarðar
 STATE_NORDREYJAR = {
@@ -281,6 +299,8 @@ STATE_NORDREYJAR = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 2
     }
+    max_cold_effect = 0.990
+    min_cold_effect = 0.175
 }
 # SKL Skáldatindur
 STATE_FJALLSOGN = {
@@ -306,6 +326,8 @@ STATE_FJALLSOGN = {
         discovered_amount = 6
         undiscovered_amount = 12
     }
+    max_cold_effect = 0.987
+    min_cold_effect = 0.173
 }
 # STO Stórstígar
 STATE_HAMRABYGD = {
@@ -338,6 +360,8 @@ STATE_HAMRABYGD = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 9
     }
+    max_cold_effect = 0.988
+    min_cold_effect = 0.174
 }
 # GRA Grænvíkingar
 STATE_SLETTALAND = {
@@ -369,6 +393,8 @@ STATE_SLETTALAND = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 3
     }
+    max_cold_effect = 0.980
+    min_cold_effect = 0.170
 }
 # VAT Vatnsdælir
 STATE_VATNAFJALL = {
@@ -378,7 +404,7 @@ STATE_VATNAFJALL = {
     provinces = { "x16B734" "x16C231" "x16C71D" "x16CA35" "x16CB2E" "x16D52D" "x17BD23" "x18BD36" "x18C026" "x19B610" "x19D335" "x1AB41D" "x1AC035" "x1AC122" "x1ACC13" "x1AD521" "x1BC434" "x1BC82C" "x1BCA21" "x1BD214" "x1CBA1C" "x1CBB0F" "x1CBF2C" "x1CCE15" "x1DBB2E" "x1DC42D" "x1DC51C" "x1DD11B" "x1DD123" "x1DD41D" "x1DD619" "x1DD71B" "x1ED519" "x1FC532" "x1FCF12" "x1FD410" "x20C42F" "x20CC14" "x21B213" "x21CC16" "x21CC24" "x21D322" "x22B40F" "x22C721" "x22CD29" "x22D511" "x23B81D" "x23C618" "x24B52C" "x24BD24" "x24C52B" "x24D32B" "x24D91F" "x25B333" "x25BA19" "x25BF19" "x25C520" "x25CD1E" "x26B71B" "x26B82D" "x26B836" "x26D025" "x27CE14" "x27D926" "x28BC18" "x28C437" "x28D621" "x29BD37" "x29C52A" "x2AB717" "x2AB924" "x2AD317" "x2AD815" "x2CB724" "x2CD614" "x2DC924" "x2EB614" "x2ED530" "x2FB633" "x2FBC20" "x2FC121" "x2FC71D" "x30B725" "x30BD32" "x31B821" "x31CF12" "x31D620" "x31D62F" "x32BE28" "x32C01E" "x32C612" "x33B523" "x33C531" "x33D52A" "x34B515" "x34BF25" "x35CA37" "x35D721" "x36C535" "x37BE27" "x37C21D" "x37D117" "x37D617" "x37D726" "x37D913" "x38CD2F" "x38D510" "x38D71D" "x39D131" "x3ABE1D" "x3ACF10" "x3BB319" "x3BBF29" "x3BC424" "x3BC729" "x3BC821" "x3BC82D" "x3BD022" "x3BD135" "x3BD42D" "x3BDA12" "x3CB818" "x3CBF1B" "x3CD213" "x3DBF34" "x3DC015" "x3DC627" "x3DD029" "x3DD731" "x3EB41B" "x3EC11E" "x3ED816" }
     traits = { "state_trait_siberian_terrain" }
     city = "x28D621"
-    port = "x2FC121"
+    port = "x25BA19"
     farm = "x30BD32"
     mine = "x2DC924"
     wood = "x27CE14"
@@ -401,6 +427,8 @@ STATE_VATNAFJALL = {
         depleted_type = "building_gold_mine"
         undiscovered_amount = 3
     }
+    max_cold_effect = 0.986
+    min_cold_effect = 0.173
 }
 # ELD Eldvakingar
 STATE_SUDRELD = {
@@ -431,6 +459,8 @@ STATE_SUDRELD = {
         discovered_amount = 15
         undiscovered_amount = 7
     }
+    max_cold_effect = 0.671
+    min_cold_effect = 0.027
 }
 # NYL Nýlandar
 STATE_BLIDEY = {
@@ -456,6 +486,8 @@ STATE_BLIDEY = {
         discovered_amount = 15
         undiscovered_amount = 7
     }
+    max_cold_effect = 0.470
+    min_cold_effect = 0.002
 }
 # SOL Sólskinningar
 STATE_BRENNANDIGJA = {
@@ -482,6 +514,8 @@ STATE_BRENNANDIGJA = {
         discovered_amount = 18
         undiscovered_amount = 9
     }
+    max_cold_effect = 0.397
+    min_cold_effect = 0.000
 }
 # ORC Orcland
 STATE_ORC_PLAINS = {
@@ -503,6 +537,8 @@ STATE_ORC_PLAINS = {
         discovered_amount = 16
         undiscovered_amount = 8
     }
+    max_cold_effect = 0.603
+    min_cold_effect = 0.006
 }
 
 STATE_GREENSKINLAND = {
@@ -525,6 +561,8 @@ STATE_GREENSKINLAND = {
         discovered_amount = 14
         undiscovered_amount = 7
     }
+    max_cold_effect = 0.594
+    min_cold_effect = 0.009
 }
 
 STATE_ORC_MOUNTAIN = {
@@ -549,6 +587,8 @@ STATE_ORC_MOUNTAIN = {
         discovered_amount = 18
         undiscovered_amount = 9
     }
+    max_cold_effect = 0.600
+    min_cold_effect = 0.011
 }
 
 STATE_ORC_COAST = {
@@ -573,6 +613,8 @@ STATE_ORC_COAST = {
         discovered_amount = 20
         undiscovered_amount = 10
     }
+    max_cold_effect = 0.605
+    min_cold_effect = 0.007
 }
 
 STATE_SNOW_BAY = {
@@ -597,6 +639,8 @@ STATE_SNOW_BAY = {
         discovered_amount = 17
         undiscovered_amount = 8
     }
+    max_cold_effect = 0.840
+    min_cold_effect = 0.170
 }
 
 STATE_STRANDED_PLAINS = {
@@ -620,6 +664,8 @@ STATE_STRANDED_PLAINS = {
         discovered_amount = 7
         undiscovered_amount = 3
     }
+    max_cold_effect = 0.833
+    min_cold_effect = 0.090
 }
 
 STATE_BLIZZARD_RIVER = {
@@ -642,6 +688,8 @@ STATE_BLIZZARD_RIVER = {
         discovered_amount = 12
         undiscovered_amount = 6
     }
+    max_cold_effect = 0.774
+    min_cold_effect = 0.055
 }
 
 STATE_SNOW_DEMONS_PARADISE = {
@@ -664,6 +712,8 @@ STATE_SNOW_DEMONS_PARADISE = {
         discovered_amount = 7
         undiscovered_amount = 3
     }
+    max_cold_effect = 0.899
+    min_cold_effect = 0.118
 }
 
 STATE_GODS_ABSENCE = {
@@ -685,6 +735,8 @@ STATE_GODS_ABSENCE = {
         discovered_amount = 13
         undiscovered_amount = 6
     }
+    max_cold_effect = 0.735
+    min_cold_effect = 0.040
 }
 STATE_ABANDONED_HOPE = {
     id = 141
@@ -705,6 +757,8 @@ STATE_ABANDONED_HOPE = {
         discovered_amount = 14
         undiscovered_amount = 7
     }
+    max_cold_effect = 0.660
+    min_cold_effect = 0.014
 }
 
 STATE_DEATHS_COMPANY = {
@@ -728,6 +782,8 @@ STATE_DEATHS_COMPANY = {
         discovered_amount = 12
         undiscovered_amount = 6
     }
+    max_cold_effect = 0.676
+    min_cold_effect = 0.019
 }
 
 STATE_ORC_RIVER = {
@@ -750,6 +806,8 @@ STATE_ORC_RIVER = {
         discovered_amount = 11
         undiscovered_amount = 5
     }
+    max_cold_effect = 0.580
+    min_cold_effect = 0.006
 }
 
 STATE_ORC_BAY = {
@@ -775,4 +833,6 @@ STATE_ORC_BAY = {
         discovered_amount = 9
         undiscovered_amount = 4
     }
+    max_cold_effect = 0.574
+    min_cold_effect = 0.007
 }

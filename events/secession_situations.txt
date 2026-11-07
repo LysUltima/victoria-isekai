@@ -273,7 +273,9 @@ secession_events.3 = {
 			}
 			save_scope_as = secessionist_politician_scope
 		}
-	}
+
+		scope:secessionist_politician_scope ?= { set_temporary_event_immortality = { DURATION = 3 } }
+}
 
 	option = {
 		name = secession_events.3.a
@@ -300,6 +302,10 @@ secession_events.3 = {
 		scope:secessionist_politician_scope ?= {
 			set_as_interest_group_leader = yes
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:secessionist_politician_scope }
 	}
 }
 
@@ -470,7 +476,9 @@ secession_events.5 = {
 			}
 			leader = {
 				save_scope_as = secessionist_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			save_scope_as = secessionist_ig
 		}
 	}
@@ -536,6 +544,10 @@ secession_events.5 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:secessionist_leader }
 	}
 }
 
@@ -887,7 +899,9 @@ secession_events.9 = {
 				is_immortal = no
 			}
 			save_scope_as = secessionist_leader
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -917,5 +931,9 @@ secession_events.9 = {
 			value = small_radicals
 			culture = scope:secessionist_culture
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:secessionist_leader }
 	}
 }

@@ -240,7 +240,9 @@ namespace = 1848
 			}
 			leader = {
 				save_scope_as = radical_leader_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		if = {
 			limit = {
@@ -333,6 +335,10 @@ namespace = 1848
 			base = 75
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:radical_leader_scope }
+	}
 }
 
 # Rise of Radicalism
@@ -403,7 +409,9 @@ namespace = 1848
 			}
 			leader = {
 				save_scope_as = radical_leader_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -500,6 +508,10 @@ namespace = 1848
 		ai_chance = {
 			base = 33
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:radical_leader_scope }
 	}
 }
 
@@ -774,7 +786,9 @@ namespace = 1848
 			save_scope_as = disgruntled_ig
 			leader = {
 				save_scope_as = disgruntled_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -838,6 +852,10 @@ namespace = 1848
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:disgruntled_ig_leader }
+	}
 }
 
 # Financial Squeeze
@@ -891,7 +909,9 @@ namespace = 1848
 			save_scope_as = squeezed_ig
 			leader = {
 				save_scope_as = squeezed_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -967,6 +987,10 @@ namespace = 1848
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:squeezed_ig_leader }
+	}
 }
 
 # The Crisis of Bread
@@ -1022,7 +1046,9 @@ namespace = 1848
 			save_scope_as = famine_radicalized_ig
 			leader = {
 				save_scope_as = famine_radicalized_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 
 		random_scope_state = {
@@ -1108,5 +1134,9 @@ namespace = 1848
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:famine_radicalized_ig_leader }
 	}
 }

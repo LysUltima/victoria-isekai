@@ -71,13 +71,7 @@
 							value = scope:supporter_law_ig
 						}
 					}
-					if = {
-						limit = {
-							has_variable = supporting_ig
-							always = no
-						}
-						#Removes errors about unused variable.
-					}
+
 				}
 			}
 		}
@@ -109,8 +103,6 @@
 		}
 	}
 }
-
-
 
 set_neg_options = { ## Sets three options out of a random list of possible negotiation offers (each with their own triggers) and a "no deal" option to back out.
 ##Making this a scripted effect in case multiple events want to use the negotiation options. The options themselves must be manually copied over though.
@@ -485,19 +477,19 @@ set_neg_options = { ## Sets three options out of a random list of possible negot
 }
 
 je_government_petition_negotiation_immediate = {
-    random_interest_group = {
-        limit = {
-            has_variable = ig_new_quest_starting
-            has_variable = promise_quest_type
-            var:promise_quest_type = 2 #law
-        }
-        save_scope_as = ig
-        remove_variable = ig_new_quest_starting
-    }
-    scope:ig.var:desired_law_var = {
-        save_scope_as = government_petition_law
-    }
-    currently_enacting_law = {
+	random_interest_group = {
+		limit = {
+			has_variable = ig_new_quest_starting
+			has_variable = promise_quest_type
+			var:promise_quest_type = 2 #law
+		}
+		save_scope_as = ig
+		remove_variable = ig_new_quest_starting
+	}
+	scope:ig.var:desired_law_var = {
+		save_scope_as = government_petition_law
+	}
+	currently_enacting_law = {
 		save_scope_as = law
 	}
 	scope:ig = {
@@ -506,7 +498,7 @@ je_government_petition_negotiation_immediate = {
 			value = 0
 		}
 	}
-    ## scope:ig already has var:promise_quest_degree
+	## scope:ig already has var:promise_quest_degree
 }
 
 je_government_petition_negotiation_monthly_pulse = {

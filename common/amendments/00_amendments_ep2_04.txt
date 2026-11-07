@@ -24,19 +24,14 @@
 
 	on_activate = {
 		hidden_effect = {
-			country_assess_daimyo_alignments = yes
+
 		}
-		random_scope_character = { 
-			limit = {
-				has_variable = former_shogun_var
-			}
-			add_modifier = modifier_taikun
-		}
+		
 	}
 
 	on_deactivate = {
 		hidden_effect = {
-			country_assess_daimyo_alignments = yes
+
 		}
 		# remove_variable = japan_taikunate_var  # removed: dead variable, never set elsewhere
 	}

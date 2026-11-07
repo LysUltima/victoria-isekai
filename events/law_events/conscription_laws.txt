@@ -238,7 +238,9 @@ conscription_laws.3 = { #Government is unprepared for conscription
 			save_scope_as = anti_conscription_ig
 			leader = {
 				save_scope_as = anti_conscription_advocate
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -280,5 +282,9 @@ conscription_laws.3 = { #Government is unprepared for conscription
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:anti_conscription_advocate }
 	}
 }

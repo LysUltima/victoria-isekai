@@ -9,7 +9,7 @@
  # Terror", "cangaceiro(s)" -> "wildwood raiders".
 
  je_agricultural_development: "A River of Coffee"
- je_agricultural_development_goal: "Increase the amount of [concept_buy_orders] for $coffee$ within the [SCOPE.sCountry('brazil_scope').GetCapital.GetMarket.GetName] by 150%"
+ je_agricultural_development_goal: "Increase the amount of [concept_buy_orders] for $coffee$ within the [SCOPE.sCountry('rural_oligarchy_scope').GetCapital.GetMarket.GetName] by 150%"
  je_agricultural_development_goal_dummy: "Increase the amount of [concept_buy_orders] for $coffee$ within our home market by 150%"
 
  je_coffee_with_milk: "Coffee and Cattle"
@@ -21,7 +21,7 @@
 
  from_milk_coffee: "From the Coffee-and-Cattle System"
 
- je_group_brazil: "The Planter Isles"
+ je_group_internal_affairs: "The Planter Isles"
 
  modifier_agricultural_development_trade: "Rivers of Coffee"
  modifier_agricultural_development_landowners: "Rivers of Coffee"

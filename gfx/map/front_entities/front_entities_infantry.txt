@@ -31,21 +31,7 @@
 ###       			Carlists!     			  ###
 #################################################
 
-military_infantry_carlist_line_diorama_entity = {
-	entity = "military_infantry_carlists_irregular_entity" # DONE
 
-	group = "infantry"
-	
-	trigger = {
-		scope:country = { always = no } # vanilla ref 'c:SPC' not present in this mod 
-		has_dlc_feature = ip4_cosmetics
-		OR = {
-			scope:combat_unit_type = unit_type:combat_unit_type_irregular_infantry
-			scope:combat_unit_type = unit_type:combat_unit_type_line_infantry
-			scope:combat_unit_type = unit_type:combat_unit_type_skirmish_infantry
-		}
-	}
-}
 
 #################################################
 ###       			European     			  ###
@@ -55,7 +41,7 @@ military_infantry_european_irregular_diorama_entity = {
 	entity = "military_infantry_european_irregular_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -65,15 +51,7 @@ military_infantry_european_irregular_diorama_entity = {
 				has_culture_graphics = balkan
 			}
 		}
-		scope:country = { 
-			OR = {
-				NOT = { always = no } # vanilla ref 'c:SPC' not present in this mod 
-				AND = {
-					always = no # vanilla ref 'c:SPC' not present in this mod
-					NOT = { has_dlc_feature = ip4_cosmetics }
-				}
-			}
-		}
+
 		scope:combat_unit_type = unit_type:combat_unit_type_irregular_infantry
 	}
 }
@@ -82,7 +60,7 @@ military_infantry_european_line_diorama_entity = {
 	entity = "military_infantry_european_line_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -92,15 +70,7 @@ military_infantry_european_line_diorama_entity = {
 				has_culture_graphics = balkan
 			}
 		}
-		scope:country = { 
-			OR = {
-				NOT = { always = no } # vanilla ref 'c:SPC' not present in this mod 
-				AND = {
-					always = no # vanilla ref 'c:SPC' not present in this mod
-					NOT = { has_dlc_feature = ip4_cosmetics }
-				}
-			}
-		}
+
 		scope:combat_unit_type = unit_type:combat_unit_type_line_infantry
 	}
 }
@@ -109,7 +79,7 @@ military_infantry_european_skirmish_diorama_entity = {
 	entity = "military_infantry_european_skirmish_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -119,15 +89,7 @@ military_infantry_european_skirmish_diorama_entity = {
 				has_culture_graphics = balkan
 			}
 		}
-		scope:country = { 
-			OR = {
-				NOT = { always = no } # vanilla ref 'c:SPC' not present in this mod 
-				AND = {
-					always = no # vanilla ref 'c:SPC' not present in this mod
-					NOT = { has_dlc_feature = ip4_cosmetics }
-				}
-			}
-		}
+
 		scope:combat_unit_type = unit_type:combat_unit_type_skirmish_infantry
 	}
 }
@@ -136,7 +98,7 @@ military_infantry_european_trench_diorama_entity = {
 	entity = "military_infantry_european_trench_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -154,7 +116,7 @@ military_infantry_european_squad_diorama_entity = {
 	entity = "military_infantry_european_squad_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -172,7 +134,7 @@ military_infantry_european_mechanized_diorama_entity = {
 	entity = "military_infantry_european_mechanized_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -195,7 +157,7 @@ military_infantry_african_irregular_diorama_entity = {
 	entity = "military_infantry_african_irregular_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = african
@@ -208,7 +170,7 @@ military_infantry_african_line_diorama_entity = {
 	entity = "military_infantry_african_line_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = african
@@ -221,7 +183,7 @@ military_infantry_african_skirmish_diorama_entity = {
 	entity = "military_infantry_african_skirmish_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = african
@@ -234,7 +196,7 @@ military_infantry_african_trench_diorama_entity = {
 	entity = "military_infantry_african_trench_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = african
@@ -247,7 +209,7 @@ military_infantry_african_squad_diorama_entity = {
 	entity = "military_infantry_african_squad_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = african
@@ -260,7 +222,7 @@ military_infantry_african_mechanized_diorama_entity = {
 	entity = "military_infantry_african_mechanized_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = african
@@ -278,7 +240,7 @@ military_infantry_arabic_irregular_diorama_entity = {
 	entity = "military_infantry_arabic_irregular_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = arabic
@@ -291,7 +253,7 @@ military_infantry_arabic_line_diorama_entity = {
 	entity = "military_infantry_arabic_line_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = arabic
@@ -304,7 +266,7 @@ military_infantry_arabic_skirmish_diorama_entity = {
 	entity = "military_infantry_arabic_skirmish_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = arabic
@@ -317,7 +279,7 @@ military_infantry_arabic_trench_diorama_entity = {
 	entity = "military_infantry_arabic_trench_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = arabic
@@ -330,7 +292,7 @@ military_infantry_arabic_squad_diorama_entity = {
 	entity = "military_infantry_arabic_squad_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = arabic
@@ -343,7 +305,7 @@ military_infantry_arabic_mechanized_diorama_entity = {
 	entity = "military_infantry_arabic_mechanized_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = arabic
@@ -361,7 +323,7 @@ military_infantry_eastasian_irregular_diorama_entity = {
 	entity = "military_infantry_eastasian_irregular_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = east_asian
@@ -374,7 +336,7 @@ military_infantry_eastasian_line_diorama_entity = {
 	entity = "military_infantry_eastasian_line_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = east_asian
@@ -387,7 +349,7 @@ military_infantry_eastasian_skirmish_diorama_entity = {
 	entity = "military_infantry_eastasian_skirmish_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = east_asian
@@ -400,7 +362,7 @@ military_infantry_eastasian_trench_diorama_entity = {
 	entity = "military_infantry_eastasian_trench_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = east_asian
@@ -413,7 +375,7 @@ military_infantry_eastasian_squad_diorama_entity = {
 	entity = "military_infantry_eastasian_squad_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = east_asian
@@ -426,7 +388,7 @@ military_infantry_eastasian_mechanized_diorama_entity = {
 	entity = "military_infantry_eastasian_mechanized_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = east_asian
@@ -444,7 +406,7 @@ military_infantry_southasian_irregular_diorama_entity = {
 	entity = "military_infantry_southasian_irregular_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = south_asian
@@ -457,7 +419,7 @@ military_infantry_southasian_line_diorama_entity = {
 	entity = "military_infantry_southasian_line_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = south_asian
@@ -470,7 +432,7 @@ military_infantry_southasian_skirmish_diorama_entity = {
 	entity = "military_infantry_southasian_skirmish_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = south_asian
@@ -483,7 +445,7 @@ military_infantry_southasian_trench_diorama_entity = {
 	entity = "military_infantry_southasian_trench_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = south_asian
@@ -496,7 +458,7 @@ military_infantry_southasian_squad_diorama_entity = {
 	entity = "military_infantry_southasian_squad_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = south_asian
@@ -509,7 +471,7 @@ military_infantry_southasian_mechanized_diorama_entity = {
 	entity = "military_infantry_southasian_mechanized_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = south_asian
@@ -526,7 +488,7 @@ military_infantry_nativeamerican_irregular_diorama_entity = {
 	entity = "military_infantry_nativeamerican_irregular_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -542,7 +504,7 @@ military_infantry_nativeamerican_line_diorama_entity = {
 	entity = "military_infantry_nativeamerican_line_entity"
 
 	group = "infantry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -579,21 +541,7 @@ military_infantry_nativeamerican_skirmish_diorama_entity = {
 ###       			Carlists!     			  ###
 #################################################
 
-military_infantry_carlist_marines_diorama_entity = {
-	entity = "military_infantry_carlists_irregular_entity"
 
-	group = "infantry"
-
-	trigger = {
-		scope:country = { always = no } # vanilla ref 'c:SPC' not present in this mod 
-		has_dlc_feature = ip4_cosmetics
-		OR = {
-			scope:combat_unit_type = unit_type:combat_unit_type_low_tier_marines
-			scope:combat_unit_type = unit_type:combat_unit_type_mid_tier_marines
-			scope:combat_unit_type = unit_type:combat_unit_type_high_tier_marines
-		}
-	}
-}
 
 #################################################
 ###       			European     			  ###
@@ -613,15 +561,7 @@ military_infantry_european_low_tier_marines_diorama_entity = {
 				has_culture_graphics = balkan
 			}
 		}
-		scope:country = {
-			OR = {
-				NOT = { always = no } # vanilla ref 'c:SPC' not present in this mod 
-				AND = {
-					always = no # vanilla ref 'c:SPC' not present in this mod
-					NOT = { has_dlc_feature = ip4_cosmetics }
-				}
-			}
-		}
+
 		scope:combat_unit_type = unit_type:combat_unit_type_low_tier_marines
 	}
 }
@@ -640,15 +580,7 @@ military_infantry_european_mid_tier_marines_diorama_entity = {
 				has_culture_graphics = balkan
 			}
 		}
-		scope:country = {
-			OR = {
-				NOT = { always = no } # vanilla ref 'c:SPC' not present in this mod 
-				AND = {
-					always = no # vanilla ref 'c:SPC' not present in this mod
-					NOT = { has_dlc_feature = ip4_cosmetics }
-				}
-			}
-		}
+
 		scope:combat_unit_type = unit_type:combat_unit_type_mid_tier_marines
 	}
 }

@@ -119,25 +119,6 @@
 			add = 10
 		}
 
-		if = { # Metternich System
-			limit = {
-				always = no # vanilla ref 'c:AUS' not present in this mod
-				always = no # vanilla ref 'je_metternich' not present in this mod
-			}
-			add = 20
-		}
-
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				ruler = {
-					always = no
-				}
-			}
-			add = 10
-		}
-
 		if = {
 			limit = {
 				is_princely_state = yes
@@ -236,7 +217,6 @@ ai_strategy_reactionary_agenda = {
 		movement_land_reform
 	}
 
-
 	institution_scores = {
 		institution_colonial_affairs = {
 			value = 100
@@ -295,16 +275,6 @@ ai_strategy_reactionary_agenda = {
 			}
 
 			add = 5
-		}
-
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				ruler ?= {
-					has_ideology = ideology:ideology_legitimist
-				}
-			}
-			add = 10
 		}
 
 		if = {
@@ -524,16 +494,6 @@ ai_strategy_progressive_agenda = {
 			add = 1000
 		}
 
-		if = {
-			limit = {
-				AND = {
-					always = no # vanilla ref 'c:CHI' not present in this mod
-					always = no
-					always = no
-				}
-			}
-			add = 50
-		}
 	}
 }
 
@@ -841,17 +801,6 @@ ai_strategy_nationalist_agenda = {
 
 		if = {
 			limit = {
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				ruler = {
-					has_variable = house_bonaparte
-				}
-			}
-			add = 10
-		}
-
-		if = {
-			limit = {
 				exists = ig:ig_armed_forces
 				ig:ig_armed_forces ?= { is_powerful = yes }
 			}
@@ -878,17 +827,6 @@ ai_strategy_nationalist_agenda = {
 			}
 
 			add = 1000
-		}
-
-		if = {
-			limit = {
-				AND = {
-					always = no # vanilla ref 'c:CHI' not present in this mod
-					always = no
-					always = no
-				}
-			}
-			add = 50
 		}
 
 		# High-fervour AI is inclined to become nationalistic

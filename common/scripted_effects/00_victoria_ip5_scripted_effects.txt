@@ -1,0 +1,33 @@
+﻿
+
+assign_random_revolutionary_ideology = {
+	random_list = {
+		10 = {
+			set_ideology = ideology:ideology_communist_leader
+		}
+		1 = {
+			modifier = {
+				if = {
+					limit = {
+						owner = {
+							has_law_or_variant = law_type:law_anarchy
+						}
+					}
+					add = 19
+				}
+			}
+			set_ideology = ideology:ideology_anarchist
+		}
+		10 = {
+			trigger = {
+				owner = {
+					has_technology_researched = political_agitation
+				}
+			}
+			set_ideology = ideology:ideology_communist_leader
+		}
+		10 = {
+			# Keep default ideology
+		}
+	}
+}

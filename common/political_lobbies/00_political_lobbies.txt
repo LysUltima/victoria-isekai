@@ -2439,18 +2439,6 @@ lobby_anti_overlord = {
 		}
 
 		### British India
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:BIC' not present in this mod
-				OR = {
-					is_interest_group_type = ig_industrialists
-					is_interest_group_type = ig_armed_forces
-				}
-			}
-			multiply = {
-				value = 0
-				desc = "colonial_rule"
-			}
-		}
+
 	}
 }

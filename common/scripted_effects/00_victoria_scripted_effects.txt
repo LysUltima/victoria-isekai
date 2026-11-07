@@ -1,190 +1,6 @@
-﻿assign_taiping_states = {
-	# removed effect block: vanilla ref 'c:TPG' not present in this mod
-	if = {
-		limit = {
-			any_scope_state = {
-				always = no
-			}
-		}
-		every_scope_state = {
-			limit = {
-				always = no
-			}
-			save_scope_as = tpg_defector_state
-			custom_tooltip = {
-				text = taiping_state_defection
-				# removed effect line: vanilla ref 'c:TPG' not present in this mod
-				set_state_type = incorporated
-				add_culture_standard_of_living_modifier = {
-					culture = cu:lan
-					days = long_modifier_time
-					multiplier = -5
-				}
-			}
-		}
-		every_scope_state = {
-			limit = {
-				is_capital = no
-				NOT = {
-					always = no
-					state_region = {
-						is_homeland = cu:lan
-					}
-				}
-				any_neighbouring_state = {
-					always = no
-				}
-				turmoil >= 0.1
-			}
-			if = {
-				limit = {
-					this = {
-						state_region = {
-							OR = {
-								is_homeland = cu:lan
-								is_homeland = cu:lan
-							}
-						}
-					}
-				}
-				save_scope_as = tpg_defector_state
-				custom_tooltip = {
-					text = taiping_state_defection
-					# removed effect line: vanilla ref 'c:TPG' not present in this mod
-					set_state_type = incorporated
-					add_culture_standard_of_living_modifier = {
-						culture = cu:lan
-						days = long_modifier_time
-						multiplier = -5
-					}
-					# removed effect block: vanilla ref 'c:TPG' not present in this mod
-				}
+﻿
 
-			}
-			else_if = {
-				random_list = {
-					50 = {
-						save_scope_as = tpg_defector_state
-						custom_tooltip = {
-							text = taiping_state_defection
-							# removed effect line: vanilla ref 'c:TPG' not present in this mod
-							set_state_type = incorporated
-							add_culture_standard_of_living_modifier = {
-								culture = cu:lan
-								days = long_modifier_time
-								multiplier = -5
-							}
-							# removed effect block: vanilla ref 'c:TPG' not present in this mod
-						}
-					}
-					50 = {
-						add_radicals_in_state = {
-							value = very_large_radicals
-							religion = rel:light_reformed
-						}
-						this.state_region = {
-							# removed effect line: vanilla ref 'c:TPG' not present in this mod
-						}
-					}
-				}
-			}
-		}
-	}
-	hidden_effect = {
-		# removed effect block: vanilla ref 'c:TPG' not present in this mod
-	}
-}
 
-create_taiping_characters = {
-	if = {
-		limit = {
-			game_date < 1044.1.1
-			NOT = { #If you exiled Hong and he got recruited somewhere else, he doesn't get to be here.
-				any_country = {
-					NOT = {
-						always = no # vanilla ref 'c:CHI' not present in this mod
-					}
-					any_scope_character = {
-						has_variable = hong_var
-					}
-				}
-			}
-		}
-		create_character = {
-			template = TPG_hong_xiuquan
-			on_created = {
-				set_character_as_ruler = yes
-				set_variable = hong_var
-				add_modifier = {
-					name = modifier_brother_of_christ
-					days = long_modifier_time
-				}
-			}
-		}
-		if = {
-			limit = {
-				game_date > 1011.1.1
-			}
-			create_character = {
-				template = TPG_hong_tianguifu
-			}
-		}
-	}
-	else = { #Fallback chars if Hong is unavailable.
-		create_character = {
-			religion = rel:light_reformed
-			interest_group = ig_devout
-			ideology = ideology_theocrat
-			ruler = yes
-			traits = {
-				inspirational_orator
-				persistent
-				psychological_affliction
-			}
-			on_created = {
-				add_modifier = {
-					name = modifier_brother_of_christ
-					days = long_modifier_time
-				}
-			}
-		}
-
-		create_character = {
-			religion = rel:light_reformed
-			interest_group = ig_devout
-			heir = yes
-			ideology = ideology_moderate
-		}
-	}
-
-	if = {
-		limit = {
-			game_date > 1005.1.1
-			game_date < 1044.1.1
-		}
-		create_character = {
-			template = TPG_xiuqing_yang
-		}
-	}
-	if = {
-		limit = {
-			game_date > 1004.1.1
-			game_date < 1044.1.1
-		}
-		create_character = {
-			template = TPG_chaogui_xiao
-		}
-	}
-	if = {
-		limit = {
-			game_date > 1006.1.1
-			game_date < 1044.1.1
-		}
-		create_character = {
-			template = TPG_hong_rengan
-		}
-	}
-}
 
 # Vicky and the Expedition Machine
 ai_expedition_simulator_start = {
@@ -225,7 +41,6 @@ ai_expedition_simulator_end = {
 		remove_variable = expedition_leader_var
 	}
 }
-
 
 voyage_of_potemkin = {
 	while = {
@@ -300,7 +115,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 						has_technology_researched = socialism
 						NOT = {
 							ruler = {
-								has_ideology = ideology:ideology_communist
+								has_ideology = ideology:ideology_communist_leader
 							}
 						}
 						NOT = {
@@ -347,7 +162,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 						add = 100
 					}
 				}
-				set_ideology = ideology:ideology_communist
+				set_ideology = ideology:ideology_communist_leader
 			}
 			100 = {
 				trigger = {
@@ -492,7 +307,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 						limit = {
 							scope:exiling_country_scope.ruler ?= {
 								OR = {
-									has_ideology = ideology:ideology_communist
+									has_ideology = ideology:ideology_communist_leader
 									has_ideology = ideology:ideology_anarchist
 									has_ideology = ideology:ideology_vanguardist
 								}
@@ -677,7 +492,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 						limit = {
 							scope:exiling_country_scope.ruler ?= {
 								OR = {
-									has_ideology = ideology:ideology_communist
+									has_ideology = ideology:ideology_communist_leader
 									has_ideology = ideology:ideology_anarchist
 									has_ideology = ideology:ideology_vanguardist
 								}
@@ -754,7 +569,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 						limit = {
 							scope:exiling_country_scope.ruler ?= {
 								OR = {
-									has_ideology = ideology:ideology_communist
+									has_ideology = ideology:ideology_communist_leader
 									has_ideology = ideology:ideology_anarchist
 									has_ideology = ideology:ideology_vanguardist
 								}
@@ -948,7 +763,7 @@ adopt_random_antigovernment_ideology = { # I'm so sorry for this.
 						limit = {
 							scope:exiling_country_scope.ruler ?= {
 								OR = {
-									has_ideology = ideology:ideology_communist
+									has_ideology = ideology:ideology_communist_leader
 									has_ideology = ideology:ideology_anarchist
 									has_ideology = ideology:ideology_vanguardist
 								}
@@ -1531,7 +1346,7 @@ communist_agitator_election_scope_effect = {
 	random_scope_character = {
 		limit = {
 			OR = {
-				has_ideology = ideology:ideology_communist
+				has_ideology = ideology:ideology_communist_leader
 				has_ideology = ideology:ideology_vanguardist
 				has_ideology = ideology:ideology_anarchist
 				AND = {
@@ -1560,7 +1375,6 @@ communist_agitator_election_scope_effect = {
 		}
 	}
 }
-
 
 fascist_agitator_election_scope_effect = {
 	random_active_party = {
@@ -1794,148 +1608,7 @@ free_trade_agitator_election_scope_effect = {
 	}
 }
 
-create_paris_commune_characters = {
-	if = {
-		limit = {
-			game_date > 1030.1.1
-			game_date < 1064.1.1
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_global_variable = dabrowski_spawn
-				}
-			}
-			create_character = {
-				template = rus_jaroslaw_dabrowski_character_template
-				on_created = {
-					add_character_role = general
-					add_commander_rank = 1
-					set_global_variable = dabrowski_spawn
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				has_global_variable = dabrowski_spawn
-				always = no # blanked: vanilla ref 'c:FRA' not present in this mod
-			}
-			# removed effect block: vanilla ref 'c:FRA' not present in this mod
-		}
-		else_if = {
-			limit = {
-				has_global_variable = dabrowski_spawn
-				any_character_in_exile_pool = {
-					always = no
-				}
-			}
-			random_character_in_exile_pool = {
-				limit = {
-					always = no
-				}
-				# removed effect line: vanilla ref 'c:PRC' not present in this mod
-				add_character_role = general
-				add_commander_rank = 1
-			}
-		}
-	}
-	if = {
-		limit = {
-			game_date < 1054.1.1
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_global_variable = delescluze_spawn
-				}
-			}
-			create_character = {
-				template = fra_delescluze_character_template
-				on_created = {
-					set_as_interest_group_leader = yes
-					set_global_variable = delescluze_spawn
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				has_global_variable = delescluze_spawn
-				always = no # blanked: vanilla ref 'c:FRA' not present in this mod
-			}
-			# removed effect block: vanilla ref 'c:FRA' not present in this mod
-		}
-		else_if = {
-			limit = {
-				has_global_variable = delescluze_spawn
-				any_character_in_exile_pool = {
-					always = no
-				}
-			}
-			random_character_in_exile_pool = {
-				limit = {
-					always = no
-				}
-				# removed effect line: vanilla ref 'c:PRC' not present in this mod
-				set_as_interest_group_leader = yes
-			}
-		}
-	}
-	if = {
-		limit = {
-			game_date > 1024.1.1
-			game_date < 1064.1.1
-		}
-		if = {
-			limit = {
-				NOT = {
-					always = no
-				}
-			}
-			create_character = {
-				template = agitator_louise_michel
-			}
-		}
-		else_if = {
-			limit = {
-				always = no
-				always = no # blanked: vanilla ref 'c:FRA' not present in this mod
-			}
-			# removed effect block: vanilla ref 'c:FRA' not present in this mod
-		}
-		else_if = {
-			limit = {
-				always = no
-				any_character_in_exile_pool = {
-					always = no
-				}
-			}
-			random_character_in_exile_pool = {
-				limit = {
-					always = no
-				}
-				# removed effect line: vanilla ref 'c:PRC' not present in this mod
-			}
-		}
-	}
-	if = {
-		limit = {
-			game_date > 1024.1.1
-			game_date < 1064.1.1
-		}
-		create_character = {
-			template = PRC_gustave_cluseret
-		}
-	}
-	if = {
-		limit = {
-			game_date > 1029.1.1
-			game_date < 1074.1.1
-		}
-		create_character = {
-			template = PRC_eugene_varlin
-		}
-	}
-}
+
 
 exile_character_with_martyrdom = {
 	save_scope_as = martyred_exile_scope
@@ -2022,555 +1695,31 @@ exile_character_with_martyrdom = {
 # Divided Monarchists
 # Made by Victoria/Pacifica/AcresOfAsteraceae
 # Refer to comments here and in 02_french_monarchism to get an idea as to how this works.
-fra_set_divided_monarchist_variables = {
-	#Bonapartist Variables
-	set_variable = { name = bonapartist_progress_from_characters value = 0 } #Progress-from-character component. This updates with the combined popularities of every Bonapartist character later on, and is used to calculate monthly progress in the progress bar.
-	set_variable = { name = bonapartist_progress_from_igs value = 0 } #Progress-from-IG component. This updates with the combined clout of every Bonapartist IG later on, and is used to calculate monthly progress in the progress bar.
-	set_variable = { name = bonapartist_progress_from_military value = 0 } #Progress-from-military-building component. This updates with the sum of military building levels in France later on, and is used to calculate monthly progress in the progress bar.
-	set_variable = { name = bonapartist_progress_from_legitimacy value = 0 } #Progress-from-legitimacy component. This updates with the current government legitimacy, and is also used to calculate monthly progress in the progress bar.
-	set_variable = { name = bonapartist_progress_from_movements value = 0 } #Progress-from-movements component. This depends upon the support of various movements, and is also used to calculate monthly progress in the progress bar.
-	set_variable = { name = bonapartist_progress_from_effects value = 0 } #Final element in the progress bar. This is defined by various effects, and is based solely on scripted effects. This is how designers can manually grant ticking bonuses or maluses to this mechanic.
 
-	#Orleanist Variables
-	set_variable = { name = orleanist_progress_from_characters value = 0 }
-	set_variable = { name = orleanist_progress_from_igs value = 0 }
-	set_variable = { name = orleanist_progress_from_factories value = 0 } #These variables use the same scheme as the Bonapartist ones, with the exception that Orleanists derive from the sum of light/heavy industry building levels in France.
-	set_variable = { name = orleanist_progress_from_legitimacy value = 0 }
-	set_variable = { name = orleanist_progress_from_movements value = 0 }
-	set_variable = { name = orleanist_progress_from_effects value = 0 }
 
-	#Legitimist Variables
-	set_variable = { name = legitimist_progress_from_characters value = 0 }
-	set_variable = { name = legitimist_progress_from_igs value = 0 }
-	set_variable = { name = legitimist_progress_from_farms value = 0 } #These variables use the same scheme as the Bonapartist ones, with the exception that Legitimists derive from the sum of agricultural building levels in France.
-	set_variable = { name = legitimist_progress_from_legitimacy value = 0 }
-	set_variable = { name = legitimist_progress_from_movements value = 0 }
-	set_variable = { name = legitimist_progress_from_effects value = 0 }
 
-	set_variable = { name = ig_weight value = 0 } #This variable is used solely for mathematical purposes, and is set as equivalent to the clout of a given interest group. It exists so that IGs can be weighted higher or lower depending on whether they're in-government or not.
-}
 
-fra_weekly_pulse_bonapartist_progress = { #Effects like these are run three times, one for each house. All of them function essentially the same way.
-	set_variable = { name = bonapartist_progress_from_characters value = 0 } #All of these variables are ephemeral and should never be manually set to anything.
-	set_variable = { name = bonapartist_progress_from_igs value = 0 }
-	set_variable = { name = bonapartist_progress_from_military value = 0 }
-	set_variable = { name = bonapartist_progress_from_movements value = 0 }
-	set_variable = { name = bonapartist_progress_from_legitimacy value = root.government_legitimacy } #Government legitimacy is a single constant, and so this variable is set immediately rather than needing a calculation.
-	#From Characters
-	every_scope_character = {
-		limit = {
-			has_ideology = ideology:ideology_bonapartist
-		}
-		ROOT = {
-			change_variable = { name = bonapartist_progress_from_characters add = prev.popularity } #for_each loop. For each character of ideology_bonapartist, add that character's popularity to bonapartist_progress_from_characters.
-		}
-	}
-	change_variable = { name = bonapartist_progress_from_characters divide = 100 } #Character popularities are -100/100, rather than our desired -1/1, so divide by 100.
-	# From Interest Groups
-	every_interest_group = {
-		limit = {
-			leader = {
-				has_ideology = ideology:ideology_bonapartist
-			}
-		}
-		ROOT = {														#for_each loop. For each interest group of ideology_bonapartist, perform the following steps in sequence.
-			set_variable = { name = ig_weight value = prev.ig_clout } #1. Set ig_weight as equal to the interest group's clout.
-		}
-		if = {
-			limit = {
-				is_in_government = yes
-			}
-			ROOT = {
-				change_variable = { name = ig_weight multiply = 2 } #2. If that IG is in government, multiply ig_weight by a given value.
-			}
-		}
-		ROOT = {
-			change_variable = { name = bonapartist_progress_from_igs add = var:ig_weight } #3. Add ig_weight to the central bonapartist_progress_from_igs variable. This will run until there are no more Bonapartist IGs.
-		}
-	}
-	# From Buildings
-	every_scope_building = {
-		limit = {
-			is_building_group = bg_military # Derives from barracks and naval bases.
-			occupancy >= 0.5
-		}
-		ROOT = {
-			change_variable = { name = bonapartist_progress_from_military add = prev.level } #for_each loop, uses similar context to the character component. Iterates through every building in the country matching the filter, gets that building's level, and adds it to the central bonapartist_progress_from_military variable.
-		}
-	}
-	change_variable = { name = bonapartist_progress_from_military divide = 150 } #Building levels are converted to decimal. This usually equals something between 1 and 3, with 0.01 = one building level.
-	# From Movements
-	if = {
-		limit = {
-			any_political_movement = {
-				always = no # vanilla ref movement_bonapartist not present in this mod
-			}
-		}
-		random_political_movement = {
-			limit = {
-				always = no # vanilla ref movement_bonapartist not present in this mod
-			}
-			ROOT = {
-				set_variable = { name = bonapartist_progress_from_movements value = prev.political_movement_support }
-				change_variable = { name = bonapartist_progress_from_movements multiply = 10 }
-			}
-		}
-	}
-	# From Legitimacy
-	change_variable = { name = bonapartist_progress_from_legitimacy divide = 100 } #Legitimacy divided by 100, to make it minimum 0 and maximum 1.
-	change_variable = { name = bonapartist_progress_from_legitimacy subtract = 0.5 } #Legitimacy subtracted by 0.5, to make it minimum -0.5 and maximum 0.5. Balanced scale of negative to absolute value.
-	if = {
-		limit = {
-			NOT = {
-				ruler_is_bonapartist = yes #If the ruler is Bonapartist, then the Bonapartists benefit from high legitimacy and suffer from low legitimacy.
-			}
-		}
-		change_variable = { name = bonapartist_progress_from_legitimacy multiply = -0.5 } #If the ruler is not Bonapartist, they benefit from low legitimacy and suffer from high legitimacy.
-	}
-}
 
-fra_weekly_pulse_orleanist_progress = { #See Bonapartist progress to see how this works.
-	set_variable = { name = orleanist_progress_from_characters value = 0 }
-	set_variable = { name = orleanist_progress_from_igs value = 0 }
-	set_variable = { name = orleanist_progress_from_factories value = 0 }
-	set_variable = { name = orleanist_progress_from_movements value = 0 }
-	set_variable = { name = orleanist_progress_from_legitimacy value = root.government_legitimacy }
-	#From Characters
-	every_scope_character = {
-		limit = {
-			has_ideology = ideology:ideology_orleanist
-		}
-		ROOT = {
-			change_variable = { name = orleanist_progress_from_characters add = prev.popularity }
-		}
-	}
-	change_variable = { name = orleanist_progress_from_characters divide = 100 }
-	# From Interest Groups
-	every_interest_group = {
-		limit = {
-			leader = {
-				has_ideology = ideology:ideology_orleanist
-			}
-		}
-		ROOT = {
-			set_variable = { name = ig_weight value = prev.ig_clout }
-		}
-		if = {
-			limit = {
-				is_in_government = yes
-			}
-			ROOT = {
-				change_variable = { name = ig_weight multiply = 2 }
-			}
-		}
-		ROOT = {
-			change_variable = { name = orleanist_progress_from_igs add = var:ig_weight }
-		}
-	}
-	# From Buildings
-	every_scope_building = {
-		limit = {
-			is_building_group = bg_manufacturing
-			weekly_profit > 0
-		}
-		ROOT = {
-			change_variable = { name = orleanist_progress_from_factories add = prev.level }
-		}
-	}
-	change_variable = { name = orleanist_progress_from_factories divide = 100 }
-	# From Movements
-	if = {
-		limit = {
-			any_political_movement = {
-				always = no # vanilla ref movement_orleanist not present in this mod
-			}
-		}
-		random_political_movement = {
-			limit = {
-				always = no # vanilla ref movement_orleanist not present in this mod
-			}
-			ROOT = {
-				set_variable = { name = orleanist_progress_from_movements value = prev.political_movement_support }
-				change_variable = { name = orleanist_progress_from_movements multiply = 10 }
-			}
-		}
-	}
-	# From Legitimacy
-	change_variable = { name = orleanist_progress_from_legitimacy divide = 100 }
-	change_variable = { name = orleanist_progress_from_legitimacy subtract = 0.5 }
-	if = {
-		limit = {
-			NOT = {
-				ruler_is_orleanist = yes
-			}
-		}
-		change_variable = { name = orleanist_progress_from_legitimacy multiply = -0.5 }
-	}
-}
 
-fra_weekly_pulse_legitimist_progress = { #See Legitimist progress to see how this works.
-	set_variable = { name = legitimist_progress_from_characters value = 0 }
-	set_variable = { name = legitimist_progress_from_igs value = 0 }
-	set_variable = { name = legitimist_progress_from_farms value = 0 }
-	set_variable = { name = legitimist_progress_from_movements value = 0 }
-	set_variable = { name = legitimist_progress_from_legitimacy value = root.government_legitimacy }
-	#From Characters
-	every_scope_character = {
-		limit = {
-			has_ideology = ideology:ideology_legitimist
-		}
-		ROOT = {
-			change_variable = { name = legitimist_progress_from_characters add = prev.popularity }
-		}
-	}
-	change_variable = { name = legitimist_progress_from_characters divide = 100 }
-	# From Interest Groups
-	every_interest_group = {
-		limit = {
-			leader = {
-				has_ideology = ideology:ideology_legitimist
-			}
-		}
-		ROOT = {
-			set_variable = { name = ig_weight value = prev.ig_clout }
-		}
-		if = {
-			limit = {
-				is_in_government = yes
-			}
-			ROOT = {
-				change_variable = { name = ig_weight multiply = 2 }
-			}
-		}
-		ROOT = {
-			change_variable = { name = legitimist_progress_from_igs add = var:ig_weight }
-		}
-	}
-	# From Buildings
-	every_scope_building = {
-		limit = {
-			is_building_group = bg_agriculture
-			NOT = {
-				is_building_group = bg_subsistence_agriculture
-			}
-			weekly_profit > 0
-		}
-		ROOT = {
-			change_variable = { name = legitimist_progress_from_farms add = prev.level }
-		}
-	}
-	change_variable = { name = legitimist_progress_from_farms divide = 100 }
-	# From Movements
-	if = {
-		limit = {
-			any_political_movement = {
-				always = no # vanilla ref movement_legitimist not present in this mod
-			}
-		}
-		random_political_movement = {
-			limit = {
-				always = no # vanilla ref movement_legitimist not present in this mod
-			}
-			ROOT = {
-				set_variable = { name = legitimist_progress_from_movements value = prev.political_movement_support }
-				change_variable = { name = legitimist_progress_from_movements multiply = 10 }
-			}
-		}
-	}
-	# From Legitimacy
-	change_variable = { name = legitimist_progress_from_legitimacy divide = 100 }
-	change_variable = { name = legitimist_progress_from_legitimacy subtract = 0.5 }
-	if = {
-		limit = {
-			NOT = {
-				ruler_is_legitimist = yes
-			}
-		}
-		change_variable = { name = legitimist_progress_from_legitimacy multiply = -0.5 }
-	}
-}
 
-fra_clear_divided_monarchist_variables = { #Clears all variables, to save memory/performance. Should be executed by anything that makes Divided Monarchists irrelevant.
-	remove_variable = bonapartist_progress_from_characters
-	remove_variable = bonapartist_progress_from_igs
-	remove_variable = bonapartist_progress_from_military
-	remove_variable = bonapartist_progress_from_legitimacy
-	remove_variable = bonapartist_progress_from_movements
-	remove_variable = bonapartist_progress_from_effects
-	remove_variable = orleanist_progress_from_characters
-	remove_variable = orleanist_progress_from_igs
-	remove_variable = orleanist_progress_from_factories
-	remove_variable = orleanist_progress_from_legitimacy
-	remove_variable = orleanist_progress_from_movements
-	remove_variable = orleanist_progress_from_effects
-	remove_variable = legitimist_progress_from_characters
-	remove_variable = legitimist_progress_from_igs
-	remove_variable = legitimist_progress_from_farms
-	remove_variable = legitimist_progress_from_legitimacy
-	remove_variable = legitimist_progress_from_movements
-	remove_variable = legitimist_progress_from_effects
-	remove_variable = ig_weight
-}
 
-fra_freeze_divided_monarchist_progress = { #Used upon initiation of cement_the_rightful_dynasty, to prevent the bars from excessively accumulating.
-	set_variable = fra_divided_monarchists_freeze
-}
+
+
+
 
 # Used in IG scope
-fra_disfavor_leader_ig_dynasty = {
-	if = {
-		limit = {
-			leader = {
-				has_ideology = ideology:ideology_bonapartist
-			}
-		}
-		owner = {
-			custom_tooltip = {
-				text = bonapartist_progress_decrease_10_tt
-				# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			leader = {
-				has_ideology = ideology:ideology_orleanist
-			}
-		}
-		owner = {
-			custom_tooltip = {
-				text = orleanist_progress_decrease_10_tt
-				# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			leader = {
-				has_ideology = ideology:ideology_legitimist
-			}
-		}
-		owner = {
-			custom_tooltip = {
-				text = legitimist_progress_decrease_10_tt
-				# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
-			}
-		}
-	}
-}
+
 
 # Used in IG scope
-fra_favor_leader_ig_dynasty = {
-	if = {
-		limit = {
-			leader = {
-				has_ideology = ideology:ideology_bonapartist
-			}
-		}
-		owner = {
-			custom_tooltip = {
-				text = bonapartist_progress_increase_10_tt
-				# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			leader = {
-				has_ideology = ideology:ideology_orleanist
-			}
-		}
-		owner = {
-			custom_tooltip = {
-				text = orleanist_progress_increase_10_tt
-				# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			leader = {
-				has_ideology = ideology:ideology_legitimist
-			}
-		}
-		owner = {
-			custom_tooltip = {
-				text = legitimist_progress_increase_10_tt
-				# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
-			}
-		}
-	}
-}
+
 
 # Country scope
-fra_favor_ruler_dynasty = {
-	if = {
-		limit = {
-			ruler_is_bonapartist = yes
-		}
-		custom_tooltip = {
-			text = bonapartist_progress_increase_10_tt
-			# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
-		}
-	}
-	else_if = {
-		limit = {
-			ruler_is_orleanist = yes
-		}
-		custom_tooltip = {
-			text = orleanist_progress_increase_10_tt
-			# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
-		}
-	}
-	else_if = {
-		limit = {
-			ruler_is_legitimist = yes
-		}
-		custom_tooltip = {
-			text = legitimist_progress_increase_10_tt
-			# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
-		}
-	}
-}
+
 
 # Country scope
-fra_disfavor_ruler_dynasty = {
-	if = {
-		limit = {
-			ruler_is_bonapartist = yes
-		}
-		custom_tooltip = {
-			text = bonapartist_progress_decrease_10_tt
-			# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
-		}
-	}
-	else_if = {
-		limit = {
-			ruler_is_orleanist = yes
-		}
-		custom_tooltip = {
-			text = orleanist_progress_decrease_10_tt
-			# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
-		}
-	}
-	else_if = {
-		limit = {
-			ruler_is_legitimist = yes
-		}
-		custom_tooltip = {
-			text = legitimist_progress_decrease_10_tt
-			# removed effect block: vanilla ref 'je:je_divided_monarchists' not present in this mod (journal entries removed)
-		}
-	}
-}
 
-fra_handle_republic_monarch_assignment = { #Used specifically in the case of a Republican France that enacts monarchy, and is now determining its monarch.
-	if = {
-		limit = { #If the ruler is a Bonapartist, but is not a Bonapartist ruler - eg. a general with the Bonapartist ideology, the monarch is automatically set to the first available Bonaparte.
-			ruler = {
-				has_ideology = ideology:ideology_bonapartist
-			}
-		}
-		if = {
-			limit = {
-				has_variable = orleanist_restoration_var #Misc. variable cleanup, just in case there's anything left in the way.
-			}
-			remove_variable = orleanist_restoration_var
-		}
-		if = {
-			limit = {
-				has_variable = legitimist_restoration_var
-			}
-			remove_variable = legitimist_restoration_var
-		}
-		if = {
-			limit = {
-				has_variable = supporting_orleanist_var
-			}
-			remove_variable = supporting_orleanist_var
-		}
-		if = {
-			limit = {
-				has_variable = supporting_legitimist_var
-			}
-			remove_variable = supporting_legitimist_var
-		}
-		set_variable = bonapartist_restoration_var #Bonapartist restoration activated, for the purpose of je_divided_monarchists and other things it tracks.
-		set_variable = supporting_bonapartist_var #For the character interaction. The player can change this with the buttons whenever they wish.
-		hidden_effect = { generate_french_monarch = yes } #Standard generate_french_monarch effect.
-	}
-	else_if = {
-		limit = {
-			ruler = {
-				has_ideology = ideology:ideology_orleanist
-			}
-		}
-		if = {
-			limit = {
-				has_variable = legitimist_restoration_var
-			}
-			remove_variable = legitimist_restoration_var
-		}
-		if = {
-			limit = {
-				has_variable = bonapartist_restoration_var
-			}
-			remove_variable = bonapartist_restoration_var
-		}
-		if = {
-			limit = {
-				has_variable = supporting_bonapartist_var
-			}
-			remove_variable = supporting_bonapartist_var
-		}
-		if = {
-			limit = {
-				has_variable = supporting_legitimist_var
-			}
-			remove_variable = supporting_legitimist_var
-		}
-		set_variable = orleanist_restoration_var
-		set_variable = supporting_orleanist_var
-		hidden_effect = { generate_french_monarch = yes }
-	}
-	else_if = {
-		limit = {
-			ruler = {
-				has_ideology = ideology:ideology_legitimist
-			}
-		}
-		if = {
-			limit = {
-				has_variable = orleanist_restoration_var
-			}
-			remove_variable = orleanist_restoration_var
-		}
-		if = {
-			limit = {
-				has_variable = bonapartist_restoration_var
-			}
-			remove_variable = bonapartist_restoration_var
-		}
-		if = {
-			limit = {
-				has_variable = supporting_bonapartist_var
-			}
-			remove_variable = supporting_bonapartist_var
-		}
-		if = {
-			limit = {
-				has_variable = supporting_orleanist_var
-			}
-			remove_variable = supporting_orleanist_var
-		}
-		set_variable = legitimist_restoration_var
-		set_variable = supporting_legitimist_var
-		hidden_effect = { generate_french_monarch = yes }
-	}
-	else = {
-		# removed: trigger_event = { id = french_pretenders.7 popup = yes } #If the ruler is neither a Bonapartist, Legitimist, or Orleanist claimant, then it fires this event, which allows either restoring a dynasty of your choice, or making the previous President King. The latter option will cancel out of Divided Monarchists, and add a bunch of radicals.
-	}
-}
+
+
 
 ### Vargas
 
@@ -2718,84 +1867,7 @@ clear_communism_vars = {
 	remove_variable = communism_progress_var_add
 }
 
-restore_peruvian_constitution = {
-	# Made by Hansi
-	# the Constitution of 1834 was largely a hotfix of the Constitution of 1828 and was also swept aside with the Peru-Bolivian Confederation
-	if = {
-		limit = {
-			NOT = {
-				has_law = law_type:law_presidential_republic
-			}
-		}
-		activate_law = law_type:law_presidential_republic
-	}
-	if = {
-		limit = {
-			NOT = {
-				has_law = law_type:law_state_religion
-			}
-		}
-		activate_law = law_type:law_state_religion # Article 2 of the 1834 consitution: "[Peru's] Religion is Catholic, Apostolic, Roman, The Nation protects it by all means [...] and does not allow the exercise of any other."
-	}
-	if = {
-		limit = {
-			NOT = {
-				has_law = law_type:law_census_voting
-			}
-		}
-		activate_law = law_type:law_census_voting # Political rights for citizens had no land ownership requirement
-	}
-	if = {
-		limit = {
-			NOT = {
-				has_law = law_type:law_racial_segregation
-			}
-		}
-		activate_law = law_type:law_racial_segregation
-	}
-	if = {
-		limit = {
-			NOT = {
-				has_law = law_type:law_mercantilism
-			}
-		}
-		activate_law = law_type:law_mercantilism
-	}
-	if = {
-		limit = {
-			NOT = {
-				has_law = law_type:law_interventionism
-			}
-		}
-		activate_law = law_type:law_interventionism
-	}
-	if = {
-		limit = {
-			NOT = {
-				has_law = law_type:law_right_of_assembly
-			}
-		}
-		activate_law = law_type:law_right_of_assembly # Article 147 of the 1834 constitution: "Everyone can communicate their thoughts [...] or publish them through the printing press without prior censorship; but under the responsibility determined by law."
-	}
-	if = {
-		limit = {
-			NOR = {
-				has_law_or_variant = law_type:law_colonial_slavery
-				has_law_or_variant = law_type:law_legacy_slavery
-				has_law_or_variant = law_type:law_slavery_banned
-			}
-		}
-		activate_law = law_type:law_legacy_slavery # Slavery was legal, but the slave trade was restricted
-	}
-	if = {
-		limit = {
-			NOT = {
-				has_law = law_type:law_per_capita_based_taxation
-			}
-		}
-		activate_law = law_type:law_per_capita_based_taxation
-	}
-}
+
 
 # National Identity
 calculate_national_identity_progress = {
@@ -2928,45 +2000,13 @@ clear_national_identity_vars = {
 	remove_variable = national_identity_progress_var_add
 }
 
-remove_pedropoint_effect = {
-	custom_tooltip = {
-		text = remove_pedropoint
-		# change_variable = {
-			# name = pedropoints
-			# add = -1
-		# }
-	}
-}
 
-add_pedropoint_effect = {
-	custom_tooltip = {
-		text = add_pedropoint
-		# change_variable = {
-			# name = pedropoints
-			# add = 1
-		# }
-	}
-}
 
-add_pedropoint_effect_2 = {
-	custom_tooltip = {
-		text = add_2_pedropoint
-		# change_variable = {
-			# name = pedropoints
-			# add = 2
-		# }
-	}
-}
 
-add_pedropoint_effect_3 = {
-	custom_tooltip = {
-		text = add_3_pedropoint
-		# change_variable = {
-			# name = pedropoints
-			# add = 3
-		# }
-	}
-}
+
+
+
+
 
 replicate_laws_from_root = {
 	every_law = {
@@ -3004,12 +2044,7 @@ replicate_laws_from_prev = {
 	}
 }
 
-paris_commune_update_tick = {
-	# removed: set_global_variable on paris_commune_drift_final_var (nothing reads it once
-	# the change_global_variable below was removed) and that change_global_variable, whose
-	# only operand was dead variable 'paris_commune_progress_drift', never set elsewhere
-	# removed: add = var:PRC_recognition_level (variable never set, was read-only from a deleted event)
-}
+
 
 capitulate_to_revolution = {
 	scope:ongoing_revolution_movement = { #Can't trigger if they want governance reforms anyway.
@@ -3244,32 +2279,13 @@ calculate_caudillo_progress = {
 	}
 }
 
-chi_add_1_fragile_unity = {
-	custom_tooltip = chi_add_1_fragile_unity_tt
-	post_notification = warlord_china_explosion_point_add
-	# change_variable = {
-		# name = china_warlord_explosion
-		# add = 1
-	# }
-}
 
-chi_remove_1_fragile_unity = {
-	custom_tooltip = chi_remove_1_fragile_unity_tt
-	post_notification = warlord_china_explosion_point_remove
-	# change_variable = {
-		# name = china_warlord_explosion
-		# subtract = 1
-	# }
-}
 
-reset_afghan_treaty = {
-	custom_tooltip = {
-		text = reset_afghan_treaty_tt
-	}
-}
 
-clear_afghanistan_variables = { # Different from the treaty one. This can't clear the delimitation treaty approved variable, as it's required for JE cleanup.
-}
+
+
+
+
 
 handle_revolutionary_sps = {
 	set_only_legal_party_from_ig = ruler.interest_group
@@ -3773,123 +2789,7 @@ clear_pro_lobby_vars = {
 }
 
 generate_fascist_agitator = {
-	if = {
-		limit = {
-			has_dlc_feature = voice_of_the_people_content
-			game_date >= 1081.1.1
-			OR = {
-				always = no # vanilla ref 'c:BAV' not present in this mod
-				always = no # vanilla ref 'c:SGF' not present in this mod
-				always = no # vanilla ref 'c:GER' not present in this mod
-				always = no # Yes, Bolivia.
-			}
-		}
-		create_character = {
-			template = agitator_ernst_rohm
-		}
-	}
-	else_if = {
-		limit = {
-			has_dlc_feature = voice_of_the_people_content
-			game_date >= 1080.1.1
-			OR = {
-				always = no # vanilla ref 'c:HAN' not present in this mod
-				always = no # vanilla ref 'c:NGF' not present in this mod
-				always = no # vanilla ref 'c:GER' not present in this mod
-			}
-		}
-		create_character = {
-			template = agitator_alfred_hugenberg
-		}
-	}
-	else_if = {
-		limit = {
-			has_dlc_feature = voice_of_the_people_content
-			game_date >= 1086.1.1
-			OR = {
-				always = no # vanilla ref 'c:ITA' not present in this mod
-				AND = {
-					always = no # vanilla ref 'c:SIC' not present in this mod
-					NOT = { always = no } # vanilla ref 'c:ITA' not present in this mod 
-				}
-			}
-		}
-		create_character = {
-			template = agitator_giovanni_gentile
-		}
-	}
-	else_if = {
-		limit = {
-			has_dlc_feature = voice_of_the_people_content
-			game_date >= 1063.1.1
-			OR = {
-				always = no # vanilla ref 'c:ITA' not present in this mod
-				AND = {
-					always = no # vanilla ref 'c:SIC' not present in this mod
-					NOT = { always = no } # vanilla ref 'c:ITA' not present in this mod 
-				}
-			}
-		}
-		create_character = {
-			template = agitator_gabriele_d_annunzio
-		}
-	}
-	else_if = {
-		limit = {
-			has_dlc_feature = voice_of_the_people_content
-			game_date >= 1074.1.1
-			always = no # vanilla ref 'c:POR' not present in this mod
-		}
-		create_character = {
-			template = agitator_antonio_sardinha
-		}
-	}
-	else_if = {
-		limit = {
-			has_dlc_feature = voice_of_the_people_content
-			game_date >= 1071.1.1
-			always = no # vanilla ref 'c:GRE' not present in this mod
-		}
-		create_character = {
-			template = agitator_ion_dragoumis
-		}
-	}
-	else_if = {
-		limit = {
-			has_dlc_feature = ep1_content
-			game_date >= 1087.1.1
-			always = no # vanilla ref 'c:GBR' not present in this mod
-		}
-		create_character = {
-			template = GBR_rotha_lintorn-orman
-		}
-	}
-	else_if = {
-		limit = {
-			has_dlc_feature = rp1_content
-			game_date >= 1082.1.1
-			OR = {
-				always = no # vanilla ref 'c:CHL' not present in this mod
-				AND = {
-					always = no # vanilla ref 'c:FND' not present in this mod
-					any_scope_state = {
-						always = no # vanilla ref 's:STATE_SANTIAGO' not present in this mod
-					}
-				}
-				AND = {
-					always = no # vanilla ref 'c:PLT' not present in this mod
-					country_has_primary_culture = cu:alena
-					any_scope_state = {
-						always = no # vanilla ref 's:STATE_SANTIAGO' not present in this mod
-					}
-				}
-			}
-		}
-		create_character = {
-			template = CHL_joaquin_edwards_bello
-		}
-	}
-	else = {
+
 		custom_tooltip = {
 			text = fascist_agitator_appears_tt
 			create_character = {
@@ -3903,585 +2803,35 @@ generate_fascist_agitator = {
 				}
 			}
 		}
-	}
+
 }
 
-add_small_indian_radicals = {
-		custom_tooltip = add_small_indian_radicals_third_tt
-	hidden_effect = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_south_asian
-			}
-			PREV = { # Should always be a country scope
-				add_radicals = {
-					value = small_radicals
-					culture = prev
-				}
-			}
-		}
-	}
-}
 
-add_medium_indian_radicals = {
-		custom_tooltip = add_medium_indian_radicals_third_tt
-	hidden_effect = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_south_asian
-			}
-			ROOT = {
-				add_radicals = {
-					value = medium_radicals
-					culture = prev
-				}
-			}
-		}
-	}
-}
 
-add_large_indian_radicals = {
-		custom_tooltip = add_large_indian_radicals_third_tt
-	hidden_effect = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_south_asian
-			}
-			ROOT = {
-				add_radicals = {
-					value = large_radicals
-					culture = prev
-				}
-			}
-		}
-	}
-}
 
-add_small_indian_loyalists = {
-		custom_tooltip = add_small_indian_loyalists_third_tt
-	hidden_effect = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_south_asian
-			}
-			ROOT = {
-				add_loyalists = {
-					value = small_radicals
-					culture = prev
-				}
-			}
-		}
-	}
-}
 
-add_medium_indian_loyalists = {
-		custom_tooltip = add_medium_indian_loyalists_third_tt
-	hidden_effect = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_south_asian
-			}
-			ROOT = {
-				add_loyalists = {
-					value = medium_radicals
-					culture = prev
-				}
-			}
-		}
-	}
-}
 
-add_large_indian_loyalists = {
-		custom_tooltip = add_large_indian_loyalists_third_tt
-	hidden_effect = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_south_asian
-			}
-			ROOT = {
-				add_loyalists = {
-					value = large_radicals
-					culture = prev
-				}
-			}
-		}
-	}
-}
 
-add_small_european_radicals = {
-	custom_tooltip = add_small_european_radicals_tt
-	hidden_effect = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_european
-			}
-			ROOT = {
-				add_radicals = {
-					value = small_radicals
-					culture = prev
-				}
-			}
-		}
-	}
-}
 
-add_medium_european_radicals = {
-	custom_tooltip = add_medium_european_radicals_tt
-	hidden_effect = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_european
-			}
-			ROOT = {
-				add_radicals = {
-					value = medium_radicals
-					culture = prev
-				}
-			}
-		}
-	}
-}
 
-add_large_european_radicals = {
-	custom_tooltip = add_large_european_radicals_tt
-	hidden_effect = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_european
-			}
-			ROOT = {
-				add_radicals = {
-					value = large_radicals
-					culture = prev
-				}
-			}
-		}
-	}
-}
 
-add_small_european_loyalists = {
-	custom_tooltip = add_small_european_loyalists_tt
-	hidden_effect = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_european
-			}
-			ROOT = {
-				add_loyalists = {
-					value = small_radicals
-					culture = prev
-				}
-			}
-		}
-	}
-}
 
-add_medium_european_loyalists = {
-	custom_tooltip = add_medium_european_loyalists_tt
-	hidden_effect = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_european
-			}
-			ROOT = {
-				add_loyalists = {
-					value = medium_radicals
-					culture = prev
-				}
-			}
-		}
-	}
-}
 
-add_large_european_loyalists = {
-	custom_tooltip = add_large_european_loyalists_tt
-	hidden_effect = {
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_european
-			}
-			ROOT = {
-				add_loyalists = {
-					value = large_radicals
-					culture = prev
-				}
-			}
-		}
-	}
-}
 
-collapse_india_effect = {
-	hidden_effect = { # Sensible prioritzed snatches
-		if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_MADRAS' not present in this mod
-				}
-				NOT = {
-					always = no # vanilla ref 'c:CAR' not present in this mod
-				}
-			}
-			# removed (create_country: Invalid tag)
-		}
-		if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_MANDALAY' not present in this mod
-				}
-				NOT = {
-					always = no # vanilla ref 'c:BUR' not present in this mod
-				}
-			}
-			# removed (create_country: Cannot create country without states or provinces)
-		}
-		if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_GUJARAT' not present in this mod
-				}
-				always = no # blanked: vanilla ref 'c:BER' not present in this mod
-			}
-			# removed effect block: vanilla ref 's:STATE_GUJARAT' not present in this mod
-		}
-		if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_TENASSERIM' not present in this mod
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						always = no # vanilla ref 'c:KRN' not present in this mod
-					}
-				}
-				# removed (create_country block, invalid vanilla reference)
-			}
-		}
-		if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_TRAVANCORE' not present in this mod
-				}
-				OR = {
-					always = no # blanked: vanilla ref 'c:COC' not present in this mod
-					always = no # blanked: vanilla ref 'c:TRA' not present in this mod
-				}
-			}
-		}
-		if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_CIRCARS' not present in this mod
-				}
-				always = no # blanked: vanilla ref 'c:HYD' not present in this mod
-			}
-			# removed effect block: vanilla ref 's:STATE_CIRCARS' not present in this mod
-		}
-		if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_KURNOOL' not present in this mod
-				}
-				always = no # blanked: vanilla ref 'c:HYD' not present in this mod
-			}
-			# removed effect block: vanilla ref 's:STATE_KURNOOL' not present in this mod
-		}
-		if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_DELHI' not present in this mod
-				}
-				always = no # blanked: vanilla ref 'c:MUG' not present in this mod
-			}
-			# removed effect block: vanilla ref 's:STATE_DELHI' not present in this mod
-		}
-		else_if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_DELHI' not present in this mod
-				}
-				NOT = {
-					always = no # vanilla ref 'c:MUG' not present in this mod
-				}
-			}
-			# removed (create_country block, invalid vanilla reference)
-		}
-		if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_AGRA' not present in this mod
-				}
-				always = no # vanilla ref 'c:MUG' not present in this mod
-			}
-			# removed effect block: vanilla ref 's:STATE_AGRA' not present in this mod
-		}
-		if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_AWADH' not present in this mod
-				}
-				NOT = {
-					always = no # vanilla ref 'c:AWA' not present in this mod
-				}
-			}
-			# removed (create_country block)
-		}
-		else_if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_AWADH' not present in this mod
-				}
-				always = no # vanilla ref 'c:MUG' not present in this mod
-			}
-			# removed effect block: vanilla ref 's:STATE_AWADH' not present in this mod
-		}
-		if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_CENTRAL_PROVINCES' not present in this mod
-				}
-				always = no # blanked: vanilla ref 'c:NAG' not present in this mod
-			}
-			# removed effect block: vanilla ref 's:STATE_CENTRAL_PROVINCES' not present in this mod
-		}
-		if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_BOMBAY' not present in this mod
-				}
-				always = no # blanked: vanilla ref 'c:SAT' not present in this mod
-			}
-			# removed effect block: vanilla ref 's:STATE_BOMBAY' not present in this mod
-		}
-		else_if = {
-			limit = {
-				any_scope_state = {
-					always = no # vanilla ref 's:STATE_BOMBAY' not present in this mod
-				}
-				always = no # blanked: vanilla ref 'c:KHP' not present in this mod
-			}
-			# removed effect block: vanilla ref 's:STATE_BOMBAY' not present in this mod
-		}
-	}
-	while = {
-		limit = {
-			any_scope_state = {
-				is_capital = no
-				NOR = {
-					state_region = {
-						always = no # was culture = cu:bengali (no mod analogue)
-					}
-					state_region = {
-						always = no # was culture = cu:bihari (no mod analogue)
-					}
-					always = no # vanilla ref 's:STATE_ARAKAN' not present in this mod
-				}
-				any_neighbouring_state = {
-					owner = {
-						OR = {
-							is_subject_of = ROOT
-							AND = {
-								is_subject_of = ROOT.top_overlord
-								NOT = {
-									this = root
-								}
-								any_scope_state = {
-									is_coastal = no
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		every_country = {
-			limit = {
-				OR = {
-					is_subject_of = ROOT
-					AND = {
-						is_subject_of = ROOT.top_overlord
-						NOT = {
-							this = root
-						}
-						any_scope_state = {
-							is_coastal = no
-						}
-					}
-				}
-				any_scope_state = {
-					any_neighbouring_state = {
-						is_capital = no
-						NOR = {
-							state_region = {
-								always = no # was culture = cu:bengali (no mod analogue)
-							}
-							state_region = {
-								always = no # was culture = cu:bihari (no mod analogue)
-							}
-							always = no # vanilla ref 's:STATE_ARAKAN' not present in this mod
-						}
-						owner = ROOT
-					}
-				}
-			}
-			save_scope_as = prince_scope
-			ROOT = {
-				random_scope_state = {
-					limit = {
-						is_capital = no
-						NOR = {
-							state_region = {
-								always = no # was culture = cu:bengali (no mod analogue)
-							}
-							state_region = {
-								always = no # was culture = cu:bihari (no mod analogue)
-							}
-							always = no # vanilla ref 's:STATE_ARAKAN' not present in this mod
-						}
-						any_neighbouring_state = {
-							scope:prince_scope ?= owner
-						}
-					}
-					set_state_owner = scope:prince_scope
-				}
-			}
-		}
-		clear_saved_scope = prince_scope
-	}
-	custom_tooltip = {
-		text = india_princes_independent_tt
-		every_country = {
-			limit = {
-				OR = {
-					is_subject_of = ROOT
-					AND = {
-						is_subject_of = ROOT.top_overlord
-						OR = {
-							any_scope_state = {
-								is_coastal = no
-							}
-							THIS = ROOT
-						}
-						OR = {
-							always = no # vanilla ref 'sr:region_south_india' not present in this mod
-							always = no # vanilla ref 'sr:region_north_india' not present in this mod
-						}
-					}
-				}
-			}
-			make_independent = yes
-			# removed effect block: vanilla ref 'c:GBR' not present in this mod
-		}
-	}
-}
-india_independence_ig_effects = {
-	show_as_tooltip = {
-		ig:ig_industrialists ?= {
-			set_interest_group_name = ig_industrialists
-		}
-		ig:ig_armed_forces ?= {
-			set_interest_group_name = ig_armed_forces
-		}
-	}
-	custom_tooltip = {
-		text = indian_igs_change_ideologies_tt
-		ig:ig_industrialists ?= {
-			set_interest_group_name = ig_industrialists
-			if = {
-				limit = {
-					has_ideology = ideology:ideology_colonialist
-				}
-				remove_ideology = ideology_colonialist
-				add_ideology = ideology_laissez_faire
-			}
-			if = {
-				limit = {
-					has_ideology = ideology:ideology_malthusian
-				}
-				remove_ideology = ideology_malthusian
-				add_ideology = ideology_individualist
-			}
-			if = {
-				limit = {
-					has_ideology = ideology:ideology_enclavist
-				}
-				remove_ideology = ideology_enclavist
-				add_ideology = ideology_plutocratic
-			}
-		}
-		ig:ig_armed_forces ?= {
-			set_interest_group_name = ig_armed_forces
-		}
-		ig:ig_petty_bourgeoisie ?= {
-			if = {
-				limit = {
-					has_ideology = ideology:ideology_sovereignist
-				}
-				remove_ideology = ideology_sovereignist
-				add_ideology = ideology_patriotic
-			}
-		}
-		ig:ig_devout ?= {
-			if = {
-				limit = {
-					owner = {
-						country_has_state_religion = rel:dawnfast
-					}
-				}
-				set_interest_group_name = ig_sunni_madrasahs
-				if = {
-					limit = {
-						has_ideology = ideology:ideology_hindu_moralist
-					}
-					remove_ideology = ideology_hindu_moralist
-				}
-				if = {
-					limit = {
-						has_ideology = ideology:ideology_hindu_moralist_british_india
-					}
-					remove_ideology = ideology_hindu_moralist_british_india
-				}
-				if = {
-					limit = {
-						NOT = {
-							has_ideology = ideology:ideology_moralist
-						}
-					}
-					add_ideology = ideology_moralist
-				}
-			}
-			else_if = {
-				limit = {
-					owner = {
-						always = no # was religion = rel:hindu (no mod analogue)
-					}
-				}
-				if = {
-					limit = {
-						has_ideology = ideology:ideology_moralist
-					}
-					remove_ideology = ideology_moralist
-				}
-				if = {
-					limit = {
-						has_ideology = ideology:ideology_hindu_moralist_british_india
-					}
-					remove_ideology = ideology_hindu_moralist_british_india
-				}
-				if = {
-					limit = {
-						NOT = {
-							has_ideology = ideology:ideology_hindu_moralist
-						}
-					}
-					add_ideology = ideology_hindu_moralist
-				}
-			}
-		}
-		state_religion_switch_effect = yes
-	}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 state_religion_switch_effect = {
 	if = {
@@ -4535,97 +2885,4 @@ free_from_exile_effect = {
 	remove_modifier = in_exile_modifier
 	character_traditionalist_switch_effect = yes
 	character_carlist_or_legitimist_switch_effect = yes
-}
-
-grant_indian_cultures = {
-	# removed effect line: was culture = cu:bengali (no mod analogue)
-	# removed effect line: was culture = cu:assamese (no mod analogue)
-	# removed effect line: was culture = cu:avadhi (no mod analogue)
-	# removed effect line: was culture = cu:bihari (no mod analogue)
-	# removed effect line: was culture = cu:gujarati (no mod analogue)
-	# removed effect line: was culture = cu:kannada (no mod analogue)
-	# removed effect line: was culture = cu:malayalam (no mod analogue)
-	# removed effect line: was culture = cu:marathi (no mod analogue)
-	# removed effect line: was culture = cu:oriya (no mod analogue)
-	# removed effect line: was culture = cu:panjabi (no mod analogue)
-	# removed effect line: was culture = cu:rajput (no mod analogue)
-	# removed effect line: was culture = cu:sindi (no mod analogue)
-	# removed effect line: was culture = cu:tamil (no mod analogue)
-	# removed effect line: was culture = cu:telegu (no mod analogue)
-}
-
-grant_indian_regional_cultures = {
-	every_scope_state = {
-		limit = {
-			state_is_homeland_of_indian_cultures = yes
-		}
-		every_scope_culture = {
-			limit = {
-				has_discrimination_trait_group = heritage_group_south_asian
-				has_homeland = prev
-				NOT = {
-					is_primary_culture_of = prev.owner
-				}
-			}
-			prev.owner = {
-				add_primary_culture = prev
-			}
-		}
-	}
-}
-
-india_bengal_stability_decrease_10 = {
-	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
-}
-
-india_bombay_stability_decrease_10 = {
-	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
-}
-
-india_madras_stability_decrease_10 = {
-	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
-}
-
-india_bengal_stability_increase_10 = {
-	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
-}
-
-india_bombay_stability_increase_10 = {
-	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
-}
-
-india_madras_stability_increase_10 = {
-	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
-}
-
-india_stability_increase_10 = {
-	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
-}
-
-india_stability_decrease_10 = {
-	# removed effect block: vanilla ref 'je:je_uneasy_raj' not present in this mod (journal entries removed)
-}
-
-india_increase_princely_state_liberty_desire_10 = {
-	every_princely_state = {
-		add_liberty_desire = 10
-	}
-}
-
-india_decrease_princely_state_liberty_desire_10 = {
-	every_princely_state = {
-		add_liberty_desire = -10
-	}
-}
-
-india_increase_random_princely_state_liberty_desire_10 = {
-	random_princely_state = {
-		add_liberty_desire = 10
-	}
-}
-
-india_decrease_random_princely_state_liberty_desire_10 = {
-	random_princely_state = {
-		add_liberty_desire = -10
-	}
 }

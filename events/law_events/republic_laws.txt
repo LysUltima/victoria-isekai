@@ -143,7 +143,9 @@ republic_laws.2 = { #Fate of the King
 			save_scope_as = rulers_fate
 			leader = {
 				save_scope_as = monarchist_supporter
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -171,6 +173,10 @@ republic_laws.2 = { #Fate of the King
 			name = fate_of_the_monarchy
 			multiplier = 2
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:monarchist_supporter }
 	}
 }
 

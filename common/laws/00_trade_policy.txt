@@ -34,13 +34,6 @@ law_mercantilism = {
 			add = 750
 		}
 
-		if = {
-			limit = {
-				always = no
-				has_law_or_variant = law_type:law_isolationism
-			}
-			add = 1000
-		}
 	}
 }
 
@@ -71,21 +64,6 @@ law_protectionism = {
 			add = 750
 		}
 
-		if = {
-			limit = {
-				always = no
-				has_law_or_variant = law_type:law_isolationism
-			}
-			add = 1000
-		}
-
-		if = {
-			limit = {
-				always = no
-				has_law_or_variant = law_type:law_free_trade
-			}
-			add = 10000 # Top priority for Imperial Marriage JE is to enact this law
-		}
 	}
 }
 
@@ -116,15 +94,7 @@ law_free_trade = {
 	}
 
 	on_activate = {
-		if = { # removes opium ban authority modifier if forced to open market via diplomacy
-			limit = {
-				AND = {
-					always = no
-					has_modifier = opium_ban_authority
-				}
-			}
-			remove_modifier = opium_ban_authority
-		}
+
 	}
 
 	modifier = {
@@ -142,13 +112,6 @@ law_free_trade = {
 			add = 750
 		}
 
-		if = {
-			limit = {
-				always = no
-				has_law_or_variant = law_type:law_isolationism
-			}
-			add = 1000
-		}
 	}
 }
 
@@ -311,7 +274,7 @@ always = no
 
 		country_disallow_trade_outside_kyushu_bool = yes
 		state_trade_center_max_limit_add = 5
-		
+
 		country_disallow_aggressive_plays_bool = yes
 	}
 

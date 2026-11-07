@@ -28,17 +28,8 @@
 
 	on_enable = {
 		ig:ig_armed_forces ?= {
+
 			if = {
-				limit = {
-					owner = {
-						always = no # vanilla ref 'c:CHI' not present in this mod
-					}
-				}
-				set_ig_trait = ig_trait:ig_trait_newly_created_army
-				set_ig_trait = ig_trait:ig_trait_self_strengthening
-				set_ig_trait = ig_trait:ig_trait_parochial_leadership
-			}
-			else_if = {
 				limit = {
 					owner = {
 						OR = {
@@ -65,49 +56,10 @@
 				set_ig_trait = ig_trait:ig_trait_veteran_consultation
 				set_ig_trait = ig_trait:ig_trait_el_buen_jefe
 			}
-			else_if = {
-				limit = {
-					owner = {
-						has_dlc_feature = rp1_content
-						always = no # vanilla ref 'c:BRZ' not present in this mod
-					}
-				}
-				set_ig_trait = ig_trait:ig_trait_coronelismo
-				set_ig_trait = ig_trait:ig_trait_clube_militar
-				set_ig_trait = ig_trait:ig_trait_patriotic_fervor
-			}
-			else_if = {
-				limit = {
-					owner = {
-						has_dlc_feature = ip2_content
-						always = no # vanilla ref 'c:BIC' not present in this mod
-					}
-				}
-				set_ig_trait = ig_trait:ig_trait_divided_ranks
-				set_ig_trait = ig_trait:ig_trait_imperial_service
-				set_ig_trait = ig_trait:ig_trait_veerta
-			}
-			else_if = {
-				limit = {
-					owner = {
-						always = no # vanilla ref 'c:PAN' not present in this mod
-					}
-				}
-				set_ig_trait = ig_trait:ig_trait_materiel_waste
-				set_ig_trait = ig_trait:ig_trait_khalsa
-				set_ig_trait = ig_trait:ig_trait_patriotic_fervor
-			}
-			else_if = {
-				limit = {
-					owner = {
-						always = no # vanilla ref 'c:ZAN' not present in this mod
-						any_primary_culture = { cu:zaharin = this} # was cu:bedouin
-					}
-				}
-				set_ig_trait = ig_trait:ig_trait_divided_ranks
-				set_ig_trait = ig_trait:ig_trait_veteran_consultation
-				set_ig_trait = ig_trait:ig_trait_patriotic_fervor
-			}
+
+
+
+
 			else = {
 				set_ig_trait = ig_trait:ig_trait_materiel_waste
 				set_ig_trait = ig_trait:ig_trait_veteran_consultation
@@ -115,24 +67,9 @@
 			}
 		}
 		# Caudillo Ideology
-		if = {
-			limit = {
-				always = no # vanilla ref 'geographic_region_latin_america' not present in this mod
-				OR = {
-					country_has_primary_culture = cu:alena # was cu:platinean
-					country_has_primary_culture = cu:alena # was cu:south_andean
-					country_has_primary_culture = cu:alena # was cu:north_andean
-					country_has_primary_culture = cu:alena # was cu:central_american
-					country_has_primary_culture = cu:alena # was cu:mexican
-				}
-			}
-			add_modifier = age_of_caudillos_modifier
-			ig:ig_armed_forces ?= {
-				add_ideology = ideology_caudillismo
-			}
-		}
+
 		# Samurai
-		else_if = {
+		if = {
 			limit = {
 				country_has_primary_culture = cu:sakura # was cu:japanese
 				NOT = { always = no }
@@ -148,46 +85,10 @@
 	on_disable = {}
 
 	priority_cultures = { #Country scope
-		rule = {
-			trigger = {
-				always = no # vanilla ref 'c:BIC' not present in this mod
-				any_primary_culture = {
-					cu:aldrican = this # was cu:british
-				}
-			}
-			cultures = {}
-		}
-		rule = {
-			trigger = {
-				always = no # vanilla ref 'c:ZAN' not present in this mod
-				any_primary_culture = {
-					cu:zaharin = this # was cu:bedouin
-				}
-			}
-			cultures = {}
-		}
-		rule = {
-			trigger = {
-				always = no # vanilla ref 'c:PHI' not present in this mod
-				NOT = { always = no} # vanilla ref 'je_philippines_main_reliance_happened' not present in this mod
-				NOT = { any_primary_culture = { cu:melati = this } }
-				NOT = { any_primary_culture = { cu:melati = this } }
-				any_primary_culture = { cu:alena = this} # was cu:spanish
-			}
-			cultures = {}
-		}
-		rule = {
-			trigger = {
-				always = no # vanilla ref 'c:PHI' not present in this mod
-				any_primary_culture = {
-					AND = {
-						cu:alena = this # was cu:spanish
-						cu:melati = this # was cu:filipino_hispanophone
-					}
-				}
-			}
-			cultures = {}
-		}
+
+
+
+
 	}
 
 	on_character_ig_membership = {}
@@ -392,16 +293,7 @@
 
 		add = {
 			desc = "POP_MILITARY_BUREAUCRACY"
-			if = {
-				limit = {
-					is_pop_type = bureaucrats
-					owner = {
-						always = no # vanilla ref 'c:ALK' not present in this mod
-						has_government_type = gov_chartered_company
-					}
-				}
-				value = 100
-			}
+
 		}
 
 		multiply = {
@@ -541,25 +433,16 @@
 	commander_weight = {
 		value = 5.0
 	}
-	
+
 	magnate_weight = {
 		value = 1.0
-	}	
+	}
 
 	executive_weight = {
 		value = 0.2
 
 		# The company owning BIC should not get non-industrialist executives
-		if = {
-			limit = {
-				exists = scope:company
-				always = no # vanilla ref 'c:BIC' not present in this mod
-				always = no # blanked: vanilla ref 'c:BIC' not present in this mod
-			}
-			multiply = {
-				value = 0
-			}
-		}
+
 	}
 
 	noble_chance = {
@@ -714,20 +597,12 @@
 	commander_leader_weight = {
 		value = 3.0
 	}
-	
+
 	# Multiplier applied to the weight for an appropriate magnate will be selected from the character pool to lead the IG
 	# root = interest group
 	magnate_leader_weight = {
 		value = 1.0
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:JAP' not present in this mod
-				NOT = {
-					always = no
-				}
-			}
-			add = 5
-		}
+
 	}
 
 	# Multiplier applied to the weight for an appropriate executive will be selected from the character pool to lead the IG

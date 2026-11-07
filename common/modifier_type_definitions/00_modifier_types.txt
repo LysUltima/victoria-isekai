@@ -1475,14 +1475,7 @@ country_ahead_of_time_research_penalty_mult={
 	}
 }
 
-country_war_exhaustion_casualties_mult={
-	decimals=1
-	color=bad
-	percent=yes
-	game_data={
-		ai_value=0
-	}
-}
+
 
 country_resource_discovery_chance_mult={
 	decimals=0
@@ -2766,7 +2759,7 @@ country_ship_crew_starting_veterancy_experience_mult = {
 	}
 }
 
-ship_interest_gain_add = {
+ship_power_projection_add = {
 	decimals=1
 	color=good
 	game_data={
@@ -2774,7 +2767,7 @@ ship_interest_gain_add = {
 	}
 }
 
-ship_interest_gain_mult = {
+ship_power_projection_mult = {
 	decimals=1
 	color=good
 	percent=yes
@@ -3881,10 +3874,4 @@ state_buy_orders_artillery_add={
 	game_data={
 		ai_value=0
 	}
-}
-
-country_flagship_interest_gain_mult = {
-	percent = yes
-	decimals = 0
-	color = good
 }

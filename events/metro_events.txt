@@ -55,7 +55,7 @@ metro.1 = {
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	placement = ROOT
 
@@ -130,4 +130,6 @@ metro.1 = {
 			days = long_modifier_time
 		}
 	}
+
+	fire_only_once = yes
 }

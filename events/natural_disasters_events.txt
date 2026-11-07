@@ -222,6 +222,8 @@ natural_disaster_events.3 = { #Mega Flood
 			add_devastation = 20
 		}
 	}
+
+	fire_only_once = yes
 }
 
 
@@ -312,6 +314,8 @@ natural_disaster_events.4 = { #Mega Earthquake
 			add_devastation = 20
 		}
 	}
+
+	fire_only_once = yes
 }
 
 
@@ -617,4 +621,6 @@ natural_disaster_events.8 = { #Mega Eruption
 			add_devastation = 20
 		}
 	}
+
+	fire_only_once = yes
 }

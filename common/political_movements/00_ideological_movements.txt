@@ -272,7 +272,7 @@
 
 		if = {
 			limit = {
-				owner ?= { always = no } # vanilla ref 'je_acw_countdown' not present in this mod 
+				owner ?= { always = no } # vanilla ref 'je_acw_countdown' not present in this mod
 			}
 
 			multiply = {
@@ -468,14 +468,7 @@
 			}
 
 			# New York should be FSA capital
-			if = {
-				limit = {
-					owner ?= { always = no } # vanilla ref 'je_acw_countdown' not present in this mod 
-					always = no # vanilla ref 's:STATE_NEW_YORK' not present in this mod
-				}
 
-				multiply = 10.0
-			}
 		}
 	}
 
@@ -513,8 +506,8 @@
 			limit = {
 				owner ?= {
 					pop_type_percent_country = {
-						pop_type = slaves
-						percent > 0
+						target = pop_type:slaves
+						value > 0
 					}
 				}
 			}
@@ -530,7 +523,7 @@
 
 		if = {
 			limit = {
-				owner ?= { always = no } # vanilla ref 'je_acw_countdown' not present in this mod 
+				owner ?= { always = no } # vanilla ref 'je_acw_countdown' not present in this mod
 			}
 
 			add = {
@@ -750,7 +743,7 @@ movement_pro_slavery = {
 
 		if = {
 			limit = {
-				owner ?= { always = no } # vanilla ref 'je_acw_countdown' not present in this mod 
+				owner ?= { always = no } # vanilla ref 'je_acw_countdown' not present in this mod
 			}
 
 			multiply = {
@@ -783,7 +776,7 @@ movement_pro_slavery = {
 					is_slave_state = no
 					NOT = { has_variable = former_slave_state }
 				}
-			    if = {
+				if = {
 					limit = {
 						owner ?= {
 							OR = {
@@ -897,24 +890,7 @@ movement_pro_slavery = {
 				}
 			}
 
-			if = {
-				limit = {
-					owner ?= { always = no } # vanilla ref 'je_acw_countdown' not present in this mod 
-				}
 
-				if = { # Ensure the union retains Washington DC/Maryland/Delaware in case of southern secession
-					limit = {
-						OR = {
-							always = no # vanilla ref 's:STATE_MARYLAND' not present in this mod
-							always = no # vanilla ref 's:STATE_DELAWARE' not present in this mod
-							always = no # vanilla ref 's:STATE_DISTRICT_OF_COLUMBIA' not present in this mod
-							always = no # vanilla ref 's:STATE_WEST_VIRGINIA' not present in this mod
-						}
-					}
-
-					multiply = 0.0
-				}
-			}
 		}
 	}
 
@@ -1013,7 +989,7 @@ movement_pro_slavery = {
 
 		if = {
 			limit = {
-				owner ?= { always = no } # vanilla ref 'je_acw_countdown' not present in this mod 
+				owner ?= { always = no } # vanilla ref 'je_acw_countdown' not present in this mod
 			}
 
 			add = {
@@ -1903,7 +1879,7 @@ movement_royalist_constitutional = {
 movement_labor = { # Explicitly non-socialist labour movement
 	category = movement_category_ideological
 
-	ideology = ideology_proletarian_movement
+	ideology = ideology_labor_movement
 	character_ideologies = {
 		ideology_reformer
 		ideology_radical
@@ -1992,7 +1968,7 @@ movement_labor = { # Explicitly non-socialist labour movement
 				OR = {
 					has_ideology = ideology:ideology_anarchist
 					has_ideology = ideology:ideology_vanguardist
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 				}
 			}
 			multiply = {
@@ -2316,7 +2292,7 @@ movement_socialist = {
 
 	ideology = ideology_socialist_movement
 	character_ideologies = {
-		ideology_communist
+		ideology_communist_leader
 		ideology_anarchist
 		ideology_social_democrat
 		ideology_vanguardist
@@ -2363,7 +2339,7 @@ movement_socialist = {
 
 	character_support_trigger = {
 		OR = {
-			has_ideology = ideology:ideology_communist
+			has_ideology = ideology:ideology_communist_leader
 			has_ideology = ideology:ideology_anarchist
 			has_ideology = ideology:ideology_social_democrat
 			has_ideology = ideology:ideology_vanguardist
@@ -2380,7 +2356,7 @@ movement_socialist = {
 			limit = {
 				OR = {
 					has_ideology = ideology:ideology_vanguardist
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 				}
 				NOT = {
 					owner ?= {
@@ -3112,14 +3088,6 @@ movement_anarchist = {
 				subtract = scope:clout
 			}
 
-			if = {
-				limit = {
-					owner = {
-						always = no # So the Spanish anarchists will always launch a revolution if possible
-					}
-				}
-				multiply = 0
-			}
 		}
 	}
 
@@ -3211,7 +3179,7 @@ movement_communist = {
 
 	ideology = ideology_communist_movement
 	character_ideologies = {
-		ideology_communist
+		ideology_communist_leader
 		ideology_vanguardist
 	}
 
@@ -3246,7 +3214,7 @@ movement_communist = {
 	character_support_trigger = {
 		OR = {
 			has_ideology = ideology:ideology_vanguardist
-			has_ideology = ideology:ideology_communist
+			has_ideology = ideology:ideology_communist_leader
 			has_ideology = ideology:ideology_utopian
 			AND = {
 				is_interest_group_type = ig_trade_unions
@@ -3259,7 +3227,7 @@ movement_communist = {
 		if = {
 			limit = {
 				OR = {
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 					has_ideology = ideology:ideology_vanguardist
 				}
 			}
@@ -4599,27 +4567,11 @@ movement_liberal = {
 				value = 2
 			}
 		}
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:JAP' not present in this mod
-				has_law = law_type:law_bakufu
-				country_has_pending_meiji_restoration = yes
-			}
-			multiply = {
-				value = 0.01
-			}
-		}
+
 	}
 	on_created = {
 		add_movement_enthusiasm_modifier = yes
-		if = {
-			limit = {
-				owner = {
-					always = no # vanilla ref 'c:FRA' not present in this mod
-				}
-			}
-			set_core_ideology = ideology_liberal_republican_movement
-		}
+
 	}
 
 	character_support_trigger = {
@@ -4789,24 +4741,12 @@ movement_liberal = {
 				limit = {
 					is_pop_type = aristocrats
 				}
-				if = {
-					limit = {
-						always = no # was culture = cu:hungarian (no mod analogue)
-						owner ?= {
-							always = no # vanilla ref 'je_hungarian_revolution' not present in this mod
-						}
-					}
-					add = {
-						value = 25
-						desc = "0"
-					}
-				}
-				else = {
+
 				add = {
 					value = 6
 					desc = "POP_ARISTOCRATS"
 				}
-			}
+
 			}
 			else = {
 				add = {
@@ -4945,7 +4885,7 @@ movement_liberal = {
 		}
 		if = {
 			limit = {
-				owner ?= { always = no } # vanilla ref 'je_devorismo' not present in this mod 
+				owner ?= { always = no } # vanilla ref 'je_devorismo' not present in this mod
 			}
 			add = {
 				value = 0.2
@@ -5533,7 +5473,7 @@ movement_nihilist = {
 		OR = {
 			has_ideology = ideology:ideology_nihilist
 			has_ideology = ideology:ideology_positivist
-			has_ideology = ideology:ideology_communist # If you somehow get communists and friends early
+			has_ideology = ideology:ideology_communist_leader # If you somehow get communists and friends early
 			has_ideology = ideology:ideology_vanguardist
 			has_ideology = ideology:ideology_anarchist
 		}
@@ -6205,8 +6145,8 @@ movement_land_reform = {
 			has_law_or_variant = law_type:law_collectivized_agriculture
 		}
 		pop_type_percent_country = {
-			pop_type = peasants
-			percent > 0.25
+			target = pop_type:peasants
+			value > 0.25
 		}
 	}
 	creation_weight = {
@@ -6238,7 +6178,7 @@ movement_land_reform = {
 			has_ideology = ideology:ideology_land_reformer
 			has_ideology = ideology:ideology_luddite
 			has_ideology = ideology:ideology_anarchist
-			has_ideology = ideology:ideology_communist
+			has_ideology = ideology:ideology_communist_leader
 			has_ideology = ideology:ideology_vanguardist
 			has_ideology = ideology:ideology_abolitionist
 			is_interest_group_type = ig_rural_folk
@@ -7440,18 +7380,7 @@ movement_modernizer = { # This movement loves you and wants you to succeed. It e
 						desc = "POP_ARISTOCRATS"
 					}
 				}
-				else_if = {
-					limit = {
-						always = no # was culture = cu:hungarian (no mod analogue)
-						owner ?= {
-							always = no # vanilla ref 'je_hungarian_revolution' not present in this mod
-						}
-					}
-					add = {
-						value = 25
-						desc = "0"
-					}
-				}
+
 				else = {
 					add = {
 						value = 10

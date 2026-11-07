@@ -7,8 +7,8 @@ special_genes = {
 	# 			   OUTFITS			    #
 	#									#
 	#####################################
-    	gene_nudity = {
-        	nudity = {
+		gene_nudity = {
+			nudity = {
 				index = 0
 				male = {
 					1 = empty
@@ -18,18 +18,18 @@ special_genes = {
 				girl = male
 			}
 
-	        hide_nudity = {
-	         	index = 1
-	         	male = {
-	         		1 = "male_prop_nudity_accessory"
-	         	}
-	         	female = {
-	         		1 = "female_prop_nudity_accessory"
-	         	}
-	         	boy = male
-	         	girl = female
-	     	}
-        }
+			hide_nudity = {
+				index = 1
+				male = {
+					1 = "male_prop_nudity_accessory"
+				}
+				female = {
+					1 = "female_prop_nudity_accessory"
+				}
+				boy = male
+				girl = female
+			}
+		}
 
 		misc = {
 			inheritable = no
@@ -992,7 +992,7 @@ special_genes = {
 					1 = male_civilian_coat_arabic_01
 				}
 				female = {
-				 	1 = female_outfit_arabic_low_tier_01
+					1 = female_outfit_arabic_low_tier_01
 				}
 				boy = male
 				girl = female
@@ -1881,7 +1881,7 @@ special_genes = {
 					1 = male_coat_11_md_jap_short_navy_admiral_rank4
 				}
 				female = {
-					1 = female_outfit_european_common_01				
+					1 = female_outfit_european_common_01
 				}
 				boy = male
 				girl = female
@@ -2060,7 +2060,7 @@ special_genes = {
 				girl = female
 			}
 
-	 		reza_shah_pahlavi_epaulettes = {
+			reza_shah_pahlavi_epaulettes = {
 				index = 4
 				male = {
 					1 = reza_shah_pahlavi_epaulettes
@@ -2145,7 +2145,7 @@ special_genes = {
 
 				female = {
 					1 = female_sash_european_01
-					1 = female_sash_european_02
+
 				}
 				boy = male
 				girl = female
@@ -2174,7 +2174,7 @@ special_genes = {
 
 				female = {
 				1 = female_sash_european_01
-				1 = female_sash_european_02
+
 				}
 				boy = male
 				girl = female
@@ -2204,7 +2204,7 @@ special_genes = {
 				}
 				female = {
 				1 = female_sash_european_01
-				1 = female_sash_european_02
+
 				}
 				boy = male
 				girl = female
@@ -2699,7 +2699,7 @@ special_genes = {
 					1 = male_medals_generic_01_ip4_04
 					1 = male_medals_generic_01_ip4_05
 					1 = male_medals_generic_01_ip4_06
-					
+
 
 
 				}
@@ -2869,13 +2869,13 @@ special_genes = {
 			sash_belt_power_bloc_ideological = {
 				index = 11
 				male = {
-					1 = male_belts_sash_power_bloc_01_military
-					1 = male_belts_sash_power_bloc_02_military
-					1 = male_belts_sash_power_bloc_03_military
-					1 = male_belts_sash_power_bloc_04_military
+					1 = male_belts_sash_power_bloc_01_ideological
+					1 = male_belts_sash_power_bloc_02_ideological
+					1 = male_belts_sash_power_bloc_03_ideological
+					1 = male_belts_sash_power_bloc_04_ideological
 				}
 				female = {
-					1 = empty
+					1 = female_belt_shashes_04_ideological
 				}
 				boy = male
 				girl = female
@@ -2906,9 +2906,9 @@ special_genes = {
 
 				}
 				female = {
-					1 = female_belt_shashes_01_trade
-					1 = female_belt_shashes_02_trade
-					1 = female_belt_shashes_03_trade
+
+
+
 					1 = female_belt_shashes_04_trade
 				}
 				boy = male
@@ -2925,9 +2925,9 @@ special_genes = {
 
 				}
 				female = {
-					1 = female_belt_shashes_01_religious
-					1 = female_belt_shashes_02_religious
-					1 = female_belt_shashes_03_religious
+
+
+
 					1 = female_belt_shashes_04_religious
 				}
 				boy = male
@@ -2945,20 +2945,7 @@ special_genes = {
 				girl = female
 			}
 
-			sash_belt_power_bloc_ideological = {
-				index = 16
-				male = {
-					1 = male_belts_sash_power_bloc_01_military
-					1 = male_belts_sash_power_bloc_02_military
-					1 = male_belts_sash_power_bloc_03_military
-					1 = male_belts_sash_power_bloc_04_military
-				}
-				female = {
-					1 = empty
-				}
-				boy = male
-				girl = female
-			}
+
 
 			gandhi_watch = {
 				index = 17
@@ -3296,7 +3283,7 @@ special_genes = {
 		indian_top_layer = {
 			index = 4
 			male = {
-					1 = male_top_layer_indian_common_01
+					1 = empty
 			}
 
 			female = {
@@ -3873,7 +3860,7 @@ special_genes = {
 			}
 
 
-  			necklace_indian_02 = {
+			necklace_indian_02 = {
 				index = 15
 
 				male = {

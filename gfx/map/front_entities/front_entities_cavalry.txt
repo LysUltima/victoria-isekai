@@ -36,7 +36,7 @@ military_tank_light_generic_diorama_entity = {
 	entity = "military_tank_light_generic_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:combat_unit_type = unit_type:combat_unit_type_light_tanks
 	}
@@ -45,17 +45,7 @@ military_tank_light_generic_diorama_entity = {
 #################################################
 ###       			Carlists!	     		  ###
 #################################################
-military_infantry_carlist_cavalry_diorama_entity = {
-	entity = "military_infantry_carlists_lancer_entity"
 
-	group = "cavalry"
-	
-	trigger = {
-		scope:country = { always = no } # vanilla ref 'c:SPC' not present in this mod 
-		has_dlc_feature = ip4_cosmetics
-		NOT = { scope:combat_unit_type = unit_type:combat_unit_type_light_tanks }
-	}
-}
 
 
 #################################################
@@ -66,7 +56,7 @@ military_cavalry_european_hussar_diorama_entity = {
 	entity = "military_cavalry_european_hussar_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -76,10 +66,7 @@ military_cavalry_european_hussar_diorama_entity = {
 				has_culture_graphics = balkan
 			}
 		}
-		NOT = {
-			scope:country = { always = no } # vanilla ref 'c:SPC' not present in this mod 
-			has_dlc_feature = ip4_cosmetics
-		}
+
 
 		scope:combat_unit_type = unit_type:combat_unit_type_hussars
 	}
@@ -89,7 +76,7 @@ military_cavalry_european_dragoon_diorama_entity = {
 	entity = "military_cavalry_european_dragoon_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -99,10 +86,7 @@ military_cavalry_european_dragoon_diorama_entity = {
 				has_culture_graphics = balkan
 			}
 		}
-		NOT = {
-			scope:country = { always = no } # vanilla ref 'c:SPC' not present in this mod 
-			has_dlc_feature = ip4_cosmetics
-		}
+
 
 		scope:combat_unit_type = unit_type:combat_unit_type_dragoons
 	}
@@ -112,7 +96,7 @@ military_cavalry_european_cuirassier_diorama_entity = {
 	entity = "military_cavalry_european_cuirassier_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -122,10 +106,7 @@ military_cavalry_european_cuirassier_diorama_entity = {
 				has_culture_graphics = balkan
 			}
 		}
-		NOT = {
-			scope:country = { always = no } # vanilla ref 'c:SPC' not present in this mod 
-			has_dlc_feature = ip4_cosmetics
-		}
+
 
 		scope:combat_unit_type = unit_type:combat_unit_type_cuirassiers
 	}
@@ -135,7 +116,7 @@ military_cavalry_european_lancer_diorama_entity = {
 	entity = "military_cavalry_european_lancer_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -145,11 +126,8 @@ military_cavalry_european_lancer_diorama_entity = {
 				has_culture_graphics = balkan
 			}
 		}
-		NOT = {
-			scope:country = { always = no } # vanilla ref 'c:SPC' not present in this mod 
-			has_dlc_feature = ip4_cosmetics
-		}
-		
+
+
 		scope:combat_unit_type = unit_type:combat_unit_type_lancers
 	}
 }
@@ -163,7 +141,7 @@ military_cavalry_african_hussar_diorama_entity = {
 	entity = "military_cavalry_african_hussar_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = african
@@ -177,7 +155,7 @@ military_cavalry_african_dragoon_diorama_entity = {
 	entity = "military_cavalry_african_dragoon_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = african
@@ -190,7 +168,7 @@ military_cavalry_african_cuirassier_diorama_entity = {
 	entity = "military_cavalry_african_cuirassier_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = african
@@ -203,7 +181,7 @@ military_cavalry_african_lancer_diorama_entity = {
 	entity = "military_cavalry_african_lancer_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = african
@@ -222,7 +200,7 @@ military_cavalry_arabic_hussar_diorama_entity = {
 	entity = "military_cavalry_arabic_hussar_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = arabic
@@ -236,7 +214,7 @@ military_cavalry_arabic_dragoon_diorama_entity = {
 	entity = "military_cavalry_arabic_dragoon_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = arabic
@@ -249,7 +227,7 @@ military_cavalry_arabic_cuirassier_diorama_entity = {
 	entity = "military_cavalry_arabic_cuirassier_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = arabic
@@ -262,7 +240,7 @@ military_cavalry_arabic_lancer_diorama_entity = {
 	entity = "military_cavalry_arabic_lancer_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = arabic
@@ -281,7 +259,7 @@ military_cavalry_eastasian_hussar_diorama_entity = {
 	entity = "military_cavalry_eastasian_hussar_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = east_asian
@@ -295,7 +273,7 @@ military_cavalry_eastasian_dragoon_diorama_entity = {
 	entity = "military_cavalry_eastasian_dragoon_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = east_asian
@@ -308,7 +286,7 @@ military_cavalry_eastasian_cuirassier_diorama_entity = {
 	entity = "military_cavalry_eastasian_cuirassier_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = east_asian
@@ -321,7 +299,7 @@ military_cavalry_eastasian_lancer_diorama_entity = {
 	entity = "military_cavalry_eastasian_lancer_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = east_asian
@@ -340,7 +318,7 @@ military_cavalry_southasian_hussar_diorama_entity = {
 	entity = "military_cavalry_southasian_hussar_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = south_asian
@@ -354,7 +332,7 @@ military_cavalry_southasian_dragoon_diorama_entity = {
 	entity = "military_cavalry_southasian_dragoon_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = south_asian
@@ -367,7 +345,7 @@ military_cavalry_southasian_cuirassier_diorama_entity = {
 	entity = "military_cavalry_southasian_cuirassier_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = south_asian
@@ -380,7 +358,7 @@ military_cavalry_southasian_lancer_diorama_entity = {
 	entity = "military_cavalry_southasian_lancer_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			has_culture_graphics = south_asian
@@ -399,7 +377,7 @@ military_cavalry_nativeamerican_hussar_diorama_entity = {
 	entity = "military_cavalry_nativeamerican_hussar_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -416,7 +394,7 @@ military_cavalry_nativeamerican_dragoon_diorama_entity = {
 	entity = "military_cavalry_nativeamerican_dragoon_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -432,7 +410,7 @@ military_cavalry_nativeamerican_cuirassier_diorama_entity = {
 	entity = "military_cavalry_nativeamerican_cuirassier_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {
@@ -448,7 +426,7 @@ military_cavalry_nativeamerican_lancer_diorama_entity = {
 	entity = "military_cavalry_nativeamerican_lancer_entity"
 
 	group = "cavalry"
-	
+
 	trigger = {
 		scope:culture = {
 			OR = {

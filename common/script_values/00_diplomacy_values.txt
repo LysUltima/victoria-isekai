@@ -167,16 +167,7 @@ liberty_desire_weekly_change = { #AKA liberty_desire_weekly_progress
 	}
 
 	# Special - DEI collapses if independent
-	if = {
-		limit = {
-			root.first_country = { always = no } # vanilla ref 'c:NET' not present in this mod 
-			root.second_country = { always = no } # vanilla ref 'c:DEI' not present in this mod 
-		}
-		add = {
-			value = -0.2
-			desc = "DEI"
-		}
-	}
+
 
 	#If there is a slave revolt movement, overlords' armies are useful.
 	if = {
@@ -206,30 +197,12 @@ liberty_desire_weekly_change = { #AKA liberty_desire_weekly_progress
 			}
 			multiply = -1
 			min = -0.10
-			if = { #special case in Cuban independence
-				limit = {
-					root.second_country = {
-						always = no
-					}
-				}
-				multiply = -2 #turn value positive
-				max = 0.25
-			}
+
 		}
 	}
 
 	# Cuban Afro-Caribeno
-	if = {
-		limit = {
-			root.second_country = {
-				always = no # vanilla ref 'c:CUB' not present in this mod
-				always = no
-			}
-		}
-		root.second_country = {
-			# removed effect block: was culture = cu:afro_caribeno (no mod analogue)
-		}
-	}
+
 
 	#Any Sovereignists in government
 	if = {
@@ -834,8 +807,8 @@ liberty_desire_weekly_change = { #AKA liberty_desire_weekly_progress
 			}
 		}
 		 add = {
-		 	value = -0.1 desc =
-		 	"LIBERTY_DESIRE_WEEKLY_CHANGE_SACRED_CIVICS"
+			value = -0.1 desc =
+			"LIBERTY_DESIRE_WEEKLY_CHANGE_SACRED_CIVICS"
 		 }
 	}
 
@@ -862,7 +835,7 @@ liberty_desire_weekly_change = { #AKA liberty_desire_weekly_progress
 			ROOT.first_country = { has_law_or_variant = law_type:law_isolationism }
 		}
 		add = {
-            value = 0.2
+			value = 0.2
 			desc = "LIBERTY_DESIRE_WEEKLY_CHANGE_OVERLORD_ISOLATIONISM"
 		}
 	}

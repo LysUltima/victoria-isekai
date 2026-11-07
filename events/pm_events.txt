@@ -342,7 +342,9 @@ pm_events.4 = {
 				has_ideology = ideology:ideology_pacifist
 			}
 			save_scope_as = pacifist_leader
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -386,6 +388,10 @@ pm_events.4 = {
 			}
 		}
 		default_option = yes
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:pacifist_leader }
 	}
 }
 

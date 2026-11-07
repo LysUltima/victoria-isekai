@@ -1,0 +1,1479 @@
+﻿##########################################################################################################################################################################
+########################################################################### DEFAULT ######################################################################################
+##########################################################################################################################################################################
+gui_skin_base = {
+	category = ui_skin_theme
+	bulk_selection_group = "default"
+
+	ui_skin = "default"
+
+	dynamic_weight = 1.0
+}
+
+main_menu_image_base = {
+	category = main_menu_image_theme
+	video = "gfx/interface/illustrations/frontend/menu_video.bk2"
+	bulk_selection_group = "default"
+}
+
+papermap_base = {
+	category = papermap_theme
+	bulk_selection_group = "default"
+
+	papermap_textures_file = "gfx/map/textures/maptextures.settings"
+
+	map_object = {
+		pdxmesh = "papermap_extension_top_mesh"
+		locator = "papermap_extension_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_extension_bottom_mesh"
+		locator = "papermap_extension_bottom_locator"
+	}
+
+	dynamic_weight = 1.0
+}
+
+table_base = {
+	category = table_top_theme
+	bulk_selection_group = "default"
+
+	map_object = {
+		pdxmesh = "papermap_table_top_mesh"
+		locator = "papermap_table_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_table_bottom_mesh"
+		locator = "papermap_table_bottom_locator"
+	}
+
+	dynamic_weight = 1.0
+}
+
+papermap_object_divider = {
+	category = table_asset_1_theme
+	bulk_selection_group = "default"
+
+	map_object = {
+		pdxmesh = papermap_object_divider_mesh
+		locator = papermap_object_1_locator
+	}
+
+	dynamic_weight = 1.0
+}
+
+papermap_object_compass = {
+	category = table_asset_2_theme
+	bulk_selection_group = "default"
+
+	map_object = {
+		pdxmesh = papermap_object_compass_mesh
+		locator = papermap_object_2_locator
+	}
+
+	dynamic_weight = 1.0
+}
+
+papermap_cigarbox = {
+	category = table_asset_3_theme
+	bulk_selection_group = "default"
+
+	map_object = {
+		pdxmesh = papermap_cigarbox_01_mesh
+		locator = papermap_object_3_locator
+	}
+
+	dynamic_weight = 1.0
+}
+
+papermap_letter = {
+	category = table_asset_4_theme
+	bulk_selection_group = "default"
+
+	map_object = {
+		pdxmesh = papermap_letter_mesh
+		locator = papermap_object_4_locator
+	}
+
+	dynamic_weight = 1.0
+}
+
+papermap_cloth_default = {
+	category = table_asset_cloth_theme
+	bulk_selection_group = "default"
+
+	map_object = {
+		pdxmesh = papermap_cloth_01_mesh
+		locator = papermap_cloth_locator
+	}
+
+	dynamic_weight = 1.0
+}
+
+########## PAST ##########
+main_menu_image_og = {
+	category = main_menu_image_theme
+	video = "gfx/interface/illustrations/frontend/menu_video_og.bk2"
+}
+
+
+
+
+
+##########################################################################################################################################################################
+############################################################################# VOTP #######################################################################################
+##########################################################################################################################################################################
+gui_skin_votp = {
+	category = ui_skin_theme
+	dlc = "dlc004"
+	bulk_selection_group = "votp"
+
+	ui_skin = "votp"
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				votp_theme_france_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				votp_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+main_menu_image_votp = {
+	category = main_menu_image_theme
+	dlc = "dlc004"
+	bulk_selection_group = "votp"
+
+	video = "dlc/dlc004_voice_of_the_people/gfx/interface/illustrations/frontend/menu_video.bk2"
+}
+
+papermap_votp = {
+	category = papermap_theme
+	dlc = "dlc004"
+	bulk_selection_group = "votp"
+
+	papermap_textures_file = "gfx/map/textures/maptextures_votp.settings"
+
+	map_object = {
+		pdxmesh = "papermap_extension_top_votp_mesh"
+		locator = "papermap_extension_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_extension_bottom_votp_mesh"
+		locator = "papermap_extension_bottom_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				votp_theme_france_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				votp_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+table_votp = {
+	category = table_top_theme
+	dlc = "dlc004"
+	bulk_selection_group = "votp"
+
+	map_object = {
+		pdxmesh = "papermap_table_top_votp_mesh"
+		locator = "papermap_table_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_table_bottom_votp_mesh"
+		locator = "papermap_table_bottom_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				votp_theme_france_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				votp_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_napoleonic_medal = {
+	category = table_asset_1_theme
+	dlc = "dlc004"
+	bulk_selection_group = "votp"
+
+	map_object = {
+		pdxmesh = papermap_napoleonic_medal_mesh
+		locator = papermap_object_1_locator
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				votp_theme_france_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				votp_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_revolutionary_cockade = {
+	category = table_asset_2_theme
+	dlc = "dlc004"
+	bulk_selection_group = "votp"
+
+	map_object = {
+		pdxmesh = papermap_revolutionary_cockade_mesh
+		locator = papermap_object_2_locator
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				votp_theme_france_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				votp_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_grapes = {
+	category = table_asset_3_theme
+	dlc = "dlc004"
+	bulk_selection_group = "votp"
+
+	map_object = {
+		pdxmesh = papermap_grapes_mesh
+		locator = papermap_object_3_locator
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				votp_theme_france_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				votp_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_homemade_bomb = {
+	category = table_asset_4_theme
+	dlc = "dlc004"
+	bulk_selection_group = "votp"
+
+	map_object = {
+		pdxmesh = papermap_homemade_bomb_mesh
+		locator = papermap_object_4_locator
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				votp_theme_france_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				votp_theme_trigger = yes
+			}
+			add = 10
+		}
+
+		if = {
+			limit = {
+				has_law = law_type:law_anarchy
+			}
+			add = 250
+		}
+	}
+}
+
+
+
+
+
+##########################################################################################################################################################################
+############################################################################# AP1 ########################################################################################
+##########################################################################################################################################################################
+gui_skin_ap1 = {
+	category = ui_skin_theme
+	dlc = "dlc007"
+	bulk_selection_group = "ap1"
+
+	dynamic_weight = 2.0
+
+	ui_skin = "ap1"
+}
+
+papermap_ap1 = {
+	category = papermap_theme
+	dlc = "dlc007"
+	bulk_selection_group = "ap1"
+
+	papermap_textures_file = "gfx/map/textures/maptextures_ap1.settings"
+
+	map_object = {
+		pdxmesh = "papermap_extension_top_ap1_mesh"
+		locator = "papermap_extension_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_extension_bottom_ap1_mesh"
+		locator = "papermap_extension_bottom_locator"
+	}
+
+	dynamic_weight = 2.0
+}
+
+table_ap1 = {
+	category = table_top_theme
+	dlc = "dlc007"
+	bulk_selection_group = "ap1"
+
+	map_object = {
+		pdxmesh = "papermap_table_top_ap1_mesh"
+		locator = "papermap_table_top_ap1_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_table_bottom_ap1_mesh"
+		locator = "papermap_table_bottom_ap1_locator"
+	}
+
+	dynamic_weight = 2.0
+}
+
+papermap_hongshanstatue = {
+	category = table_asset_1_theme
+	dlc = "dlc007"
+	bulk_selection_group = "ap1"
+
+	map_object = {
+		pdxmesh = "papermap_hongshanstatue_mesh"
+		locator = "papermap_object_1_locator"
+	}
+
+	dynamic_weight = 2.0
+}
+
+papermap_candle = {
+	category = table_asset_2_theme
+	dlc = "dlc007"
+	bulk_selection_group = "ap1"
+
+	map_object = {
+		entity = "papermap_candle_entity"
+		locator = "papermap_object_2_locator"
+	}
+
+	dynamic_weight = 2.0
+}
+
+papermap_pocketwatch = {
+	category = table_asset_3_theme
+	dlc = "dlc007"
+	bulk_selection_group = "ap1"
+
+	map_object = {
+		pdxmesh = "papermap_walthamwatch_mesh"
+		locator = "papermap_object_3_locator"
+	}
+
+	dynamic_weight = 2.0
+}
+
+papermap_tainostatue = {
+	category = table_asset_4_theme
+	dlc = "dlc007"
+	bulk_selection_group = "ap1"
+
+	map_object = {
+		entity = "papermap_tainostatue_entity"
+		locator = "papermap_object_4_locator"
+	}
+
+	dynamic_weight = 2.0
+}
+
+########### ep1 ###########
+main_menu_image_ep1 = {
+	category = main_menu_image_theme
+	dlc = "dlc010"
+
+	video = "dlc/dlc010_ep1/gfx/interface/illustrations/frontend/menu_video.bk2"
+}
+
+papermap_ep1 = {
+	category = papermap_theme
+	dlc = "dlc010"
+
+	papermap_textures_file = "gfx/map/textures/maptextures_ep1.settings"
+
+	map_object = {
+		pdxmesh = "papermap_extension_top_ep1_mesh"
+		locator = "papermap_extension_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_extension_bottom_ep1_mesh"
+		locator = "papermap_extension_bottom_locator"
+	}
+
+	dynamic_weight = { #coin toss if this of ap1 map should show
+		value = root.gdp
+		round = 1
+		modulo = 2
+		add = 1.5
+	}
+}
+
+
+
+
+
+
+##########################################################################################################################################################################
+############################################################################# IP2 ########################################################################################
+##########################################################################################################################################################################
+gui_skin_ip2 = {
+	category = ui_skin_theme
+	dlc = "dlc011"
+	bulk_selection_group = "ip2"
+
+	ui_skin = "ip2"
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				poe_theme_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+papermap_ip2 = {
+	category = papermap_theme
+	dlc = "dlc011"
+	bulk_selection_group = "ip2"
+
+	papermap_textures_file = "gfx/map/textures/maptextures_ip2.settings"
+
+	map_object = {
+		pdxmesh = "papermap_extension_top_ip2_mesh"
+		locator = "papermap_extension_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_extension_bottom_ip2_mesh"
+		locator = "papermap_extension_bottom_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				poe_theme_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+table_ip2 = {
+	category = table_top_theme
+	dlc = "dlc011"
+	bulk_selection_group = "ip2"
+
+	map_object = {
+		pdxmesh = "papermap_table_top_ip2_mesh"
+		locator = "papermap_table_top_ip2_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_table_bottom_ip2_mesh"
+		locator = "papermap_table_bottom_ip2_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				poe_theme_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+papermap_yali = {
+	category = table_asset_2_theme
+	dlc = "dlc011"
+	bulk_selection_group = "ip2"
+
+	map_object = {
+		pdxmesh = "papermap_yali_01_mesh"
+		locator = "papermap_object_2_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				poe_theme_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+papermap_netturpetti = {
+	category = table_asset_1_theme
+	dlc = "dlc011"
+	bulk_selection_group = "ip2"
+
+	map_object = {
+		pdxmesh = "papermap_netturpetti_mesh"
+		locator = "papermap_object_1_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				poe_theme_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+papermap_indianknife = {
+	category = table_asset_3_theme
+	dlc = "dlc011"
+	bulk_selection_group = "ip2"
+
+	map_object = {
+		pdxmesh = "papermap_indian_knife_mesh"
+		locator = "papermap_object_indian_knife_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				poe_theme_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+papermap_hairbrooch = {
+	category = table_asset_4_theme
+	dlc = "dlc011"
+	bulk_selection_group = "ip2"
+
+	map_object = {
+		pdxmesh = "papermap_indian_hairbrooch_mesh"
+		locator = "papermap_object_indian_hairbrooch_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				poe_theme_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+papermap_cloth_indian = {
+	category = table_asset_cloth_theme
+	dlc = "dlc011"
+	bulk_selection_group = "ip2"
+
+	map_object = {
+		pdxmesh = papermap_cloth_ip2_mesh
+		locator = papermap_cloth_locator
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				poe_theme_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+papermap_signup_reward = {
+	category = papermap_theme
+
+	selectable = {
+		custom_tooltip = {
+			text = SUBSCRIBED_TO_NEWSLETTER
+			OR = {
+				# The account inventory may not be ready at game start. To prevent resetting the theme to default, we treat it as selectable if it’s already selected.
+				is_theme_selected = papermap_signup_reward
+				has_account_item = papermap_signup_reward
+			}
+		}
+	}
+
+	papermap_textures_file = "gfx/map/textures/maptextures_newsletter_bonus.settings"
+
+	map_object = {
+		pdxmesh = "papermap_extension_top_newsletter_bonus_mesh"
+		locator = "papermap_extension_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_extension_bottom_newsletter_bonus_mesh"
+		locator = "papermap_extension_bottom_locator"
+	}
+}
+
+
+
+
+
+##########################################################################################################################################################################
+############################################################################# MP1 ########################################################################################
+##########################################################################################################################################################################
+main_menu_image_mp1 = {
+	category = main_menu_image_theme
+	dlc = "dlc013"
+
+	video = "dlc/dlc013_mp1/gfx/interface/illustrations/frontend/menu_video.bk2"
+}
+
+##########################################################################################################################################################################
+############################################################################# IP3 ########################################################################################
+##########################################################################################################################################################################
+gui_skin_ip3 = {
+	category = ui_skin_theme
+	dlc = "dlc014"
+	bulk_selection_group = "ip3"
+
+	ui_skin = "ip3"
+
+	dynamic_weight = {
+		if = {
+			limit = {
+				na_theme_austria_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				na_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_ip3 = {
+	category = papermap_theme
+	dlc = "dlc014"
+	bulk_selection_group = "ip3"
+
+	papermap_textures_file = "gfx/map/textures/maptextures_ip3.settings"
+
+	map_object = {
+		pdxmesh = "papermap_extension_top_ip3_mesh"
+		locator = "papermap_extension_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_extension_bottom_ip3_mesh"
+		locator = "papermap_extension_bottom_locator"
+	}
+
+	dynamic_weight = {
+		if = {
+			limit = {
+				na_theme_austria_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				na_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+table_ip3 = {
+	category = table_top_theme
+	dlc = "dlc014"
+	bulk_selection_group = "ip3"
+
+	map_object = {
+		pdxmesh = "papermap_table_top_ip3_mesh"
+		locator = "papermap_table_top_ip3_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_table_bottom_ip3_mesh"
+		locator = "papermap_table_bottom_ip3_locator"
+	}
+
+	dynamic_weight = {
+		if = {
+			limit = {
+				na_theme_austria_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				na_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_pipe = {
+	category = table_asset_1_theme
+	dlc = "dlc014"
+	bulk_selection_group = "ip3"
+
+	map_object = {
+		entity = "papermap_pipe_entity"
+		locator = "ip3_1"
+	}
+
+	dynamic_weight = {
+		if = {
+			limit = {
+				na_theme_austria_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				na_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_bugbearflask = {
+	category = table_asset_2_theme
+	dlc = "dlc014"
+	bulk_selection_group = "ip3"
+
+	map_object = {
+		pdxmesh = "papermap_bugbearflask_mesh"
+		locator = "ip3_2"
+	}
+
+	dynamic_weight = {
+		if = {
+			limit = {
+				na_theme_austria_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				na_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_coffeecup = {
+	category = table_asset_3_theme
+	dlc = "dlc014"
+	bulk_selection_group = "ip3"
+
+	map_object = {
+		entity = "papermap_coffeecup_entity"
+		locator = "ip3_3"
+	}
+
+	dynamic_weight = {
+		if = {
+			limit = {
+				na_theme_austria_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				na_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_sausage = {
+	category = table_asset_4_theme
+	dlc = "dlc014"
+	bulk_selection_group = "ip3"
+
+	map_object = {
+		pdxmesh = "papermap_kolbasz_mesh"
+		locator = "ip3_4"
+	}
+
+	dynamic_weight = {
+		if = {
+			limit = {
+				na_theme_austria_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				na_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+
+
+
+
+##########################################################################################################################################################################
+############################################################################# IP4 ########################################################################################
+##########################################################################################################################################################################
+
+gui_skin_ip4 = {
+	category = ui_skin_theme
+	dlc = "dlc016"
+	bulk_selection_group = "ip4"
+	ui_skin = "ip4"
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				itl_theme_iberia_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				itl_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_ip4_spain = {
+	category = papermap_theme
+	dlc = "dlc016"
+	bulk_selection_group = "ip4"
+
+	papermap_textures_file = "gfx/map/textures/maptextures_ip4_spain.settings"
+
+	map_object = {
+		pdxmesh = "papermap_extension_top_ip4_mesh"
+		locator = "papermap_extension_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_extension_bottom_ip4_spain_mesh"
+		locator = "papermap_extension_bottom_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				itl_theme_spain_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				itl_spanish_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_ip4_portugal = {
+	category = papermap_theme
+	dlc = "dlc016"
+
+	papermap_textures_file = "gfx/map/textures/maptextures_ip4_portugal.settings"
+
+	map_object = {
+		pdxmesh = "papermap_extension_top_ip4_mesh"
+		locator = "papermap_extension_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_extension_bottom_ip4_portugal_mesh"
+		locator = "papermap_extension_bottom_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				itl_theme_portugal_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				itl_portuguese_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+table_ip4 = {
+	category = table_top_theme
+	dlc = "dlc016"
+	bulk_selection_group = "ip4"
+
+	map_object = {
+		pdxmesh = "papermap_table_top_ip4_mesh"
+		locator = "papermap_table_top_ip4_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_table_bottom_ip4_mesh"
+		locator = "papermap_table_bottom_ip4_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				itl_theme_iberia_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				itl_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_portugese = {
+	category = table_asset_1_theme
+	dlc = "dlc016"
+	bulk_selection_group = "ip4"
+
+	map_object = {
+		entity = "portuguesesardines_entity"
+		locator = "ip4_1"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				itl_theme_iberia_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				itl_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_philippines = {
+	category = table_asset_2_theme
+	dlc = "dlc016"
+	bulk_selection_group = "ip4"
+
+	map_object = {
+		entity = "philippines_carabaomango_entity"
+		locator = "ip4_2"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				itl_theme_iberia_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				itl_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_cigar = {
+	category = table_asset_3_theme
+	dlc = "dlc016"
+	bulk_selection_group = "ip4"
+
+	map_object = {
+		entity = "papermap_cubancigar_entity"
+		locator = "ip4_3"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				itl_theme_iberia_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				itl_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+papermap_beretyrosary = {
+	category = table_asset_4_theme
+	dlc = "dlc016"
+	bulk_selection_group = "ip4"
+
+	map_object = {
+		pdxmesh = "carlist_beret_mesh"
+		locator = "ip4_4"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				itl_theme_iberia_trigger = yes
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				itl_theme_trigger = yes
+			}
+			add = 10
+		}
+	}
+}
+
+
+##########################################################################################################################################################################
+############################################################################# EP2 ########################################################################################
+##########################################################################################################################################################################
+
+
+gui_skin_ep2 = {
+	category = ui_skin_theme
+	dlc = "dlc018"
+	bulk_selection_group = "ep2"
+	ui_skin = "ep2"
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				tgw_theme_japan_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+main_menu_image_ep2 = {
+	category = main_menu_image_theme
+	dlc = "dlc018"
+	bulk_selection_group = "ep2"
+
+	video = "dlc/dlc018_ep2/gfx/interface/illustrations/frontend/menu_video.bk2"
+}
+
+
+papermap_ep2 = {
+	category = papermap_theme
+	dlc = "dlc018"
+	bulk_selection_group = "ep2"
+
+	papermap_textures_file = "gfx/map/textures/maptextures_ep2.settings"
+
+	map_object = {
+		pdxmesh = "papermap_extension_top_ep2_mesh"
+		locator = "papermap_extension_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_extension_bottom_ep2_mesh"
+		locator = "papermap_extension_bottom_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				tgw_theme_japan_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+papermap_tatami_mat = {
+	category = table_top_theme
+	dlc = "dlc018"
+	bulk_selection_group = "ep2"
+
+	map_object = {
+		pdxmesh = "papermap_table_top_ep2_mesh"
+		locator = "papermap_table_top_ip4_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_table_bottom_ep2_mesh"
+		locator = "papermap_table_bottom_ip4_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				tgw_theme_japan_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+papermap_japanese_lacquerware_box = {
+	category = table_asset_1_theme
+	dlc = "dlc018"
+	bulk_selection_group = "ep2"
+
+	map_object = {
+		entity = "lacqueredbox_entity"
+		locator = "ip4_1"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				tgw_theme_japan_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+papermap_japanese_bonsai_tree = {
+	category = table_asset_2_theme
+	dlc = "dlc018"
+	bulk_selection_group = "ep2"
+
+	map_object = {
+		entity = "bonsai_tree_entity"
+		locator = "ip4_2"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				tgw_theme_japan_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+papermap_japanese_dango = {
+	category = table_asset_3_theme
+	dlc = "dlc018"
+	bulk_selection_group = "ep2"
+
+	map_object = {
+		entity = "dango_entity"
+		locator = "ip4_3"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				tgw_theme_japan_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+papermap_japanese_dirk = {
+	category = table_asset_4_theme
+	dlc = "dlc018"
+	bulk_selection_group = "ep2"
+
+	map_object = {
+		pdxmesh = "naval_dagger_mesh"
+		locator = "ip4_4"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+		if = {
+			limit = {
+				tgw_theme_japan_trigger = yes
+			}
+			add = 100
+		}
+	}
+}
+
+
+
+
+##########################################################################################################################################################################
+############################################################################# IP5 ########################################################################################
+##########################################################################################################################################################################
+
+gui_skin_ip5 = {
+	category = ui_skin_theme
+	dlc = "dlc019"
+	bulk_selection_group = "ip5"
+	ui_skin = "ip5"
+
+	dynamic_weight = {
+		value = 0
+
+
+	}
+}
+
+main_menu_image_ip5 = {
+	category = main_menu_image_theme
+	dlc = "dlc019"
+	bulk_selection_group = "ip5"
+
+	video = "dlc/dlc019_ip5/gfx/interface/illustrations/frontend/menu_video.bk2"
+}
+
+
+papermap_ip5 = {
+	category = papermap_theme
+	dlc = "dlc019"
+	bulk_selection_group = "ip5"
+
+	papermap_textures_file = "gfx/map/textures/maptextures_ip5.settings"
+
+	map_object = {
+		pdxmesh = "papermap_extension_top_ip5_mesh"
+		locator = "papermap_extension_top_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_extension_bottom_ip5_mesh"
+		locator = "papermap_extension_bottom_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+
+	}
+}
+
+papermap_ip5_table = {
+	category = table_top_theme
+	dlc = "dlc019"
+	bulk_selection_group = "ip5"
+
+	map_object = {
+		pdxmesh = "papermap_table_top_ip5_mesh"
+		locator = "papermap_table_top_ip4_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_table_bottom_ip5_mesh"
+		locator = "papermap_table_bottom_ip4_locator"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+
+	}
+}
+
+papermap_ip5_asset_1 = {
+	category = table_asset_1_theme
+	dlc = "dlc019"
+	bulk_selection_group = "ip5"
+
+	map_object = {
+		pdxmesh = "cigarettes_mesh"
+		locator = "ip4_1"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+
+	}
+}
+
+papermap_ip5_asset_2 = {
+	category = table_asset_2_theme
+	dlc = "dlc019"
+	bulk_selection_group = "ip5"
+
+	map_object = {
+		entity = "tableasset_imperialcoronationegg_entity"
+		locator = "ip4_2"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+
+	}
+}
+
+papermap_ip5_asset_3 = {
+	category = table_asset_3_theme
+	dlc = "dlc019"
+	bulk_selection_group = "ip5"
+
+	map_object = {
+		entity = "tableasset_caviarblini_entity"
+		locator = "ip4_3"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+
+	}
+}
+
+papermap_ip5_asset_4 = {
+	category = table_asset_4_theme
+	dlc = "dlc019"
+	bulk_selection_group = "ip5"
+
+	map_object = {
+		pdxmesh = "telegram_ip5_mesh"
+		locator = "ip4_4"
+	}
+
+	dynamic_weight = {
+		value = 0
+
+
+	}
+}

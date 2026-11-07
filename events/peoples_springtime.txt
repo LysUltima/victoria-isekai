@@ -73,7 +73,9 @@ peoples_springtime.1 = {
 						has_role_of_type = agitator
 					}
 					save_scope_as = radical_ig_leader
-				}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			}
 		}
 	}
@@ -108,9 +110,9 @@ peoples_springtime.1 = {
 		}
 	}
 
-    option = {
+	option = {
 		name = peoples_springtime.1.b
-        default_option = yes
+		default_option = yes
 		add_modifier = {
 			name = modifier_radical_movement_enhancement
 			days = normal_modifier_time
@@ -121,17 +123,21 @@ peoples_springtime.1 = {
 			value = small_radicals
 			strata = lower
 		}
-        if = {
+		if = {
 			limit = {
 				exists = scope:radical_ig_leader
 			}
-	        scope:radical_ig_leader = {
-	        	add_modifier = {
-	        		name = treasonous_traitor
-	        		days = normal_modifier_time
-	        	}
-	        }
+			scope:radical_ig_leader = {
+				add_modifier = {
+					name = treasonous_traitor
+					days = normal_modifier_time
+				}
+			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:radical_ig_leader }
 	}
 }
 
@@ -173,7 +179,7 @@ peoples_springtime.2 = {
 				leader = {
 					NOR = {
 						has_ideology = ideology:ideology_radical
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_anarchist
 						has_ideology = ideology:ideology_vanguardist
 					}
@@ -196,18 +202,18 @@ peoples_springtime.2 = {
 		}
 	}
 
-    option = {
+	option = {
 		name = peoples_springtime.2.b
-        default_option = yes
-        scope:radical_ig = {
-        	leader = {
+		default_option = yes
+		scope:radical_ig = {
+			leader = {
 				set_ideology = ideology:ideology_radical
 				add_modifier = {
 					name = treasonous_traitor
 					days = normal_modifier_time
 				}
-		 	}
-        }
+			}
+		}
 	}
 }
 
@@ -288,7 +294,9 @@ peoples_springtime.3 = {
 				}
 			}
 		}
-	}
+
+		scope:radical_ig_leader ?= { set_temporary_event_immortality = { DURATION = 3 } }
+}
 
 	duration = 3
 
@@ -337,6 +345,10 @@ peoples_springtime.3 = {
 		}
 		default_option = yes
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:radical_ig_leader }
+	}
 }
 
 # Propagation
@@ -372,7 +384,7 @@ peoples_springtime.4 = {
 					leader = {
 						NOR = {
 							has_ideology = ideology:ideology_radical
-							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_communist_leader
 							has_ideology = ideology:ideology_anarchist
 							has_ideology = ideology:ideology_vanguardist
 						}
@@ -407,7 +419,7 @@ peoples_springtime.4 = {
 						leader = {
 							NOR = {
 								has_ideology = ideology:ideology_radical
-								has_ideology = ideology:ideology_communist
+								has_ideology = ideology:ideology_communist_leader
 								has_ideology = ideology:ideology_anarchist
 								has_ideology = ideology:ideology_vanguardist
 							}
@@ -522,7 +534,7 @@ peoples_springtime.6 = { # Fired by on_action
 	desc = peoples_springtime.6.d
 	flavor = peoples_springtime.6.f
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	duration = 3
 
@@ -551,6 +563,8 @@ peoples_springtime.6 = { # Fired by on_action
 		}
 		default_option = yes
 	}
+
+	fire_only_once = yes
 }
 
 # The Revolution Victorious
@@ -832,7 +846,9 @@ peoples_springtime.9 = {
 		}
 		ruler = {
 			save_scope_as = ruler_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -1090,6 +1106,10 @@ peoples_springtime.9 = {
 			}
 			add_civil_war_progress = revolution_advance_large
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:ruler_scope }
 	}
 }
 

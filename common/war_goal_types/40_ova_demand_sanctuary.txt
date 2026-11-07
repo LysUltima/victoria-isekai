@@ -12,6 +12,10 @@ ova_demand_sanctuary = {
 
 	kind = custom
 
+	mirrored_wargoal = {
+		method = no_mirror
+	}
+
 	settings = {
 		require_target_be_part_of_war
 
@@ -26,7 +30,7 @@ ova_demand_sanctuary = {
 	target_type = country
 
 	possible = {
-        always = yes
+		always = yes
 	}
 
 	valid = {

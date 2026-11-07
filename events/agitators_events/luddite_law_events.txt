@@ -153,7 +153,9 @@ luddite_law_events.2 = {
 			}
 			leader = {
 				save_scope_as = simple_living_leader_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			save_scope_as = simple_living_ig_scope
 		}
 	}
@@ -183,6 +185,10 @@ luddite_law_events.2 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:simple_living_leader_scope }
 	}
 }
 
@@ -405,7 +411,9 @@ luddite_law_events.5 = {
 			save_scope_as = intelligentsia_ig
 			leader = {
 				save_scope_as = intelligentsia_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		random_scope_state = {
 			limit = {
@@ -437,6 +445,10 @@ luddite_law_events.5 = {
 		add_enactment_modifier = {
 			name = modifier_simple_town_pro_intelligentsia
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:intelligentsia_leader }
 	}
 }
 

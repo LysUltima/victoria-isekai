@@ -148,8 +148,8 @@ lobby_events.40 = {
 			}
 		}
 		currently_enacting_law = {
-    		save_scope_as = relevant_law_scope
-    	}
+			save_scope_as = relevant_law_scope
+		}
 	}
 
 	cancellation_trigger = {
@@ -421,7 +421,9 @@ lobby_events.31 = {
 				}
 			}
 		}
-	}
+
+		scope:relevant_ig_leader ?= { set_temporary_event_immortality = { DURATION = 3 } }
+}
 
 	cancellation_trigger = {
 		OR = {
@@ -460,6 +462,10 @@ lobby_events.31 = {
 				is_decaying = yes
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:relevant_ig_leader }
 	}
 }
 
@@ -1019,7 +1025,9 @@ lobby_events.36 = {
 			save_scope_as = relevant_ig
 			leader = {
 				save_scope_as = relevant_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		random_political_lobby = {
 			limit = {
@@ -1037,8 +1045,8 @@ lobby_events.36 = {
 			}
 		}
 		currently_enacting_law = {
-    		save_scope_as = relevant_law_scope
-    	}
+			save_scope_as = relevant_law_scope
+		}
 	}
 
 	cancellation_trigger = {
@@ -1072,6 +1080,10 @@ lobby_events.36 = {
 			value = small_radicals
 			interest_group = scope:relevant_ig
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:relevant_ig_leader }
 	}
 }
 
@@ -1218,8 +1230,8 @@ lobby_events.37 = {
 			}
 		}
 		currently_enacting_law = {
-    		save_scope_as = relevant_law_scope
-    	}
+			save_scope_as = relevant_law_scope
+		}
 	}
 
 	cancellation_trigger = {
@@ -1395,8 +1407,8 @@ lobby_events.38 = {
 			}
 		}
 		currently_enacting_law = {
-    		save_scope_as = relevant_law_scope
-    	}
+			save_scope_as = relevant_law_scope
+		}
 	}
 
 	cancellation_trigger = {
@@ -1489,7 +1501,9 @@ lobby_events.39 = {
 			save_scope_as = relevant_ig
 			leader = {
 				save_scope_as = relevant_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		random_political_lobby = {
 			limit = {
@@ -1504,8 +1518,8 @@ lobby_events.39 = {
 			save_scope_as = relevant_lobby
 		}
 		currently_enacting_law = {
-    		save_scope_as = relevant_law_scope
-    	}
+			save_scope_as = relevant_law_scope
+		}
 	}
 
 	cancellation_trigger = {
@@ -1538,6 +1552,10 @@ lobby_events.39 = {
 				is_decaying = yes
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:relevant_ig_leader }
 	}
 }
 
@@ -1849,7 +1867,9 @@ lobby_events.54 = {
 				save_scope_as = agitator_home_country
 			}
 			save_scope_as = relevant_agitator
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_political_lobby = {
 			limit = {
 				OR = {
@@ -1886,6 +1906,10 @@ lobby_events.54 = {
 			country = scope:agitator_home_country
 			value = -10
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:relevant_agitator }
 	}
 }
 
@@ -2237,40 +2261,40 @@ lobby_events.57 = {
 			days = normal_modifier_time
 		}
 		 if = {
- 			limit = {
- 				NOT = { has_technology_researched = medical_degrees }
- 				can_research = medical_degrees
- 			}
- 			add_technology_progress = { progress = 2500 technology = medical_degrees }
- 		}
- 		else_if = {
- 			limit = {
- 				NOT = { has_technology_researched = apothecaries }
- 				can_research = apothecaries
- 			}
- 			add_technology_progress = { progress = 3500 technology = apothecaries }
- 		}
- 		 else_if = {
- 			limit = {
- 				NOT = { has_technology_researched = fever_tonics }
- 				can_research = fever_tonics
- 			}
- 			add_technology_progress = { progress = 3500 technology = fever_tonics }
- 		}
- 		else_if = {
- 			limit = {
- 				NOT = { has_technology_researched = monster_wards }
- 				can_research = monster_wards
- 			}
- 			add_technology_progress = { progress = 5000 technology = monster_wards }
- 		}
- 		else_if = {
- 			limit = {
- 				NOT = { has_technology_researched = panacea_cultures }
- 				can_research = panacea_cultures
- 			}
- 			add_technology_progress = { progress = 5850 technology = panacea_cultures }
- 		}
+			limit = {
+				NOT = { has_technology_researched = medical_degrees }
+				can_research = medical_degrees
+			}
+			add_technology_progress = { progress = 2500 technology = medical_degrees }
+		}
+		else_if = {
+			limit = {
+				NOT = { has_technology_researched = apothecaries }
+				can_research = apothecaries
+			}
+			add_technology_progress = { progress = 3500 technology = apothecaries }
+		}
+		 else_if = {
+			limit = {
+				NOT = { has_technology_researched = fever_tonics }
+				can_research = fever_tonics
+			}
+			add_technology_progress = { progress = 3500 technology = fever_tonics }
+		}
+		else_if = {
+			limit = {
+				NOT = { has_technology_researched = monster_wards }
+				can_research = monster_wards
+			}
+			add_technology_progress = { progress = 5000 technology = monster_wards }
+		}
+		else_if = {
+			limit = {
+				NOT = { has_technology_researched = panacea_cultures }
+				can_research = panacea_cultures
+			}
+			add_technology_progress = { progress = 5850 technology = panacea_cultures }
+		}
 	}
 }
 
@@ -2338,7 +2362,9 @@ lobby_events.58 = {
 				save_scope_as = relevant_lobby_member
 				leader = {
 					save_scope_as = relevant_lobby_leader
-				}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			}
 			target ={
 				save_scope_as = relevant_lobby_country
@@ -2374,13 +2400,19 @@ lobby_events.58 = {
 		custom_tooltip = {
 			text = lobby_member_resigns
 			scope:relevant_lobby_leader = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:relevant_lobby_leader }
+retire_character = yes
 			}
 		}
 		add_modifier = {
 			name = lobbyists_in_check
 			days = normal_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:relevant_lobby_leader }
 	}
 }
 

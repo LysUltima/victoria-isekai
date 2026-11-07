@@ -1,9 +1,9 @@
 ﻿trade_privilege = {
-    kind = directed
-    cost = 50
+	kind = directed
+	cost = 50
 
-    relations_progress_per_day = 0.5
-    relations_improvement_max = 20
+	relations_progress_per_day = 0.5
+	relations_improvement_max = 20
 
 	max_target_involvement = 1000
 	target_involvement_applies_to = source_country
@@ -22,9 +22,9 @@
 	maintenance_paid_by = target_country
 	usage_limit = once_per_side
 
-    unlocked_by_technologies = {
-        international_relations
-    }
+	unlocked_by_technologies = {
+		international_relations
+	}
 
 	source_modifier = {
 		country_treaty_leverage_generation_add = 300
@@ -41,29 +41,29 @@
 		}
 	}
 
-    non_fulfillment = {
-        consequences = freeze
+	non_fulfillment = {
+		consequences = freeze
 
-        conditions = {
-            weekly = {
+		conditions = {
+			weekly = {
 				scope:article = {
-					source_country = { 
+					source_country = {
 						OR = {
 							is_junior_in_customs_union = yes
 							country_has_isolationism = yes
 						}
 					}
 				}
-            }
-        }
-    }
+			}
+		}
+	}
 
-    can_ratify = {
+	can_ratify = {
 		scope:source_country = { is_junior_in_customs_union = no }
 		scope:target_country = { is_junior_in_customs_union = no }
 
-        custom_tooltip = {
-            text = DUPLICATE_ARTICLE_SAME_INPUTS_TREATY
+		custom_tooltip = {
+			text = DUPLICATE_ARTICLE_SAME_INPUTS_TREATY
 			NOT = {
 				scope:source_country = {
 					any_scope_treaty = {
@@ -83,10 +83,10 @@
 					}
 				}
 			}
-        }
-    }
+		}
+	}
 
-    on_entry_into_force = {
+	on_entry_into_force = {
 		add_lobby_appeasement_from_diplomacy_bidirectional = {
 			FIRST = scope:article_options.source_country
 			SECOND = scope:article_options.target_country
@@ -222,19 +222,7 @@
 						value = -50
 					}
 				}
-				
-				if = {
-					limit = {
-						always = no # vanilla ref 'c:JAP' not present in this mod
-						scope:source_country ?= {
-							always = no # vanilla ref 'je_meiji_imperial_marriage' not present in this mod
-						}
-					}
-					add = {
-						desc = "0"
-						value = -500
-					}
-				}
+
 			}
 			else = {
 				scope:source_country = {
@@ -318,13 +306,7 @@
 
 				add = {
 					desc = "0"
-					if = {
-						limit = {
-							always = no # vanilla ref 'je_hawaiian_interest' not present in this mod
-							always = no # blanked: vanilla ref 'c:HAW' not present in this mod
-						}
-						value = 20
-					}
+
 				}
 			}
 		}
@@ -421,7 +403,7 @@
 					value = total_population
 					divide = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_FACTOR
 					multiply = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER
-                    max = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL
+					max = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL
 				}
 			}
 		}
@@ -457,7 +439,6 @@
 							}
 						}
 					}
-					max = define:NDiplomacy|WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL
 				}
 			}
 

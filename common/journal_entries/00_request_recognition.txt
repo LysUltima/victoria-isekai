@@ -1,4 +1,45 @@
 ﻿je_earn_recognition = {
+	activation_description = {
+		is_country_type = unrecognized
+		NOT = {
+			has_law_or_variant = law_type:law_isolationism
+		}
+		OR = {
+			AND = {
+				OR = {
+					custom_tooltip = {
+						text = is_subject_of_great_power_tt
+						any_overlord_or_above = {
+							country_rank >= rank_value:great_power
+						}
+					}
+					country_rank >= rank_value:unrecognized_major_power
+				}
+				OR = {
+					has_technology_researched = colonization
+					has_technology_researched = philosophical_pragmatism
+					has_technology_researched = egalitarianism
+				}
+			}
+			AND = {
+				country_rank >= rank_value:unrecognized_regional_power
+				OR = {
+					has_technology_researched = civilizing_mission
+					has_technology_researched = communication_orbs
+					has_technology_researched = human_rights
+				}
+			}
+			AND = {
+				country_rank >= rank_value:unrecognized_power
+				OR = {
+					has_technology_researched = international_exchange_standards
+					has_technology_researched = communication_orbs
+					has_technology_researched = corporate_management
+				}
+			}
+		}
+	}
+
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 
 	group = je_group_foreign_affairs
@@ -25,61 +66,62 @@
 					}
 					country_rank >= rank_value:unrecognized_major_power
 				}
-                OR = {
-                    has_technology_researched = colonization
-                    has_technology_researched = philosophical_pragmatism
-                    has_technology_researched = egalitarianism
-                }
+				OR = {
+					has_technology_researched = colonization
+					has_technology_researched = philosophical_pragmatism
+					has_technology_researched = egalitarianism
+				}
 			}
 			AND = {
 				country_rank >= rank_value:unrecognized_regional_power
-                OR = {
-                    has_technology_researched = civilizing_mission
-                    has_technology_researched = communication_orbs
-                    has_technology_researched = human_rights
-                }
+				OR = {
+					has_technology_researched = civilizing_mission
+					has_technology_researched = communication_orbs
+					has_technology_researched = human_rights
+				}
 			}
 			AND = {
 				country_rank >= rank_value:unrecognized_power
-                OR = {
-                    has_technology_researched = international_exchange_standards
-                    has_technology_researched = communication_orbs
-                    has_technology_researched = corporate_management
-                }
+				OR = {
+					has_technology_researched = international_exchange_standards
+					has_technology_researched = communication_orbs
+					has_technology_researched = corporate_management
+				}
 			}
 		}
-	}
-
-	complete = {
-		any_country = {
-			country_rank >= rank_value:great_power
-			relations:root >= relations_threshold:amicable
-		}
-		custom_tooltip = {
-			text = je_earn_recognition_complete_tt
-			scope:journal_entry ?= {
-				"scripted_bar_progress(earn_recognition_progress_bar)" >= 200
-			}
-		}
-	}
-
-	on_complete = {
-		custom_tooltip = {
-			text = je_earn_recognition_tt
-			trigger_event = { id = earn_recognition_events.1 days = 0 popup = yes }
-		}
-		show_as_tooltip = {
-			set_country_type = recognized
-		}
-	}
-
-	fail = {
-	}
-
-	on_fail = {
 	}
 
 	weight = 100
 
 	should_be_pinned_by_default_uninvolved_or_context = yes
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			any_country = {
+				country_rank >= rank_value:great_power
+				relations:root >= relations_threshold:amicable
+			}
+			custom_tooltip = {
+				text = je_earn_recognition_complete_tt
+				scope:journal_entry ?= {
+					"scripted_bar_progress(earn_recognition_progress_bar)" >= 200
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = {
+				text = je_earn_recognition_tt
+				trigger_event = { id = earn_recognition_events.1 days = 0 popup = yes }
+			}
+			show_as_tooltip = {
+				set_country_type = recognized
+			}
+		}
+	}
+
+	
 }

@@ -80,7 +80,9 @@ election_liberal_events.1 = {
 					is_party_type = conservative_party
 				}
 			}
-			leader = { save_scope_as = extremist_leader }
+			leader = { save_scope_as = extremist_leader
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			party = { save_scope_as = conservative_party }
 		}
 	}
@@ -110,6 +112,10 @@ election_liberal_events.1 = {
 			name = downplaying_fascism
 			days = normal_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:extremist_leader }
 	}
 }
 
@@ -250,7 +256,9 @@ election_liberal_events.3 = {
 				}
 			}
 			save_scope_as = pacifist_leader
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -281,6 +289,10 @@ election_liberal_events.3 = {
 			name = better_to_be_feared # country_infamy_decay_mult / negative
 			days = normal_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:pacifist_leader }
 	}
 }
 

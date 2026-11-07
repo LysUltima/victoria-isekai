@@ -146,23 +146,73 @@ ai_strategy_maintain_power_balance = {
 			add = 10
 		}
 
-		if = { # Metternich System
+	}
+
+	diplomatic_play_support = {
+		value = 0
+
+		if = { # More likely to side with weaker targets
 			limit = {
-				always = no # vanilla ref 'c:AUS' not present in this mod
-				always = no # vanilla ref 'je_metternich' not present in this mod
+				scope:enemy_country = { country_rank >= rank_value:great_power }
+				scope:country.country_rank < scope:enemy_country.country_rank
 			}
-			add = 50
+			add = {
+				value = 10
+				desc = "AI_STRATEGY_SUPPORT_BALANCE_WEAKER_SIDE"
+			}
 		}
 
-		if = {
+		if = { # Fun police against high infamy targets
 			limit = {
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				ruler = {
-					always = no  # strict adherence to the Congress of Vienna
+				scope:enemy_country = {
+					country_rank >= rank_value:great_power
+					infamy >= infamy_threshold:infamous
 				}
 			}
-			add = 20
+			add = {
+				value = 25
+				desc = "AI_STRATEGY_SUPPORT_BALANCE_RESTRAIN_INFAMOUS"
+			}
+		}
+
+		if = { # No desire to help rival bloc
+			limit = {
+				country_is_in_different_power_bloc = { TARGET = scope:country }
+			}
+			add = {
+				value = -15
+				desc = "AI_STRATEGY_SUPPORT_BALANCE_RIVAL_BLOC"
+			}
+		}
+	}
+
+	treaty_category_scores = {
+		military_defense = {
+			value = 4
+
+		}
+
+		expansion = {
+			value = -2
+		}
+	}
+
+	strategic_region_stance_type_scores = {
+		stance_protect_region = {
+			value = 25
+		}
+
+		stance_conquer_region = {
+			value = -25
+		}
+	}
+
+	obligation_value = {
+		if = {
+			limit = {
+				scope:target_country = { country_rank >= rank_value:major_power }
+			}
+			add = 5
 		}
 	}
 }
@@ -304,17 +354,6 @@ ai_strategy_territorial_expansion = {
 	weight = {
 		value = 10
 
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				ruler = {
-					has_variable = house_bonaparte
-				}
-			}
-			add = 5
-		}
-
 		# AI implications for Power Blocs: 'Territorial Expansion' strategy is more likely for Blocs with Aggressive Coordination
 		if = {
 			limit = {
@@ -341,10 +380,63 @@ ai_strategy_territorial_expansion = {
 			multiply = 1.5
 		}
 
-
 		if = {
 			limit = { has_radical_leftist_government = yes }
 			multiply = 0.5
+		}
+	}
+
+	diplomatic_play_support = {
+		value = 0
+
+		if = { # Weakening potential conquest target
+			limit = {
+				scope:enemy_country = {
+					has_strategic_adjacency = root
+					any_scope_state = {
+						OR = {
+							is_homeland_of_country_cultures = root
+							has_claim_by = root
+						}
+					}
+				}
+			}
+			add = {
+				value = 30
+				desc = "AI_STRATEGY_SUPPORT_EXPANSION_WEAKEN_NEIGHBOUR"
+			}
+		}
+
+		if = { # Little interest in other wars
+			limit = {
+				NOT = { has_strategic_adjacency = scope:country }
+				NOT = { has_strategic_adjacency = scope:enemy_country }
+			}
+			add = {
+				value = -20
+				desc = "AI_STRATEGY_SUPPORT_EXPANSION_DISTANT_QUARREL"
+			}
+		}
+	}
+
+	treaty_category_scores = {
+		expansion = {
+			value = 4
+		}
+
+		military = {
+			value = 3
+		}
+
+		economy = {
+			value = 0
+
+		}
+	}
+
+	strategic_region_stance_type_scores = {
+		stance_conquer_region = {
+			value = 25
 		}
 	}
 }
@@ -461,15 +553,6 @@ ai_strategy_colonial_expansion = {
 					add = 1
 				}
 
-				if = {
-					limit = {
-						always = no # vanilla ref 'je_scramble_for_africa' not present in this mod
-						scope:target_country = {
-							always = no # vanilla ref 'geographic_region_africa' not present in this mod
-						}
-					}
-					add = 10
-				}
 			}
 		}
 		if = {
@@ -581,15 +664,6 @@ ai_strategy_colonial_expansion = {
 					}
 					add = 200
 
-					if = {
-						limit = {
-							always = no # vanilla ref 'je_scramble_for_africa' not present in this mod
-							scope:target_country = {
-								always = no # vanilla ref 'geographic_region_africa' not present in this mod
-							}
-						}
-						add = 600
-					}
 				}
 
 				# Cleaning up Boers and Zulu
@@ -623,16 +697,6 @@ ai_strategy_colonial_expansion = {
 						scope:target_country = { is_country_type = unrecognized }
 					}
 					add = 200
-
-					if = {
-						limit = {
-							always = no # vanilla ref 'je_scramble_for_africa' not present in this mod
-							scope:target_country = {
-								always = no # vanilla ref 'geographic_region_africa' not present in this mod
-							}
-						}
-						add = 600
-					}
 
 					if = {
 						limit = {
@@ -684,18 +748,6 @@ ai_strategy_colonial_expansion = {
 		value = 10
 
 		if = {
-			limit = {
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				ruler = {
-					has_variable = house_bonaparte
-				}
-			}
-			add = 10
-		}
-
-
-		if = {
 			limit = { country_rank = rank_value:major_power }
 			add = 5
 		}
@@ -737,10 +789,72 @@ ai_strategy_colonial_expansion = {
 			multiply = 1.5
 		}
 
-
 		if = {
 			limit = { has_radical_leftist_government = yes }
 			multiply = 0.01
+		}
+	}
+
+	diplomatic_play_support = {
+		value = 0
+
+		if = { # Maintain superiority over colonial regions by supporting locals
+			limit = {
+				has_overlapping_interests = scope:enemy_country
+				scope:enemy_country = { country_rank >= rank_value:major_power }
+			}
+			add = {
+				value = 20
+				desc = "AI_STRATEGY_SUPPORT_COLONIAL_DENY_RIVAL"
+			}
+		}
+
+		if = { # Focused on colonizing
+			limit = {
+				scope:country = {
+					NOR = {
+						is_country_type = unrecognized
+						is_country_type = decentralized
+					}
+				}
+				NOT = { has_overlapping_interests = scope:country }
+			}
+			add = {
+				value = -20
+				desc = "AI_STRATEGY_SUPPORT_COLONIAL_NOT_OUR_CONCERN"
+			}
+		}
+	}
+
+	treaty_category_scores = {
+		expansion = {
+			value = 3
+		}
+
+		trade = {
+			value = 2
+		}
+	}
+
+	strategic_region_stance_type_scores = {
+		stance_colonize_region = {
+			value = 30
+		}
+	}
+
+	max_active_stances = {
+		add = 2
+	}
+
+	obligation_value = {
+		if = { # Obligations from fellow colonial powers keep the carve-up orderly
+			limit = {
+				scope:target_country = {
+					country_rank >= rank_value:major_power
+					NOT = { is_country_type = unrecognized }
+				}
+			}
+			add = 5
 		}
 	}
 }
@@ -818,10 +932,11 @@ ai_strategy_armed_isolationism = {
 	}
 
 	wargoal_weights = {
+		make_subject = 0.0
 		conquer_state = 0.0
-		make_protectorate = 0.0
+		
 		reduce_autonomy = 0.0
-		make_tributary = 0.0
+		
 		force_nationalization = 2.0
 	}
 
@@ -850,16 +965,6 @@ ai_strategy_armed_isolationism = {
 		}
 
 		if = {
-			limit = {
-				OR = {
-					always = no # vanilla ref 'je_meiji_restoration' not present in this mod
-					always = no # vanilla ref 'je_meiji_main' not present in this mod
-				}
-			}
-			multiply = 0.1
-		}
-
-		if = {
 			limit = { country_rank = rank_value:great_power }
 			multiply = 0.1
 		}
@@ -867,6 +972,50 @@ ai_strategy_armed_isolationism = {
 		if = {
 			limit = { country_rank = rank_value:major_power }
 			multiply = 0.5
+		}
+	}
+
+	diplomatic_play_support = {
+		value = 0
+
+		if = { # Stay out of foreign wars
+			limit = {
+				NOT = { has_strategic_adjacency = scope:country }
+				NOT = { has_strategic_adjacency = scope:enemy_country }
+			}
+			add = {
+				value = -40
+				desc = "AI_STRATEGY_SUPPORT_ISOLATIONIST_NOT_OUR_WAR"
+			}
+		}
+
+		if = { # Concerned over wars in the neighborhood
+			limit = {
+				has_strategic_adjacency = scope:enemy_country
+				scope:enemy_country.country_rank > scope:country.country_rank
+			}
+			add = {
+				value = 15
+				desc = "AI_STRATEGY_SUPPORT_ISOLATIONIST_UNEASY_NEIGHBOUR"
+			}
+		}
+	}
+
+	subject_value = {
+		value = -50
+	}
+
+	treaty_category_scores = {
+		military_defense = {
+			value = 5
+		}
+
+		expansion = {
+			value = -4
+		}
+
+		power_bloc = {
+			value = -2
 		}
 	}
 }
@@ -1071,22 +1220,7 @@ ai_strategy_economic_imperialism = {
 	}
 
 	strategic_region_scores = {
-		if = { # Great Powers with significant navies should pay attention to Japan
-			limit = {
-				scope:region = {
-					always = no # vanilla ref 'sr:region_northeast_asia' not present in this mod
-				}
-			}
-			if = {
-				limit = {
-					always = no # vanilla ref 'c:JAP' not present in this mod
-					always = no # blanked: vanilla ref 'c:JAP' not present in this mod
-					country_rank = rank_value:great_power
-					navy_size >= 25
-				}
-				add = 1000
-			}
-		}
+
 	}
 
 	secret_goal_scores = {
@@ -1178,9 +1312,10 @@ ai_strategy_economic_imperialism = {
 	}
 
 	wargoal_weights = {
-		make_protectorate = 1.5
-		make_tributary = 1.5
-		make_dominion = 1.5
+		make_subject = 1.5
+		
+		
+		
 		force_nationalization = 1.5
 	}
 
@@ -1203,6 +1338,16 @@ ai_strategy_economic_imperialism = {
 					multiply = 2.0
 				}
 			}
+		}
+	
+		# Reclaim inherited ports after the successor reneges on the treaty.
+		if = {
+			limit = {
+				has_variable = wants_treaty_port_revenge_against
+				var:wants_treaty_port_revenge_against ?= scope:target_country
+				can_reach_target_state = yes
+			}
+			add = 100
 		}
 	}
 
@@ -1295,20 +1440,6 @@ ai_strategy_economic_imperialism = {
 			add = 10
 		}
 
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				always = no # vanilla ref 'c:FRA' not present in this mod
-				ruler = {
-					OR = {
-						has_variable = house_bonaparte
-						always = no
-					}
-				}
-			}
-			add = 10
-		}
-
 		# AI implications for Power Blocs: 'Economic Imperialism' strategy is more likely for Blocs with Market Unification
 		if = {
 			limit = {
@@ -1317,15 +1448,6 @@ ai_strategy_economic_imperialism = {
 				}
 			}
 			add = 5
-		}
-
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:JAP' not present in this mod
-				always = no # vanilla ref 'c:JAP' not present in this mod
-				always = no # blanked: vanilla ref 'c:JAP' not present in this mod
-			}
-			multiply = 2.0
 		}
 
 		if = {
@@ -1341,6 +1463,33 @@ ai_strategy_economic_imperialism = {
 		if = {
 			limit = { has_radical_leftist_government = yes }
 			multiply = 0.25
+		}
+	}
+
+	subject_value = {
+		if = { # A sizeable state outside our market is worth bringing inside it
+			limit = {
+				NOT = { is_in_customs_union_with = scope:target_country }
+				scope:target_country = {
+					is_subject = no
+					gdp >= 2000000
+				}
+			}
+			add = 25
+		}
+	}
+
+	treaty_category_scores = {
+		trade = {
+			value = 5
+		}
+
+		economy = {
+			value = 4
+		}
+
+		expansion = {
+			value = -2
 		}
 	}
 }
@@ -1437,11 +1586,12 @@ ai_strategy_socialism_in_one_country = {
 	}
 
 	wargoal_weights = {
+		make_subject = 0.0
 		conquer_state = 0.0
-		make_protectorate = 0.0
+		
 		reduce_autonomy = 0.0
-		make_tributary = 0.0
-		make_dominion = 0.0
+		
+		
 		force_nationalization = 5.0
 	}
 
@@ -1505,6 +1655,50 @@ ai_strategy_socialism_in_one_country = {
 		}
 		else = {
 			multiply = 2
+		}
+	}
+
+	diplomatic_play_support = {
+		value = 0
+
+		if = { # Still lean towards supporting other socialists when under attack
+			limit = {
+				scope:country = { has_radical_leftist_government = yes }
+				scope:enemy_country = { has_radical_leftist_government = no }
+			}
+			add = {
+				value = 25
+				desc = "AI_STRATEGY_SUPPORT_SOCIALISM_FELLOW_RADICAL"
+			}
+		}
+
+		if = { # Dont care otherwise
+			limit = {
+				scope:country = { has_radical_leftist_government = no }
+				scope:enemy_country = { has_radical_leftist_government = no }
+			}
+			add = {
+				value = -35
+				desc = "AI_STRATEGY_SUPPORT_SOCIALISM_OLD_ORDER_QUARREL"
+			}
+		}
+	}
+
+	subject_value = {
+		value = -50
+	}
+
+	treaty_category_scores = {
+		ideology = {
+			value = 3
+		}
+
+		military_defense = {
+			value = 4
+		}
+
+		expansion = {
+			value = -4
 		}
 	}
 }
@@ -1698,6 +1892,59 @@ ai_strategy_world_revolution = {
 				}
 			}
 			multiply = 1.15
+		}
+	}
+
+	diplomatic_play_support = {
+		value = 0
+
+		if = { # The revolution takes a side in every war
+			limit = {
+				scope:country = { has_radical_leftist_government = yes }
+				scope:enemy_country = { has_radical_leftist_government = no }
+			}
+			add = {
+				value = 50
+				desc = "AI_STRATEGY_SUPPORT_WORLD_REVOLUTION_COMRADES"
+			}
+		}
+
+		if = { # Break up global empires
+			limit = {
+				scope:enemy_country = {
+					country_rank >= rank_value:great_power
+					any_subject_or_below = { count >= 1 }
+				}
+			}
+			add = {
+				value = 25
+				desc = "AI_STRATEGY_SUPPORT_WORLD_REVOLUTION_ANTI_EMPIRE"
+			}
+		}
+	}
+
+	treaty_category_scores = {
+		ideology = {
+			value = 5
+		}
+
+		military = {
+			value = 3
+		}
+	}
+
+	strategic_region_stance_type_scores = {
+		stance_protect_region = {
+			value = 15
+		}
+	}
+
+	obligation_value = {
+		if = {
+			limit = {
+				scope:target_country = { has_radical_leftist_government = yes }
+			}
+			add = 10
 		}
 	}
 }
@@ -1933,6 +2180,74 @@ ai_strategy_anti_imperialism = {
 		if = {
 			limit = { country_rank >= rank_value:major_power }
 			add = 25
+		}
+	}
+
+	diplomatic_play_support = {
+		value = 0
+
+		if = { # Always on the side of the defenders
+			limit = {
+				scope:country = {
+					OR = {
+						is_country_type = unrecognized
+						is_subject = yes
+					}
+				}
+				scope:enemy_country = {
+					NOR = {
+						is_country_type = unrecognized
+						is_country_type = decentralized
+					}
+					country_rank >= rank_value:major_power
+				}
+			}
+			add = {
+				value = 50
+				desc = "AI_STRATEGY_SUPPORT_ANTI_IMPERIALISM_DEFEND_VICTIM"
+			}
+		}
+
+		if = { # Against infamous countries
+			limit = {
+				scope:enemy_country = { infamy >= infamy_threshold:infamous }
+			}
+			add = {
+				value = 25
+				desc = "AI_STRATEGY_SUPPORT_ANTI_IMPERIALISM_NOTORIOUS_AGGRESSOR"
+			}
+		}
+	}
+
+	subject_value = {
+		value = -75
+	}
+
+	treaty_category_scores = {
+		military_defense = {
+			value = 4
+		}
+
+		ideology = {
+			value = 3
+		}
+
+		expansion = {
+			value = -5
+		}
+	}
+
+	strategic_region_stance_type_scores = {
+		stance_protect_region = {
+			value = 25
+		}
+
+		stance_colonize_region = {
+			value = -50
+		}
+
+		stance_conquer_region = {
+			value = -25
 		}
 	}
 }

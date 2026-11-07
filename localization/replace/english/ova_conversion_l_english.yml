@@ -20,7 +20,7 @@
   country_military_tech_research_speed_mult_desc: "The speed at which Alchemy technologies are researched"
   country_society_tech_research_speed_mult: "Spiritualism Research Speed"
   country_society_tech_research_speed_mult_desc: "The speed at which Spiritualism technologies are researched"
-  
+
 
   ### ---------------------------------------------------------------
   ### ARTIFICE TECHNOLOGIES (renamed)
@@ -530,7 +530,7 @@
   company_basic_electrics_dynamic_name_tag_plural: "Orbs"
   company_basic_potions_dynamic_name_tag_singular: "Potion"
   company_basic_potions_dynamic_name_tag_plural: "Potions"
- 
+
 
   ### ---------------------------------------------------------------
   ### ROUND 4: PM & tech revamp (potions everywhere, plantations,
@@ -689,15 +689,15 @@
 
   # Government types under the Academy Charter
   gov_academy:0 "Academy"
-  gov_academy_desc:0 "This is a [concept_government_type] where the [concept_country] is itself a school, presided over by its [Concept('concept_ruler','$RULER_TITLE_ACADEMY_DEAN$')] and governed by the faculty. Office follows examination and standing among the masters, never birth and never the altar.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+  gov_academy_desc:0 "This is a [concept_government_type] where the [concept_country] is itself a school, presided over by its [Concept('concept_ruler','$RULER_TITLE_ACADEMY_DEAN|q$')] and governed by the faculty. Office follows examination and standing among the masters, never birth and never the altar.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
   gov_academy_scholarchy:0 "Scholarchy"
-  gov_academy_scholarchy_desc:0 "This is a [concept_government_type] where the realm is administered outright as a course of study, every ministry handed to the master best qualified to hold it, with the [Concept('concept_ruler','$RULER_TITLE_ACADEMY_GRAND_DEAN$')] at the head of the table. The curriculum is the constitution.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+  gov_academy_scholarchy_desc:0 "This is a [concept_government_type] where the realm is administered outright as a course of study, every ministry handed to the master best qualified to hold it, with the [Concept('concept_ruler','$RULER_TITLE_ACADEMY_GRAND_DEAN|q$')] at the head of the table. The curriculum is the constitution.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
   gov_academy_deanery:0 "Deanery"
-  gov_academy_deanery_desc:0 "This is a [concept_government_type] where the [Concept('concept_ruler','$RULER_TITLE_ACADEMY_GRAND_DEAN$')] rules the school absolutely. The faculty may object, at length and in writing, and the Dean may read it.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+  gov_academy_deanery_desc:0 "This is a [concept_government_type] where the [Concept('concept_ruler','$RULER_TITLE_ACADEMY_GRAND_DEAN|q$')] rules the school absolutely. The faculty may object, at length and in writing, and the Dean may read it.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
   gov_academy_faculty_senate:0 "Faculty Senate"
-  gov_academy_faculty_senate_desc:0 "This is a [concept_government_type] where the chair-holding masters sit as a senate under their [Concept('concept_ruler','$RULER_TITLE_ACADEMY_DEAN$')], and the business of the realm is settled the way departmental business always is: slowly, and with footnotes.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+  gov_academy_faculty_senate_desc:0 "This is a [concept_government_type] where the chair-holding masters sit as a senate under their [Concept('concept_ruler','$RULER_TITLE_ACADEMY_DEAN|q$')], and the business of the realm is settled the way departmental business always is: slowly, and with footnotes.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
   gov_academy_collegium:0 "Collegium"
-  gov_academy_collegium_desc:0 "This is a [concept_government_type] where the [Concept('concept_ruler','$RULER_TITLE_ACADEMY_DEAN$')] and the faculty answer to a broad collegium of graduates and fellows, learning tempered by the voice of everyone the school ever taught.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+  gov_academy_collegium_desc:0 "This is a [concept_government_type] where the [Concept('concept_ruler','$RULER_TITLE_ACADEMY_DEAN|q$')] and the faculty answer to a broad collegium of graduates and fellows, learning tempered by the voice of everyone the school ever taught.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
   RULER_TITLE_ACADEMY_DEAN:0 "Dean"
   RULER_TITLE_ACADEMY_GRAND_DEAN:0 "Grand Dean"
 
@@ -712,13 +712,13 @@
 
   # Government types for the Martial Sect governance principle
   gov_martial_sect:0 "Martial Sect"
-  gov_martial_sect_desc:0 "This is a [concept_government_type] where the [concept_country] is itself a cultivation sect, ruled by the [Concept('concept_ruler','$RULER_TITLE_SECT_PATRIARCH$')] and governed by its elders. Martial prowess, not birth or ballot, decides who rules.\n\n#b Sect Ascension:#! the whole realm cultivates together, every ten years each character advances one cultivation realm, up to the ceiling of our researched techniques. (Heir-training decisions are disabled under a Martial Sect.)\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+  gov_martial_sect_desc:0 "This is a [concept_government_type] where the [concept_country] is itself a cultivation sect, ruled by the [Concept('concept_ruler','$RULER_TITLE_SECT_PATRIARCH|q$')] and governed by its elders. Martial prowess, not birth or ballot, decides who rules.\n\n#b Sect Ascension:#! the whole realm cultivates together, every ten years each character advances one cultivation realm, up to the ceiling of our researched techniques. (Heir-training decisions are disabled under a Martial Sect.)\n\n$TRANSFER_OF_POWER_NAME_DESC$"
   gov_martial_sect_autocracy:0 "Patriarchal Sect"
-  gov_martial_sect_autocracy_desc:0 "This is a [concept_government_type] where the [Concept('concept_ruler','$RULER_TITLE_SECT_PATRIARCH$')] rules the sect absolutely, their word carrying the weight of heaven. The elders counsel, but none may defy the strongest cultivator of the age.\n\n#b Sect Ascension:#! the whole realm cultivates together, every ten years each character advances one cultivation realm, up to the ceiling of our researched techniques. (Heir-training decisions are disabled under a Martial Sect.)\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+  gov_martial_sect_autocracy_desc:0 "This is a [concept_government_type] where the [Concept('concept_ruler','$RULER_TITLE_SECT_PATRIARCH|q$')] rules the sect absolutely, their word carrying the weight of heaven. The elders counsel, but none may defy the strongest cultivator of the age.\n\n#b Sect Ascension:#! the whole realm cultivates together, every ten years each character advances one cultivation realm, up to the ceiling of our researched techniques. (Heir-training decisions are disabled under a Martial Sect.)\n\n$TRANSFER_OF_POWER_NAME_DESC$"
   gov_martial_sect_council:0 "Sect Council"
-  gov_martial_sect_council_desc:0 "This is a [concept_government_type] where the sect is governed by a Council of Elders under its [Concept('concept_ruler','$RULER_TITLE_SECT_GRAND_ELDER$')], the eldest cultivators sharing power over the inner halls.\n\n#b Sect Ascension:#! the whole realm cultivates together, every ten years each character advances one cultivation realm, up to the ceiling of our researched techniques. (Heir-training decisions are disabled under a Martial Sect.)\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+  gov_martial_sect_council_desc:0 "This is a [concept_government_type] where the sect is governed by a Council of Elders under its [Concept('concept_ruler','$RULER_TITLE_SECT_GRAND_ELDER|q$')], the eldest cultivators sharing power over the inner halls.\n\n#b Sect Ascension:#! the whole realm cultivates together, every ten years each character advances one cultivation realm, up to the ceiling of our researched techniques. (Heir-training decisions are disabled under a Martial Sect.)\n\n$TRANSFER_OF_POWER_NAME_DESC$"
   gov_martial_sect_conclave:0 "Disciples' Conclave"
-  gov_martial_sect_conclave_desc:0 "This is a [concept_government_type] where the sect's [Concept('concept_ruler','$RULER_TITLE_SECT_PATRIARCH$')] and elders are raised up by a broad conclave of the disciples, martial standing tempered by the voice of the halls.\n\n#b Sect Ascension:#! the whole realm cultivates together, every ten years each character advances one cultivation realm, up to the ceiling of our researched techniques. (Heir-training decisions are disabled under a Martial Sect.)\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+  gov_martial_sect_conclave_desc:0 "This is a [concept_government_type] where the sect's [Concept('concept_ruler','$RULER_TITLE_SECT_PATRIARCH|q$')] and elders are raised up by a broad conclave of the disciples, martial standing tempered by the voice of the halls.\n\n#b Sect Ascension:#! the whole realm cultivates together, every ten years each character advances one cultivation realm, up to the ceiling of our researched techniques. (Heir-training decisions are disabled under a Martial Sect.)\n\n$TRANSFER_OF_POWER_NAME_DESC$"
   RULER_TITLE_SECT_PATRIARCH:0 "Sect Patriarch"
   RULER_TITLE_SECT_MATRIARCH:0 "Sect Matriarch"
   RULER_TITLE_SECT_GRAND_ELDER:0 "Grand Elder"
@@ -728,7 +728,7 @@
   sect_action_propose_name:0 "Make into Subordinate Sect"
   sect_action_break_name:0 "Release from the Sect"
   sect_action_ask_to_break_name:0 "Demand Independence"
-  sect_desc: "Establishes a Subordinate Sect [concept_subject_type] relationship between two [Concept('concept_country', '$concept_countries$')]. A subordinate sect follows its patriarch sect into war and flies its colors, but governs its own inner affairs and pays no tribute."
+  sect_desc: "Establishes a Subordinate Sect [concept_subject_type] relationship between two [Concept('concept_country', '$concept_countries|q$')]. A subordinate sect follows its patriarch sect into war and flies its colors, but governs its own inner affairs and pays no tribute."
   sect_pact_desc:0 "[SCOPE.GetRootScope.GetDiplomaticPact.GetSecondCountry.GetName] is a Subordinate Sect of [SCOPE.GetRootScope.GetDiplomaticPact.GetFirstCountry.GetName]."
   sect_action_notification_name:0 "Demand for Subordination"
   sect_action_notification_desc:0 "[INITIATOR_COUNTRY.GetName] demands that we kneel and become their Subordinate Sect."

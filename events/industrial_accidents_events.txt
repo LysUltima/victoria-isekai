@@ -89,7 +89,9 @@ industrial_accident_events.1 = {
 				}
 			}
 			save_scope_as = guilty_factory_owner
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		scope:guilty_factory_owner = {
 			interest_group ?= {
 				save_scope_as = guilty_factory_owner_ig
@@ -134,7 +136,9 @@ industrial_accident_events.1 = {
 		custom_tooltip = industrial_accident_events.1.b.tt
 		hidden_effect = {
 			scope:guilty_factory_owner = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:guilty_factory_owner }
+retire_character = yes
 			}
 		}
 		scope:guilty_factory_owner_ig = {
@@ -143,6 +147,10 @@ industrial_accident_events.1 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:guilty_factory_owner }
 	}
 }
 
@@ -228,6 +236,8 @@ industrial_accident_events.2 = {
 			}
 		}
 	}
+
+	fire_only_once = yes
 }
 
 # The Brave Engineer
@@ -302,6 +312,8 @@ industrial_accident_events.3 = {
 			}
 		}
 	}
+
+	fire_only_once = yes
 }
 
 # The Great Molasses Flood
@@ -389,6 +401,8 @@ industrial_accident_events.4 = {
 			}
 		}
 	}
+
+	fire_only_once = yes
 }
 
 industrial_accident_events.5 = {

@@ -79,19 +79,7 @@ law_state_religion = {
 		}
 
 		# For Japanese religion Journal Entries
-		if = {
-			limit = {
-				OR = {
-					always = no
-					AND = {
-						# If Shinbutsu Bunri is active and the Taikyo Proclamation has been made
-						always = no
-						country_has_state_religion = rel:yaoyorozu
-					}
-				}
-			}
-			add = 1000
-		}
+
 	}
 
 	ai_impose_chance = {
@@ -420,23 +408,9 @@ law_freedom_of_conscience = {
 			add = 750
 		}
 
-		if = {
-			limit = {
-				always = no
-				has_law_or_variant = law_type:law_state_religion
-			}
-			add = 1000
-		}
-
 		# For Japanese religion Journal Entries
 		# If Shinbutsu Bunri is active, but the Taikyo Proclamation has not been made
-		if = {
-			limit = {
-				always = no
-				country_has_state_religion = rel:verdant_sutra
-			}
-			add = 1000
-		}
+
 	}
 }
 

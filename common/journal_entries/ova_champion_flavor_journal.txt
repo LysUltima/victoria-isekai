@@ -9,6 +9,10 @@
 # up the expedition lockout + hunt cooldown every month).
 
 je_ova_champion_coup = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_crises
@@ -39,61 +43,10 @@ je_ova_champion_coup = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = ova_coup_bar_full_tt
-			scope:journal_entry = { "scripted_bar_progress(ova_champion_coup_bar)" >= 100 }
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = ova_champion_flavor.63 popup = yes }
-	}
-
-	fail = {
-		OR = {
-			NOT = { ova_has_living_champion = yes }
-			custom_tooltip = {
-				text = ova_coup_bar_empty_tt
-				scope:journal_entry = { "scripted_bar_progress(ova_champion_coup_bar)" <= 0 }
-			}
-		}
-	}
-
-	on_fail = {
-		if = {
-			limit = { ova_has_living_champion = yes }
-			trigger_event = { id = ova_champion_flavor.64 popup = yes }
-		}
-		else = {
-			ova_champion_coup_unblock = yes
-		}
-	}
-
 	timeout = 730
-
-	on_timeout = {
-		if = {
-			limit = { ova_has_living_champion = yes }
-			trigger_event = { id = ova_champion_flavor.64 popup = yes }
-		}
-		else = {
-			ova_champion_coup_unblock = yes
-		}
-	}
 
 	# the champion took the throne some other way, or stopped being our champion:
 	# the coup is moot
-	invalid = {
-		OR = {
-			NOT = { has_variable = ova_champion_char }
-			var:ova_champion_char ?= { is_ruler_of_own_country = yes }
-		}
-	}
-
-	on_invalid = {
-		ova_champion_coup_unblock = yes
-	}
 
 	status_desc = {
 		first_valid = {
@@ -113,4 +66,77 @@ je_ova_champion_coup = {
 	weight = 5000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_coup_bar_full_tt
+				scope:journal_entry = { "scripted_bar_progress(ova_champion_coup_bar)" >= 100 }
+			}
+		}
+		effect = {
+			trigger_event = { id = ova_champion_flavor.63 popup = yes }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				NOT = { ova_has_living_champion = yes }
+				custom_tooltip = {
+					text = ova_coup_bar_empty_tt
+					scope:journal_entry = { "scripted_bar_progress(ova_champion_coup_bar)" <= 0 }
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { ova_has_living_champion = yes }
+				trigger_event = { id = ova_champion_flavor.64 popup = yes }
+			}
+			else = {
+				ova_champion_coup_unblock = yes
+			}
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				NOT = { has_variable = ova_champion_char }
+				var:ova_champion_char ?= { is_ruler_of_own_country = yes }
+			}
+		}
+		effect = {
+			ova_champion_coup_unblock = yes
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			if = {
+				limit = { ova_has_living_champion = yes }
+				trigger_event = { id = ova_champion_flavor.64 popup = yes }
+			}
+			else = {
+				ova_champion_coup_unblock = yes
+			}
+		}
+	}
 }

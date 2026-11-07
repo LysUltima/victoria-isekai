@@ -70,7 +70,9 @@ suffragist_events.1 = {
 				has_ideology = ideology:ideology_feminist
 			}
 			save_scope_as = suffragist_leader
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -100,6 +102,10 @@ suffragist_events.1 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:suffragist_leader }
 	}
 }
 
@@ -191,7 +197,9 @@ suffragist_events.2 = {
 				is_female = yes
 			}
 			save_scope_as = suffragist_leader
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 
 		random_interest_group = {
 			limit = {
@@ -203,7 +211,9 @@ suffragist_events.2 = {
 			}
 			leader = {
 				save_scope_as = anti_feminist_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -240,6 +250,11 @@ suffragist_events.2 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:anti_feminist_leader }
+		revoke_temporary_event_immortality = { CHARACTER = scope:suffragist_leader }
 	}
 }
 
@@ -336,7 +351,9 @@ suffragist_events.3 = {
 				}
 			}
 			save_scope_as = militant_suffragist_leader
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 
 		random_interest_group = {
 			limit = {
@@ -348,7 +365,9 @@ suffragist_events.3 = {
 			}
 			leader = {
 				save_scope_as = anti_feminist_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -372,6 +391,11 @@ suffragist_events.3 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:anti_feminist_leader }
+		revoke_temporary_event_immortality = { CHARACTER = scope:militant_suffragist_leader }
 	}
 }
 
@@ -762,7 +786,9 @@ suffragist_events.7 = {
 					has_ideology = ideology:ideology_feminist
 				}
 				save_scope_as = suffragist_philosopher
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -870,6 +896,10 @@ suffragist_events.7 = {
 				ig:ig_industrialists ?= { leader = { set_ideology = ideology:ideology_feminist } }
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:suffragist_philosopher }
 	}
 }
 
@@ -1151,7 +1181,9 @@ suffragist_events.9 = {
 				has_variable = suffragette_agitator
 			}
 			save_scope_as = suffragette_agitator_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -1283,6 +1315,10 @@ suffragist_events.9 = {
 				multiplier = 0.5
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:suffragette_agitator_scope }
 	}
 }
 

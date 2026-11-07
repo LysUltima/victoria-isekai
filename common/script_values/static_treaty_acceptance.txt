@@ -28,13 +28,7 @@ static_treaty_acceptance = {
 				value = scope:bad_faith_factor
 				multiply = 2
 			}
-			if = {
-				limit = {
-					always = no
-					always = no # vanilla ref 'c:JAP' not present in this mod
-				}
-				add = 1000 # GPs will not regard the Shimonoseki Strait Indemnity as just a free gift
-			}
+
 			desc = "DIPLOMATIC_ACCEPTANCE_DEAL_IS_WORSE"
 		}
 	}
@@ -67,26 +61,6 @@ static_treaty_acceptance = {
 		desc = "DIPLOMATIC_ACCEPTANCE_NOT_RECOGNIZED_BY_SPAIN_ACTOR"
 		# Treaty Diplomacy will be impossible between Spain and her former colonies before she recognizes them
 
-		if = {
-			limit = {
-				scope:other_country = {
-					has_modifier = modifier_not_recognized_by_spain
-				}
-				OR = {
-					always = no # vanilla ref 'c:SPA' not present in this mod
-					always = no # vanilla ref 'c:SPC' not present in this mod
-					always = no
-				}
-				NOT = {
-					scope:treaty_options ?= {
-						any_scope_article_option = {
-							has_type = recognize_independence
-						}
-					}
-				}
-			}
-			value = 1000
-		}
 	}
 
 	subtract = {
@@ -412,7 +386,7 @@ static_treaty_acceptance = {
 	if = {
 		limit = {
 			NOT = { exists = scope:is_renegotiation }
-			scope:treaty_options ?= {			
+			scope:treaty_options ?= {
 				is_historical_treaty = yes
 				remaining_binding_period > 0
 			}

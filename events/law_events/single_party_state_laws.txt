@@ -587,7 +587,9 @@ single_party_state.6 = {
 		}
 		ruler.interest_group.leader = {
 			save_scope_as = communist_leader_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		capital = {
 			save_scope_as = capital_scope
 		}
@@ -658,6 +660,10 @@ single_party_state.6 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:communist_leader_scope }
 	}
 }
 

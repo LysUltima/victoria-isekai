@@ -17,7 +17,7 @@ on_game_started_after_lobby = {
 			}
 			every_state = {
 				reset_state_name = yes
-			    reset_hub_names = yes
+				reset_hub_names = yes
 			}
 		}
 		# The Ripper
@@ -227,12 +227,12 @@ on_yearly_pulse_country = {
 	}
 	effect = {
 		every_country = {
-            limit = {
-                NOT = { is_country_type = decentralized }
-                NOT = { has_journal_entry = je_ova_champion }
-            }
-            add_journal_entry = { type = je_ova_champion }
-        }
+			limit = {
+				NOT = { is_country_type = decentralized }
+				NOT = { has_journal_entry = je_ova_champion }
+			}
+			add_journal_entry = { type = je_ova_champion }
+		}
 
 		if = {
 			limit = {
@@ -334,7 +334,7 @@ on_yearly_pulse_country = {
 		slavery_abolition_yearly_events
 		delay = { days = 17 }
 		lobby_yearly_events
-        
+
 		isekai_flavor_yearly_events
 		delay = { days = 7 }
 		murim_flavor_yearly_events
@@ -347,7 +347,6 @@ on_yearly_pulse_country = {
 
 on_half_yearly_pulse_country = {
 	on_actions = {
-		silkworm_half_yearly_events
 		lobbies_proposals_half_yearly_events
 		coup_aftermath_half_yearly_events
 	}
@@ -443,7 +442,20 @@ on_monthly_pulse_character = {
 		# country_restore_japanese_emperor in 00_victoria_ep2_scripted_effects.txt (Japanese
 		# shogun/emperor restoration mechanic, no mod analogue), so this countdown had no
 		# matching set-site left in this mod.
-	}
+
+		if = {
+			limit = { has_variable = temporary_immortality_var }
+			change_variable = { name = temporary_immortality_var subtract = 1 }
+			if = {
+				limit = { var:temporary_immortality_var <= 0 }
+				if = {
+					limit = { NOT = { has_variable = immortal_at_start_of_event_var } }
+					set_character_immortal = no
+				}
+				remove_variable = temporary_immortality_var
+			}
+		}
+}
 }
 on_yearly_pulse_character = {
 	on_actions = {
@@ -812,11 +824,7 @@ on_character_creation = {
 			}
 			set_ideology = ideology:ideology_traditionalist_minoritarian
 		}
-		if = {
-			limit = {
-				has_ideology = ideology:ideology_nihilist
-			}
-		}
+
 		if = { # Updates biannual unit share cache - just in case a commander spawns another way
 			limit = {
 				OR = {
@@ -922,15 +930,7 @@ on_new_ruler = {
 			}
 
 			### Monarchial succession - add all successions here.
-			if = {
-				limit = {
-					is_ruler_of_own_country = yes
-					owner ?= {
-						country_has_monarchy_law = yes
-						country_has_non_monarchy_law = no # To handle an execution order issue
-					}
-				}
-			}
+
 		}
 
 		if = { # Handles total years in power, not consecutive years. Mostly for Japan.
@@ -1517,16 +1517,7 @@ on_diplo_play_start_third_party = {
 on_diplo_play_back_down = {
 	effect = {
 		post_notification = diplo_play_back_down_notification
-		if = {
-			limit = {
-				scope:notification_target = {
-					is_player = yes
-				}
-				scope:actor = {
-					is_player = no
-				}
-			}
-		}
+
 	}
 }
 
@@ -1687,18 +1678,7 @@ on_law_enactment_started = {
 			}
 		}
 		# Negotiation achievement
-		if = {
-			limit = {
-				any_interest_group = {
-					law_enactment_stance = {
-						law = owner.currently_enacting_law.type
-						value < neutral
-					}
-					ig_counts_as_marginal = no
-					count >= 2
-				}
-			}
-		}
+
 	}
 }
 
@@ -2427,6 +2407,14 @@ on_political_movement_supported_law_cancelled = {
 # scope:wargoal_impact = the impact of the wargoal enforced
 on_wargoal_enforced = {
 	effect = {
+		# A victory over the treaty successor settles the inherited-port grievance.
+		if = {
+			limit = {
+				has_variable = wants_treaty_port_revenge_against
+				var:wants_treaty_port_revenge_against ?= scope:target
+			}
+			remove_variable = wants_treaty_port_revenge_against
+		}
 		if = {
 			limit = {
 				OR = {
@@ -2447,9 +2435,9 @@ on_wargoal_enforced = {
 		# real-world/country-specific with no mod analogue and are disabled in this mod, so this
 		# set-site is now orphaned.
 
-        # removed: crushed_secession's only vanilla reader was events/bulgaria_events.txt (Ottoman
-        # Bulgaria autonomy flavor, real-world-specific with no mod analogue) and that reference
-        # was already stripped from this mod's copy of the file, so this set-site is now orphaned.
+		# removed: crushed_secession's only vanilla reader was events/bulgaria_events.txt (Ottoman
+		# Bulgaria autonomy flavor, real-world-specific with no mod analogue) and that reference
+		# was already stripped from this mod's copy of the file, so this set-site is now orphaned.
 		if = {
 			limit = {
 				owner ?= {
@@ -2566,25 +2554,25 @@ on_war_end = {
 	effect = {
 		scope:actor = {
 			set_variable = {
-		        name = recently_had_war
-		        days = 1825
-		        value = yes
-		    }
-		    #set_variable = { #Available to use whenever needed
-		    #	name = most_recent_war_opponent
-		    #	value = scope:target
-		    #}
+				name = recently_had_war
+				days = 1825
+				value = yes
+			}
+			#set_variable = { #Available to use whenever needed
+			#	name = most_recent_war_opponent
+			#	value = scope:target
+			#}
 		}
 		scope:target ?= {
 			set_variable = {
-		        name = recently_had_war
-		        days = 1825
-		        value = yes
-		    }
-		    #set_variable = {
-		    #	name = most_recent_war_opponent
-		    #	value = scope:actor
-		    #}
+				name = recently_had_war
+				days = 1825
+				value = yes
+			}
+			#set_variable = {
+			#	name = most_recent_war_opponent
+			#	value = scope:actor
+			#}
 		}
 	}
 }
@@ -2604,15 +2592,14 @@ on_journal_entry_deactivated = {
 }
 
 # Root = journal entry
-on_journal_entry_completed = {
+on_journal_entry_concluded = {
 	effect = {
-		post_notification = journal_entry_completed
+		post_notification = journal_entry_concluded
 	}
 }
 
 # Root = journal entry
-on_journal_entry_failed = {
-}
+
 
 # Root = country
 on_native_uprising = {
@@ -3081,11 +3068,7 @@ on_impose_law = {
 # Root = Country that started the Power Struggle (other interesting scopes, such as Power Bloc leader, can be inferred from root)
 on_power_bloc_struggle_started = {
 	effect = {
-		if = {
-			limit = {
-				is_player = yes
-			}
-		}
+
 	}
 }
 
@@ -3264,3 +3247,37 @@ on_amendment_timeout = {
 		}
 	}
 }
+
+on_character_returned_from_exile = {
+	effect = {
+		post_notification = character_returned_from_exile
+	}
+}
+
+on_diplo_play_overlord_protects_subject = {
+	effect = {
+		post_notification = diplo_play_overlord_protects_subject_notification
+	}
+}
+
+on_diplo_play_subject_backstab_overlord = {
+	effect = {
+		post_notification = diplo_play_subject_backstab_overlord_notification
+	}
+}
+
+on_wargoal_enforced_by_timer = {
+	effect = {
+		scope:diplomatic_play ?= {
+			post_notification = wargoal_enforced
+		}
+	}
+}
+
+on_won_war = {}
+
+on_lost_war = {}
+
+on_inconclusive_war = {}
+
+on_power_bloc_formed = {} # Registered engine callback; no historical refund.

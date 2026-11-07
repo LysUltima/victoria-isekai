@@ -86,56 +86,12 @@ law_monarchy = {
 	}
 
 	on_activate = {
-		if = {
-			limit = {
-				always = no
-				NOT = {
-					always = no
-				}
-				has_dlc_feature = voice_of_the_people_content
-				game_date > 1000.1.1
-			}
-			if = {
-				limit = {
-					has_variable = fra_divided_monarchists_freeze
-				}
-				remove_variable = fra_divided_monarchists_freeze
-			}
-			# removed: vanilla journal entry not present in this mod
-		}
+
 		# Generates French monarch upon enaction.
 		hidden_effect = {
-			if = {
-				limit = {
-					always = no
-					NOT = {
-						always = no
-					}
-					has_dlc_feature = voice_of_the_people_content
-					game_date > 1000.1.1
-					NOR = {
-						ruler_is_bonapartist = yes
-						ruler_is_orleanist = yes
-						ruler_is_legitimist = yes
-					}
-				}
-				fra_handle_republic_monarch_assignment = yes
-			}
+
 		}
-		if = {
-			limit = {
-       	 		has_dlc_feature = ip4_content
-				always = no
-				is_revolutionary = no
-				is_secessionist = no
-				game_date > 1000.1.1
-			}
-			add_modifier = modifier_regency
-			custom_tooltip = {
-				text = activate_provisional_government_tt
-				# removed: vanilla journal entry not present in this mod
-			}
-		}
+
 		if = {
 			limit = {
 				country_has_primary_culture = cu:lily
@@ -150,7 +106,7 @@ always = no
 					limit = {
 always = no
 					}
-					STATE_CAMBODIA_state_name_assign = yes
+
 				}
 			}
 			if = {
@@ -163,7 +119,7 @@ always = no
 					limit = {
 always = no
 					}
-					STATE_LAOS_state_name_assign = yes
+
 				}
 			}
 		}
@@ -373,15 +329,7 @@ law_presidential_republic = {
 
 	on_activate = {
 		transition_off_of_monarchy_effects = yes
-		if = {
-			limit = {
-				always = no
-				ruler ?= {
-					always = no
-				}
-			}
-			# removed: trigger_event = { id = portuguese_monarchs.3 }
-		}
+
 	}
 
 	ai_will_do = {
@@ -505,15 +453,7 @@ law_parliamentary_republic = {
 
 	on_activate = {
 		transition_off_of_monarchy_effects = yes
-		if = {
-			limit = {
-				always = no
-				ruler ?= {
-					always = no
-				}
-			}
-			# removed: trigger_event = { id = portuguese_monarchs.3 }
-		}
+
 	}
 
 	ai_will_do = {
@@ -786,45 +726,9 @@ law_council_republic = {
 		custom_tooltip = {
 			text = enact_law_radical_leftist_government_warning_desc
 		}
-		if = {
-			limit = {
-				always = no
-				country_has_primary_culture = cu:altan
-				any_scope_state = {
-always = no
-				}
-			}
-			random_scope_state = {
-				limit = {
-always = no
-				}
-				if = {
-					limit = {
-						always = no
 
-						owner = {
-							country_has_primary_culture = cu:altan
-							has_law_or_variant = law_type:law_council_republic
-						}
-					}
-
-			        set_hub_name = {
-			            type = city
-			            name = HUB_NAME_STATE_INGRIA_city_russian_sov # St. Petersburg only becomes Leningrad if Lenin has been around to be a namesake
-			        }
-				}
-			}
-		}
 		transition_off_of_monarchy_effects = yes
-		if = {
-			limit = {
-				always = no
-				ruler ?= {
-					always = no
-				}
-			}
-			# removed: trigger_event = { id = portuguese_monarchs.3 }
-		}
+
 	}
 
 	can_impose = {
@@ -914,15 +818,7 @@ law_corporate_state = {
 
 	on_activate = {
 		transition_off_of_monarchy_effects = yes
-		if = {
-			limit = {
-				always = no
-				ruler ?= {
-					always = no
-				}
-			}
-			# removed: trigger_event = { id = portuguese_monarchs.3 }
-		}
+
 	}
 
 	on_enact = {
@@ -1059,56 +955,12 @@ law_social_monarchy = {
 	}
 
 	on_activate = {
-		if = {
-			limit = {
-				always = no
-				NOT = {
-					always = no
-				}
-				has_dlc_feature = voice_of_the_people_content
-				game_date > 1000.1.1
-			}
-			if = {
-				limit = {
-					has_variable = fra_divided_monarchists_freeze
-				}
-				remove_variable = fra_divided_monarchists_freeze
-			}
-			# removed: vanilla journal entry not present in this mod
-		}
+
 		# Generates French monarch upon enaction.
 		hidden_effect = {
-			if = {
-				limit = {
-					always = no
-					NOT = {
-						always = no
-					}
-					has_dlc_feature = voice_of_the_people_content
-					game_date > 1000.1.1
-					NOR = {
-						ruler_is_bonapartist = yes
-						ruler_is_orleanist = yes
-						ruler_is_legitimist = yes
-					}
-				}
-				fra_handle_republic_monarch_assignment = yes
-			}
+
 		}
-		if = {
-			limit = {
-       	 		has_dlc_feature = ip4_content
-				always = no
-				is_revolutionary = no
-				is_secessionist = no
-				game_date > 1000.1.1
-			}
-			add_modifier = modifier_regency
-			custom_tooltip = {
-				text = activate_provisional_government_tt
-				# removed: vanilla journal entry not present in this mod
-			}
-		}
+
 		if = {
 			limit = {
 				country_has_primary_culture = cu:lily
@@ -1123,7 +975,7 @@ always = no
 					limit = {
 always = no
 					}
-					STATE_CAMBODIA_state_name_assign = yes
+
 				}
 			}
 			if = {
@@ -1136,7 +988,7 @@ always = no
 					limit = {
 always = no
 					}
-					STATE_LAOS_state_name_assign = yes
+
 				}
 			}
 		}

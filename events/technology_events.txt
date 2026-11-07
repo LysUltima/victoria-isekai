@@ -79,6 +79,8 @@ technology_events.1 = { #New regulations for cars
 			value = medium_radicals
 		}
 	}
+
+	fire_only_once = yes
 }
 
 technology_events.10 = { #Telephone line between countries
@@ -186,7 +188,9 @@ technology_events.20 = { #Radio Chats
 			interest_group ?= {
 				save_scope_as = radio_ruler_ig
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		set_variable = {
 			name = radio_chats
 			value = yes
@@ -229,6 +233,11 @@ technology_events.20 = { #Radio Chats
 			name = modifier_radio_opium
 			days = normal_modifier_time
 		}
+	}
+
+	fire_only_once = yes
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:radio_ruler }
 	}
 }
 
@@ -309,6 +318,8 @@ technology_events.30 = { #Article on weapons of war
 			days = normal_modifier_time
 		}
 	}
+
+	fire_only_once = yes
 }
 
 
@@ -361,6 +372,8 @@ technology_events.40 = { #Distributing photos of our country
 			days = normal_modifier_time
 		}
 	}
+
+	fire_only_once = yes
 }
 
 technology_events.50 = {
@@ -415,4 +428,6 @@ technology_events.50 = {
 			}
 		}
 	}
+
+	fire_only_once = yes
 }

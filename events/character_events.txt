@@ -77,17 +77,19 @@ character_events.2 = { #Rich industrialist wants to build a university
 			}
 			save_scope_as = university_state
 		}
-	}
+
+		scope:university_benefactor ?= { set_temporary_event_immortality = { DURATION = 3 } }
+}
 
 	option = {
 		default_option = yes
 		name = character_events.2.a
 		scope:university_state = {
 			create_building={
- 				building="building_university"
- 				level=1
- 				reserves=1
- 			}
+				building="building_university"
+				level=1
+				reserves=1
+			}
 		}
 		scope:university_benefactor.interest_group ?= {
 			add_modifier = {
@@ -105,6 +107,10 @@ character_events.2 = { #Rich industrialist wants to build a university
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:university_benefactor }
 	}
 }
 
@@ -155,7 +161,9 @@ character_events.3 = { #The duel
 				is_immortal = no
 			}
 			save_scope_as = duel_participant_1
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 
 		random_scope_character = {
 			limit = {
@@ -169,7 +177,9 @@ character_events.3 = { #The duel
 				is_immortal = no
 			}
 			save_scope_as = duel_participant_2
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = { #Duel
@@ -405,6 +415,11 @@ character_events.3 = { #The duel
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:duel_participant_1 }
+		revoke_temporary_event_immortality = { CHARACTER = scope:duel_participant_2 }
+	}
 }
 
 
@@ -457,7 +472,9 @@ character_events.4 = { #Devout leader sleeping with a nun
 				}
 			}
 			save_scope_as = devout_scandal
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = { #Steps down
@@ -470,9 +487,11 @@ character_events.4 = { #Devout leader sleeping with a nun
 		custom_tooltip = character_events.4.a.tt
 		hidden_effect = {
 			scope:devout_scandal = {
-                retire_character = {
-                    hidden = yes
-                }
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:devout_scandal }
+retire_character = {
+					hidden = yes
+				}
 			}
 		}
 	}
@@ -486,6 +505,10 @@ character_events.4 = { #Devout leader sleeping with a nun
 				days = stupidly_long_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:devout_scandal }
 	}
 }
 
@@ -527,9 +550,13 @@ character_events.5 = { #A statue made of the king
 	}
 
 	immediate = {
-        ruler = {
-            save_scope_as = statue_ruler
-        }
+		ruler = {
+			save_scope_as = statue_ruler
+
+			set_temporary_event_immortality = { DURATION = 3 }
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_scope_state = {
 			limit = {
 				is_incorporated = yes
@@ -567,13 +594,13 @@ character_events.5 = { #A statue made of the king
 				days = normal_modifier_time
 			}
 			add_radicals_in_state = {
-  				value = small_radicals
-  			}
-  			set_variable = {
-  				name = fireworks_variable
-  				value = yes
-  				days = 5
-  			}
+				value = small_radicals
+			}
+			set_variable = {
+				name = fireworks_variable
+				value = yes
+				days = 5
+			}
 		}
 	}
 
@@ -592,6 +619,10 @@ character_events.5 = { #A statue made of the king
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:statue_ruler }
 	}
 }
 

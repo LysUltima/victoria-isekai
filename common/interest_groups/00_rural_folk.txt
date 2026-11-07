@@ -29,33 +29,8 @@ ig_rural_folk = {
 
 	on_enable = {
 		ig:ig_rural_folk ?= {
+
 			if = {
-				limit = {
-					has_dlc_feature = rp1_content
-					owner = { always = no} # vanilla ref 'c:BRZ' not present in this mod
-				}
-				set_ig_trait = ig_trait:ig_trait_old_ways
-				set_ig_trait = ig_trait:ig_trait_plantation_work
-				set_ig_trait = ig_trait:ig_trait_nucleos_coloniais
-			}
-			else_if = {
-				limit = {
-					owner = { always = no} # vanilla ref 'c:RUS' not present in this mod
-				}
-				set_ig_trait = ig_trait:ig_trait_old_ways
-				set_ig_trait = ig_trait:ig_trait_honest_work
-				set_ig_trait = ig_trait:ig_trait_obshchina
-			}
-			else_if = {
-				limit = {
-					owner = { always = no} # vanilla ref 'c:EGY' not present in this mod
-				}
-				set_interest_group_name = ig_fellahin
-				set_ig_trait = ig_trait:ig_trait_old_ways
-				set_ig_trait = ig_trait:ig_trait_fellahin
-				set_ig_trait = ig_trait:ig_trait_farmers_markets
-			}
-			else_if = {
 				limit = {
 					owner = {
 						OR = {
@@ -74,15 +49,7 @@ ig_rural_folk = {
 				set_ig_trait = ig_trait:ig_trait_imandari
 				set_ig_trait = ig_trait:ig_trait_bazaar_bargains
 			}
-			else_if = {
-				limit = {
-					owner = { always = no} # vanilla ref 'c:PAN' not present in this mod
-				}
-				set_interest_group_name = ig_jats
-				set_ig_trait = ig_trait:ig_trait_old_ways
-				set_ig_trait = ig_trait:ig_trait_honest_work
-				set_ig_trait = ig_trait:ig_trait_khalsa_panth
-			}
+
 			# Landvolk
 			else_if = {
 				limit = {
@@ -171,44 +138,11 @@ ig_rural_folk = {
 	}
 	on_disable = {}
 	priority_cultures = { #Country scope
-		rule = {
-			trigger = {
-				always = no # vanilla ref 'c:BIC' not present in this mod
-				any_primary_culture = {
-					cu:aldrican = this # was cu:british
-				}
-			}
-			cultures = {}
-		}
-		rule = {
-			trigger = {
-				always = no # vanilla ref 'c:ZAN' not present in this mod
-				any_primary_culture = {
-					cu:zaharin = this # was cu:bedouin
-				}
-			}
-			cultures = {}
-		}
+
+
 	}
 	on_character_ig_membership = {
-		if = {
-			limit = {
-				OR = {
-					always = no # was culture = cu:oromo (no mod analogue)
-					always = no # was culture = cu:lacustrine_bantu (no mod analogue)
-				}
-				owner = {
-					always = no # vanilla ref 'c:ZAN' not present in this mod
-					any_primary_culture = {
-						cu:zaharin = this # was cu:bedouin
-					}
-				}
-			}
-			random_list = {
-				2 = { change_character_religion = rel:dawnfast} # was rel:sunni
-				1 = { change_character_religion = rel:elder_grove} # was rel:animist
-			}
-		}
+
 	}
 
 	pop_potential = {
@@ -283,19 +217,6 @@ ig_rural_folk = {
 					is_pop_type = clergymen
 				}
 				value = 75
-			}
-		}
-
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:BIC' not present in this mod
-				culture = {
-					has_discrimination_trait_group = heritage_group_european
-				}
-			}
-			multiply = {
-				desc = "POP_INDIA_COLONIAL_RULE"
-				value = 0.1
 			}
 		}
 
@@ -416,25 +337,16 @@ ig_rural_folk = {
 	commander_weight = {
 		value = 1.0
 	}
-	
+
 	magnate_weight = {
 		value = 0.25
-	}	
+	}
 
 	executive_weight = {
 		value = 0.1
 
 		# The company owning BIC should not get non-industrialist executives
-		if = {
-			limit = {
-				exists = scope:company
-				always = no # vanilla ref 'c:BIC' not present in this mod
-				always = no # blanked: vanilla ref 'c:BIC' not present in this mod
-			}
-			multiply = {
-				value = 0
-			}
-		}
+
 	}
 
 	noble_chance = {
@@ -483,7 +395,6 @@ ig_rural_folk = {
 
 	female_politician_chance = {
 		value = 0.0
-
 
 		if = {
 			limit = {
@@ -595,15 +506,7 @@ ig_rural_folk = {
 	# root = interest group
 	magnate_leader_weight = {
 		value = 0.25
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:JAP' not present in this mod
-				NOT = {
-					always = no
-				}
-			}
-			add = 5
-		}
+
 	}
 
 	# Multiplier applied to the weight for an appropriate executive will be selected from the character pool to lead the IG

@@ -282,7 +282,9 @@ revolution_pulse_events.2 = {
 			this.interest_group ?= {
 				save_scope_as = blatant_fedposting_ig
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_scope_state = {
 			limit = {
 				turmoil >= 0.25
@@ -362,6 +364,10 @@ revolution_pulse_events.2 = {
 				add_devastation = 3
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:fedposting_agitator }
 	}
 }
 
@@ -481,7 +487,9 @@ revolution_pulse_events.3 = {
 						has_role_of_type = agitator
 					}
 					save_scope_as = dual_power_agitator
-				}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			}
 		}
 		else = {
@@ -581,6 +589,10 @@ revolution_pulse_events.3 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:dual_power_agitator }
 	}
 }
 
@@ -819,44 +831,44 @@ revolution_pulse_events.5 = {
 }
 
  revolution_pulse_events.6 = {
- 	type = country_event
- 	placement = scope:potemkin_state
+	type = country_event
+	placement = scope:potemkin_state
 
- 	duration = 3
+	duration = 3
 
- 	title = revolution_pulse_events.6.t
- 	desc = revolution_pulse_events.6.d
- 	flavor = revolution_pulse_events.6.f
+	title = revolution_pulse_events.6.t
+	desc = revolution_pulse_events.6.d
+	flavor = revolution_pulse_events.6.f
 
- 	category = revolution
+	category = revolution
 
- 	event_image = {
- 		video = "votp_garibaldi"
- 	}
+	event_image = {
+		video = "votp_garibaldi"
+	}
 
- 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
- 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
 
- 	cooldown = { days = long_modifier_time }
+	cooldown = { days = long_modifier_time }
 
- 	trigger = {
- 		NOT = { has_variable = revolution_event_cooldown }
+	trigger = {
+		NOT = { has_variable = revolution_event_cooldown }
 		any_civil_war = {
 			is_civil_war_type = revolution
- 			civil_war_progress_high = yes
+			civil_war_progress_high = yes
 		}
- 		ig:ig_armed_forces ?= {
- 			ig_counts_as_marginal = no
- 		}
- 		military_wage_level < medium
- 		any_scope_state = {
- 			is_incorporated = yes
- 			any_scope_building = {
- 				is_building_type = building_naval_administration
+		ig:ig_armed_forces ?= {
+			ig_counts_as_marginal = no
+		}
+		military_wage_level < medium
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_naval_administration
 				level >= 2
- 			}
- 		}
+			}
+		}
 		OR = {
 			country_ship_type_fraction = {
 				target = ship_type:ship_type_pre_dreadnought
@@ -867,67 +879,67 @@ revolution_pulse_events.5 = {
 				value >= 0.1
 			}
 		}
- 		any_neighbouring_state = {
- 			is_coastal = yes
- 			NOT = {
- 				owner = root
- 			}
- 		}
- 	}
+		any_neighbouring_state = {
+			is_coastal = yes
+			NOT = {
+				owner = root
+			}
+		}
+	}
 
- 	cancellation_trigger = {
- 		NOT = {
+	cancellation_trigger = {
+		NOT = {
 			any_civil_war = {
 				is_civil_war_type = revolution
 				civil_war_progress_high = yes
 			}
 		}
- 	}
+	}
 
- 	immediate = {
+	immediate = {
 		random_civil_war = {
 			limit = {
 				is_civil_war_type = revolution
 				civil_war_progress_high = yes
 			}
- 			civil_war_save_scopes = yes
+			civil_war_save_scopes = yes
 		}
- 		random_scope_state = {
- 			limit = {
- 			is_incorporated = yes
-			 	any_scope_building = {
+		random_scope_state = {
+			limit = {
+			is_incorporated = yes
+				any_scope_building = {
 					is_building_type = building_naval_administration
 					level >= 2
 				}
- 			}
- 			save_scope_as = potemkin_state
- 			set_variable = potemkin_destination_state
- 			random_scope_building = {
- 				limit = {
+			}
+			save_scope_as = potemkin_state
+			set_variable = potemkin_destination_state
+			random_scope_building = {
+				limit = {
 					is_building_type = building_naval_administration
 					level >= 2
- 				}
- 				save_scope_as = potemkin_naval_administration
- 			}
- 		}
- 		random_scope_state = {
- 			save_scope_as = ship_name_state
- 		}
- 		voyage_of_potemkin = yes
- 		set_variable = { name = revolution_event_cooldown days = 30 }
- 	}
+				}
+				save_scope_as = potemkin_naval_administration
+			}
+		}
+		random_scope_state = {
+			save_scope_as = ship_name_state
+		}
+		voyage_of_potemkin = yes
+		set_variable = { name = revolution_event_cooldown days = 30 }
+	}
 
- 	option = {
- 		name = revolution_pulse_events.6.a
- 		default_option = yes
- 		scope:ongoing_revolution_movement = {
- 			add_modifier = {
- 				name = modifier_movement_dreadnought_recovered
- 				days = normal_modifier_time
- 			}
- 		}
- 		random_scope_admiral = {
- 			limit = {
+	option = {
+		name = revolution_pulse_events.6.a
+		default_option = yes
+		scope:ongoing_revolution_movement = {
+			add_modifier = {
+				name = modifier_movement_dreadnought_recovered
+				days = normal_modifier_time
+			}
+		}
+		random_scope_admiral = {
+			limit = {
 				commander_military_formation ?= {
 					OR = {
 						formation_ship_type_fraction = {
@@ -940,48 +952,48 @@ revolution_pulse_events.5 = {
 						}
 					}
 				}
- 			}
- 			add_modifier = {
- 				name = public_shame_modifier
- 				days = long_modifier_time
- 			}
- 		}
- 		scope:potemkin_state = {
- 			scope:potemkin_naval_administration = {
- 				add_modifier = {
- 					name = modifier_dreadnought_refurbishing
- 					days = normal_modifier_time
- 				}
- 			}
- 		}
- 	}
+			}
+			add_modifier = {
+				name = public_shame_modifier
+				days = long_modifier_time
+			}
+		}
+		scope:potemkin_state = {
+			scope:potemkin_naval_administration = {
+				add_modifier = {
+					name = modifier_dreadnought_refurbishing
+					days = normal_modifier_time
+				}
+			}
+		}
+	}
 
- 	option = {
- 		name = revolution_pulse_events.6.b
- 		scope:ongoing_revolution = {
- 			add_civil_war_progress = revolution_advance_small
- 		}
- 		scope:ongoing_revolution_movement = {
- 			add_modifier = {
- 				name = modifier_movement_dreadnought_martyred
- 				days = normal_modifier_time
- 			}
- 		}
- 		scope:potemkin_state = {
- 			scope:potemkin_naval_administration = {
- 				add_modifier = {
- 					name = modifier_dreadnought_defection
- 					days = normal_modifier_time
- 				}
- 			}
- 		}
- 		scope:potemkin_final_destination = {
- 			create_incident = {
- 				country = root
- 				value = 5
- 			}
- 		}
- 	}
+	option = {
+		name = revolution_pulse_events.6.b
+		scope:ongoing_revolution = {
+			add_civil_war_progress = revolution_advance_small
+		}
+		scope:ongoing_revolution_movement = {
+			add_modifier = {
+				name = modifier_movement_dreadnought_martyred
+				days = normal_modifier_time
+			}
+		}
+		scope:potemkin_state = {
+			scope:potemkin_naval_administration = {
+				add_modifier = {
+					name = modifier_dreadnought_defection
+					days = normal_modifier_time
+				}
+			}
+		}
+		scope:potemkin_final_destination = {
+			create_incident = {
+				country = root
+				value = 5
+			}
+		}
+	}
  }
 
 revolution_pulse_events.7 = {
@@ -1045,14 +1057,18 @@ revolution_pulse_events.7 = {
 			save_scope_as = petition_march_ig
 			leader = {
 				save_scope_as = petition_march_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		capital = {
 			save_scope_as = petition_march_state
 		}
 		ruler = {
 			save_scope_as = petition_march_ruler
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		set_variable = { name = revolution_event_cooldown days = 30 }
 	}
 
@@ -1106,7 +1122,7 @@ revolution_pulse_events.7 = {
 						}
 					}
 				}
-				set_ideology = ideology:ideology_communist
+				set_ideology = ideology:ideology_communist_leader
 			}
 			else_if = {
 				limit = {
@@ -1175,6 +1191,11 @@ revolution_pulse_events.7 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:petition_march_leader }
+		revoke_temporary_event_immortality = { CHARACTER = scope:petition_march_ruler }
 	}
 }
 
@@ -1417,7 +1438,9 @@ revolution_pulse_events.9 = {
 						has_role_of_type = agitator
 					}
 					save_scope_as = agitation_af_agitator
-				}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			}
 		}
 		set_variable = { name = revolution_event_cooldown days = 30 }
@@ -1454,6 +1477,10 @@ revolution_pulse_events.9 = {
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:agitation_af_agitator }
 	}
 }
 
@@ -1527,7 +1554,9 @@ revolution_pulse_events.10 = {
 		}
 		ruler = {
 			save_scope_as = reforms_at_gunpoint_ruler
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_interest_group = {
 			limit = {
 				is_in_government = yes
@@ -1608,6 +1637,10 @@ revolution_pulse_events.10 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:reforms_at_gunpoint_ruler }
 	}
 }
 
@@ -1814,7 +1847,9 @@ revolution_pulse_events.12 = {
 				has_socialist_ideology = yes
 			}
 			save_scope_as = communist_agitator_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		ig:ig_trade_unions ?= {
 			save_scope_as = trade_union_ig
 			ordered_scope_character = {
@@ -1829,7 +1864,9 @@ revolution_pulse_events.12 = {
 				order_by = prominence
 				position = 0
 				save_scope_as = trade_union_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		set_variable = { name = revolution_event_cooldown days = 30 }
 	}
@@ -1893,6 +1930,11 @@ revolution_pulse_events.12 = {
 		scope:ongoing_revolution = {
 			add_civil_war_progress = revolution_advance_small
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:communist_agitator_scope }
+		revoke_temporary_event_immortality = { CHARACTER = scope:trade_union_leader }
 	}
 }
 
@@ -1980,7 +2022,9 @@ revolution_pulse_events.13 = {
 				has_socialist_ideology = yes
 			}
 			save_scope_as = communist_revolutionary_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		set_variable = { name = revolution_event_cooldown days = 30 }
 	}
 
@@ -2110,6 +2154,10 @@ revolution_pulse_events.13 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:communist_revolutionary_scope }
+	}
 }
 
 ### Fascism Chain [1]
@@ -2193,7 +2241,9 @@ revolution_pulse_events.14 = {
 		}
 		ruler = {
 			save_scope_as = nation_ruler
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		set_variable = { name = revolution_event_cooldown days = 30 }
 	}
 
@@ -2258,6 +2308,10 @@ revolution_pulse_events.14 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:nation_ruler }
 	}
 }
 
@@ -2333,7 +2387,9 @@ revolution_pulse_events.15 = {
 				has_variable = reactionary_agitator_var
 			}
 			save_scope_as = reactionary_agitator
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_interest_group = {
 			limit = {
 				any_scope_character = {
@@ -2379,7 +2435,7 @@ revolution_pulse_events.15 = {
 		if = {
 			limit = {
 				 any_civil_war = {
-         civil_war_is_liberal_revolution = yes
+		 civil_war_is_liberal_revolution = yes
    }
 
 			}
@@ -2436,6 +2492,10 @@ revolution_pulse_events.15 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:reactionary_agitator }
 	}
 }
 
@@ -2629,7 +2689,9 @@ revolution_pulse_events.17 = {
 				has_variable = reactionary_agitator_var
 			}
 			save_scope_as = reactionary_agitator
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		set_variable = { name = revolution_event_cooldown days = 30 }
 	}
 
@@ -2747,6 +2809,10 @@ revolution_pulse_events.17 = {
 			remove_variable = pogrom_culture_var
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:reactionary_agitator }
+	}
 }
 
 revolution_pulse_events.18 = {
@@ -2816,7 +2882,9 @@ revolution_pulse_events.18 = {
 					has_variable = reactionary_agitator_var
 				}
 				save_scope_as = fascist_agitator
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			if = {
 				limit = {
 					any_scope_character = {
@@ -2913,6 +2981,10 @@ revolution_pulse_events.18 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:fascist_agitator }
+	}
 }
 
 revolution_pulse_events.19 = {
@@ -2976,7 +3048,7 @@ revolution_pulse_events.19 = {
 	cancellation_trigger = {
 		NOT = {
 			any_civil_war = {
-         		civil_war_is_socialist_revolution = yes
+				civil_war_is_socialist_revolution = yes
 			}
 		}
 	}
@@ -2984,7 +3056,7 @@ revolution_pulse_events.19 = {
 	immediate = {
 		random_civil_war = {
 			limit = {
-         		civil_war_is_socialist_revolution = yes
+				civil_war_is_socialist_revolution = yes
 			}
 			civil_war_save_scopes = yes
 		}
@@ -3000,10 +3072,14 @@ revolution_pulse_events.19 = {
 					has_variable = reactionary_agitator_var
 				}
 				save_scope_as = fascist_regime_agitator
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			leader = {
 				save_scope_as = fascist_regime_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		capital = {
 			save_scope_as = capital_scope
@@ -3146,6 +3222,11 @@ revolution_pulse_events.19 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:fascist_regime_agitator }
+		revoke_temporary_event_immortality = { CHARACTER = scope:fascist_regime_leader }
+	}
 }
 
 revolution_pulse_events.20 = {
@@ -3214,7 +3295,9 @@ revolution_pulse_events.20 = {
 			save_scope_as = reactionary_regime_ig
 			leader = {
 				save_scope_as = reactionary_regime_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		capital = {
 			save_scope_as = capital_scope
@@ -3283,6 +3366,10 @@ revolution_pulse_events.20 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:reactionary_regime_ig_leader }
 	}
 }
 
@@ -3519,7 +3606,9 @@ revolution_pulse_events.22 = {
 			save_scope_as = hostage_ig
 			leader = {
 				save_scope_as = hostage_char
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		set_variable = { name = revolution_event_cooldown days = 30 }
 	}
@@ -3614,6 +3703,10 @@ revolution_pulse_events.22 = {
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:hostage_char }
 	}
 }
 
@@ -4012,7 +4105,9 @@ revolution_pulse_events.25 = {
 				is_heir_of_own_country = yes
 			}
 			save_scope_as = heir_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		if = {
 			limit = {
 				ruler = {
@@ -4269,6 +4364,10 @@ revolution_pulse_events.25 = {
 				kill_character = yes
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:heir_scope }
 	}
 }
 
@@ -4948,7 +5047,9 @@ revolution_pulse_events.31 = {
 			save_scope_as = armed_forces_ig
 			leader = {
 				save_scope_as = armed_forces_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		ordered_scope_state = {
 			limit = {
@@ -5015,6 +5116,10 @@ revolution_pulse_events.31 = {
 				pop_type = soldiers
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:armed_forces_ig_leader }
 	}
 }
 
@@ -5098,7 +5203,9 @@ revolution_pulse_events.32 = {
 			save_scope_as = devout_ig
 			leader = {
 				save_scope_as = devout_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		ordered_scope_state = {
 			limit = {
@@ -5183,6 +5290,10 @@ revolution_pulse_events.32 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:devout_ig_leader }
+	}
 }
 
 revolution_pulse_events.33 = {
@@ -5262,7 +5373,9 @@ revolution_pulse_events.33 = {
 			save_scope_as = industrialists_ig
 			leader = {
 				save_scope_as = industrialists_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		ordered_scope_state = {
 			limit = {
@@ -5350,6 +5463,10 @@ revolution_pulse_events.33 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:industrialists_ig_leader }
+	}
 }
 
 revolution_pulse_events.34 = {
@@ -5424,7 +5541,9 @@ revolution_pulse_events.34 = {
 			save_scope_as = intelligentsia_ig
 			leader = {
 				save_scope_as = intelligentsia_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		ordered_scope_state = {
 			limit = {
@@ -5484,15 +5603,19 @@ revolution_pulse_events.34 = {
 		scope:little_dark_age_state = {
 			remove_building = building_university
 			create_building={
- 				building="building_university"
- 				level=1
- 				reserves=1
- 			}
+				building="building_university"
+				level=1
+				reserves=1
+			}
 		}
 		add_modifier = {
 			name = modifier_intelligentsia_plan
 			days = short_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:intelligentsia_ig_leader }
 	}
 }
 
@@ -5567,7 +5690,9 @@ revolution_pulse_events.35 = {
 			save_scope_as = landowners_ig
 			leader = {
 				save_scope_as = landowners_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		ordered_scope_state = {
 			limit = {
@@ -5627,6 +5752,10 @@ revolution_pulse_events.35 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:landowners_ig_leader }
 	}
 }
 
@@ -5701,7 +5830,9 @@ revolution_pulse_events.36 = {
 			save_scope_as = petty_bourgeoisie_ig
 			leader = {
 				save_scope_as = petty_bourgeoisie_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		ordered_scope_state = {
 			limit = {
@@ -5751,6 +5882,10 @@ revolution_pulse_events.36 = {
 			name = modifier_restart_false_reports
 			days = short_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:petty_bourgeoisie_ig_leader }
 	}
 }
 
@@ -5830,7 +5965,9 @@ revolution_pulse_events.37 = {
 			save_scope_as = rural_folk_ig
 			leader = {
 				save_scope_as = rural_folk_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		random_scope_state = {
 			limit = {
@@ -5901,6 +6038,10 @@ revolution_pulse_events.37 = {
 				days = short_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:rural_folk_ig_leader }
 	}
 }
 
@@ -5976,7 +6117,9 @@ revolution_pulse_events.38 = {
 			save_scope_as = trade_unions_ig
 			leader = {
 				save_scope_as = trade_unions_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		ordered_scope_state = {
 			limit = {
@@ -6072,6 +6215,10 @@ revolution_pulse_events.38 = {
 				strata = lower
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:trade_unions_ig_leader }
 	}
 }
 
@@ -6236,7 +6383,9 @@ revolution_pulse_events.40 = {
 		}
 		ruler = {
 			save_scope_as = governor_person
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_interest_group = {
 			limit = {
 				is_insurrectionary = yes
@@ -6297,5 +6446,9 @@ revolution_pulse_events.40 = {
 				days = short_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:governor_person }
 	}
 }

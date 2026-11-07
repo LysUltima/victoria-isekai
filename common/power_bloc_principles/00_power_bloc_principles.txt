@@ -218,7 +218,6 @@ principle_market_unification_3 = {
 	}
 }
 
-
 ### SOVEREIGN EMPIRE
 ### Vassal Subjects
 
@@ -529,7 +528,7 @@ principle_aggressive_coordination_2 = {
 		country_initiator_war_goal_maneuver_cost_mult = -0.3
 
 		# Reduces war exhaustion from casualties, propaganda!
-		country_war_exhaustion_casualties_mult = -0.15
+		country_war_support_casualties_mult = -0.15
 	}
 
 	ai_weight = {
@@ -549,7 +548,7 @@ principle_aggressive_coordination_3 = {
 	member_modifier = {
 		# Modifiers from previous level(s)
 		country_initiator_war_goal_maneuver_cost_mult = -0.3
-		country_war_exhaustion_casualties_mult = -0.15
+		country_war_support_casualties_mult = -0.15
 
 		# Countries forced to join diplomatic plays of members, other countries are not happy about this threat
 		country_join_power_bloc_member_in_plays_bool = yes
@@ -809,7 +808,6 @@ principle_police_coordination_3 = {
 		value = 1000 # AI prefers upgrading groups it has already picked to unlocking new ones
 	}
 }
-
 
 ### TRANSPORT INFRASTRUCTURE
 
@@ -1241,17 +1239,6 @@ principle_freedom_of_movement_1 = {
 
 		if = {
 			limit = {
-				OR = {
-					always = no
-					always = no
-					always = no
-				}
-			}
-			add = 100
-		}
-
-		if = {
-			limit = {
 				has_law_or_variant = law_type:law_migration_controls
 			}
 			multiply = 0.5
@@ -1661,7 +1648,6 @@ principle_ideological_truth_3 = {
 	}
 }
 
-
 ### Companies
 
 principle_companies_1 = {
@@ -1801,8 +1787,8 @@ principle_navy_1 = {
 
 	member_modifier = {
 		# Increase interest gain from fleets
-		ship_interest_gain_mult = 0.1
-		country_flagship_interest_gain_mult = 0.1
+		ship_power_projection_mult = 0.1
+		ship_power_projection_mult = 0.1
 	}
 
 	ai_weight = {
@@ -1828,8 +1814,8 @@ principle_navy_2 = {
 
 	member_modifier = {
 		# Modifiers from previous level(s)
-		ship_interest_gain_mult = 0.1
-		country_flagship_interest_gain_mult = 0.1
+		ship_power_projection_mult = 0.1
+		ship_power_projection_mult = 0.1
 
 		# Adds max bonus to ship construction
 		country_ship_construction_progress_max_add = 5
@@ -1846,8 +1832,8 @@ principle_navy_3 = {
 
 	member_modifier = {
 		# Modifiers from previous level(s)
-		ship_interest_gain_mult = 0.1
-		country_flagship_interest_gain_mult = 0.1
+		ship_power_projection_mult = 0.1
+		ship_power_projection_mult = 0.1
 		country_ship_construction_progress_max_add = 5
 
 		# Adds a reduction to navy goods cost

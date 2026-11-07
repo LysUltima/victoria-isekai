@@ -406,7 +406,9 @@ healthcare_laws.5 = {
 			save_scope_as = anti_public_healthcare_ig
 			leader = {
 				save_scope_as = anti_public_healthcare_advocate
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -461,6 +463,10 @@ healthcare_laws.5 = {
 			name = opening_up_healthcare
 			multiplier = -1
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:anti_public_healthcare_advocate }
 	}
 }
 

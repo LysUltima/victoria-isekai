@@ -133,7 +133,7 @@ communism.1 = {
 				leader = {
 					OR = {
 						has_ideology = ideology:ideology_vanguardist
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_anarchist
 					}
 				}
@@ -177,7 +177,9 @@ communism.2 = {
 			save_scope_as = unions
 			leader = {
 				save_scope_as = union_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 	option = { # vanguardism
@@ -214,8 +216,8 @@ communism.2 = {
 				limit = {
 					is_political_movement_type = movement_communist
 				}
-				set_core_ideology = ideology_vanguardist_movement
-				remove_character_ideology = ideology_communist
+				set_core_ideology = ideology_communist_movement
+				remove_character_ideology = ideology_communist_leader
 			}
 		}
 		custom_tooltip = chose_vanguardism.tt
@@ -239,7 +241,7 @@ communism.2 = {
 					leader = {
 						OR = {
 							has_ideology = ideology:ideology_vanguardist
-							has_ideology = ideology:ideology_communist
+							has_ideology = ideology:ideology_communist_leader
 							has_ideology = ideology:ideology_anarchist
 						}
 					}
@@ -253,7 +255,7 @@ communism.2 = {
 							leader = {
 								NOR = {
 									has_ideology = ideology:ideology_vanguardist
-									has_ideology = ideology:ideology_communist
+									has_ideology = ideology:ideology_communist_leader
 									has_ideology = ideology:ideology_anarchist
 								}
 							}
@@ -305,11 +307,11 @@ communism.2 = {
 		if = {
 			limit = {
 				scope:union_leader = {
-					NOT = { has_ideology = ideology:ideology_communist }
+					NOT = { has_ideology = ideology:ideology_communist_leader }
 				}
 			}
 			scope:union_leader = {
-				set_ideology = ideology:ideology_communist
+				set_ideology = ideology:ideology_communist_leader
 			}
 		}
 		add_modifier = {
@@ -410,6 +412,11 @@ communism.2 = {
 			type = je_5_year_plan
 		}
 	}
+
+	fire_only_once = yes
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:union_leader }
+	}
 }
 
 # IG Converted by Vanguard
@@ -449,7 +456,7 @@ communism.3 = {
 			leader = {
 				NOR = {
 					has_ideology = ideology:ideology_vanguardist
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 					has_ideology = ideology:ideology_anarchist
 				}
 			}
@@ -468,7 +475,7 @@ communism.3 = {
 				leader = {
 					NOR = {
 						has_ideology = ideology:ideology_vanguardist
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_anarchist
 					}
 				}
@@ -485,7 +492,9 @@ communism.3 = {
 				}
 				save_scope_as = new_vanguard_leader
 				set_as_interest_group_leader = yes
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -509,6 +518,10 @@ communism.3 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:new_vanguard_leader }
 	}
 }
 
@@ -633,7 +646,7 @@ communism.7 = {
 				}
 				NOT = { has_modifier = popular_socialist_leader }
 				OR = {
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 					has_ideology = ideology:ideology_anarchist
 					has_ideology = ideology:ideology_vanguardist
 				}
@@ -652,7 +665,7 @@ communism.7 = {
 					}
 					NOT = { has_modifier = popular_socialist_leader }
 					OR = {
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_anarchist
 						has_ideology = ideology:ideology_vanguardist
 					}
@@ -667,13 +680,15 @@ communism.7 = {
 					}
 					NOT = { has_modifier = popular_socialist_leader }
 					OR = {
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_anarchist
 						has_ideology = ideology:ideology_vanguardist
 					}
 				}
 				save_scope_as = popular_socialist_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -717,6 +732,10 @@ communism.7 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:popular_socialist_leader }
+	}
 }
 
 # The Red Army
@@ -743,7 +762,7 @@ communism.8 = {
 		ig:ig_armed_forces ?= {
 			leader = {
 				OR = {
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 					has_ideology = ideology:ideology_vanguardist
 				}
 			}
@@ -755,7 +774,9 @@ communism.8 = {
 			save_scope_as = red_army_ig
 			leader = {
 				save_scope_as = red_army_general
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		set_variable = red_army_var
 	}
@@ -771,55 +792,60 @@ communism.8 = {
 			add_ideology = ideology_proletarian
 		}
 	}
+
+	fire_only_once = yes
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:red_army_general }
+	}
 }
 
 # Worker coops, happy workers
  communism.9 = {
- 	type = country_event
- 	placement = scope:coop_state
- 	title = communism.9.t
- 	desc = communism.9.d
- 	flavor = communism.9.f
+	type = country_event
+	placement = scope:coop_state
+	title = communism.9.t
+	desc = communism.9.d
+	flavor = communism.9.f
 
- 	duration = 3
+	duration = 3
 
- 	cooldown = { days = very_long_modifier_time }
+	cooldown = { days = very_long_modifier_time }
 
- 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
- 	event_image = {
- 		video = "africa_prosperous_farm"
- 	}
+	event_image = {
+		video = "africa_prosperous_farm"
+	}
 
- 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
- 	trigger = {
- 		has_law_or_variant = law_type:law_council_republic
+	trigger = {
+		has_law_or_variant = law_type:law_council_republic
 		has_law_or_variant = law_type:law_cooperative_ownership
- 		any_scope_state = {
- 			is_incorporated = yes
- 			NOT = { has_modifier = coop_loyalty_modifier }
- 			NOT = { has_modifier = coop_migration_modifier }
- 			any_scope_pop = {
+		any_scope_state = {
+			is_incorporated = yes
+			NOT = { has_modifier = coop_loyalty_modifier }
+			NOT = { has_modifier = coop_migration_modifier }
+			any_scope_pop = {
 				pop_acceptance >= acceptance_status_4
- 				standard_of_living > 15
- 				workplace ?= {
+				standard_of_living > 15
+				workplace ?= {
 					NOR = {
 						is_building_type = building_manor_house
 						is_building_type = building_financial_district
 					}
- 					cash_reserves_ratio > 0.25
- 					weekly_profit > 5
- 					occupancy >= 0.95
- 					level >= 5
- 				}
- 			}
- 		}
- 	}
+					cash_reserves_ratio > 0.25
+					weekly_profit > 5
+					occupancy >= 0.95
+					level >= 5
+				}
+			}
+		}
+	}
 
- 	immediate = {
- 		random_scope_state = {
- 			limit = {
+	immediate = {
+		random_scope_state = {
+			limit = {
 				is_incorporated = yes
 				NOT = { has_modifier = coop_loyalty_modifier }
 				NOT = { has_modifier = coop_migration_modifier }
@@ -837,10 +863,10 @@ communism.8 = {
 						level >= 5
 					}
 				}
- 			}
- 			save_scope_as = coop_state
- 			random_scope_pop = {
- 				limit = {
+			}
+			save_scope_as = coop_state
+			random_scope_pop = {
+				limit = {
 					pop_acceptance >= acceptance_status_4
 					standard_of_living > 15
 					workplace ?= {
@@ -853,35 +879,35 @@ communism.8 = {
 						occupancy >= 0.95
 						level >= 5
 					}
- 				}
- 				save_scope_as = coop_pop
- 				workplace = {
- 					save_scope_as = coop_building
- 				}
- 			}
- 		}
- 	}
+				}
+				save_scope_as = coop_pop
+				workplace = {
+					save_scope_as = coop_building
+				}
+			}
+		}
+	}
 
- 	option = {
- 		name = communism.9.a
- 		default_option = yes
- 		scope:coop_state = {
- 			add_modifier = {
- 				name = coop_loyalty_modifier
- 				days = long_modifier_time
- 			}
- 		}
- 	}
+	option = {
+		name = communism.9.a
+		default_option = yes
+		scope:coop_state = {
+			add_modifier = {
+				name = coop_loyalty_modifier
+				days = long_modifier_time
+			}
+		}
+	}
 
- 	option = {
- 		name = communism.9.b
- 		scope:coop_state = {
- 			add_modifier = {
- 				name = coop_migration_modifier
- 				days = long_modifier_time
- 			}
- 		}
- 	}
+	option = {
+		name = communism.9.b
+		scope:coop_state = {
+			add_modifier = {
+				name = coop_migration_modifier
+				days = long_modifier_time
+			}
+		}
+	}
  }
 
 # Startup event 1
@@ -922,7 +948,7 @@ communism.10 = {
 			any_interest_group = {
 				is_in_government = yes
 				OR = {
-					has_ideology = ideology:ideology_socialist
+					has_ideology = ideology:ideology_communist
 					leader = {
 						has_socialist_ideology = yes
 					}

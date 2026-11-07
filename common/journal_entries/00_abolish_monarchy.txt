@@ -5,6 +5,10 @@
 # events/1848.txt 1848.2 on completion (also migrated).
 
 je_abolish_monarchy = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -38,59 +42,9 @@ je_abolish_monarchy = {
 		}
 	}
 
-	complete = {
-		scope:journal_entry = {
-			is_goal_complete = yes
-		}
-		NOT = { country_has_monarchy_law = yes }
-		NOT = {
-			any_civil_war = {
-				civil_war_progress >= 0.75
-				is_civil_war_type = revolution
-			}
-		}
-		NOT = {
-			any_interest_group = {
-				law_stance = {
-					law = law_type:law_monarchy
-					value > neutral
-				}
-				is_powerful = yes
-			}
-		}
-	}
-
 	immediate = {
 		ig:ig_landowners ?= {
 			save_scope_as = landowners_ig
-		}
-	}
-
-	on_complete = {
-		# Isekai TC: dropped set_variable = stamped_out_monarchy_var (2026-07-14, audit V4) —
-		# its only consumer was common/achievements/voiceofthepeopleachievements.txt, wiped
-		# (achievements is a replace_paths dir with no mod copy).
-		trigger_event = {
-			id = 1848.2
-		}
-	}
-
-	event_outcome_completed_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = event_effects_1848.2_tt
-			}
-		}
-	}
-
-	invalid = {
-		NOR = {
-			is_enacting_law = law_type:law_presidential_republic
-			is_enacting_law = law_type:law_parliamentary_republic
-			is_enacting_law = law_type:law_council_republic
-			has_law_or_variant = law_type:law_presidential_republic
-			has_law_or_variant = law_type:law_parliamentary_republic
-			has_law_or_variant = law_type:law_council_republic
 		}
 	}
 
@@ -108,4 +62,61 @@ je_abolish_monarchy = {
 
 	should_be_pinned_by_default_uninvolved_or_context = no
 
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+			NOT = { country_has_monarchy_law = yes }
+			NOT = {
+				any_civil_war = {
+					civil_war_progress >= 0.75
+					is_civil_war_type = revolution
+				}
+			}
+			NOT = {
+				any_interest_group = {
+					law_stance = {
+						law = law_type:law_monarchy
+						value > neutral
+					}
+					is_powerful = yes
+				}
+			}
+		}
+		effect = {
+			# Isekai TC: dropped set_variable = stamped_out_monarchy_var (2026-07-14, audit V4) —
+			# its only consumer was common/achievements/voiceofthepeopleachievements.txt, wiped
+			# (achievements is a replace_paths dir with no mod copy).
+			trigger_event = {
+				id = 1848.2
+			}
+		}
+		event_outcome_desc = {
+			first_valid = {
+				triggered_desc = {
+					desc = event_effects_1848.2_tt
+				}
+			}
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NOR = {
+				is_enacting_law = law_type:law_presidential_republic
+				is_enacting_law = law_type:law_parliamentary_republic
+				is_enacting_law = law_type:law_council_republic
+				has_law_or_variant = law_type:law_presidential_republic
+				has_law_or_variant = law_type:law_parliamentary_republic
+				has_law_or_variant = law_type:law_council_republic
+			}
+		}
+	}
 }

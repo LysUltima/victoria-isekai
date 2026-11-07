@@ -54,7 +54,9 @@ laws.1 = {
 		}
 		ruler = {
 			save_scope_as = ruler_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -85,5 +87,9 @@ laws.1 = {
 				is_decaying = yes
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:ruler_scope }
 	}
 }

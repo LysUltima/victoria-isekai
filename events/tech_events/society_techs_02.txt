@@ -7,7 +7,7 @@ dan_society_tech_events.1 = {
 	placement = ROOT
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	title = dan_society_tech_events.1.t
 	desc = dan_society_tech_events.1.d
@@ -70,4 +70,6 @@ dan_society_tech_events.1 = {
 		add_technology_progress = { progress = 4150 technology = identification_documents }
 	}
 
+
+	fire_only_once = yes
 }

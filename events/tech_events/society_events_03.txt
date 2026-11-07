@@ -22,7 +22,7 @@ society_tech_events.301 = { #airships
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	trigger = {
 		has_technology_researched = merchant_airships
@@ -65,6 +65,8 @@ society_tech_events.301 = { #airships
 			days = short_modifier_time
 		}
 	}
+
+	fire_only_once = yes
 }
 
 society_tech_events.302 = { #romanticism
@@ -85,7 +87,7 @@ society_tech_events.302 = { #romanticism
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	trigger = {
 	}
@@ -131,4 +133,6 @@ society_tech_events.302 = { #romanticism
 		}
 		add_technology_progress = { progress = 3500 technology = realism }
 	}
+
+	fire_only_once = yes
 }

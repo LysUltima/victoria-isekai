@@ -190,8 +190,8 @@ tax.2 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		random_political_movement = {
 			limit = {
 				law_stance = {
@@ -304,11 +304,11 @@ tax.3 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
-    	random_interest_group = {
-    		limit = {
-    			is_in_government = yes
+			save_scope_as = current_law_scope
+		}
+		random_interest_group = {
+			limit = {
+				is_in_government = yes
 				law_stance = {
 					law = owner.currently_enacting_law.type
 					value > neutral
@@ -317,11 +317,13 @@ tax.3 = {
 					is_busy = no
 					is_immortal = no
 				}
-    		}
-    		leader = {
-    			save_scope_as = death_and_taxes_leader
-    		}
-    	}
+			}
+			leader = {
+				save_scope_as = death_and_taxes_leader
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
+		}
 	}
 
 	cancellation_trigger = {
@@ -351,6 +353,10 @@ tax.3 = {
 		scope:death_and_taxes_leader = {
 			kill_character = yes
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:death_and_taxes_leader }
 	}
 }
 
@@ -393,8 +399,8 @@ tax.4 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
+			save_scope_as = current_law_scope
+		}
 		random_scope_state = {
 			limit = {
 				is_incorporated = yes
@@ -406,14 +412,14 @@ tax.4 = {
 			}
 			save_scope_as = bandit_state
 			random_scope_pop = {
-	    		limit = {
-	    			standard_of_living < 15
+				limit = {
+					standard_of_living < 15
 					strata = lower
 					pop_acceptance >= acceptance_status_4
-	    		}
-	    		save_scope_as = bandit_pop
-	    	}
-	    }
+				}
+				save_scope_as = bandit_pop
+			}
+		}
 	}
 
 	cancellation_trigger = {
@@ -556,16 +562,16 @@ tax.5 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
-    	random_scope_pop = {
-    		limit = {
-    			standard_of_living > 40
+			save_scope_as = current_law_scope
+		}
+		random_scope_pop = {
+			limit = {
+				standard_of_living > 40
 				strata = upper
 				pop_acceptance >= acceptance_status_4
-    		}
-    		save_scope_as = philanthropists
-    	}
+			}
+			save_scope_as = philanthropists
+		}
 	}
 
 	cancellation_trigger = {
@@ -637,16 +643,16 @@ tax.6 = {
 
 	immediate = {
 		currently_enacting_law = {
-    		save_scope_as = current_law_scope
-    	}
-    	random_scope_pop = {
-    		limit = {
-    			standard_of_living < 40
+			save_scope_as = current_law_scope
+		}
+		random_scope_pop = {
+			limit = {
+				standard_of_living < 40
 				strata = middle
 				pop_acceptance >= acceptance_status_4
-    		}
-    		save_scope_as = middle_class_pop
-    	}
+			}
+			save_scope_as = middle_class_pop
+		}
 		ig:ig_petty_bourgeoisie ?= {
 			save_scope_as = pb_ig
 		}

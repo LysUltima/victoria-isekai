@@ -36,7 +36,7 @@ society_tech_events.104 = { #Evelators
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	placement = ROOT
 
@@ -63,6 +63,8 @@ society_tech_events.104 = { #Evelators
 			days = normal_modifier_time
 		}
 	}
+
+	fire_only_once = yes
 }
 
 society_tech_events.105 = { #Mutual Funds
@@ -91,7 +93,7 @@ society_tech_events.105 = { #Mutual Funds
 
 	duration = 3
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	placement = ROOT
 
@@ -127,4 +129,6 @@ society_tech_events.105 = { #Mutual Funds
 		}
 		add_technology_progress = { progress = 6000 technology = international_exchange_standards }
 	}
+
+	fire_only_once = yes
 }

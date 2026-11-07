@@ -322,10 +322,4 @@ country_is_taikunate = {
     }
 }
 
-character_is_taikun = {
-    owner ?= {
-        always = no # cu:japanese
-        country_is_taikunate = yes
-    }
-    has_variable = former_shogun_var
-}
+character_is_taikun = { always = no }

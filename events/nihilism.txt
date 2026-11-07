@@ -29,7 +29,7 @@ nihilism.1 = {
 	duration = 3
 
 	trigger = {
-	 	#Triggered by journal entry
+		#Triggered by journal entry
 	}
 
 	immediate = {
@@ -49,7 +49,9 @@ nihilism.1 = {
 				years = 20
 				random_range = { 1.0 1.5 } # 20-30 years
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -137,6 +139,10 @@ nihilism.1 = {
 			}
 		}
 		set_variable = nihilism_je_started
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:nihilist_scope }
 	}
 }
 
@@ -267,7 +273,7 @@ nihilism.3 = {
 							limit = {
 								has_ideology = ideology:ideology_nihilist
 							}
-							set_ideology = ideology:ideology_communist
+							set_ideology = ideology:ideology_communist_leader
 						}
 					}
 				}
@@ -336,7 +342,7 @@ nihilism.3 = {
 							limit = {
 								has_ideology = ideology:ideology_nihilist
 							}
-							set_ideology = ideology:ideology_communist
+							set_ideology = ideology:ideology_communist_leader
 						}
 					}
 				}
@@ -417,7 +423,9 @@ nihilism.4 = {  #Fathers and Sons
 				has_ideology = ideology:ideology_nihilist
 			}
 			save_scope_as = nihilist_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -454,6 +462,10 @@ nihilism.4 = {  #Fathers and Sons
 				name = modifier_dashing_character
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:nihilist_scope }
 	}
 }
 
@@ -671,7 +683,9 @@ nihilism.7 = { #Turmoil at universities
 				has_ideology = ideology:ideology_nihilist
 			}
 			save_scope_as = nihilist_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		set_variable = {
 			name = nihilism_level_two
 		}
@@ -718,6 +732,10 @@ nihilism.7 = { #Turmoil at universities
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:nihilist_scope }
 	}
 }
 
@@ -997,7 +1015,9 @@ nihilism.10 = { #Intellectual leader becomes a nihilist
 				save_scope_as = nihilist_leader
 			}
 		}
-	}
+
+		scope:nihilist_leader ?= { set_temporary_event_immortality = { DURATION = 3 } }
+}
 
 	option = {
 		name = nihilism.10.a
@@ -1040,6 +1060,10 @@ nihilism.10 = { #Intellectual leader becomes a nihilist
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:nihilist_leader }
+	}
 }
 
 nihilism.11 = { #Agitator fight! Nihilist agitator argues with communists about things.
@@ -1073,7 +1097,7 @@ nihilism.11 = { #Agitator fight! Nihilist agitator argues with communists about 
 			has_role_of_type = agitator
 			OR = {
 				has_ideology = ideology:ideology_anarchist
-				has_ideology = ideology:ideology_communist
+				has_ideology = ideology:ideology_communist_leader
 				has_ideology = ideology:ideology_vanguardist
 			}
 		}
@@ -1090,7 +1114,7 @@ nihilism.11 = { #Agitator fight! Nihilist agitator argues with communists about 
 					has_role_of_type = agitator
 					OR = {
 						has_ideology = ideology:ideology_anarchist
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_vanguardist
 					}
 				}
@@ -1102,12 +1126,14 @@ nihilism.11 = { #Agitator fight! Nihilist agitator argues with communists about 
 					has_role_of_type = agitator
 					OR = {
 						has_ideology = ideology:ideology_anarchist
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_vanguardist
 					}
 				}
 				save_scope_as = communist_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		random_scope_character = {
 			limit = {
@@ -1115,7 +1141,9 @@ nihilism.11 = { #Agitator fight! Nihilist agitator argues with communists about 
 				has_ideology = ideology:ideology_nihilist
 			}
 			save_scope_as = nihilist_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -1158,6 +1186,11 @@ nihilism.11 = { #Agitator fight! Nihilist agitator argues with communists about 
 			}
 		}
 		set_variable = { name = nihilist_communist_front }
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:communist_scope }
+		revoke_temporary_event_immortality = { CHARACTER = scope:nihilist_scope }
 	}
 }
 
@@ -1216,7 +1249,7 @@ nihilism.12 = { #Trade Unions adopt a positive view of state atheism/total separ
 				leader = {
 					OR = {
 						has_ideology = ideology:ideology_anarchist
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_vanguardist
 					}
 				}

@@ -181,7 +181,9 @@ election_contextual_events.2 = {
 			}
 			leader = {
 				save_scope_as = public_debt_scapegoat
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			party = {
 				save_scope_as = public_debt_party
 			}
@@ -211,6 +213,10 @@ election_contextual_events.2 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:public_debt_scapegoat }
 	}
 }
 
@@ -253,10 +259,10 @@ election_contextual_events.3 = {
 		}
 		any_scope_war = {
 			attacker_warleader = ROOT
-		    has_war_exhaustion = {
-		        target = ROOT
-		        value > 10
-		    }
+			has_war_support_change = {
+				target = ROOT
+				value < -5
+			}
 		}
 	}
 
@@ -279,7 +285,9 @@ election_contextual_events.3 = {
 			}
 			leader = {
 				save_scope_as = pacifist_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		random_interest_group = {
 			limit = {
@@ -294,10 +302,10 @@ election_contextual_events.3 = {
 		random_scope_war = {
 			limit = {
 				attacker_warleader = ROOT
-			    has_war_exhaustion = {
-			        target = ROOT
-			        value > 10
-			    }
+				has_war_support_change = {
+					target = ROOT
+					value < -5
+				}
 			}
 			save_scope_as = pacifist_war
 		}
@@ -400,6 +408,10 @@ election_contextual_events.3 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:pacifist_ig_leader }
+	}
 }
 
 # For Whom the Bell Tolls
@@ -458,7 +470,9 @@ election_contextual_events.4 = {
 			}
 			leader = {
 				save_scope_as = decrepit_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			save_scope_as = decrepit_leader_ig
 			party = {
 				save_scope_as = decrepit_leader_party
@@ -549,7 +563,11 @@ election_contextual_events.4 = {
 			name = election_leader_death_cooldown
 			days = long_modifier_time
 		}
-	}
+
+		scope:popular_leader_scope ?= { set_temporary_event_immortality = { DURATION = 3 } }
+
+		scope:young_leader_scope ?= { set_temporary_event_immortality = { DURATION = 3 } }
+}
 
 	cancellation_trigger = {
 		in_election_campaign = no
@@ -587,7 +605,12 @@ election_contextual_events.4 = {
 				kill_character = yes
 			}
 		}
-	}
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:decrepit_leader }
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:popular_leader_scope }
+		revoke_temporary_event_immortality = { CHARACTER = scope:young_leader_scope }
+}
 }
 
 # A Land of Want
@@ -648,7 +671,9 @@ election_contextual_events.5 = {
 			}
 			leader = {
 				save_scope_as = low_sol_opposition_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			party = {
 				save_scope_as = low_sol_opposition_party
 			}
@@ -685,6 +710,10 @@ election_contextual_events.5 = {
 			name = indifferent_to_destitution
 			days = short_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:low_sol_opposition_leader }
 	}
 }
 
@@ -733,7 +762,9 @@ election_contextual_events.6 = {
 			save_scope_as = high_sol_ig
 			leader = {
 				save_scope_as = high_sol_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			party = {
 				save_scope_as = high_sol_party
 			}
@@ -766,6 +797,10 @@ election_contextual_events.6 = {
 				days = long_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:high_sol_leader }
 	}
 }
 
@@ -803,10 +838,10 @@ election_contextual_events.7 = {
 			is_in_government = yes
 		}
 		any_scope_war = {
-		    has_war_support = {
-		        target = ROOT
-		        value > 70
-		    }
+			has_war_support = {
+				target = ROOT
+				value > 85
+			}
 		}
 	}
 
@@ -817,10 +852,10 @@ election_contextual_events.7 = {
 		}
 		random_scope_war = {
 			limit = {
-			    has_war_support = {
-			        target = ROOT
-			        value > 70
-			    }
+				has_war_support = {
+					target = ROOT
+					value > 85
+				}
 			}
 			save_scope_as = ongoing_election_war
 		}

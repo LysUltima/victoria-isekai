@@ -1,31 +1,31 @@
 ﻿support_separatism = {
-    groups = {
-        general
-    }
+	groups = {
+		general
+	}
 
 	requires_approval = no
 	show_effect_in_tooltip = yes
 	can_use_obligations = no
-    should_notify_third_parties = no
+	should_notify_third_parties = no
 	show_confirmation_box = no
 
 	unlocking_technologies = {
 		nationalism
 	}
 
-    selectable = {
-        NOT = { is_country_type = decentralized }
+	selectable = {
+		NOT = { is_country_type = decentralized }
 		is_revolutionary = no
-    }
+	}
 
-    potential = {
+	potential = {
 		scope:target_country = {
 			NOT = { is_country_type = decentralized }
 		}
 		is_revolutionary = no
-    }
+	}
 
-    possible = {
+	possible = {
 		NOT = {
 			any_primary_culture = {
 				is_primary_culture_of = scope:target_country
@@ -47,19 +47,19 @@
 			is_subject = no
 			aggressive_diplomatic_plays_permitted = yes
 		}
-    }
+	}
 
-    accept_effect = {
-        custom_tooltip = support_separatism_action_effect_breakdown
-    }
+	accept_effect = {
+		custom_tooltip = support_separatism_action_effect_breakdown
+	}
 
-    is_hostile = yes
+	is_hostile = yes
 
-    pact = {
-        cost = 100
-        is_hostile = yes
-        is_two_sided_pact = no
-        show_in_outliner = yes
+	pact = {
+		cost = 100
+		is_hostile = yes
+		is_two_sided_pact = no
+		show_in_outliner = yes
 
 		max_target_involvement = 1000
 		target_involvement_applies_to = source_country
@@ -120,13 +120,13 @@
 				NOT = { scope:target_country = { has_diplomats_expelled = root } }
 			}
 		}
-    }
+	}
 
-    ai = {
+	ai = {
 		max_influence_spending_fraction = 0.25
 
-        evaluation_chance = {
-            value = 0
+		evaluation_chance = {
+			value = 0
 
 			if = {
 				limit = {
@@ -137,17 +137,7 @@
 				add = 0.25
 			}
 
-			if = {
-				limit = {
-					OR = {
-						always = no
-						always = no
-						always = no
-					}
-				}
-				add = 0.75
-			}
-        }
+		}
 
 		propose_score = {
 			value = 10
@@ -267,5 +257,5 @@
 				}
 			}
 		}
-    }
+	}
 }

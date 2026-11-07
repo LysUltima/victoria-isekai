@@ -85,7 +85,7 @@ anarchist_party = {
 			OR = {
 				py:anarchist_party ?= {
 					any_member = {}
-				}			
+				}
 				any_interest_group = {
 					ig_counts_as_marginal = no
 					leader ?= {
@@ -106,27 +106,7 @@ anarchist_party = {
 			value = -5
 			desc = "base_value"
 		}
-		if = {
-			limit = {
-				owner = {
-					always = no
-					is_subject = yes
-					OR = {
-						has_modifier = modifier_india_crown_rule
-						has_modifier = modifier_india_company_rule
-						has_modifier = modifier_india_company_rule_upgraded
-					}
-				}
-				OR = {
-					is_interest_group_type = ig_industrialists
-					is_interest_group_type = ig_armed_forces
-				}
-			}
-			add = {
-				value = -100
-				desc = "india_colonial_government"
-			}
-		}
+
 		if = { # anarchists like anarchism
 			limit = {
 				leader ?= { has_ideology = ideology:ideology_anarchist }
@@ -174,7 +154,7 @@ anarchist_party = {
 							ig_counts_as_marginal = no
 							leader ?= {
 								OR = {
-									has_ideology = ideology:ideology_communist
+									has_ideology = ideology:ideology_communist_leader
 									has_ideology = ideology:ideology_vanguardist
 								}
 							}
@@ -322,7 +302,7 @@ anarchist_party = {
 						OR = {
 						has_ideology = ideology:ideology_abolitionist
 						has_ideology = ideology:ideology_social_democrat
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 								has_ideology = ideology:ideology_vanguardist
 						}
 					}

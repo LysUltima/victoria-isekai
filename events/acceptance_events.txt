@@ -22,7 +22,7 @@ acceptance_events.1 = { #Heir falls in love with unbecomingly unacceptable pop. 
 
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
-	cooldown = { days = never_fire_again_modifier_time }
+
 
 	trigger = {
 		has_law = law_type:law_monarchy
@@ -60,7 +60,9 @@ acceptance_events.1 = { #Heir falls in love with unbecomingly unacceptable pop. 
 	immediate = {
 		heir ?= {
 			save_scope_as = romeo
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_scope_pop = {
 			limit = {
 				pop_has_primary_culture = no
@@ -98,7 +100,7 @@ acceptance_events.1 = { #Heir falls in love with unbecomingly unacceptable pop. 
 		scope:romeo = {
 			add_trait = wrathful
 			# removed: vanilla ref 'modifier_withdrawn_from_the_public' (defined only in blanked montenegrin_modifiers.txt) not present in this mod
- 		}
+		}
 	}
 
 	option = {
@@ -146,43 +148,43 @@ acceptance_events.1 = { #Heir falls in love with unbecomingly unacceptable pop. 
 			}
 		}
 		random_scope_state = {
-	 		limit = {
-	 			any_scope_pop = {
-	 				culture = scope:juliet
+			limit = {
+				any_scope_pop = {
+					culture = scope:juliet
 					pop_has_primary_culture = no
 					pop_acceptance <= acceptance_status_2
-	 			}
-	 		}
-	 		if = {
-	 			limit = {
-	 				any_scope_pop = {
-	 					culture = scope:juliet
+				}
+			}
+			if = {
+				limit = {
+					any_scope_pop = {
+						culture = scope:juliet
 						pop_has_primary_culture = no
 						pop_acceptance <= acceptance_status_1
-	 				}
-	 			}
-	 			ROOT = {
-	 				add_culture_acceptance_modifier = {
+					}
+				}
+				ROOT = {
+					add_culture_acceptance_modifier = {
 						culture = scope:juliet
 						multiplier = 40
 					}
 				}
-	 		}
-	 		else_if = {
-	 			limit = {
-	 				any_scope_pop = {
-	 					culture = scope:juliet
+			}
+			else_if = {
+				limit = {
+					any_scope_pop = {
+						culture = scope:juliet
 						pop_has_primary_culture = no
 						pop_acceptance <= acceptance_status_2
-	 				}
-	 			}
-	 			ROOT = {
-		 			add_culture_acceptance_modifier = {
+					}
+				}
+				ROOT = {
+					add_culture_acceptance_modifier = {
 						culture = scope:juliet
 						multiplier = 20
 					}
 				}
-	 		}
+			}
 		}
 		if = {
 			limit = {
@@ -218,5 +220,10 @@ acceptance_events.1 = { #Heir falls in love with unbecomingly unacceptable pop. 
 				set_ideology = ideology:ideology_reformer
 			}
 		}
+	}
+
+	fire_only_once = yes
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:romeo }
 	}
 }

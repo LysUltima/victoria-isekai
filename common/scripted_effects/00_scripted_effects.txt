@@ -367,320 +367,7 @@ save_agitator_law_scopes = {
 	}
 }
 
-generate_french_monarch = {
-	hidden_effect = {
-		if = {
-			limit = {
-				any_scope_character = {
-					is_heir_of_own_country = yes
-					is_historical = no
-				}
-			}
-			random_scope_character = {
-				limit = {
-					is_heir_of_own_country = yes
-					is_historical = no
-				}
-				retire_character = yes
-			}
-		}
-		if = {
-			limit = {
-				has_gov_regency = yes
-			}
-			remove_regency_modifier = yes
-		}
-	}
-	if = {
-		limit = {
-			has_variable = orleanist_restoration_var
-		}
-		if = {
-			limit = {
-				year < 1850
-			}
-			country_summon_character_effect = {
-				TEMPLATE = FRA_ferdinand_philippe
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-			if = {
-				limit = {
-					year > 1838
-					year < 1850
-				}
-				country_summon_heir_effect = {
-					TEMPLATE = FRA_philippe_de_orleans_of_paris
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				year >= 1850
-				year < 1894
-			}
-			country_summon_character_effect = {
-				TEMPLATE = FRA_philippe_de_orleans_of_paris
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-			if = {
-				limit = {
-					year >= 1870
-					year < 1894
-				}
-				country_summon_heir_effect = {
-					TEMPLATE = FRA_philippe_de_orleans_of_orleans
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				year >= 1894
-				year < 1926
-			}
-			country_summon_character_effect = {
-				TEMPLATE = FRA_philippe_de_orleans_of_orleans
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-			country_summon_heir_effect = {
-				TEMPLATE = FRA_jean_de_orleans
-			}
-		}
-		else_if = {
-			limit = {
-				year >= 1926
-			}
-			country_summon_character_effect = {
-				TEMPLATE = FRA_jean_de_orleans
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-			country_summon_heir_effect = {
-				TEMPLATE = FRA_henri_de_orleans
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			has_variable = legitimist_restoration_var
-		}
-		if = {
-			limit = {
-				year < 1844
-			}
-			country_summon_character_effect = {
-				TEMPLATE = FRA_louis_antoine_de_bourbon
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-			country_summon_heir_effect = {
-				TEMPLATE = FRA_henri_de_bourbon
-			}
-		}
-		else_if = {
-			limit = {
-				year >= 1844
-				year < 1883
-			}
-			country_summon_character_effect = {
-				TEMPLATE = FRA_henri_de_bourbon
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-		}
-		else_if = {
-			limit = {
-				year >= 1883
-				year < 1887
-			}
-			country_summon_character_effect = {
-				TEMPLATE = SPC_juan_iii_de_borbon_template
-				ON_CREATED_EFFECT = summon_legitimist_carlist_effect
-			}
-		}
-		else_if = {
-			limit = {
-				year >= 1887
-				year < 1909
-			}
-			country_summon_character_effect = {
-				TEMPLATE = SPC_carlos_vii_de_borbon_template
-				ON_CREATED_EFFECT = summon_legitimist_carlist_effect
-			}
-		}
-		else_if = {
-			limit = {
-				year >= 1909
-				year < 1931
-			}
-			country_summon_character_effect = {
-				TEMPLATE = SPC_jaime_iii_de_borbon_template
-				ON_CREATED_EFFECT = summon_legitimist_carlist_effect
-			}
-		}
-		else_if = {
-			limit = {
-				year >= 1931
-			}
-			country_summon_character_effect = {
-				TEMPLATE = SPC_alfonso_i_de_borbon_template
-				ON_CREATED_EFFECT = summon_legitimist_carlist_effect
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			has_variable = bonapartist_restoration_var
-		}
-	#		limit = { # Joseph and Louis commented out due Louis-Napoleon taking precedence, and due to them not having any real designs on the throne.
-	#			year < 1844
-	#		}
-	#		create_character = {
-	#			# Joseph-Napoléon Bonaparte
-	#			first_name = "Joseph"
-	#			last_name = "Bonaparte"
-	#			ruler = yes
-	#			birth_date = 932.1.7
-	#			culture = cu:solenne
-	#			interest_group = ig_landowners
-	#			ideology = ideology_bonapartist
-	#			traits = {
-	#				ambitious
-	#				basic_diplomat
-	#			}
-	#			on_created = {
-	#				set_variable = {
-	#					name = house_bonaparte
-	#				}
-	#			}
-	#		}
-	#		create_character = {
-	#			# Louis Napoléon Bonaparte
-	#			first_name = "Louis"
-	#			last_name = "Bonaparte"
-	#			heir = yes
-	#			birth_date = 942.9.2
-	#			culture = cu:solenne
-	#			interest_group = ig_armed_forces
-	#			ideology = ideology_bonapartist
-	#			traits = {
-	#				basic_artillery_commander
-	#				meticulous
-	#				tactful
-	#			}
-	#			on_created = {
-	#				set_variable = {
-	#					name = house_bonaparte
-	#				}
-	#			}
-	#		}
-	#	}
-	#	else_if = {
-	#		limit = {
-	#			year >= 1844
-	#			year < 1846
-	#		}
-	#		create_character = {
-	#			# Louis Napoléon Bonaparte
-	#			first_name = "Louis"
-	#			last_name = "Bonaparte"
-	#			ruler = yes
-	#			birth_date = 942.9.2
-	#			culture = cu:solenne
-	#			interest_group = ig_armed_forces
-	#			ideology = ideology_bonapartist
-	#			traits = {
-	#				basic_artillery_commander
-	#				meticulous
-	#				tactful
-	#			}
-	#			on_created = {
-	#				set_variable = {
-	#					name = house_bonaparte
-	#				}
-	#			}
-	#		}
-	#		create_character = {
-	#			# Charles Louis Napoléon Bonaparte
-	#			first_name = "Louis-Napoleon"
-	#			last_name = "Bonaparte"
-	#			heir = yes
-	#			birth_date = 972.4.20
-	#			culture = cu:solenne
-	#			interest_group = ig_petty_bourgeoisie
-	#			ideology = ideology_bonapartist
-	#			traits = {
-	#				ambitious
-	#				experienced_political_operator
-	#				demagogue
-	#			}
-	#			on_created = {
-	#				set_variable = {
-	#					name = house_bonaparte
-	#				}
-	#			}
-	#		}
-	#	}
-		if = {
-			limit = {
-				year < 1873
-			}
-			summon_napoleon_the_woat = yes
-			if = {
-				limit = {
-					year >= 1857
-					year < 1873
-				}
-				country_summon_heir_effect = {
-					TEMPLATE = FRA_napoleon_eugene_louis_bonaparte
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				year >= 1873
-				year < 1879
-			}
-			country_summon_character_effect = {
-				TEMPLATE = FRA_napoleon_eugene_louis_bonaparte
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-			country_summon_heir_effect = {
-				TEMPLATE = FRA_victor_bonaparte
-			}
-		}
-		else_if = {
-			limit = {
-				year >= 1879
-				year < 1926
-			}
-			country_summon_character_effect = {
-				TEMPLATE = FRA_victor_bonaparte
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-			if = {
-				limit = {
-					year >= 1915
-					year < 1926
-				}
-				country_summon_heir_effect = {
-					TEMPLATE = FRA_louis_bonaparte
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				year >= 1926
-			}
-			country_summon_character_effect = {
-				TEMPLATE = FRA_louis_bonaparte
-				ON_CREATED_EFFECT = summon_generic_make_ruler_effect
-			}
-		}
-	}
-	random_scope_character = {
-		limit = {
-			is_ruler_of_own_country = yes
-		}
-		save_scope_as = french_monarch_scope
-	}
-}
+
 
 exile_character_with_role_cleanup = { # scope:character - should be used instead of exile_character = yes
 	exile_character = yes
@@ -704,18 +391,18 @@ clean_up_exile_character_roles = { # scope: character
 }
 
 remove_war_disease_modifier = { #used to remove modifiers from nursing_events.1 and je_war_nursing
-    if = {
-        limit = {
-            has_modifier = war_wounded_disease
-        }
-        remove_modifier = war_wounded_disease
-    }
-    if = {
-        limit = {
-            has_modifier = war_wounded_civilian_assistance
-        }
-        remove_modifier = war_wounded_civilian_assistance
-    }
+	if = {
+		limit = {
+			has_modifier = war_wounded_disease
+		}
+		remove_modifier = war_wounded_disease
+	}
+	if = {
+		limit = {
+			has_modifier = war_wounded_civilian_assistance
+		}
+		remove_modifier = war_wounded_civilian_assistance
+	}
 }
 
 unification_claims_effect = {
@@ -993,66 +680,23 @@ accepted_cultural_minority_selector_owner_scope_save_scope_as_minority_culture =
 }
 
 spoils_of_war_initiation_gre = { # If there are any states in the Balkans that are Greek homelands, and not ours, and if there is at least one country who completed the Balkan League JE besides us.
-	if = {
-		limit = {
-			always = no # vanilla ref 'c:GRE' not present in this mod
-			always = no # vanilla ref 'c:GRE' not present in this mod
-			is_subject = no
-			always = no # blanked: vanilla ref 'sr:region_balkans' not present in this mod
-			always = no
-	   	}
-		# removed (add_journal_entry: Invalid journal entry type '')
-	}
+
 }
 
 spoils_of_war_initiation_mon = { # If there are any states in the Balkans that are Serbian homelands, and not ours, and if there is at least one country who completed the Balkan League JE besides us.
-    if = {
-		limit = {
-			always = no # vanilla ref 'c:MON' not present in this mod
-			always = no # vanilla ref 'c:MON' not present in this mod
-			is_subject = no
-			always = no # blanked: vanilla ref 'sr:region_balkans' not present in this mod
-			always = no
-    	}
-		# removed (add_journal_entry: Invalid journal entry type '')
-    }
+
 }
 
 spoils_of_war_initiation_bul = { # If there are any states in the Balkans that are Romanian homelands, and not ours, and if there is at least one country who completed the Balkan League JE besides us.
-    if = {
-		limit = {
-			always = no # vanilla ref 'c:BUL' not present in this mod
-			always = no # vanilla ref 'c:BUL' not present in this mod
-			is_subject = no
-			always = no # blanked: vanilla ref 'sr:region_balkans' not present in this mod
-			always = no
-    	}
-		# removed (add_journal_entry: Invalid journal entry type '')
-    }
+
 }
 
 spoils_of_war_initiation_ser = { # If there are any states in the Balkans that are Serbian homelands, and not ours, and if there is at least one country who completed the Balkan League JE besides us.
-	if = {
-		limit = {
-			always = no # vanilla ref 'c:SER' not present in this mod
-			always = no # vanilla ref 'c:SER' not present in this mod
-			is_subject = no
-			always = no # blanked: vanilla ref 'sr:region_balkans' not present in this mod
-			always = no
-    	}
-		# removed (add_journal_entry: Invalid journal entry type '')
-    }
+
 }
 
 spoils_of_war_initiation_wal = { # If there are any states in the Danubia region that are romanian homelands, and not ours, and if there is at least one country who completed the Balkan League JE.
-	if = {
-		limit = {
-			always = no # vanilla ref 'c:WAL' not present in this mod
-			is_subject = no
-			always = no # blanked: vanilla ref 'sr:region_balkans' not present in this mod
-    	}
-		# removed (add_journal_entry: Invalid journal entry type '')
-    }
+
 }
 
 the_balkan_league_activated_modifier_cleanser = { #removes all activated modifiers when they're not logically applicable anymore.

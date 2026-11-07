@@ -95,6 +95,8 @@ crime_events.1 = { #Train Robbery
 	after = {
 		clear_generated_names = yes
 	}
+
+	fire_only_once = yes
 }
 
 crime_events.2 = { #Organised crime found in state
@@ -252,6 +254,8 @@ crime_events.10 = { #First horrific murders makes the newspapers
 		}
 		set_variable = ongoing_serial_killer_je #so you don't get the assassination JE at the same time
 	}
+
+	fire_only_once = yes
 }
 
 crime_events.11 = { #The Criminal was caught
@@ -314,7 +318,9 @@ crime_events.11 = { #The Criminal was caught
 				age > 18
 			}
 			save_scope_as = important_killer
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_list = {
 			80 = { }
 			20 = {
@@ -342,7 +348,9 @@ crime_events.11 = { #The Criminal was caught
 				has_variable = important_killer_var
 			}
 			scope:important_killer = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:important_killer }
+retire_character = yes
 				interest_group ?= {
 					add_modifier = {
 						name = serial_killer_ig
@@ -388,6 +396,11 @@ crime_events.11 = { #The Criminal was caught
 				}
 			}
 		}
+	}
+
+	fire_only_once = yes
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:important_killer }
 	}
 }
 

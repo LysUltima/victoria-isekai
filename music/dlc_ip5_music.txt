@@ -1,0 +1,281 @@
+﻿##### MOOD TRACKS
+
+mx_mood_tr_71 = {
+	music = "event:/MUSIC/DLC/IP5/Mood/01_Notre_Pays_MOODVERSION"
+	name = "01_Notre_Pays_MOODVERSION"
+	pause_factor = 50
+	mood = yes
+	can_be_interrupted = yes
+	trigger_prio_override = no
+	is_valid = { has_ip5_soundtrack_dlc_trigger = yes }
+	weight = {
+		value = 100
+		if = {
+			limit = {
+				any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				is_in_geographic_region = geographic_region_north
+				NOT = { is_in_geographic_region = geographic_region_eastern_isles }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				NOT = { is_in_geographic_region = geographic_region_north }
+				overlord ?= {
+					any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+				}
+			}
+			add = 50
+		}
+	}
+}
+
+mx_mood_tr_72 = {
+	music = "event:/MUSIC/DLC/IP5/Mood/02_Élégie"
+	name = "02_Elegie"
+	pause_factor = 50
+	mood = yes
+	can_be_interrupted = yes
+	trigger_prio_override = no
+	is_valid = { has_ip5_soundtrack_dlc_trigger = yes }
+	weight = {
+		value = 100
+		if = {
+			limit = {
+				any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				is_in_geographic_region = geographic_region_north
+				NOT = { is_in_geographic_region = geographic_region_eastern_isles }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				NOT = { is_in_geographic_region = geographic_region_north }
+				overlord ?= {
+					any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+				}
+			}
+			add = 50
+		}
+	}
+}
+
+mx_mood_tr_73 = {
+	music = "event:/MUSIC/DLC/IP5/Mood/03_Sérénade"
+	name = "03_Serenade"
+	pause_factor = 50
+	mood = yes
+	can_be_interrupted = yes
+	trigger_prio_override = no
+	is_valid = { has_ip5_soundtrack_dlc_trigger = yes }
+	weight = {
+		value = 100
+		if = {
+			limit = {
+				any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				is_in_geographic_region = geographic_region_north
+				NOT = { is_in_geographic_region = geographic_region_eastern_isles }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				NOT = { is_in_geographic_region = geographic_region_north }
+				overlord ?= {
+					any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+				}
+			}
+			add = 50
+		}
+	}
+}
+
+mx_mood_tr_74 = {
+	music = "event:/MUSIC/DLC/IP5/Mood/04_Rêverie"
+	name = "04_Reverie"
+	pause_factor = 50
+	mood = yes
+	can_be_interrupted = yes
+	trigger_prio_override = no
+	is_valid = { has_ip5_soundtrack_dlc_trigger = yes }
+	weight = {
+		value = 100
+		if = {
+			limit = {
+				any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				is_in_geographic_region = geographic_region_north
+				NOT = { is_in_geographic_region = geographic_region_eastern_isles }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				NOT = { is_in_geographic_region = geographic_region_north }
+				overlord ?= {
+					any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+				}
+			}
+			add = 50
+		}
+	}
+}
+
+mx_mood_tr_75 = {
+	music = "event:/MUSIC/DLC/IP5/Mood/05_Lamento"
+	name = "05_Lamento"
+	pause_factor = 50
+	mood = yes
+	can_be_interrupted = yes
+	trigger_prio_override = no
+	is_valid = { has_ip5_soundtrack_dlc_trigger = yes }
+	weight = {
+		value = 100
+		if = {
+			limit = {
+				any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				is_in_geographic_region = geographic_region_north
+				NOT = { is_in_geographic_region = geographic_region_eastern_isles }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				NOT = { is_in_geographic_region = geographic_region_north }
+				overlord ?= {
+					any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+				}
+			}
+			add = 50
+		}
+	}
+}
+
+mx_mood_tr_76 = {
+	music = "event:/MUSIC/DLC/IP5/Mood/06_Quatour_à_cordes"
+	name = "06_Quatour_a_cordes"
+	pause_factor = 50
+	mood = yes
+	can_be_interrupted = yes
+	trigger_prio_override = no
+	is_valid = { has_ip5_soundtrack_dlc_trigger = yes }
+	weight = {
+		value = 100
+		if = {
+			limit = {
+				any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				is_in_geographic_region = geographic_region_north
+				NOT = { is_in_geographic_region = geographic_region_eastern_isles }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				NOT = { is_in_geographic_region = geographic_region_north }
+				overlord ?= {
+					any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+				}
+			}
+			add = 50
+		}
+	}
+}
+
+mx_mood_tr_77 = {
+	music = "event:/MUSIC/DLC/IP5/Mood/07_Fantaisie"
+	name = "07_Fantaisie"
+	pause_factor = 50
+	mood = yes
+	can_be_interrupted = yes
+	trigger_prio_override = no
+	is_valid = { has_ip5_soundtrack_dlc_trigger = yes }
+	weight = {
+		value = 100
+		if = {
+			limit = {
+				any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				is_in_geographic_region = geographic_region_north
+				NOT = { is_in_geographic_region = geographic_region_eastern_isles }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				NOT = { is_in_geographic_region = geographic_region_north }
+				overlord ?= {
+					any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+				}
+			}
+			add = 50
+		}
+	}
+}
+
+mx_mood_tr_78 = {
+	music = "event:/MUSIC/DLC/IP5/Mood/08_Une_Larme"
+	name = "08_Une_Larme"
+	pause_factor = 50
+	mood = yes
+	can_be_interrupted = yes
+	trigger_prio_override = no
+	is_valid = { has_ip5_soundtrack_dlc_trigger = yes }
+	weight = {
+		value = 100
+		if = {
+			limit = {
+				any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				is_in_geographic_region = geographic_region_north
+				NOT = { is_in_geographic_region = geographic_region_eastern_isles }
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				NOT = { is_in_geographic_region = geographic_region_north }
+				overlord ?= {
+					any_primary_culture = { has_discrimination_trait = heritage_east_slavic }
+				}
+			}
+			add = 50
+		}
+	}
+}

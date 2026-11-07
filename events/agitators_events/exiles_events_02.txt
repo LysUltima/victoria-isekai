@@ -45,7 +45,9 @@ exiles_more_events.1 = {
 			}
 			save_temporary_scope_as = ex_ig
 			save_scope_as = patriotic_exile_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_interest_group = {
 			limit = {
 				ig_type_matches_former = yes
@@ -120,6 +122,10 @@ exiles_more_events.1 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:patriotic_exile_scope }
 	}
 }
 
@@ -244,7 +250,9 @@ exiles_more_events.2 = {
 			}
 			save_temporary_scope_as = ex_ig
 			save_scope_as = interventionist_exile_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 
 		random_interest_group = {
 			limit = {
@@ -252,7 +260,9 @@ exiles_more_events.2 = {
 			}
 			leader = {
 				save_scope_as = interventionist_exile_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			save_scope_as = interventionist_exile_ig
 		}
 	}
@@ -355,6 +365,11 @@ exiles_more_events.2 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:interventionist_exile_ig_leader }
+		revoke_temporary_event_immortality = { CHARACTER = scope:interventionist_exile_scope }
+	}
 }
 
 # Agitator has no domestic support and sullenly goes into self-exile
@@ -401,7 +416,9 @@ exiles_more_events.3 = {
 			interest_group ?= {
 				save_scope_as = the_loneliest_little_agitator_ig
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -535,6 +552,10 @@ exiles_more_events.3 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:the_loneliest_little_agitator }
+	}
 }
 
 # Nationalist exile rallies to the flag of a unifier
@@ -583,7 +604,9 @@ exiles_more_events.4 = {
 			ideology = {
 				save_scope_as = post_unification_agitator_ideology
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -863,6 +886,10 @@ exiles_more_events.4 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:post_unification_agitator }
+	}
 }
 
 # Previously-exiled character goes back into exile
@@ -900,7 +927,9 @@ exiles_more_events.5 = {
 				popularity < 0
 			}
 			save_scope_as = experienced_exile
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -948,6 +977,10 @@ exiles_more_events.5 = {
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:experienced_exile }
 	}
 }
 
@@ -1014,7 +1047,9 @@ exiles_more_events.6 = {
 			set_variable = {
 				name = THE_NEFARIOUS_TOP_HAT
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_interest_group = {
 			limit = {
 				ig_type_matches_former = yes
@@ -1023,7 +1058,9 @@ exiles_more_events.6 = {
 			save_scope_as = melodrama_villain_ig
 			leader = {
 				save_scope_as = melodrama_villain_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -1168,6 +1205,11 @@ exiles_more_events.6 = {
 			remove_variable = THE_NEFARIOUS_TOP_HAT
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:melodrama_villain }
+		revoke_temporary_event_immortality = { CHARACTER = scope:melodrama_villain_ig_leader }
+	}
 }
 
 # Two competing exiles living in ROOT drive one or the other out of the country because they brought their problems with them
@@ -1208,7 +1250,9 @@ exiles_more_events.7 = {
 				was_exiled = yes
 			}
 			save_scope_as = first_ex_exile
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_scope_character = {
 			limit = {
 				NOT = { home_country ?= ROOT }
@@ -1216,7 +1260,9 @@ exiles_more_events.7 = {
 				NOT = { scope:first_ex_exile = this }
 			}
 			save_scope_as = second_ex_exile
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -1275,6 +1321,11 @@ exiles_more_events.7 = {
 			exile_character_with_martyrdom = yes
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:first_ex_exile }
+		revoke_temporary_event_immortality = { CHARACTER = scope:second_ex_exile }
+	}
 }
 
 # Exile returns because legitimacy is so low that no one cares
@@ -1318,7 +1369,9 @@ exiles_more_events.8 = {
 			}
 			save_temporary_scope_as = ex_ig
 			save_scope_as = dgaf_exile_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_interest_group = {
 			limit = {
 				ig_type_matches_former = yes
@@ -1384,6 +1437,10 @@ exiles_more_events.8 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:dgaf_exile_scope }
+	}
 }
 
 # Foreign exile decides to set up shop in ROOT
@@ -1432,7 +1489,9 @@ exiles_more_events.9 = {
 				save_scope_as = exile_ig_type
 			}
 			save_scope_as = fertile_ground_exile_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_interest_group = {
 			limit = {
 				scope:exile_ig_type ?= this.type
@@ -1503,6 +1562,10 @@ exiles_more_events.9 = {
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:fertile_ground_exile_scope }
+	}
 }
 
 # Purging unstable elements in a time of crisis
@@ -1550,7 +1613,9 @@ exiles_more_events.10 = {
 			interest_group ?= {
 				save_scope_as = unstable_element_ig
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -1591,5 +1656,9 @@ exiles_more_events.10 = {
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:unstable_element_agitator }
 	}
 }

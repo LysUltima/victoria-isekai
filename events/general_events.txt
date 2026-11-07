@@ -216,7 +216,11 @@ generals.1 = {
 				}
 			}
 		}
-	}
+
+		scope:high_rank_general ?= { set_temporary_event_immortality = { DURATION = 3 } }
+
+		scope:low_rank_general ?= { set_temporary_event_immortality = { DURATION = 3 } }
+}
 
 	option = { # promote
 		name = generals.1.a
@@ -257,5 +261,10 @@ generals.1 = {
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:low_rank_general }
+		revoke_temporary_event_immortality = { CHARACTER = scope:high_rank_general }
 	}
 }

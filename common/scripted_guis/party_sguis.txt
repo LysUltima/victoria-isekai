@@ -9,17 +9,7 @@
                 }
             }
             py:liberal_party ?= {
-                if = {
-                    limit = {
-                        any_member = {
-                            leader ?= {
-                                has_variable = former_shogun_var # designates Taikun
-                            }
-                        }
-                    }
-                    custom_tooltip_no_bullet = "TAIKUNATE_TAIKUN_PARTY_NAME"
-                }
-                else = {
+                
                     ordered_member = {
                         order_by = ig_clout
                         position = 0
@@ -46,7 +36,7 @@
                             custom_tooltip_no_bullet = "TAIKUNATE_LIBERAL_PARTY_STATE_NAME"
                         }
                     }
-                }
+                
             }
         }
         else = {
@@ -66,17 +56,7 @@ taikunate_conservative_party_name_sgui = {
                 }
             }
             py:conservative_party ?= {
-                if = {
-                    limit = {
-                        any_member = {
-                            leader ?= {
-                                has_variable = former_shogun_var # designates Taikun
-                            }
-                        }
-                    }
-                    custom_tooltip_no_bullet = "TAIKUNATE_TAIKUN_PARTY_NAME"
-                }
-                else = {
+                
                     ordered_member = {
                         order_by = ig_clout
                         position = 0
@@ -103,7 +83,7 @@ taikunate_conservative_party_name_sgui = {
                             custom_tooltip_no_bullet = "TAIKUNATE_CONSERVATIVE_PARTY_STATE_NAME"
                         }
                     }
-                }
+                
             }
         }
         else = {
@@ -123,17 +103,7 @@ taikunate_agrarian_party_name_sgui = {
                 }
             }
             py:agrarian_party ?= {
-                if = {
-                    limit = {
-                        any_member = {
-                            leader ?= {
-                                has_variable = former_shogun_var # designates Taikun
-                            }
-                        }
-                    }
-                    custom_tooltip_no_bullet = "TAIKUNATE_TAIKUN_PARTY_NAME"
-                }
-                else = {
+                
                     ordered_member = {
                         order_by = ig_clout
                         position = 0
@@ -160,7 +130,7 @@ taikunate_agrarian_party_name_sgui = {
                             custom_tooltip_no_bullet = "TAIKUNATE_AGRARIAN_PARTY_STATE_NAME"
                         }
                     }
-                }
+                
             }
         }
         else = {
@@ -180,17 +150,7 @@ taikunate_military_party_name_sgui = {
                 }
             }
             py:military_party ?= {
-                if = {
-                    limit = {
-                        any_member = {
-                            leader ?= {
-                                has_variable = former_shogun_var # designates Taikun
-                            }
-                        }
-                    }
-                    custom_tooltip_no_bullet = "TAIKUNATE_TAIKUN_PARTY_NAME"
-                }
-                else = {
+                
                     ordered_member = {
                         order_by = ig_clout
                         position = 0
@@ -217,7 +177,7 @@ taikunate_military_party_name_sgui = {
                             custom_tooltip_no_bullet = "TAIKUNATE_MILITARY_PARTY_STATE_NAME"
                         }
                     }
-                }
+                
             }
         }
         else = {
@@ -237,17 +197,7 @@ taikunate_free_trade_party_name_sgui = {
                 }
             }
             py:free_trade_party ?= {
-                if = {
-                    limit = {
-                        any_member = {
-                            leader ?= {
-                                has_variable = former_shogun_var # designates Taikun
-                            }
-                        }
-                    }
-                    custom_tooltip_no_bullet = "TAIKUNATE_TAIKUN_PARTY_NAME"
-                }
-                else = {
+                
                     ordered_member = {
                         order_by = ig_clout
                         position = 0
@@ -274,7 +224,7 @@ taikunate_free_trade_party_name_sgui = {
                             custom_tooltip_no_bullet = "TAIKUNATE_FREE_TRADE_PARTY_STATE_NAME"
                         }
                     }
-                }
+                
             }
         }
         else = {

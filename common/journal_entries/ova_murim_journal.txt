@@ -40,6 +40,10 @@
 # adds them per tag and fires the intro proclamations ova_murim.4/.5), not from
 # is_shown_when_inactive/immediate - the xianxia war JEs' 2026-07-18 pattern.
 je_ova_murim_heavenly_demon = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
 	group = je_group_internal_affairs
@@ -61,32 +65,44 @@ je_ova_murim_heavenly_demon = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = ova_murim_cult_victory_tt
-			ova_murim_cult_has_won_trigger = yes
-		}
-	}
-
-	on_complete = {
-		add_modifier = { name = ova_murim_master_of_the_murim days = -1 }
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 100 }
-		}
-		trigger_event = { id = ova_murim.70 days = 3 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = ova_murim_cult_subjugated_tt
-			is_subject = yes
-		}
-	}
-
 	weight = 5000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_murim_cult_victory_tt
+				ova_murim_cult_has_won_trigger = yes
+			}
+		}
+		effect = {
+			add_modifier = { name = ova_murim_master_of_the_murim days = -1 }
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 100 }
+			}
+			trigger_event = { id = ova_murim.70 days = 3 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_murim_cult_subjugated_tt
+				is_subject = yes
+			}
+		}
+	}
 }
 
 # The cohesion lock on the Orthodox Martial Alliance bloc is applied by history
@@ -94,6 +110,10 @@ je_ova_murim_heavenly_demon = {
 # intro proclamation (.5) come from history/global too - this JE only ever
 # REMOVES the lock, on the exit paths below.
 je_ova_murim_alliance_banner = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_internal_affairs
@@ -109,57 +129,72 @@ je_ova_murim_alliance_banner = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = ova_murim_alliance_victory_tt
-			ova_murim_cult_defeated_trigger = yes
-		}
-	}
-
-	on_complete = {
-		if = {
-			limit = { is_power_bloc_leader = yes }
-			power_bloc = { remove_modifier = ova_unbreakable_covenant }
-		}
-		add_modifier = { name = ova_murim_orthodox_victory days = -1 }
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 80 }
-		}
-		trigger_event = { id = ova_murim.71 days = 3 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = ova_murim_cult_victory_other_tt
-			OR = {
-				ova_murim_cult_has_won_trigger = yes
-				# bowing WITHIN the Alliance (the Eight Banners arc's sworn
-				# marches) is not defeat - only an outside yoke is
-				AND = {
-					is_subject = yes
-					ova_murim_is_subject_of_alliance_trigger = no
-				}
-			}
-		}
-	}
-
-	on_fail = {
-		if = {
-			limit = { is_power_bloc_leader = yes }
-			power_bloc = { remove_modifier = ova_unbreakable_covenant }
-		}
-	}
-
 	weight = 5000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_murim_alliance_victory_tt
+				ova_murim_cult_defeated_trigger = yes
+			}
+		}
+		effect = {
+			if = {
+				limit = { is_power_bloc_leader = yes }
+				power_bloc = { remove_modifier = ova_unbreakable_covenant }
+			}
+			add_modifier = { name = ova_murim_orthodox_victory days = -1 }
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 80 }
+			}
+			trigger_event = { id = ova_murim.71 days = 3 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_murim_cult_victory_other_tt
+				OR = {
+					ova_murim_cult_has_won_trigger = yes
+					# bowing WITHIN the Alliance (the Eight Banners arc's sworn
+					# marches) is not defeat - only an outside yoke is
+					AND = {
+						is_subject = yes
+						ova_murim_is_subject_of_alliance_trigger = no
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { is_power_bloc_leader = yes }
+				power_bloc = { remove_modifier = ova_unbreakable_covenant }
+			}
+		}
+	}
 }
 
 # One definition shown for each of the 7 non-leader Alliance sects (mirrors vanilla's
 # je_chinese_missions single-def-gated-by-tag pattern) - morale flavor, the skirmish pump, and a
 # home for each sect's own share of the Returner story.
 je_ova_murim_sect_banner = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	group = je_group_internal_affairs
@@ -175,40 +210,52 @@ je_ova_murim_sect_banner = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = ova_murim_alliance_victory_tt
-			ova_murim_cult_defeated_trigger = yes
+	weight = 3000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_murim_alliance_victory_tt
+				ova_murim_cult_defeated_trigger = yes
+			}
+		}
+		effect = {
+			add_modifier = { name = ova_murim_orthodox_victory days = -1 }
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 80 }
+			}
+			trigger_event = { id = ova_murim.71 days = 3 }
 		}
 	}
 
-	on_complete = {
-		add_modifier = { name = ova_murim_orthodox_victory days = -1 }
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 80 }
-		}
-		trigger_event = { id = ova_murim.71 days = 3 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = ova_murim_cult_victory_other_tt
-			OR = {
-				ova_murim_cult_has_won_trigger = yes
-				# joining the Returner's household (a sworn march under a
-				# fellow banner) is not defeat - only an outside yoke is
-				AND = {
-					is_subject = yes
-					ova_murim_is_subject_of_alliance_trigger = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_murim_cult_victory_other_tt
+				OR = {
+					ova_murim_cult_has_won_trigger = yes
+					# joining the Returner's household (a sworn march under a
+					# fellow banner) is not defeat - only an outside yoke is
+					AND = {
+						is_subject = yes
+						ova_murim_is_subject_of_alliance_trigger = no
+					}
 				}
 			}
 		}
 	}
-
-	weight = 3000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
 }
 
 # ============================================================================
@@ -237,6 +284,10 @@ je_ova_murim_sect_banner = {
 # and the Returner risen to the First-Rate rank (level 20).
 # ------------------------------------------------------------------------
 je_ova_murim_returner_1 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -331,44 +382,56 @@ je_ova_murim_returner_1 = {
 	# ova_murim_seen_14 is only ever set by this chapter's own final beat, so
 	# a champion who leveled fast cannot skip the story (the Victoria chain's
 	# seen-flag guard, applied from the start here).
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_returner_1_complete_tt
-			AND = {
-				has_variable = ova_murim_seen_14
-				ova_has_living_champion = yes
-				var:ova_champion_level >= 20
-			}
-		}
-	}
-
-	on_complete = {
-		# seven gates and his own besides - the Eight Banners arc begins with
-		# the house that took him in
-		effect_ova_murim_next_ally = yes
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_returner_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
-				}
-				ova_murim_cult_has_won_trigger = yes
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_murim_story_over = yes
-		effect_ova_murim_fail_events = yes
-	}
 
 	weight = 4000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_returner_1_complete_tt
+				AND = {
+					has_variable = ova_murim_seen_14
+					ova_has_living_champion = yes
+					var:ova_champion_level >= 20
+				}
+			}
+		}
+		effect = {
+			# seven gates and his own besides - the Eight Banners arc begins with
+			# the house that took him in
+			effect_ova_murim_next_ally = yes
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_returner_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+				}
+			}
+		}
+		effect = {
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -383,6 +446,10 @@ je_ova_murim_returner_1 = {
 # locks the good ending away for good.
 # ------------------------------------------------------------------------
 je_ova_murim_ally_home = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -400,10 +467,6 @@ je_ova_murim_ally_home = {
 
 	timeout = 1825
 
-	on_timeout = {
-		effect_ova_murim_next_ally = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
@@ -451,63 +514,85 @@ je_ova_murim_ally_home = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_home_sworn_tt
-			has_variable = ova_murim_ally_sworn_home
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_home_hall_tt
-			ova_victoria_hall_ready = yes
-		}
-	}
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 20 }
-		}
-		effect_ova_murim_next_ally = yes
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_home_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
-				}
-				ova_murim_cult_has_won_trigger = yes
-				has_variable = ova_murim_ally_failed_home
-				has_variable = ova_murim_ally_passed_home
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_home_sworn_tt
+				has_variable = ova_murim_ally_sworn_home
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_home_hall_tt
+				ova_victoria_hall_ready = yes
 			}
 		}
+		effect = {
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 20 }
+			}
+			effect_ova_murim_next_ally = yes
+		}
 	}
 
-	on_fail = {
-		if = {
-			limit = {
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_home_fail_tt
 				OR = {
 					AND = {
 						has_variable = ova_murim_returner_char
 						NOT = { exists = var:ova_murim_returner_char }
 					}
 					ova_murim_cult_has_won_trigger = yes
+					has_variable = ova_murim_ally_failed_home
+					has_variable = ova_murim_ally_passed_home
 				}
 			}
-			effect_ova_murim_story_over = yes
-			effect_ova_murim_fail_events = yes
 		}
-		else = {
-			# his own house has seen what he is - the tale walks on regardless
-			effect_ova_murim_next_ally = yes
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_variable = ova_murim_returner_char
+							NOT = { exists = var:ova_murim_returner_char }
+						}
+						ova_murim_cult_has_won_trigger = yes
+					}
+				}
+				effect_ova_murim_story_over = yes
+				effect_ova_murim_fail_events = yes
+			}
+			else = {
+				# his own house has seen what he is - the tale walks on regardless
+				effect_ova_murim_next_ally = yes
+			}
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			effect_ova_murim_next_ally = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -519,6 +604,10 @@ je_ova_murim_ally_home = {
 # hold its own gate. A selfish trial choice alienates Sorim for good.
 # ------------------------------------------------------------------------
 je_ova_murim_ally_sor = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -536,10 +625,6 @@ je_ova_murim_ally_sor = {
 
 	timeout = 1825
 
-	on_timeout = {
-		effect_ova_murim_next_ally = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
@@ -587,70 +672,92 @@ je_ova_murim_ally_sor = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_sor_sworn_tt
-			has_variable = ova_murim_ally_sworn_sor
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_sor_relations_tt
-			c:SOR ?= { relations:root >= 50 }
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_sor_objective_tt
-			army_size >= 15
-		}
-	}
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 20 }
-		}
-		change_relations = { country = c:SOR value = 25 }
-		effect_ova_murim_next_ally = yes
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
-				}
-				ova_murim_cult_has_won_trigger = yes
-				has_variable = ova_murim_ally_failed_sor
-				has_variable = ova_murim_ally_passed_sor
-				NOT = { exists = c:SOR }
-				c:SOR ?= { is_subject = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_sor_sworn_tt
+				has_variable = ova_murim_ally_sworn_sor
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_sor_relations_tt
+				c:SOR ?= { relations:root >= 50 }
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_sor_objective_tt
+				army_size >= 15
 			}
 		}
+		effect = {
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 20 }
+			}
+			change_relations = { country = c:SOR value = 25 }
+			effect_ova_murim_next_ally = yes
+		}
 	}
 
-	on_fail = {
-		if = {
-			limit = {
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_fail_tt
 				OR = {
 					AND = {
 						has_variable = ova_murim_returner_char
 						NOT = { exists = var:ova_murim_returner_char }
 					}
 					ova_murim_cult_has_won_trigger = yes
+					has_variable = ova_murim_ally_failed_sor
+					has_variable = ova_murim_ally_passed_sor
+					NOT = { exists = c:SOR }
+					c:SOR ?= { is_subject = yes }
 				}
 			}
-			effect_ova_murim_story_over = yes
-			effect_ova_murim_fail_events = yes
 		}
-		else = {
-			# this courtship ended, but the tale walks on to the next gate
-			effect_ova_murim_next_ally = yes
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_variable = ova_murim_returner_char
+							NOT = { exists = var:ova_murim_returner_char }
+						}
+						ova_murim_cult_has_won_trigger = yes
+					}
+				}
+				effect_ova_murim_story_over = yes
+				effect_ova_murim_fail_events = yes
+			}
+			else = {
+				# this courtship ended, but the tale walks on to the next gate
+				effect_ova_murim_next_ally = yes
+			}
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			effect_ova_murim_next_ally = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -661,6 +768,10 @@ je_ova_murim_ally_sor = {
 # selfish trial choice alienates the Paeng for good.
 # ------------------------------------------------------------------------
 je_ova_murim_ally_pae = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -678,10 +789,6 @@ je_ova_murim_ally_pae = {
 
 	timeout = 1825
 
-	on_timeout = {
-		effect_ova_murim_next_ally = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
@@ -729,70 +836,92 @@ je_ova_murim_ally_pae = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_pae_sworn_tt
-			has_variable = ova_murim_ally_sworn_pae
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_pae_relations_tt
-			c:PAE ?= { relations:root >= 50 }
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_pae_objective_tt
-			has_variable = ova_murim_saber_trials_done
-		}
-	}
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 20 }
-		}
-		change_relations = { country = c:PAE value = 25 }
-		effect_ova_murim_next_ally = yes
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
-				}
-				ova_murim_cult_has_won_trigger = yes
-				has_variable = ova_murim_ally_failed_pae
-				has_variable = ova_murim_ally_passed_pae
-				NOT = { exists = c:PAE }
-				c:PAE ?= { is_subject = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_pae_sworn_tt
+				has_variable = ova_murim_ally_sworn_pae
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_pae_relations_tt
+				c:PAE ?= { relations:root >= 50 }
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_pae_objective_tt
+				has_variable = ova_murim_saber_trials_done
 			}
 		}
+		effect = {
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 20 }
+			}
+			change_relations = { country = c:PAE value = 25 }
+			effect_ova_murim_next_ally = yes
+		}
 	}
 
-	on_fail = {
-		if = {
-			limit = {
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_fail_tt
 				OR = {
 					AND = {
 						has_variable = ova_murim_returner_char
 						NOT = { exists = var:ova_murim_returner_char }
 					}
 					ova_murim_cult_has_won_trigger = yes
+					has_variable = ova_murim_ally_failed_pae
+					has_variable = ova_murim_ally_passed_pae
+					NOT = { exists = c:PAE }
+					c:PAE ?= { is_subject = yes }
 				}
 			}
-			effect_ova_murim_story_over = yes
-			effect_ova_murim_fail_events = yes
 		}
-		else = {
-			# this courtship ended, but the tale walks on to the next gate
-			effect_ova_murim_next_ally = yes
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_variable = ova_murim_returner_char
+							NOT = { exists = var:ova_murim_returner_char }
+						}
+						ova_murim_cult_has_won_trigger = yes
+					}
+				}
+				effect_ova_murim_story_over = yes
+				effect_ova_murim_fail_events = yes
+			}
+			else = {
+				# this courtship ended, but the tale walks on to the next gate
+				effect_ova_murim_next_ally = yes
+			}
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			effect_ova_murim_next_ally = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -803,6 +932,10 @@ je_ova_murim_ally_pae = {
 # alienates the Tang for good.
 # ------------------------------------------------------------------------
 je_ova_murim_ally_tan = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -820,10 +953,6 @@ je_ova_murim_ally_tan = {
 
 	timeout = 1825
 
-	on_timeout = {
-		effect_ova_murim_next_ally = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
@@ -871,70 +1000,92 @@ je_ova_murim_ally_tan = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_tan_sworn_tt
-			has_variable = ova_murim_ally_sworn_tan
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_tan_relations_tt
-			c:TAN ?= { relations:root >= 50 }
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_tan_objective_tt
-			has_variable = ova_murim_fire_formulas_done
-		}
-	}
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 20 }
-		}
-		change_relations = { country = c:TAN value = 25 }
-		effect_ova_murim_next_ally = yes
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
-				}
-				ova_murim_cult_has_won_trigger = yes
-				has_variable = ova_murim_ally_failed_tan
-				has_variable = ova_murim_ally_passed_tan
-				NOT = { exists = c:TAN }
-				c:TAN ?= { is_subject = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_tan_sworn_tt
+				has_variable = ova_murim_ally_sworn_tan
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_tan_relations_tt
+				c:TAN ?= { relations:root >= 50 }
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_tan_objective_tt
+				has_variable = ova_murim_fire_formulas_done
 			}
 		}
+		effect = {
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 20 }
+			}
+			change_relations = { country = c:TAN value = 25 }
+			effect_ova_murim_next_ally = yes
+		}
 	}
 
-	on_fail = {
-		if = {
-			limit = {
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_fail_tt
 				OR = {
 					AND = {
 						has_variable = ova_murim_returner_char
 						NOT = { exists = var:ova_murim_returner_char }
 					}
 					ova_murim_cult_has_won_trigger = yes
+					has_variable = ova_murim_ally_failed_tan
+					has_variable = ova_murim_ally_passed_tan
+					NOT = { exists = c:TAN }
+					c:TAN ?= { is_subject = yes }
 				}
 			}
-			effect_ova_murim_story_over = yes
-			effect_ova_murim_fail_events = yes
 		}
-		else = {
-			# this courtship ended, but the tale walks on to the next gate
-			effect_ova_murim_next_ally = yes
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_variable = ova_murim_returner_char
+							NOT = { exists = var:ova_murim_returner_char }
+						}
+						ova_murim_cult_has_won_trigger = yes
+					}
+				}
+				effect_ova_murim_story_over = yes
+				effect_ova_murim_fail_events = yes
+			}
+			else = {
+				# this courtship ended, but the tale walks on to the next gate
+				effect_ova_murim_next_ally = yes
+			}
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			effect_ova_murim_next_ally = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -946,6 +1097,10 @@ je_ova_murim_ally_tan = {
 # Namgung for good.
 # ------------------------------------------------------------------------
 je_ova_murim_ally_nam = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -963,10 +1118,6 @@ je_ova_murim_ally_nam = {
 
 	timeout = 1825
 
-	on_timeout = {
-		effect_ova_murim_next_ally = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
@@ -1014,73 +1165,95 @@ je_ova_murim_ally_nam = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_nam_sworn_tt
-			has_variable = ova_murim_ally_sworn_nam
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_nam_relations_tt
-			c:NAM ?= { relations:root >= 50 }
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_nam_objective_tt
-			AND = {
-				ova_has_living_champion = yes
-				var:ova_champion_level >= 30
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_nam_sworn_tt
+				has_variable = ova_murim_ally_sworn_nam
 			}
-		}
-	}
-
-	on_complete = {
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 20 }
-		}
-		change_relations = { country = c:NAM value = 25 }
-		effect_ova_murim_next_ally = yes
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_fail_tt
-			OR = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_nam_relations_tt
+				c:NAM ?= { relations:root >= 50 }
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_nam_objective_tt
 				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
+					ova_has_living_champion = yes
+					var:ova_champion_level >= 30
 				}
-				ova_murim_cult_has_won_trigger = yes
-				has_variable = ova_murim_ally_failed_nam
-				has_variable = ova_murim_ally_passed_nam
-				NOT = { exists = c:NAM }
-				c:NAM ?= { is_subject = yes }
 			}
+		}
+		effect = {
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 20 }
+			}
+			change_relations = { country = c:NAM value = 25 }
+			effect_ova_murim_next_ally = yes
 		}
 	}
 
-	on_fail = {
-		if = {
-			limit = {
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_fail_tt
 				OR = {
 					AND = {
 						has_variable = ova_murim_returner_char
 						NOT = { exists = var:ova_murim_returner_char }
 					}
 					ova_murim_cult_has_won_trigger = yes
+					has_variable = ova_murim_ally_failed_nam
+					has_variable = ova_murim_ally_passed_nam
+					NOT = { exists = c:NAM }
+					c:NAM ?= { is_subject = yes }
 				}
 			}
-			effect_ova_murim_story_over = yes
-			effect_ova_murim_fail_events = yes
 		}
-		else = {
-			# this courtship ended, but the tale walks on to the next gate
-			effect_ova_murim_next_ally = yes
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_variable = ova_murim_returner_char
+							NOT = { exists = var:ova_murim_returner_char }
+						}
+						ova_murim_cult_has_won_trigger = yes
+					}
+				}
+				effect_ova_murim_story_over = yes
+				effect_ova_murim_fail_events = yes
+			}
+			else = {
+				# this courtship ended, but the tale walks on to the next gate
+				effect_ova_murim_next_ally = yes
+			}
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			effect_ova_murim_next_ally = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -1091,6 +1264,10 @@ je_ova_murim_ally_nam = {
 # trial choice alienates the Jegal for good.
 # ------------------------------------------------------------------------
 je_ova_murim_ally_jeg = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -1108,10 +1285,6 @@ je_ova_murim_ally_jeg = {
 
 	timeout = 1825
 
-	on_timeout = {
-		effect_ova_murim_next_ally = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
@@ -1159,75 +1332,97 @@ je_ova_murim_ally_jeg = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_jeg_sworn_tt
-			has_variable = ova_murim_ally_sworn_jeg
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_jeg_relations_tt
-			c:JEG ?= { relations:root >= 50 }
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_jeg_objective_tt
-			any_scope_state = {
-				any_scope_building = {
-					is_building_type = building_university
-					level >= 2
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_jeg_sworn_tt
+				has_variable = ova_murim_ally_sworn_jeg
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_jeg_relations_tt
+				c:JEG ?= { relations:root >= 50 }
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_jeg_objective_tt
+				any_scope_state = {
+					any_scope_building = {
+						is_building_type = building_university
+						level >= 2
+					}
 				}
 			}
 		}
-	}
-
-	on_complete = {
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 20 }
-		}
-		change_relations = { country = c:JEG value = 25 }
-		effect_ova_murim_next_ally = yes
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
-				}
-				ova_murim_cult_has_won_trigger = yes
-				has_variable = ova_murim_ally_failed_jeg
-				has_variable = ova_murim_ally_passed_jeg
-				NOT = { exists = c:JEG }
-				c:JEG ?= { is_subject = yes }
+		effect = {
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 20 }
 			}
+			change_relations = { country = c:JEG value = 25 }
+			effect_ova_murim_next_ally = yes
 		}
 	}
 
-	on_fail = {
-		if = {
-			limit = {
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_fail_tt
 				OR = {
 					AND = {
 						has_variable = ova_murim_returner_char
 						NOT = { exists = var:ova_murim_returner_char }
 					}
 					ova_murim_cult_has_won_trigger = yes
+					has_variable = ova_murim_ally_failed_jeg
+					has_variable = ova_murim_ally_passed_jeg
+					NOT = { exists = c:JEG }
+					c:JEG ?= { is_subject = yes }
 				}
 			}
-			effect_ova_murim_story_over = yes
-			effect_ova_murim_fail_events = yes
 		}
-		else = {
-			# this courtship ended, but the tale walks on to the next gate
-			effect_ova_murim_next_ally = yes
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_variable = ova_murim_returner_char
+							NOT = { exists = var:ova_murim_returner_char }
+						}
+						ova_murim_cult_has_won_trigger = yes
+					}
+				}
+				effect_ova_murim_story_over = yes
+				effect_ova_murim_fail_events = yes
+			}
+			else = {
+				# this courtship ended, but the tale walks on to the next gate
+				effect_ova_murim_next_ally = yes
+			}
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			effect_ova_murim_next_ally = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -1238,6 +1433,10 @@ je_ova_murim_ally_jeg = {
 # alienates Mudang for good.
 # ------------------------------------------------------------------------
 je_ova_murim_ally_mud = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -1255,10 +1454,6 @@ je_ova_murim_ally_mud = {
 
 	timeout = 1825
 
-	on_timeout = {
-		effect_ova_murim_next_ally = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
@@ -1306,70 +1501,92 @@ je_ova_murim_ally_mud = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_mud_sworn_tt
-			has_variable = ova_murim_ally_sworn_mud
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_mud_relations_tt
-			c:MUD ?= { relations:root >= 50 }
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_mud_objective_tt
-			has_variable = ova_murim_shrine_endowment_done
-		}
-	}
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 20 }
-		}
-		change_relations = { country = c:MUD value = 25 }
-		effect_ova_murim_next_ally = yes
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
-				}
-				ova_murim_cult_has_won_trigger = yes
-				has_variable = ova_murim_ally_failed_mud
-				has_variable = ova_murim_ally_passed_mud
-				NOT = { exists = c:MUD }
-				c:MUD ?= { is_subject = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_mud_sworn_tt
+				has_variable = ova_murim_ally_sworn_mud
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_mud_relations_tt
+				c:MUD ?= { relations:root >= 50 }
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_mud_objective_tt
+				has_variable = ova_murim_shrine_endowment_done
 			}
 		}
+		effect = {
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 20 }
+			}
+			change_relations = { country = c:MUD value = 25 }
+			effect_ova_murim_next_ally = yes
+		}
 	}
 
-	on_fail = {
-		if = {
-			limit = {
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_fail_tt
 				OR = {
 					AND = {
 						has_variable = ova_murim_returner_char
 						NOT = { exists = var:ova_murim_returner_char }
 					}
 					ova_murim_cult_has_won_trigger = yes
+					has_variable = ova_murim_ally_failed_mud
+					has_variable = ova_murim_ally_passed_mud
+					NOT = { exists = c:MUD }
+					c:MUD ?= { is_subject = yes }
 				}
 			}
-			effect_ova_murim_story_over = yes
-			effect_ova_murim_fail_events = yes
 		}
-		else = {
-			# this courtship ended, but the tale walks on to the next gate
-			effect_ova_murim_next_ally = yes
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_variable = ova_murim_returner_char
+							NOT = { exists = var:ova_murim_returner_char }
+						}
+						ova_murim_cult_has_won_trigger = yes
+					}
+				}
+				effect_ova_murim_story_over = yes
+				effect_ova_murim_fail_events = yes
+			}
+			else = {
+				# this courtship ended, but the tale walks on to the next gate
+				effect_ova_murim_next_ally = yes
+			}
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			effect_ova_murim_next_ally = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -1380,6 +1597,10 @@ je_ova_murim_ally_mud = {
 # choice alienates the Sama for good.
 # ------------------------------------------------------------------------
 je_ova_murim_ally_sam = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -1397,10 +1618,6 @@ je_ova_murim_ally_sam = {
 
 	timeout = 1825
 
-	on_timeout = {
-		effect_ova_murim_next_ally = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
@@ -1448,70 +1665,92 @@ je_ova_murim_ally_sam = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_sam_sworn_tt
-			has_variable = ova_murim_ally_sworn_sam
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_sam_relations_tt
-			c:SAM ?= { relations:root >= 50 }
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_sam_objective_tt
-			has_variable = ova_murim_sama_ledger_done
-		}
-	}
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 20 }
-		}
-		change_relations = { country = c:SAM value = 25 }
-		effect_ova_murim_next_ally = yes
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
-				}
-				ova_murim_cult_has_won_trigger = yes
-				has_variable = ova_murim_ally_failed_sam
-				has_variable = ova_murim_ally_passed_sam
-				NOT = { exists = c:SAM }
-				c:SAM ?= { is_subject = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_sam_sworn_tt
+				has_variable = ova_murim_ally_sworn_sam
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_sam_relations_tt
+				c:SAM ?= { relations:root >= 50 }
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_sam_objective_tt
+				has_variable = ova_murim_sama_ledger_done
 			}
 		}
+		effect = {
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 20 }
+			}
+			change_relations = { country = c:SAM value = 25 }
+			effect_ova_murim_next_ally = yes
+		}
 	}
 
-	on_fail = {
-		if = {
-			limit = {
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_fail_tt
 				OR = {
 					AND = {
 						has_variable = ova_murim_returner_char
 						NOT = { exists = var:ova_murim_returner_char }
 					}
 					ova_murim_cult_has_won_trigger = yes
+					has_variable = ova_murim_ally_failed_sam
+					has_variable = ova_murim_ally_passed_sam
+					NOT = { exists = c:SAM }
+					c:SAM ?= { is_subject = yes }
 				}
 			}
-			effect_ova_murim_story_over = yes
-			effect_ova_murim_fail_events = yes
 		}
-		else = {
-			# this courtship ended, but the tale walks on to the next gate
-			effect_ova_murim_next_ally = yes
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_variable = ova_murim_returner_char
+							NOT = { exists = var:ova_murim_returner_char }
+						}
+						ova_murim_cult_has_won_trigger = yes
+					}
+				}
+				effect_ova_murim_story_over = yes
+				effect_ova_murim_fail_events = yes
+			}
+			else = {
+				# this courtship ended, but the tale walks on to the next gate
+				effect_ova_murim_next_ally = yes
+			}
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			effect_ova_murim_next_ally = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -1523,6 +1762,10 @@ je_ova_murim_ally_sam = {
 # good.
 # ------------------------------------------------------------------------
 je_ova_murim_ally_hwa = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -1540,10 +1783,6 @@ je_ova_murim_ally_hwa = {
 
 	timeout = 1825
 
-	on_timeout = {
-		effect_ova_murim_next_ally = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
@@ -1591,70 +1830,92 @@ je_ova_murim_ally_hwa = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_hwa_sworn_tt
-			has_variable = ova_murim_ally_sworn_hwa
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_hwa_relations_tt
-			c:HWA ?= { relations:root >= 50 }
-		}
-		custom_tooltip = {
-			text = je_ova_murim_ally_hwa_objective_tt
-			army_size >= 15
-		}
-	}
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 20 }
-		}
-		change_relations = { country = c:HWA value = 25 }
-		effect_ova_murim_next_ally = yes
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_ally_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
-				}
-				ova_murim_cult_has_won_trigger = yes
-				has_variable = ova_murim_ally_failed_hwa
-				has_variable = ova_murim_ally_passed_hwa
-				NOT = { exists = c:HWA }
-				c:HWA ?= { is_subject = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_hwa_sworn_tt
+				has_variable = ova_murim_ally_sworn_hwa
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_hwa_relations_tt
+				c:HWA ?= { relations:root >= 50 }
+			}
+			custom_tooltip = {
+				text = je_ova_murim_ally_hwa_objective_tt
+				army_size >= 15
 			}
 		}
+		effect = {
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 20 }
+			}
+			change_relations = { country = c:HWA value = 25 }
+			effect_ova_murim_next_ally = yes
+		}
 	}
 
-	on_fail = {
-		if = {
-			limit = {
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_ally_fail_tt
 				OR = {
 					AND = {
 						has_variable = ova_murim_returner_char
 						NOT = { exists = var:ova_murim_returner_char }
 					}
 					ova_murim_cult_has_won_trigger = yes
+					has_variable = ova_murim_ally_failed_hwa
+					has_variable = ova_murim_ally_passed_hwa
+					NOT = { exists = c:HWA }
+					c:HWA ?= { is_subject = yes }
 				}
 			}
-			effect_ova_murim_story_over = yes
-			effect_ova_murim_fail_events = yes
 		}
-		else = {
-			# this courtship ended, but the tale walks on to the next gate
-			effect_ova_murim_next_ally = yes
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_variable = ova_murim_returner_char
+							NOT = { exists = var:ova_murim_returner_char }
+						}
+						ova_murim_cult_has_won_trigger = yes
+					}
+				}
+				effect_ova_murim_story_over = yes
+				effect_ova_murim_fail_events = yes
+			}
+			else = {
+				# this courtship ended, but the tale walks on to the next gate
+				effect_ova_murim_next_ally = yes
+			}
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			effect_ova_murim_next_ally = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -1669,6 +1930,10 @@ je_ova_murim_ally_hwa = {
 # them sworn marches of the household.
 # ------------------------------------------------------------------------
 je_ova_murim_final_battle = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
 	group = je_group_internal_affairs
@@ -1738,54 +2003,65 @@ je_ova_murim_final_battle = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_final_battle_complete_tt
-			OR = {
-				has_variable = ova_murim_duel_won
-				ova_murim_cult_defeated_trigger = yes
-			}
-		}
-	}
-
-	on_complete = {
-		add_modifier = { name = ova_murim_second_life_fulfilled days = -1 }
-		if = {
-			limit = {
-				NOT = { has_variable = ova_murim_duel_won }
-				ova_has_living_champion = yes
-			}
-			# the Cult fell to armies rather than to the duel - the tale still
-			# closes, a little less loudly
-			ova_champion_add_xp = { AMOUNT = 60 }
-			ova_champion_add_popularity = { AMOUNT = 30 }
-		}
-		effect_ova_murim_shatter_cult = yes
-		effect_ova_murim_story_over = yes
-		trigger_event = { id = ova_murim.84 days = 3 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_returner_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
-				}
-				ova_murim_cult_has_won_trigger = yes
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_murim_story_over = yes
-		effect_ova_murim_fail_events = yes
-	}
-
 	weight = 4000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_final_battle_complete_tt
+				OR = {
+					has_variable = ova_murim_duel_won
+					ova_murim_cult_defeated_trigger = yes
+				}
+			}
+		}
+		effect = {
+			add_modifier = { name = ova_murim_second_life_fulfilled days = -1 }
+			if = {
+				limit = {
+					NOT = { has_variable = ova_murim_duel_won }
+					ova_has_living_champion = yes
+				}
+				# the Cult fell to armies rather than to the duel - the tale still
+				# closes, a little less loudly
+				ova_champion_add_xp = { AMOUNT = 60 }
+				ova_champion_add_popularity = { AMOUNT = 30 }
+			}
+			effect_ova_murim_shatter_cult = yes
+			effect_ova_murim_story_over = yes
+			trigger_event = { id = ova_murim.84 days = 3 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_returner_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+				}
+			}
+		}
+		effect = {
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -1799,6 +2075,10 @@ je_ova_murim_final_battle = {
 # peace) and opens je_ova_murim_reckoning.
 # ------------------------------------------------------------------------
 je_ova_murim_war_conference = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_internal_affairs
@@ -1862,44 +2142,55 @@ je_ova_murim_war_conference = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_war_conference_army_tt
-			army_size >= 30
-		}
-		custom_tooltip = {
-			text = je_ova_murim_war_conference_council_tt
-			has_variable = ova_murim_seen_35
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = ova_murim.156 days = 5 }
-		effect_ova_murim_launch_reckoning = yes
-		add_journal_entry = { type = je_ova_murim_reckoning }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_returner_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
-				}
-				ova_murim_cult_has_won_trigger = yes
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_murim_story_over = yes
-		effect_ova_murim_fail_events = yes
-	}
-
 	weight = 4000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_war_conference_army_tt
+				army_size >= 30
+			}
+			custom_tooltip = {
+				text = je_ova_murim_war_conference_council_tt
+				has_variable = ova_murim_seen_35
+			}
+		}
+		effect = {
+			trigger_event = { id = ova_murim.156 days = 5 }
+			effect_ova_murim_launch_reckoning = yes
+			add_journal_entry = { type = je_ova_murim_reckoning }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_returner_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+				}
+			}
+		}
+		effect = {
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -1912,6 +2203,10 @@ je_ova_murim_war_conference = {
 # tale.
 # ------------------------------------------------------------------------
 je_ova_murim_reckoning = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
 	group = je_group_internal_affairs
@@ -1963,45 +2258,56 @@ je_ova_murim_reckoning = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_murim_reckoning_complete_tt
-			ova_murim_cult_defeated_trigger = yes
-		}
-	}
-
-	on_complete = {
-		add_modifier = { name = ova_murim_second_life_fulfilled days = -1 }
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_xp = { AMOUNT = 60 }
-			ova_champion_add_popularity = { AMOUNT = 30 }
-		}
-		effect_ova_murim_shatter_cult = yes
-		effect_ova_murim_story_over = yes
-		trigger_event = { id = ova_murim.39 days = 3 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_murim_reckoning_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_murim_returner_char
-					NOT = { exists = var:ova_murim_returner_char }
-				}
-				ova_murim_cult_has_won_trigger = yes
-				is_subject = yes
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_murim_story_over = yes
-		effect_ova_murim_fail_events = yes
-	}
-
 	weight = 4000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_reckoning_complete_tt
+				ova_murim_cult_defeated_trigger = yes
+			}
+		}
+		effect = {
+			add_modifier = { name = ova_murim_second_life_fulfilled days = -1 }
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_xp = { AMOUNT = 60 }
+				ova_champion_add_popularity = { AMOUNT = 30 }
+			}
+			effect_ova_murim_shatter_cult = yes
+			effect_ova_murim_story_over = yes
+			trigger_event = { id = ova_murim.39 days = 3 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_murim_reckoning_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_murim_returner_char
+						NOT = { exists = var:ova_murim_returner_char }
+					}
+					ova_murim_cult_has_won_trigger = yes
+					is_subject = yes
+				}
+			}
+		}
+		effect = {
+			effect_ova_murim_story_over = yes
+			effect_ova_murim_fail_events = yes
+		}
+	}
 }

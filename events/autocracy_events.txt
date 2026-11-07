@@ -29,7 +29,9 @@ autocracy.1 = {
 	immediate = {
 		ruler = {
 			save_scope_as = monarch_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		random_primary_culture = {
 			save_scope_as = primary_culture_scope
 		}
@@ -78,6 +80,10 @@ autocracy.1 = {
 			name = religious_orthodocy_enforced_mod
 			days = very_long_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:monarch_scope }
 	}
 }
 
@@ -320,7 +326,9 @@ autocracy.4 = {
 	immediate = {
 		ruler = {
 			save_scope_as = ruler_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -361,5 +369,9 @@ autocracy.4 = {
 				is_decaying = yes
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:ruler_scope }
 	}
 }

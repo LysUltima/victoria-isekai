@@ -52,26 +52,7 @@
 		law_factory_councils = strongly_disapprove
 	}
 
-	country_trigger = {
-		# removed effect line: vanilla ref 'c:FRA' not present in this mod
-		OR = {
-			always = no # vanilla ref 'c:FRA' not present in this mod
-			always = no # vanilla ref 'c:FRA' not present in this mod
-		}
-		NOR = {
-			any_interest_group = {
-				has_ideology = ideology:ideology_republican_paternalistic
-			}
-			always = no
-			AND = {
-				OR = {
-					has_variable = legitimist_restoration_var
-					has_variable = bonapartist_restoration_var
-				}
-				always = no
-			}
-		}
-	}
+	country_trigger = { always = no }
 
 	interest_group_leader_trigger = {
 		ideology_orleanist_valid_trigger = yes
@@ -140,7 +121,7 @@
 			limit = {
 				owner = {
 					country_has_monarchy_law = yes
-					NOT = { has_variable = orleanist_restoration_var }
+					
 				}
 				ig_approval < 0
 			}
@@ -155,7 +136,7 @@
 			limit = {
 				owner = {
 					NOT = { country_has_monarchy_law = yes }
-					NOT = { has_variable = orleanist_restoration_var }
+					
 				}
 				ig_approval < 0
 			}
@@ -165,23 +146,7 @@
 			}
 		}
 		# conservative and/or reactionary leaders have a higher spawn chance if the Anti-Dreyfusards won.
-		if = {
-			limit = {
-				OR = {
-					always = no
-					always = no
-					always = no
-					always = no
-					always = no
-					always = no
-					always = no
-				}
-			}
-			multiply = {
-				value = 0.1
-				desc = "CHOSE_A_DIFFERENT_PATH"
-			}
-		}
+
 	}
 
 	non_interest_group_leader_weight = {
@@ -231,7 +196,7 @@
 			limit = {
 				owner = {
 					country_has_monarchy_law = yes
-					NOT = { has_variable = orleanist_restoration_var }
+					
 				}
 				interest_group.ig_approval < 0
 			}
@@ -243,22 +208,14 @@
 			limit = {
 				owner = {
 					NOT = { country_has_monarchy_law = yes }
-					NOT = { has_variable = orleanist_restoration_var }
+					
 				}
 				interest_group.ig_approval < 0
 			}
 			add = 25
 		}
 
-		if = { # Orleanist agitators rare in Orleanist kingdoms
-			limit = {
-				has_role_of_type = agitator
-				owner = {
-					has_variable = orleanist_restoration_var
-				}
-			}
-			multiply = 0.1
-		}
+		
 
 		if = {
 			limit = {
@@ -329,26 +286,7 @@ ideology_legitimist = { # Average Progressiveness - -50
 		law_factory_councils = strongly_disapprove
 	}
 
-	country_trigger = {
-		# removed effect line: vanilla ref 'c:FRA' not present in this mod
-		OR = {
-			always = no # vanilla ref 'c:FRA' not present in this mod
-			always = no # vanilla ref 'c:FRA' not present in this mod
-		}
-		NOR = {
-			any_interest_group = {
-				has_ideology = ideology:ideology_republican_paternalistic
-			}
-			always = no
-			AND = {
-				OR = {
-					has_variable = legitimist_restoration_var
-					has_variable = bonapartist_restoration_var
-				}
-				always = no
-			}
-		}
-	}
+	country_trigger = { always = no }
 
 	interest_group_leader_trigger = {
 		ideology_legitimist_valid_trigger = yes
@@ -409,7 +347,7 @@ ideology_legitimist = { # Average Progressiveness - -50
 			limit = {
 				owner = {
 					country_has_monarchy_law = yes
-					NOT = { has_variable = legitimist_restoration_var }
+					
 				}
 				ig_approval < 0
 			}
@@ -424,7 +362,7 @@ ideology_legitimist = { # Average Progressiveness - -50
 			limit = {
 				owner = {
 					NOT = { country_has_monarchy_law = yes }
-					NOT = { has_variable = legitimist_restoration_var }
+					
 				}
 				ig_approval < 0
 			}
@@ -435,23 +373,7 @@ ideology_legitimist = { # Average Progressiveness - -50
 		}
 
 		# conservative and/or reactionary leaders have a higher spawn chance if the Anti-Dreyfusards won.
-		if = {
-			limit = {
-				OR = {
-					always = no
-					always = no
-					always = no
-					always = no
-					always = no
-					always = no
-					always = no
-				}
-			}
-			multiply = {
-				value = 0.1
-				desc = "CHOSE_A_DIFFERENT_PATH"
-			}
-		}
+
 	}
 
 	non_interest_group_leader_weight = {
@@ -492,7 +414,7 @@ ideology_legitimist = { # Average Progressiveness - -50
 			limit = {
 				owner = {
 					country_has_monarchy_law = yes
-					NOT = { has_variable = legitimist_restoration_var }
+					
 				}
 				interest_group.ig_approval < 0
 			}
@@ -504,22 +426,14 @@ ideology_legitimist = { # Average Progressiveness - -50
 			limit = {
 				owner = {
 					NOT = { country_has_monarchy_law = yes }
-					NOT = { has_variable = legitimist_restoration_var }
+					
 				}
 				interest_group.ig_approval < 0
 			}
 			add = 25
 		}
 
-		if = { # Legitimist agitators rare in Orleanist kingdoms
-			limit = {
-				has_role_of_type = agitator
-				owner = {
-					has_variable = legitimist_restoration_var
-				}
-			}
-			multiply = 0.1
-		}
+		
 
 		if = {
 			limit = {
@@ -606,26 +520,7 @@ ideology_bonapartist = { # Average Progressiveness - 29
 		law_factory_councils = strongly_disapprove
 	}
 
-	country_trigger = {
-		# removed effect line: vanilla ref 'c:FRA' not present in this mod
-		OR = {
-			always = no # vanilla ref 'c:FRA' not present in this mod
-			always = no # vanilla ref 'c:FRA' not present in this mod
-		}
-		NOR = {
-			any_interest_group = {
-				has_ideology = ideology:ideology_republican_paternalistic
-			}
-			always = no
-			AND = {
-				OR = {
-					has_variable = legitimist_restoration_var
-					has_variable = bonapartist_restoration_var
-				}
-				always = no
-			}
-		}
-	}
+	country_trigger = { always = no }
 
 	interest_group_leader_trigger = {
 		ideology_bonapartist_valid_trigger = yes
@@ -686,7 +581,7 @@ ideology_bonapartist = { # Average Progressiveness - 29
 			limit = {
 				owner = {
 					country_has_monarchy_law = yes
-					NOT = { has_variable = bonapartist_restoration_var }
+					
 				}
 				ig_approval < 0
 			}
@@ -701,7 +596,7 @@ ideology_bonapartist = { # Average Progressiveness - 29
 			limit = {
 				owner = {
 					NOT = { country_has_monarchy_law = yes }
-					NOT = { has_variable = bonapartist_restoration_var }
+					
 				}
 				ig_approval < 0
 			}
@@ -713,23 +608,6 @@ ideology_bonapartist = { # Average Progressiveness - 29
 
 		# conservative and/or reactionary leaders have a higher spawn chance if the Anti-Dreyfusards won.
 
-		if = {
-			limit = {
-				OR = {
-					always = no
-					always = no
-					always = no
-					always = no
-					always = no
-					always = no
-					always = no
-				}
-			}
-			multiply = {
-				value = 0.1
-				desc = "CHOSE_A_DIFFERENT_PATH"
-			}
-		}
 	}
 
 	non_interest_group_leader_weight = {
@@ -782,7 +660,7 @@ ideology_bonapartist = { # Average Progressiveness - 29
 			limit = {
 				owner = {
 					country_has_monarchy_law = yes
-					NOT = { has_variable = bonapartist_restoration_var }
+					
 				}
 				interest_group.ig_approval < 0
 			}
@@ -794,22 +672,14 @@ ideology_bonapartist = { # Average Progressiveness - 29
 			limit = {
 				owner = {
 					NOT = { country_has_monarchy_law = yes }
-					NOT = { has_variable = bonapartist_restoration_var }
+					
 				}
 				interest_group.ig_approval < 0
 			}
 			add = 25
 		}
 
-		if = { # Legitimist agitators rare in Orleanist kingdoms
-			limit = {
-				has_role_of_type = agitator
-				owner = {
-					has_variable = bonapartist_restoration_var
-				}
-			}
-			multiply = 0.1
-		}
+		
 
 		if = {
 			limit = {

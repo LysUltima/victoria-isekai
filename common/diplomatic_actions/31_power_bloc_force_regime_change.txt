@@ -106,30 +106,7 @@
 	}
 
 	accept_effect = {
-		if = {
-			limit = {
-				always = no # vanilla ref 'c:AUS' not present in this mod
-				always = no # vanilla ref 'je_matter_of_hungary' not present in this mod
-				scope:target_country ?= {
-					always = no # vanilla ref 'je_hungarian_revolution' not present in this mod
-				}
-			}
-			scope:target_country ?= { # The same effects as decision_demand_hungary_revoke_laws, to prevent cheating the Hungarian Revolution
-				save_temporary_scope_as = hungary_country_scope
-				# removed: trigger_event = { id = hungary_events.6 popup = yes }
-			}
-			change_relations = { country = scope:target_country value = -30 }
-			custom_tooltip = hungary_likely_lead_to_war_tt
-			create_diplomatic_catalyst = {
-				type = catalyst_event_negative
-				target = scope:target_country
-			}
-			add_radicals = {
-				# removed effect line: was culture = cu:hungarian (no mod analogue)
-				value = medium_radicals
-			}
-		}
-		else = {
+
 			regime_change = scope:target_country
 			scope:target_country = {
 				add_modifier = {
@@ -148,7 +125,6 @@
 					add_liberty_desire = 10
 				}
 			}
-		}
 
 		power_bloc = {
 			add_cohesion_percent = scaled_cohesion_cost

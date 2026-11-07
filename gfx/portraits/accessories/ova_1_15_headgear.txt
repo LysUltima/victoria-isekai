@@ -1,0 +1,268 @@
+﻿# Native 1.15 records required by retained portrait genes. Selection retains its DLC/culture guards.
+
+female_headgear_japanese_common_01 = {
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "female_headgear_japanese_common_01_entity" }
+}
+
+female_headgear_japanese_common_02 = {
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "female_headgear_japanese_common_02_entity" }
+}
+
+female_headgear_japanese_common_03 = {
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "female_headgear_japanese_common_03_entity" }
+}
+
+female_headgear_japanese_common_04 = {
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "female_headgear_japanese_common_04_entity" }
+}
+
+female_headgear_portuguese_01 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "female_headgear_portuguese_01_entity" }
+}
+
+male_headgear_beret_hat_01 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_beret_hat_01_entity" }
+}
+
+male_headgear_beret_hat_01_colours = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_beret_hat_01_colours_entity" }
+}
+
+male_headgear_european_military_02_white = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_european_military_02_white_entity" }
+}
+
+male_headgear_european_military_03_late_portuguese = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_european_military_03_late_portuguese_entity" }
+}
+
+male_headgear_european_military_cap_spanish_01 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_european_military_cap_spanish_01_entity" }
+}
+
+male_headgear_european_religious_catholic_01_black = {
+	set_tags ="pope_cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_european_religious_catholic_01_black_entity" }
+}
+
+male_headgear_european_religious_catholic_01_purple = {
+	set_tags ="pope_cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_european_religious_catholic_01_purple_entity" }
+}
+
+male_headgear_european_religious_catholic_01_red = {
+	set_tags ="pope_cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_european_religious_catholic_01_red_entity" }
+}
+
+male_headgear_european_religious_catholic_02 = {
+	set_tags ="pope_cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_european_religious_catholic_02_entity" }
+}
+
+male_headgear_japanese_common_02 = {
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_japanese_common_02_entity" }
+}
+
+male_headgear_japanese_common_03 = {
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_japanese_common_03_entity" }
+}
+
+male_headgear_japanese_common_04 = {
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_japanese_common_04_entity" }
+}
+
+male_headgear_japanese_eboshi_01 = {
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_japanese_eboshi_01_entity" }
+}
+
+male_headgear_md_boater_hat = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_boater_hat_entity" }
+}
+
+male_headgear_md_generic_black_brodie = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_military_helmet_generic_black_brodie_entity" }
+}
+
+male_headgear_md_generic_khaki_brodie = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_military_helmet_generic_khaki_brodie_entity" }
+}
+
+male_headgear_md_jap_ashigaru_jingasa = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_japanese_ashigaru_jingasa_entity" }
+}
+
+male_headgear_md_jap_emperor_kepi = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_european_military_02_japanese_emperor_entity" }
+}
+
+male_headgear_md_jap_jingasa = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_japanese_jingasa_entity" }
+}
+
+male_headgear_md_jap_kepi_general_rank1 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_european_military_02_japanese_general_rank1_entity" }
+}
+
+male_headgear_md_jap_kepi_general_rank2 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_european_military_02_japanese_general_rank2_entity" }
+}
+
+male_headgear_md_jap_kepi_general_rank3 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_european_military_02_japanese_general_rank3_entity" }
+}
+
+male_headgear_md_jap_m1922_helmet = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_military_helmet_japanese_m1922_entity" }
+}
+
+male_headgear_md_jap_navy_headgear_strap_summer = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_late_military_cap_japanese_navy_strap_summer_entity" }
+}
+
+male_headgear_md_jap_navy_headgear_strap_winter = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_late_military_cap_japanese_navy_strap_winter_entity" }
+}
+
+male_headgear_md_jap_navy_sailor_cap_summer = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_sailor_cap_japanese_navy_summer_entity" }
+}
+
+male_headgear_md_jap_navy_sailor_cap_winter = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_sailor_cap_japanese_navy_winter_entity" }
+}
+
+male_headgear_md_jap_nirayamagasa = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_japanese_nirayamagasa_entity" }
+}
+
+male_headgear_md_jap_pith_helmet_01_dark_green = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_colonial_helmet_01_japanese_dark_green_entity" }
+}
+
+male_headgear_md_jap_pith_helmet_01_dark_khaki = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_colonial_helmet_01_japanese_dark_khaki_entity" }
+}
+
+male_headgear_md_jap_pith_helmet_01_green = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_colonial_helmet_01_japanese_green_entity" }
+}
+
+male_headgear_md_jap_pith_helmet_01_khaki = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_colonial_helmet_01_japanese_khaki_entity" }
+}
+
+male_headgear_md_jap_pith_helmet_02_dark_green = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_colonial_helmet_02_japanese_dark_green_entity" }
+}
+
+male_headgear_md_jap_pith_helmet_02_dark_khaki = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_colonial_helmet_02_japanese_dark_khaki_entity" }
+}
+
+male_headgear_md_jap_pith_helmet_02_green = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_colonial_helmet_02_japanese_green_entity" }
+}
+
+male_headgear_md_jap_pith_helmet_02_khaki = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_colonial_helmet_02_japanese_khaki_entity" }
+}
+
+male_headgear_md_jap_soldier_headgear_strap_cav = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_late_military_cap_japanese_soldier_strap_cav_entity" }
+}
+
+male_headgear_md_jap_soldier_headgear_strap_guard = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_late_military_cap_japanese_soldier_strap_guard_entity" }
+}
+
+male_headgear_md_jap_soldier_headgear_strap_guard_summer = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_late_military_cap_japanese_soldier_strap_guard_summer_entity" }
+}
+
+male_headgear_md_jap_soldier_headgear_strap_inf = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_late_military_cap_japanese_soldier_strap_inf_entity" }
+}
+
+male_headgear_md_jap_soldier_headgear_strap_inf_summer = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_late_military_cap_japanese_soldier_strap_inf_summer_entity" }
+}
+
+male_headgear_md_jap_soldier_headgear_strap_khaki = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_late_military_cap_japanese_soldier_strap_khaki_entity" }
+}
+
+male_headgear_md_jap_soldier_headgear_strap_pink_khaki_flaps_inf = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_late_military_cap_japanese_soldier_strap_pink_khaki_flaps_inf_entity" }
+}
+
+male_headgear_md_jap_soldier_headgear_strap_pink_khaki_inf = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_late_military_cap_japanese_soldier_strap_pink_khaki_inf_entity" }
+}
+
+male_headgear_md_jap_type90_helmet = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_military_helmet_japanese_type90_entity" }
+}
+
+male_headgear_shako_hat_01 = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_shako_hat_01_entity" }
+}
+
+male_headgear_shako_hat_01_french = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_shako_hat_01_french_entity" }
+}
+
+male_headgear_shako_hat_01_portuguese = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_shako_hat_01_portuguese_entity" }
+}
+
+male_headgear_shako_hat_01_spanish = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_shako_hat_01_spanish_entity" }
+}
+
+male_headgear_shako_hat_01_wallachian = {
+	set_tags ="cap1"
+	entity = { required_tags = ""					shared_pose_entity = head		entity = "male_headgear_shako_hat_01_wallachian_entity" }
+}

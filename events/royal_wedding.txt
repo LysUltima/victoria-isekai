@@ -23,9 +23,17 @@ wedding.1 = {
 	duration = 3
 
 	trigger = {
-		# triggered by marriage.2
+		# triggered by seek_royal_marriage
 		exists = scope:royal_marriage_character
 		exists = scope:marriage_country
+	}
+
+	cancellation_trigger = {
+		NOR = {
+			exists = scope:royal_marriage_character
+			exists = scope:marriage_country
+			exists = scope:foreign_ruler
+		}
 	}
 
 	immediate = {
@@ -38,15 +46,15 @@ wedding.1 = {
 					is_heir_of_own_country = yes
 					is_ruler_of_own_country = yes
 				}
-				age > 16
+				age > define:NCharacters|ADULT_AGE
 				NOT = { has_variable = is_married }
 			}
-			save_scope_as = royal_marriage_character
 			set_variable = getting_married # for clothing script
 		}
 		scope:marriage_country = {
 			ruler = {
 				save_scope_as = foreign_ruler
+				set_temporary_event_immortality = { DURATION = 3 }
 			}
 		}
 	}
@@ -58,9 +66,6 @@ wedding.1 = {
 			name = royal_marriage
 			days = normal_modifier_time
 		}
-		hidden_effect = {
-			remove_variable = getting_married
-		}
 	}
 
 	option = { # public wedding for the masses
@@ -71,6 +76,17 @@ wedding.1 = {
 				days = very_long_modifier_time
 			}
 		}
+	}
+
+	after = {
+		scope:royal_marriage_character ?= {
+			set_variable = is_married
+			remove_variable = getting_married
+		}
+		scope:foreign_ruler ?= {
+			remove_variable = marriage_target
+		}
+		revoke_temporary_event_immortality = { CHARACTER = scope:foreign_ruler }
 	}
 }
 
@@ -328,12 +344,14 @@ wedding.3 = {
 	immediate = {
 		ruler = {
 			save_scope_as = abdicating_monarch
+			set_temporary_event_immortality = { DURATION = 3 }
 			interest_group ?= {
 				save_scope_as = monarch_ig
 			}
 		}
 		heir ?= {
 			save_scope_as = heir_scope
+			set_temporary_event_immortality = { DURATION = 3 }
 		}
 		law_type:law_monarchy = {
 			save_scope_as = monarchy_law
@@ -350,6 +368,7 @@ wedding.3 = {
 		scope:heir_scope ?= {
 			set_character_as_ruler = yes
 		}
+		revoke_temporary_event_immortality = { CHARACTER = scope:abdicating_monarch }
 		scope:abdicating_monarch ?= {
 			resign_and_retire = yes
 		}
@@ -357,14 +376,24 @@ wedding.3 = {
 
 	option = { # reassure the people
 		name = wedding.3.b
+		ai_chance = {
+			base = 1
+
+		}
 		add_loyalists = {
 			value = 0.01
 		}
 		scope:heir_scope ?= {
 			set_character_as_ruler = yes
 		}
+		revoke_temporary_event_immortality = { CHARACTER = scope:abdicating_monarch }
 		scope:abdicating_monarch ?= {
 			resign_and_retire = yes
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:abdicating_monarch }
+		revoke_temporary_event_immortality = { CHARACTER = scope:heir_scope }
 	}
 }

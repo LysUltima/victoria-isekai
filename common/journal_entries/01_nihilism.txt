@@ -3,6 +3,27 @@
 # real-world references. Verbatim copy. events/nihilism.txt migrated 2026-07-11 too.
 
 je_nihilist_movement = {
+	activation_description = {
+		has_technology_researched = realism
+		empty_agitator_slots >= 1
+		NOT = {
+			has_technology_researched = socialism
+		}
+		has_law_or_variant = law_type:law_state_religion
+		OR = {
+			country_has_monarchy_law = yes
+			has_law_or_variant = law_type:law_theocracy
+		}
+		OR = {
+			has_law_or_variant = law_type:law_autocracy
+			has_law_or_variant = law_type:law_oligarchy
+		}
+		ig:ig_intelligentsia ?= {
+			ig_counts_as_marginal = no
+			ig_approval < 0
+		}
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
 	group = je_group_internal_affairs
@@ -80,81 +101,6 @@ je_nihilist_movement = {
 		trigger_event = { id = nihilism.1 popup = yes }
 	}
 
-	complete = {
-		OR = {
-			custom_tooltip = {
-				text = je_nihilist_movement_trigger_tt_1
-				scope:journal_entry = {
-					is_goal_complete = yes
-				}
-				AND = {
-					OR = {
-						has_law_or_variant = law_type:law_outlawed_dissent
-						has_law_or_variant = law_type:law_censorship
-					}
-					any_political_movement = {
-						is_political_movement_type = movement_nihilist
-						is_being_suppressed = yes
-					}
-				}
-			}
-			custom_tooltip = {
-				text = je_nihilist_movement_trigger_tt_2
-				scope:journal_entry = {
-					is_goal_complete = yes
-				}
-				ig:ig_intelligentsia ?= {
-					OR = {
-						ig_approval > 0
-						ig_counts_as_marginal = yes
-					}
-				}
-			}
-			trigger_if = {
-				limit = {
-					has_variable = nihilism_je_started
-				}
-				custom_tooltip = {
-					text = has_no_nihilist_movement_tt
-					NOT = {
-						any_political_movement = {
-							is_political_movement_type = movement_nihilist
-						}
-					}
-				}
-			}
-		}
-	}
-
-	on_complete = {
-		if = {
-			limit = {
-				AND = {
-					has_technology_researched = socialism
-					has_technology_researched = anarchism
-				}
-			}
-			trigger_event = { id = nihilism.3 popup = yes }
-		}
-		else = {
-			trigger_event = { id = nihilism.2 popup = yes }
-		}
-	}
-
-	fail = {
-		OR = {
-			has_law_or_variant = law_type:law_state_atheism
-			has_law_or_variant = law_type:law_total_separation
-		}
-	}
-
-	on_fail = {
-		add_loyalists = {
-			value = medium_radicals
-			pop_type = academics
-		}
-	}
-
 	on_monthly_pulse = {
 		effect = {
 			if = {
@@ -201,10 +147,6 @@ je_nihilist_movement = {
 
 	timeout = 3650
 
-	on_timeout = {
-		trigger_event = { id = nihilism.3 popup = yes }
-	}
-
 	current_value = {
 		value = root.var:nihilism_progress_var
 	}
@@ -218,4 +160,101 @@ je_nihilist_movement = {
 	progressbar = yes
 
 	should_be_pinned_by_default_uninvolved_or_context = yes
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			OR = {
+				custom_tooltip = {
+					text = je_nihilist_movement_trigger_tt_1
+					scope:journal_entry = {
+						is_goal_complete = yes
+					}
+					AND = {
+						OR = {
+							has_law_or_variant = law_type:law_outlawed_dissent
+							has_law_or_variant = law_type:law_censorship
+						}
+						any_political_movement = {
+							is_political_movement_type = movement_nihilist
+							is_being_suppressed = yes
+						}
+					}
+				}
+				custom_tooltip = {
+					text = je_nihilist_movement_trigger_tt_2
+					scope:journal_entry = {
+						is_goal_complete = yes
+					}
+					ig:ig_intelligentsia ?= {
+						OR = {
+							ig_approval > 0
+							ig_counts_as_marginal = yes
+						}
+					}
+				}
+				trigger_if = {
+					limit = {
+						has_variable = nihilism_je_started
+					}
+					custom_tooltip = {
+						text = has_no_nihilist_movement_tt
+						NOT = {
+							any_political_movement = {
+								is_political_movement_type = movement_nihilist
+							}
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					AND = {
+						has_technology_researched = socialism
+						has_technology_researched = anarchism
+					}
+				}
+				trigger_event = { id = nihilism.3 popup = yes }
+			}
+			else = {
+				trigger_event = { id = nihilism.2 popup = yes }
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				has_law_or_variant = law_type:law_state_atheism
+				has_law_or_variant = law_type:law_total_separation
+			}
+		}
+		effect = {
+			add_loyalists = {
+				value = medium_radicals
+				pop_type = academics
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			trigger_event = { id = nihilism.3 popup = yes }
+		}
+	}
 }

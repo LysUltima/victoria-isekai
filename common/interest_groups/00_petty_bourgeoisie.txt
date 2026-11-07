@@ -32,48 +32,8 @@
 
 	on_enable = {
 		ig:ig_petty_bourgeoisie ?= {
+
 			if = {
-				limit = {
-					owner = { always = no}
-				}
-				set_ig_trait = ig_trait:ig_trait_xenophobia
-				set_ig_trait = ig_trait:ig_trait_bergsbrukens_valdistrikten
-				set_ig_trait = ig_trait:ig_trait_treasury_bonds
-			}
-			else_if = {
-				limit = {
-					owner = { always = no }
-				}
-				set_ig_trait = ig_trait:ig_trait_xenophobia
-				set_ig_trait = ig_trait:ig_trait_effendi
-				set_ig_trait = ig_trait:ig_trait_reorganization
-			}
-			else_if = {
-				limit = {
-					owner = { always = no }
-				}
-				set_ig_trait = ig_trait:ig_trait_xenophobia
-				set_ig_trait = ig_trait:ig_trait_effendi
-				set_ig_trait = ig_trait:ig_trait_treasury_bonds
-			}
-			else_if = {
-				limit = {
-					has_dlc_feature = voice_of_the_people_content
-					owner = { always = no }
-				}
-				set_ig_trait = ig_trait:ig_trait_xenophobia
-				set_ig_trait = ig_trait:ig_trait_haute_finance
-				set_ig_trait = ig_trait:ig_trait_master_of_the_house
-			}
-			else_if = {
-				limit = {
-					owner = { always = no }
-				}
-				set_ig_trait = ig_trait:ig_trait_bah_humbug
-				set_ig_trait = ig_trait:ig_trait_civil_service
-				set_ig_trait = ig_trait:ig_trait_old_lady_of_threadneedle_street
-			}
-			else_if = {
 				limit = {
 					owner = {
 						country_has_primary_culture = cu:sakura
@@ -84,25 +44,7 @@
 				set_ig_trait = ig_trait:ig_trait_middle_managers
 				set_ig_trait = ig_trait:ig_trait_treasury_bonds
 			}
-			else_if = {
-				limit = {
-					owner = {
-						always = no
-					}
-				}
-				set_interest_group_name = ig_bhadralok
 
-				# Ideologies
-				remove_ideology = ideology_patriotic
-				add_ideology = ideology_sovereignist
-				remove_ideology = ideology_reactionary
-				add_ideology = ideology_modernizer
-
-				# Traits
-				set_ig_trait = ig_trait:ig_trait_swadesh
-				set_ig_trait = ig_trait:ig_trait_lines_of_credit
-				set_ig_trait = ig_trait:ig_trait_cooperative_agencies
-			}
 			# Kleinbürger
 			else_if = {
 				limit = {
@@ -140,60 +82,13 @@
 
 	on_disable = {}
 	priority_cultures = { #Country scope
-		rule = {
-			trigger = {
-				always = no # vanilla ref 'c:BIC' not present in this mod
-				any_primary_culture = {
-					cu:aldrican = this # was cu:british
-				}
-			}
-			cultures = {}
-		}
-		rule = {
-			trigger = {
-				always = no
-				any_primary_culture = {
-					cu:zaharin = this
-				}
-			}
-			cultures = {}
-		}
-		rule = {
-			trigger = {
-				always = no
-				always = no
-				NOT = { any_primary_culture = { cu:melati = this } }
-				NOT = { any_primary_culture = { cu:melati = this } }
-				any_primary_culture = { cu:alena = this }
-			}
-			cultures = {}
-		}
-		rule = {
-			trigger = {
-				always = no
-				any_primary_culture = {
-					AND = {
-						cu:alena = this
-						cu:melati = this
-					}
-				}
-			}
-			cultures = {}
-		}
+
+
+
+
 	}
 	on_character_ig_membership = {
-		if = {
-			limit = {
-				always = no # was culture = cu:gujarati (Indian, no mod analogue; arasni is Tocharian-Buddhist, not Hindi)
-				owner = {
-					always = no
-					any_primary_culture = {
-						cu:zaharin = this
-					}
-				}
-			}
-			change_character_religion = rel:farvahar
-		}
+
 	}
 
 	pop_potential = {
@@ -375,36 +270,6 @@
 			}
 		}
 
-		if = {
-			limit = {
-				always = no
-				culture = {
-					has_discrimination_trait_group = heritage_group_isekai_human
-				}
-			}
-			multiply = {
-				desc = "POP_INDIA_COLONIAL_RULE"
-				value = 0.1
-			}
-		}
-
-		if = {
-			limit = {
-				always = no
-				culture = {
-					has_discrimination_trait_group = heritage_group_xianxia_human
-				}
-				OR = {
-					is_pop_type = capitalists
-					is_pop_type = shopkeepers
-				}
-			}
-			add = {
-				desc = "POP_INDIA_MONEYED_ELITES"
-				value = 75
-			}
-		}
-
 		multiply = {
 			desc = "LEADER_POPULARITY"
 			scope:interest_group ?= {
@@ -536,25 +401,16 @@
 	commander_weight = {
 		value = 1.0
 	}
-	
+
 	magnate_weight = {
 		value = 0.25
-	}	
+	}
 
 	executive_weight = {
 		value = 1.5
-		
+
 		# The company owning BIC should not get non-industrialist executives
-		if = {
-			limit = {
-				exists = scope:company
-				always = no
-				always = no
-			}
-			multiply = {
-				value = 0
-			}
-		}
+
 	}
 
 	noble_chance = {
@@ -709,20 +565,12 @@
 	commander_leader_weight = {
 		value = 1.0
 	}
-	
+
 	# Multiplier applied to the weight for an appropriate magnate will be selected from the character pool to lead the IG
 	# root = interest group
 	magnate_leader_weight = {
 		value = 1.0
-		if = {
-			limit = {
-				always = no
-				NOT = {
-					always = no
-				}
-			}
-			add = 5
-		}
+
 	}
 
 	# Multiplier applied to the weight for an appropriate executive will be selected from the character pool to lead the IG

@@ -287,7 +287,7 @@ land_ownership_law_events.3 = {
 			is_in_government = yes
 			leader = {
 				OR = {
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 					has_ideology = ideology:ideology_vanguardist
 				}
 			}
@@ -296,7 +296,7 @@ land_ownership_law_events.3 = {
 			ig_counts_as_marginal = no
 			leader = {
 				NOR = {
-					has_ideology = ideology:ideology_communist
+					has_ideology = ideology:ideology_communist_leader
 					has_ideology = ideology:ideology_vanguardist
 				}
 			}
@@ -329,14 +329,16 @@ land_ownership_law_events.3 = {
 				is_in_government = yes
 				leader = {
 					OR = {
-						has_ideology = ideology:ideology_communist
+						has_ideology = ideology:ideology_communist_leader
 						has_ideology = ideology:ideology_vanguardist
 					}
 				}
 			}
 			leader = {
 				save_scope_as = anti_kulak_leaders_scope
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 			save_scope_as = anti_kulak_ig_scope
 		}
 		ig:ig_rural_folk ?= {
@@ -432,6 +434,10 @@ land_ownership_law_events.3 = {
 				add_trait = cautious
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:anti_kulak_leaders_scope }
 	}
 }
 
@@ -1411,7 +1417,9 @@ land_ownership_law_events.11 = {
 		}
 		ruler = {
 			save_scope_as = ruler_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -1483,6 +1491,10 @@ land_ownership_law_events.11 = {
 			pop_type = clergymen
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:ruler_scope }
+	}
 }
 
 land_ownership_law_events.12 = {
@@ -1541,7 +1553,9 @@ land_ownership_law_events.12 = {
 		ig:ig_rural_folk ?= {
 			leader = {
 				save_scope_as = rural_folk_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -1614,6 +1628,10 @@ land_ownership_law_events.12 = {
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:rural_folk_leader }
 	}
 }
 

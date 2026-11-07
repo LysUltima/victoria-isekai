@@ -3,6 +3,34 @@
 # References events/sol_events.txt - not yet migrated.
 
 je_sol_1 = {
+	activation_description = {
+		root.average_sol < 7
+		OR = {
+			ig:ig_petty_bourgeoisie ?= {
+				is_powerful = yes
+			}
+			ig:ig_industrialists ?= {
+				is_powerful = yes
+			}
+		}
+		OR = {
+			has_law_or_variant = law_type:law_no_social_security
+			has_law_or_variant = law_type:law_no_health_system
+		}
+		OR = {
+			has_technology_researched = modern_sewerage
+			has_technology_researched = labor_movement
+			has_technology_researched = human_rights
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 10
+			}
+		}
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
 	group = je_group_crises
@@ -46,33 +74,6 @@ je_sol_1 = {
 		trigger_event = { id = sol_events.1 }
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_sol_goal_desc
-			scope:journal_entry = {
-				is_goal_complete = yes
-			}
-		}
-	}
-
-	on_complete = {
-		set_variable = {
-			name = completed_sol_je
-			days = normal_modifier_time
-		}
-		trigger_event = { id = sol_events.2 }
-	}
-
-	invalid = {
-		custom_tooltip = {
-			text = je_sol_invalid_desc
-			OR = {
-				has_variable = dismissed_poverty_variable
-				has_variable = begging_woman_martyr_variable
-			}
-		}
-	}
-
 	on_monthly_pulse = {
 		random_events = {
 			100 = 0
@@ -98,4 +99,40 @@ je_sol_1 = {
 	transferable = no
 
 	progressbar = yes
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_sol_goal_desc
+				scope:journal_entry = {
+					is_goal_complete = yes
+				}
+			}
+		}
+		effect = {
+			set_variable = {
+				name = completed_sol_je
+				days = normal_modifier_time
+			}
+			trigger_event = { id = sol_events.2 }
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_sol_invalid_desc
+				OR = {
+					has_variable = dismissed_poverty_variable
+					has_variable = begging_woman_martyr_variable
+				}
+			}
+		}
+	}
 }

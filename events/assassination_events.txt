@@ -45,7 +45,9 @@ assassination_events.1 = { #there's a plot to kill your ruler
 	}
 
 	immediate = {
-		ruler = { save_scope_as = assassination_ruler_scope }
+		ruler = { save_scope_as = assassination_ruler_scope
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		#set_variable = {
 		#	name = assassination_cooldown
 		#	days = stupidly_long_modifier_time #50 years
@@ -74,6 +76,10 @@ assassination_events.1 = { #there's a plot to kill your ruler
 			type = je_assassination
 			target = scope:assassination_ruler_scope
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:assassination_ruler_scope }
 	}
 }
 
@@ -208,7 +214,9 @@ assassination_events.3 = { #The Snitch
 			save_scope_as = snitch_ig
 			leader = {
 				save_scope_as = snitch_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		random_interest_group = {
 			limit = {
@@ -258,6 +266,10 @@ assassination_events.3 = { #The Snitch
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:snitch_leader }
 	}
 }
 
@@ -410,7 +422,9 @@ assassination_events.5 = { #Failure to stop assassination
 		random_scope_character = {
 			limit = { has_variable = assassination_ruler_var }
 			save_scope_as = assassination_ruler_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -423,6 +437,10 @@ assassination_events.5 = { #Failure to stop assassination
 			name = assassination_success_modifier #great authority hit
 			days = normal_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:assassination_ruler_scope }
 	}
 }
 
@@ -458,7 +476,9 @@ assassination_events.6 = { #ruler deposed
 		random_scope_character = {
 			limit = { has_variable = assassination_ruler_var }
 			save_scope_as = assassination_ruler_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = { #poor guy
@@ -470,6 +490,10 @@ assassination_events.6 = { #ruler deposed
 				days = normal_modifier_time
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:assassination_ruler_scope }
 	}
 }
 
@@ -506,7 +530,9 @@ assassination_events.7 = { #Stopped the assassination
 		random_scope_character = {
 			limit = { has_variable = assassination_ruler_var }
 			save_scope_as = assassination_ruler_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = { #awesome
@@ -516,6 +542,10 @@ assassination_events.7 = { #Stopped the assassination
 			name = assassination_caught_em_modifier #legitimacy
 			days = short_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:assassination_ruler_scope }
 	}
 }
 
@@ -551,7 +581,9 @@ assassination_events.8 = { #ruler died of other cause
 		random_scope_character = {
 			limit = { has_variable = assassination_ruler_var }
 			save_scope_as = assassination_ruler_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = { #well that was all
@@ -561,5 +593,9 @@ assassination_events.8 = { #ruler died of other cause
 			name = assassination_dead_ruler_modifier #legitimacy loss
 			days = normal_modifier_time
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:assassination_ruler_scope }
 	}
 }

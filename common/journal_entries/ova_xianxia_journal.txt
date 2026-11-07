@@ -30,6 +30,10 @@
 # ============================================================================
 
 je_ova_xianxia_blood_lotus = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
 	group = je_group_internal_affairs
@@ -47,47 +51,62 @@ je_ova_xianxia_blood_lotus = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = ova_xianxia_demonic_victory_tt
-			ova_xianxia_demonic_victory_trigger = yes
-		}
-	}
-
-	on_complete = {
-		if = {
-			limit = { is_power_bloc_leader = yes }
-			power_bloc = { remove_modifier = ova_unbreakable_covenant }
-		}
-		add_modifier = { name = ova_xianxia_sovereign_of_the_demonic_dao days = -1 }
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 30 }
-		}
-		trigger_event = { id = ova_xianxia.70 days = 3 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = ova_xianxia_lotus_severed_tt
-			ova_xianxia_righteous_victory_trigger = yes
-		}
-	}
-
-	on_fail = {
-		if = {
-			limit = { is_power_bloc_leader = yes }
-			power_bloc = { remove_modifier = ova_unbreakable_covenant }
-		}
-		add_modifier = { name = ova_xianxia_sect_despair days = -1 }
-	}
-
 	weight = 5000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_xianxia_demonic_victory_tt
+				ova_xianxia_demonic_victory_trigger = yes
+			}
+		}
+		effect = {
+			if = {
+				limit = { is_power_bloc_leader = yes }
+				power_bloc = { remove_modifier = ova_unbreakable_covenant }
+			}
+			add_modifier = { name = ova_xianxia_sovereign_of_the_demonic_dao days = -1 }
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 30 }
+			}
+			trigger_event = { id = ova_xianxia.70 days = 3 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_xianxia_lotus_severed_tt
+				ova_xianxia_righteous_victory_trigger = yes
+			}
+		}
+		effect = {
+			if = {
+				limit = { is_power_bloc_leader = yes }
+				power_bloc = { remove_modifier = ova_unbreakable_covenant }
+			}
+			add_modifier = { name = ova_xianxia_sect_despair days = -1 }
+		}
+	}
 }
 
 je_ova_xianxia_jade_mandate = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	group = je_group_internal_affairs
@@ -102,46 +121,61 @@ je_ova_xianxia_jade_mandate = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = ova_xianxia_righteous_victory_tt
-			ova_xianxia_righteous_victory_trigger = yes
-		}
-	}
-
-	on_complete = {
-		add_modifier = { name = ova_xianxia_orthodoxy_restored days = -1 }
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 20 }
-		}
-		trigger_event = { id = ova_xianxia.71 days = 3 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = ova_xianxia_mandate_broken_tt
-			OR = {
-				ova_xianxia_demonic_victory_trigger = yes
-				is_subject = yes
-			}
-		}
-	}
-
-	on_fail = {
-		add_modifier = { name = ova_xianxia_sect_despair days = -1 }
-		add_radicals = { value = medium_radicals }
-	}
-
 	weight = 5000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_xianxia_righteous_victory_tt
+				ova_xianxia_righteous_victory_trigger = yes
+			}
+		}
+		effect = {
+			add_modifier = { name = ova_xianxia_orthodoxy_restored days = -1 }
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 20 }
+			}
+			trigger_event = { id = ova_xianxia.71 days = 3 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_xianxia_mandate_broken_tt
+				OR = {
+					ova_xianxia_demonic_victory_trigger = yes
+					is_subject = yes
+				}
+			}
+		}
+		effect = {
+			add_modifier = { name = ova_xianxia_sect_despair days = -1 }
+			add_radicals = { value = medium_radicals }
+		}
+	}
 }
 
 # One definition shown for each of the 9 righteous sects and for Great Yao (mirrors vanilla's
 # je_chinese_missions single-def-gated-by-tag pattern) - morale flavor, the skirmish pump, and a
 # home for each sect's own share of the Destined One story. Added from history per tag.
 je_ova_xianxia_righteous_banner = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_internal_affairs
@@ -161,47 +195,62 @@ je_ova_xianxia_righteous_banner = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = ova_xianxia_righteous_victory_tt
-			ova_xianxia_righteous_victory_trigger = yes
-		}
-	}
+	weight = 3000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		add_modifier = { name = ova_xianxia_sect_triumph days = -1 }
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 15 }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_xianxia_righteous_victory_tt
+				ova_xianxia_righteous_victory_trigger = yes
+			}
 		}
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = ova_xianxia_banner_falls_tt
-			OR = {
-				ova_xianxia_demonic_victory_trigger = yes
-				is_subject_of = c:BLO
-				is_subject_of = c:GHO
-				is_subject_of = c:SHA
-				is_subject_of = c:NIN
+		effect = {
+			add_modifier = { name = ova_xianxia_sect_triumph days = -1 }
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 15 }
 			}
 		}
 	}
 
-	on_fail = {
-		add_modifier = { name = ova_xianxia_sect_despair days = -1 }
-		add_radicals = { value = medium_radicals }
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_xianxia_banner_falls_tt
+				OR = {
+					ova_xianxia_demonic_victory_trigger = yes
+					is_subject_of = c:BLO
+					is_subject_of = c:GHO
+					is_subject_of = c:SHA
+					is_subject_of = c:NIN
+				}
+			}
+		}
+		effect = {
+			add_modifier = { name = ova_xianxia_sect_despair days = -1 }
+			add_radicals = { value = medium_radicals }
+		}
 	}
-
-	weight = 3000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
 }
 
 # One definition shown for GHO/SHA/NIN, the Covenant's junior members - same skirmish/blood-raid
 # pump as BLO's own banner. Added from history per tag.
 je_ova_xianxia_covenant_banner = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
 	group = je_group_internal_affairs
@@ -219,39 +268,50 @@ je_ova_xianxia_covenant_banner = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = ova_xianxia_demonic_victory_tt
-			ova_xianxia_demonic_victory_trigger = yes
-		}
-	}
+	weight = 3000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		add_modifier = { name = ova_xianxia_sect_triumph days = -1 }
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 15 }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_xianxia_demonic_victory_tt
+				ova_xianxia_demonic_victory_trigger = yes
+			}
 		}
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = ova_xianxia_covenant_broken_tt
-			OR = {
-				ova_xianxia_righteous_victory_trigger = yes
-				is_subject = yes
+		effect = {
+			add_modifier = { name = ova_xianxia_sect_triumph days = -1 }
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 15 }
 			}
 		}
 	}
 
-	on_fail = {
-		add_modifier = { name = ova_xianxia_sect_despair days = -1 }
-		add_radicals = { value = medium_radicals }
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ova_xianxia_covenant_broken_tt
+				OR = {
+					ova_xianxia_righteous_victory_trigger = yes
+					is_subject = yes
+				}
+			}
+		}
+		effect = {
+			add_modifier = { name = ova_xianxia_sect_despair days = -1 }
+			add_radicals = { value = medium_radicals }
+		}
 	}
-
-	weight = 3000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
 }
 
 # ============================================================================
@@ -277,6 +337,10 @@ je_ova_xianxia_covenant_banner = {
 # 10), and a first sliver of renown.
 # ------------------------------------------------------------------------
 je_ova_xianxia_mc_1 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -364,44 +428,56 @@ je_ova_xianxia_mc_1 = {
 
 	# seen_18 is only ever set by this chapter's own final beat, so a youth
 	# who leveled fast cannot skip the story (the Victoria seen-flag guard).
-	complete = {
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_1_tale_tt
-			has_variable = ova_xianxia_seen_18
-		}
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_1_level_tt
-			ova_has_living_champion = yes
-			var:ova_champion_level >= 10
-		}
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_1_name_tt
-			ova_has_living_champion = yes
-			var:ova_champion_popularity >= 1
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = ova_xianxia.63 days = 3 }
-		add_journal_entry = { type = je_ova_xianxia_mc_2 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_dead_tt
-			has_variable = ova_xianxia_mc_char
-			NOT = { exists = var:ova_xianxia_mc_char }
-		}
-	}
-
-	on_fail = {
-		effect_ova_xianxia_story_over = yes
-		trigger_event = { id = ova_xianxia.72 days = 3 }
-	}
 
 	weight = 4000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_1_tale_tt
+				has_variable = ova_xianxia_seen_18
+			}
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_1_level_tt
+				ova_has_living_champion = yes
+				var:ova_champion_level >= 10
+			}
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_1_name_tt
+				ova_has_living_champion = yes
+				var:ova_champion_popularity >= 1
+			}
+		}
+		effect = {
+			trigger_event = { id = ova_xianxia.63 days = 3 }
+			add_journal_entry = { type = je_ova_xianxia_mc_2 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_dead_tt
+				has_variable = ova_xianxia_mc_char
+				NOT = { exists = var:ova_xianxia_mc_char }
+			}
+		}
+		effect = {
+			effect_ova_xianxia_story_over = yes
+			trigger_event = { id = ova_xianxia.72 days = 3 }
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -414,6 +490,10 @@ je_ova_xianxia_mc_1 = {
 # secret manual comprehended (the decision).
 # ------------------------------------------------------------------------
 je_ova_xianxia_mc_2 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -477,43 +557,54 @@ je_ova_xianxia_mc_2 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_2_tale_tt
-			has_variable = ova_xianxia_seen_102
-		}
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_2_level_tt
-			ova_has_living_champion = yes
-			var:ova_champion_level >= 20
-		}
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_2_manual_tt
-			has_variable = ova_xianxia_manual_learned
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = ova_xianxia.63 days = 3 }
-		add_journal_entry = { type = je_ova_xianxia_mc_3 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_dead_tt
-			has_variable = ova_xianxia_mc_char
-			NOT = { exists = var:ova_xianxia_mc_char }
-		}
-	}
-
-	on_fail = {
-		effect_ova_xianxia_story_over = yes
-		trigger_event = { id = ova_xianxia.72 days = 3 }
-	}
-
 	weight = 4000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_2_tale_tt
+				has_variable = ova_xianxia_seen_102
+			}
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_2_level_tt
+				ova_has_living_champion = yes
+				var:ova_champion_level >= 20
+			}
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_2_manual_tt
+				has_variable = ova_xianxia_manual_learned
+			}
+		}
+		effect = {
+			trigger_event = { id = ova_xianxia.63 days = 3 }
+			add_journal_entry = { type = je_ova_xianxia_mc_3 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_dead_tt
+				has_variable = ova_xianxia_mc_char
+				NOT = { exists = var:ova_xianxia_mc_char }
+			}
+		}
+		effect = {
+			effect_ova_xianxia_story_over = yes
+			trigger_event = { id = ova_xianxia.72 days = 3 }
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -526,6 +617,10 @@ je_ova_xianxia_mc_2 = {
 # secret realm ventured (the decision).
 # ------------------------------------------------------------------------
 je_ova_xianxia_mc_3 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	group = je_group_internal_affairs
@@ -598,43 +693,54 @@ je_ova_xianxia_mc_3 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_3_tale_tt
-			has_variable = ova_xianxia_seen_104
-		}
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_3_level_tt
-			ova_has_living_champion = yes
-			var:ova_champion_level >= 30
-		}
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_3_realm_tt
-			has_variable = ova_xianxia_secret_realm_done
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = ova_xianxia.63 days = 3 }
-		add_journal_entry = { type = je_ova_xianxia_mc_4 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_dead_tt
-			has_variable = ova_xianxia_mc_char
-			NOT = { exists = var:ova_xianxia_mc_char }
-		}
-	}
-
-	on_fail = {
-		effect_ova_xianxia_story_over = yes
-		trigger_event = { id = ova_xianxia.72 days = 3 }
-	}
-
 	weight = 4000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_3_tale_tt
+				has_variable = ova_xianxia_seen_104
+			}
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_3_level_tt
+				ova_has_living_champion = yes
+				var:ova_champion_level >= 30
+			}
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_3_realm_tt
+				has_variable = ova_xianxia_secret_realm_done
+			}
+		}
+		effect = {
+			trigger_event = { id = ova_xianxia.63 days = 3 }
+			add_journal_entry = { type = je_ova_xianxia_mc_4 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_dead_tt
+				has_variable = ova_xianxia_mc_char
+				NOT = { exists = var:ova_xianxia_mc_char }
+			}
+		}
+		effect = {
+			effect_ova_xianxia_story_over = yes
+			trigger_event = { id = ova_xianxia.72 days = 3 }
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -648,6 +754,10 @@ je_ova_xianxia_mc_3 = {
 # rival Destined One humbled OR the grand competition carried.
 # ------------------------------------------------------------------------
 je_ova_xianxia_mc_4 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_internal_affairs
@@ -720,46 +830,57 @@ je_ova_xianxia_mc_4 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_4_tale_tt
-			has_variable = ova_xianxia_seen_106
-		}
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_4_level_tt
-			ova_has_living_champion = yes
-			var:ova_champion_level >= 40
-		}
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_4_rival_tt
-			OR = {
-				var:ova_xianxia_rivals_defeated >= 1
-				has_variable = ova_xianxia_competition_won
-			}
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = ova_xianxia.63 days = 3 }
-		add_journal_entry = { type = je_ova_xianxia_mc_5 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_dead_tt
-			has_variable = ova_xianxia_mc_char
-			NOT = { exists = var:ova_xianxia_mc_char }
-		}
-	}
-
-	on_fail = {
-		effect_ova_xianxia_story_over = yes
-		trigger_event = { id = ova_xianxia.72 days = 3 }
-	}
-
 	weight = 4000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_4_tale_tt
+				has_variable = ova_xianxia_seen_106
+			}
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_4_level_tt
+				ova_has_living_champion = yes
+				var:ova_champion_level >= 40
+			}
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_4_rival_tt
+				OR = {
+					var:ova_xianxia_rivals_defeated >= 1
+					has_variable = ova_xianxia_competition_won
+				}
+			}
+		}
+		effect = {
+			trigger_event = { id = ova_xianxia.63 days = 3 }
+			add_journal_entry = { type = je_ova_xianxia_mc_5 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_dead_tt
+				has_variable = ova_xianxia_mc_char
+				NOT = { exists = var:ova_xianxia_mc_char }
+			}
+		}
+		effect = {
+			effect_ova_xianxia_story_over = yes
+			trigger_event = { id = ova_xianxia.72 days = 3 }
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -774,6 +895,10 @@ je_ova_xianxia_mc_4 = {
 # decisions; both also weight the tribulation roll itself).
 # ------------------------------------------------------------------------
 je_ova_xianxia_mc_5 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_fire.dds"
 
 	group = je_group_internal_affairs
@@ -846,47 +971,58 @@ je_ova_xianxia_mc_5 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_5_tale_tt
-			has_variable = ova_xianxia_seen_108
-		}
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_5_level_tt
-			ova_has_living_champion = yes
-			var:ova_champion_level >= 50
-		}
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_5_weapon_tt
-			has_variable = ova_xianxia_weapon_forged
-		}
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_5_treasures_tt
-			has_variable = ova_xianxia_treasures_gathered
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = ova_xianxia.63 days = 3 }
-		add_journal_entry = { type = je_ova_xianxia_mc_6 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_dead_tt
-			has_variable = ova_xianxia_mc_char
-			NOT = { exists = var:ova_xianxia_mc_char }
-		}
-	}
-
-	on_fail = {
-		effect_ova_xianxia_story_over = yes
-		trigger_event = { id = ova_xianxia.72 days = 3 }
-	}
-
 	weight = 4000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_5_tale_tt
+				has_variable = ova_xianxia_seen_108
+			}
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_5_level_tt
+				ova_has_living_champion = yes
+				var:ova_champion_level >= 50
+			}
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_5_weapon_tt
+				has_variable = ova_xianxia_weapon_forged
+			}
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_5_treasures_tt
+				has_variable = ova_xianxia_treasures_gathered
+			}
+		}
+		effect = {
+			trigger_event = { id = ova_xianxia.63 days = 3 }
+			add_journal_entry = { type = je_ova_xianxia_mc_6 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_dead_tt
+				has_variable = ova_xianxia_mc_char
+				NOT = { exists = var:ova_xianxia_mc_char }
+			}
+		}
+		effect = {
+			effect_ova_xianxia_story_over = yes
+			trigger_event = { id = ova_xianxia.72 days = 3 }
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -896,6 +1032,10 @@ je_ova_xianxia_mc_5 = {
 # carries the ending: survive the nine bolts and the tale is crowned.
 # ------------------------------------------------------------------------
 je_ova_xianxia_mc_6 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_fire.dds"
 
 	group = je_group_internal_affairs
@@ -958,42 +1098,53 @@ je_ova_xianxia_mc_6 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_6_omens_tt
-			has_variable = ova_xianxia_seen_109
-		}
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_6_tribulation_tt
-			has_variable = ova_xianxia_tribulation_passed
-		}
-	}
-
-	on_complete = {
-		add_modifier = { name = ova_xianxia_ascendant_glory days = -1 }
-		effect_ova_xianxia_story_over = yes
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_xp = { AMOUNT = 60 }
-			ova_champion_add_popularity = { AMOUNT = 30 }
-		}
-		trigger_event = { id = ova_xianxia.65 days = 3 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_xianxia_mc_dead_tt
-			has_variable = ova_xianxia_mc_char
-			NOT = { exists = var:ova_xianxia_mc_char }
-		}
-	}
-
-	on_fail = {
-		effect_ova_xianxia_story_over = yes
-		trigger_event = { id = ova_xianxia.72 days = 3 }
-	}
-
 	weight = 4000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_6_omens_tt
+				has_variable = ova_xianxia_seen_109
+			}
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_6_tribulation_tt
+				has_variable = ova_xianxia_tribulation_passed
+			}
+		}
+		effect = {
+			add_modifier = { name = ova_xianxia_ascendant_glory days = -1 }
+			effect_ova_xianxia_story_over = yes
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_xp = { AMOUNT = 60 }
+				ova_champion_add_popularity = { AMOUNT = 30 }
+			}
+			trigger_event = { id = ova_xianxia.65 days = 3 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_xianxia_mc_dead_tt
+				has_variable = ova_xianxia_mc_char
+				NOT = { exists = var:ova_xianxia_mc_char }
+			}
+		}
+		effect = {
+			effect_ova_xianxia_story_over = yes
+			trigger_event = { id = ova_xianxia.72 days = 3 }
+		}
+	}
 }

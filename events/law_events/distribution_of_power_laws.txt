@@ -354,7 +354,9 @@ distribution_of_power_laws.4 = {
 				}
 			}
 			save_scope_as = supportive_commander
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -378,6 +380,10 @@ distribution_of_power_laws.4 = {
 			pop_type = officers
 			value = 0.3
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:supportive_commander }
 	}
 }
 
@@ -597,7 +603,9 @@ distribution_of_power_laws.6 = {
 				is_immortal = no
 			}
 			save_scope_as = opposing_politician
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	cancellation_trigger = {
@@ -618,7 +626,9 @@ distribution_of_power_laws.6 = {
 		}
 		hidden_effect = {
 			scope:opposing_politician = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:opposing_politician }
+retire_character = yes
 			}
 		}
 	}
@@ -644,6 +654,10 @@ distribution_of_power_laws.6 = {
 			enactment_setback_count < max_setbacks_minus_one
 		}
 		add_enactment_setback = 1
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:opposing_politician }
 	}
 }
 
@@ -809,7 +823,7 @@ distribution_of_power_laws.8 = {
 			limit = {
 				ig_counts_as_marginal = no
 				NOT = {
-					scope:universal_suffrage_ig ?= this
+					scope:universal_voting_ig ?= this
 				}
 				law_stance = {
 					law = law_type:law_census_voting

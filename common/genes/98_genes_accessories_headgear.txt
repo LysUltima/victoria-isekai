@@ -106,7 +106,7 @@
 
 				female = {
 					1 = female_headgear_arabic_common_01
-					1 = female_headgear_arabic_middle_tier_01
+
 				}
 				boy = male
 				girl = female
@@ -131,8 +131,8 @@
 				male = {
 					1 = male_headgear_arabic_keffiyeh_01
 					1 = male_headgear_indian_radhakanta_deb
-					1 = male_headgear_african_common_1
-					1 = male_headgear_african_common_2
+					1 = male_headgear_african_common_01
+					1 = male_headgear_african_common_02
 				}
 
 				female = {
@@ -1729,7 +1729,7 @@
 				male = {
 					1 = male_headgear_beret_hat_01
 					1 = male_headgear_beret_hat_01_colours
-					1 = male_headgear_beret_hat_01_carlist_colours
+
 					1 = male_headgear_shako_hat_01
 				}
 
@@ -2004,7 +2004,7 @@
 				boy = male
 				girl = female
 			}
-			
+
 	## Frontier ##
 
 			gnomish_frontier_headgear = {
@@ -2030,7 +2030,7 @@
 
 	## DWARVEN ##
 
-     ## Kronium ##
+	 ## Kronium ##
 
 			dwarven_kronium_headgear = {
 
@@ -2088,7 +2088,7 @@
 				boy = male
 				girl = female
 			}
-			
+
 	  ## Obsidian ##
 
 			dwarven_obsidian_headgear = {
@@ -2128,10 +2128,10 @@
 				boy = male
 				girl = female
 			}
-			
+
 	## WIZARDS ##
 
-     ## Common ##
+	 ## Common ##
 
 			wizard_headgear = {
 

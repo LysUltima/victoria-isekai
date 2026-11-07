@@ -1,0 +1,30 @@
+﻿# One generic seasonal migration on the TC latitude layout.
+bird_flock_ova_seasonal = {
+	entities = {
+		
+		skin_1 = {
+			name = "bird_canadagoose_migrating_01_entity"
+			possible = {
+			}
+			
+			weight = {
+				value = 1
+			}
+		}
+	}
+	
+	
+	breeding_latitude = { 2100 3550 }
+	wintering_latitude = { 200 1900 }
+	
+	
+	
+	
+	depart_in = { spring }
+	return_in = { autumn }
+	
+	entity_length = 3.0
+	speed = 5.0
+	max_count = 30
+	height = 6.0
+}

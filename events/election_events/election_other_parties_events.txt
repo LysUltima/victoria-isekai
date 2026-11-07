@@ -150,7 +150,9 @@ election_other_parties_events.2 = {
 			save_scope_as = ig_devout
 			leader = {
 				save_scope_as = religious_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		if = {
 			limit = {
@@ -202,6 +204,10 @@ election_other_parties_events.2 = {
 		scope:other_party = {
 			add_momentum = momentum_small
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:religious_leader }
 	}
 }
 

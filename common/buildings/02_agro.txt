@@ -25,6 +25,8 @@ building_rye_farm = {
 	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+
+	ai_value = { value = 1000 }
 }
 
 building_wheat_farm = {
@@ -52,6 +54,8 @@ building_wheat_farm = {
 	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+
+	ai_value = { value = 1000 }
 }
 
 building_rice_farm = {
@@ -79,6 +83,8 @@ building_rice_farm = {
 	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+
+	ai_value = { value = 1000 }
 }
 
 building_maize_farm = {
@@ -106,6 +112,8 @@ building_maize_farm = {
 	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+
+	ai_value = { value = 1000 }
 }
 
 building_millet_farm = {
@@ -133,6 +141,8 @@ building_millet_farm = {
 	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+
+	ai_value = { value = 1000 }
 }
 
 building_livestock_ranch = {

@@ -114,16 +114,6 @@
 				add = 20
 			}
 
-			if = {
-				limit = {
-					always = no
-					c:HAW ?= {
-						this = scope:target_country
-					}
-				}
-				add = 20
-			}
-
 			add = {
 				value = scope:target_country.country_rank
 				multiply = 3
@@ -382,4 +372,3 @@ damage_relations = {
 		}
 	}
 }
-

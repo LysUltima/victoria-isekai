@@ -6,6 +6,10 @@
 # the law_martial_sect governance-principle description.
 
 je_ova_sect_ascension = {
+	activation_description = {
+		has_law = law_type:law_martial_sect
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -37,14 +41,6 @@ je_ova_sect_ascension = {
 		}
 	}
 
-	invalid = {
-		NOT = { has_law = law_type:law_martial_sect }
-	}
-
-	on_invalid = {
-		remove_variable = ova_sect_decade
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = {
@@ -57,4 +53,15 @@ je_ova_sect_ascension = {
 	weight = 50
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NOT = { has_law = law_type:law_martial_sect }
+		}
+		effect = {
+			remove_variable = ova_sect_decade
+		}
+	}
 }

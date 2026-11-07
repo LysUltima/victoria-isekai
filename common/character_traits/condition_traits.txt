@@ -775,3 +775,64 @@ sickly = {
 	replace = {
 	}
 }
+
+# Generic inherited blood-clotting condition (1.15).
+hemophilia = {
+	type = condition
+	texture = "gfx/interface/icons/character_trait_icons/hemophilia.dds"
+
+	character_modifier = {
+		character_health_add = -0.5
+	}
+
+	command_modifier = {
+	}
+
+	country_modifier = {
+	}
+
+	agitator_modifier = {
+	}
+
+	interest_group_modifier = {
+	}
+
+	possible = {
+		age < 30
+		NOT = { has_trait = sickly }
+	}
+
+	weight = {
+		value = 0.5
+		
+		if = {
+			limit = {
+				is_female = no
+			}
+			multiply = 8
+		}
+		
+		
+		if = {
+			limit = {
+				is_noble = yes
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				OR = {
+					is_ruler_of_own_country = yes
+					is_heir_of_own_country = yes
+				}
+				home_country ?= {
+					country_has_monarchy_law = yes
+				}
+			}
+			multiply = 3
+		}
+	}
+
+	replace = {
+	}
+}

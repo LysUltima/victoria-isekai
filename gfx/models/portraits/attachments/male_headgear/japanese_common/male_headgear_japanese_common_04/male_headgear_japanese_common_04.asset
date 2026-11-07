@@ -1,0 +1,37 @@
+﻿pdxmesh = {
+	name = "male_headgear_japanese_common_04_mesh"
+	file = "male_headgear_japanese_common_04.mesh"
+
+	blend_shape = { id = "male_headgear_japanese_common_04_bs_fat"		type = "male_headgear_japanese_common_04_bs_fat.mesh" }
+
+	meshsettings = {
+		name = "male_headgear_japanese_common_04Shape"
+		index = 0
+
+		texture_diffuse = "male_headgear_japanese_common_04_diffuse.dds"
+		texture_normal = "male_headgear_japanese_common_04_normal.dds"
+		texture_specular = "male_headgear_japanese_common_04_properties.dds"
+
+		shader = "portrait_attachment_pattern_alpha_to_coverage"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "male_headgear_japanese_common_04_entity"
+	pdxmesh = "male_headgear_japanese_common_04_mesh"
+
+		attribute = { name = "head_bs_fat_head"					blend_shape = "male_headgear_japanese_common_04_bs_fat" }
+
+		game_data = {
+			portrait_entity_user_data = {
+			portrait_accessory = {
+				pattern_mask = "gfx/models/portraits/attachments/male_headgear/japanese_common/male_headgear_japanese_common_04/male_headgear_japanese_common_04_masks.dds"
+
+			#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+				variation = "headgear_japanese_common_04"	#A "variation" object in gfx/portraits/accessory_variations/
+			}
+
+	}
+}
+}

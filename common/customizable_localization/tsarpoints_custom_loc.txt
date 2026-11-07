@@ -1,0 +1,1 @@
+﻿# Generic dynamic text retained; excluded historical story functions removed.

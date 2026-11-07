@@ -50,7 +50,9 @@ migration_laws.1 = {
 			save_scope_as = current_law_scope
 		}
 		ig:ig_intelligentsia ?= {
-			leader = { save_scope_as = no_borders_visionary }
+			leader = { save_scope_as = no_borders_visionary
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -85,6 +87,10 @@ migration_laws.1 = {
 		add_enactment_modifier = {
 			name = future_freer_movement
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:no_borders_visionary }
 	}
 }
 

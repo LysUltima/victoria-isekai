@@ -297,7 +297,9 @@ obligation_events.5 = {
 				}
 				save_scope_as = obligation_request_character
 				set_variable = obligation_request_character
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		save_scope_as = obligation_request_sender
 	}
@@ -338,6 +340,10 @@ obligation_events.5 = {
 		scope:obligation_request_character = {
 			remove_variable = obligation_request_character
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:obligation_request_character }
 	}
 }
 

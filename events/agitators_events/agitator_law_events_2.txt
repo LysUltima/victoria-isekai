@@ -485,7 +485,9 @@ agitator_legal_events.5 = {
 			save_scope_as = opposing_ig #Actually supporting the law
 			leader = {
 				save_scope_as = opposing_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -500,7 +502,7 @@ agitator_legal_events.5 = {
 		}
 		scope:opposing_ig_leader = {
 			add_modifier = {
-				name = scandalous
+				name = modifier_scandalous
 				days = normal_modifier_time
 			}
 		}
@@ -521,6 +523,10 @@ agitator_legal_events.5 = {
 		add_enactment_modifier = {
 			name = failed_law_ram
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:opposing_ig_leader }
 	}
 }
 
@@ -767,7 +773,7 @@ agitator_legal_events.7 = {
 		scope:opposing_agitator.interest_group = {
 			add_modifier = {
 				name = foul_play_success
-	 			days = short_modifier_time
+				days = short_modifier_time
 			}
 		}
 		scope:govnas = {
@@ -962,7 +968,9 @@ agitator_legal_events.9 = {
 			save_scope_as = govnas
 			leader = {
 				save_scope_as = da_boss
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -1000,6 +1008,10 @@ agitator_legal_events.9 = {
 			name = failed_law_ram
 			multiplier = 1
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:da_boss }
 	}
 }
 
@@ -1069,7 +1081,9 @@ agitator_legal_events.10 = {
 			save_scope_as = govnas
 			leader = {
 				save_scope_as = da_boss
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		random_interest_group = {
 			limit = {
@@ -1122,6 +1136,10 @@ agitator_legal_events.10 = {
 			name = failed_law_ram
 			multiplier = 2
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:da_boss }
 	}
 }
 
@@ -1279,7 +1297,9 @@ agitator_legal_events.12 = {
 			this.interest_group ?= {
 				save_scope_as = ambivalent_ig
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
 		}
@@ -1295,7 +1315,9 @@ agitator_legal_events.12 = {
 			save_scope_as = govnas
 			leader = {
 				save_scope_as = da_boss
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		random_primary_culture = {
 			save_scope_as = primary_culture_scope
@@ -1327,7 +1349,7 @@ agitator_legal_events.12 = {
 		}
 		scope:da_boss = {
 			add_modifier = {
-				name = scandalous
+				name = modifier_scandalous
 				days = normal_modifier_time
 			}
 		}
@@ -1349,6 +1371,11 @@ agitator_legal_events.12 = {
 			name = failed_law_ram
 			multiplier = 1
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:da_boss }
+		revoke_temporary_event_immortality = { CHARACTER = scope:supporting_agitator }
 	}
 }
 
@@ -1435,7 +1462,9 @@ agitator_legal_events.13 = {
 			interest_group ?= {
 				save_scope_as = opposing_interest_group
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
 		}
@@ -1483,6 +1512,10 @@ agitator_legal_events.13 = {
 				multiplier = -1
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:supporting_agitator }
 	}
 }
 
@@ -1673,7 +1706,9 @@ agitator_legal_events.15 = {
 			save_scope_as = govnas
 			leader = {
 				save_scope_as = da_boss
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -1724,6 +1759,10 @@ agitator_legal_events.15 = {
 			name = failed_law_abandoned
 			multiplier = 2
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:da_boss }
 	}
 }
 
@@ -2450,7 +2489,9 @@ agitator_legal_events.21 = {
 				}
 			}
 			save_scope_as = supporting_agitator
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		currently_enacting_law = {
 			save_scope_as = current_law_scope
 		}
@@ -2499,6 +2540,10 @@ agitator_legal_events.21 = {
 			name = successful_law_ram
 			multiplier = 1
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:supporting_agitator }
 	}
 }
 
@@ -2561,7 +2606,9 @@ agitator_legal_events.22 = {
 			save_scope_as = govnas
 			leader = {
 				save_scope_as = da_boss
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -2597,6 +2644,10 @@ agitator_legal_events.22 = {
 			name = successful_law_slide
 			multiplier = 1
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:da_boss }
 	}
 }
 
@@ -2862,7 +2913,9 @@ agitator_legal_events.25 = {
 		scope:govnas = {
 			leader = {
 				save_scope_as = da_boss
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -2898,6 +2951,10 @@ agitator_legal_events.25 = {
 			name = successful_law_ram
 			multiplier = 1
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:da_boss }
 	}
 }
 
@@ -2970,7 +3027,9 @@ agitator_legal_events.26 = {
 		scope:govnas = {
 			leader = {
 				save_scope_as = da_boss
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -3002,6 +3061,10 @@ agitator_legal_events.26 = {
 			name = successful_law_ram
 			multiplier = 1
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:da_boss }
 	}
 }
 

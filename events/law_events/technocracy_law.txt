@@ -72,7 +72,9 @@ technocracy.1 = {
 			save_scope_as = technocrat_ig
 			leader = {
 				save_scope_as = technocrat_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -132,8 +134,14 @@ technocracy.1 = {
 			name = foolish_technocrat
 		}
 		scope:technocrat_leader = {
-			retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:technocrat_leader }
+retire_character = yes
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:technocrat_leader }
 	}
 }
 

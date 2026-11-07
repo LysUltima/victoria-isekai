@@ -6,27 +6,27 @@ two_spains_conservative_progress = {
 }
 
 two_spains_liberal_pivot = {
-	
+
 	value = 0
 }
 
 two_spains_conservative_pivot = {
-	
+
 	value = 0
 }
 
 two_spains_liberal_display = {
-	
+
 	value = 0
 }
 
 two_spains_conservative_display = {
-	
+
 	value = 0
 }
 
 two_spains_tension_pivot = {
-	
+
 	value = 0
 }
 
@@ -54,14 +54,7 @@ country_slave_culture_population = {
 }
 
 brazil_pedropoints_as_percent = {
-	if = {
-		limit = {
-			always = no # vanilla ref 'c:BRZ' not present in this mod
-			always = no # blanked: vanilla ref 'c:BRZ' not present in this mod
-		}
-		# removed effect line: vanilla ref 'c:BRZ' not present in this mod
-		multiply = 0.1
-	}
+
 }
 
 iberia_shared_law_requirement = 15

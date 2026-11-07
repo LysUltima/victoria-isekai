@@ -21,7 +21,7 @@ regency.1 = {
 	desc = regency.1.d
 	flavor = regency.1.f
 
-    event_image = {
+	event_image = {
 		video = "votp_monarch_holding_court"
 	}
 
@@ -113,7 +113,9 @@ regency.1 = {
 		}
 		ruler ?= {
 			save_scope_as = monarch_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -176,6 +178,10 @@ regency.1 = {
 			}
 		}
 		set_heir = scope:monarch_scope
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:monarch_scope }
 	}
 }
 
@@ -240,7 +246,9 @@ regency.2 = {
 					}
 				}
 			}
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		ordered_interest_group = { # Just the most notable IG in government
 			limit = {
 				NOT = {
@@ -293,7 +301,9 @@ regency.2 = {
 		heir ?= {
 			save_scope_as = monarch_scope
 		}
-	}
+
+		scope:backup_regent_scope ?= { set_temporary_event_immortality = { DURATION = 3 } }
+}
 
 	option = {
 		name = regency.2.a
@@ -345,7 +355,11 @@ regency.2 = {
 					}
 					set_character_immortal = no
 				}
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:regent_scope }
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:backup_regent_scope }
+retire_character = yes
 			}
 		}
 	}
@@ -370,7 +384,11 @@ regency.2 = {
 					}
 					set_character_immortal = no
 				}
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:regent_scope }
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:backup_regent_scope }
+retire_character = yes
 			}
 		}
 	}
@@ -395,7 +413,11 @@ regency.2 = {
 					}
 					set_character_immortal = no
 				}
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:regent_scope }
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:backup_regent_scope }
+retire_character = yes
 			}
 		}
 	}
@@ -420,10 +442,20 @@ regency.2 = {
 					}
 					set_character_immortal = no
 				}
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:regent_scope }
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:backup_regent_scope }
+retire_character = yes
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:regent_scope }
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:backup_regent_scope }
+}
 }
 
 # End of the regency
@@ -462,10 +494,14 @@ regency.3 = {
 	immediate = {
 		ruler ?= {
 			save_scope_as = regent_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		heir ?= {
 			save_scope_as = monarch_scope
-		}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 	}
 
 	option = {
@@ -476,5 +512,10 @@ regency.3 = {
 			set_character_as_ruler = yes
 			set_variable = regency_complete
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:monarch_scope }
+		revoke_temporary_event_immortality = { CHARACTER = scope:regent_scope }
 	}
 }

@@ -83,13 +83,13 @@
 				value >= interest_tier_effect_can_sign_foreign_investment_rights_min_tier
 			}
 		}
-        custom_tooltip = {
-            text = DUPLICATE_ARTICLE_SAME_INPUTS_TREATY
-            NOT = {
-                scope:source_country = {
-                    any_scope_treaty = {
+		custom_tooltip = {
+			text = DUPLICATE_ARTICLE_SAME_INPUTS_TREATY
+			NOT = {
+				scope:source_country = {
+					any_scope_treaty = {
 						binds = scope:target_country
-                        hidden_trigger = {
+						hidden_trigger = {
 							OR = {
 								scope:treaty = {
 									is_renegotiation = no
@@ -101,10 +101,10 @@
 							has_type = foreign_investment_rights
 							source_country = scope:source_country
 						}
-                    }
-                }
-            }
-        }
+					}
+				}
+			}
+		}
 	}
 
 	requirement_to_maintain = {
@@ -142,8 +142,8 @@
 		}
 
 		article_ai_usage = {
-            request
-        }
+			request
+		}
 
 		inherent_accept_score = {
 			value = 0
@@ -247,18 +247,6 @@
 					}
 				}
 
-				if = {
-					limit = {
-						always = no # vanilla ref 'c:JAP' not present in this mod
-						scope:source_country ?= {
-							always = no # vanilla ref 'je_meiji_imperial_marriage' not present in this mod
-						}
-					}
-					add = {
-						desc = "0"
-						value = -500
-					}
-				}
 			}
 			else = {
 				scope:source_country = {
@@ -390,13 +378,7 @@
 
 				add = {
 					desc = "0"
-					if = {
-						limit = {
-							always = no # vanilla ref 'je_hawaiian_interest' not present in this mod
-							always = no # blanked: vanilla ref 'c:HAW' not present in this mod
-						}
-						value = 20
-					}
+
 				}
 			}
 		}
@@ -521,7 +503,7 @@
 					value = total_population
 					divide = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_FACTOR
 					multiply = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER
-                    max = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL
+					max = define:NDiplomacy|SWAY_OFFER_WARGOAL_MANEUVERS_COST_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL
 				}
 			}
 		}
@@ -557,7 +539,6 @@
 							}
 						}
 					}
-					max = define:NDiplomacy|WAR_GOAL_INFAMY_POPULATION_SCALING_MULTIPLIER_MAX_TOTAL
 				}
 			}
 

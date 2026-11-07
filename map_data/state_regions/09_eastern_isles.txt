@@ -18,6 +18,8 @@ STATE_ASA_NO_IKAZUCHI = {
         building_gold_mine = 3
     }
     naval_exit_id = 3020
+    max_cold_effect = 0.439
+    min_cold_effect = 0.005
 }
 
 STATE_KASUMU_KURE = {
@@ -39,6 +41,8 @@ STATE_KASUMU_KURE = {
         building_logging_camp = 21
     }
     naval_exit_id = 3020
+    max_cold_effect = 0.433
+    min_cold_effect = 0.041
 }
 
 STATE_YOAKE_NO_UTA = {
@@ -58,6 +62,8 @@ STATE_YOAKE_NO_UTA = {
         building_logging_camp = 23
     }
     naval_exit_id = 3020
+    max_cold_effect = 0.423
+    min_cold_effect = 0.036
 }
 # HAN Hanamuke
 STATE_YURURU_HANABIRA = {
@@ -78,6 +84,8 @@ STATE_YURURU_HANABIRA = {
         building_logging_camp = 19
     }
     naval_exit_id = 3020
+    max_cold_effect = 0.411
+    min_cold_effect = 0.097
 }
 # IRO Iroka
 STATE_UTSUROFU_KAORI = {
@@ -97,6 +105,8 @@ STATE_UTSUROFU_KAORI = {
         building_logging_camp = 22
     }
     naval_exit_id = 3020
+    max_cold_effect = 0.397
+    min_cold_effect = 0.084
 }
 # HIB Hibana
 STATE_CHIRASU_HONOO = {
@@ -115,6 +125,8 @@ STATE_CHIRASU_HONOO = {
         building_logging_camp = 11
     }
     naval_exit_id = 3020
+    max_cold_effect = 0.352
+    min_cold_effect = 0.000
 }
 # KON Konoha
 STATE_KURENAI_NO_HA = {
@@ -138,6 +150,8 @@ STATE_KURENAI_NO_HA = {
         type = "building_oil_rig"
         undiscovered_amount = 29
     }
+    max_cold_effect = 0.440
+    min_cold_effect = 0.000
 }
 # SHI Shirogane
 STATE_KIYURU_HAI = {
@@ -158,6 +172,8 @@ STATE_KIYURU_HAI = {
         building_lead_mine = 77
     }
     naval_exit_id = 3020
+    max_cold_effect = 0.470
+    min_cold_effect = 0.045
 }
 
 STATE_AFURURU_SHIZUKU = {
@@ -177,6 +193,8 @@ STATE_AFURURU_SHIZUKU = {
         building_coal_mine = 58
     }
     naval_exit_id = 3020
+    max_cold_effect = 0.494
+    min_cold_effect = 0.000
 }
 # YUK Yukiboshi
 STATE_SHIRABOSHI = {
@@ -202,6 +220,8 @@ STATE_SHIRABOSHI = {
         undiscovered_amount = 12
     }
     naval_exit_id = 3020
+    max_cold_effect = 0.566
+    min_cold_effect = 0.005
 }
 # YUU Yuuzora
 STATE_KURURU_MURASAKI = {
@@ -230,4 +250,6 @@ STATE_KURURU_MURASAKI = {
         undiscovered_amount = 7
     }
     naval_exit_id = 3020
+    max_cold_effect = 0.584
+    min_cold_effect = 0.010
 }

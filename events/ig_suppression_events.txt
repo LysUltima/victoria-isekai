@@ -105,7 +105,9 @@ ig_suppression_events.2 = { #scandal / es can da lo es un escandalo
 		scope:target = {
 			leader = {
 				save_scope_as = suppressed_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 		set_variable = {
 			name = scandal_event_chain_variable
@@ -221,8 +223,10 @@ ig_suppression_events.2 = { #scandal / es can da lo es un escandalo
 						limit = {
 							NOT = { has_technology_researched = dialectics }
 						}
-					}
-					add = 10
+
+							add = 10
+}
+
 				}
 				add_modifier = {
 					name = suppression_discovered
@@ -236,6 +240,10 @@ ig_suppression_events.2 = { #scandal / es can da lo es un escandalo
 			}
 		}
 		trigger_event = { id = ig_suppression_events.3 days = 60 }
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:suppressed_leader }
 	}
 }
 
@@ -266,7 +274,9 @@ ig_suppression_events.3 = { #make them step down
 		scope:target = {
 			leader = {
 				save_scope_as = suppressed_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -284,7 +294,9 @@ ig_suppression_events.3 = { #make them step down
 				name = ig_leader_steps_down_var
 			}
 			scope:suppressed_leader = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:suppressed_leader }
+retire_character = yes
 			}
 		}
 		trigger_event = { id = ig_suppression_events.4 days = 60 }
@@ -340,6 +352,10 @@ ig_suppression_events.3 = { #make them step down
 			}
 		}
 	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:suppressed_leader }
+	}
 }
 
 ig_suppression_events.4 = { #send them to jail
@@ -369,7 +385,9 @@ ig_suppression_events.4 = { #send them to jail
 		scope:target = {
 			leader = {
 				save_scope_as = suppressed_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -387,7 +405,9 @@ ig_suppression_events.4 = { #send them to jail
 				name = ig_leader_in_jail_var
 			}
 			scope:suppressed_leader = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:suppressed_leader }
+retire_character = yes
 			}
 		}
 		if = {
@@ -421,7 +441,9 @@ ig_suppression_events.4 = { #send them to jail
 				name = ig_leader_steps_down_var
 			}
 			scope:suppressed_leader = {
-				retire_character = yes
+
+		revoke_temporary_event_immortality = { CHARACTER = scope:suppressed_leader }
+retire_character = yes
 			}
 		}
 	}
@@ -453,6 +475,10 @@ ig_suppression_events.4 = { #send them to jail
 				}
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:suppressed_leader }
 	}
 }
 
@@ -591,7 +617,9 @@ ig_suppression_events.6 = { #bribe an IG leader
 		scope:target = {
 			leader = {
 				save_scope_as = suppressed_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -636,6 +664,10 @@ ig_suppression_events.6 = { #bribe an IG leader
 				value = medium_radicals
 			}
 		}
+	}
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:suppressed_leader }
 	}
 }
 
@@ -1028,7 +1060,9 @@ ig_suppression_events.1003 = { #Assassinate an Ig leader
 		scope:target = {
 			leader = {
 				save_scope_as = suppressed_ig_leader
-			}
+
+			set_temporary_event_immortality = { DURATION = 3 }
+}
 		}
 	}
 
@@ -1037,13 +1071,14 @@ ig_suppression_events.1003 = { #Assassinate an Ig leader
 		name = ig_suppression_events.1003.a
 			capital = {
 				add_radicals_in_state = {
-  					value = medium_radicals
-  				}
+					value = medium_radicals
+				}
 			}
 
 			random_list = {
 					10 = { #Success
-						scope:suppressed_leader = {
+						scope:suppressed_ig_leader = {
+							revoke_temporary_event_immortality = { CHARACTER = this }
 							kill_character = yes
 						}
 
@@ -1092,4 +1127,8 @@ ig_suppression_events.1003 = { #Assassinate an Ig leader
 		}
 	}
 
+
+	after = {
+		revoke_temporary_event_immortality = { CHARACTER = scope:suppressed_ig_leader }
+	}
 }

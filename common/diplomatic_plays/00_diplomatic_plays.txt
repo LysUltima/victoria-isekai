@@ -240,13 +240,13 @@ dp_leave_power_bloc = {
 	possible = {
 		NOT = { is_country_type = decentralized }
 		diplomatic_play_has_no_relations_blockers = yes
-        NOT = {
-            scope:target_country = {
-                power_bloc ?= {
-                    has_modifier = ova_unbreakable_covenant
-                }
-            }
-        }
+		NOT = {
+			scope:target_country = {
+				power_bloc ?= {
+					has_modifier = ova_unbreakable_covenant
+				}
+			}
+		}
 	}
 
 	ai_acceptance_max = 100
@@ -668,48 +668,7 @@ dp_contain_threat = {
 	on_war_end = {}
 }
 
-dp_taiping_rebellion = {
-	war_goal = annex_country
-	mirror_war_goal = yes
-	add_infamy_for_starting_initiator_wargoals = no
 
-	texture = "gfx/interface/icons/war_goals/annex_country.dds"
-
-	selectable_in_lens = {
-		always = no
-	}
-
-	possible = {
-		# removed effect line: vanilla ref 'c:TPG' not present in this mod
-		scope:target_country = {
-			# removed effect line: vanilla ref 'c:TPG' not present in this mod
-		}
-	}
-
-	additional_involvement_trigger = {
-		NOT = { is_country_type = decentralized }
-		aggressive_diplomatic_plays_permitted = yes
-
-		scope:target_country = {
-			capital = {
-				region = {
-					save_temporary_scope_as = target_capital_region
-				}
-			}
-		}
-
-		OR = {
-			has_interest_marker_in_region = scope:target_capital_region
-			is_home_country_for = scope:target_country
-		}
-	}
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
 
 dp_join_power_bloc = {
 	war_goal = join_power_bloc
@@ -804,8 +763,8 @@ dp_demand_strait_access = {
 		scope:target_country = {
 			NOT = { is_country_type = decentralized }
 			NOT = { is_subject_of = root }
-			has_any_strait_province = scope:target_country
-			has_any_strait_control = scope:target_country
+			has_any_strait_province_in_hierarchy = yes
+			has_any_strait_control = yes
 		}
 		custom_tooltip = {
 			text = dp_demand_strait_access_already_has_access_tt
@@ -901,8 +860,8 @@ dp_demand_no_strait_closure = {
 		scope:target_country = {
 			NOT = { is_country_type = decentralized }
 			NOT = { is_subject_of = root }
-			has_any_strait_province = scope:target_country
-			has_any_strait_control = scope:target_country
+			has_any_strait_province_in_hierarchy = yes
+			has_any_strait_control = yes
 			custom_tooltip = {
 				text = dp_demand_no_strait_closure_already_bound_tt
 				can_close_straits = yes
@@ -973,382 +932,31 @@ dp_annex_war = {
 	on_war_end = {}
 }
 
-dp_unify_germany = {
-	war_goal = unification
 
-	requires_interest_marker = no
-	blocked_by_diplomatic_status = no
-	add_infamy_for_starting_initiator_wargoals = no
 
-	texture = "gfx/interface/icons/war_goals/unify_germany.dds"
 
-	selectable_in_lens = {
-		always = no
-	}
 
-	possible = {
-		always = no # vanilla ref 'c:GER' not present in this mod, target scope lost, no in-mod analogue
-		NOT = { is_country_type = decentralized }
-		has_technology_researched = pan-nationalism
-	}
 
-	on_weekly_pulse = {}
 
-	on_war_begins = {}
 
-	on_war_end = {}
-}
 
-dp_unify_italy = {
-	war_goal = unification
 
-	requires_interest_marker = no
-	blocked_by_diplomatic_status = no
-	add_infamy_for_starting_initiator_wargoals = no
 
-	texture = "gfx/interface/icons/war_goals/unify_italy.dds"
 
-	selectable_in_lens = {
-		always = no
-	}
 
-	possible = {
-		always = no # vanilla ref 'c:ITA' not present in this mod, target scope lost, no in-mod analogue
-		NOT = { is_country_type = decentralized }
-		has_technology_researched = nationalism
-	}
 
-	on_weekly_pulse = {}
 
-	on_war_begins = {}
 
-	on_war_end = {}
-}
 
-dp_unify_scandinavia = {
-	war_goal = unification
 
-	requires_interest_marker = no
-	blocked_by_diplomatic_status = no
-	add_infamy_for_starting_initiator_wargoals = no
 
-	texture = "gfx/interface/icons/war_goals/unification.dds"
 
-	selectable_in_lens = {
-		always = no
-	}
 
-	possible = {
-		always = no # vanilla ref 'c:SCA' not present in this mod, target scope lost, no in-mod analogue
-		NOT = { is_country_type = decentralized }
-		has_technology_researched = pan-nationalism
-	}
 
-	on_weekly_pulse = {}
 
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_unify_ethiopia = {
-	war_goal = annex_country
 
-	texture = "gfx/interface/icons/war_goals/annex_country.dds"
 
-	selectable_in_lens = {
-		# removed effect line: vanilla ref 'je_age_of_princes' not present in this mod
-	}
 
-	possible = {
-		NOT = { always = no } # vanilla ref 'c:ETH' not present in this mod 
-		NOT = { is_country_type = decentralized }
-		is_subject = no
-		# removed effect line: vanilla ref 'je_age_of_princes' not present in this mod
-		scope:target_country = {
-			NOT = { is_country_type = decentralized }
-			custom_tooltip = {
-				text = ETH_tt
-				always = no # vanilla ref 'can_form_nation = ETH' not present in this mod (country_formation removed)
-			}
-			aggressive_diplomatic_plays_permitted = yes
-		}
-	}
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_unify_china = {
-	war_goal = annex_country
-
-	texture = "gfx/interface/icons/war_goals/annex_country.dds"
-
-	selectable_in_lens = {
-		OR = {
-			always = no # vanilla ref 'je_reunify_china' not present in this mod
-			always = no
-			always = no # vanilla ref 'c:CHI' not present in this mod
-		}
-	}
-
-	possible = {
-		NOT = { is_country_type = decentralized }
-		is_subject = no
-		OR = {
-			always = no # vanilla ref 'je_reunify_china' not present in this mod
-			always = no
-			always = no # vanilla ref 'c:CHI' not present in this mod
-		}
-
-		scope:target_country = {
-			NOT = { is_country_type = decentralized }
-			aggressive_diplomatic_plays_permitted = yes
-			OR = {
-				always = no # vanilla ref 'je_reunify_china' not present in this mod
-				always = no
-				country_has_primary_culture = cu:lan
-				country_has_primary_culture = cu:lan
-			}
-		}
-	}
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_unify_arabia = {
-	war_goal = annex_country
-
-	texture = "gfx/interface/icons/war_goals/annex_country.dds"
-
-	selectable_in_lens = {
-		always = no # vanilla ref 'can_form_nation = ARA' not present in this mod (country_formation removed)
-	}
-
-	possible = {
-		NOT = { always = no } # vanilla ref 'c:ARA' not present in this mod 
-		NOT = { is_country_type = decentralized }
-		has_technology_researched = pan-nationalism
-		is_subject = no
-		always = no # vanilla ref 'can_form_nation = ARA' not present in this mod (country_formation removed)
-
-		scope:target_country = {
-			NOT = { is_country_type = decentralized }
-			aggressive_diplomatic_plays_permitted = yes
-			custom_tooltip = {
-				text = ARA_tt
-				always = no # vanilla ref 'can_form_nation = ARA' not present in this mod (country_formation removed)
-			}
-		}
-	}
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_unify_india = {
-	war_goal = annex_country
-
-	texture = "gfx/interface/icons/war_goals/annex_country.dds"
-
-	selectable_in_lens = {
-		OR = {
-			always = no # vanilla ref 'can_form_nation = BHT' not present in this mod (country_formation removed)
-			always = no # vanilla ref 'c:BHT' not present in this mod
-		}
-	}
-
-	possible = {
-		NOT = { is_country_type = decentralized }
-		has_technology_researched = pan-nationalism
-		is_subject = no
-		OR = {
-			custom_tooltip = {
-				text = BHT_tt
-				always = no # vanilla ref 'can_form_nation = BHT' not present in this mod (country_formation removed)
-			}
-			always = no # vanilla ref 'c:BHT' not present in this mod
-		}
-		scope:target_country = {
-			NOT = { is_country_type = decentralized }
-			aggressive_diplomatic_plays_permitted = yes
-			OR = {
-				custom_tooltip = {
-					text = BHT_tt
-					always = no # vanilla ref 'can_form_nation = BHT' not present in this mod (country_formation removed)
-				}
-				AND = {
-					always = no # vanilla ref 'geographic_region_india' not present in this mod
-					custom_tooltip = {
-						text = indian_primary_culture_tt
-						has_indian_primary_culture = yes
-					}
-				}
-			}
-		}
-	}
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_unify_indonesia = {
-	war_goal = annex_country
-
-	texture = "gfx/interface/icons/war_goals/annex_country.dds"
-
-	selectable_in_lens = {
-		always = no # vanilla ref 'can_form_nation = IDN' not present in this mod (country_formation removed)
-	}
-
-	possible = {
-		NOT = { always = no } # vanilla ref 'c:IDN' not present in this mod 
-		NOT = { is_country_type = decentralized }
-		has_technology_researched = pan-nationalism
-		is_subject = no
-		custom_tooltip = {
-			text = IDN_tt
-			always = no # vanilla ref 'can_form_nation = IDN' not present in this mod (country_formation removed)
-		}
-		scope:target_country = {
-			NOT = { is_country_type = decentralized }
-			aggressive_diplomatic_plays_permitted = yes
-			custom_tooltip = {
-				text = IDN_tt
-				always = no # vanilla ref 'can_form_nation = IDN' not present in this mod (country_formation removed)
-			}
-		}
-	}
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_unify_andes = {
-	war_goal = unification
-
-	requires_interest_marker = no
-	blocked_by_diplomatic_status = no
-
-	texture = "gfx/interface/icons/war_goals/unify_germany.dds"
-
-	selectable_in_lens = {
-		always = no
-	}
-
-	possible = {
-		NOT = { always = no } # vanilla ref 'c:FND' not present in this mod 
-		NOT = { is_country_type = decentralized }
-		has_technology_researched = pan-nationalism
-		is_subject = no
-		custom_tooltip = {
-			text = FND_tt
-			always = no # vanilla ref 'can_form_nation = FND' not present in this mod (country_formation removed)
-		}
-	}
-}
-
-dp_leadership_germany = {
-	war_goal = unification_leadership
-
-	requires_interest_marker = no
-	mirror_war_goal = yes
-
-	texture = "gfx/interface/icons/war_goals/unify_germany.dds"
-
-	selectable_in_lens = {
-		always = no
-	}
-
-	possible = {
-		has_technology_researched = nationalism
-	}
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_leadership_italy = {
-	war_goal = unification_leadership
-
-	requires_interest_marker = no
-	mirror_war_goal = yes
-
-	texture = "gfx/interface/icons/war_goals/unify_italy.dds"
-
-	selectable_in_lens = {
-		always = no
-	}
-
-	possible = {
-		has_technology_researched = nationalism
-	}
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_leadership_scandinavia = {
-	war_goal = unification_leadership
-
-	requires_interest_marker = no
-	mirror_war_goal = yes
-
-	texture = "gfx/interface/icons/war_goals/unification.dds"
-
-	selectable_in_lens = {
-		always = no
-	}
-
-	possible = {
-		has_technology_researched = pan-nationalism
-	}
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_leadership_andes = {
-	war_goal = unification_leadership
-
-	requires_interest_marker = no
-	mirror_war_goal = yes
-
-	texture = "gfx/interface/icons/war_goals/unification.dds"
-
-	selectable_in_lens = {
-		always = no
-	}
-
-	possible = {
-		has_technology_researched = pan-nationalism
-	}
-}
 
 dp_humiliation = {
 	war_goal = humiliation
@@ -1366,209 +974,35 @@ dp_humiliation = {
 	on_war_end = {}
 }
 
-dp_sepoy_mutiny = {
-	war_goal = annex_country
-
-	allow_negotiated_peace = no
-	add_infamy_for_starting_initiator_wargoals = no
-
-	texture = "gfx/interface/icons/war_goals/annex_country.dds"
-
-	selectable_in_lens = {
-		always = no
-	}
-
-	possible = {}
-
-	ai_acceptance_max = 75
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {
-
-	}
-}
-
-dp_balkan_war = {
-	war_goal = humiliation
-
+dp_return_state_to_subject = {
 	requires_interest_marker = no
-	allow_negotiated_peace = no
-	add_infamy_for_starting_initiator_wargoals = no
-	initiator_can_add_war_goals = no
+
+	war_goal = return_state
 
 	texture = "gfx/interface/icons/war_goals/return_state.dds"
 
 	selectable_in_lens = {
-		always = no
+		is_ai = no
+		any_direct_subject = {
+			number_of_claims > 0
+		}
 	}
 
 	possible = {
-		always = no
-	}
-
-	ai_acceptance_max = 75
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_enforce_trialist_manifesto = {
-	war_goal = humiliation
-
-	requires_interest_marker = no
-	allow_negotiated_peace = yes
-	add_infamy_for_starting_initiator_wargoals = no
-	initiator_can_add_war_goals = yes
-
-	texture = "gfx/interface/icons/war_goals/return_state.dds"
-
-	selectable_in_lens = {
-		always = no
-	}
-
-	possible = {
-		always = no
-	}
-
-	ai_acceptance_max = 75
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_unify_yugoslavia = {
-	war_goal = unification
-
-	requires_interest_marker = no
-	blocked_by_diplomatic_status = no
-	add_infamy_for_starting_initiator_wargoals = no
-
-	texture = "gfx/interface/icons/war_goals/unification.dds"
-
-	selectable_in_lens = {
-		always = no
-	}
-
-	possible = {
-		NOT = { always = no } # vanilla ref 'c:YUG' not present in this mod 
 		NOT = { is_country_type = decentralized }
-		is_subject = no
-		has_technology_researched = pan-nationalism
-	}
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_leadership_yugoslavia = {
-	war_goal = unification_leadership
-
-	requires_interest_marker = no
-	mirror_war_goal = yes
-
-	texture = "gfx/interface/icons/war_goals/unification.dds"
-
-	selectable_in_lens = {
-		always = no
-	}
-
-	possible = {
-		has_technology_researched = nationalism
-	}
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {}
-}
-
-dp_hungarian_revolution = {
-	war_goal = annex_country
-
-	allow_negotiated_peace = no
-	add_infamy_for_starting_initiator_wargoals = no
-	initiator_can_add_war_goals = no
-
-	texture = "gfx/interface/icons/war_goals/annex_country.dds"
-
-	selectable_in_lens = {
-		always = no
-	}
-
-	possible = {}
-
-	ai_acceptance_max = 75
-
-	on_weekly_pulse = {}
-
-	on_war_begins = {}
-
-	on_war_end = {
-
-	}
-}
-
-dp_restore_union = {
-	war_goal = restore_union
-
-	texture = "gfx/interface/icons/war_goals/enforce_treaty_article.dds"
-
-	selectable_in_lens = {
-		has_law = law_type:law_monarchy
-		has_variable = por_seeking_restore_union_var
-	}
-
-	possible = {
 		aggressive_diplomatic_plays_permitted = yes
+		NOT = { is_subject_of = scope:target_country }
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+		}
+		diplomatic_play_has_no_relations_blockers = yes
 	}
 
 	ai_acceptance_max = 90
 
 	on_weekly_pulse = {}
 
-	on_war_begins = {
-		if = {
-			limit = {
-				any_scope_play_involved = {
-					has_variable = por_seeking_restore_union_var
-				}
-			}
-			random_scope_play_involved = { # This is typically a temp variable. Starting this war makes it permanent for the duration of the war.
-				limit = {
-					has_variable = por_seeking_restore_union_var
-				}
-				remove_variable = por_seeking_restore_union_var
-				set_variable = por_seeking_restore_union_var
-			}
-		}
-	}
+	on_war_begins = {}
 
-	on_war_end = {
-		if = {
-			limit = {
-				any_scope_play_involved = {
-					has_variable = por_seeking_restore_union_var
-				}
-			}
-			random_scope_play_involved = { # Removes variable upon war conclusion, regardless of outcome
-				limit = {
-					has_variable = por_seeking_restore_union_var
-				}
-				remove_variable = por_seeking_restore_union_var
-			}
-		}
-	}
+	on_war_end = {}
 }

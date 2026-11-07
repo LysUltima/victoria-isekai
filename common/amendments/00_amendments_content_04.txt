@@ -151,16 +151,7 @@ amendment_reinstated_fueros = {
 	}
 
 	on_deactivate = {
-		if = {
-			limit = {
-				NAND = {
-					always = no
-					# removed: any_in_list on dead variable 'spain_accepted_cultures', never set elsewhere
-					always = no
-				}
-			}
-			# removed effect line: was culture = cu:basque (no mod analogue)
-		}
+
 		if = {
 			limit = {
 				any_scope_state = {

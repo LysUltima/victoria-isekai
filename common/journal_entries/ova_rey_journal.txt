@@ -38,6 +38,10 @@
 # Chapter 1: Katzenburg, the capital - Nasira, the desert-cat merchant heiress
 # ============================================================================
 je_ova_rey_court_cat = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -69,11 +73,6 @@ je_ova_rey_court_cat = {
 
 	timeout = 1825
 
-	on_timeout = {
-		trigger_event = { id = ova_rey.80 days = 3 }
-		effect_ova_rey_next_courtship = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = { desc = je_ova_rey_status_won      trigger = { var:ova_rey_affection >= var:ova_rey_affection_cap } }
@@ -84,67 +83,94 @@ je_ova_rey_court_cat = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_rey_confessed_tt
-			has_variable = ova_rey_confessed_cat
-		}
-	}
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		set_variable = ova_rey_won_cat
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 25 }
-			ova_champion_add_xp = { AMOUNT = 40 }
-		}
-		trigger_event = { id = ova_rey.19 days = 3 }
-		effect_ova_rey_next_courtship = yes
-	}
-
-	fail = {
-		OR = {
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
 			custom_tooltip = {
-				text = je_ova_rey_john_gone_tt
-				AND = {
-					has_variable = ova_rey_john_char
-					NOT = { exists = var:ova_rey_john_char }
-				}
-			}
-			custom_tooltip = {
-				text = je_ova_rey_cold_tt
-				AND = {
-					has_variable = ova_rey_all_dates_cat
-					var:ova_rey_affection < 20
-				}
+				text = je_ova_rey_confessed_tt
+				has_variable = ova_rey_confessed_cat
 			}
 		}
-	}
-
-	on_fail = {
-		if = {
-			limit = {
-				has_variable = ova_rey_john_char
-				NOT = { exists = var:ova_rey_john_char }
+		effect = {
+			set_variable = ova_rey_won_cat
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 25 }
+				ova_champion_add_xp = { AMOUNT = 40 }
 			}
-			effect_ova_rey_story_over = yes
-			trigger_event = { id = ova_rey.78 days = 3 }
-		}
-		else = {
-			trigger_event = { id = ova_rey.80 days = 3 }
+			trigger_event = { id = ova_rey.19 days = 3 }
 			effect_ova_rey_next_courtship = yes
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				custom_tooltip = {
+					text = je_ova_rey_john_gone_tt
+					AND = {
+						has_variable = ova_rey_john_char
+						NOT = { exists = var:ova_rey_john_char }
+					}
+				}
+				custom_tooltip = {
+					text = je_ova_rey_cold_tt
+					AND = {
+						has_variable = ova_rey_all_dates_cat
+						var:ova_rey_affection < 20
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_variable = ova_rey_john_char
+					NOT = { exists = var:ova_rey_john_char }
+				}
+				effect_ova_rey_story_over = yes
+				trigger_event = { id = ova_rey.78 days = 3 }
+			}
+			else = {
+				trigger_event = { id = ova_rey.80 days = 3 }
+				effect_ova_rey_next_courtship = yes
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			trigger_event = { id = ova_rey.80 days = 3 }
+			effect_ova_rey_next_courtship = yes
+		}
+	}
 }
 
 # ============================================================================
 # Chapter 2: Welpenstadt - Bruna, the dogkin guard-captain
 # ============================================================================
 je_ova_rey_court_dog = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -173,11 +199,6 @@ je_ova_rey_court_dog = {
 
 	timeout = 1825
 
-	on_timeout = {
-		trigger_event = { id = ova_rey.80 days = 3 }
-		effect_ova_rey_next_courtship = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = { desc = je_ova_rey_status_won      trigger = { var:ova_rey_affection >= var:ova_rey_affection_cap } }
@@ -188,67 +209,94 @@ je_ova_rey_court_dog = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_rey_confessed_tt
-			has_variable = ova_rey_confessed_dog
-		}
-	}
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		set_variable = ova_rey_won_dog
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 25 }
-			ova_champion_add_xp = { AMOUNT = 40 }
-		}
-		trigger_event = { id = ova_rey.29 days = 3 }
-		effect_ova_rey_next_courtship = yes
-	}
-
-	fail = {
-		OR = {
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
 			custom_tooltip = {
-				text = je_ova_rey_john_gone_tt
-				AND = {
-					has_variable = ova_rey_john_char
-					NOT = { exists = var:ova_rey_john_char }
-				}
-			}
-			custom_tooltip = {
-				text = je_ova_rey_cold_tt
-				AND = {
-					has_variable = ova_rey_all_dates_dog
-					var:ova_rey_affection < 20
-				}
+				text = je_ova_rey_confessed_tt
+				has_variable = ova_rey_confessed_dog
 			}
 		}
-	}
-
-	on_fail = {
-		if = {
-			limit = {
-				has_variable = ova_rey_john_char
-				NOT = { exists = var:ova_rey_john_char }
+		effect = {
+			set_variable = ova_rey_won_dog
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 25 }
+				ova_champion_add_xp = { AMOUNT = 40 }
 			}
-			effect_ova_rey_story_over = yes
-			trigger_event = { id = ova_rey.78 days = 3 }
-		}
-		else = {
-			trigger_event = { id = ova_rey.80 days = 3 }
+			trigger_event = { id = ova_rey.29 days = 3 }
 			effect_ova_rey_next_courtship = yes
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				custom_tooltip = {
+					text = je_ova_rey_john_gone_tt
+					AND = {
+						has_variable = ova_rey_john_char
+						NOT = { exists = var:ova_rey_john_char }
+					}
+				}
+				custom_tooltip = {
+					text = je_ova_rey_cold_tt
+					AND = {
+						has_variable = ova_rey_all_dates_dog
+						var:ova_rey_affection < 20
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_variable = ova_rey_john_char
+					NOT = { exists = var:ova_rey_john_char }
+				}
+				effect_ova_rey_story_over = yes
+				trigger_event = { id = ova_rey.78 days = 3 }
+			}
+			else = {
+				trigger_event = { id = ova_rey.80 days = 3 }
+				effect_ova_rey_next_courtship = yes
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			trigger_event = { id = ova_rey.80 days = 3 }
+			effect_ova_rey_next_courtship = yes
+		}
+	}
 }
 
 # ============================================================================
 # Chapter 3: Barenberg - Ursla, the bearkin mountain smith
 # ============================================================================
 je_ova_rey_court_bear = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -277,11 +325,6 @@ je_ova_rey_court_bear = {
 
 	timeout = 1825
 
-	on_timeout = {
-		trigger_event = { id = ova_rey.80 days = 3 }
-		effect_ova_rey_next_courtship = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = { desc = je_ova_rey_status_won      trigger = { var:ova_rey_affection >= var:ova_rey_affection_cap } }
@@ -292,67 +335,94 @@ je_ova_rey_court_bear = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_rey_confessed_tt
-			has_variable = ova_rey_confessed_bear
-		}
-	}
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		set_variable = ova_rey_won_bear
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 25 }
-			ova_champion_add_xp = { AMOUNT = 40 }
-		}
-		trigger_event = { id = ova_rey.39 days = 3 }
-		effect_ova_rey_next_courtship = yes
-	}
-
-	fail = {
-		OR = {
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
 			custom_tooltip = {
-				text = je_ova_rey_john_gone_tt
-				AND = {
-					has_variable = ova_rey_john_char
-					NOT = { exists = var:ova_rey_john_char }
-				}
-			}
-			custom_tooltip = {
-				text = je_ova_rey_cold_tt
-				AND = {
-					has_variable = ova_rey_all_dates_bear
-					var:ova_rey_affection < 20
-				}
+				text = je_ova_rey_confessed_tt
+				has_variable = ova_rey_confessed_bear
 			}
 		}
-	}
-
-	on_fail = {
-		if = {
-			limit = {
-				has_variable = ova_rey_john_char
-				NOT = { exists = var:ova_rey_john_char }
+		effect = {
+			set_variable = ova_rey_won_bear
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 25 }
+				ova_champion_add_xp = { AMOUNT = 40 }
 			}
-			effect_ova_rey_story_over = yes
-			trigger_event = { id = ova_rey.78 days = 3 }
-		}
-		else = {
-			trigger_event = { id = ova_rey.80 days = 3 }
+			trigger_event = { id = ova_rey.39 days = 3 }
 			effect_ova_rey_next_courtship = yes
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				custom_tooltip = {
+					text = je_ova_rey_john_gone_tt
+					AND = {
+						has_variable = ova_rey_john_char
+						NOT = { exists = var:ova_rey_john_char }
+					}
+				}
+				custom_tooltip = {
+					text = je_ova_rey_cold_tt
+					AND = {
+						has_variable = ova_rey_all_dates_bear
+						var:ova_rey_affection < 20
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_variable = ova_rey_john_char
+					NOT = { exists = var:ova_rey_john_char }
+				}
+				effect_ova_rey_story_over = yes
+				trigger_event = { id = ova_rey.78 days = 3 }
+			}
+			else = {
+				trigger_event = { id = ova_rey.80 days = 3 }
+				effect_ova_rey_next_courtship = yes
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			trigger_event = { id = ova_rey.80 days = 3 }
+			effect_ova_rey_next_courtship = yes
+		}
+	}
 }
 
 # ============================================================================
 # Chapter 4: Hasenhafen - Lieselotte, the rabbitkin harvest maiden
 # ============================================================================
 je_ova_rey_court_rabbit = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -381,11 +451,6 @@ je_ova_rey_court_rabbit = {
 
 	timeout = 1825
 
-	on_timeout = {
-		trigger_event = { id = ova_rey.80 days = 3 }
-		effect_ova_rey_next_courtship = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = { desc = je_ova_rey_status_won      trigger = { var:ova_rey_affection >= var:ova_rey_affection_cap } }
@@ -396,67 +461,94 @@ je_ova_rey_court_rabbit = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_rey_confessed_tt
-			has_variable = ova_rey_confessed_rabbit
-		}
-	}
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		set_variable = ova_rey_won_rabbit
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 25 }
-			ova_champion_add_xp = { AMOUNT = 40 }
-		}
-		trigger_event = { id = ova_rey.49 days = 3 }
-		effect_ova_rey_next_courtship = yes
-	}
-
-	fail = {
-		OR = {
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
 			custom_tooltip = {
-				text = je_ova_rey_john_gone_tt
-				AND = {
-					has_variable = ova_rey_john_char
-					NOT = { exists = var:ova_rey_john_char }
-				}
-			}
-			custom_tooltip = {
-				text = je_ova_rey_cold_tt
-				AND = {
-					has_variable = ova_rey_all_dates_rabbit
-					var:ova_rey_affection < 20
-				}
+				text = je_ova_rey_confessed_tt
+				has_variable = ova_rey_confessed_rabbit
 			}
 		}
-	}
-
-	on_fail = {
-		if = {
-			limit = {
-				has_variable = ova_rey_john_char
-				NOT = { exists = var:ova_rey_john_char }
+		effect = {
+			set_variable = ova_rey_won_rabbit
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 25 }
+				ova_champion_add_xp = { AMOUNT = 40 }
 			}
-			effect_ova_rey_story_over = yes
-			trigger_event = { id = ova_rey.78 days = 3 }
-		}
-		else = {
-			trigger_event = { id = ova_rey.80 days = 3 }
+			trigger_event = { id = ova_rey.49 days = 3 }
 			effect_ova_rey_next_courtship = yes
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				custom_tooltip = {
+					text = je_ova_rey_john_gone_tt
+					AND = {
+						has_variable = ova_rey_john_char
+						NOT = { exists = var:ova_rey_john_char }
+					}
+				}
+				custom_tooltip = {
+					text = je_ova_rey_cold_tt
+					AND = {
+						has_variable = ova_rey_all_dates_rabbit
+						var:ova_rey_affection < 20
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_variable = ova_rey_john_char
+					NOT = { exists = var:ova_rey_john_char }
+				}
+				effect_ova_rey_story_over = yes
+				trigger_event = { id = ova_rey.78 days = 3 }
+			}
+			else = {
+				trigger_event = { id = ova_rey.80 days = 3 }
+				effect_ova_rey_next_courtship = yes
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			trigger_event = { id = ova_rey.80 days = 3 }
+			effect_ova_rey_next_courtship = yes
+		}
+	}
 }
 
 # ============================================================================
 # Chapter 5: Fuschtaal - Fenna, the foxkin scholar of the wooded vale
 # ============================================================================
 je_ova_rey_court_fox = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -485,11 +577,6 @@ je_ova_rey_court_fox = {
 
 	timeout = 1825
 
-	on_timeout = {
-		trigger_event = { id = ova_rey.80 days = 3 }
-		effect_ova_rey_next_courtship = yes
-	}
-
 	status_desc = {
 		first_valid = {
 			triggered_desc = { desc = je_ova_rey_status_won      trigger = { var:ova_rey_affection >= var:ova_rey_affection_cap } }
@@ -500,61 +587,84 @@ je_ova_rey_court_fox = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_rey_confessed_tt
-			has_variable = ova_rey_confessed_fox
-		}
-	}
+	weight = 4000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
 
-	on_complete = {
-		set_variable = ova_rey_won_fox
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 25 }
-			ova_champion_add_xp = { AMOUNT = 40 }
-		}
-		trigger_event = { id = ova_rey.59 days = 3 }
-		effect_ova_rey_next_courtship = yes
-	}
-
-	fail = {
-		OR = {
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
 			custom_tooltip = {
-				text = je_ova_rey_john_gone_tt
-				AND = {
-					has_variable = ova_rey_john_char
-					NOT = { exists = var:ova_rey_john_char }
-				}
-			}
-			custom_tooltip = {
-				text = je_ova_rey_cold_tt
-				AND = {
-					has_variable = ova_rey_all_dates_fox
-					var:ova_rey_affection < 20
-				}
+				text = je_ova_rey_confessed_tt
+				has_variable = ova_rey_confessed_fox
 			}
 		}
-	}
-
-	on_fail = {
-		if = {
-			limit = {
-				has_variable = ova_rey_john_char
-				NOT = { exists = var:ova_rey_john_char }
+		effect = {
+			set_variable = ova_rey_won_fox
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 25 }
+				ova_champion_add_xp = { AMOUNT = 40 }
 			}
-			effect_ova_rey_story_over = yes
-			trigger_event = { id = ova_rey.78 days = 3 }
-		}
-		else = {
-			trigger_event = { id = ova_rey.80 days = 3 }
+			trigger_event = { id = ova_rey.59 days = 3 }
 			effect_ova_rey_next_courtship = yes
 		}
 	}
 
-	weight = 4000
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				custom_tooltip = {
+					text = je_ova_rey_john_gone_tt
+					AND = {
+						has_variable = ova_rey_john_char
+						NOT = { exists = var:ova_rey_john_char }
+					}
+				}
+				custom_tooltip = {
+					text = je_ova_rey_cold_tt
+					AND = {
+						has_variable = ova_rey_all_dates_fox
+						var:ova_rey_affection < 20
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_variable = ova_rey_john_char
+					NOT = { exists = var:ova_rey_john_char }
+				}
+				effect_ova_rey_story_over = yes
+				trigger_event = { id = ova_rey.78 days = 3 }
+			}
+			else = {
+				trigger_event = { id = ova_rey.80 days = 3 }
+				effect_ova_rey_next_courtship = yes
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { timeout  }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		effect = {
+			trigger_event = { id = ova_rey.80 days = 3 }
+			effect_ova_rey_next_courtship = yes
+		}
+	}
 }
 
 # ============================================================================
@@ -562,6 +672,10 @@ je_ova_rey_court_fox = {
 # primary culture of the republic, and John himself takes the president's chair.
 # ============================================================================
 je_ova_rey_ascension = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_election.dds"
 
 	group = je_group_internal_affairs
@@ -580,38 +694,49 @@ je_ova_rey_ascension = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_rey_ascension_tt
-			has_variable = ova_rey_ascended
-		}
-	}
-
-	on_complete = {
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 50 }
-		}
-		effect_ova_rey_story_over = yes
-		trigger_event = { id = ova_rey.91 days = 5 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_rey_john_gone_tt
-			AND = {
-				has_variable = ova_rey_john_char
-				NOT = { exists = var:ova_rey_john_char }
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_rey_story_over = yes
-		trigger_event = { id = ova_rey.78 days = 3 }
-	}
-
 	weight = 5000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_rey_ascension_tt
+				has_variable = ova_rey_ascended
+			}
+		}
+		effect = {
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 50 }
+			}
+			effect_ova_rey_story_over = yes
+			trigger_event = { id = ova_rey.91 days = 5 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_rey_john_gone_tt
+				AND = {
+					has_variable = ova_rey_john_char
+					NOT = { exists = var:ova_rey_john_char }
+				}
+			}
+		}
+		effect = {
+			effect_ova_rey_story_over = yes
+			trigger_event = { id = ova_rey.78 days = 3 }
+		}
+	}
 }

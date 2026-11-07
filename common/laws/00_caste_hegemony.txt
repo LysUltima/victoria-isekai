@@ -217,13 +217,6 @@ law_strict_edo_system = {
 			add = 750
 		}
 
-		if = {
-			limit = { 
-				always = no
-				always = no
-			}
-			add = 1000
-		}
 	}
 }
 
@@ -311,12 +304,5 @@ law_lax_edo_system = {
 			add = 750
 		}
 
-		if = {
-			limit = { 
-				always = no
-				always = no
-			}
-			add = 1000
-		}
 	}
 }

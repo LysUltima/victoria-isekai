@@ -15,6 +15,10 @@
 # three je_ova_dawn_* aftermath entries run on AUR.
 
 je_ova_eternal_crusade = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_foreign_affairs
@@ -71,59 +75,75 @@ je_ova_eternal_crusade = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_eternal_crusade_complete_tt
-			NOT = { exists = c:DEM }
-		}
-	}
-
-	on_complete = {
-		if = {
-			limit = { is_power_bloc_leader = yes }
-			power_bloc = { remove_modifier = ova_unbreakable_covenant }
-		}
-		if = {
-			limit = { has_modifier = ova_lux_summoned_legion }
-			remove_modifier = ova_lux_summoned_legion
-		}
-		add_modifier = { name = ova_lux_crusade_triumphant days = -1 }
-	}
-
 	# The crusade dies as a cause if the world recognizes the Demonic Empire,
 	# or if the Church stands discredited before the world (the rebellion path
 	# of Victoria's arc exposes what the archives held).
-	fail = {
-		custom_tooltip = {
-			text = je_ova_eternal_crusade_fail_tt
-			OR = {
-				AND = {
-					exists = c:DEM
-					c:DEM ?= { is_country_type = recognized }
-				}
-				has_global_variable = ova_truth_exposed
-			}
-		}
-	}
-
-	on_fail = {
-		if = {
-			limit = { is_power_bloc_leader = yes }
-			power_bloc = { remove_modifier = ova_unbreakable_covenant }
-		}
-		if = {
-			limit = { has_modifier = ova_lux_summoned_legion }
-			remove_modifier = ova_lux_summoned_legion
-		}
-		add_modifier = { name = ova_lux_crusade_broken days = 3650 }
-	}
 
 	weight = 1000
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_eternal_crusade_complete_tt
+				NOT = { exists = c:DEM }
+			}
+		}
+		effect = {
+			if = {
+				limit = { is_power_bloc_leader = yes }
+				power_bloc = { remove_modifier = ova_unbreakable_covenant }
+			}
+			if = {
+				limit = { has_modifier = ova_lux_summoned_legion }
+				remove_modifier = ova_lux_summoned_legion
+			}
+			add_modifier = { name = ova_lux_crusade_triumphant days = -1 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_eternal_crusade_fail_tt
+				OR = {
+					AND = {
+						exists = c:DEM
+						c:DEM ?= { is_country_type = recognized }
+					}
+					has_global_variable = ova_truth_exposed
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { is_power_bloc_leader = yes }
+				power_bloc = { remove_modifier = ova_unbreakable_covenant }
+			}
+			if = {
+				limit = { has_modifier = ova_lux_summoned_legion }
+				remove_modifier = ova_lux_summoned_legion
+			}
+			add_modifier = { name = ova_lux_crusade_broken days = 3650 }
+		}
+	}
 }
 
 je_ova_hero_summoning = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_foreign_affairs
@@ -140,16 +160,16 @@ je_ova_hero_summoning = {
 			ova_champion_create_from_template = { TEMPLATE = template_victoria LEVEL = 2 }
 			trigger_event = { id = ova_hero.2 days = 3 }
 		}
-        if = {
-            limit = {
-                c:REY ?= THIS
-            }
-            effect_ova_rey_john_arrives = yes
-        }
-        add_involvement = {
-            strategic_region = sr:region_demonland  
-            value = 1500
-        }
+		if = {
+			limit = {
+				c:REY ?= THIS
+			}
+			effect_ova_rey_john_arrives = yes
+		}
+		add_involvement = {
+			strategic_region = sr:region_demonland
+			value = 1500
+		}
 	}
 
 	on_monthly_pulse = {
@@ -187,47 +207,64 @@ je_ova_hero_summoning = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_hero_summoning_complete_tt
-			NOT = { exists = c:DEM }
-		}
-	}
-
-	on_complete = {
-		add_modifier = { name = ova_hero_crusade_fulfilled days = -1 }
-		if = {
-			limit = { ova_has_living_champion = yes }
-			ova_champion_add_popularity = { AMOUNT = 20 }
-		}
-	}
-
 	# Without the Church, without a crusade the world still believes in, or
 	# with the Church discredited outright, there will be no more Heroes;
 	# existing ones live on, but the pact as a cause is dead.
-	fail = {
-		custom_tooltip = {
-			text = je_ova_hero_summoning_fail_tt
-			OR = {
-				NOT = { exists = c:LUX }
-				AND = {
-					exists = c:DEM
-					c:DEM ?= { is_country_type = recognized }
-				}
-				has_global_variable = ova_truth_exposed
-			}
-		}
-	}
-
-	on_fail = {
-	}
 
 	weight = 900
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_hero_summoning_complete_tt
+				NOT = { exists = c:DEM }
+			}
+		}
+		effect = {
+			add_modifier = { name = ova_hero_crusade_fulfilled days = -1 }
+			if = {
+				limit = { ova_has_living_champion = yes }
+				ova_champion_add_popularity = { AMOUNT = 20 }
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_hero_summoning_fail_tt
+				OR = {
+					NOT = { exists = c:LUX }
+					AND = {
+						exists = c:DEM
+						c:DEM ?= { is_country_type = recognized }
+					}
+					has_global_variable = ova_truth_exposed
+				}
+			}
+		}
+		effect = {
+
+		}
+	}
 }
 
 je_ova_demonic_dawn = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_foreign_affairs
@@ -271,35 +308,41 @@ je_ova_demonic_dawn = {
 	# sr:region_demonland, however much of it the expeditions and the marches
 	# have carved away by now, must answer to the Ash Throne or a crown sworn
 	# to it.
-	complete = {
-		custom_tooltip = {
-			text = je_ova_demonic_dawn_complete_tt
-			is_country_type = recognized
-		}
-		custom_tooltip = {
-			text = je_ova_demonic_dawn_reclaim_tt
-			sr:region_demonland = {
-				NOT = {
-					any_scope_state = {
-						NOT = {
-							OR = {
-								owner ?= ROOT
-								owner = { is_subject_of = ROOT }
+
+	weight = 900
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_demonic_dawn_complete_tt
+				is_country_type = recognized
+			}
+			custom_tooltip = {
+				text = je_ova_demonic_dawn_reclaim_tt
+				sr:region_demonland = {
+					NOT = {
+						any_scope_state = {
+							NOT = {
+								OR = {
+									owner ?= ROOT
+									owner = { is_subject_of = ROOT }
+								}
 							}
 						}
 					}
 				}
 			}
 		}
+		effect = {
+			add_modifier = { name = ova_dem_empire_endures days = -1 }
+		}
 	}
-
-	on_complete = {
-		add_modifier = { name = ova_dem_empire_endures days = -1 }
-	}
-
-	weight = 900
-	should_be_pinned_by_default_uninvolved_or_context = yes
-	transferable = no
 }
 
 # ------------------------------------------------------------------------
@@ -308,6 +351,10 @@ je_ova_demonic_dawn = {
 # (every side PMG off its base "no program" PM).
 # ------------------------------------------------------------------------
 je_ova_victoria_1 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 
 	group = je_group_internal_affairs
@@ -352,41 +399,53 @@ je_ova_victoria_1 = {
 	# a generic building, so a nation that already had a fully-staffed hall
 	# (built for an earlier champion, say) would otherwise satisfy
 	# ova_victoria_hall_ready the instant this chapter unlocked.
-	complete = {
-		custom_tooltip = {
-			text = je_ova_victoria_1_complete_tt
-			AND = {
-				has_variable = ova_victoria_seen_50
-				ova_victoria_hall_ready = yes
-			}
-		}
-	}
-
-	on_complete = {
-		add_journal_entry = { type = je_ova_victoria_2 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_victoria_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_victoria_char
-					NOT = { exists = var:ova_victoria_char }
-				}
-				NOT = { ova_hero_crusade_active = yes }
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_victoria_story_over = yes
-		trigger_event = { id = ova_hero.78 days = 3 }
-	}
 
 	weight = 800
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_1_complete_tt
+				AND = {
+					has_variable = ova_victoria_seen_50
+					ova_victoria_hall_ready = yes
+				}
+			}
+		}
+		effect = {
+			add_journal_entry = { type = je_ova_victoria_2 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_victoria_char
+						NOT = { exists = var:ova_victoria_char }
+					}
+					NOT = { ova_hero_crusade_active = yes }
+				}
+			}
+		}
+		effect = {
+			effect_ova_victoria_story_over = yes
+			trigger_event = { id = ova_hero.78 days = 3 }
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -396,6 +455,10 @@ je_ova_victoria_1 = {
 # ova_hero_academy_graduated).
 # ------------------------------------------------------------------------
 je_ova_victoria_2 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	group = je_group_internal_affairs
@@ -423,45 +486,58 @@ je_ova_victoria_2 = {
 	# event) keeps this from completing on day one: the academy decision has
 	# no story gate of its own, so a champion enrolled early could graduate
 	# before this chapter ever unlocked.
-	complete = {
-		custom_tooltip = {
-			text = je_ova_victoria_2_complete_tt
-			AND = {
-				has_variable = ova_victoria_seen_35
-				has_variable = ova_hero_academy_graduated
-			}
-		}
-	}
-
-	on_complete = {
-		add_journal_entry = { type = je_ova_victoria_3 }
-	}
 
 	# same as the rest of the chain, plus: there is no graduating from an
 	# academy that no longer exists
-	fail = {
-		custom_tooltip = {
-			text = je_ova_victoria_2_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_victoria_char
-					NOT = { exists = var:ova_victoria_char }
-				}
-				NOT = { exists = c:DEM }
-				NOT = { ova_hero_crusade_active = yes }
-				NOT = { exists = c:ACA }
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_victoria_story_over = yes
-		effect_ova_victoria_fail_events = yes
-	}
 
 	weight = 800
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_2_complete_tt
+				AND = {
+					has_variable = ova_victoria_seen_35
+					has_variable = ova_hero_academy_graduated
+				}
+			}
+		}
+		effect = {
+			add_journal_entry = { type = je_ova_victoria_3 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_2_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_victoria_char
+						NOT = { exists = var:ova_victoria_char }
+					}
+					NOT = { exists = c:DEM }
+					NOT = { ova_hero_crusade_active = yes }
+					NOT = { exists = c:ACA }
+				}
+			}
+		}
+		effect = {
+			effect_ova_victoria_story_over = yes
+			effect_ova_victoria_fail_events = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -470,6 +546,10 @@ je_ova_victoria_2 = {
 # universal champion page).
 # ------------------------------------------------------------------------
 je_ova_victoria_3 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_internal_affairs
@@ -506,42 +586,54 @@ je_ova_victoria_3 = {
 	# toggle is a general champion-page button with no story gate of its own,
 	# so a player who turned it on during an earlier chapter would otherwise
 	# satisfy has_modifier before the chapter had a chance to open at all.
-	complete = {
-		custom_tooltip = {
-			text = je_ova_victoria_3_complete_tt
-			AND = {
-				has_variable = ova_victoria_seen_36
-				has_modifier = ova_champion_training_program
-			}
-		}
-	}
-
-	on_complete = {
-		add_journal_entry = { type = je_ova_victoria_4 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_victoria_chain_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_victoria_char
-					NOT = { exists = var:ova_victoria_char }
-				}
-				NOT = { exists = c:DEM }
-				NOT = { ova_hero_crusade_active = yes }
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_victoria_story_over = yes
-		effect_ova_victoria_fail_events = yes
-	}
 
 	weight = 800
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_3_complete_tt
+				AND = {
+					has_variable = ova_victoria_seen_36
+					has_modifier = ova_champion_training_program
+				}
+			}
+		}
+		effect = {
+			add_journal_entry = { type = je_ova_victoria_4 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_chain_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_victoria_char
+						NOT = { exists = var:ova_victoria_char }
+					}
+					NOT = { exists = c:DEM }
+					NOT = { ova_hero_crusade_active = yes }
+				}
+			}
+		}
+		effect = {
+			effect_ova_victoria_story_over = yes
+			effect_ova_victoria_fail_events = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -551,6 +643,10 @@ je_ova_victoria_3 = {
 # wings).
 # ------------------------------------------------------------------------
 je_ova_victoria_4 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
 	group = je_group_internal_affairs
@@ -587,39 +683,50 @@ je_ova_victoria_4 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_victoria_4_complete_tt
-			has_variable = ova_victoria_met_daughter
-		}
-	}
-
-	on_complete = {
-		add_journal_entry = { type = je_ova_victoria_5 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_victoria_chain_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_victoria_char
-					NOT = { exists = var:ova_victoria_char }
-				}
-				NOT = { exists = c:DEM }
-				NOT = { ova_hero_crusade_active = yes }
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_victoria_story_over = yes
-		effect_ova_victoria_fail_events = yes
-	}
-
 	weight = 800
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_4_complete_tt
+				has_variable = ova_victoria_met_daughter
+			}
+		}
+		effect = {
+			add_journal_entry = { type = je_ova_victoria_5 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_chain_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_victoria_char
+						NOT = { exists = var:ova_victoria_char }
+					}
+					NOT = { exists = c:DEM }
+					NOT = { ova_hero_crusade_active = yes }
+				}
+			}
+		}
+		effect = {
+			effect_ova_victoria_story_over = yes
+			effect_ova_victoria_fail_events = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -628,6 +735,10 @@ je_ova_victoria_4 = {
 # button, Level 20 first); the ward and the ledger do the rest.
 # ------------------------------------------------------------------------
 je_ova_victoria_5 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	group = je_group_internal_affairs
@@ -649,39 +760,50 @@ je_ova_victoria_5 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_victoria_5_complete_tt
-			has_variable = ova_victoria_read_ledger
-		}
-	}
-
-	on_complete = {
-		add_journal_entry = { type = je_ova_victoria_6 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_victoria_chain_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_victoria_char
-					NOT = { exists = var:ova_victoria_char }
-				}
-				NOT = { exists = c:DEM }
-				NOT = { ova_hero_crusade_active = yes }
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_victoria_story_over = yes
-		effect_ova_victoria_fail_events = yes
-	}
-
 	weight = 800
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_5_complete_tt
+				has_variable = ova_victoria_read_ledger
+			}
+		}
+		effect = {
+			add_journal_entry = { type = je_ova_victoria_6 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_chain_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_victoria_char
+						NOT = { exists = var:ova_victoria_char }
+					}
+					NOT = { exists = c:DEM }
+					NOT = { ova_hero_crusade_active = yes }
+				}
+			}
+		}
+		effect = {
+			effect_ova_victoria_story_over = yes
+			effect_ova_victoria_fail_events = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -690,6 +812,10 @@ je_ova_victoria_5 = {
 # the two girls meet, the friendship deepens, until a name is given freely.
 # ------------------------------------------------------------------------
 je_ova_victoria_6 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
 	group = je_group_internal_affairs
@@ -721,39 +847,50 @@ je_ova_victoria_6 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_victoria_6_complete_tt
-			has_variable = ova_victoria_knows_her_name
-		}
-	}
-
-	on_complete = {
-		add_journal_entry = { type = je_ova_victoria_7 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_victoria_chain_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_victoria_char
-					NOT = { exists = var:ova_victoria_char }
-				}
-				NOT = { exists = c:DEM }
-				NOT = { ova_hero_crusade_active = yes }
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_victoria_story_over = yes
-		effect_ova_victoria_fail_events = yes
-	}
-
 	weight = 800
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_6_complete_tt
+				has_variable = ova_victoria_knows_her_name
+			}
+		}
+		effect = {
+			add_journal_entry = { type = je_ova_victoria_7 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_chain_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_victoria_char
+						NOT = { exists = var:ova_victoria_char }
+					}
+					NOT = { exists = c:DEM }
+					NOT = { ova_hero_crusade_active = yes }
+				}
+			}
+		}
+		effect = {
+			effect_ova_victoria_story_over = yes
+			effect_ova_victoria_fail_events = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -763,6 +900,10 @@ je_ova_victoria_6 = {
 # first editions actually said.
 # ------------------------------------------------------------------------
 je_ova_victoria_7 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 
 	group = je_group_internal_affairs
@@ -784,39 +925,50 @@ je_ova_victoria_7 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_victoria_7_complete_tt
-			has_variable = ova_victoria_found_word
-		}
-	}
-
-	on_complete = {
-		add_journal_entry = { type = je_ova_victoria_8 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_victoria_chain_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_victoria_char
-					NOT = { exists = var:ova_victoria_char }
-				}
-				NOT = { exists = c:DEM }
-				NOT = { ova_hero_crusade_active = yes }
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_victoria_story_over = yes
-		effect_ova_victoria_fail_events = yes
-	}
-
 	weight = 800
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_7_complete_tt
+				has_variable = ova_victoria_found_word
+			}
+		}
+		effect = {
+			add_journal_entry = { type = je_ova_victoria_8 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_chain_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_victoria_char
+						NOT = { exists = var:ova_victoria_char }
+					}
+					NOT = { exists = c:DEM }
+					NOT = { ova_hero_crusade_active = yes }
+				}
+			}
+		}
+		effect = {
+			effect_ova_victoria_story_over = yes
+			effect_ova_victoria_fail_events = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -826,6 +978,10 @@ je_ova_victoria_7 = {
 # received finds its way to her.
 # ------------------------------------------------------------------------
 je_ova_victoria_8 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_trade.dds"
 
 	group = je_group_internal_affairs
@@ -857,39 +1013,50 @@ je_ova_victoria_8 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_victoria_8_complete_tt
-			has_variable = ova_victoria_invited
-		}
-	}
-
-	on_complete = {
-		add_journal_entry = { type = je_ova_victoria_9 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_victoria_chain_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_victoria_char
-					NOT = { exists = var:ova_victoria_char }
-				}
-				NOT = { exists = c:DEM }
-				NOT = { ova_hero_crusade_active = yes }
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_victoria_story_over = yes
-		effect_ova_victoria_fail_events = yes
-	}
-
 	weight = 800
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_8_complete_tt
+				has_variable = ova_victoria_invited
+			}
+		}
+		effect = {
+			add_journal_entry = { type = je_ova_victoria_9 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_chain_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_victoria_char
+						NOT = { exists = var:ova_victoria_char }
+					}
+					NOT = { exists = c:DEM }
+					NOT = { ova_hero_crusade_active = yes }
+				}
+			}
+		}
+		effect = {
+			effect_ova_victoria_story_over = yes
+			effect_ova_victoria_fail_events = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -900,6 +1067,10 @@ je_ova_victoria_8 = {
 # further journal entry between her and it.
 # ------------------------------------------------------------------------
 je_ova_victoria_9 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_default.dds"
 
 	group = je_group_internal_affairs
@@ -921,41 +1092,52 @@ je_ova_victoria_9 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_victoria_9_complete_tt
-			has_variable = ova_victoria_knows_truth
-		}
-	}
-
-	on_complete = {
-		# sixty days between hearing the truth and deciding what a Hero is
-		# for - the plot armor stays on through the wait
-		trigger_event = { id = ova_hero.75 days = 60 }
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_ova_victoria_chain_fail_tt
-			OR = {
-				AND = {
-					has_variable = ova_victoria_char
-					NOT = { exists = var:ova_victoria_char }
-				}
-				NOT = { exists = c:DEM }
-				NOT = { ova_hero_crusade_active = yes }
-			}
-		}
-	}
-
-	on_fail = {
-		effect_ova_victoria_story_over = yes
-		effect_ova_victoria_fail_events = yes
-	}
-
 	weight = 800
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_9_complete_tt
+				has_variable = ova_victoria_knows_truth
+			}
+		}
+		effect = {
+			# sixty days between hearing the truth and deciding what a Hero is
+			# for - the plot armor stays on through the wait
+			trigger_event = { id = ova_hero.75 days = 60 }
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		flags = { fails_subgoal }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_victoria_chain_fail_tt
+				OR = {
+					AND = {
+						has_variable = ova_victoria_char
+						NOT = { exists = var:ova_victoria_char }
+					}
+					NOT = { exists = c:DEM }
+					NOT = { ova_hero_crusade_active = yes }
+				}
+			}
+		}
+		effect = {
+			effect_ova_victoria_story_over = yes
+			effect_ova_victoria_fail_events = yes
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -964,6 +1146,10 @@ je_ova_victoria_9 = {
 # to take everything back.
 # ------------------------------------------------------------------------
 je_ova_dawn_1 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	group = je_group_internal_affairs
@@ -998,24 +1184,29 @@ je_ova_dawn_1 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_dawn_1_complete_tt
-			OR = {
-				NOT = { exists = c:LYS }
-				has_truce_with = c:LYS
-				c:LYS ?= { relations:root >= 0 }
-			}
-		}
-	}
-
-	on_complete = {
-		add_journal_entry = { type = je_ova_dawn_3 }
-	}
-
 	weight = 800
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_dawn_1_complete_tt
+				OR = {
+					NOT = { exists = c:LYS }
+					has_truce_with = c:LYS
+					c:LYS ?= { relations:root >= 0 }
+				}
+			}
+		}
+		effect = {
+			add_journal_entry = { type = je_ova_dawn_3 }
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -1023,6 +1214,10 @@ je_ova_dawn_1 = {
 # Objective: climb out of Racial Segregation, at least to Cultural Exclusion.
 # ------------------------------------------------------------------------
 je_ova_dawn_2 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	group = je_group_internal_affairs
@@ -1050,23 +1245,28 @@ je_ova_dawn_2 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_dawn_2_complete_tt
-			OR = {
-				has_law = law_type:law_cultural_exclusion
-				has_law = law_type:law_multicultural
-			}
-		}
-	}
-
-	on_complete = {
-		add_modifier = { name = ova_dawn_reconciliation days = -1 }
-	}
-
 	weight = 800
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_dawn_2_complete_tt
+				OR = {
+					has_law = law_type:law_cultural_exclusion
+					has_law = law_type:law_multicultural
+				}
+			}
+		}
+		effect = {
+			add_modifier = { name = ova_dawn_reconciliation days = -1 }
+		}
+	}
 }
 
 # ------------------------------------------------------------------------
@@ -1075,6 +1275,10 @@ je_ova_dawn_2 = {
 # Objective: Great Power rank. Completing it ends Victoria's plot armor.
 # ------------------------------------------------------------------------
 je_ova_dawn_3 = {
+	activation_description = {
+		always = yes
+	}
+
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
 
 	group = je_group_internal_affairs
@@ -1101,19 +1305,24 @@ je_ova_dawn_3 = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_ova_dawn_3_complete_tt
-			country_rank >= rank_value:great_power
-		}
-	}
-
-	on_complete = {
-		effect_ova_victoria_story_over = yes
-		trigger_event = { id = ova_hero.89 days = 5 }
-	}
-
 	weight = 800
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	transferable = no
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_ova_dawn_3_complete_tt
+				country_rank >= rank_value:great_power
+			}
+		}
+		effect = {
+			effect_ova_victoria_story_over = yes
+			trigger_event = { id = ova_hero.89 days = 5 }
+		}
+	}
 }

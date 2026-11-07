@@ -1,0 +1,126 @@
+﻿ai_decree_agricultural_levels_script_value = {
+	value = "state_has_building_group_levels(bg_agriculture)"
+	add = "state_has_building_group_levels(bg_ranching)"
+	add = "state_has_building_group_levels(bg_plantations)"
+	subtract = {
+		value = "state_has_building_group_levels(bg_subsistence_agriculture)"
+		multiply = 0.5
+	}
+	subtract = {
+		value = "state_has_building_group_levels(bg_subsistence_ranching)"
+		multiply = 0.5
+	}
+}
+
+movement_radicalism_ruler_is_pro_slavery = {
+	value = 0
+	if = {
+		limit = {
+			owner.ruler ?= {
+				OR = {
+					has_ideology = ideology:ideology_jacksonian_democrat
+					has_ideology = ideology:ideology_slaver
+					AND = {
+						NOR = {
+							has_ideology = ideology:ideology_abolitionist
+							has_ideology = ideology:ideology_utilitarian_leader
+							has_ideology = ideology:ideology_utopian
+						}
+						interest_group ?= {
+							OR = {
+								has_ideology = ideology:ideology_pro_slavery
+								has_ideology = ideology:ideology_pro_slavery_colonial
+							}
+						}
+					}
+				}
+			}
+		}
+
+		add = {
+			value = 0.1
+			desc = "RULER_IS_PRO_SLAVERY"
+		}
+	}
+}
+
+movement_radicalism_suppressed_after_civil_war = {
+	value = 0
+	if = {
+		limit = {
+			this.days_since_movement_defeated <= very_long_modifier_time
+		}
+		add = { # (x-y)/y - ([1, 7300]-7300)/7300
+			desc = "movement_suppressed_after_civil_war"
+			value = this.days_since_movement_defeated
+			subtract = very_long_modifier_time
+			divide = {
+				value = very_long_modifier_time
+			}
+		}
+	}
+}
+
+treaty_binding_period_commitment_acceptance = {
+	value = 0
+
+	if = {
+		limit = {
+			NOT = { exists = scope:is_treaty_active }
+			scope:treaty.binding_period > 1825
+		}
+
+		if = {
+			limit = {
+				scope:source_country ?= this
+			}
+			value = scope:treaty.binding_period
+			subtract = 1825
+			divide = 365
+			multiply = -2
+			min = -50
+		}
+		else = {
+			value = scope:treaty.binding_period
+			subtract = 1825
+			divide = 365
+			max = 25
+		}
+	}
+}
+
+ai_military_reach_conquer = 0.35
+ai_military_reach_conquer_min_shippable_strength = 0.5
+ai_military_reach_protect = 0.2
+ai_military_reach_protect_min_shippable_strength = 0.1
+
+ai_num_submarines = {
+	value = 0
+	every_scope_ship = {
+		limit = {
+			is_ai_ship_category = ai_ship_category_submarines
+		}
+		add = 1
+	}
+}
+
+navy_size_adjusted_by_tech = {
+	value = navy_size
+
+	if = {
+		limit = { has_technology_researched = warded_hulls }
+		divide = 1.15
+	}
+	if = {
+		limit = { has_technology_researched = armored_warships }
+		divide = 1.25
+	}
+	if = {
+		limit = { has_technology_researched = grand_warships }
+		divide = 1.25
+	}
+	if = {
+		limit = { has_technology_researched = titan_warships }
+		divide = 1.15
+	}
+}
