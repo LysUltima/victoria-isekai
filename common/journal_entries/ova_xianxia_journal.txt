@@ -228,13 +228,7 @@ je_ova_xianxia_righteous_banner = {
 		trigger = {
 			custom_tooltip = {
 				text = ova_xianxia_banner_falls_tt
-				OR = {
-					ova_xianxia_demonic_victory_trigger = yes
-					is_subject_of = c:BLO
-					is_subject_of = c:GHO
-					is_subject_of = c:SHA
-					is_subject_of = c:NIN
-				}
+				ova_xianxia_demonic_victory_trigger = yes
 			}
 		}
 		effect = {

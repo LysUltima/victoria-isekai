@@ -1070,10 +1070,11 @@ STATE_HELLBORNE_MOUNTAINS = {
     farm = "xE25D0C"
     mine = "xFF4C00"
     wood = "xFF5B14"
-    arable_land = 36
+    arable_land = 86
     arable_resources = { "building_livestock_ranch" }
     capped_resources = {
         building_logging_camp = 8
+        building_iron_mine = 52
         building_lead_mine = 92
         building_spirit_beast_hunting = 26
     }

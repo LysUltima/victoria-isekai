@@ -185,11 +185,11 @@ EAS = {
 HEL = {
     color = { 120 80 70 }
 
-    country_type = decentralized
+    country_type = recognized
     
     tier = principality
 
-    cultures = { southern_orc }
+    cultures = { steel_dwarf southern_orc }
 
     capital = STATE_HELLBORNE_MOUNTAINS
 }

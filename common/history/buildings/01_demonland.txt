@@ -3849,6 +3849,15 @@
                     "worker_exploitation_tobacco"
                 }
             }
+            create_building = {
+                building = "building_banana_plantation"
+                level = 3
+                reserves = 1
+                activate_production_methods = {
+                    "default_building_banana_plantation"
+                    "worker_exploitation_banana"
+                }
+            }
         }
         region_state:CAP = {
             # CAP initial establishments
@@ -3876,7 +3885,7 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:CAP"
-                        levels = 3
+                        levels = 5
                         region = "STATE_BURNING_DREAM"
                     }
                 }
@@ -3984,16 +3993,38 @@
                     "worker_exploitation_tobacco"
                 }
             }
+            create_building = {
+                building = "building_banana_plantation"
+                level = 3
+                reserves = 1
+                activate_production_methods = {
+                    "default_building_banana_plantation"
+                    "worker_exploitation_banana"
+                }
+            }
         }
         region_state:BRD = {
             # BRD initial establishments
+            create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:BRD"
+                        levels = 2
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_horizontal_drawer_cabinets"
+                }
+            }
             create_building = {
                 building = "building_livestock_ranch"
                 add_ownership = {
                     building = {
                         type = "building_manor_house"
                         country = "c:BRD"
-                        levels = 1
+                        levels = 2
                         region = "STATE_BURNING_DREAM"
                     }
                 }
@@ -4011,7 +4042,7 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:BRD"
-                        levels = 2
+                        levels = 4
                         region = "STATE_BURNING_DREAM"
                     }
                 }
@@ -4097,7 +4128,7 @@
                 add_ownership = {
                     country = {
                         country = "c:BRD"
-                        levels = 3
+                        levels = 4
                     }
                 }
                 reserves = 1
@@ -4120,12 +4151,20 @@
             }
             create_building = {
                 building = "building_tobacco_plantation"
-                level = 3
+                level = 2
                 reserves = 1
                 activate_production_methods = {
                     "default_building_tobacco_plantation"
                     "molds"
                     "lectors_tobacco"
+                }
+            }
+            create_building = {
+                building = "building_banana_plantation"
+                level = 4
+                reserves = 1
+                activate_production_methods = {
+                    "default_building_banana_plantation"
                 }
             }
         }
@@ -4157,7 +4196,7 @@
                     building = {
                         type = "building_manor_house"
                         country = "c:ATE"
-                        levels = 2
+                        levels = 4
                         region = "STATE_SCORCHING_HAZE"
                     }
                 }
@@ -4298,6 +4337,15 @@
                     "worker_exploitation_tobacco"
                 }
             }
+            create_building = {
+                building = "building_banana_plantation"
+                level = 3
+                reserves = 1
+                activate_production_methods = {
+                    "default_building_banana_plantation"
+                    "worker_exploitation_banana"
+                }
+            }
         }
         region_state:CEP = {
             # CEP initial establishments
@@ -4309,6 +4357,15 @@
                     "default_building_tobacco_plantation"
                     "molds"
                     "worker_exploitation_tobacco"
+                }
+            }
+            create_building = {
+                building = "building_banana_plantation"
+                level = 3
+                reserves = 1
+                activate_production_methods = {
+                    "default_building_banana_plantation"
+                    "worker_exploitation_banana"
                 }
             }
             create_building = {

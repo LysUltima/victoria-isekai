@@ -779,11 +779,11 @@
         region_state:HEL = {
             create_pop = {
                 culture = southern_orc
-                size = 110000
+                size = 490000
             }
             create_pop = {
                 culture = steel_dwarf
-                size = 15000
+                size = 750000
             }
         }
     }
