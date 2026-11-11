@@ -15,6 +15,10 @@
           add = 100
           overweight_trigger = yes
       }
+      modifier = {
+        factor = 0
+        scope:character ?= { age < 14 }
+      }
     }
   }
 

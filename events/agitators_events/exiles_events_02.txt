@@ -1,5 +1,4 @@
-﻿# Isekai TC: migrated from vanilla events/agitators_events/exiles_events_02.txt (2026-07-11).
-# Generic agitator/political-movement flavor events, no real-world references. Verbatim copy.
+﻿# Isekai TC: generic agitator and political movement events from vanilla 1.15.1.
 
 namespace = exiles_more_events
 
@@ -24,12 +23,14 @@ exiles_more_events.1 = {
 	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
+		# triggered by on_action - exiles_yearly_events
 		any_diplomatic_play = {
 			is_war = yes
 			target_is = ROOT
 		}
 
 		any_character_in_exile_pool = {
+			is_in_regional_exile_pool = no
 			home_country ?= ROOT
 			save_temporary_scope_as = ex_ig
 		}
@@ -41,13 +42,13 @@ exiles_more_events.1 = {
 	immediate = {
 		random_character_in_exile_pool  = {
 			limit = {
+				is_in_regional_exile_pool = no
 				home_country ?= ROOT
 			}
 			save_temporary_scope_as = ex_ig
 			save_scope_as = patriotic_exile_scope
-
 			set_temporary_event_immortality = { DURATION = 3 }
-}
+		}
 		random_interest_group = {
 			limit = {
 				ig_type_matches_former = yes
@@ -151,6 +152,7 @@ exiles_more_events.2 = {
 	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
+		# triggered by on_action - on_law_checkpoint_stall
 		enacting_any_law = yes
 
 		OR = {
@@ -168,6 +170,7 @@ exiles_more_events.2 = {
 					save_temporary_scope_as = ex_ig
 				}
 				any_character_in_exile_pool = {
+					is_in_regional_exile_pool = no
 					home_country ?= ROOT
 					ig_type_matches_former = yes
 					law_stance = {
@@ -190,6 +193,7 @@ exiles_more_events.2 = {
 					save_temporary_scope_as = ex_ig
 				}
 				any_character_in_exile_pool = {
+					is_in_regional_exile_pool = no
 					home_country ?= ROOT
 					ig_type_matches_former = yes
 					law_stance = {
@@ -208,6 +212,7 @@ exiles_more_events.2 = {
 
 		random_character_in_exile_pool = {
 			limit = {
+				is_in_regional_exile_pool = no
 				home_country ?= root
 				OR = {
 					AND = {
@@ -250,9 +255,8 @@ exiles_more_events.2 = {
 			}
 			save_temporary_scope_as = ex_ig
 			save_scope_as = interventionist_exile_scope
-
 			set_temporary_event_immortality = { DURATION = 3 }
-}
+		}
 
 		random_interest_group = {
 			limit = {
@@ -260,9 +264,8 @@ exiles_more_events.2 = {
 			}
 			leader = {
 				save_scope_as = interventionist_exile_ig_leader
-
-			set_temporary_event_immortality = { DURATION = 3 }
-}
+				set_temporary_event_immortality = { DURATION = 3 }
+			}
 			save_scope_as = interventionist_exile_ig
 		}
 	}
@@ -367,8 +370,8 @@ exiles_more_events.2 = {
 	}
 
 	after = {
-		revoke_temporary_event_immortality = { CHARACTER = scope:interventionist_exile_ig_leader }
 		revoke_temporary_event_immortality = { CHARACTER = scope:interventionist_exile_scope }
+		revoke_temporary_event_immortality = { CHARACTER = scope:interventionist_exile_ig_leader }
 	}
 }
 
@@ -394,11 +397,12 @@ exiles_more_events.3 = {
 	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
+		# triggered by on_action - exiles_yearly_events
 		any_scope_character = {
 			has_role_of_type = agitator
 			character_supports_political_movement = yes
 			political_movement ?= {
-				political_movement_support < 0.1
+				political_movement_support < define:NPolitics|SUPPORT_RELEVANT_THRESHOLD
 			}
 		}
 	}
@@ -409,16 +413,15 @@ exiles_more_events.3 = {
 				has_role_of_type = agitator
 				character_supports_political_movement = yes
 				political_movement ?= {
-					political_movement_support < 0.1
+					political_movement_support < define:NPolitics|SUPPORT_RELEVANT_THRESHOLD
 				}
 			}
 			save_scope_as = the_loneliest_little_agitator
+			set_temporary_event_immortality = { DURATION = 3 }
 			interest_group ?= {
 				save_scope_as = the_loneliest_little_agitator_ig
 			}
-
-			set_temporary_event_immortality = { DURATION = 3 }
-}
+		}
 	}
 
 	cancellation_trigger = {
@@ -427,7 +430,10 @@ exiles_more_events.3 = {
 				exists = scope:the_loneliest_little_agitator
 			}
 			scope:the_loneliest_little_agitator ?= {
-				is_character_alive = no
+				OR = {
+					is_in_exile_pool = yes
+					is_character_alive = no
+				}
 			}
 		}
 	}
@@ -437,6 +443,14 @@ exiles_more_events.3 = {
 		default_option = yes
 		ai_chance = {
 			base = 10
+			modifier = {
+				trigger = {
+					scope:the_loneliest_little_agitator = {
+						popularity >= 50
+					}
+				}
+				add = -5
+			}
 		}
 
 		scope:the_loneliest_little_agitator = {
@@ -580,8 +594,10 @@ exiles_more_events.4 = {
 	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
+		# triggered by on_action - exiles_yearly_events
 		is_major_unifier = yes
 		any_character_in_exile_pool = {
+			is_in_regional_exile_pool = no
 			NOT = { home_country ?= ROOT }
 			culture = {
 				is_primary_culture_of = ROOT
@@ -592,21 +608,21 @@ exiles_more_events.4 = {
 	immediate = {
 		random_character_in_exile_pool  = {
 			limit = {
+				is_in_regional_exile_pool = no
 				NOT = { home_country ?= ROOT }
 				culture = {
 					is_primary_culture_of = ROOT
 				}
 			}
 			save_scope_as = post_unification_agitator
+			set_temporary_event_immortality = { DURATION = 3 }
 			home_country ?= {
 				save_scope_as = post_unification_agitator_home
 			}
 			ideology = {
 				save_scope_as = post_unification_agitator_ideology
 			}
-
-			set_temporary_event_immortality = { DURATION = 3 }
-}
+		}
 	}
 
 	cancellation_trigger = {
@@ -914,6 +930,7 @@ exiles_more_events.5 = {
 	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
+		# triggered by on_action - exiles_yearly_events
 		any_scope_character = {
 			was_exiled = yes
 			popularity < 0
@@ -927,9 +944,8 @@ exiles_more_events.5 = {
 				popularity < 0
 			}
 			save_scope_as = experienced_exile
-
 			set_temporary_event_immortality = { DURATION = 3 }
-}
+		}
 	}
 
 	cancellation_trigger = {
@@ -1006,7 +1022,9 @@ exiles_more_events.6 = {
 	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
+		# triggered by on_action - exiles_yearly_events
 		any_character_in_exile_pool = {
+			is_in_regional_exile_pool = no
 			home_country ?= ROOT
 			OR = {
 				has_trait = arrogant
@@ -1028,6 +1046,7 @@ exiles_more_events.6 = {
 	immediate = {
 		random_character_in_exile_pool  = {
 			limit = {
+				is_in_regional_exile_pool = no
 				home_country ?= ROOT
 				OR = {
 					has_trait = arrogant
@@ -1044,12 +1063,11 @@ exiles_more_events.6 = {
 			}
 			save_temporary_scope_as = ex_ig
 			save_scope_as = melodrama_villain
+			set_temporary_event_immortality = { DURATION = 3 }
 			set_variable = {
 				name = THE_NEFARIOUS_TOP_HAT
 			}
-
-			set_temporary_event_immortality = { DURATION = 3 }
-}
+		}
 		random_interest_group = {
 			limit = {
 				ig_type_matches_former = yes
@@ -1058,9 +1076,8 @@ exiles_more_events.6 = {
 			save_scope_as = melodrama_villain_ig
 			leader = {
 				save_scope_as = melodrama_villain_ig_leader
-
-			set_temporary_event_immortality = { DURATION = 3 }
-}
+				set_temporary_event_immortality = { DURATION = 3 }
+			}
 		}
 	}
 
@@ -1236,6 +1253,7 @@ exiles_more_events.7 = {
 	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
+		# triggered by on_action - exiles_yearly_events
 		any_scope_character = {
 			NOT = { home_country ?= ROOT }
 			was_exiled = yes
@@ -1250,9 +1268,8 @@ exiles_more_events.7 = {
 				was_exiled = yes
 			}
 			save_scope_as = first_ex_exile
-
 			set_temporary_event_immortality = { DURATION = 3 }
-}
+		}
 		random_scope_character = {
 			limit = {
 				NOT = { home_country ?= ROOT }
@@ -1260,9 +1277,8 @@ exiles_more_events.7 = {
 				NOT = { scope:first_ex_exile = this }
 			}
 			save_scope_as = second_ex_exile
-
 			set_temporary_event_immortality = { DURATION = 3 }
-}
+		}
 	}
 
 	cancellation_trigger = {
@@ -1350,9 +1366,11 @@ exiles_more_events.8 = {
 	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
+		# triggered by on_action - exiles_yearly_events
 		empty_agitator_slots >= 1
 		government_legitimacy < 25
 		any_character_in_exile_pool = {
+			is_in_regional_exile_pool = no
 			home_country ?= ROOT
 			save_temporary_scope_as = ex_ig
 		}
@@ -1365,13 +1383,13 @@ exiles_more_events.8 = {
 	immediate = {
 		random_character_in_exile_pool  = {
 			limit = {
+				is_in_regional_exile_pool = no
 				home_country ?= ROOT
 			}
 			save_temporary_scope_as = ex_ig
 			save_scope_as = dgaf_exile_scope
-
 			set_temporary_event_immortality = { DURATION = 3 }
-}
+		}
 		random_interest_group = {
 			limit = {
 				ig_type_matches_former = yes
@@ -1465,8 +1483,10 @@ exiles_more_events.9 = {
 	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
+		# triggered by on_action - exiles_yearly_events
 		empty_agitator_slots >= 1
 		any_character_in_exile_pool = {
+			is_in_regional_exile_pool = no
 			NOT = { home_country ?= ROOT }
 			character_acceptance = { target = ROOT value < acceptance_status_5 }
 			interest_group_type = {
@@ -1482,6 +1502,7 @@ exiles_more_events.9 = {
 	immediate = {
 		random_character_in_exile_pool  = {
 			limit = {
+				is_in_regional_exile_pool = no
 				NOT = { home_country ?= ROOT }
 				character_acceptance = { target = ROOT value < acceptance_status_5 }
 			}
@@ -1489,9 +1510,8 @@ exiles_more_events.9 = {
 				save_scope_as = exile_ig_type
 			}
 			save_scope_as = fertile_ground_exile_scope
-
 			set_temporary_event_immortality = { DURATION = 3 }
-}
+		}
 		random_interest_group = {
 			limit = {
 				scope:exile_ig_type ?= this.type
@@ -1590,6 +1610,7 @@ exiles_more_events.10 = {
 	cooldown = { days = stupidly_long_modifier_time }
 
 	trigger = {
+		# triggered by on_action - exiles_yearly_events
 		any_revolution_ongoing = yes
 		any_scope_character = {
 			has_role_of_type = agitator
@@ -1610,12 +1631,11 @@ exiles_more_events.10 = {
 				}
 			}
 			save_scope_as = unstable_element_agitator
+			set_temporary_event_immortality = { DURATION = 3 }
 			interest_group ?= {
 				save_scope_as = unstable_element_ig
 			}
-
-			set_temporary_event_immortality = { DURATION = 3 }
-}
+		}
 	}
 
 	cancellation_trigger = {

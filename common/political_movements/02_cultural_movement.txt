@@ -1020,6 +1020,8 @@ movement_cultural_minority = {
 	}
 
 	secession = {
+		can_secede_during_revolution = yes
+
 		possible = {
 			owner ?= {
 				any_scope_state = {

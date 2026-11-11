@@ -2147,6 +2147,13 @@ ai_strategy_default = {
 				has_technology_researched = spirit_field_cultivation
 			}
 		}
+		telephones = { # Communication Orbs
+			stance = wants_high_supply
+			trigger = {
+				has_building = building_government_administration
+				has_technology_researched = communication_orbs
+			}
+		}
 		oil = { # Anima
 			stance = wants_high_supply
 			trigger = {

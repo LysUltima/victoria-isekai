@@ -1,9 +1,12 @@
 ﻿pm_anchorage = {
 	texture = "gfx/interface/icons/production_method_icons/anchorage.dds"
 
-	low_pop_method = yes # AI will activate this method for states with low population
+	scoring_override = world_market_hub_status # Prefer anchorages when the market area has no active world market hub.
 
 	building_modifiers = {
+		workforce_scaled = {
+			goods_output_services_add = 0.5
+		}
 		level_scaled = {
 			building_employment_laborers_add = 70
 			building_employment_clerks_add = 20
@@ -328,7 +331,7 @@ pm_trade_center_principle_external_trade_2 = {
 
 pm_trade_center_trade_quantity_limited = {
 	texture = "gfx/interface/icons/production_method_icons/trade_quantity_1.dds"
-	low_pop_method = yes # AI will activate this method for states with low population
+	scoring_override = low_pop_method # Prefer this method in states with low population.
 
 	building_modifiers = {
 		workforce_scaled = {

@@ -603,7 +603,10 @@ dp_secession = {
 
 	additional_involvement_trigger = {
 		NOT = { is_country_type = decentralized }
-		aggressive_diplomatic_plays_permitted = yes
+		OR = {
+			aggressive_diplomatic_plays_permitted = yes
+			is_subject = yes
+		}
 
 		scope:initiator = {
 			capital = {

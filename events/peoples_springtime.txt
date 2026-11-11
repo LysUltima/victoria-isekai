@@ -29,6 +29,7 @@ peoples_springtime.1 = {
 	immediate = {
 		if = {
 			limit = {
+				country_should_exclusively_focus_on_modernization = no
 				NOT = {
 					any_political_movement = {
 						is_political_movement_type = movement_radical
@@ -45,6 +46,7 @@ peoples_springtime.1 = {
 		}
 		if = {
 			limit = {
+				country_should_exclusively_focus_on_modernization = no
 				NOT = {
 					any_political_movement = {
 						is_political_movement_type = movement_radical
@@ -862,6 +864,7 @@ peoples_springtime.9 = {
 			base = 4
 		}
 		set_variable = had_springtime_revolution
+		set_variable = { name = recent_coup_or_revolution_var value = 0 }
 		hidden_effect = {
 			set_immune_to_revolutions = yes
 			add_modifier = {
@@ -905,6 +908,7 @@ peoples_springtime.9 = {
 				limit = {
 					OR = {
 						has_ideology = ideology:ideology_liberal
+						has_ideology = ideology:ideology_universalist
 						leader = {
 							has_ideology = ideology:ideology_radical
 						}
@@ -924,6 +928,7 @@ peoples_springtime.9 = {
 				is_in_government = yes
 				NOR = {
 					has_ideology = ideology:ideology_liberal
+					has_ideology = ideology:ideology_universalist
 					leader = {
 						has_ideology = ideology:ideology_radical
 					}
@@ -941,6 +946,7 @@ peoples_springtime.9 = {
 					is_in_government = yes
 					NOR = {
 						has_ideology = ideology:ideology_liberal
+						has_ideology = ideology:ideology_universalist
 						leader = {
 							has_ideology = ideology:ideology_radical
 						}
@@ -952,6 +958,7 @@ peoples_springtime.9 = {
 				limit = {
 					OR = {
 						has_ideology = ideology:ideology_liberal
+						has_ideology = ideology:ideology_universalist
 						leader = {
 							has_ideology = ideology:ideology_radical
 						}
@@ -984,6 +991,7 @@ peoples_springtime.9 = {
 			base = 4
 		}
 		set_variable = had_springtime_revolution
+		set_variable = { name = recent_coup_or_revolution_var value = 0 }
 		hidden_effect = {
 			set_immune_to_revolutions = yes
 			add_modifier = {
@@ -1027,6 +1035,7 @@ peoples_springtime.9 = {
 				limit = {
 					OR = {
 						has_ideology = ideology:ideology_liberal
+						has_ideology = ideology:ideology_universalist
 						leader = {
 							has_ideology = ideology:ideology_radical
 						}
@@ -1046,6 +1055,7 @@ peoples_springtime.9 = {
 				is_in_government = yes
 				NOR = {
 					has_ideology = ideology:ideology_liberal
+					has_ideology = ideology:ideology_universalist
 					leader = {
 						has_ideology = ideology:ideology_radical
 					}
@@ -1063,6 +1073,7 @@ peoples_springtime.9 = {
 					is_in_government = yes
 					NOR = {
 						has_ideology = ideology:ideology_liberal
+						has_ideology = ideology:ideology_universalist
 						leader = {
 							has_ideology = ideology:ideology_radical
 						}
@@ -1074,6 +1085,7 @@ peoples_springtime.9 = {
 				limit = {
 					OR = {
 						has_ideology = ideology:ideology_liberal
+						has_ideology = ideology:ideology_universalist
 						leader = {
 							has_ideology = ideology:ideology_radical
 						}
@@ -1136,6 +1148,7 @@ peoples_springtime.91 = {
 			limit = {
 				OR = {
 					has_ideology = ideology:ideology_liberal
+					has_ideology = ideology:ideology_universalist
 					leader = {
 						has_ideology = ideology:ideology_radical
 					}
@@ -1152,6 +1165,7 @@ peoples_springtime.91 = {
 				is_in_government = yes
 				NOR = {
 					has_ideology = ideology:ideology_liberal
+					has_ideology = ideology:ideology_universalist
 					leader = {
 						has_ideology = ideology:ideology_radical
 					}
@@ -1215,6 +1229,7 @@ peoples_springtime.10 = {
 					is_in_government = yes
 					OR = {
 						has_ideology = ideology:ideology_liberal
+						has_ideology = ideology:ideology_universalist
 						leader = { has_ideology = ideology:ideology_radical }
 					}
 				}
