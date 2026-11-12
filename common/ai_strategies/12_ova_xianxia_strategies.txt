@@ -92,8 +92,12 @@ ai_strategy_ova_righteous_path = {
 			min = 0.5
 		}
 
-		# The righteous path's whole purpose - press the dao war against the Blood Lotus Covenant
+		# The Lan-Lian feud takes priority over the wider Covenant war.
 		if = {
+			limit = { ova_xianxia_target_is_rival_martial_sect = yes }
+			add = 8
+		}
+		else_if = {
 			limit = {
 				OR = {
 					c:BLO ?= scope:target_country
@@ -122,6 +126,18 @@ ai_strategy_ova_righteous_path = {
 		force_nationalization = 0.25
 	}
 
+	wargoal_scores = {
+		annex_country = {
+			if = {
+				limit = {
+					ova_xianxia_target_is_rival_martial_sect = yes
+					can_reach_target_country = yes
+				}
+				add = 300
+			}
+		}
+	}
+
 	secret_goal_scores = {
 		conquer = {
 			trigger = {
@@ -137,6 +153,7 @@ ai_strategy_ova_righteous_path = {
 						scope:target_country.country_rank <= root.country_rank
 					}
 					ova_xianxia_target_is_demonic_trigger = yes
+					ova_xianxia_target_is_rival_martial_sect = yes
 				}
 			}
 			score = {
@@ -153,8 +170,11 @@ ai_strategy_ova_righteous_path = {
 					}
 					add = 50
 				}
-				# the dao war, above every ordinary quarrel
 				if = {
+					limit = { ova_xianxia_target_is_rival_martial_sect = yes }
+					add = 500
+				}
+				else_if = {
 					limit = { ova_xianxia_target_is_demonic_trigger = yes }
 					add = 100
 				}
@@ -164,7 +184,10 @@ ai_strategy_ova_righteous_path = {
 		# peace with the Blood Lotus Covenant
 		antagonize = {
 			trigger = {
-				ova_xianxia_target_is_demonic_trigger = yes
+				OR = {
+					ova_xianxia_target_is_demonic_trigger = yes
+					ova_xianxia_target_is_rival_martial_sect = yes
+				}
 			}
 			score = {
 				value = 150
@@ -174,15 +197,23 @@ ai_strategy_ova_righteous_path = {
 
 	possible = {
 		OR = {
-			ova_xianxia_is_righteous_sect_trigger = yes
-			c:FEN ?= THIS
-			c:YAO ?= THIS
+			AND = {
+				ova_xianxia_on_righteous_side_trigger = yes
+				exists = c:BLO
+			}
+			AND = {
+				ova_xianxia_is_lan_martial_sect = yes
+				any_country = { ova_xianxia_is_lian_martial_sect = yes }
+			}
 		}
-		exists = c:BLO
 	}
 
 	weight = {
 		value = 150
+		if = {
+			limit = { ova_xianxia_is_lan_martial_sect = yes }
+			add = 350
+		}
 	}
 }
 
@@ -276,26 +307,22 @@ ai_strategy_ova_demonic_path = {
 		# The Covenant's whole purpose - drown the Jade Throne of Great Feng
 		if = {
 			limit = {
+				ova_xianxia_is_demonic_sect_trigger = yes
 				c:FEN ?= scope:target_country
 			}
 			add = 2.0
 		}
 
-		# A lesser, but still real, hunger for the nine righteous banners
+		# The Lan-Lian feud takes priority over the other righteous banners.
 		if = {
+			limit = { ova_xianxia_target_is_rival_martial_sect = yes }
+			add = 8
+		}
+		else_if = {
 			limit = {
-				OR = {
-					c:SWO ?= scope:target_country
-					c:HEA ?= scope:target_country
-					c:FLO ?= scope:target_country
-					c:PUR ?= scope:target_country
-					c:MYS ?= scope:target_country
-					c:FEA ?= scope:target_country
-					c:SPI ?= scope:target_country
-					c:VER ?= scope:target_country
-					c:SNO ?= scope:target_country
-					c:YAO ?= scope:target_country
-				}
+				ova_xianxia_is_demonic_sect_trigger = yes
+				ova_xianxia_target_is_righteous_side_trigger = yes
+				NOT = { c:FEN ?= scope:target_country }
 			}
 			add = 1.0
 		}
@@ -317,6 +344,18 @@ ai_strategy_ova_demonic_path = {
 		force_nationalization = 0.25
 	}
 
+	wargoal_scores = {
+		annex_country = {
+			if = {
+				limit = {
+					ova_xianxia_target_is_rival_martial_sect = yes
+					can_reach_target_country = yes
+				}
+				add = 300
+			}
+		}
+	}
+
 	secret_goal_scores = {
 		conquer = {
 			trigger = {
@@ -330,7 +369,11 @@ ai_strategy_ova_demonic_path = {
 						has_strategic_adjacency = scope:target_country
 						scope:target_country.country_rank <= root.country_rank
 					}
-					ova_xianxia_target_is_righteous_side_trigger = yes
+					AND = {
+						ova_xianxia_is_demonic_sect_trigger = yes
+						ova_xianxia_target_is_righteous_side_trigger = yes
+					}
+					ova_xianxia_target_is_rival_martial_sect = yes
 				}
 			}
 			score = {
@@ -347,9 +390,15 @@ ai_strategy_ova_demonic_path = {
 					}
 					add = 50
 				}
-				# the dao war, above every ordinary conquest
 				if = {
-					limit = { ova_xianxia_target_is_righteous_side_trigger = yes }
+					limit = { ova_xianxia_target_is_rival_martial_sect = yes }
+					add = 500
+				}
+				else_if = {
+					limit = {
+						ova_xianxia_is_demonic_sect_trigger = yes
+						ova_xianxia_target_is_righteous_side_trigger = yes
+					}
 					add = 100
 				}
 			}
@@ -357,7 +406,13 @@ ai_strategy_ova_demonic_path = {
 		# the Covenant never rests easy beside a standing righteous banner
 		antagonize = {
 			trigger = {
-				ova_xianxia_target_is_righteous_side_trigger = yes
+				OR = {
+					AND = {
+						ova_xianxia_is_demonic_sect_trigger = yes
+						ova_xianxia_target_is_righteous_side_trigger = yes
+					}
+					ova_xianxia_target_is_rival_martial_sect = yes
+				}
 			}
 			score = {
 				value = 150
@@ -366,10 +421,20 @@ ai_strategy_ova_demonic_path = {
 	}
 
 	possible = {
-		ova_xianxia_is_demonic_sect_trigger = yes
+		OR = {
+			ova_xianxia_is_demonic_sect_trigger = yes
+			AND = {
+				ova_xianxia_is_lian_martial_sect = yes
+				any_country = { ova_xianxia_is_lan_martial_sect = yes }
+			}
+		}
 	}
 
 	weight = {
 		value = 200
+		if = {
+			limit = { ova_xianxia_is_lian_martial_sect = yes }
+			add = 300
+		}
 	}
 }

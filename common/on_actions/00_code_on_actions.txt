@@ -115,6 +115,16 @@ on_monthly_pulse = {
 				target = THIS
 			}
 		}
+
+		# Retire the ungated agenda persisted in older saves, including tribal tags.
+		every_country = {
+			limit = { has_strategy = ai_strategy_great_reforms }
+			set_strategy = ai_strategy_conservative_agenda
+		}
+		every_decentralized_country = {
+			limit = { has_strategy = ai_strategy_great_reforms }
+			set_strategy = ai_strategy_conservative_agenda
+		}
 	}
 }
 

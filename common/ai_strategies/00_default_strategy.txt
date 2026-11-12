@@ -799,7 +799,7 @@ ai_strategy_default = {
 			limit = {
 				OR = {
 					scope:target_country = { is_subject_of = root }
-					can_reach_target_country = yes
+					can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
 				}
 			}
 
@@ -1613,28 +1613,12 @@ ai_strategy_default = {
 
 		stance_colonize_region = {
 			value = 0
-
 			if = {
 				limit = {
-					has_technology_researched = colonization
-					NOR = {
-						has_law_or_variant = law_type:law_no_colonial_affairs
-						is_country_type = unrecognized
-					}
-					OR = {
-						any_neighbouring_state = {
-							region = scope:target_region
-						}
-						navy_size >= 50
-					}
+					ova_ai_can_expand_colonies = yes
 					scope:target_region = {
 						any_scope_state = {
-							owner = {
-								OR = {
-									is_country_type = unrecognized
-									is_country_type = decentralized
-								}
-							}
+							ova_ai_can_colonize_tribal_state = { COLONIZER = ROOT }
 						}
 					}
 				}
@@ -1645,10 +1629,8 @@ ai_strategy_default = {
 				}
 
 				if = {
-					limit = {
-						country_is_colonial_or_company = yes
-					}
-					add =  {
+					limit = { country_is_colonial_or_company = yes }
+					add = {
 						desc = "AI_REGION_STANCE_COLONIAL_COUNTRY"
 						value = 200
 					}
@@ -1657,59 +1639,25 @@ ai_strategy_default = {
 				scope:target_region = {
 					every_scope_state = {
 						limit = {
-							owner = {
-								OR = {
-									is_country_type = unrecognized
-									is_country_type = decentralized
-								}
-							}
+							ova_ai_can_colonize_tribal_state = { COLONIZER = ROOT }
 						}
 						add = {
 							desc = "AI_REGION_STANCE_FREE_REAL_ESTATE"
 							value = 200
+							if = {
+								limit = { ova_ai_has_colonial_growth_penalty = { COLONIZER = ROOT } }
+								multiply = 0.1
+							}
 						}
 					}
 				}
 
 				if = {
-					limit = {
-						has_strategy = ai_strategy_colonial_expansion
-					}
+					limit = { has_strategy = ai_strategy_colonial_expansion }
 					multiply = {
 						desc = "ai_strategy_colonial_expansion"
 						value = 3
 					}
-				}
-
-				if = {
-					limit = {
-						has_technology_researched = civilizing_mission
-					}
-					multiply = {
-						desc = "AI_REGION_STANCE_CIVILIZING_MISSION_RESEARCHED"
-						value = 5
-					}
-				}
-				else_if = {
-					limit = {
-						has_technology_researched = fever_tonics
-					}
-					multiply = {
-						desc = "AI_REGION_STANCE_QUININE_RESEARCHED"
-						value = 2.5
-					}
-				}
-
-			}
-
-			if = {
-				limit = {
-					country_rank <= rank_value:minor_power
-					scope:target_region != capital.region
-				}
-				multiply = {
-					desc = "AI_REGION_STANCE_SMALL_COUNTRY"
-					value = 0
 				}
 			}
 		}
@@ -3042,7 +2990,7 @@ ai_strategy_default = {
 		}
 		conquer = {
 			trigger = {
-				can_reach_target_country = yes
+				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
 				NOT = { is_subject_of = scope:target_country }
 
 				# Be nice to tutorial players
@@ -3067,15 +3015,8 @@ ai_strategy_default = {
 
 				if = { # Conquest for the sake of colonies
 					limit = {
-						NOT = { is_country_type = unrecognized }
-						scope:target_country = {
-							ai_country_is_valid_colonization_target = yes
-						}
-						has_technology_researched = colonization
-						institution_investment_level = {
-							institution = institution_colonial_affairs
-							value >= 1
-						}
+						ova_ai_can_pursue_overseas_colonization = yes
+						scope:target_country = { ova_ai_is_colonial_war_target = yes }
 					}
 					add = 50
 
@@ -3247,7 +3188,7 @@ ai_strategy_default = {
 						scope:target_country = { is_country_type = unrecognized }
 					}
 				}
-				can_reach_target_country = yes
+				can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
 				NOT = { is_subject_of = scope:target_country }
 
 				# AI shouldn't be aggressive against subjects of their subjects
@@ -3294,17 +3235,10 @@ ai_strategy_default = {
 
 				if = {
 					limit = {
-						can_reach_target_country = yes
+						can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
 						country_rank > scope:target_country.country_rank
-						NOT = { is_country_type = unrecognized }
-						scope:target_country = {
-							ai_country_is_valid_colonization_target = yes
-						}
-						has_technology_researched = colonization
-						institution_investment_level = {
-							institution = institution_colonial_affairs
-							value >= 1
-						}
+						ova_ai_can_pursue_overseas_colonization = yes
+						scope:target_country = { ova_ai_is_colonial_war_target = yes }
 					}
 					add = 25
 
@@ -3337,7 +3271,7 @@ ai_strategy_default = {
 
 				if = {
 					limit = {
-						can_reach_target_country = yes
+						can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
 						country_rank > scope:target_country.country_rank
 						scope:target_country.country_rank < rank_value:major_power
 						scope:target_country = { NOT = { is_subject_of = root }	}
@@ -3873,7 +3807,7 @@ ai_strategy_default = {
 							type = embargo
 						}
 					}
-					can_reach_target_country = yes
+					can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }
 				}
 				add = 50
 			}

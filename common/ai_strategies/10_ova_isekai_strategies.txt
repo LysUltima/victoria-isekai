@@ -1,9 +1,6 @@
 ﻿### Isekai hero storyline - AI strategies
-# Both strategies are full copies of vanilla ai_strategy_territorial_expansion
-# (common/ai_strategies/02_diplomatic_strategies.txt) with every Earth
-# reference (the c:FRA/house_bonaparte weight bonus, the
-# geographic_region_europe weight penalty) stripped, then a storyline-specific
-# possible/weight/aggression layered on top per tools/design/ISEKAI_STORYLINE_SPEC.md A9.
+# These strategies adapt the vanilla territorial expansion strategy to the
+# crusade and the war over the demon homeland.
 
 ai_strategy_ova_radiant_crusader = {
 	icon = "gfx/interface/icons/ai_strategy_icons/territorial_expansion.dds"
@@ -89,7 +86,7 @@ ai_strategy_ova_radiant_crusader = {
 		# The Radiant Crusade's whole purpose - press the war against the Demonic Empire
 		if = {
 			limit = { c:DEM ?= scope:target_country }
-			add = 2.0
+			add = 8
 		}
 	}
 
@@ -113,9 +110,15 @@ ai_strategy_ova_radiant_crusader = {
 		conquer = {
 			trigger = {
 				NOT = { scope:target_country = { is_subject_of = root } }
+				NOT = { is_subject_of = scope:target_country }
 				can_reach_target_country = yes
-				has_strategic_adjacency = scope:target_country
-				scope:target_country.country_rank <= root.country_rank
+				OR = {
+					c:DEM ?= scope:target_country
+					AND = {
+						has_strategic_adjacency = scope:target_country
+						scope:target_country.country_rank <= root.country_rank
+					}
+				}
 			}
 			score = {
 				if = {
@@ -134,7 +137,7 @@ ai_strategy_ova_radiant_crusader = {
 				# the crusade's whole purpose: the Demonic Empire above all
 				if = {
 					limit = { c:DEM ?= scope:target_country }
-					add = 100
+					add = 500
 				}
 			}
 		}
@@ -146,21 +149,18 @@ ai_strategy_ova_radiant_crusader = {
 				c:DEM ?= scope:target_country
 			}
 			score = {
-				value = 200
+				value = 300
 			}
 		}
 	}
 
 	possible = {
-		OR = {
-			has_journal_entry = je_ova_hero_summoning
-			c:LUX ?= THIS
-		}
+		ova_hero_is_radiant_crusader = yes
 		exists = c:DEM
 	}
 
 	weight = {
-		value = 100
+		value = 500
 	}
 }
 
@@ -251,18 +251,14 @@ ai_strategy_ova_demonic_reclamation = {
 			min = 0.5
 		}
 
-		# Reclamation above all: any crown holding soil in the demon homeland
-		# (sr:region_demonland) that has not sworn itself to the Ash Throne is
-		# a target - the old marches, the Church's foothold on Ruina, and every
-		# province the foreign champions have carved off since
+		# The crusaders remain enemies even without a foothold in the homeland.
 		if = {
-			limit = {
-				scope:target_country = {
-					NOT = { is_subject_of = ROOT }
-					any_scope_state = { region = sr:region_demonland }
-				}
+			limit = { ova_hero_target_is_reclamation_enemy = yes }
+			add = 2
+			if = {
+				limit = { scope:target_country = { ova_hero_is_radiant_crusader = yes } }
+				add = 6
 			}
-			add = 2.0
 		}
 
 		# Sinra's march at Newhold sits on demon desert soil too
@@ -304,7 +300,11 @@ ai_strategy_ova_demonic_reclamation = {
 	secret_goal_scores = {
 		conquer = {
 			trigger = {
-				NOT = { scope:target_country = { is_subject_of = root } }
+				NOR = {
+					is_subject_of = scope:target_country
+					scope:target_country = { is_subject_of = ROOT }
+					scope:target_country = { has_variable = ova_new_dawn }
+				}
 				can_reach_target_country = yes
 				# the usual gates (adjacency, rank) do not apply to the
 				# reclamation: a crown squatting on the homeland is a target
@@ -314,10 +314,7 @@ ai_strategy_ova_demonic_reclamation = {
 						has_strategic_adjacency = scope:target_country
 						scope:target_country.country_rank <= root.country_rank
 					}
-					scope:target_country = {
-						NOT = { has_variable = ova_new_dawn }
-						any_scope_state = { region = sr:region_demonland }
-					}
+					ova_hero_target_is_reclamation_enemy = yes
 				}
 			}
 			score = {
@@ -337,28 +334,26 @@ ai_strategy_ova_demonic_reclamation = {
 				# the reclamation's whole purpose: every state of
 				# sr:region_demonland back under the Ash Throne
 				if = {
-					limit = {
-						scope:target_country = {
-							NOT = { has_variable = ova_new_dawn }
-							any_scope_state = { region = sr:region_demonland }
-						}
-					}
+					limit = { ova_hero_target_is_reclamation_enemy = yes }
 					add = 100
+					if = {
+						limit = { scope:target_country = { ova_hero_is_radiant_crusader = yes } }
+						add = 400
+					}
 				}
 			}
 		}
-		# even where conquest is out of reach, the empire never forgives a
-		# crown that holds the homeland
+		# Hold a hostile attitude toward the crusaders and occupiers out of reach.
 		antagonize = {
 			trigger = {
-				scope:target_country = {
-					NOT = { has_variable = ova_new_dawn }
-					NOT = { is_subject_of = ROOT }
-					any_scope_state = { region = sr:region_demonland }
-				}
+				ova_hero_target_is_reclamation_enemy = yes
 			}
 			score = {
 				value = 150
+				if = {
+					limit = { scope:target_country = { ova_hero_is_radiant_crusader = yes } }
+					add = 150
+				}
 			}
 		}
 		# the dawn kept faith with the tribes - keep faith with the dawn
@@ -377,7 +372,7 @@ ai_strategy_ova_demonic_reclamation = {
 	}
 
 	weight = {
-		value = 200
+		value = 500
 	}
 }
 

@@ -933,7 +933,7 @@ ai_strategy_great_reforms = {
 	}
 
 	possible = {
-		# removed effect line: vanilla ref 'je_great_reformer' not present in this mod
+		always = no # Reserved for a reform journal.
 	}
 
 	weight = {

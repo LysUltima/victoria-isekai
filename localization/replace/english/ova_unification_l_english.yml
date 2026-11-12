@@ -1,0 +1,4 @@
+﻿l_english:
+  ai_strategy_ova_cultural_unification: "Cultural Unification"
+  ai_strategy_ova_cultural_unification_desc: "[COUNTRY.GetName] seeks to unite its people's homelands under one banner."
+  OVA_STATE_VALUE_CULTURAL_UNIFICATION: "Homeland sought for cultural unification"

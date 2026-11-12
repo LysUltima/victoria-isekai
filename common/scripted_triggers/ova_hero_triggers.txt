@@ -14,6 +14,27 @@ ova_hero_is_summoning_holder = {
 	has_journal_entry = je_ova_hero_summoning
 }
 
+ova_hero_is_radiant_crusader = {
+	NOT = { has_variable = ova_new_dawn }
+	OR = {
+		ova_hero_is_summoning_holder = yes
+		c:LUX ?= THIS
+	}
+}
+
+ova_hero_target_is_reclamation_enemy = {
+	scope:target_country = {
+		NOR = {
+			has_variable = ova_new_dawn
+			is_subject_of = ROOT
+		}
+		OR = {
+			ova_hero_is_radiant_crusader = yes
+			any_scope_state = { region = sr:region_demonland }
+		}
+	}
+}
+
 # True if this country's capital sits in the isekai heartland (either half of
 # the split strategic region) - used to gate the home-front flavor JE and
 # various AI/decision weights to the human marches actually touched by the war.

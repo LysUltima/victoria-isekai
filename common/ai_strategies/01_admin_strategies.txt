@@ -165,6 +165,7 @@ ai_strategy_resource_expansion = {
 	building_group_weights = {
 		bg_mining = 1.5
 		bg_logging = 1.5
+		bg_oil_extraction = 1.5
 	}
 
 	subsidies = {
@@ -180,6 +181,12 @@ ai_strategy_resource_expansion = {
 			}
 		}
 		tools = { stance = wants_high_supply }
+		oil = {
+			stance = wants_export
+			trigger = {
+				country_has_building_group_levels = { type = bg_oil_extraction value >= 1 }
+			}
+		}
 		coal = { stance = wants_export }
 		iron = { stance = wants_export }
 		lead = { stance = wants_export }
@@ -452,6 +459,7 @@ ai_strategy_colonial_extraction = {
 		bg_mining = 1.5
 		bg_logging = 1.5
 		bg_plantations = 1.5
+		bg_oil_extraction = 1.5
 	}
 
 	subsidies = {
@@ -466,6 +474,12 @@ ai_strategy_colonial_extraction = {
 			}
 		}
 		tools = { stance = wants_high_supply }
+		oil = {
+			stance = wants_export
+			trigger = {
+				country_has_building_group_levels = { type = bg_oil_extraction value >= 1 }
+			}
+		}
 		coal = { stance = wants_export }
 		iron = { stance = wants_export }
 		lead = { stance = wants_export }

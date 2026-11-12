@@ -1,0 +1,6 @@
+﻿AI = {
+	every_country = {
+		limit = { ova_can_pursue_cultural_unification = yes }
+		set_strategy = ai_strategy_ova_cultural_unification
+	}
+}

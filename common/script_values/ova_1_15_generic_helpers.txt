@@ -91,6 +91,10 @@ treaty_binding_period_commitment_acceptance = {
 
 ai_military_reach_conquer = 0.35
 ai_military_reach_conquer_min_shippable_strength = 0.5
+ai_military_reach_subjugate = 0.3
+ai_military_reach_subjugate_min_shippable_strength = 0.35
+ai_military_reach_coerce = 0.25
+ai_military_reach_coerce_min_shippable_strength = 0.2
 ai_military_reach_protect = 0.2
 ai_military_reach_protect_min_shippable_strength = 0.1
 

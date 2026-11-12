@@ -1,0 +1,9 @@
+﻿AI = {
+	# These economies already have sizable manufacturing and port networks.
+	c:LYS ?= { set_strategy = ai_strategy_industrial_expansion }
+	c:DEM ?= { set_strategy = ai_strategy_industrial_expansion }
+
+	# Tea, bananas, tobacco and silk anchor the two Xianxia courts' economies.
+	c:FEN ?= { set_strategy = ai_strategy_plantation_economy }
+	c:YAO ?= { set_strategy = ai_strategy_plantation_economy }
+}

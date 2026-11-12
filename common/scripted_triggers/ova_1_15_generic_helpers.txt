@@ -144,3 +144,77 @@ can_reach_target_country_to_protect = {
 		}
 	}
 }
+
+# Vanilla 1.15.1 military reach checks, kept here alongside the mod's compatibility helpers.
+can_reach_target_country_to_conquer = {
+	$TARGET_COUNTRY$ = { save_temporary_scope_as = military_reach_target }
+	custom_tooltip = {
+		text = can_reach_to_conquer_tt
+		has_diplomatic_relevance = $TARGET_COUNTRY$
+		has_military_reach = {
+			target = $TARGET_COUNTRY$
+			min_reach = ai_military_reach_conquer
+			min_shippable_strength = ai_military_reach_conquer_min_shippable_strength
+		}
+	}
+}
+
+can_reach_target_country_to_subjugate = {
+	$TARGET_COUNTRY$ = { save_temporary_scope_as = military_reach_target }
+	custom_tooltip = {
+		text = can_reach_to_subjugate_tt
+		has_diplomatic_relevance = $TARGET_COUNTRY$
+		has_military_reach = {
+			target = $TARGET_COUNTRY$
+			min_reach = ai_military_reach_subjugate
+			min_shippable_strength = ai_military_reach_subjugate_min_shippable_strength
+		}
+	}
+}
+
+can_reach_target_country_to_coerce = {
+	$TARGET_COUNTRY$ = { save_temporary_scope_as = military_reach_target }
+	custom_tooltip = {
+		text = can_reach_to_coerce_tt
+		has_diplomatic_relevance = $TARGET_COUNTRY$
+		has_military_reach = {
+			target = $TARGET_COUNTRY$
+			min_reach = ai_military_reach_coerce
+			min_shippable_strength = ai_military_reach_coerce_min_shippable_strength
+		}
+	}
+}
+
+can_reach_target_state_to_coerce = {
+	$TARGET_STATE$ = { save_temporary_scope_as = military_reach_target }
+	custom_tooltip = {
+		text = can_reach_state_to_coerce_tt
+		has_diplomatic_relevance = $TARGET_STATE$.owner
+		has_military_reach = {
+			target = $TARGET_STATE$
+			min_reach = ai_military_reach_coerce
+			min_shippable_strength = ai_military_reach_coerce_min_shippable_strength
+		}
+	}
+}
+
+can_be_reached_by_target_country_to_protect = {
+	$TARGET_COUNTRY$ = { save_temporary_scope_as = military_reach_target }
+	custom_tooltip = {
+		text = can_be_reached_to_protect_tt
+		has_diplomatic_relevance = $TARGET_COUNTRY$
+		$TARGET_COUNTRY$ = {
+			OR = {
+				AND = {
+					is_power_bloc_leader = yes
+					is_in_same_power_bloc = prev
+				}
+				has_military_reach = {
+					target = prev
+					min_reach = ai_military_reach_protect
+					min_shippable_strength = ai_military_reach_protect_min_shippable_strength
+				}
+			}
+		}
+	}
+}

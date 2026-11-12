@@ -67,13 +67,8 @@ ai_strategy_maintain_power_balance = {
 
 		if = {
 			limit = {
-				NOT = { is_country_type = unrecognized }
-				scope:target_country = { is_country_type = unrecognized }
-				has_technology_researched = colonization
-				institution_investment_level = {
-					institution = institution_colonial_affairs
-					value >= 1
-				}
+				ova_ai_can_pursue_overseas_colonization = yes
+				scope:target_country = { ova_ai_is_colonial_war_target = yes }
 			}
 			add = 0.25
 
@@ -325,7 +320,7 @@ ai_strategy_territorial_expansion = {
 		conquer = {
 			trigger = {
 				NOT = { scope:target_country = { is_subject_of = root } }
-				can_reach_target_country = yes
+				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
 				has_strategic_adjacency = scope:target_country
 				scope:target_country.country_rank <= root.country_rank
 			}
@@ -522,13 +517,8 @@ ai_strategy_colonial_expansion = {
 		value = 0.25
 		if = {
 			limit = {
-				NOT = { is_country_type = unrecognized }
-				scope:target_country = { ai_country_is_valid_colonization_target = yes }
-				has_technology_researched = colonization
-				institution_investment_level = {
-					institution = institution_colonial_affairs
-					value >= 1
-				}
+				ova_ai_can_pursue_overseas_colonization = yes
+				scope:target_country = { ova_ai_is_colonial_war_target = yes }
 			}
 			add = 0.25
 
@@ -555,20 +545,6 @@ ai_strategy_colonial_expansion = {
 
 			}
 		}
-		if = {
-			limit = {
-				country_has_primary_culture = cu:aldrican
-				has_technology_researched = monster_wards
-				any_subject_or_below = {
-					always = no # vanilla ref 'sr:region_southern_africa' not present in this mod
-				}
-				scope:target_country = {
-					always = no # vanilla ref 'sr:region_southern_africa' not present in this mod
-				}
-			}
-			add = 10
-		}
-
 		# Less aggressive against countries we're just antagonistic against, rather than belligerent/domineering
 		if = {
 			limit = {
@@ -621,9 +597,10 @@ ai_strategy_colonial_expansion = {
 	strategic_region_scores = {
 		if = {
 			limit = {
+				ova_ai_can_pursue_overseas_colonization = yes
 				scope:region = {
-					any_decentralized_country = {
-						exists = this
+					any_scope_state = {
+						ova_ai_can_colonize_tribal_state = { COLONIZER = ROOT }
 					}
 				}
 			}
@@ -632,19 +609,13 @@ ai_strategy_colonial_expansion = {
 			if = {
 				limit = {
 					scope:region = {
-						always = no # vanilla ref 'geographic_region_south_east_asia' not present in this mod
+						any_scope_state = {
+							ova_ai_can_colonize_tribal_state = { COLONIZER = ROOT }
+							NOT = { ova_ai_has_colonial_growth_penalty = { COLONIZER = ROOT } }
+						}
 					}
 				}
-				add = 100
-			}
-
-			if = {
-				limit = {
-					scope:region = {
-						always = no # vanilla ref 'geographic_region_africa' not present in this mod
-					}
-				}
-				add = 200
+				add = 50
 			}
 		}
 	}
@@ -654,31 +625,17 @@ ai_strategy_colonial_expansion = {
 			score = {
 				if = {
 					limit = {
-						scope:target_country = { ai_country_is_valid_colonization_target = no }
+						scope:target_country = { ova_ai_is_colonial_war_target = no }
 					}
 					add = -100
 				}
 				else_if = {
 					limit = {
-						ai_country_is_valid_colonization_target = yes
+						ova_ai_can_pursue_overseas_colonization = yes
+						country_rank > scope:target_country.country_rank
+						can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
 					}
 					add = 200
-
-				}
-
-				# Cleaning up Boers and Zulu
-				if = {
-					limit = {
-						country_has_primary_culture = cu:aldrican
-						has_technology_researched = monster_wards
-						any_subject_or_below = {
-							always = no # vanilla ref 'sr:region_southern_africa' not present in this mod
-						}
-						scope:target_country = {
-							always = no # vanilla ref 'sr:region_southern_africa' not present in this mod
-						}
-					}
-					add = 400
 				}
 			}
 		}
@@ -686,43 +643,17 @@ ai_strategy_colonial_expansion = {
 			score = {
 				if = {
 					limit = {
-						scope:target_country = { NOT = { is_country_type = unrecognized } }
+						scope:target_country = { ova_ai_is_colonial_war_target = no }
 					}
 					add = -100
 				}
-				if = {
+				else_if = {
 					limit = {
-						NOT = { scope:target_country = { is_subject_of = root } }
+						ova_ai_can_pursue_overseas_colonization = yes
 						has_strategic_adjacency = scope:target_country
-						scope:target_country = { is_country_type = unrecognized }
+						can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
 					}
 					add = 200
-
-					if = {
-						limit = {
-							scope:target_country = {
-								is_subject = yes
-								is_country_type = unrecognized
-								top_overlord ?= {
-									NOT = { is_country_type = unrecognized }
-								}
-							}
-						}
-						multiply = 0.0
-					}
-				}
-				if = {
-					limit = {
-						country_has_primary_culture = cu:aldrican
-						has_technology_researched = monster_wards
-						any_subject_or_below = {
-							always = no # vanilla ref 'sr:region_southern_africa' not present in this mod
-						}
-						scope:target_country = {
-							always = no # vanilla ref 'sr:region_southern_africa' not present in this mod
-						}
-					}
-					add = 800
 				}
 			}
 		}
@@ -736,12 +667,7 @@ ai_strategy_colonial_expansion = {
 	}
 
 	possible = {
-		is_subject = no
-		is_country_type = recognized
-		OR = {
-			has_law_or_variant = law_type:law_colonial_resettlement
-			has_law_or_variant = law_type:law_colonial_exploitation
-		}
+		ova_ai_can_pursue_overseas_colonization = yes
 	}
 
 	weight = {
@@ -833,12 +759,6 @@ ai_strategy_colonial_expansion = {
 
 		trade = {
 			value = 2
-		}
-	}
-
-	strategic_region_stance_type_scores = {
-		stance_colonize_region = {
-			value = 30
 		}
 	}
 
@@ -1113,13 +1033,8 @@ ai_strategy_economic_imperialism = {
 		value = 0.5
 		if = {
 			limit = {
-				NOT = { is_country_type = unrecognized }
-				scope:target_country = { is_country_type = unrecognized }
-				has_technology_researched = colonization
-				institution_investment_level = {
-					institution = institution_colonial_affairs
-					value >= 1
-				}
+				ova_ai_can_pursue_overseas_colonization = yes
+				scope:target_country = { ova_ai_is_colonial_war_target = yes }
 			}
 			add = 0.5
 
@@ -1219,37 +1134,18 @@ ai_strategy_economic_imperialism = {
 		}
 	}
 
-	strategic_region_scores = {
-
-	}
-
 	secret_goal_scores = {
 		dominate = {
 			score = {
 				if = {
 					limit = {
-						NOT = { scope:target_country = { is_subject_of = root } }
-						has_technology_researched = nationalism  # Just to make sure it doesn't happen immediately in 1836
-						country_rank = rank_value:great_power
-						navy_size >= 25
+						NOT = { scope:target_country = { is_subject_of = ROOT } }
 						scope:target_country = {
-							country_has_primary_culture = cu:sakura
+							NOT = { is_country_type = decentralized }
 							has_law_or_variant = law_type:law_isolationism
 							gdp >= 2000000
-							always = no # vanilla ref 'sr:region_northeast_asia' not present in this mod
 						}
-					}
-					add = 500
-				}
-				else_if = {
-					limit = {
-						NOT = { scope:target_country = { is_subject_of = root } }
-						has_strategic_adjacency = scope:target_country
-						scope:target_country = {
-							has_law_or_variant = law_type:law_isolationism
-							gdp >= 2000000
-							NOT = { country_has_primary_culture = cu:sakura }
-						}
+						can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
 					}
 					add = 100
 				}
@@ -1294,35 +1190,19 @@ ai_strategy_economic_imperialism = {
 					}
 					add = -50
 				}
-
-				# Don't attack Japan outright, open them instead
-				if = {
-					limit = {
-						scope:target_country = {
-							country_has_primary_culture = cu:sakura
-							has_law_or_variant = law_type:law_isolationism
-							gdp >= 2000000
-							always = no # vanilla ref 'sr:region_northeast_asia' not present in this mod
-						}
-					}
-					add = -1000
-				}
 			}
 		}
 	}
 
 	wargoal_weights = {
 		make_subject = 1.5
-		
-		
-		
 		force_nationalization = 1.5
 	}
 
 	treaty_port_value = {
 		if = {
 			limit = {
-				can_reach_target_state = yes
+				can_reach_target_state_to_coerce = { TARGET_STATE = scope:target_state }
 				scope:target_country = {
 					has_law_or_variant = law_type:law_isolationism
 					gdp >= 2000000 # Not worth doing against very small markets
@@ -1345,7 +1225,7 @@ ai_strategy_economic_imperialism = {
 			limit = {
 				has_variable = wants_treaty_port_revenge_against
 				var:wants_treaty_port_revenge_against ?= scope:target_country
-				can_reach_target_state = yes
+				can_reach_target_state_to_coerce = { TARGET_STATE = scope:target_state }
 			}
 			add = 100
 		}
@@ -1359,7 +1239,7 @@ ai_strategy_economic_imperialism = {
 			if = {
 				limit = {
 					country_rank = rank_value:great_power
-					can_reach_target_country = yes
+					can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }
 					scope:target_country = {
 						has_law_or_variant = law_type:law_isolationism
 						gdp >= 5000000 # Not worth doing against small markets
@@ -1373,16 +1253,6 @@ ai_strategy_economic_imperialism = {
 						limit = { is_diplomatic_play_involved_with = scope:target_country }
 						multiply = 0.2
 					}
-					else_if = { # Very high score for opening Japan
-						limit = {
-							scope:target_country = {
-								always = no # vanilla ref 'c:JAP' not present in this mod
-								always = no # vanilla ref 'c:JAP' not present in this mod
-								has_law_or_variant = law_type:law_isolationism
-							}
-						}
-						multiply = 10
-					}
 				}
 			}
 		}
@@ -1392,7 +1262,7 @@ ai_strategy_economic_imperialism = {
 			if = {
 				limit = {
 					country_rank = rank_value:great_power
-					can_reach_target_country = yes
+					can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }
 					scope:target_country = {
 						has_law_or_variant = law_type:law_isolationism
 						gdp >= 5000000 # Not worth doing against small markets
@@ -1405,16 +1275,6 @@ ai_strategy_economic_imperialism = {
 					if = {
 						limit = { is_diplomatic_play_involved_with = scope:target_country }
 						multiply = 0.2
-					}
-					else_if = { # Very high score for opening Japan
-						limit = {
-							scope:target_country = {
-								always = no # vanilla ref 'c:JAP' not present in this mod
-								always = no # vanilla ref 'c:JAP' not present in this mod
-								has_law_or_variant = law_type:law_isolationism
-							}
-						}
-						multiply = 10
 					}
 				}
 			}

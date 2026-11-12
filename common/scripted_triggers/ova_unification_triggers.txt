@@ -1,0 +1,79 @@
+﻿# These cultures use standard formations with a homeland ownership threshold.
+ova_can_pursue_cultural_unification = {
+	is_subject = no
+	NOT = { is_country_type = decentralized }
+	OR = {
+		AND = { country_has_primary_culture = cu:deigo NOT = { exists = c:DEI } }
+		AND = { country_has_primary_culture = cu:sakura NOT = { exists = c:SAK } }
+		AND = { country_has_primary_culture = cu:snow_elf NOT = { exists = c:SNE } }
+		AND = { country_has_primary_culture = cu:stone_dwarf NOT = { exists = c:SDW } }
+		AND = {
+			ova_is_rabbitkin_country = yes
+			NOT = { exists = c:RAB }
+		}
+		AND = {
+			ova_is_foxkin_country = yes
+			NOT = { exists = c:KIT }
+		}
+		AND = {
+			ova_is_frostmark_country = yes
+			NOT = { exists = c:FRM }
+		}
+	}
+}
+
+ova_is_rabbitkin_country = {
+	OR = {
+		country_has_primary_culture = cu:eastern_rabbitkin
+		country_has_primary_culture = cu:western_rabbitkin
+	}
+}
+
+ova_is_foxkin_country = {
+	OR = {
+		country_has_primary_culture = cu:snow_foxkin
+		country_has_primary_culture = cu:forest_foxkin
+	}
+}
+
+ova_is_frostmark_country = {
+	OR = {
+		country_has_primary_culture = cu:fjordic
+		country_has_primary_culture = cu:frostholm
+	}
+}
+
+# State region scope. Shared formations count both of their cultures' homelands.
+ova_is_unification_homeland = {
+	OR = {
+		AND = { is_homeland = cu:deigo $COUNTRY$ = { country_has_primary_culture = cu:deigo } }
+		AND = { is_homeland = cu:sakura $COUNTRY$ = { country_has_primary_culture = cu:sakura } }
+		AND = { is_homeland = cu:snow_elf $COUNTRY$ = { country_has_primary_culture = cu:snow_elf } }
+		AND = { is_homeland = cu:stone_dwarf $COUNTRY$ = { country_has_primary_culture = cu:stone_dwarf } }
+		AND = {
+			OR = { is_homeland = cu:eastern_rabbitkin is_homeland = cu:western_rabbitkin }
+			$COUNTRY$ = { ova_is_rabbitkin_country = yes }
+		}
+		AND = {
+			OR = { is_homeland = cu:snow_foxkin is_homeland = cu:forest_foxkin }
+			$COUNTRY$ = { ova_is_foxkin_country = yes }
+		}
+		AND = {
+			OR = { is_homeland = cu:fjordic is_homeland = cu:frostholm }
+			$COUNTRY$ = { ova_is_frostmark_country = yes }
+		}
+	}
+}
+
+# A country can obstruct formation even if its own primary culture differs.
+ova_is_unification_target = {
+	ova_can_pursue_cultural_unification = yes
+	NOT = { is_subject_of = scope:target_country }
+	scope:target_country = {
+		NOT = { is_country_type = decentralized }
+		NOT = { is_subject_of = ROOT }
+		any_scope_state = {
+			state_region = { ova_is_unification_homeland = { COUNTRY = ROOT } }
+		}
+	}
+}

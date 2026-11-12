@@ -1,0 +1,84 @@
+﻿ova_ai_has_overseas_colonial_law = {
+	OR = {
+		has_law_or_variant = law_type:law_colonial_resettlement
+		has_law_or_variant = law_type:law_colonial_exploitation
+	}
+}
+
+ova_ai_has_colonial_affairs_investment = {
+	institution_investment_level = {
+		institution = institution_colonial_affairs
+		value >= 1
+	}
+}
+
+ova_ai_can_expand_colonies = {
+	NOT = { is_country_type = decentralized }
+	OR = {
+		has_law_or_variant = law_type:law_frontier_colonization
+		ova_ai_has_overseas_colonial_law = yes
+	}
+	ova_ai_has_colonial_affairs_investment = yes
+}
+
+ova_ai_can_pursue_overseas_colonization = {
+	is_subject = no
+	is_country_type = recognized
+	has_port_country = yes
+	ova_ai_has_overseas_colonial_law = yes
+	ova_ai_has_colonial_affairs_investment = yes
+}
+
+# State scope. The caller checks the actor's colonization law and institution.
+# Frontier actors can expand from an adjoining holding or their own part of a
+# split state. An overseas approach needs a coastal target.
+ova_ai_can_colonize_tribal_state = {
+	owner = { is_country_type = decentralized }
+	$COLONIZER$ = {
+		OR = {
+			is_adjacent_to_state = prev
+			prev.state_region = {
+				any_scope_state = { owner = $COLONIZER$ }
+			}
+			AND = {
+				ova_ai_can_pursue_overseas_colonization = yes
+				navy_size >= 50
+				prev = { is_coastal = yes }
+				# Interest scores are also evaluated before an interest is declared.
+				has_military_reach = {
+					target = prev
+					min_reach = ai_military_reach_protect
+					min_shippable_strength = ai_military_reach_protect_min_shippable_strength
+				}
+			}
+		}
+	}
+}
+
+# Match the non-homeland modifiers and disabling technologies on the state traits.
+ova_ai_has_colonial_growth_penalty = {
+	NOT = { is_homeland_of_country_cultures = $COLONIZER$ }
+	OR = {
+		AND = {
+			has_state_trait = state_trait_severe_malaria
+			$COLONIZER$ = { NOT = { has_technology_researched = monster_wards } }
+		}
+		AND = {
+			has_state_trait = state_trait_malaria
+			$COLONIZER$ = {
+				NOR = {
+					has_technology_researched = fever_tonics
+					has_technology_researched = nascent_soul
+					has_technology_researched = greater_war_automata
+				}
+			}
+		}
+	}
+}
+
+# Province colonization and diplomatic plays have different targets.
+ova_ai_is_colonial_war_target = {
+	is_country_type = unrecognized
+	ai_country_is_valid_colonization_target = yes
+	NOT = { is_subject_of = ROOT }
+}

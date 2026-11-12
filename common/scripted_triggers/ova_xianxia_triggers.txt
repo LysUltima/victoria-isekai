@@ -285,6 +285,34 @@ ova_xianxia_rival_exists_trigger = {
 # --- common/ai_strategies/12_ova_xianxia_strategies.txt and the champion
 # --- expedition AI to point each side of the dao war at the other.
 
+ova_xianxia_is_lan_martial_sect = {
+	country_has_primary_culture = cu:lan
+	has_law = law_type:law_martial_sect
+}
+
+ova_xianxia_is_lian_martial_sect = {
+	country_has_primary_culture = cu:lian
+	has_law = law_type:law_martial_sect
+}
+
+# The culture rivalry also reaches the Underworld Sect outside the Covenant.
+ova_xianxia_target_is_rival_martial_sect = {
+	OR = {
+		AND = {
+			ova_xianxia_is_lan_martial_sect = yes
+			scope:target_country = { ova_xianxia_is_lian_martial_sect = yes }
+		}
+		AND = {
+			ova_xianxia_is_lian_martial_sect = yes
+			scope:target_country = { ova_xianxia_is_lan_martial_sect = yes }
+		}
+	}
+	NOR = {
+		is_subject_of = scope:target_country
+		scope:target_country = { is_subject_of = ROOT }
+	}
+}
+
 # The strategy's target is one of the four demonic-path sects.
 ova_xianxia_target_is_demonic_trigger = {
 	OR = {
