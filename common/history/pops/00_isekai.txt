@@ -107,7 +107,7 @@
         region_state:LYS = {
             create_pop = {
                 culture = lysian
-                size = 1810000
+                size = 2410000
             }
             create_pop = {
                 culture = wood_elf
@@ -119,7 +119,7 @@
             }
             create_pop = {
                 culture = aldrican
-                size = 497100
+                size = 797100
             }
         }
     }

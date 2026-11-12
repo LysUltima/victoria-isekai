@@ -1299,7 +1299,7 @@
 				add_ownership = {
 				    country = {
 				        country = "c:LYS"
-				        levels = 3
+				        levels = 6
 				    }
 				}
 				reserves = 1
@@ -1325,7 +1325,7 @@
 				add_ownership = {
 				    country = {
 				        country = "c:LYS"
-				        levels = 1
+				        levels = 3
 				    }
 				}
 				reserves = 1
@@ -1336,7 +1336,7 @@
 				    building = {
 				        type = "building_financial_district"
 				        country = "c:LYS"
-				        levels = 6
+				        levels = 8
 				        region = "STATE_CEPHISPORT"
 				    }
 				}
@@ -1402,7 +1402,7 @@
 				    building = {
 				        type = "building_financial_district"
 				        country = "c:LYS"
-				        levels = 2
+				        levels = 4
 				        region = "STATE_CEPHISPORT"
 				    }
 				}
@@ -1422,7 +1422,7 @@
 				    building = {
 				        type = "building_financial_district"
 				        country = "c:LYS"
-				        levels = 1
+				        levels = 2
 				        region = "STATE_CEPHISPORT"
 				    }
 				}
@@ -1442,7 +1442,7 @@
 				    }
 				    country = {
 				        country = "c:LUX"
-				        levels = 1
+				        levels = 2
 				    }
 				}
 				reserves = 1
@@ -1463,7 +1463,7 @@
 				    }
 				    country = {
 				        country = "c:LUX"
-				        levels = 1
+				        levels = 2
 				    }
 				}
 				reserves = 1
@@ -1498,7 +1498,7 @@
 				add_ownership = {
 				    country = {
 				        country = "c:LYS"
-				        levels = 2
+				        levels = 4
 				    }
 				}
 				reserves = 1
@@ -1512,7 +1512,7 @@
 				    building = {
 				        type = "building_financial_district"
 				        country = "c:LYS"
-				        levels = 2
+				        levels = 6
 				        region = "STATE_CEPHISPORT"
 				    }
 				}
@@ -2371,9 +2371,9 @@
 				add_ownership = {
 				    building = {
 				        type = "building_financial_district"
-				        country = "c:REY"
-				        levels = 1
-				        region = "STATE_FUSCHTAL"
+				        country = "c:VAL"
+				        levels = 2
+				        region = "STATE_DRAKE_MOUNTAIN"
 				    }
 				}
 				reserves = 1
@@ -2382,7 +2382,7 @@
 				building = "building_artillery_foundry"
 				add_ownership = {
 				    country = {
-				        country = "c:REY"
+				        country = "c:VAL"
 				        levels = 1
 				    }
 				}
@@ -3052,7 +3052,7 @@
                 add_ownership = {
                     country = {
                         country = "c:LUX"
-                        levels = 20
+                        levels = 21
                     }
                 }
                 reserves = 1
@@ -4669,7 +4669,7 @@
 				    building = {
 				        type = "building_financial_district"
 				        country = "c:REY"
-				        levels = 1
+				        levels = 2
 				        region = "STATE_KATZENBURG"
 				    }
 				}

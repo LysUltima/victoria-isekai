@@ -109,21 +109,6 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:STATE_CADUNT_STELLAE = {
-		region_state:DEM = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:DEM"
-						levels = 4
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
 	s:STATE_CEPHISPORT = {
 		region_state:LYS = {
 			create_building = {
@@ -147,21 +132,6 @@ BUILDINGS = {
 					country = {
 						country = "c:CHA"
 						levels = 8
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
-	s:STATE_CONNELAND = {
-		region_state:LYS = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:LYS"
-						levels = 4
 					}
 				}
 				reserves = 1
@@ -214,21 +184,6 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:STATE_EX_CAELO = {
-		region_state:DEM = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:DEM"
-						levels = 5
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
 	s:STATE_FENISTON = {
 		region_state:LYS = {
 			create_building = {
@@ -244,21 +199,6 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:STATE_FUGIT_TEMPUS = {
-		region_state:DEM = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:DEM"
-						levels = 6
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
 	s:STATE_FUQU = {
 		region_state:BLO = {
 			create_building = {
@@ -267,21 +207,6 @@ BUILDINGS = {
 					country = {
 						country = "c:BLO"
 						levels = 4
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
-	s:STATE_GARLEHOLD = {
-		region_state:LYS = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:LYS"
-						levels = 3
 					}
 				}
 				reserves = 1
@@ -394,36 +319,6 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:STATE_IN_SILENTIO = {
-		region_state:DEM = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:DEM"
-						levels = 10
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
-	s:STATE_IN_SPECULA = {
-		region_state:DEM = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:DEM"
-						levels = 8
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
 	s:STATE_JINGFENG = {
 		region_state:FEN = {
 			create_building = {
@@ -507,21 +402,6 @@ BUILDINGS = {
 					country = {
 						country = "c:VAL"
 						levels = 7
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
-	s:STATE_LUMINA_FRACTA = {
-		region_state:DEM = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:DEM"
-						levels = 9
 					}
 				}
 				reserves = 1
@@ -679,47 +559,6 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:STATE_RUINA = {
-		region_state:DEM = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:DEM"
-						levels = 4
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:DEM"
-						levels = 1
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
-	s:STATE_RUIT_SPES = {
-		region_state:DEM = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:DEM"
-						levels = 6
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
 	s:STATE_SABKHA_SAHILIYYA = {
 		region_state:SUN = {
 			create_building = {
@@ -780,21 +619,6 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:STATE_SEYLAND = {
-		region_state:LYS = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:LYS"
-						levels = 6
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
 	s:STATE_SHAHAI = {
 		region_state:BLO = {
 			create_building = {
@@ -803,21 +627,6 @@ BUILDINGS = {
 					country = {
 						country = "c:BLO"
 						levels = 6
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
-	s:STATE_SICUT_LACRIMAE = {
-		region_state:DEM = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:DEM"
-						levels = 7
 					}
 				}
 				reserves = 1
@@ -862,21 +671,6 @@ BUILDINGS = {
 				add_ownership = {
 					country = {
 						country = "c:IMM"
-						levels = 7
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_simple_sailor_recruitment" }
-			}
-		}
-	}
-	s:STATE_TREMIT_LUMEN = {
-		region_state:DEM = {
-			create_building = {
-				building = "building_naval_administration"
-				add_ownership = {
-					country = {
-						country = "c:DEM"
 						levels = 7
 					}
 				}
@@ -1039,7 +833,7 @@ BUILDINGS = {
 		region_state:TID = {
 			create_building = {
 				building = "building_naval_administration"
-				add_ownership = { country = { country = "c:TID" levels = 5 } }
+				add_ownership = { country = { country = "c:TID" levels = 10 } }
 				reserves = 1
 				activate_production_methods = { "pm_simple_sailor_recruitment" }
 			}

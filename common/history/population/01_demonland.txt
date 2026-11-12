@@ -1,5 +1,17 @@
 ﻿POPULATION = {
     c:DEM = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:AHD = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:DUS = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_low = yes
+    }
+    c:NOX = {
         effect_starting_pop_wealth_high = yes
         effect_starting_pop_literacy_high = yes
     }

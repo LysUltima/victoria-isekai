@@ -1141,7 +1141,7 @@ STATE_ZULZAIKHUMA = {
     id = 227
     subsistence_building = "building_subsistence_pasture"
     provinces = { "x89625C" "x8A6C56" "x8B4D57" "x8B6A63" "x8D534A" "x8F4971" "x905150" "x905970" "x905C5B" "x914E53" "x91555C" "x916D5E" "x945A6A" "x954F70" "x974C6B" "x975550" "x986759" "x9A4661" "x9E4C5E" "xA06162" "xA1586F" "xA65261" "xA66850" "xAB655B" "xAC4F4A" "xAD5E6D" "xB0595B" "xB06866" "xB1475E" "xB16061" }
-    impassable = { "x8B4D57" "x905C5B" "x916D5E" "x974C6B" "x9A4661" "xA1586F" }
+    impassable = { "x8B4D57" "x905C5B" "x916D5E" "x974C6B" "x9A4661" "xA1586F" "xA06162" }
     traits = { "state_trait_eastern_steppe" }
 
     city = "xAD5E6D"

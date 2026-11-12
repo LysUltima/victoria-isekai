@@ -84,7 +84,7 @@
         }
     }
     s:STATE_FUGIT_TEMPUS = {
-        region_state:DEM = {
+        region_state:AHD = {
             create_pop = {
                 culture = horned_demon
                 size = 2415000
@@ -92,7 +92,7 @@
         }
     }
     s:STATE_IN_SILENTIO = {
-        region_state:DEM = {
+        region_state:AHD = {
             create_pop = {
                 culture = horned_demon
                 size = 3845000
@@ -108,7 +108,7 @@
         }
     }
     s:STATE_IN_SPECULA = {
-        region_state:DEM = {
+        region_state:NOX = {
             create_pop = {
                 culture = shadow_demon
                 size = 2545000
@@ -124,7 +124,7 @@
         }
     }
     s:STATE_LATENT_VIAE = {
-        region_state:DEM = {
+        region_state:DUS = {
             create_pop = {
                 culture = horned_demon
                 size = 1146900
@@ -156,7 +156,7 @@
         }
     }
     s:STATE_LUMINA_FRACTA = {
-        region_state:DEM = {
+        region_state:NOX = {
             create_pop = {
                 culture = shadow_demon
                 size = 3145000
@@ -266,7 +266,7 @@
         }
     }
     s:STATE_SICUT_LACRIMAE = {
-        region_state:DEM = {
+        region_state:AHD = {
             create_pop = {
                 culture = horned_demon
                 size = 2550000
@@ -286,7 +286,7 @@
         }
     }
     s:STATE_TREMIT_LUMEN = {
-        region_state:DEM = {
+        region_state:DUS = {
             create_pop = {
                 culture = horned_demon
                 size = 1311200

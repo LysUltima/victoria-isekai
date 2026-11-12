@@ -267,7 +267,7 @@
         region_state:YAO = {
             create_pop = {
                 culture = tong
-                size = 6728000
+                size = 9728000
             }
         }
     }

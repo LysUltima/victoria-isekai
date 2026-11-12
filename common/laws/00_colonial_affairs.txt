@@ -125,6 +125,18 @@ law_frontier_colonization = {
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 
+        if = {
+            limit = {
+                OR = {
+                    c:SIR ?= THIS
+                    c:URR ?= THIS
+                    c:UAN ?= THIS
+                    c:RAB ?= THIS
+                }
+            }
+            add = 500
+        }
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
@@ -309,6 +321,22 @@ law_colonial_exploitation = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+
+        if = {
+            limit = {
+                OR = {
+                    c:LYS ?= THIS
+                    c:REY ?= THIS
+                    c:LUX ?= THIS
+                    c:SAK ?= THIS
+                    c:MAE ?= THIS
+                    c:DEI ?= THIS
+                    c:LAN ?= THIS
+                    c:CRI ?= THIS
+                }
+            }
+            add = 500
+        }
 
 	}
 

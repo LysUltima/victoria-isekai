@@ -205,7 +205,12 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_INSULA_LUCE
-				count = 42
+				count = 15
+			}
+            combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_INSULA_LUCE
+				count = 15
 			}
 		}
 		create_character = {
@@ -215,10 +220,48 @@ MILITARY_FORMATIONS = {
 			save_scope_as = LUX_general_1
 		}
 		scope:LUX_general_1 = { transfer_to_formation = scope:LUX_army_1 }
+        create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_3
+			save_scope_as = LUX_general_2
+		}
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_isekai
+			hq_region = sr:region_demonland
 			save_scope_as = LUX_army_2
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_INSULA_LUCE
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_INSULA_LUCE
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GRACE
+				count = 10
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_GRACE
+				count = 10
+			}
+		}
+        scope:LUX_general_2 = { transfer_to_formation = scope:LUX_army_2 }
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_3
+			save_scope_as = LUX_general_3
+		}
+        create_military_formation = {
+			type = army
+			hq_region = sr:region_demonland
+			save_scope_as = LUX_army_3
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_INSULA_LUCE
@@ -227,29 +270,19 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_INSULA_LUCE
-				count = 11
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_GRACE
-				count = 4
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_GRACE
-				count = 1
+				count = 25
 			}
 		}
 		create_character = {
 			is_general = yes
 			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
-			save_scope_as = LUX_general_2
+			commander_rank = commander_rank_1
+			save_scope_as = LUX_general_3
 		}
-		scope:LUX_general_2 = { transfer_to_formation = scope:LUX_army_2 }
+		scope:LUX_general_3 = { transfer_to_formation = scope:LUX_army_3 }
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_isekai
+			hq_region = sr:region_demonland
 			save_scope_as = LUX_fleet_1
 			ship = {
 				type = ship_type:ship_type_frigate
@@ -288,17 +321,12 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_IMPERIAL_CAPITAL
-				count = 30
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_IMPERIAL_CAPITAL
-				count = 7
+				count = 25
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_IMPERIAL_CAPITAL
-				count = 7
+				count = 25
 			}
 		}
 		create_character = {
@@ -310,12 +338,12 @@ MILITARY_FORMATIONS = {
 		scope:LYS_general_1 = { transfer_to_formation = scope:LYS_army_1 }
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_isekai
+			hq_region = sr:region_demonland
 			save_scope_as = LYS_army_2
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_CEPHISPORT
-				count = 16
+				count = 10
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
@@ -325,90 +353,50 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_CEPHISPORT
-				count = 3
+				count = 12
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_SEYLAND
-				count = 13
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_SEYLAND
-				count = 3
+				count = 5
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_SEYLAND
-				count = 3
+				count = 15
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_VERCESTIA
-				count = 3
+				count = 20
 			}
 		}
 		create_character = {
 			is_general = yes
 			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
+			commander_rank = commander_rank_3
 			save_scope_as = LYS_general_2
 		}
 		scope:LYS_general_2 = { transfer_to_formation = scope:LYS_army_2 }
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_isekai
+			hq_region = sr:region_demonland
 			save_scope_as = LYS_army_3
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_VERCESTIA
-				count = 9
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_VERCESTIA
-				count = 3
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_VERCESTIA
-				count = 3
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_FENISTON
-				count = 11
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_FENISTON
-				count = 2
+				count = 10
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_FENISTON
-				count = 2
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_CONNELAND
-				count = 9
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_CONNELAND
-				count = 2
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_CONNELAND
-				count = 2
+				count = 10
 			}
 		}
 		create_character = {
 			is_general = yes
 			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
+			commander_rank = commander_rank_1
 			save_scope_as = LYS_general_3
 		}
 		scope:LYS_general_3 = { transfer_to_formation = scope:LYS_army_3 }
@@ -430,7 +418,7 @@ MILITARY_FORMATIONS = {
 		scope:LYS_admiral_1 = { transfer_to_formation = scope:LYS_fleet_1 }
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_isekai
+			hq_region = sr:region_demonland
 			save_scope_as = LYS_fleet_2
 			ship = {
 				type = ship_type:ship_type_frigate
@@ -444,22 +432,6 @@ MILITARY_FORMATIONS = {
 			save_scope_as = LYS_admiral_2
 		}
 		scope:LYS_admiral_2 = { transfer_to_formation = scope:LYS_fleet_2 }
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_isekai
-			save_scope_as = LYS_fleet_3
-			ship = {
-				type = ship_type:ship_type_frigate
-				count = 32
-			}
-		}
-		create_character = {
-			is_admiral = yes
-			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
-			save_scope_as = LYS_admiral_3
-		}
-		scope:LYS_admiral_3 = { transfer_to_formation = scope:LYS_fleet_3 }
 	}
 	c:NIS ?= {
 		create_military_formation = {

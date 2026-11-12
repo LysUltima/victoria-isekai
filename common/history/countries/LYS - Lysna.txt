@@ -7,6 +7,8 @@ COUNTRIES = {
 
         add_technology_researched = railways
 
+        add_supply_ships = 1000
+
 		# BEGIN OVA STORY COMPANY
 		# Existing story institution; no capacity or technology grants.
 		# Foundation: inferred; Permanent court patronage charter assigned to the first year after the 1802 Radiant Crusade compact; earlier Heroes and summoning institutions predate this office. Exact office date is unspecified in original lore. Month and day are authored flavor.

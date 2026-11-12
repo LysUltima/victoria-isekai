@@ -538,7 +538,7 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_NIRAI_KANAI
-				count = 13
+				count = 20
 			}
 		}
 		create_character = {
@@ -554,7 +554,7 @@ MILITARY_FORMATIONS = {
 			save_scope_as = TID_fleet_1
 			ship = {
 				type = ship_type:ship_type_frigate
-				count = 10
+				count = 20
 			}
 		}
 		create_character = {

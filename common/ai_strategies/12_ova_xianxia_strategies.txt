@@ -92,7 +92,6 @@ ai_strategy_ova_righteous_path = {
 			min = 0.5
 		}
 
-		# The Lan-Lian feud takes priority over the wider Covenant war.
 		if = {
 			limit = { ova_xianxia_target_is_rival_martial_sect = yes }
 			add = 8

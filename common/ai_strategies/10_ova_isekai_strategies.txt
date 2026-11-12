@@ -82,12 +82,6 @@ ai_strategy_ova_radiant_crusader = {
 			max = 2.0
 			min = 0.5
 		}
-
-		# The Radiant Crusade's whole purpose - press the war against the Demonic Empire
-		if = {
-			limit = { c:DEM ?= scope:target_country }
-			add = 8
-		}
 	}
 
 	building_group_weights = {
@@ -134,24 +128,26 @@ ai_strategy_ova_radiant_crusader = {
 					}
 					add = 50
 				}
-				# the crusade's whole purpose: the Demonic Empire above all
-				if = {
-					limit = { c:DEM ?= scope:target_country }
-					add = 500
-				}
 			}
 		}
-		# even where conquest is out of reach, a Radiant crown HATES the
-		# Demonic Empire - which also opens champion expeditions into it
-		# (the expedition action reads attitudes)
+
 		antagonize = {
 			trigger = {
 				c:DEM ?= scope:target_country
 			}
 			score = {
-				value = 300
+				add = 500
 			}
 		}
+
+        befriend = {
+            trigger = {
+				c:DEM ?= scope:target_country
+			}
+			score = {
+				subtract = 100000
+			}
+        }
 	}
 
 	possible = {
@@ -251,22 +247,9 @@ ai_strategy_ova_demonic_reclamation = {
 			min = 0.5
 		}
 
-		# The crusaders remain enemies even without a foothold in the homeland.
 		if = {
 			limit = { ova_hero_target_is_reclamation_enemy = yes }
-			add = 2
-			if = {
-				limit = { scope:target_country = { ova_hero_is_radiant_crusader = yes } }
-				add = 6
-			}
-		}
-
-		# Sinra's march at Newhold sits on demon desert soil too
-		if = {
-			limit = {
-				c:SIN ?= scope:target_country
-			}
-			add = 1.0
+			add = 0.5
 		}
 
 		# never against the Concord Aurorae - the dawn is a sworn friend
@@ -281,7 +264,7 @@ ai_strategy_ova_demonic_reclamation = {
 	}
 
 	building_group_weights = {
-		bg_army = 1.5
+		bg_army = 0.75 # Otherwise the Isekai countries get murdered
 	}
 
 	secret_goal_weights = {
@@ -298,6 +281,14 @@ ai_strategy_ova_demonic_reclamation = {
 	}
 
 	secret_goal_scores = {
+        befriend = {
+            trigger = {
+				scope:target_country = { ova_hero_is_radiant_crusader = yes }
+			}
+			score = {
+				subtract = 100000
+			}
+        }
 		conquer = {
 			trigger = {
 				NOR = {

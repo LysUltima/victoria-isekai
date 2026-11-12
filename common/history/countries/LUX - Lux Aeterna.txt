@@ -13,6 +13,8 @@ COUNTRIES = {
         set_variable = { name = ova_lux_hero_count value = 0 }
         add_journal_entry = { type = je_ova_eternal_crusade }
 
+        add_supply_ships = 1000
+
 		# BEGIN OVA STORY COMPANY
 		# Existing story institution; no capacity or technology grants.
 		# Foundation: inferred; Ancient holy order established centuries after the Goddess War (approximately year 36), long before the Radiant Crusade of 1802. Exact foundation year is new flavor; The month and day are authored flavor.

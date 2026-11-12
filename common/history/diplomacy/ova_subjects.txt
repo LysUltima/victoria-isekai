@@ -82,6 +82,27 @@
 		}
 	}
 
+  c:DEM = {
+		create_diplomatic_pact = {
+			country = c:AHD
+			type = tributary
+		}
+	}
+
+  c:DEM = {
+		create_diplomatic_pact = {
+			country = c:DUS
+			type = tributary
+		}
+	}
+
+  c:DEM = {
+		create_diplomatic_pact = {
+			country = c:NOX
+			type = tributary
+		}
+	}
+
   c:CAT = {
 		create_diplomatic_pact = {
 			country = c:TUC

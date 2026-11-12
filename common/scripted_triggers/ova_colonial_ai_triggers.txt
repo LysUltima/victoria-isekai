@@ -22,8 +22,6 @@ ova_ai_can_expand_colonies = {
 }
 
 ova_ai_can_pursue_overseas_colonization = {
-	is_subject = no
-	is_country_type = recognized
 	has_port_country = yes
 	ova_ai_has_overseas_colonial_law = yes
 	ova_ai_has_colonial_affairs_investment = yes
@@ -42,7 +40,7 @@ ova_ai_can_colonize_tribal_state = {
 			}
 			AND = {
 				ova_ai_can_pursue_overseas_colonization = yes
-				navy_size >= 50
+				navy_size >= 20
 				prev = { is_coastal = yes }
 				# Interest scores are also evaluated before an interest is declared.
 				has_military_reach = {

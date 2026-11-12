@@ -11047,7 +11047,6 @@ ova_xianxia_face_resounding = {
 
 ova_xianxia_flavor_auction_boom = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
-	building_group_bg_service_throughput_add = 0.1
 	country_expenses_add = -1
 }
 

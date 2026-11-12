@@ -13,81 +13,36 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_EX_TENEBRIS
-				count = 33
+				count = 45
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_EX_TENEBRIS
-				count = 6
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_IN_SILENTIO
-				count = 9
+				count = 30
 			}
 		}
 		create_character = {
 			is_general = yes
 			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
+			commander_rank = commander_rank_3
 			save_scope_as = DEM_general_1
 		}
 		scope:DEM_general_1 = { transfer_to_formation = scope:DEM_army_1 }
+	}
+	c:AHD ?= {
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_demonland
-			save_scope_as = DEM_army_2
+			save_scope_as = AHD_army_1
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_IN_SILENTIO
-				count = 19
+				count = 10
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_IN_SILENTIO
 				count = 5
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_LUMINA_FRACTA
-				count = 24
-			}
-		}
-		create_character = {
-			is_general = yes
-			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
-			save_scope_as = DEM_general_2
-		}
-		scope:DEM_general_2 = { transfer_to_formation = scope:DEM_army_2 }
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_demonland
-			save_scope_as = DEM_army_3
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_LUMINA_FRACTA
-				count = 4
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_IN_SPECULA
-				count = 20
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_IN_SPECULA
-				count = 3
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_TREMIT_LUMEN
-				count = 17
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_TREMIT_LUMEN
-				count = 3
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
@@ -99,78 +54,23 @@ MILITARY_FORMATIONS = {
 			is_general = yes
 			interest_group = ig_armed_forces
 			commander_rank = commander_rank_2
-			save_scope_as = DEM_general_3
+			save_scope_as = AHD_general_1
 		}
-		scope:DEM_general_3 = { transfer_to_formation = scope:DEM_army_3 }
+		scope:AHD_general_1 = { transfer_to_formation = scope:AHD_army_1 }
+	}
+	c:DUS ?= {
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_demonland
-			save_scope_as = DEM_army_4
+			save_scope_as = DUS_army_1
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_SICUT_LACRIMAE
-				count = 16
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_SICUT_LACRIMAE
-				count = 3
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_CEU_ARDENT
-				count = 17
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_CEU_ARDENT
-				count = 3
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_LATENT_VIAE
-				count = 9
-			}
-		}
-		create_character = {
-			is_general = yes
-			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
-			save_scope_as = DEM_general_4
-		}
-		scope:DEM_general_4 = { transfer_to_formation = scope:DEM_army_4 }
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_demonland
-			save_scope_as = DEM_army_5
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_LATENT_VIAE
+				state_region = s:STATE_TREMIT_LUMEN
 				count = 7
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_LATENT_VIAE
-				count = 3
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_FUGIT_TEMPUS
-				count = 16
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_FUGIT_TEMPUS
-				count = 3
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_RUIT_SPES
-				count = 15
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_RUIT_SPES
+				state_region = s:STATE_TREMIT_LUMEN
 				count = 3
 			}
 		}
@@ -178,73 +78,43 @@ MILITARY_FORMATIONS = {
 			is_general = yes
 			interest_group = ig_armed_forces
 			commander_rank = commander_rank_2
-			save_scope_as = DEM_general_5
+			save_scope_as = DUS_general_1
 		}
-		scope:DEM_general_5 = { transfer_to_formation = scope:DEM_army_5 }
+		scope:DUS_general_1 = { transfer_to_formation = scope:DUS_army_1 }
+	}
+	c:NOX ?= {
 		create_military_formation = {
-			type = fleet
+			type = army
 			hq_region = sr:region_demonland
-			save_scope_as = DEM_fleet_1
-			ship = {
-				type = ship_type:ship_type_frigate
-				count = 33
+			save_scope_as = NOX_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LUMINA_FRACTA
+				count = 10
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_LUMINA_FRACTA
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_IN_SPECULA
+				count = 10
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_IN_SPECULA
+				count = 3
 			}
 		}
 		create_character = {
-			is_admiral = yes
+			is_general = yes
 			interest_group = ig_armed_forces
 			commander_rank = commander_rank_2
-			save_scope_as = DEM_admiral_1
+			save_scope_as = NOX_general_1
 		}
-		scope:DEM_admiral_1 = { transfer_to_formation = scope:DEM_fleet_1 }
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_demonland
-			save_scope_as = DEM_fleet_2
-			ship = {
-				type = ship_type:ship_type_frigate
-				count = 33
-			}
-		}
-		create_character = {
-			is_admiral = yes
-			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
-			save_scope_as = DEM_admiral_2
-		}
-		scope:DEM_admiral_2 = { transfer_to_formation = scope:DEM_fleet_2 }
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_demonland
-			save_scope_as = DEM_fleet_3
-			ship = {
-				type = ship_type:ship_type_frigate
-				count = 33
-			}
-		}
-		create_character = {
-			is_admiral = yes
-			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
-			save_scope_as = DEM_admiral_3
-		}
-		scope:DEM_admiral_3 = { transfer_to_formation = scope:DEM_fleet_3 }
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_demonland
-			save_scope_as = DEM_fleet_4
-			ship = {
-				type = ship_type:ship_type_frigate
-				count = 33
-			}
-		}
-		create_character = {
-			is_admiral = yes
-			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
-			save_scope_as = DEM_admiral_4
-		}
-		scope:DEM_admiral_4 = { transfer_to_formation = scope:DEM_fleet_4 }
+		scope:NOX_general_1 = { transfer_to_formation = scope:NOX_army_1 }
 	}
 	c:PAL ?= {
 		create_military_formation = {
@@ -269,28 +139,11 @@ MILITARY_FORMATIONS = {
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_demonland
-			save_scope_as = YOL_army_1
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_YOLTENI
-				count = 34
-			}
-		}
-		create_character = {
-			is_general = yes
-			interest_group = ig_armed_forces
-			commander_rank = commander_rank_2
-			save_scope_as = YOL_general_1
-		}
-		scope:YOL_general_1 = { transfer_to_formation = scope:YOL_army_1 }
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_demonland
 			save_scope_as = YOL_army_2
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_YOLTENI
-				count = 7
+				count = 17
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
@@ -300,7 +153,7 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_NAIRENTHOYU
-				count = 16
+				count = 8
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
