@@ -78,7 +78,7 @@
     s:STATE_CADUNT_STELLAE = {
         create_state = {
             country = c:DEM
-            owned_provinces = { "xE14912" "xE1621F" "xE16413" "xE2612F" "xE54015" "xE56114" "xE64C29" "xE85C1C" "xE86427" "xE94320" "xE96629" "xEA5D23" "xEA5D36" "xEB5415" "xEE492B" "xEE6012" "xEF4919" "xEF5438" "xF05634" "xF14436" "xF64314" "xF75638" "xF85719" "xF85D25" "xF94D14" "xFC4017" "xFC4F34" "xFC502F" "xFE4316" "xFE4414" "xFF4C38" "xFF4F2E" "xFF5138" "xFF5B31" "xFF5B37" "xFF5F13" "xFF6015" "xFF6418" "x616E3E" }
+            owned_provinces = { "x5f913f" "x616e3e" "x656e2e" "x6f8a3a" "x716c39" "x86813f" "x86883b" "xe14912" "xe1621f" "xe16413" "xe2612f" "xe54015" "xe56114" "xe64c29" "xe85c1c" "xe86427" "xe94320" "xe96629" "xea5d23" "xea5d36" "xeb5415" "xee492b" "xee6012" "xef4919" "xef5438" "xf05634" "xf14436" "xf64314" "xf75638" "xf85719" "xf85d25" "xf94d14" "xfc4017" "xfc4f34" "xfc502f" "xfe4316" "xfe4414" "xff4c38" "xff4f2e" "xff5138" "xff5b31" "xff5b37" "xff5f13" "xff6015" "xff6418" }
         }
 
         add_homeland = cu:shadow_demon
@@ -86,7 +86,7 @@
     s:STATE_ASTRORUM = {
         create_state = {
             country = c:DEM
-            owned_provinces = { "x5F893C" "x5F913F" "x5F9342" "x618A32" "x626D30" "x63703D" "x637123" "x649230" "x656E2E" "x657338" "x658B32" "x676C2C" "x678A24" "x68873B" "x697320" "x6A7546" "x6A8739" "x6A9240" "x6C8E29" "x6E8F23" "x6F8A3A" "x6F8E2F" "x716C39" "x728036" "x748035" "x757422" "x75892D" "x768435" "x76853A" "x7B703C" "x7B8D1F" "x7C7B21" "x7E7B2D" "x80753B" "x837823" "x837B24" "x846F32" "x84792D" "x84803C" "x867F26" "x86813F" "x86883B" }
+            owned_provinces = { "x5f893c" "x5f9342" "x618a32" "x626d30" "x63703d" "x637123" "x649230" "x657338" "x658b32" "x676c2c" "x678a24" "x68873b" "x697320" "x6a7546" "x6a8739" "x6a9240" "x6c8e29" "x6e8f23" "x6f8e2f" "x728036" "x748035" "x757422" "x75892d" "x768435" "x76853a" "x7b703c" "x7b8d1f" "x7c7b21" "x7e7b2d" "x80753b" "x837823" "x837b24" "x846f32" "x84792d" "x84803c" "x867f26" }
         }
 
         add_homeland = cu:shadow_demon

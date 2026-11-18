@@ -242,7 +242,7 @@
     s:STATE_ORC_BAY = {
         create_state = {
             country = c:ORC
-            owned_provinces = { "x200127" "x20031D" "x21153A" "x220E3E" "x252542" "x27002E" "x270E32" "x272444" "x281F3A" "x29101F" "x29192E" "x2A0F3E" "x2D0E2C" "x2F0C35" "x330F38" "x340235" "x351D35" "x380131" "x381C2A" "x3B162A" "x3C0E2B" "x3E192A" "x400F20" "x44171C" "x462422" "x470627" "x47063B" "x481344" "x482231" }
+            owned_provinces = { "x200127" "x20031d" "x21153a" "x220e3e" "x252542" "x27002e" "x270e32" "x272444" "x281f3a" "x29101f" "x29192e" "x2a0f3e" "x2d0e2c" "x2f0c35" "x330f38" "x340235" "x351d35" "x380131" "x381c2a" "x3b162a" "x3c0e2b" "x3e192a" "x400f20" "x44171c" "x462422" "x470627" "x47063b" "x481344" "x482231" "xb18722" }
         }
 
         add_homeland = cu:northern_orc
