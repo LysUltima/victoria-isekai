@@ -80,12 +80,7 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_CATPITAL
-				count = 23
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_ERENYA
-				count = 9
+				count = 32
 			}
 		}
 		create_character = {
@@ -101,13 +96,8 @@ MILITARY_FORMATIONS = {
 			save_scope_as = CAT_army_2
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_ERENYA
-				count = 12
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_MEOWNTAINS
-				count = 20
+				count = 32
 			}
 		}
 		create_character = {
@@ -117,6 +107,45 @@ MILITARY_FORMATIONS = {
 			save_scope_as = CAT_general_2
 		}
 		scope:CAT_general_2 = { transfer_to_formation = scope:CAT_army_2 }
+	}
+	c:AYA ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_central
+			save_scope_as = AYA_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ANYA
+				count = 15
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = AYA_general_1
+		}
+		scope:AYA_general_1 = { transfer_to_formation = scope:AYA_army_1 }
+	}
+
+	c:ERY ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_central
+			save_scope_as = ERY_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ERENYA
+				count = 19
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = ERY_general_1
+		}
+		scope:ERY_general_1 = { transfer_to_formation = scope:ERY_army_1 }
 	}
 	c:HAR ?= {
 		create_military_formation = {
@@ -236,7 +265,7 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_SIROKANI
-				count = 11
+				count = 22
 			}
 		}
 		create_character = {
@@ -325,7 +354,7 @@ MILITARY_FORMATIONS = {
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_URRUMA
-				count = 18
+				count = 25
 			}
 		}
 		create_character = {
@@ -376,5 +405,346 @@ MILITARY_FORMATIONS = {
 			save_scope_as = WAP_general_2
 		}
 		scope:WAP_general_2 = { transfer_to_formation = scope:WAP_army_2 }
+	}
+
+	# New principalities start with one irregular battalion per 100,000 POPs, rounded to the nearest whole battalion.
+	c:KHK ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = KHK_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KHOKHUMA
+				count = 16
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = KHK_general_1
+		}
+		scope:KHK_general_1 = { transfer_to_formation = scope:KHK_army_1 }
+	}
+
+	c:GAZ ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = GAZ_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_GAZARUMA
+				count = 12
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = GAZ_general_1
+		}
+		scope:GAZ_general_1 = { transfer_to_formation = scope:GAZ_army_1 }
+	}
+
+	c:ATU ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = ATU_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ALTANUMA
+				count = 16
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = ATU_general_1
+		}
+		scope:ATU_general_1 = { transfer_to_formation = scope:ATU_army_1 }
+	}
+
+	c:TSG ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = TSG_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_TSAGAANUMA
+				count = 18
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = TSG_general_1
+		}
+		scope:TSG_general_1 = { transfer_to_formation = scope:TSG_army_1 }
+	}
+
+	c:ZLK ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = ZLK_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ZULZAIKHUMA
+				count = 16
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = ZLK_general_1
+		}
+		scope:ZLK_general_1 = { transfer_to_formation = scope:ZLK_army_1 }
+	}
+
+	c:KRM ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = KRM_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KHARIINUMA
+				count = 14
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = KRM_general_1
+		}
+		scope:KRM_general_1 = { transfer_to_formation = scope:KRM_army_1 }
+	}
+
+	c:MGO ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = MGO_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_MONGONUMA
+				count = 14
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = MGO_general_1
+		}
+		scope:MGO_general_1 = { transfer_to_formation = scope:MGO_army_1 }
+	}
+
+	c:GVS ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = GVS_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_GOVSHIKHUMA
+				count = 16
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = GVS_general_1
+		}
+		scope:GVS_general_1 = { transfer_to_formation = scope:GVS_army_1 }
+	}
+
+	c:NRM ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = NRM_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_NARIINUMA
+				count = 10
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = NRM_general_1
+		}
+		scope:NRM_general_1 = { transfer_to_formation = scope:NRM_army_1 }
+	}
+
+	c:SDG ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = SDG_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SHILDEGUMA
+				count = 25
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = SDG_general_1
+		}
+		scope:SDG_general_1 = { transfer_to_formation = scope:SDG_army_1 }
+	}
+
+	c:ZLU ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = ZLU_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ZULUMA
+				count = 12
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = ZLU_general_1
+		}
+		scope:ZLU_general_1 = { transfer_to_formation = scope:ZLU_army_1 }
+	}
+
+	c:GTU ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = GTU_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_GALTANUMA
+				count = 12
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = GTU_general_1
+		}
+		scope:GTU_general_1 = { transfer_to_formation = scope:GTU_army_1 }
+	}
+
+	c:HUR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = HUR_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_HURANUI
+				count = 6
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = HUR_general_1
+		}
+		scope:HUR_general_1 = { transfer_to_formation = scope:HUR_army_1 }
+	}
+
+	c:OTA ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = OTA_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_OTANOSKI
+				count = 8
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = OTA_general_1
+		}
+		scope:OTA_general_1 = { transfer_to_formation = scope:OTA_army_1 }
+	}
+
+	c:TOM ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = TOM_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_TOMAKOMA
+				count = 6
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = TOM_general_1
+		}
+		scope:TOM_general_1 = { transfer_to_formation = scope:TOM_army_1 }
+	}
+
+	c:PEK ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = PEK_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_PEKERPET
+				count = 8
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = PEK_general_1
+		}
+		scope:PEK_general_1 = { transfer_to_formation = scope:PEK_army_1 }
+	}
+
+	c:KMU ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_beastland_wild
+			save_scope_as = KMU_army_1
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KAMUY
+				count = 10
+			}
+		}
+		create_character = {
+			is_general = yes
+			interest_group = ig_armed_forces
+			commander_rank = commander_rank_1
+			save_scope_as = KMU_general_1
+		}
+		scope:KMU_general_1 = { transfer_to_formation = scope:KMU_army_1 }
 	}
 }

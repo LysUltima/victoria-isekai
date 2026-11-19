@@ -758,6 +758,7 @@ bg_spirit_beast_hunting = {
 
 	default_building = building_spirit_beast_hunting
 
+	lens = fishing
 	urbanization = 5
 	infrastructure_usage_per_level = 1
 

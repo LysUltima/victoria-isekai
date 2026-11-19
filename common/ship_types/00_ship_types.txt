@@ -18,6 +18,7 @@ ship_type_ship_of_the_line = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 100
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 1600
 		ship_crew_max_add = 800
@@ -112,6 +113,7 @@ ship_type_monitor = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 35
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 1600
 		ship_crew_max_add = 200
@@ -208,6 +210,7 @@ ship_type_early_ironclad = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 190
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 2800
 		ship_crew_max_add = 1000
@@ -302,6 +305,7 @@ ship_type_coastal_defense_ship = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 55
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 2600
 		ship_crew_max_add = 300
@@ -402,6 +406,7 @@ ship_type_modern_ironclad = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 210
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 3400
 		ship_crew_max_add = 1100
@@ -502,6 +507,7 @@ ship_type_pre_dreadnought = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 345
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 3800
 		ship_crew_max_add = 1100
@@ -610,6 +616,7 @@ ship_type_dreadnought = {
 	can_be_flagship = yes
 
 	modifier = {
+		ship_power_projection_add = 435
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 4200
 		ship_crew_max_add = 1200
@@ -714,6 +721,7 @@ ship_type_super_dreadnought = {
 	can_be_flagship = yes
 
 	modifier = {
+		ship_power_projection_add = 465
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 4800
 		ship_crew_max_add = 1200
@@ -839,6 +847,7 @@ ship_type_frigate = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 100
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 700
 		ship_crew_max_add = 500
@@ -930,6 +939,7 @@ ship_type_iron_frigate = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 175
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 1200
 		ship_crew_max_add = 600
@@ -1090,6 +1100,7 @@ ship_type_protected_cruiser = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 220
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 1800
 		ship_crew_max_add = 800
@@ -1185,6 +1196,7 @@ ship_type_armored_cruiser = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 245
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 2200
 		ship_crew_max_add = 700
@@ -1271,6 +1283,7 @@ ship_type_light_cruiser = {
 	can_be_flagship = yes
 
 	modifier = {
+		ship_power_projection_add = 255
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 2600
 		ship_crew_max_add = 500
@@ -1362,6 +1375,7 @@ ship_type_seaplane_tender = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 135
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 2200
 		ship_crew_max_add = 300
@@ -1444,6 +1458,7 @@ ship_type_aircraft_carrier = {
 	combat_power_multiplier = 2.0
 
 	modifier = {
+		ship_power_projection_add = 275
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 2200
 		ship_crew_max_add = 600 # ~ including air crew
@@ -1543,6 +1558,7 @@ ship_type_torpedo_boat = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 110
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 1200
 		ship_crew_max_add = 200
@@ -1629,6 +1645,7 @@ ship_type_torpedo_boat_destroyer = {
 	}
 
 	modifier = {
+		ship_power_projection_add = 145
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 1700
 		ship_crew_max_add = 200
@@ -1711,6 +1728,7 @@ ship_type_submarine = {
 	modification_construction_cost = 80
 
 	modifier = {
+		ship_power_projection_add = 55
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 2500
 		ship_crew_max_add = 200
@@ -1789,6 +1807,7 @@ ship_type_destroyer = {
 	can_be_flagship = yes
 
 	modifier = {
+		ship_power_projection_add = 200
 		ship_construction_progress_max_add = 25
 		ship_hit_points_max_add = 2500
 		ship_crew_max_add = 200

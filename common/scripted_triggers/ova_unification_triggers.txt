@@ -7,13 +7,11 @@ ova_can_pursue_cultural_unification = {
 		AND = { country_has_primary_culture = cu:sakura NOT = { exists = c:SAK } }
 		AND = { country_has_primary_culture = cu:snow_elf NOT = { exists = c:SNE } }
 		AND = { country_has_primary_culture = cu:stone_dwarf NOT = { exists = c:SDW } }
+        AND = { country_has_primary_culture = cu:bearkin NOT = { exists = c:SNU } }
+        AND = { country_has_primary_culture = cu:horsekin NOT = { exists = c:UMA } }
 		AND = {
 			ova_is_rabbitkin_country = yes
 			NOT = { exists = c:RAB }
-		}
-		AND = {
-			ova_is_foxkin_country = yes
-			NOT = { exists = c:KIT }
 		}
 		AND = {
 			ova_is_frostmark_country = yes

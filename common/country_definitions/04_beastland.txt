@@ -10,6 +10,22 @@
     capital = STATE_CATPITAL
 }
 
+AYA = { # Anya
+    color = { 155 104 178 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { plains_catkin }
+    capital = STATE_ANYA
+}
+
+ERY = { # Erenya
+    color = { 213 139 98 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { plains_catkin }
+    capital = STATE_ERENYA
+}
+
 TUC = {
     color = { 112 23 17 }
 
@@ -188,18 +204,6 @@ BEA = {
     capital = STATE_PORONUPURI
 }
 
-NOR = {
-    color = { 173 79 62 }
-
-    country_type = decentralized
-    
-    tier = principality
-
-    cultures = { horsekin }
-
-    capital = STATE_KHOKHUMA
-}
-
 SOU = {
     color = { 112 30 38 }
 
@@ -222,4 +226,142 @@ WOL = {
     cultures = { wolfkin }
 
     capital = STATE_UO_FEE
+}
+
+# Horsekin and bearkin principalities
+
+KHK = { # Khökhuma
+    color = { 64 116 153 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { horsekin }
+    capital = STATE_KHOKHUMA
+}
+
+GAZ = { # Gazaruma
+    color = { 194 119 70 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { horsekin }
+    capital = STATE_GAZARUMA
+}
+
+ATU = { # Altanuma
+    color = { 204 167 71 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { horsekin }
+    capital = STATE_ALTANUMA
+}
+
+TSG = { # Tsagaanuma
+    color = { 163 180 188 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { horsekin }
+    capital = STATE_TSAGAANUMA
+}
+
+ZLK = { # Zulzaikhuma
+    color = { 148 74 117 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { horsekin }
+    capital = STATE_ZULZAIKHUMA
+}
+
+KRM = { # Khariinuma
+    color = { 88 138 95 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { horsekin }
+    capital = STATE_KHARIINUMA
+}
+
+MGO = { # Möngönuma
+    color = { 133 135 172 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { horsekin }
+    capital = STATE_MONGONUMA
+}
+
+GVS = { # Govshikhuma
+    color = { 146 114 80 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { horsekin }
+    capital = STATE_GOVSHIKHUMA
+}
+
+NRM = { # Nariinuma
+    color = { 73 156 139 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { horsekin }
+    capital = STATE_NARIINUMA
+}
+
+SDG = { # Shildeguma
+    color = { 161 63 68 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { horsekin }
+    capital = STATE_SHILDEGUMA
+}
+
+ZLU = { # Zuluma
+    color = { 108 95 159 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { horsekin }
+    capital = STATE_ZULUMA
+}
+
+GTU = { # Galtanuma
+    color = { 186 86 55 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { horsekin }
+    capital = STATE_GALTANUMA
+}
+
+HUR = { # Huranui
+    color = { 86 127 114 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { bearkin }
+    capital = STATE_HURANUI
+}
+
+OTA = { # Otanoski
+    color = { 70 147 169 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { bearkin }
+    capital = STATE_OTANOSKI
+}
+
+TOM = { # Tomakoma
+    color = { 179 99 123 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { bearkin }
+    capital = STATE_TOMAKOMA
+}
+
+PEK = { # Pekerpet
+    color = { 159 150 71 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { bearkin }
+    capital = STATE_PEKERPET
+}
+
+KMU = { # Kamuy
+    color = { 107 79 125 }
+    country_type = unrecognized
+    tier = principality
+    cultures = { bearkin }
+    capital = STATE_KAMUY
 }

@@ -92,7 +92,7 @@
             country = c:SKL
             owned_provinces = { "x10FF2D" "x11FB45" "x13F44C" "x13FB43" "x13FC30" "x13FF51" "x14F850" "x15EF4B" "x18FF2B" "x1AF14F" "x1AFF3E" "x1BFB48" "x1DF030" "x1EE949" "x1EE951" "x1EFF4F" "x23E644" "x23F42B" "x23F531" "x23FF2F" "x23FF44" "x24F142" "x24F34E" "x25E646" "x26F84F" "x26FF34" "x28F23B" "x29E732" "x29F032" "x29FF2D" "x2FF240" "x2FFA37" "x32FF34" "x34F64B" "x35F333" "x36E746" "x36FF2A" }
         }
-
+        add_homeland = cu:bearkin
         add_homeland = cu:fjordic
     }
     s:STATE_HAMRABYGD = {
@@ -100,7 +100,7 @@
             country = c:STO
             owned_provinces = { "x069D0B" "x07AC16" "x08AE00" "x0AA500" "x0B9D00" "x0DA90C" "x0EAF0B" "x0F9916" "x11A313" "x11AB14" "x11AE00" "x11AF10" "x129011" "x13A80A" "x159900" "x159D06" "x15A800" "x169905" "x17950E" "x189A00" "x18A510" "x199300" "x1A9506" "x1B8710" "x1BA809" "x1C8800" "x1CA700" "x1CAB0F" "x1DA907" "x1E8C00" "x1F890D" "x1F9406" "x208814" "x20921E" "x209700" "x20A000" "x20A214" "x20A30E" "x20A310" "x218A00" "x219502" "x228F1D" "x22980A" "x22A202" "x239C09" "x23A100" "x249816" "x24AF07" "x268803" "x26A71A" "x29901B" "x2A8D09" "x2BA800" "x2C9F0A" "x2CA000" "x2CA011" "x2D8900" }
         }
-
+        add_homeland = cu:bearkin
         add_homeland = cu:fjordic
     }
     s:STATE_SLETTALAND = {
@@ -108,7 +108,7 @@
             country = c:GRA
             owned_provinces = { "xD1E60E" "xD1F914" "xD1FB0F" "xD1FE02" "xD2F404" "xD3E011" "xD3E512" "xD3EC10" "xD3F700" "xD3FF11" "xD4EB01" "xD4F30B" "xD4F800" "xD5DB00" "xD5E401" "xD5FD00" "xD6DB15" "xD6E608" "xD6F105" "xD6F316" "xD6F900" "xD7DD15" "xD7E700" "xD7EF14" "xD7F800" "xD7FC18" "xD8DE00" "xD8E016" "xD8E40D" "xD8E811" "xD8ED0E" "xD8EE01" "xD8F817" "xD8FF06" "xD9DA00" "xD9E308" "xD9E609" "xD9E90E" "xD9F400" "xD9FB09" "xD9FF0D" "xDAE600" "xDAE707" "xDBE000" "xDCED15" "xDDDF04" "xDDEE0A" "xDDF400" "xDDFA12" "xDEDB00" "xDEE005" "xDEF10F" "xDEF40F" "xDEF60B" "xDEFF11" "xDFEC10" "xDFF70E" "xDFFE16" "xE1DE00" "xE1E001" "xE1EA13" "xE1FF09" "xE2F100" "xE2FC00" "xE3E700" "xE3FC00" "xE3FF00" "xE4DA06" "xE4F400" "xE5E301" "xE5F604" "xE5FD18" "xE5FE00" "xE6E416" "xE7EE00" "xE8E900" "xE8EE01" "xE8FA04" "xE9EB15" "xE9F014" "xEAE211" "xEAEA00" "xEAEA05" "xEAF400" "xEAFB00" "xEBFE0E" "xECDC00" "xECF000" "xECF316" "xECF512" "xEDDB19" "xEDEB12" "xEDEE19" "xEDFC02" "xEEE400" "xEEF212" "xEFDE12" "xEFE400" "xEFFF00" "xF0FF00" "xF1F314" "xF1FE0B" "xF1FF00" "xF2DD00" "xF2E10E" "xF2EF00" "xF2F511" "xF3DA00" "xF3FF00" "xF4FC00" "xF4FF12" "xF5E900" "xF6E612" "xF7EA00" "xF7F210" "xF7F214" "xF7F406" "xF7F70A" "xF7FE04" "xF8DB0D" "xF8E511" "xF8EE00" "xF8F407" "xF8F710" "xF8FB00" "xF9DD06" "xF9F604" "xF9FF00" }
         }
-
+        add_homeland = cu:bearkin
         add_homeland = cu:frostholm
     }
     s:STATE_VATNAFJALL = {
@@ -116,7 +116,7 @@
             country = c:VAT
             owned_provinces = { "x16B734" "x16C231" "x16C71D" "x16CA35" "x16CB2E" "x16D52D" "x17BD23" "x18BD36" "x18C026" "x19B610" "x19D335" "x1AB41D" "x1AC035" "x1AC122" "x1ACC13" "x1AD521" "x1BC434" "x1BC82C" "x1BCA21" "x1BD214" "x1CBA1C" "x1CBB0F" "x1CBF2C" "x1CCE15" "x1DBB2E" "x1DC42D" "x1DC51C" "x1DD11B" "x1DD123" "x1DD41D" "x1DD619" "x1DD71B" "x1ED519" "x1FC532" "x1FCF12" "x1FD410" "x20C42F" "x20CC14" "x21B213" "x21CC16" "x21CC24" "x21D322" "x22B40F" "x22C721" "x22CD29" "x22D511" "x23B81D" "x23C618" "x24B52C" "x24BD24" "x24C52B" "x24D32B" "x24D91F" "x25B333" "x25BA19" "x25BF19" "x25C520" "x25CD1E" "x26B71B" "x26B82D" "x26B836" "x26D025" "x27CE14" "x27D926" "x28BC18" "x28C437" "x28D621" "x29BD37" "x29C52A" "x2AB717" "x2AB924" "x2AD317" "x2AD815" "x2CB724" "x2CD614" "x2DC924" "x2EB614" "x2ED530" "x2FB633" "x2FBC20" "x2FC121" "x2FC71D" "x30B725" "x30BD32" "x31B821" "x31CF12" "x31D620" "x31D62F" "x32BE28" "x32C01E" "x32C612" "x33B523" "x33C531" "x33D52A" "x34B515" "x34BF25" "x35CA37" "x35D721" "x36C535" "x37BE27" "x37C21D" "x37D117" "x37D617" "x37D726" "x37D913" "x38CD2F" "x38D510" "x38D71D" "x39D131" "x3ABE1D" "x3ACF10" "x3BB319" "x3BBF29" "x3BC424" "x3BC729" "x3BC821" "x3BC82D" "x3BD022" "x3BD135" "x3BD42D" "x3BDA12" "x3CB818" "x3CBF1B" "x3CD213" "x3DBF34" "x3DC015" "x3DC627" "x3DD029" "x3DD731" "x3EB41B" "x3EC11E" "x3ED816" }
         }
-
+        add_homeland = cu:bearkin
         add_homeland = cu:frostholm
     }
     s:STATE_SUDRELD = {
@@ -124,7 +124,7 @@
             country = c:ELD
             owned_provinces = { "x662E11" "x6E2024" "x731717" "x73230C" "x743314" "x752D25" "x7C2C1F" "x7E2C2E" "x7F2609" "x88380E" "x8C1F29" }
         }
-
+        add_homeland = cu:bearkin
         add_homeland = cu:frostholm
     }
     s:STATE_BLIDEY = {

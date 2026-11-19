@@ -688,6 +688,32 @@ CAT = { # Catlandia
 	}
 }
 
+AYA = { # Anya
+	pattern = "pattern_solid.tga"
+	color1 = col_AYA
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_tiger_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+ERY = { # Erenya
+	pattern = "pattern_solid.tga"
+	color1 = col_ERY
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_seal_pictorial_central_tiger.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
 TUC = { # Tuconya
 	pattern = "pattern_solid.tga"
 	color1 = col_TUC
@@ -834,19 +860,6 @@ BEA = { # Bear Mosir
 	pattern = "pattern_border_of_2.dds"
 	color1 = col_BEA
 	color2 = oc_iron
-}
-
-NOR = { # Northern Expanse
-	pattern = "pattern_solid.tga"
-	color1 = oc_bone
-	color2 = oc_pelt_brown
-	colored_emblem = {
-		texture = "ce_horse_rampant.dds"
-		color1 = col_NOR
-		color2 = col_NOR
-		color3 = oc_pearl_white
-		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
-	}
 }
 
 SOU = { # Southern Steppes
@@ -1855,5 +1868,228 @@ VAE = { # Vaerua
 		color2 = sc_VAE_2
 		color3 = oc_pearl_white
 		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+
+# Horsekin and bearkin principalities
+
+KHK = { # Khökhuma
+	pattern = "pattern_solid.tga"
+	color1 = col_KHK
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+GAZ = { # Gazaruma
+	pattern = "pattern_solid.tga"
+	color1 = col_GAZ
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+ATU = { # Altanuma
+	pattern = "pattern_solid.tga"
+	color1 = col_ATU
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+TSG = { # Tsagaanuma
+	pattern = "pattern_solid.tga"
+	color1 = col_TSG
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+ZLK = { # Zulzaikhuma
+	pattern = "pattern_solid.tga"
+	color1 = col_ZLK
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+KRM = { # Khariinuma
+	pattern = "pattern_solid.tga"
+	color1 = col_KRM
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+MGO = { # Möngönuma
+	pattern = "pattern_solid.tga"
+	color1 = col_MGO
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+GVS = { # Govshikhuma
+	pattern = "pattern_solid.tga"
+	color1 = col_GVS
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+NRM = { # Nariinuma
+	pattern = "pattern_solid.tga"
+	color1 = col_NRM
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+SDG = { # Shildeguma
+	pattern = "pattern_solid.tga"
+	color1 = col_SDG
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+ZLU = { # Zuluma
+	pattern = "pattern_solid.tga"
+	color1 = col_ZLU
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+GTU = { # Galtanuma
+	pattern = "pattern_solid.tga"
+	color1 = col_GTU
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_horse_rampant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+HUR = { # Huranui
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_HUR
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_bear_passant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+OTA = { # Otanoski
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_OTA
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_bear_passant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+TOM = { # Tomakoma
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_TOM
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_bear_passant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+PEK = { # Pekerpet
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_PEK
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_bear_passant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+	}
+}
+
+KMU = { # Kamuy
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_KMU
+	color2 = oc_pearl_white
+	colored_emblem = {
+		texture = "ce_bear_passant.dds"
+		color1 = oc_pearl_white
+		color2 = oc_pearl_white
+		color3 = oc_pearl_white
+		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
 	}
 }

@@ -341,3 +341,29 @@ VOI = { # Voidmarch -- demon splinter clan
 	color1 = col_DEM
 	color2 = oc_soul_violet
 }
+
+UMA = { # Uma
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_UMA
+	color2 = oc_gold
+	colored_emblem = {
+		texture = "ce_seal_pictorial_central_horse.dds"
+		color1 = oc_gold
+		color2 = oc_gold
+		color3 = oc_gold
+		instance = { position = { 0.5 0.5 } scale = { 0.82 0.82 } }
+	}
+}
+
+SNU = { # Sinotca Upun
+	pattern = "pattern_border_of_2.dds"
+	color1 = col_SNU
+	color2 = oc_gold
+	colored_emblem = {
+		texture = "ce_bear_rampant.dds"
+		color1 = oc_gold
+		color2 = oc_gold
+		color3 = oc_gold
+		instance = { position = { 0.5 0.5 } scale = { 0.82 0.82 } }
+	}
+}

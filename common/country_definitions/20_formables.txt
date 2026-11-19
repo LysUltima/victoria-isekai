@@ -166,3 +166,19 @@ KNK = { # Kanakea -- kanaka kingdom (western isles)
 
     capital = STATE_PALIANUENUE
 }
+
+UMA = { # Uma
+    color = { 178 119 35 }
+    country_type = unrecognized
+    tier = kingdom
+    cultures = { horsekin }
+    capital = STATE_URRUMA
+}
+
+SNU = { # Sinotca Upun
+    color = { 35 103 108 }
+    country_type = unrecognized
+    tier = kingdom
+    cultures = { bearkin }
+    capital = STATE_SIROKANI
+}

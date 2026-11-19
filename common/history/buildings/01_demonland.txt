@@ -2408,30 +2408,29 @@
         }
     }
     s:STATE_RUIT_SPES = {
-        region_state:DEM = {
+        region_state:LYS = {
             # Development
             create_building = {
                 building = "building_port"
                 add_ownership = {
-                    country = {
-                        country = "c:DEM"
-                        levels = 1
-                    }
-                }
+					country = { country = "c:LYS" levels = 1 }
+				}
                 reserves = 1
                 activate_production_methods = {
                     "pm_basic_port"
                 }
-            }
+            
+			}
             create_building = {
                 building = "building_trade_center"
                 add_ownership = {
-                    building = {
-                        type = "building_financial_district"
-                        country = "c:DEM"
-                        levels = 2
-                        region = "STATE_RUIT_SPES"
-                    }
+                    
+					building = {
+						type = "building_financial_district"
+						country = "c:LYS"
+						levels = 2
+						region = "STATE_RUIT_SPES"
+					}
                 }
                 reserves = 1
             }
@@ -2440,47 +2439,51 @@
             create_building = {
                 building = "building_sugar_plantation"
                 add_ownership = {
-                    building = {
-                        type = "building_manor_house"
-                        country = "c:DEM"
-                        levels = 4
-                        region = "STATE_RUIT_SPES"
-                    }
-                }
+					
+					building = {
+						type = "building_manor_house"
+						country = "c:LYS"
+						levels = 4
+						region = "STATE_RUIT_SPES"
+					}
+				}
                 reserves = 1
                 activate_production_methods = {
-                    "default_building_sugar_plantation"
                     "worker_exploitation_sugar"
                     "pm_growth_potions_building_sugar_plantation"
                 }
-            }
+            
+			}
 
             # Resources
             create_building = {
                 building = "building_fishing_wharf"
                 add_ownership = {
-                    building = {
-                        type = "building_fishing_wharf"
-                        country = "c:DEM"
-                        levels = 2
-                        region = "STATE_RUIT_SPES"
-                    }
-                }
+					
+					building = {
+						type = "building_manor_house"
+						country = "c:LYS"
+						levels = 2
+						region = "STATE_RUIT_SPES"
+					}
+				}
                 reserves = 1
                 activate_production_methods = {
                     "pm_fishing_trawlers"
                 }
-            }
+            
+			}
             create_building = {
                 building = "building_logging_camp"
                 add_ownership = {
-                    building = {
-                        type = "building_financial_district"
-                        country = "c:DEM"
-                        levels = 2
-                        region = "STATE_RUIT_SPES"
-                    }
-                }
+					
+					building = {
+						type = "building_manor_house"
+						country = "c:LYS"
+						levels = 2
+						region = "STATE_RUIT_SPES"
+					}
+				}
                 reserves = 1
                 activate_production_methods = {
                     "pm_saw_mills"
@@ -2488,76 +2491,46 @@
                     "pm_no_equipment"
                     "pm_road_carts"
                 }
-            }
+            
+			}
             create_building = {
                 building = "building_spirit_beast_hunting"
                 add_ownership = {
-                    building = {
-                        type = "building_spirit_beast_hunting"
-                        country = "c:DEM"
-                        levels = 2
-                        region = "STATE_RUIT_SPES"
-                    }
-                }
+					
+					building = {
+						type = "building_financial_district"
+						country = "c:LYS"
+						levels = 2
+						region = "STATE_RUIT_SPES"
+					}
+				}
                 reserves = 1
                 activate_production_methods = {
                     "pm_warded_hunting_parties"
-                    "pm_consumable_traps"
                     "pm_unrefrigerated"
                 }
-            }
+            
+			}
 
             # Urban
             create_building = {
                 building = "building_tooling_workshop"
                 add_ownership = {
-                    building = {
-                        type = "building_financial_district"
-                        country = "c:DEM"
-                        levels = 2
-                        region = "STATE_RUIT_SPES"
-                    }
-                }
+					
+					building = {
+						type = "building_financial_district"
+						country = "c:LYS"
+						levels = 1
+						region = "STATE_RUIT_SPES"
+					}
+				}
                 reserves = 1
                 activate_production_methods = {
                     "pm_iron_tools"
                     "pm_automation_disabled"
                 }
-            }
-            create_building = {
-                building = "building_wine_distillery"
-                add_ownership = {
-                    building = {
-                        type = "building_financial_district"
-                        country = "c:DEM"
-                        levels = 1
-                        region = "STATE_RUIT_SPES"
-                    }
-                }
-                reserves = 1
-                activate_production_methods = {
-                    "pm_spirit_wine_stills"
-                    "pm_sugar_infusion"
-                }
-            }
-            create_building = {
-                building = "building_food_industry"
-                add_ownership = {
-                    building = {
-                        type = "building_financial_district"
-                        country = "c:DEM"
-                        levels = 1
-                        region = "STATE_RUIT_SPES"
-                    }
-                }
-                reserves = 1
-                activate_production_methods = {
-                    "pm_sweeteners"
-                    "pm_disabled_canning"
-                    "pm_manual_dough_processing"
-                    "pm_patent_stills"
-                }
-            }
+            
+			}
 
         }
     }

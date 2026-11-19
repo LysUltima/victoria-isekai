@@ -773,7 +773,7 @@ effect_ova_murim_shatter_cult = {
 				scope:ova_murim_reclaim_hwa = { set_state_owner = c:HWA }
 			}
 			else = {
-				create_country = { origin = c:CHE tag = HWA state = scope:ova_murim_reclaim_hwa }
+				create_country = { tag = HWA state = scope:ova_murim_reclaim_hwa }
 				set_variable = ova_murim_restored_hwa
 			}
 		}
@@ -793,7 +793,7 @@ effect_ova_murim_shatter_cult = {
 				scope:ova_murim_reclaim_sor = { set_state_owner = c:SOR }
 			}
 			else = {
-				create_country = { origin = c:CHE tag = SOR state = scope:ova_murim_reclaim_sor }
+				create_country = { tag = SOR state = scope:ova_murim_reclaim_sor }
 				set_variable = ova_murim_restored_sor
 			}
 		}
@@ -813,7 +813,7 @@ effect_ova_murim_shatter_cult = {
 				scope:ova_murim_reclaim_pae = { set_state_owner = c:PAE }
 			}
 			else = {
-				create_country = { origin = c:CHE tag = PAE state = scope:ova_murim_reclaim_pae }
+				create_country = { tag = PAE state = scope:ova_murim_reclaim_pae }
 				set_variable = ova_murim_restored_pae
 			}
 		}
@@ -833,7 +833,7 @@ effect_ova_murim_shatter_cult = {
 				scope:ova_murim_reclaim_sam = { set_state_owner = c:SAM }
 			}
 			else = {
-				create_country = { origin = c:CHE tag = SAM state = scope:ova_murim_reclaim_sam }
+				create_country = { tag = SAM state = scope:ova_murim_reclaim_sam }
 				set_variable = ova_murim_restored_sam
 			}
 		}
@@ -853,7 +853,7 @@ effect_ova_murim_shatter_cult = {
 				scope:ova_murim_reclaim_mud = { set_state_owner = c:MUD }
 			}
 			else = {
-				create_country = { origin = c:CHE tag = MUD state = scope:ova_murim_reclaim_mud }
+				create_country = { tag = MUD state = scope:ova_murim_reclaim_mud }
 				set_variable = ova_murim_restored_mud
 			}
 		}
@@ -873,7 +873,7 @@ effect_ova_murim_shatter_cult = {
 				scope:ova_murim_reclaim_jeg = { set_state_owner = c:JEG }
 			}
 			else = {
-				create_country = { origin = c:CHE tag = JEG state = scope:ova_murim_reclaim_jeg }
+				create_country = { tag = JEG state = scope:ova_murim_reclaim_jeg }
 				set_variable = ova_murim_restored_jeg
 			}
 		}
@@ -893,7 +893,7 @@ effect_ova_murim_shatter_cult = {
 				scope:ova_murim_reclaim_tan = { set_state_owner = c:TAN }
 			}
 			else = {
-				create_country = { origin = c:CHE tag = TAN state = scope:ova_murim_reclaim_tan }
+				create_country = { tag = TAN state = scope:ova_murim_reclaim_tan }
 				set_variable = ova_murim_restored_tan
 			}
 		}
@@ -913,7 +913,7 @@ effect_ova_murim_shatter_cult = {
 				scope:ova_murim_reclaim_nam = { set_state_owner = c:NAM }
 			}
 			else = {
-				create_country = { origin = c:CHE tag = NAM state = scope:ova_murim_reclaim_nam }
+				create_country = { tag = NAM state = scope:ova_murim_reclaim_nam }
 				set_variable = ova_murim_restored_nam
 			}
 		}
@@ -927,7 +927,7 @@ effect_ova_murim_shatter_cult = {
 					save_scope_as = ova_murim_splinter_amt
 				}
 			}
-			create_country = { origin = c:CHE tag = AMT state = scope:ova_murim_splinter_amt }
+			create_country = { tag = AMT state = scope:ova_murim_splinter_amt }
 		}
 		if = {
 			limit = { s:STATE_CHEONSEONG = { any_scope_state = { owner ?= c:CHE } } }
@@ -937,7 +937,7 @@ effect_ova_murim_shatter_cult = {
 					save_scope_as = ova_murim_splinter_gon
 				}
 			}
-			create_country = { origin = c:CHE tag = GON state = scope:ova_murim_splinter_gon }
+			create_country = { tag = GON state = scope:ova_murim_splinter_gon }
 		}
 		if = {
 			limit = { s:STATE_BAEKHWA = { any_scope_state = { owner ?= c:CHE } } }
@@ -947,7 +947,7 @@ effect_ova_murim_shatter_cult = {
 					save_scope_as = ova_murim_splinter_jon
 				}
 			}
-			create_country = { origin = c:CHE tag = JON state = scope:ova_murim_splinter_jon }
+			create_country = { tag = JON state = scope:ova_murim_splinter_jon }
 		}
 		if = {
 			limit = { s:STATE_GYEONGGI = { any_scope_state = { owner ?= c:CHE } } }
@@ -957,7 +957,7 @@ effect_ova_murim_shatter_cult = {
 					save_scope_as = ova_murim_splinter_moy
 				}
 			}
-			create_country = { origin = c:CHE tag = MOY state = scope:ova_murim_splinter_moy }
+			create_country = { tag = MOY state = scope:ova_murim_splinter_moy }
 		}
 		if = {
 			limit = { s:STATE_SEOLDO = { any_scope_state = { owner ?= c:CHE } } }
@@ -967,7 +967,7 @@ effect_ova_murim_shatter_cult = {
 					save_scope_as = ova_murim_splinter_gae
 				}
 			}
-			create_country = { origin = c:CHE tag = GAE state = scope:ova_murim_splinter_gae }
+			create_country = { tag = GAE state = scope:ova_murim_splinter_gae }
 		}
 		# --- whatever the Cult still holds outside the murim falls to the host
 		if = {

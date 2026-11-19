@@ -110,6 +110,20 @@
 		}
 	}
 
+  c:CAT = {
+		create_diplomatic_pact = {
+			country = c:AYA
+			type = tributary
+		}
+	}
+
+  c:CAT = {
+		create_diplomatic_pact = {
+			country = c:ERY
+			type = tributary
+		}
+	}
+
   c:WAP = {
 		create_diplomatic_pact = {
 			country = c:URR

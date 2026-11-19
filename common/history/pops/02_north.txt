@@ -117,6 +117,10 @@
                 culture = fjordic
                 size = 406245
             }
+            create_pop = {
+                culture = bearkin
+                size = 231902
+            }
         }
     }
     s:STATE_HAMRABYGD = {
@@ -124,6 +128,10 @@
             create_pop = {
                 culture = fjordic
                 size = 507314
+            }
+            create_pop = {
+                culture = bearkin
+                size = 141902
             }
         }
     }
@@ -133,13 +141,21 @@
                 culture = frostholm
                 size = 938265
             }
+            create_pop = {
+                culture = bearkin
+                size = 531902
+            }
         }
     }
     s:STATE_VATNAFJALL = {
         region_state:VAT = {
             create_pop = {
                 culture = frostholm
-                size = 448013
+                size = 248013
+            }
+            create_pop = {
+                culture = bearkin
+                size = 481902
             }
         }
     }
@@ -148,6 +164,10 @@
             create_pop = {
                 culture = frostholm
                 size = 725958
+            }
+            create_pop = {
+                culture = bearkin
+                size = 211902
             }
         }
     }

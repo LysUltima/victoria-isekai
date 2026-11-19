@@ -293,13 +293,13 @@
         }
     }
     s:STATE_ANYA = {
-        region_state:CAT = {
+        region_state:AYA = {
             create_building = {
                 building = "building_wheat_farm"
                 add_ownership = {
                     building = {
                         type = "building_manor_house"
-                        country = "c:CAT"
+                        country = "c:AYA"
                         levels = 2
                         region = "STATE_ANYA"
                     }
@@ -317,7 +317,7 @@
                 add_ownership = {
                     building = {
                         type = "building_manor_house"
-                        country = "c:CAT"
+                        country = "c:AYA"
                         levels = 2
                         region = "STATE_ANYA"
                     }
@@ -334,13 +334,13 @@
         }
     }
     s:STATE_ERENYA = {
-        region_state:CAT = {
+        region_state:ERY = {
             create_building = {
                 building = "building_wheat_farm"
                 add_ownership = {
                     building = {
                         type = "building_manor_house"
-                        country = "c:CAT"
+                        country = "c:ERY"
                         levels = 1
                         region = "STATE_ERENYA"
                     }

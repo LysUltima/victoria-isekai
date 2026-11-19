@@ -69,10 +69,10 @@
     }
     s:STATE_RUIT_SPES = {
         create_state = {
-            country = c:DEM
+            country = c:LYS
             owned_provinces = { "x11C30B" "x11CB19" "x12CF00" "x12D009" "x13D407" "x14BC10" "x18CA12" "x1CBA10" "x1CC815" "x1DB800" "x1EC300" "x1ED000" "x1ED301" "x1FB400" "x20C508" "x21BD10" "x26D20C" "x28BC04" "x28D700" "x28DA01" "x29B611" "x29DB14" "x30BF0A" "x31B412" "x34BB00" "x36CA02" "x38CC00" }
         }
-
+        add_claim = c:DEM
         add_homeland = cu:shadow_demon
     }
     s:STATE_CADUNT_STELLAE = {

@@ -9,7 +9,7 @@
 
 SAK = { # Sakuragoku (sakura)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 0.8
 
 	possible = {
 		country_has_primary_culture = cu:sakura
@@ -20,11 +20,16 @@ SAK = { # Sakuragoku (sakura)
 
 MAE = { # Prunhwa (mae)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 0.8
 
 	possible = {
 		country_has_primary_culture = cu:mae
         NOT = { country_has_state_religion = rel:diabolist }
+        NOT = { 
+            power_bloc ?= {
+                has_identity = identity:identity_martial_alliance
+            }
+        }
 	}
 
 	ai_will_do = { always = yes }
@@ -32,7 +37,7 @@ MAE = { # Prunhwa (mae)
 
 KHA = { # Miradzong (khambu)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 0.8
 
 	possible = {
 		country_has_primary_culture = cu:khambu
@@ -43,7 +48,7 @@ KHA = { # Miradzong (khambu)
 
 VMO = { # Vaimotu (whenua + kanaka)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 0.8
 
 	possible = {
 		OR = {
@@ -57,7 +62,7 @@ VMO = { # Vaimotu (whenua + kanaka)
 
 NEK = { # Neconya (all cat cultures)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 0.6
 
 	possible = {
 		OR = {
@@ -72,7 +77,7 @@ NEK = { # Neconya (all cat cultures)
 
 KIT = { # Wahee (all fox cultures)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 0.9
 
 	possible = {
 		OR = {
@@ -88,7 +93,7 @@ KIT = { # Wahee (all fox cultures)
 
 RAB = { # Warrenmark (rabbitkin)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 0.8
 
 	possible = {
 		OR = {
@@ -102,7 +107,7 @@ RAB = { # Warrenmark (rabbitkin)
 
 SDW = { # Stonehold (stone dwarf)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 0.9
 
 	possible = {
 		country_has_primary_culture = cu:stone_dwarf
@@ -113,7 +118,7 @@ SDW = { # Stonehold (stone dwarf)
 
 SNE = { # Frostreach (snow elf)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 0.9
 
 	possible = {
 		country_has_primary_culture = cu:snow_elf
@@ -124,7 +129,7 @@ SNE = { # Frostreach (snow elf)
 
 DEI = { # Deigokai (deigo)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 1
 
 	possible = {
 		country_has_primary_culture = cu:deigo
@@ -135,7 +140,7 @@ DEI = { # Deigokai (deigo)
 
 FRM = { # Frostmark (fjordic + frostholm)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 0.8
 
 	possible = {
 		OR = {
@@ -149,7 +154,7 @@ FRM = { # Frostmark (fjordic + frostholm)
 
 WHE = { # Whenuroa (whenua)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 0.8
 
 	possible = {
 		country_has_primary_culture = cu:whenua
@@ -160,10 +165,32 @@ WHE = { # Whenuroa (whenua)
 
 KNK = { # Kanakea (kanaka)
 	use_culture_states = yes
-	required_states_fraction = 0.7
+	required_states_fraction = 0.8
 
 	possible = {
 		country_has_primary_culture = cu:kanaka
+	}
+
+	ai_will_do = { always = yes }
+}
+
+UMA = { # Uma (horsekin)
+	use_culture_states = yes
+	required_states_fraction = 0.7
+
+	possible = {
+		country_has_primary_culture = cu:horsekin
+	}
+
+	ai_will_do = { always = yes }
+}
+
+SNU = { # Sinotca Upun (bearkin)
+	use_culture_states = yes
+	required_states_fraction = 0.3
+
+	possible = {
+		country_has_primary_culture = cu:bearkin
 	}
 
 	ai_will_do = { always = yes }

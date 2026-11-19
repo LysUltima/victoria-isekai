@@ -352,6 +352,7 @@ STATE_TSERE_PYAPYO = {
     id = 261
     subsistence_building = "building_subsistence_farm"
     provinces = { "x8D8D49" "x8E9A46" "x90842E" "x917F42" "x91913B" "x928054" "x928F42" "x957B4E" "x97A242" "x989D38" "x99934C" "x9F9245" "x9F9650" "x9F9E4E" "xA09E4F" "xA1A22E" "xA28630" "xA3944D" "xA39B55" "xA48D55" "xA59443" "xA69942" "xA69A3C" "xA77C53" "xA98532" "xA99C33" "xAB8F31" "xAC834D" "xAC9B49" "xAC9F39" "xAD8C41" "xAD9456" "xAF8F30" "xB1883B" "xB1912F" "xB28153" }
+    impassable = { "xAC9F39" }
     city = "x91913B"
     farm = "xAC9B49"
     mine = "xA28630"

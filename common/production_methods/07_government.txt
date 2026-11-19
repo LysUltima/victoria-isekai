@@ -700,8 +700,8 @@ pm_airship_moorings = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_aeroplanes_add = 3 # 240
-			goods_output_transportation_add = 5 # 150
-			goods_output_merchant_marine_add = 2 # 100
+			goods_output_transportation_add = 7 # 150
+			goods_output_merchant_marine_add = 3 # 100
 		}
 		level_scaled = {
 			building_employment_laborers_add = 700
@@ -728,8 +728,8 @@ pm_sky_harbor = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_aeroplanes_add = 6 # 160
-			goods_output_transportation_add = 10 # 450
-			goods_output_merchant_marine_add = 5 # 250
+			goods_output_transportation_add = 15 # 450
+			goods_output_merchant_marine_add = 6 # 250
 		}
 		level_scaled = {
 			building_employment_laborers_add = 600
@@ -756,7 +756,7 @@ pm_capacitor_docks = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_aeroplanes_add = 10 # 240
-			goods_output_transportation_add = 20 # 600
+			goods_output_transportation_add = 30 # 600
 			goods_output_merchant_marine_add = 10 # 750
 		}
 		level_scaled = {
@@ -784,7 +784,7 @@ pm_arc_welded_docks = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_aeroplanes_add = 15 # 320
-			goods_output_transportation_add = 35 # 750
+			goods_output_transportation_add = 45 # 750
 			goods_output_merchant_marine_add = 15 # 1000
 		}
 		level_scaled = {

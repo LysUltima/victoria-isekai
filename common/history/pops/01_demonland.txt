@@ -227,7 +227,7 @@
         region_state:DEM = {
             create_pop = {
                 culture = shadow_demon
-                size = 1475000
+                size = 1075000
             }
             create_pop = {
                 culture = winged_demon
@@ -246,10 +246,10 @@
         }
     }
     s:STATE_RUIT_SPES = {
-        region_state:DEM = {
+        region_state:LYS = {
             create_pop = {
                 culture = shadow_demon
-                size = 1850000
+                size = 1550000
             }
             create_pop = {
                 culture = winged_demon
@@ -257,7 +257,7 @@
             }
             create_pop = {
                 culture = lysian
-                size = 103900
+                size = 203900
             }
             create_pop = {
                 culture = dark_elf

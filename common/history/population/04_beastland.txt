@@ -19,6 +19,14 @@
         effect_starting_pop_wealth_low = yes
         effect_starting_pop_literacy_low = yes
     }
+    c:AYA = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:ERY = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
     c:HAR = {
         effect_starting_pop_wealth_low = yes
         effect_starting_pop_literacy_low = yes
@@ -42,10 +50,6 @@
         effect_starting_pop_literacy_low = yes
     }
     c:MIR = {
-        effect_starting_pop_wealth_low = yes
-        effect_starting_pop_literacy_baseline = yes
-    }
-    c:NOR = {
         effect_starting_pop_wealth_low = yes
         effect_starting_pop_literacy_baseline = yes
     }
@@ -74,6 +78,74 @@
         effect_starting_pop_literacy_low = yes
     }
     c:WOL = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:KHK = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:GAZ = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:ATU = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:TSG = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:ZLK = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:KRM = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:MGO = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:GVS = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:NRM = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:SDG = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:ZLU = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:GTU = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:HUR = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:OTA = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:TOM = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:PEK = {
+        effect_starting_pop_wealth_low = yes
+        effect_starting_pop_literacy_baseline = yes
+    }
+    c:KMU = {
         effect_starting_pop_wealth_low = yes
         effect_starting_pop_literacy_baseline = yes
     }

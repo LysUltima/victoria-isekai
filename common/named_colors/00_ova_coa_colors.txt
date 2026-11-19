@@ -24,11 +24,34 @@ colors = {
 	col_DAY = { 158 126 79 }
 
 	col_CAT = { 11 7 36 }	col_TUC = { 112 23 17 }	col_AIL = { 171 144 77 }
+	col_AYA = { 155 104 178 }
+	col_ERY = { 213 139 98 }
 	col_HAR = { 97 27 82 }	col_URR = { 110 88 63 }	col_WAP = { 117 0 6 }
 	col_HAT = { 163 100 38 }	col_AHE = { 209 184 159 }	col_UAN = { 161 61 39 }
 	col_ANE = { 193 185 201 }	col_MIR = { 163 122 122 }	col_SIR = { 128 56 36 }
-	col_BEA = { 61 15 7 }	col_NOR = { 173 79 62 }	col_SOU = { 112 30 38 }
+	col_BEA = { 61 15 7 }	col_SOU = { 112 30 38 }
 	col_WOL = { 105 91 79 }
+
+	# Beastland principalities and formable kingdoms
+	col_KHK = { 64 116 153 }
+	col_GAZ = { 194 119 70 }
+	col_ATU = { 204 167 71 }
+	col_TSG = { 163 180 188 }
+	col_ZLK = { 148 74 117 }
+	col_KRM = { 88 138 95 }
+	col_MGO = { 133 135 172 }
+	col_GVS = { 146 114 80 }
+	col_NRM = { 73 156 139 }
+	col_SDG = { 161 63 68 }
+	col_ZLU = { 108 95 159 }
+	col_GTU = { 186 86 55 }
+	col_HUR = { 86 127 114 }
+	col_OTA = { 70 147 169 }
+	col_TOM = { 179 99 123 }
+	col_PEK = { 159 150 71 }
+	col_KMU = { 107 79 125 }
+	col_UMA = { 178 119 35 }
+	col_SNU = { 35 103 108 }
 
 	col_IMM = { 156 116 58 }	col_COS = { 41 44 117 }	col_DRA = { 209 224 219 }
 	col_LAM = { 80 84 173 }	col_CHA = { 47 138 74 }	col_ANT = { 128 22 45 }
@@ -273,8 +296,6 @@ colors = {
 	sc_NIN_2       = { 34 63 122 }
 	sc_NIS_1       = { 176 108 55 }
 	sc_NIS_2       = { 198 158 47 }
-	sc_NOR_1       = { 36 79 46 }
-	sc_NOR_2       = { 34 63 122 }
 	sc_NUK_1       = { 42 47 88 }
 	sc_NUK_2       = { 96 38 79 }
 	sc_NYL_1       = { 42 47 88 }

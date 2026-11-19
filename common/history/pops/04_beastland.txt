@@ -32,7 +32,7 @@
         }
     }
     s:STATE_ANYA = {
-        region_state:CAT = {
+        region_state:AYA = {
             create_pop = {
                 culture = plains_catkin
                 size = 1365000
@@ -44,7 +44,7 @@
         }
     }
     s:STATE_ERENYA = {
-        region_state:CAT = {
+        region_state:ERY = {
             create_pop = {
                 culture = plains_catkin
                 size = 1710000
@@ -101,19 +101,19 @@
         region_state:URR = {
             create_pop = {
                 culture = horsekin
-                size = 1495000
+                size = 2990000
             }
             create_pop = {
                 culture = plains_catkin
-                size = 89000
+                size = 178000
             }
             create_pop = {
                 culture = forest_foxkin
-                size = 96300
+                size = 192600
             }
             create_pop = {
                 culture = arasni
-                size = 62000
+                size = 124000
             }
         }
     }
@@ -121,11 +121,11 @@
         region_state:URR = {
             create_pop = {
                 culture = horsekin
-                size = 1240000
+                size = 2480000
             }
             create_pop = {
                 culture = forest_foxkin
-                size = 66000
+                size = 132000
             }
         }
     }
@@ -421,11 +421,11 @@
         region_state:SIR = {
             create_pop = {
                 culture = bearkin
-                size = 822500
+                size = 1645000
             }
             create_pop = {
                 culture = mae
-                size = 36600
+                size = 73200
             }
         }
     }
@@ -433,7 +433,7 @@
         region_state:BEA = {
             create_pop = {
                 culture = bearkin
-                size = 165000
+                size = 330000
             }
         }
     }
@@ -441,7 +441,7 @@
         region_state:BEA = {
             create_pop = {
                 culture = bearkin
-                size = 120000
+                size = 240000
             }
         }
     }
@@ -449,7 +449,7 @@
         region_state:BEA = {
             create_pop = {
                 culture = bearkin
-                size = 75000
+                size = 150000
             }
         }
     }
@@ -457,119 +457,119 @@
         region_state:BEA = {
             create_pop = {
                 culture = bearkin
-                size = 135000
-            }
-        }
-    }
-    s:STATE_HURANUI = {
-        region_state:BEA = {
-            create_pop = {
-                culture = bearkin
-                size = 90000
-            }
-        }
-    }
-    s:STATE_OTANOSKI = {
-        region_state:BEA = {
-            create_pop = {
-                culture = bearkin
-                size = 135000
-            }
-        }
-    }
-    s:STATE_TOMAKOMA = {
-        region_state:BEA = {
-            create_pop = {
-                culture = bearkin
-                size = 105000
-            }
-        }
-    }
-    s:STATE_PEKERPET = {
-        region_state:BEA = {
-            create_pop = {
-                culture = bearkin
-                size = 120000
-            }
-        }
-    }
-    s:STATE_KAMUY = {
-        region_state:BEA = {
-            create_pop = {
-                culture = bearkin
-                size = 150000
-            }
-        }
-    }
-    s:STATE_KHOKHUMA = {
-        region_state:NOR = {
-            create_pop = {
-                culture = horsekin
                 size = 270000
             }
         }
     }
-    s:STATE_GAZARUMA = {
-        region_state:NOR = {
+    s:STATE_HURANUI = {
+        region_state:HUR = {
+            create_pop = {
+                culture = bearkin
+                size = 540000
+            }
+        }
+    }
+    s:STATE_OTANOSKI = {
+        region_state:OTA = {
+            create_pop = {
+                culture = bearkin
+                size = 810000
+            }
+        }
+    }
+    s:STATE_TOMAKOMA = {
+        region_state:TOM = {
+            create_pop = {
+                culture = bearkin
+                size = 630000
+            }
+        }
+    }
+    s:STATE_PEKERPET = {
+        region_state:PEK = {
+            create_pop = {
+                culture = bearkin
+                size = 720000
+            }
+        }
+    }
+    s:STATE_KAMUY = {
+        region_state:KMU = {
+            create_pop = {
+                culture = bearkin
+                size = 900000
+            }
+        }
+    }
+    s:STATE_KHOKHUMA = {
+        region_state:KHK = {
             create_pop = {
                 culture = horsekin
-                size = 210000
+                size = 1620000
+            }
+        }
+    }
+    s:STATE_GAZARUMA = {
+        region_state:GAZ = {
+            create_pop = {
+                culture = horsekin
+                size = 1260000
             }
         }
     }
     s:STATE_ALTANUMA = {
-        region_state:NOR = {
+        region_state:ATU = {
             create_pop = {
                 culture = horsekin
-                size = 255000
+                size = 1530000
             }
         }
     }
     s:STATE_TSAGAANUMA = {
-        region_state:NOR = {
+        region_state:TSG = {
             create_pop = {
                 culture = horsekin
-                size = 315000
+                size = 1890000
             }
         }
     }
     s:STATE_ZULZAIKHUMA = {
-        region_state:NOR = {
+        region_state:ZLK = {
             create_pop = {
                 culture = horsekin
-                size = 255000
+                size = 1530000
             }
         }
     }
     s:STATE_KHARIINUMA = {
-        region_state:NOR = {
+        region_state:KRM = {
             create_pop = {
                 culture = horsekin
-                size = 225000
+                size = 1350000
             }
         }
     }
     s:STATE_MONGONUMA = {
-        region_state:NOR = {
+        region_state:MGO = {
             create_pop = {
                 culture = horsekin
-                size = 225000
+                size = 1350000
             }
         }
     }
     s:STATE_GOVSHIKHUMA = {
-        region_state:NOR = {
+        region_state:GVS = {
             create_pop = {
                 culture = horsekin
-                size = 255000
+                size = 1530000
             }
         }
     }
     s:STATE_NARIINUMA = {
-        region_state:NOR = {
+        region_state:NRM = {
             create_pop = {
                 culture = horsekin
-                size = 180000
+                size = 1080000
             }
         }
     }
@@ -577,7 +577,7 @@
         region_state:SOU = {
             create_pop = {
                 culture = horsekin
-                size = 615000
+                size = 1230000
             }
         }
     }
@@ -585,15 +585,15 @@
         region_state:SOU = {
             create_pop = {
                 culture = horsekin
-                size = 555000
+                size = 1110000
             }
         }
     }
     s:STATE_SHILDEGUMA = {
-        region_state:SOU = {
+        region_state:SDG = {
             create_pop = {
                 culture = horsekin
-                size = 420000
+                size = 2520000
             }
         }
     }
@@ -601,7 +601,7 @@
         region_state:SOU = {
             create_pop = {
                 culture = horsekin
-                size = 420000
+                size = 840000
             }
         }
     }
@@ -609,7 +609,7 @@
         region_state:SOU = {
             create_pop = {
                 culture = horsekin
-                size = 495000
+                size = 990000
             }
         }
     }
@@ -617,7 +617,7 @@
         region_state:SOU = {
             create_pop = {
                 culture = horsekin
-                size = 315000
+                size = 630000
             }
         }
     }
@@ -625,23 +625,23 @@
         region_state:SOU = {
             create_pop = {
                 culture = horsekin
-                size = 270000
+                size = 540000
             }
         }
     }
     s:STATE_ZULUMA = {
-        region_state:SOU = {
+        region_state:ZLU = {
             create_pop = {
                 culture = horsekin
-                size = 210000
+                size = 1260000
             }
         }
     }
     s:STATE_GALTANUMA = {
-        region_state:SOU = {
+        region_state:GTU = {
             create_pop = {
                 culture = horsekin
-                size = 195000
+                size = 1170000
             }
         }
     }
