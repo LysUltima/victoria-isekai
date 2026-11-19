@@ -697,7 +697,7 @@ STATE_ZHONGYUAN = {
     # Central Plain
     id = 294
     subsistence_building = "building_subsistence_rice_farm"
-    provinces = { "xDBDD27" "xE3EF19" "xE7DD0D" "xEEFF33" "xEFE733" "xEFF50C" "xF2FF13" "xFFFF0E" }
+    provinces = { "xe3ef19" "x14461a" "xdbdd27" "xeff50c" "xf2ff13" "xffff0e" "xe7dd0d" "xefe733" "xeeff33" "x244a28" "x273d29" }
     traits = { "state_trait_good_soils" }
     city = "xE7DD0D"
     port = "xFFFF0E"
@@ -741,7 +741,7 @@ STATE_JINAN = {
     # Gold Peace
     id = 296
     subsistence_building = "building_subsistence_rice_farm"
-    provinces = { "x0D4C26" "x0E371E" "x144429" "x14461A" "x16462C" "x183F26" "x1E4A29" "x203536" "x244A28" "x265926" "x273D1B" "x273D29" "x273F15" "x284E21" "x2D452C" "x323719" "x354C1A" }
+    provinces = { "x1e4a29" "x2d452c" "x265926" "x203536" "x354c1a" "x0d4c26" "x183f26" "x16462c" "x273d1b" "x0e371e" "x144429" "x284e21" "x273f15" "x323719" }
     traits = { "state_trait_good_soils" }
     city = "x16462C"
     farm = "x203536"

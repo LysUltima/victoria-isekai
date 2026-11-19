@@ -250,7 +250,7 @@
     s:STATE_ZHONGYUAN = {
         create_state = {
             country = c:YAO
-            owned_provinces = { "xDBDD27" "xE3EF19" "xE7DD0D" "xEEFF33" "xEFE733" "xEFF50C" "xF2FF13" "xFFFF0E" }
+            owned_provinces = { "x14461a" "x244a28" "x273d29" "xdbdd27" "xe3ef19" "xe7dd0d" "xeeff33" "xefe733" "xeff50c" "xf2ff13" "xffff0e" }
         }
 
         add_homeland = cu:tong
@@ -266,7 +266,7 @@
     s:STATE_JINAN = {
         create_state = {
             country = c:YAO
-            owned_provinces = { "x0D4C26" "x0E371E" "x144429" "x14461A" "x16462C" "x183F26" "x1E4A29" "x203536" "x244A28" "x265926" "x273D1B" "x273D29" "x273F15" "x284E21" "x2D452C" "x323719" "x354C1A" }
+            owned_provinces = { "x0d4c26" "x0e371e" "x144429" "x16462c" "x183f26" "x1e4a29" "x203536" "x265926" "x273d1b" "x273f15" "x284e21" "x2d452c" "x323719" "x354c1a" }
         }
 
         add_homeland = cu:tong
