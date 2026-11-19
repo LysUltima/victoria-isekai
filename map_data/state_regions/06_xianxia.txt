@@ -626,7 +626,7 @@ STATE_QIANHU = {
     # Thousand Lakes
     id = 291
     subsistence_building = "building_subsistence_rice_farm"
-    provinces = { "x002F00" "x003800" "x003B03" "x003F15" "x004B05" "x014400" "x053D0D" "x073B00" "x093902" "x094D15" "x0C3100" "x0F4E0C" "x122800" "x132B09" "x184B07" "x1E3B10" "x202F00" }
+    provinces = { "x073b00" "x003b03" "x122800" "x093902" "x0f4e0c" "x1e3b10" "x004b05" "x202f00" "x014400" "x094d15" "x132b09" "x053d0d" "x003800" "x0c3100" }
     impassable = { "x003800" "x014400" "x094D15" }
     city = "x0F4E0C"
     farm = "x122800"
@@ -719,7 +719,7 @@ STATE_YINGHAI = {
     # 熒海
     id = 295
     subsistence_building = "building_subsistence_rice_farm"
-    provinces = { "x460016" "x461635" "x4E0A2D" "x500023" "x590620" "x5D1421" "x5D163A" "x611326" "x66003C" "x6C1A17" }
+    provinces = { "x460016" "x002f00" "x003f15" "x461635" "x611326" "x66003c" "x590620" "x4e0a2d" "x500023" "x6c1a17" "x184b07" "x5d1421" "x5d163a" }
     traits = { "state_trait_good_soils" }
     city = "x460016"
     port = "x5D163A"
