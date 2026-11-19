@@ -474,7 +474,7 @@ ova_isekai_flavor.13 = { # rumor of a miracle at the front
 	option = { # endorse the miracle
 		name = ova_isekai_flavor.13.a
 		default_option = yes
-		add_modifier = { name = ova_isekai_flavor_pilgrim_fervor days = 365 }
+		add_modifier = { name = ova_isekai_flavor_pilgrim_fervor days = 365 multiplier = money_amount_multiplier_small }
 		add_loyalists = { value = small_radicals }
 	}
 	option = { # quietly investigate

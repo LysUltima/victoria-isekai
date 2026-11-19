@@ -355,7 +355,7 @@
         region_state:YAO = {
             create_pop = {
                 culture = tong
-                size = 1484000
+                size = 2884000
             }
             create_pop = {
                 culture = arasni
